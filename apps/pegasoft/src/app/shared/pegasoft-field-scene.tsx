@@ -6,6 +6,234 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 
+type Vec3Tuple = [number, number, number];
+
+type RailFrame = {
+  point: THREE.Vector3;
+  tangent: THREE.Vector3;
+  right: THREE.Vector3;
+};
+
+type RigStop = {
+  at: number;
+  side: number;
+  back: number;
+  height: number;
+  targetForward: number;
+  targetSide: number;
+  targetHeight: number;
+};
+
+type RailSegment = {
+  start: Vec3Tuple;
+  end: Vec3Tuple;
+  length: number;
+  startRatio: number;
+  endRatio: number;
+};
+
+const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
+const smoothStep = (value: number) => value * value * (3 - value * 2);
+const windowedArrival = (value: number, center: number, radius: number) =>
+  clamp01(1 - Math.abs(value - center) / radius);
+const dampAmount = (speed: number, delta: number) =>
+  1 - Math.exp(-speed * delta);
+
+const railPoints: Vec3Tuple[] = [
+  [-31.2, 0.09, 13.8],
+  [-25.4, 0.09, 10.8],
+  [-18.6, 0.09, 7.2],
+  [-10.2, 0.09, 3.5],
+  [-1.2, 0.09, 0.2],
+  [9.4, 0.09, -3.8],
+  [21.8, 0.09, -7.2],
+  [34.6, 0.09, -5.2],
+  [47.8, 0.09, -0.4],
+];
+
+const railSegments: RailSegment[] = (() => {
+  const segments = railPoints.slice(0, -1).map((point, index) => {
+    const next = railPoints[index + 1];
+    const from = new THREE.Vector3(...point);
+    const to = new THREE.Vector3(...next);
+    return {
+      start: point,
+      end: next,
+      length: from.distanceTo(to),
+      startRatio: 0,
+      endRatio: 0,
+    };
+  });
+  const totalLength =
+    segments.reduce((sum, segment) => sum + segment.length, 0) || 1;
+  let cursor = 0;
+
+  return segments.map((segment) => {
+    const startRatio = cursor / totalLength;
+    cursor += segment.length;
+    const endRatio = cursor / totalLength;
+    return {
+      ...segment,
+      startRatio,
+      endRatio,
+    };
+  });
+})();
+
+function getRailPointAt(progress: number): Vec3Tuple {
+  const lead = clamp01(progress);
+  const segment =
+    railSegments.find(
+      (item) => lead >= item.startRatio && lead <= item.endRatio,
+    ) ?? railSegments[railSegments.length - 1];
+  const localProgress = clamp01(
+    (lead - segment.startRatio) / (segment.endRatio - segment.startRatio || 1),
+  );
+
+  return [
+    THREE.MathUtils.lerp(segment.start[0], segment.end[0], localProgress),
+    THREE.MathUtils.lerp(segment.start[1], segment.end[1], localProgress),
+    THREE.MathUtils.lerp(segment.start[2], segment.end[2], localProgress),
+  ];
+}
+
+function getRailFrameAt(progress: number): RailFrame {
+  const normalizedProgress = clamp01(progress);
+  const point = new THREE.Vector3(...getRailPointAt(normalizedProgress));
+  const before = new THREE.Vector3(
+    ...getRailPointAt(normalizedProgress - 0.012),
+  );
+  const after = new THREE.Vector3(
+    ...getRailPointAt(normalizedProgress + 0.012),
+  );
+  const tangent = after.sub(before).normalize();
+  const right = new THREE.Vector3(tangent.z, 0, -tangent.x).normalize();
+
+  return { point, tangent, right };
+}
+
+function getRailYaw(progress: number) {
+  const { tangent } = getRailFrameAt(progress);
+  return Math.atan2(tangent.x, tangent.z);
+}
+
+function getRailPosition(progress: number, side = 0, lift = 0): Vec3Tuple {
+  const { point, right } = getRailFrameAt(progress);
+  point.add(right.multiplyScalar(side));
+  point.y += lift;
+  return [point.x, point.y, point.z];
+}
+
+function windowWeight(value: number, start: number, peak: number, end: number) {
+  if (value <= start || value >= end) {
+    return 0;
+  }
+
+  if (value <= peak) {
+    return clamp01((value - start) / (peak - start));
+  }
+
+  return clamp01((end - value) / (end - peak));
+}
+
+const rigStops: RigStop[] = [
+  {
+    at: 0,
+    side: -13.2,
+    back: 9.8,
+    height: 8.2,
+    targetForward: 7.2,
+    targetSide: 1.2,
+    targetHeight: 1.4,
+  },
+  {
+    at: 0.12,
+    side: -10.4,
+    back: 7.4,
+    height: 6.9,
+    targetForward: 5.2,
+    targetSide: 0.4,
+    targetHeight: 1.55,
+  },
+  {
+    at: 0.38,
+    side: 12.8,
+    back: 8.6,
+    height: 7.8,
+    targetForward: 6.8,
+    targetSide: -0.8,
+    targetHeight: 1.42,
+  },
+  {
+    at: 0.66,
+    side: -12.6,
+    back: 7.8,
+    height: 7.4,
+    targetForward: 6.4,
+    targetSide: 1.1,
+    targetHeight: 1.38,
+  },
+  {
+    at: 0.92,
+    side: 10.8,
+    back: 10.8,
+    height: 7.1,
+    targetForward: 8.4,
+    targetSide: -0.7,
+    targetHeight: 1.5,
+  },
+  {
+    at: 1,
+    side: 13.4,
+    back: 10.2,
+    height: 7.8,
+    targetForward: 7.2,
+    targetSide: -1.3,
+    targetHeight: 1.52,
+  },
+];
+
+function getRigStop(progress: number): RigStop {
+  const normalizedProgress = clamp01(progress);
+  const nextIndex = rigStops.findIndex((stop) => stop.at >= normalizedProgress);
+
+  if (nextIndex <= 0) {
+    return rigStops[0];
+  }
+
+  if (nextIndex === -1) {
+    return rigStops[rigStops.length - 1];
+  }
+
+  const previous = rigStops[nextIndex - 1];
+  const next = rigStops[nextIndex];
+  const amount = smoothStep(
+    clamp01((normalizedProgress - previous.at) / (next.at - previous.at || 1)),
+  );
+
+  return {
+    at: normalizedProgress,
+    side: THREE.MathUtils.lerp(previous.side, next.side, amount),
+    back: THREE.MathUtils.lerp(previous.back, next.back, amount),
+    height: THREE.MathUtils.lerp(previous.height, next.height, amount),
+    targetForward: THREE.MathUtils.lerp(
+      previous.targetForward,
+      next.targetForward,
+      amount,
+    ),
+    targetSide: THREE.MathUtils.lerp(
+      previous.targetSide,
+      next.targetSide,
+      amount,
+    ),
+    targetHeight: THREE.MathUtils.lerp(
+      previous.targetHeight,
+      next.targetHeight,
+      amount,
+    ),
+  };
+}
+
 const buildingMaterial = new THREE.MeshPhysicalMaterial({
   color: '#eef5fb',
   roughness: 0.78,
@@ -32,11 +260,7 @@ const softBlueMaterial = new THREE.MeshStandardMaterial({
   roughness: 0.68,
 });
 
-function RoofFrame({
-  size,
-}: {
-  size: [number, number, number];
-}) {
+function RoofFrame({ size }: { size: [number, number, number] }) {
   return (
     <group position={[0, size[1] / 2 + 0.06, 0]}>
       <mesh castShadow receiveShadow>
@@ -99,7 +323,10 @@ function TowerBuilding({
   return (
     <group position={position}>
       {levels.map((level, index) => (
-        <group key={`${position.join('-')}-${index}`} position={[0, level.y, 0]}>
+        <group
+          key={`${position.join('-')}-${index}`}
+          position={[0, level.y, 0]}
+        >
           <mesh castShadow receiveShadow>
             <boxGeometry args={level.size} />
             <primitive object={buildingMaterial} attach="material" />
@@ -241,7 +468,12 @@ function GlowDisc({
   return (
     <mesh position={position} rotation={[-Math.PI / 2, 0, 0]}>
       <circleGeometry args={[radius, 24]} />
-      <meshBasicMaterial color={color} transparent opacity={opacity} depthWrite={false} />
+      <meshBasicMaterial
+        color={color}
+        transparent
+        opacity={opacity}
+        depthWrite={false}
+      />
     </mesh>
   );
 }
@@ -284,7 +516,12 @@ function GlowBeam({
       ]}
     >
       <cylinderGeometry args={[radius, radius, beam.length, 16]} />
-      <meshBasicMaterial color={color} transparent opacity={opacity} depthWrite={false} />
+      <meshBasicMaterial
+        color={color}
+        transparent
+        opacity={opacity}
+        depthWrite={false}
+      />
     </mesh>
   );
 }
@@ -311,7 +548,11 @@ function StoryTile({
   return (
     <group position={position}>
       {glow > 0 ? (
-        <GlowDisc position={[0, 0.02, 0]} radius={Math.max(size[0], size[2]) * 0.7} opacity={glow} />
+        <GlowDisc
+          position={[0, 0.02, 0]}
+          radius={Math.max(size[0], size[2]) * 0.7}
+          opacity={glow}
+        />
       ) : null}
       <mesh castShadow receiveShadow position={[0, size[1] / 2, 0]}>
         <boxGeometry args={size} />
@@ -325,7 +566,10 @@ function StoryTile({
           clearcoatRoughness={0.46}
         />
       </mesh>
-      <mesh position={[0, size[1] / 2 + 0.004, 0]} scale={[1.008, 1.008, 1.008]}>
+      <mesh
+        position={[0, size[1] / 2 + 0.004, 0]}
+        scale={[1.008, 1.008, 1.008]}
+      >
         <boxGeometry args={size} />
         <meshBasicMaterial
           color={edgeColor}
@@ -418,9 +662,18 @@ function RailArrow({
     <group position={position}>
       {layers.map((layer, index) => (
         <group key={layer} position={[0, layer * 0.18, 0]}>
-          <mesh castShadow receiveShadow position={[-1.3 + index * 0.12, 0.34, 0]}>
+          <mesh
+            castShadow
+            receiveShadow
+            position={[-1.3 + index * 0.12, 0.34, 0]}
+          >
             <boxGeometry args={[4.8 - index * 0.18, 0.66, 0.7]} />
-            <meshPhysicalMaterial color={color} transparent opacity={opacity} roughness={0.64} />
+            <meshPhysicalMaterial
+              color={color}
+              transparent
+              opacity={opacity}
+              roughness={0.64}
+            />
           </mesh>
           <mesh
             castShadow
@@ -429,7 +682,12 @@ function RailArrow({
             rotation={[0, 0, -Math.PI / 4]}
           >
             <boxGeometry args={[2.44 - index * 0.1, 0.66, 0.7]} />
-            <meshPhysicalMaterial color={color} transparent opacity={opacity} roughness={0.64} />
+            <meshPhysicalMaterial
+              color={color}
+              transparent
+              opacity={opacity}
+              roughness={0.64}
+            />
           </mesh>
           <mesh
             castShadow
@@ -438,7 +696,12 @@ function RailArrow({
             rotation={[0, 0, Math.PI / 4]}
           >
             <boxGeometry args={[2.44 - index * 0.1, 0.66, 0.7]} />
-            <meshPhysicalMaterial color={color} transparent opacity={opacity} roughness={0.64} />
+            <meshPhysicalMaterial
+              color={color}
+              transparent
+              opacity={opacity}
+              roughness={0.64}
+            />
           </mesh>
         </group>
       ))}
@@ -447,95 +710,53 @@ function RailArrow({
 }
 
 function JourneyComposition({ progress }: { progress: number }) {
-  const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
-  const windowWeight = (value: number, start: number, peak: number, end: number) => {
-    if (value <= start || value >= end) {
-      return 0;
-    }
-
-    if (value <= peak) {
-      return clamp01((value - start) / (peak - start));
-    }
-
-    return clamp01((end - value) / (end - peak));
-  };
-
-  const stage1 = windowWeight(progress, 0, 0.12, 0.34);
-  const stage2 = windowWeight(progress, 0.16, 0.38, 0.62);
-  const stage3 = windowWeight(progress, 0.44, 0.66, 0.88);
-  const stage4 = windowWeight(progress, 0.72, 0.92, 1.01);
-  const beamLead = clamp01((progress - 0.02) / 0.96);
-  const railPoints = useMemo<Array<[number, number, number]>>(
-    () => [
-      [-23.2, 0.09, 14],
-      [-18.8, 0.09, 11.8],
-      [-13.7, 0.09, 9.3],
-      [-8.1, 0.09, 6.8],
-      [-2.1, 0.09, 4.3],
-      [4, 0.09, 1.9],
-      [9.7, 0.09, -0.2],
-      [14.4, 0.09, -2.1],
-      [18.6, 0.09, -3.9],
-    ],
-    [],
-  );
-  const railSegments = useMemo(() => {
-    const segments = railPoints.slice(0, -1).map((point, index) => {
-      const next = railPoints[index + 1];
-      const from = new THREE.Vector3(...point);
-      const to = new THREE.Vector3(...next);
-      return {
-        start: point,
-        end: next,
-        length: from.distanceTo(to),
-      };
-    });
-    const totalLength = segments.reduce((sum, segment) => sum + segment.length, 0) || 1;
-    let cursor = 0;
-    return segments.map((segment) => {
-      const startRatio = cursor / totalLength;
-      cursor += segment.length;
-      const endRatio = cursor / totalLength;
-      return {
-        ...segment,
-        startRatio,
-        endRatio,
-      };
-    });
-  }, [railPoints]);
-  const leadPoint = useMemo<[number, number, number]>(() => {
-    const segment =
-      railSegments.find(
-        (item) => beamLead >= item.startRatio && beamLead <= item.endRatio,
-      ) ?? railSegments[railSegments.length - 1];
-    const localProgress = clamp01(
-      (beamLead - segment.startRatio) / (segment.endRatio - segment.startRatio || 1),
-    );
-    return [
-      THREE.MathUtils.lerp(segment.start[0], segment.end[0], localProgress),
-      THREE.MathUtils.lerp(segment.start[1], segment.end[1], localProgress),
-      THREE.MathUtils.lerp(segment.start[2], segment.end[2], localProgress),
-    ];
-  }, [beamLead, railSegments]);
+  const stage1 = windowWeight(progress, 0, 0.12, 0.29);
+  const stage2 = windowWeight(progress, 0.22, 0.38, 0.53);
+  const stage3 = windowWeight(progress, 0.5, 0.66, 0.79);
+  const stage4 = windowWeight(progress, 0.76, 0.92, 1.01);
+  const beamLead = clamp01(progress + 0.035);
+  const leadPoint = getRailPointAt(beamLead);
+  const stage1Position = getRailPosition(0.12, 0.2);
+  const stage2Position = getRailPosition(0.38, 0);
+  const stage3Position = getRailPosition(0.66, -0.2);
+  const stage4Position = getRailPosition(0.92, 0.2);
   const stageAnchors: Array<{
     position: [number, number, number];
     radius: number;
     opacity: number;
     color: string;
   }> = [
-    { position: [-16.2, 0.04, 10.1], radius: 2.9, opacity: 0.16 + stage1 * 0.38, color: '#b6f0ff' },
-    { position: [-3.2, 0.04, 4.2], radius: 4.1, opacity: 0.18 + stage2 * 0.4, color: '#c3caff' },
-    { position: [7.2, 0.04, -0.2], radius: 5.8, opacity: 0.16 + stage3 * 0.38, color: '#9febff' },
-    { position: [18.5, 0.04, -4], radius: 5.2, opacity: 0.16 + stage4 * 0.4, color: '#d7f5ff' },
+    {
+      position: [stage1Position[0], 0.04, stage1Position[2]],
+      radius: 3.4,
+      opacity: 0.06 + stage1 * 0.48,
+      color: '#b6f0ff',
+    },
+    {
+      position: [stage2Position[0], 0.04, stage2Position[2]],
+      radius: 4.8,
+      opacity: 0.05 + stage2 * 0.52,
+      color: '#c3caff',
+    },
+    {
+      position: [stage3Position[0], 0.04, stage3Position[2]],
+      radius: 6.2,
+      opacity: 0.05 + stage3 * 0.5,
+      color: '#9febff',
+    },
+    {
+      position: [stage4Position[0], 0.04, stage4Position[2]],
+      radius: 5.8,
+      opacity: 0.05 + stage4 * 0.5,
+      color: '#d7f5ff',
+    },
   ];
-  const latePan = clamp01((progress - 0.32) / 0.62);
-  const journeyPan = progress * 4.8 + latePan * 13.4;
 
   return (
     <group
-      position={[5.8 - journeyPan, 0.01 + Math.sin(progress * Math.PI) * 0.16, -1.08]}
-      rotation={[0, THREE.MathUtils.lerp(-0.045, 0.08, progress), 0]}
-      scale={1.18 + progress * 0.06}
+      position={[0, 0.01 + Math.sin(progress * Math.PI) * 0.06, 0]}
+      rotation={[0, 0, 0]}
+      scale={1}
     >
       {railSegments.map((segment, index) => (
         <GlowBeam
@@ -543,7 +764,7 @@ function JourneyComposition({ progress }: { progress: number }) {
           start={segment.start}
           end={segment.end}
           radius={0.24}
-          opacity={0.28}
+          opacity={0.18}
           color="#cce7f4"
         />
       ))}
@@ -575,7 +796,7 @@ function JourneyComposition({ progress }: { progress: number }) {
             <GlowBeam
               start={segment.start}
               end={activeEnd}
-              radius={0.5}
+              radius={0.15}
               opacity={segmentOpacity}
               color="#8be9ff"
             />
@@ -609,41 +830,129 @@ function JourneyComposition({ progress }: { progress: number }) {
         />
       ))}
 
-      <GlowDisc position={leadPoint} radius={1.08} opacity={0.48 + beamLead * 0.28} />
-      <GlowDisc position={leadPoint} radius={2.12} opacity={0.18 + beamLead * 0.1} />
+      <GlowDisc
+        position={leadPoint}
+        radius={1.08}
+        opacity={0.48 + beamLead * 0.28}
+      />
+      <GlowDisc
+        position={leadPoint}
+        radius={2.12}
+        opacity={0.18 + beamLead * 0.1}
+      />
 
-      <group position={[-16.2, 0, 10.2]}>
-        <GlowBeam start={[-4.3, 0.24, 3.8]} end={[4.4, 0.24, -1.7]} radius={0.055} opacity={0.08 + stage1 * 0.56} color="#f5fdff" />
-        <GlowBeam start={[-2.4, 0.22, -1.7]} end={[2.6, 0.22, 3.6]} radius={0.045} opacity={0.06 + stage1 * 0.44} color="#a9edff" />
-        <StoryTile position={[-2.2, 0, 0.8]} size={[2.8, 0.34, 3.2]} opacity={0.42 + stage1 * 0.48} glow={stage1 * 0.38} edgeColor="#7ddffc" edgeOpacity={0.2 + stage1 * 0.34} highlight={stage1 * 0.2} />
-        <StoryTile position={[1.2, 0, -0.2]} size={[2.3, 0.28, 2.8]} opacity={0.34 + stage1 * 0.54} glow={stage1 * 0.32} edgeColor="#9be8ff" edgeOpacity={0.18 + stage1 * 0.34} />
-        <StoryTile position={[4.2, 0, -1.1]} size={[1.9, 0.22, 2.4]} opacity={0.26 + stage1 * 0.58} edgeColor="#b8f1ff" edgeOpacity={0.16 + stage1 * 0.28} />
+      <group
+        position={stage1Position}
+        rotation={[0, getRailYaw(0.12) + Math.PI / 2, 0]}
+      >
+        <GlowBeam
+          start={[-4.3, 0.24, 3.8]}
+          end={[4.4, 0.24, -1.7]}
+          radius={0.055}
+          opacity={0.08 + stage1 * 0.56}
+          color="#f5fdff"
+        />
+        <GlowBeam
+          start={[-2.4, 0.22, -1.7]}
+          end={[2.6, 0.22, 3.6]}
+          radius={0.045}
+          opacity={0.06 + stage1 * 0.44}
+          color="#a9edff"
+        />
+        <StoryTile
+          position={[-2.2, 0, 0.8]}
+          size={[2.8, 0.34, 3.2]}
+          opacity={0.12 + stage1 * 0.78}
+          glow={stage1 * 0.38}
+          edgeColor="#7ddffc"
+          edgeOpacity={0.06 + stage1 * 0.48}
+          highlight={stage1 * 0.2}
+        />
+        <StoryTile
+          position={[1.2, 0, -0.2]}
+          size={[2.3, 0.28, 2.8]}
+          opacity={0.08 + stage1 * 0.8}
+          glow={stage1 * 0.32}
+          edgeColor="#9be8ff"
+          edgeOpacity={0.05 + stage1 * 0.47}
+        />
+        <StoryTile
+          position={[4.2, 0, -1.1]}
+          size={[1.9, 0.22, 2.4]}
+          opacity={0.06 + stage1 * 0.78}
+          edgeColor="#b8f1ff"
+          edgeOpacity={0.04 + stage1 * 0.4}
+        />
         {[-2.8, -1.4, 0, 1.4, 2.8].map((offset, index) => (
           <StoryTile
             key={index}
             position={[offset, 0, 3.9 - index * 0.32]}
             size={[1.28, 0.14, 1]}
-            opacity={0.22 + stage1 * 0.58}
+            opacity={0.04 + stage1 * 0.72}
             edgeColor="#b1edf9"
-            edgeOpacity={0.12 + stage1 * 0.28}
+            edgeOpacity={0.03 + stage1 * 0.38}
           />
         ))}
       </group>
 
-      <group position={[-3.2, 0, 4.4]}>
-        <GlowBeam start={[-5.7, 0.32, -3.4]} end={[5.8, 0.32, -1.7]} radius={0.075} opacity={0.06 + stage2 * 0.58} color="#a9b5ff" />
-        <GlowBeam start={[-5.2, 0.38, 2.8]} end={[4.8, 0.38, 3.9]} radius={0.06} opacity={0.05 + stage2 * 0.45} color="#f4fbff" />
-        <StoryTile position={[0, 0, 0]} size={[5.4, 1.66, 3.8]} opacity={0.3 + stage2 * 0.62} glow={stage2 * 0.46} edgeColor="#6875ff" edgeOpacity={0.22 + stage2 * 0.44} highlight={stage2 * 0.3} />
-        <StoryTile position={[-2.1, 0.05, -0.1]} size={[0.34, 1.84, 3.98]} opacity={0.1 + stage2 * 0.66} color="#5260f1" edgeColor="#e9edff" edgeOpacity={0.12 + stage2 * 0.32} />
-        <StoryTile position={[2.2, 0.05, -0.08]} size={[0.28, 1.5, 3.52]} opacity={0.08 + stage2 * 0.52} color="#6f78ff" edgeColor="#f4f7ff" edgeOpacity={0.1 + stage2 * 0.28} />
+      <group
+        position={stage2Position}
+        rotation={[0, getRailYaw(0.38) + Math.PI / 2, 0]}
+      >
+        <GlowBeam
+          start={[-5.7, 0.32, -3.4]}
+          end={[5.8, 0.32, -1.7]}
+          radius={0.075}
+          opacity={0.06 + stage2 * 0.58}
+          color="#a9b5ff"
+        />
+        <GlowBeam
+          start={[-5.2, 0.38, 2.8]}
+          end={[4.8, 0.38, 3.9]}
+          radius={0.06}
+          opacity={0.05 + stage2 * 0.45}
+          color="#f4fbff"
+        />
+        <GlowBeam
+          start={[-6.2, 0.42, 0]}
+          end={[6.4, 0.42, 0]}
+          radius={0.11}
+          opacity={0.16 + stage2 * 0.54}
+          color="#f5fdff"
+        />
+        <StoryTile
+          position={[0, 0, 0]}
+          size={[5.4, 1.66, 3.8]}
+          opacity={0.08 + stage2 * 0.84}
+          glow={stage2 * 0.46}
+          edgeColor="#6875ff"
+          edgeOpacity={0.06 + stage2 * 0.6}
+          highlight={stage2 * 0.3}
+        />
+        <StoryTile
+          position={[-2.1, 0.05, -0.1]}
+          size={[0.34, 1.84, 3.98]}
+          opacity={0.03 + stage2 * 0.73}
+          color="#5260f1"
+          edgeColor="#e9edff"
+          edgeOpacity={0.04 + stage2 * 0.4}
+        />
+        <StoryTile
+          position={[2.2, 0.05, -0.08]}
+          size={[0.28, 1.5, 3.52]}
+          opacity={0.03 + stage2 * 0.57}
+          color="#6f78ff"
+          edgeColor="#f4f7ff"
+          edgeOpacity={0.03 + stage2 * 0.35}
+        />
         {[-4.4, -1.5, 1.5, 4.4].map((offset, index) => (
           <StoryTile
             key={index}
             position={[offset, 0, 4 - index * 0.8]}
             size={[1.84, 0.62, 2.5]}
-            opacity={0.22 + stage2 * 0.58}
+            opacity={0.04 + stage2 * 0.76}
             edgeColor="#9aa6ff"
-            edgeOpacity={0.16 + stage2 * 0.32}
+            edgeOpacity={0.04 + stage2 * 0.44}
           />
         ))}
         {[-5.6, -3.6, -1.6, 0.4, 2.4].map((offset, index) => (
@@ -651,17 +960,38 @@ function JourneyComposition({ progress }: { progress: number }) {
             key={`lane-${index}`}
             position={[offset, 0, -3.2 + index * 0.44]}
             size={[1.58, 0.26, 4.3]}
-            opacity={0.18 + stage2 * 0.48}
+            opacity={0.03 + stage2 * 0.62}
             edgeColor="#b9c0ff"
-            edgeOpacity={0.1 + stage2 * 0.3}
+            edgeOpacity={0.03 + stage2 * 0.36}
           />
         ))}
       </group>
 
-      <group position={[7.2, 0, -0.2]}>
-        <GlowBeam start={[-5.9, 0.28, 0]} end={[5.9, 0.28, 0]} radius={0.08} opacity={0.05 + stage3 * 0.68} color="#8de9ff" />
-        <GlowBeam start={[0, 0.28, -5.9]} end={[0, 0.28, 5.9]} radius={0.08} opacity={0.04 + stage3 * 0.6} color="#f7fdff" />
-        <DotField position={[0, 0, 0]} rows={9} cols={9} spacing={1.42} progress={0.02 + stage3 * 0.98} />
+      <group
+        position={stage3Position}
+        rotation={[0, getRailYaw(0.66) + Math.PI / 2, 0]}
+      >
+        <GlowBeam
+          start={[-5.9, 0.28, 0]}
+          end={[5.9, 0.28, 0]}
+          radius={0.08}
+          opacity={0.05 + stage3 * 0.68}
+          color="#8de9ff"
+        />
+        <GlowBeam
+          start={[0, 0.28, -5.9]}
+          end={[0, 0.28, 5.9]}
+          radius={0.08}
+          opacity={0.04 + stage3 * 0.6}
+          color="#f7fdff"
+        />
+        <DotField
+          position={[0, 0, 0]}
+          rows={9}
+          cols={9}
+          spacing={1.42}
+          progress={0.02 + stage3 * 0.98}
+        />
         {[-4.26, -2.84, -1.42, 0, 1.42, 2.84, 4.26].map((x) =>
           [-4.26, -2.84, -1.42, 0, 1.42, 2.84, 4.26].map((z, index) => {
             const centerBoost = 1 - Math.min(1, Math.hypot(x, z) / 5.8);
@@ -671,11 +1001,19 @@ function JourneyComposition({ progress }: { progress: number }) {
                 key={`${x}-${z}-${index}`}
                 position={[x, 0, z]}
                 size={[1.12, isCore ? 1.18 : 0.46 + centerBoost * 0.38, 1.12]}
-                opacity={isCore ? 0.06 + stage3 * 0.84 : 0.04 + stage3 * 0.62 + centerBoost * 0.04}
+                opacity={
+                  isCore
+                    ? 0.03 + stage3 * 0.87
+                    : 0.015 + stage3 * 0.65 + centerBoost * 0.03
+                }
                 glow={isCore ? stage3 * 0.54 : stage3 * 0.16}
                 color={isCore ? '#4750ef' : '#eef6fb'}
                 edgeColor={isCore ? '#f7fbff' : '#7fdff6'}
-                edgeOpacity={isCore ? 0.08 + stage3 * 0.64 : 0.03 + centerBoost * 0.06 + stage3 * 0.36}
+                edgeOpacity={
+                  isCore
+                    ? 0.04 + stage3 * 0.68
+                    : 0.015 + centerBoost * 0.05 + stage3 * 0.38
+                }
                 highlight={isCore ? stage3 * 0.36 : 0}
               />
             );
@@ -686,12 +1024,46 @@ function JourneyComposition({ progress }: { progress: number }) {
         </group>
       </group>
 
-      <group position={[18.6, 0, -4.2]}>
-        <DotField position={[-1.2, 0, 0.2]} rows={7} cols={15} spacing={1.18} progress={0.12 + stage4 * 0.88} />
-        <GlowBeam start={[-5.8, 0.34, 0.6]} end={[5.2, 0.34, 0.6]} radius={0.11} opacity={0.18 + stage4 * 0.48} color="#f5fdff" />
-        <StoryTile position={[-4.9, 0, 0.2]} size={[0.62, 2.28, 5.7]} opacity={0.18 + stage4 * 0.66} color="#edf8ff" edgeColor="#8de6ff" edgeOpacity={0.18 + stage4 * 0.4} highlight={stage4 * 0.18} />
-        <StoryTile position={[5.2, 0, 0.2]} size={[0.62, 2.02, 5.1]} opacity={0.16 + stage4 * 0.58} color="#edf8ff" edgeColor="#8de6ff" edgeOpacity={0.16 + stage4 * 0.36} />
-        <RailArrow position={[0.6, 0, 0.4]} opacity={0.28 + stage4 * 0.72} color="#f8fdff" />
+      <group
+        position={stage4Position}
+        rotation={[0, getRailYaw(0.92) + Math.PI / 2, 0]}
+      >
+        <DotField
+          position={[-1.2, 0, 0.5]}
+          rows={7}
+          cols={12}
+          spacing={1.18}
+          progress={0.12 + stage4 * 0.88}
+        />
+        <GlowBeam
+          start={[-5.8, 0.34, 0.6]}
+          end={[5.2, 0.34, 0.6]}
+          radius={0.11}
+          opacity={0.18 + stage4 * 0.48}
+          color="#f5fdff"
+        />
+        <StoryTile
+          position={[-4.9, 0, 0.2]}
+          size={[0.62, 2.28, 5.7]}
+          opacity={0.05 + stage4 * 0.79}
+          color="#edf8ff"
+          edgeColor="#8de6ff"
+          edgeOpacity={0.05 + stage4 * 0.53}
+          highlight={stage4 * 0.18}
+        />
+        <StoryTile
+          position={[5.2, 0, 0.2]}
+          size={[0.62, 2.02, 5.1]}
+          opacity={0.05 + stage4 * 0.69}
+          color="#edf8ff"
+          edgeColor="#8de6ff"
+          edgeOpacity={0.04 + stage4 * 0.48}
+        />
+        <RailArrow
+          position={[0.6, 0, 0.4]}
+          opacity={0.28 + stage4 * 0.72}
+          color="#f8fdff"
+        />
         {[
           [-0.8, 0, 3.2],
           [4.2, 0, 2.2],
@@ -702,10 +1074,10 @@ function JourneyComposition({ progress }: { progress: number }) {
             key={index}
             position={pos as [number, number, number]}
             size={[1.5, 0.72, 1.5]}
-            opacity={0.22 + stage4 * 0.64}
+            opacity={0.04 + stage4 * 0.82}
             glow={stage4 * 0.28}
             edgeColor="#95e6ff"
-            edgeOpacity={0.12 + stage4 * 0.38}
+            edgeOpacity={0.03 + stage4 * 0.47}
           />
         ))}
       </group>
@@ -715,10 +1087,18 @@ function JourneyComposition({ progress }: { progress: number }) {
 
 function FieldComposition({ flowProgress }: { flowProgress: number }) {
   const groupRef = useRef<THREE.Group>(null);
+  const previousProgressRef = useRef(flowProgress);
+  const progressVelocityRef = useRef(0);
+  const initializedRigRef = useRef(false);
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
   const [scrollRatio, setScrollRatio] = useState(0);
   const cameraTarget = useMemo(() => new THREE.Vector3(), []);
   const cameraPositionTarget = useMemo(() => new THREE.Vector3(), []);
+  const localLookTarget = useMemo(() => new THREE.Vector3(), []);
+  const worldCameraTarget = useMemo(() => new THREE.Vector3(), []);
+  const worldLookTarget = useMemo(() => new THREE.Vector3(), []);
+  const normalizedFlowProgress = clamp01(flowProgress);
+  const showLegacyLand = flowProgress < 0 && Number.isFinite(flowProgress);
 
   useEffect(() => {
     const onPointerMove = (event: PointerEvent) => {
@@ -744,68 +1124,106 @@ function FieldComposition({ flowProgress }: { flowProgress: number }) {
     };
   }, []);
 
-  useFrame(({ clock, camera }) => {
+  useFrame(({ clock, camera }, delta) => {
     const group = groupRef.current;
     if (!group) {
       return;
     }
 
     const elapsed = clock.getElapsedTime();
-    const journeyProgress = Math.min(1, Math.max(0, (flowProgress - 0.012) / 0.988));
-    const easedJourney = journeyProgress * journeyProgress * (3 - journeyProgress * 2);
-    const focusLift = Math.sin(easedJourney * Math.PI);
-    const targetX = THREE.MathUtils.lerp(6.1, 5.12, easedJourney) + pointer.x * 0.34;
+    const journeyProgress = normalizedFlowProgress;
+    const progressDelta = journeyProgress - previousProgressRef.current;
+    previousProgressRef.current = journeyProgress;
+    progressVelocityRef.current = THREE.MathUtils.lerp(
+      progressVelocityRef.current,
+      Math.abs(progressDelta) / Math.max(delta, 0.016),
+      0.18,
+    );
+    const speedBoost = clamp01(progressVelocityRef.current * 0.42);
+    const focusLift = Math.sin(smoothStep(journeyProgress) * Math.PI);
+    const arrivalWeight = Math.max(
+      windowedArrival(journeyProgress, 0.12, 0.1),
+      windowedArrival(journeyProgress, 0.38, 0.12),
+      windowedArrival(journeyProgress, 0.66, 0.12),
+      windowedArrival(journeyProgress, 0.92, 0.1),
+    );
+    const lookAhead =
+      THREE.MathUtils.lerp(0.22, 0.075, arrivalWeight) + speedBoost * 0.12;
+    const railFrame = getRailFrameAt(
+      clamp01(journeyProgress + speedBoost * 0.025),
+    );
+    const rig = getRigStop(clamp01(journeyProgress + speedBoost * 0.035));
     const targetY = pointer.y * 0.18;
+    const groupEase = dampAmount(4.6, delta);
+    const cameraEase = dampAmount(8.4 + speedBoost * 5.2, delta);
+    const targetEase = dampAmount(11.5 + speedBoost * 6, delta);
 
-    group.position.x = THREE.MathUtils.lerp(group.position.x, targetX, 0.03);
     group.position.y = THREE.MathUtils.lerp(
       group.position.y,
-      THREE.MathUtils.lerp(-4.3, -3.72, easedJourney) +
-        focusLift * 0.18 +
-        targetY * 0.05 +
-        scrollRatio * 0.18,
-      0.03,
+      -4.24 + focusLift * 0.1 + targetY * 0.05 + scrollRatio * 0.08,
+      groupEase,
     );
-    group.position.z = THREE.MathUtils.lerp(
-      group.position.z,
-      THREE.MathUtils.lerp(1.4, 0.16, easedJourney),
-      0.03,
-    );
+    group.position.z = THREE.MathUtils.lerp(group.position.z, 1.08, groupEase);
     group.rotation.y = THREE.MathUtils.lerp(
       group.rotation.y,
-      THREE.MathUtils.lerp(-0.66, -0.46, easedJourney) +
-        pointer.x * 0.05 +
-        scrollRatio * 0.08,
-      0.03,
+      -0.66 + pointer.x * 0.045 + scrollRatio * 0.035,
+      groupEase,
     );
     group.rotation.x = THREE.MathUtils.lerp(
       group.rotation.x,
-      THREE.MathUtils.lerp(0.52, 0.46, easedJourney) + pointer.y * 0.04,
-      0.03,
+      0.52 + pointer.y * 0.035,
+      groupEase,
     );
+    group.rotation.z = THREE.MathUtils.lerp(group.rotation.z, 0, groupEase);
     group.scale.setScalar(
-      THREE.MathUtils.lerp(
-        group.scale.x,
-        0.76 + easedJourney * 0.1 + focusLift * 0.025,
-        0.03,
-      ),
+      THREE.MathUtils.lerp(group.scale.x, 0.76 + focusLift * 0.015, groupEase),
     );
+    group.position.x = THREE.MathUtils.lerp(
+      group.position.x,
+      6.1 + pointer.x * 0.18,
+      groupEase,
+    );
+    group.updateMatrixWorld(true);
 
     cameraPositionTarget.set(
-      THREE.MathUtils.lerp(24.4, 18.2, easedJourney) + pointer.x * 0.44,
-      THREE.MathUtils.lerp(11.8, 9.4, easedJourney) + focusLift * 0.52 - pointer.y * 0.28,
-      THREE.MathUtils.lerp(20.8, 24.2, easedJourney),
+      railFrame.point.x -
+        railFrame.tangent.x * rig.back +
+        railFrame.right.x * (rig.side + pointer.x * 1.8),
+      railFrame.point.y + rig.height + focusLift * 0.38 - pointer.y * 0.34,
+      railFrame.point.z -
+        railFrame.tangent.z * rig.back +
+        railFrame.right.z * (rig.side + pointer.x * 1.8),
     );
-    camera.position.lerp(cameraPositionTarget, 0.035);
-    cameraTarget.set(
-      THREE.MathUtils.lerp(4.9, 5.8, easedJourney),
-      THREE.MathUtils.lerp(-4.08, -3.42, easedJourney) + pointer.y * 0.12,
-      THREE.MathUtils.lerp(0.4, -2.2, easedJourney),
+    worldCameraTarget.copy(cameraPositionTarget);
+    group.localToWorld(worldCameraTarget);
+    localLookTarget.set(
+      railFrame.point.x +
+        railFrame.tangent.x * (rig.targetForward + lookAhead * 12) +
+        railFrame.right.x * (rig.targetSide + pointer.x * 0.55),
+      railFrame.point.y + rig.targetHeight + pointer.y * 0.12,
+      railFrame.point.z +
+        railFrame.tangent.z * (rig.targetForward + lookAhead * 12) +
+        railFrame.right.z * (rig.targetSide + pointer.x * 0.55),
     );
+    worldLookTarget.copy(localLookTarget);
+    group.localToWorld(worldLookTarget);
+
+    if (!initializedRigRef.current) {
+      camera.position.copy(worldCameraTarget);
+      cameraTarget.copy(worldLookTarget);
+      initializedRigRef.current = true;
+    } else {
+      camera.position.lerp(worldCameraTarget, cameraEase);
+      cameraTarget.lerp(worldLookTarget, targetEase);
+    }
+
     camera.lookAt(cameraTarget.x, cameraTarget.y, cameraTarget.z);
 
     group.children.forEach((child) => {
-      if (!(child instanceof THREE.Group) || !child.name.startsWith('worker-')) {
+      if (
+        !(child instanceof THREE.Group) ||
+        !child.name.startsWith('worker-')
+      ) {
         return;
       }
 
@@ -818,7 +1236,7 @@ function FieldComposition({ flowProgress }: { flowProgress: number }) {
   return (
     <group
       ref={groupRef}
-      position={[6.1, -4.3, 1.4]}
+      position={[6.1, -4.24, 1.08]}
       rotation={[0.52, -0.66, 0]}
       scale={0.76}
     >
@@ -833,7 +1251,7 @@ function FieldComposition({ flowProgress }: { flowProgress: number }) {
         />
       </mesh>
 
-      {flowProgress < 0.012 ? (
+      {showLegacyLand ? (
         <>
           <PalletCluster position={[-18.6, 0.08, 0.8]} />
 
@@ -856,26 +1274,58 @@ function FieldComposition({ flowProgress }: { flowProgress: number }) {
           />
 
           <group position={[-6.2, 0.04, 0.4]}>
-            <SlabBuilding position={[0, 1.66, 0]} size={[2.12, 3.32, 2.12]} ribs={5} />
-            <SlabBuilding position={[0, 4.06, 0]} size={[2.12, 1.34, 2.12]} ribs={5} />
+            <SlabBuilding
+              position={[0, 1.66, 0]}
+              size={[2.12, 3.32, 2.12]}
+              ribs={5}
+            />
+            <SlabBuilding
+              position={[0, 4.06, 0]}
+              size={[2.12, 1.34, 2.12]}
+              ribs={5}
+            />
           </group>
           <group position={[-2.4, 0.04, -0.92]}>
-            <SlabBuilding position={[0, 1.56, 0]} size={[1.92, 3.12, 1.92]} ribs={4} />
-            <SlabBuilding position={[0, 3.82, 0]} size={[1.92, 1.2, 1.92]} ribs={4} />
+            <SlabBuilding
+              position={[0, 1.56, 0]}
+              size={[1.92, 3.12, 1.92]}
+              ribs={4}
+            />
+            <SlabBuilding
+              position={[0, 3.82, 0]}
+              size={[1.92, 1.2, 1.92]}
+              ribs={4}
+            />
           </group>
 
-          <SlabBuilding position={[2.7, 1.18, -1]} size={[4.84, 2.36, 4.52]} ribs={7} />
+          <SlabBuilding
+            position={[2.7, 1.18, -1]}
+            size={[4.84, 2.36, 4.52]}
+            ribs={7}
+          />
           <FactoryBlock position={[8.6, 1.28, -5.9]} />
           <PalletCluster position={[15.4, 0.08, 7.8]} />
           <PalletCluster position={[12.6, 0.08, 10.8]} />
 
-          <group name="worker-a" userData={{ baseY: 0.02, phase: 0.8 }} position={[-17.8, 0.02, 9.6]}>
+          <group
+            name="worker-a"
+            userData={{ baseY: 0.02, phase: 0.8 }}
+            position={[-17.8, 0.02, 9.6]}
+          >
             <WorkerFigure position={[0, 0, 0]} scale={1.08} />
           </group>
-          <group name="worker-b" userData={{ baseY: 0.02, phase: 1.8 }} position={[5.8, 0.02, 4.4]}>
+          <group
+            name="worker-b"
+            userData={{ baseY: 0.02, phase: 1.8 }}
+            position={[5.8, 0.02, 4.4]}
+          >
             <WorkerFigure position={[0, 0, 0]} scale={1.08} />
           </group>
-          <group name="worker-c" userData={{ baseY: 0.02, phase: 2.7 }} position={[0.6, 0.02, 14.4]}>
+          <group
+            name="worker-c"
+            userData={{ baseY: 0.02, phase: 2.7 }}
+            position={[0.6, 0.02, 14.4]}
+          >
             <WorkerFigure position={[0, 0, 0]} scale={0.96} />
           </group>
 
@@ -887,7 +1337,7 @@ function FieldComposition({ flowProgress }: { flowProgress: number }) {
           <Turbine position={[21.5, 0.02, 0.6]} rotation={0.2} speed={0.74} />
         </>
       ) : (
-        <JourneyComposition progress={flowProgress} />
+        <JourneyComposition progress={normalizedFlowProgress} />
       )}
 
       <ContactShadows
@@ -1053,16 +1503,21 @@ export function PegasoftFieldScene({
         const halo = clamp01(1 - distance / 0.46);
         const travel = index - focusIndex;
         const xShift =
-          travel * (16 - emphasis * 5) +
-          (pointerX - 0.5) * (10 + halo * 5);
+          travel * (16 - emphasis * 5) + (pointerX - 0.5) * (10 + halo * 5);
         const yShift =
           distance * 26 -
           emphasis * 10 -
           halo * 4 +
           (pointerY - 0.5) * (5 + halo * 3);
 
-        cluster.style.setProperty('--cluster-shift-x', `${xShift.toFixed(2)}px`);
-        cluster.style.setProperty('--cluster-shift-y', `${yShift.toFixed(2)}px`);
+        cluster.style.setProperty(
+          '--cluster-shift-x',
+          `${xShift.toFixed(2)}px`,
+        );
+        cluster.style.setProperty(
+          '--cluster-shift-y',
+          `${yShift.toFixed(2)}px`,
+        );
         cluster.style.setProperty(
           '--cluster-scale',
           `${(0.84 + halo * 0.08 + emphasis * 0.16).toFixed(3)}`,
@@ -1137,7 +1592,9 @@ export function PegasoftFieldScene({
 
     const stage = stageRef.current;
     const clusters = stage.querySelectorAll('.pegasoft-cluster');
-    const pieces = stage.querySelectorAll('.pegasoft-cluster__piece, .pegasoft-cluster__worker, .pegasoft-cluster__turbine');
+    const pieces = stage.querySelectorAll(
+      '.pegasoft-cluster__piece, .pegasoft-cluster__worker, .pegasoft-cluster__turbine',
+    );
     const flowPath = stage.querySelector('.pegasoft-flow-path');
     const flowNodes = stage.querySelectorAll('.pegasoft-flow-node');
 
@@ -1211,7 +1668,11 @@ export function PegasoftFieldScene({
 
   return (
     <div className="pegasoft-field" aria-hidden="true">
-      <Canvas shadows camera={{ position: [24.4, 11.8, 20.8], fov: 24 }} dpr={[1, 1.8]}>
+      <Canvas
+        shadows
+        camera={{ position: [24.4, 11.8, 20.8], fov: 24 }}
+        dpr={[1, 1.8]}
+      >
         <color attach="background" args={['#d0e1eb']} />
         <fog attach="fog" args={['#d0e1eb', 28, 84]} />
         <ambientLight intensity={1.52} />
@@ -1246,7 +1707,11 @@ export function PegasoftFieldScene({
               ref={(node) => {
                 nodeRefs.current[index] = node;
               }}
-              className={index === activeLifecycle ? 'pegasoft-flow-node is-active' : 'pegasoft-flow-node'}
+              className={
+                index === activeLifecycle
+                  ? 'pegasoft-flow-node is-active'
+                  : 'pegasoft-flow-node'
+              }
             >
               <span className="pegasoft-flow-node__core" />
             </div>
@@ -1258,7 +1723,11 @@ export function PegasoftFieldScene({
             ref={(node) => {
               clusterRefs.current[index] = node;
             }}
-            className={index === activeLifecycle ? 'pegasoft-cluster is-active' : 'pegasoft-cluster'}
+            className={
+              index === activeLifecycle
+                ? 'pegasoft-cluster is-active'
+                : 'pegasoft-cluster'
+            }
             data-lifecycle={cluster.key}
             aria-label={cluster.label}
           >
