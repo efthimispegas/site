@@ -320,6 +320,7 @@
 :global(.top) {
   position: relative;
   --hero-exit-progress: 0;
+  --hero-fade-progress: 0;
   --flow-reveal-progress: 0;
   --field-visibility: 1;
 }
@@ -980,16 +981,32 @@
   gap: var(--space-2xl);
   padding-top: var(--space-4xl);
   text-align: center;
-  opacity: calc(1 - var(--hero-exit-progress));
-  transform: translate3d(
-    0,
-    calc(var(--hero-exit-progress) * -34px),
-    0
-  );
+  opacity: calc(1 - var(--hero-fade-progress) * 0.96);
+  transform:
+    perspective(1000px)
+    translate3d(
+      calc(var(--hero-exit-progress) * -124px),
+      calc(var(--hero-exit-progress) * 14px),
+      0
+    )
+    rotateZ(calc(var(--hero-exit-progress) * -13deg))
+    rotateY(calc(var(--hero-exit-progress) * -38deg))
+    rotateX(calc(var(--hero-exit-progress) * 4deg));
+  transform-origin: 14% 52%;
   transition:
-    opacity 0.35s ease,
-    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.42s ease,
+    transform 0.56s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: opacity, transform;
+}
+
+:global(.hero.hide .hero__content) {
+  opacity: 0;
+  transform:
+    perspective(1000px)
+    translate3d(-156px, 10px, 0)
+    rotateZ(-15deg)
+    rotateY(-42deg)
+    rotateX(4deg);
 }
 
 :global(.hero__title) {
@@ -1051,18 +1068,31 @@
 }
 
 :global(.hero.show .hero__subtitle) {
-  opacity: calc(1 - var(--hero-exit-progress));
+  opacity: 1;
   transform:
     perspective(1000px)
-    translate3d(0, calc(var(--hero-exit-progress) * -12px), 0)
-    rotateY(0)
-    rotateX(0);
+    translate3d(
+      calc(var(--hero-exit-progress) * -64px),
+      calc(var(--hero-exit-progress) * 8px),
+      0
+    )
+    rotateZ(calc(var(--hero-exit-progress) * -8deg))
+    rotateY(calc(var(--hero-exit-progress) * -26deg))
+    rotateX(calc(var(--hero-exit-progress) * 3deg));
+  transform-origin: 14% 48%;
 }
 
 :global(.hero.show .hero__title span),
 :global(.hero.show .hero__subtitle span) {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+:global(.hero.hide .hero__title),
+:global(.hero.hide .hero__subtitle),
+:global(.hero.hide .hero__title span),
+:global(.hero.hide .hero__subtitle span) {
+  opacity: 0;
 }
 
 :global(.hero__scroll-btn) {
@@ -1078,10 +1108,10 @@
   font-size: 14px;
   letter-spacing: 0.28px;
   text-transform: uppercase;
-  opacity: calc(1 - var(--hero-exit-progress) * 1.35);
+  opacity: calc(1 - var(--hero-fade-progress) * 1.2);
   transform: translate3d(
     -50%,
-    calc(var(--hero-exit-progress) * 10px),
+    calc(var(--hero-exit-progress) * 8px),
     0
   );
   transition:

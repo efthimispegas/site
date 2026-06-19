@@ -110,6 +110,7 @@ export function PegasoftHome() {
   const [activeFaqIndex, setActiveFaqIndex] = useState(0);
   const [headerWhite, setHeaderWhite] = useState(false);
   const [heroExitProgress, setHeroExitProgress] = useState(0);
+  const [heroFadeProgress, setHeroFadeProgress] = useState(0);
   const [flowRevealProgress, setFlowRevealProgress] = useState(0);
   const [fieldVisibility, setFieldVisibility] = useState(1);
 
@@ -258,11 +259,15 @@ export function PegasoftHome() {
         Boolean,
       ) as HTMLElement[];
       const headerHeight = headerRef.current?.offsetHeight ?? 80;
-      const landingWindow = window.innerHeight * 0.18 || 1;
+      const landingWindow = window.innerHeight * 0.24 || 1;
       const exitProgress = Math.min(1, Math.max(0, window.scrollY / landingWindow));
+      const fadeProgress = Math.min(
+        1,
+        Math.max(0, (exitProgress - 0.28) / 0.72),
+      );
       const revealProgress = Math.min(
         1,
-        Math.max(0, (exitProgress - 0.12) / 0.88),
+        Math.max(0, (exitProgress - 0.2) / 0.8),
       );
       const shouldWhite = darkTargets.some((target) => {
         const rect = target.getBoundingClientRect();
@@ -272,9 +277,12 @@ export function PegasoftHome() {
       setHeaderWhite((previous) =>
         previous === shouldWhite ? previous : shouldWhite,
       );
-      setHeroHidden(window.scrollY > window.innerHeight * 0.08);
+      setHeroHidden(window.scrollY > window.innerHeight * 0.16);
       setHeroExitProgress((previous) =>
         Math.abs(previous - exitProgress) < 0.01 ? previous : exitProgress,
+      );
+      setHeroFadeProgress((previous) =>
+        Math.abs(previous - fadeProgress) < 0.01 ? previous : fadeProgress,
       );
       setFlowRevealProgress((previous) =>
         Math.abs(previous - revealProgress) < 0.01 ? previous : revealProgress,
@@ -464,6 +472,7 @@ export function PegasoftHome() {
         style={
           {
             '--hero-exit-progress': heroExitProgress.toFixed(4),
+            '--hero-fade-progress': heroFadeProgress.toFixed(4),
             '--flow-reveal-progress': flowRevealProgress.toFixed(4),
             '--field-visibility': fieldVisibility.toFixed(4),
           } as CSSProperties
