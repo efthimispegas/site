@@ -224,7 +224,6 @@ export function PegasoftHome() {
           Math.max(0, (progress - start) / (end - start)),
         );
 
-        item.style.opacity = `${0.22 + local * 0.78}`;
         item.style.transform = `translate3d(0, ${(1 - local) * 80}px, 0)`;
       });
 
