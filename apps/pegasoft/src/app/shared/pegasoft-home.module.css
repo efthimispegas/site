@@ -1245,16 +1245,13 @@
   width: 100%;
   height: 100svh;
   padding: 0 0 108px 40px;
-  opacity: calc(0.02 + var(--flow-reveal-progress) * 0.98);
   transform: translate3d(
     calc((1 - var(--flow-reveal-progress)) * -20px),
     calc((1 - var(--flow-reveal-progress)) * 18px),
     0
   );
-  transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
 
 :global(.flow__steps) {
@@ -1270,11 +1267,8 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 22px;
-  opacity: calc(0.38 + var(--flow-reveal-progress) * 0.62);
   transform: translate3d(calc((1 - var(--flow-reveal-progress)) * -10px), 0, 0);
-  transition:
-    opacity 0.55s ease,
-    transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 :global(.flow__step:first-child) {
@@ -1404,7 +1398,7 @@
 :global(.flow__description) {
   max-width: 520px;
   margin: 0;
-  color: var(--color-text-muted);
+  color: rgba(5, 4, 25, 0.72);
   font-size: 17px;
   line-height: var(--leading-normal);
   opacity: 0;
@@ -1462,9 +1456,8 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-2xl);
-  opacity: 0.22;
   transform: translate3d(0, 80px, 0);
-  will-change: opacity, transform;
+  will-change: transform;
 }
 
 :global(.feature-item__icon) {

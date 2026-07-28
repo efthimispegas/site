@@ -1,5 +1,16 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+
+async function waitForHeroReady(page: Page) {
+  const referenceState = page.locator(
+    '[data-hero-reference-state="landing"][data-hero-step="1"]',
+  );
+
+  await expect(referenceState).toHaveCount(1);
+  await expect(referenceState.locator('.pegasoft-field')).toBeVisible();
+
+  return referenceState;
+}
 
 test('homepage presents Pegasoft CTA and 3D/fallback surface', async ({
   page,
@@ -7,10 +18,42 @@ test('homepage presents Pegasoft CTA and 3D/fallback surface', async ({
   await page.goto('/');
 
   await expect(
-    page.getByRole('heading', { name: /design that delivers/i }),
+    page.getByRole('heading', {
+      name: /the new standard\s+in product delivery/i,
+    }),
   ).toBeVisible();
-  await expect(page.getByRole('link', { name: /book/i }).first()).toBeVisible();
-  await expect(page.locator('.pegasus-engine')).toBeVisible();
+  await expect(page.locator('header.pegasoft-header')).toBeVisible();
+  await expect(
+    page.getByRole('link', { name: 'Book a Call' }).first(),
+  ).toBeVisible();
+
+  const referenceState = await waitForHeroReady(page);
+  const surface = await referenceState.locator('.pegasoft-field').evaluate(
+    (element) => {
+      const canvas = element.querySelector('canvas');
+
+      if (canvas) {
+        const context =
+          canvas.getContext('webgl2') ?? canvas.getContext('webgl');
+
+        return {
+          kind: 'canvas',
+          ready: Boolean(context && canvas.width > 0 && canvas.height > 0),
+        };
+      }
+
+      return {
+        kind: 'fallback',
+        ready:
+          element.classList.contains('pegasoft-field--fallback') &&
+          Boolean(element.querySelector('.pegasoft-field__fallback')),
+      };
+    },
+  );
+
+  expect(surface.ready, `${surface.kind} hero surface should be useful`).toBe(
+    true,
+  );
 });
 
 test('work taxonomy keeps Concept Lab separate from client portfolio', async ({
@@ -52,18 +95,7 @@ test('homepage has no serious or critical accessibility violations', async ({
 }) => {
   await page.goto('/');
   await expect(page.getByRole('main')).toBeVisible();
-  await page.waitForFunction(() => {
-    const heroActions = document.querySelector('.hero-actions');
-    if (!heroActions) {
-      return false;
-    }
-
-    const styleAttribute = heroActions.getAttribute('style') ?? '';
-    return (
-      styleAttribute.includes('opacity: 1') &&
-      window.getComputedStyle(heroActions).opacity === '1'
-    );
-  });
+  await waitForHeroReady(page);
 
   const results = await new AxeBuilder({ page }).analyze();
   const seriousViolations = results.violations.filter((violation) =>
@@ -71,4 +103,34 @@ test('homepage has no serious or critical accessibility violations', async ({
   );
 
   expect(seriousViolations).toEqual([]);
+});
+
+test('homepage hydrates without runtime errors and mounts WebGL or fallback', async ({
+  page,
+}) => {
+  const pageErrors: string[] = [];
+  const consoleErrors: string[] = [];
+
+  page.on('pageerror', (error) => {
+    pageErrors.push(error.message);
+  });
+  page.on('console', (message) => {
+    if (message.type() === 'error') {
+      consoleErrors.push(message.text());
+    }
+  });
+
+  await page.goto('/');
+  const referenceState = await waitForHeroReady(page);
+  expect(
+    await referenceState
+      .locator('canvas, .pegasoft-field__fallback')
+      .count(),
+    'Canvas or fallback content should mount',
+  ).toBeGreaterThan(
+    0,
+  );
+
+  expect(pageErrors, 'uncaught page errors').toEqual([]);
+  expect(consoleErrors, 'console and hydration errors').toEqual([]);
 });
