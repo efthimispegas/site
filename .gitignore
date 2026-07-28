@@ -38,12 +38,16 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Nx
 .nx/cache
+.nx/polygraph
 .nx/workspace-data
+
+# Agents
 .claude/worktrees
 .claude/settings.local.json
+.playwright-mcp
 
-.nx/polygraph
 
 # Next.js
 .next
