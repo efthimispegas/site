@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "authorityOrder": [
+    {
+      "scope": "current geometry, responsive behavior, interaction causality, and scroll mappings",
+      "authority": "https://vectrfl.com/",
+      "reason": "The current live implementation is the single source of truth for observable runtime behavior."
+    },
+    {
+      "scope": "the captured hero chronology, exact recorded frames, and appearance when live state cannot be held reproducibly",
+      "authority": "docs/vectrfl_recording.mov#sha256=de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "reason": "The repository-backed recording is the authoritative immutable capture supplied for this rebaseline."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "authority-no-scratch-assets",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "No external scratch path or opaque legacy capture alias is valid acceptance evidence.",
+      "implementationConsequence": "Acceptance metadata may resolve only to the live URL or the repository recording SHA plus exact frame."
+    },
+    {
+      "id": "recording-seconds-are-seek-anchors",
+      "status": "accepted",
+      "evidenceClass": "observed",
+      "decision": "Recording timestamps after journey scroll begins are seek anchors, not animation durations.",
+      "implementationConsequence": "Journey state is driven by measured normalized scroll progress; only loader, landing idle, pulse, and arrival-mark effects may use explicit local clocks."
+    },
+    {
+      "id": "live-over-recording-for-current-causality",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "When recording chronology cannot prove whether an effect is scroll-, time-, or pointer-driven, the current live site determines causality.",
+      "implementationConsequence": "Unproven effects remain isolated/configurable until a live probe establishes their input."
+    },
+    {
+      "id": "identity-difference-mask",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "Pegasoft wording and identity glyphs may differ, but their layout containers, hierarchy, timing, and screen occupancy may not.",
+      "implementationConsequence": "Visual reports may mask only differing glyph/logo pixels, never layout, geometry, route, lighting, or motion."
+    },
+    {
+      "id": "camera-owns-field-approach-turn",
+      "status": "accepted",
+      "evidenceClass": "observed",
+      "decision": "The replacement keeps the world root fixed and assigns the field-approach composition change to the camera.",
+      "implementationConsequence": "No stage or world-root transform may compound the camera turn unless later live evidence explicitly disproves this model."
+    },
+    {
+      "id": "coarse-pointer-has-no-trail",
+      "status": "accepted",
+      "evidenceClass": "observed",
+      "decision": "Mobile, tablet, and coarse-pointer profiles do not receive a pointer trail or invented touch substitute.",
+      "implementationConsequence": "Pointer listeners, trail texture allocation, and pointer camera displacement are fine-pointer desktop features only."
+    },
+    {
+      "id": "legacy-runtime-values-are-not-evidence",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "No camera, route, progress, timing, color, or geometry constant is retained merely because it exists in the old Pegasoft renderer.",
+      "implementationConsequence": "Replacement values require live/recording evidence and deterministic tests."
+    }
+  ]
+}

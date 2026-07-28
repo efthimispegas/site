@@ -1,0 +1,1110 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-07-28",
+  "authority": {
+    "status": "observed",
+    "sourcePath": "docs/vectrfl_recording.mov",
+    "sourceSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+    "recordingProfile": {
+      "rasterPixels": {
+        "status": "observed",
+        "width": 3016,
+        "height": 1522
+      },
+      "cssViewport": {
+        "status": "source-confirmed",
+        "width": 1508,
+        "height": 761
+      },
+      "devicePixelRatio": {
+        "status": "source-confirmed",
+        "value": 2
+      },
+      "caveat": "The CSS viewport and DPR are resolved by exact 2x raster scaling, Apple Retina capture metadata, and a current-site layout cross-check; they are not dedicated MOV metadata fields."
+    },
+    "derivedCapturesAreAuthoritative": false
+  },
+  "classificationVocabulary": [
+    "observed",
+    "source-confirmed",
+    "inferred",
+    "unknown"
+  ],
+  "anchorPolicy": {
+    "frameIdentity": "decodedFrameIndex is zero-based presentation order and is always paired with bestEffortTimestampPts.",
+    "selection": "Each anchor is a representative frame for a named visual state, not necessarily the first transition frame.",
+    "timing": "Journey timestamps are seek coordinates in this user-scrolled recording, not authored durations or normalized progress.",
+    "generatedCapture": "The capture path and capture SHA verify a reproducible derivative; acceptance authority remains the MOV SHA plus frame index and PTS.",
+    "unmeasuredFields": "Camera coordinates, normalized journey progress, and screen bounds remain explicitly unknown rather than being copied from legacy code."
+  },
+  "planCorrectionsEstablishedByExactFrames": [
+    {
+      "status": "observed",
+      "claim": "22.500000s is field contact",
+      "correction": "At 22.500000s the beam is still approaching the elevated center. The selected contact frame is 23.200000s, where the center is saturated and neighboring tiles begin reacting."
+    },
+    {
+      "status": "observed",
+      "claim": "Step 04 is active by 29.4-29.6s",
+      "correction": "At 29.500000s Step 03 is still active. The copy handoff becomes visually complete around 29.700000s; arrival-travel is anchored at 29.800000s."
+    },
+    {
+      "status": "observed",
+      "claim": "30.500000s is the resolved arrival lockup",
+      "correction": "At 30.500000s the arrow remains entering and right-biased. The selected readable, centered lockup is 31.000000s."
+    }
+  ],
+  "states": [
+    {
+      "key": "loader-mark",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 118,
+        "bestEffortTimestampPts": 12000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 2,
+        "timestamp": "00:00:02.000000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000118-loader-mark.png",
+        "captureSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,118)'\" -frames:v 1 docs/hero-reference/recording/frame-000118-loader-mark.png"
+      },
+      "journeyProgressTarget": {
+        "status": "observed",
+        "value": null,
+        "applicability": "not-applicable",
+        "reason": "Pre-journey loader state."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "none"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "flat pale field centered on the resolved blue loader mark"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "central loader mark"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "none",
+        "interactionMode": {
+          "status": "inferred",
+          "value": "elapsed-time reveal"
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Not measured in this recording-only pass; full-raster capture is retained for measurement."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "blue arrow loader mark",
+          "oversized thin elliptical contours",
+          "pale field",
+          "no header",
+          "no hero copy",
+          "no composed world"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": []
+    },
+    {
+      "key": "world-reveal",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 208,
+        "bestEffortTimestampPts": 21000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 3.5,
+        "timestamp": "00:00:03.500000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000208-world-reveal.png",
+        "captureSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,208)'\" -frames:v 1 docs/hero-reference/recording/frame-000208-world-reveal.png"
+      },
+      "journeyProgressTarget": {
+        "status": "observed",
+        "value": null,
+        "applicability": "not-applicable",
+        "reason": "Pre-journey reveal state."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "none"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "industrial world composing upward beneath the central loader mark"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "loader mark and emerging landing city"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "emerging red landing rails",
+        "interactionMode": {
+          "status": "inferred",
+          "value": "elapsed-time reveal"
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Not measured in this recording-only pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "central blue loader mark",
+          "elliptical contours",
+          "partially composed city",
+          "red rails",
+          "figures and turbines beginning to appear",
+          "no settled hero copy"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": []
+    },
+    {
+      "key": "landing",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 298,
+        "bestEffortTimestampPts": 30000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 5,
+        "timestamp": "00:00:05.000000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000298-landing.png",
+        "captureSha256": "6ff1d23779f76059f7ba4ba437cfb712886a78516bc9e2f317964949e7a565d5",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,298)'\" -frames:v 1 docs/hero-reference/recording/frame-000298-landing.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "The recording contains no normalized scroll-progress telemetry."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "landing"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "centered two-line hero copy above an oblique city cluster filling the lower viewport"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "landing city cluster below centered copy"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "landing red rails",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "The frame does not establish route-packet clock ownership."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Typography and scene bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "fixed desktop header",
+          "The New Standard in Staffing",
+          "hero body copy",
+          "bottom-center scroll cue",
+          "city buildings",
+          "figures",
+          "turbines",
+          "red rails"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": []
+    },
+    {
+      "key": "landing-idle",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 448,
+        "bestEffortTimestampPts": 45000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 7.5,
+        "timestamp": "00:00:07.500000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000448-landing-idle.png",
+        "captureSha256": "0718c8673e4099495397b9a3e3e19737a2013a59d288b9d3acd29bfd4f69fd1b",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,448)'\" -frames:v 1 docs/hero-reference/recording/frame-000448-landing-idle.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Pre-scroll position is visible, but normalized progress is not encoded."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "landing"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "same resolved landing composition with a materially different red-packet phase"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "landing city cluster"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "active red landing packet",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "The recording shows state change over idle time but does not encode the packet scheduler."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Not measured in this recording-only pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "fixed desktop header",
+          "settled landing copy",
+          "city cluster",
+          "visible bright red route packet",
+          "bottom-center scroll cue"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "Exact red-packet period and random idle delay are not recoverable from one selected frame."
+      ]
+    },
+    {
+      "key": "activation-route",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 598,
+        "bestEffortTimestampPts": 60000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 10,
+        "timestamp": "00:00:10.000000",
+        "pictureType": "P",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000598-activation-route.png",
+        "captureSha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,598)'\" -frames:v 1 docs/hero-reference/recording/frame-000598-activation-route.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-01-activation"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "left process copy with converging red rails traversing toward the first destination"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "first destination building"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "parallel red activation rails",
+        "interactionMode": {
+          "status": "inferred",
+          "value": "scroll-driven journey"
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Not measured in this recording-only pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "fixed header",
+          "expanded Step 01 copy",
+          "parallel red rails",
+          "first destination building",
+          "workers",
+          "cooling towers",
+          "broad pale ground"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": []
+    },
+    {
+      "key": "activation-contact",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 748,
+        "bestEffortTimestampPts": 75000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 12.5,
+        "timestamp": "00:00:12.500000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000748-activation-contact.png",
+        "captureSha256": "8975a69102da5583678abd435df6244ffba93008406420a0ac768e9d5a226ce6",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,748)'\" -frames:v 1 docs/hero-reference/recording/frame-000748-activation-contact.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-01-activation"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "red rails terminate at the logo-bearing destination while Step 01 remains active"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "logo-bearing first destination"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "red activation contact",
+        "interactionMode": {
+          "status": "inferred",
+          "value": "scroll-driven journey"
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Not measured in this recording-only pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "expanded Step 01 copy",
+          "four red rails",
+          "logo-bearing destination",
+          "workers",
+          "cooling towers",
+          "distant containers"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "The exact first red-to-blue handoff frame is later than this contact representative and remains a transition measurement."
+      ]
+    },
+    {
+      "key": "clearance-travel",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1078,
+        "bestEffortTimestampPts": 108000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 18,
+        "timestamp": "00:00:18.000000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-001078-clearance-travel.png",
+        "captureSha256": "621c0d2d39a3ddc4f8cc8e7fd1a3a3053122c7b20b0dd46a211066698e8556c9",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1078)'\" -frames:v 1 docs/hero-reference/recording/frame-001078-clearance-travel.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-02-clearance"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "wide blue-route transit through open industrial context"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "cyan route direction across the landscape"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "first cyan/blue travel route",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "Scroll motion, elapsed effects, and pointer trail cannot be separated from the frame alone."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Not measured in this recording-only pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "expanded Step 02 copy",
+          "cyan route and dotted wake",
+          "cooling towers",
+          "warehouses",
+          "vehicles",
+          "workers",
+          "wind turbines",
+          "wide negative space"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": []
+    },
+    {
+      "key": "clearance-field-preview",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1228,
+        "bestEffortTimestampPts": 123000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 20.5,
+        "timestamp": "00:00:20.500000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-001228-clearance-field-preview.png",
+        "captureSha256": "42a8b8da9bed387e5aab1e767a0e6290aff44189d11b8e7653d7180936866268",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1228)'\" -frames:v 1 docs/hero-reference/recording/frame-001228-clearance-field-preview.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-02-clearance"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "Step 02 transit with the rounded-tile field first entering at the upper-right edge"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "route direction toward the previewing field"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "cyan clearance route approaching field",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "No progress or pointer telemetry is encoded."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Field-preview and copy bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "expanded Step 02 copy",
+          "cyan route",
+          "workers and industrial buildings",
+          "first rounded tiles entering upper-right frame"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": []
+    },
+    {
+      "key": "field-approach",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1288,
+        "bestEffortTimestampPts": 129000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 21.5,
+        "timestamp": "00:00:21.500000",
+        "pictureType": "P",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-001288-field-approach.png",
+        "captureSha256": "df0381011892710f879b805b2f149adfb95dbe8e95c2a7097d7d716a181faf35",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1288)'\" -frames:v 1 docs/hero-reference/recording/frame-001288-field-approach.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-02-clearance"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "rounded-tile field dominates the upper/right frame as the camera becomes strongly top-down"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "elevated field center"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "cyan field-approach route",
+        "interactionMode": {
+          "status": "inferred",
+          "value": "scroll-driven approach with unresolved local effects"
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Not measured in this recording-only pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "Step 02 still active",
+          "large irregular tile field",
+          "cyan route below the field",
+          "top-angle composition",
+          "remaining industrial context"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "The recording proves an apparent camera composition change, not internal camera coordinates or transform ownership."
+      ]
+    },
+    {
+      "key": "field-contact",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1390,
+        "bestEffortTimestampPts": 139200,
+        "timeBase": "1/6000",
+        "timestampSeconds": 23.2,
+        "timestamp": "00:00:23.200000",
+        "pictureType": "B",
+        "selectionType": "representative-contact-onset",
+        "capturePath": "docs/hero-reference/recording/frame-001390-field-contact.png",
+        "captureSha256": "f14b7ffe780fcdb2ee6a9a90211efd592267291017974340c0228a822832cfdc",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1390)'\" -frames:v 1 docs/hero-reference/recording/frame-001390-field-contact.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-03-field-match"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "top-angle field composition at the first clear saturated-center reaction"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "elevated center tile and figure"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "cyan route contacting field center",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "The recording proves contact reaction but not the progress/local-clock split."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Field outline, center, and copy bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "expanded Step 03 copy",
+          "elevated saturated-blue center tile",
+          "figure on center tile",
+          "first neighboring tile reaction",
+          "cyan route entering center",
+          "large irregular white tile field"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "The exact progress threshold is unknown.",
+        "This corrects the earlier 22.5s approximation, which still shows approach."
+      ]
+    },
+    {
+      "key": "field-pulse-a",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1408,
+        "bestEffortTimestampPts": 141000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 23.5,
+        "timestamp": "00:00:23.500000",
+        "pictureType": "P",
+        "selectionType": "representative-inner-expansion",
+        "capturePath": "docs/hero-reference/recording/frame-001408-field-pulse-a.png",
+        "captureSha256": "156123978b207b9a46c266d35aaec5627567cf8055750baa6a3e3bb0ed793404",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1408)'\" -frames:v 1 docs/hero-reference/recording/frame-001408-field-pulse-a.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-03-field-match"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "stable top-angle contact with bright inner square/ring band"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "elevated center tile and inner luminous band"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "connected cyan route plus inner field pulse",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "The recording shows the pulse phase but does not encode local-clock ownership."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Pulse-band and field bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "Step 03 copy",
+          "saturated center tile",
+          "figure",
+          "very bright inner tile band",
+          "cyan route",
+          "remaining unlit outer tiles"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "Pulse period, easing, and reset threshold are not encoded."
+      ]
+    },
+    {
+      "key": "field-pulse-b",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1558,
+        "bestEffortTimestampPts": 156000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 26,
+        "timestamp": "00:00:26.000000",
+        "pictureType": "B",
+        "selectionType": "representative-outer-band",
+        "capturePath": "docs/hero-reference/recording/frame-001558-field-pulse-b.png",
+        "captureSha256": "e5a6fc292809185e8a83be83db0e94fc2db2a2cfffbd9f72a933b2e1168160a4",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1558)'\" -frames:v 1 docs/hero-reference/recording/frame-001558-field-pulse-b.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-03-field-match"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "stable top-angle center with illumination displaced to outer edge bands"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "center tile with materially later outer pulse band"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "connected cyan route plus outer field pulse",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "The selected state proves a later pulse phase, not its scheduler."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Pulse-band and field bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "Step 03 copy",
+          "stable saturated center",
+          "figure",
+          "cyan route",
+          "bright outer-edge tile bands",
+          "mostly unlit inner white tiles"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "Elapsed-time versus scroll contribution cannot be isolated from the recording."
+      ]
+    },
+    {
+      "key": "arrival-travel",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1786,
+        "bestEffortTimestampPts": 178800,
+        "timeBase": "1/6000",
+        "timestampSeconds": 29.8,
+        "timestamp": "00:00:29.800000",
+        "pictureType": "P",
+        "selectionType": "representative-after-copy-handoff",
+        "capturePath": "docs/hero-reference/recording/frame-001786-arrival-travel.png",
+        "captureSha256": "45c268491236fdd992f9184e4657b4a315527a654d36a34dac3dab72415f310f",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1786)'\" -frames:v 1 docs/hero-reference/recording/frame-001786-arrival-travel.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-04-arrival"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "field recedes left while a horizontal cyan feed carries travel toward the arrow destination"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "arrival arrow direction beyond the right edge"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "second horizontal cyan route",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "Scroll and local arrival-clock ownership cannot be separated from this frame."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Route, field-exit, and copy bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "expanded Step 04 heading",
+          "Step 04 body beginning to settle",
+          "field tiles receding left",
+          "horizontal cyan feed",
+          "cyan dotted wake",
+          "arrow destination not yet locked"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "The earlier 29.4-29.6s plan range is too early; frame 29.500000s still has Step 03 active."
+      ]
+    },
+    {
+      "key": "arrival-lockup",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1858,
+        "bestEffortTimestampPts": 186000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 31,
+        "timestamp": "00:00:31.000000",
+        "pictureType": "P",
+        "selectionType": "representative-readable-lockup",
+        "capturePath": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+        "captureSha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1858)'\" -frames:v 1 docs/hero-reference/recording/frame-001858-arrival-lockup.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-04-arrival"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "large centered frontal arrow with horizontal cyan feed and surrounding square/diamond marks"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "large frontal arrival arrow"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "horizontal cyan feed into arrival arrow",
+        "interactionMode": {
+          "status": "unknown",
+          "value": null,
+          "reason": "The recording does not expose arrival-mark local-clock state."
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Arrow, surrounding marks, route, and copy bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "expanded Step 04 copy",
+          "large readable frontal arrow",
+          "horizontal cyan feed",
+          "cyan dotted field",
+          "four surrounding square/diamond marks",
+          "fixed header"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "At 30.500000s the arrow remains entering and right-biased; 31.000000s is the selected readable lockup."
+      ]
+    },
+    {
+      "key": "journey-exit",
+      "source": {
+        "status": "observed",
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+      },
+      "anchor": {
+        "status": "observed",
+        "decodedFrameIndex": 1918,
+        "bestEffortTimestampPts": 192000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 32,
+        "timestamp": "00:00:32.000000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-001918-journey-exit.png",
+        "captureSha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1918)'\" -frames:v 1 docs/hero-reference/recording/frame-001918-journey-exit.png"
+      },
+      "journeyProgressTarget": {
+        "status": "unknown",
+        "value": null,
+        "reason": "Timestamp is not normalized scroll progress."
+      },
+      "activeCopyState": {
+        "status": "observed",
+        "value": "step-04-arrival-transitioning-out"
+      },
+      "cameraPose": {
+        "status": "unknown",
+        "position": null,
+        "quaternion": null,
+        "visualComposition": "pale journey recedes above while the next white page section occupies the lower viewport"
+      },
+      "focusTarget": {
+        "status": "inferred",
+        "value": "handoff from arrival composition to following content"
+      },
+      "route": {
+        "status": "observed",
+        "segment": "arrival route leaving visible journey area",
+        "interactionMode": {
+          "status": "inferred",
+          "value": "scroll-driven section exit"
+        }
+      },
+      "screenBounds": {
+        "status": "unknown",
+        "landmark": null,
+        "copy": null,
+        "reason": "Journey/next-section boundary and copy bounds require a dedicated pixel-measurement pass."
+      },
+      "expectedVisibleContext": {
+        "status": "observed",
+        "items": [
+          "fixed header",
+          "remaining Step 04 area above",
+          "white following section",
+          "Designed for today's operations, beyond legacy staffing workflows"
+        ]
+      },
+      "confidence": "high",
+      "unresolvedDifferences": [
+        "The recording ends before the next section is fully traversed."
+      ]
+    }
+  ],
+  "unresolvableFromRecordingAlone": [
+    {
+      "field": "journeyProgressTarget",
+      "status": "unknown",
+      "reason": "The recording has no normalized scroll telemetry."
+    },
+    {
+      "field": "camera position and quaternion",
+      "status": "unknown",
+      "reason": "Rendered pixels do not expose the 3D camera transform."
+    },
+    {
+      "field": "look/focus target",
+      "status": "inferred",
+      "reason": "Targets are compositional readings, not encoded camera data."
+    },
+    {
+      "field": "screen-space bounds",
+      "status": "unknown",
+      "reason": "The exact frames are now locked, but a separate agreed measurement convention is required before bounds are accepted."
+    },
+    {
+      "field": "pointer versus local-clock versus scroll ownership",
+      "status": "unknown",
+      "reason": "The recording supplies pixels and cursor motion, not event or shader telemetry."
+    },
+    {
+      "field": "browser version and input hardware",
+      "status": "unknown",
+      "reason": "Neither is present in capture metadata."
+    }
+  ]
+}

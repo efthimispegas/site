@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "auditedAtUtc": "2026-07-28T12:19:04.901Z",
+  "canonicalUrl": "https://www.vectrfl.com/",
+  "sources": [
+    {
+      "id": "live-trace-desktop-1440-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-28T12:18:17.966Z",
+      "profile": {
+        "viewportCss": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "pointer": "fine",
+        "hover": true
+      }
+    },
+    {
+      "id": "live-trace-desktop-1920-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-28T12:18:36.338Z",
+      "profile": {
+        "viewportCss": {
+          "width": 1920,
+          "height": 1080
+        },
+        "devicePixelRatio": 1,
+        "pointer": "fine",
+        "hover": true
+      }
+    },
+    {
+      "id": "live-trace-mobile-390-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-28T12:18:54.660Z",
+      "profile": {
+        "viewportCss": {
+          "width": 390,
+          "height": 844
+        },
+        "devicePixelRatio": 1,
+        "pointer": "coarse",
+        "hover": false
+      }
+    },
+    {
+      "id": "live-trace-html-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "httpStatus": 200,
+      "lastModifiedUtc": "2026-07-17T01:28:50Z",
+      "decodedBytes": 25201,
+      "sha256": "a0d66705e329aa59f646cadeccbbd4a99362a26dd65d82451233b3aa93882012"
+    },
+    {
+      "id": "live-css-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/apply.B-bC7KCE.css",
+      "httpStatus": 200,
+      "decodedBytes": 75910,
+      "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c"
+    },
+    {
+      "id": "live-app-js-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/CommonScripts.astro_astro_type_script_index_0_lang.CZTi642d.js",
+      "httpStatus": 200,
+      "decodedBytes": 120694,
+      "sha256": "352de1ba99e915be04f929107ffcfbfa2893b943bf0b60ae1d74006fa1e36494"
+    },
+    {
+      "id": "live-vendor-js-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
+      "httpStatus": 200,
+      "decodedBytes": 2394196,
+      "sha256": "18915412cc633133d3d2daf84ed1c5f746d1ac3835f9fabcd5b499eec4a41e36"
+    },
+    {
+      "id": "live-renderer-js-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/renderer.C_wI7OdU.js",
+      "httpStatus": 200,
+      "decodedBytes": 9365,
+      "sha256": "664abaf682e04ea8e8d2ef1babcdc4749cc9c27300bfa173f41b36656a236b18"
+    },
+    {
+      "id": "live-desktop-scene-glb-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+      "httpStatus": 200,
+      "decodedBytes": 2190704,
+      "sha256": "4e33ca95ac15dde3f9efe6803a09031c406ef9eeaa6bd7012450d8e770469ba3"
+    },
+    {
+      "id": "live-workers-glb-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/glb/workers.glb",
+      "httpStatus": 200,
+      "decodedBytes": 421756,
+      "sha256": "324788c696b3124e47b8b211df24a793197c458684c85f3dfc892f400714bcdb"
+    },
+    {
+      "id": "live-draco-wasm-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/draco/draco_decoder.wasm",
+      "httpStatus": 200,
+      "decodedBytes": 192420,
+      "sha256": "a680d927bed9cb864ddbd63521868891af2bfbe755092761b4837487618df8ac"
+    },
+    {
+      "id": "recording-landing-frame",
+      "evidenceClass": "observed",
+      "path": "docs/hero-reference/recording/frame-000298-landing.png",
+      "rasterPixels": {
+        "width": 3016,
+        "height": 1522
+      }
+    }
+  ],
+  "claims": [
+    {
+      "id": "hero-copy",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-trace-html-2026-07-28"
+      ],
+      "value": {
+        "title": "The New Standard\nin Staffing",
+        "subtitle": "AI driven speed. Expert curation.\nWe mobilize verified crews to protect your schedule and your bottom line in high-consequence environments.",
+        "scrollCue": "SCROLL TO DISCOVER OUR PROCESS"
+      }
+    },
+    {
+      "id": "authored-hero-reveal-css",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-css-2026-07-28"
+      ],
+      "value": {
+        "title": {
+          "opacityAndTransformDurationMs": 1500,
+          "delayMs": 0,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "subtitle": {
+          "opacityAndTransformDurationMs": 1500,
+          "delayMs": 300,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "scrollCueUnderline": {
+          "durationMs": 900,
+          "delayMs": 250,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "scrollCueText": {
+          "durationMs": 1500,
+          "delayMs": 650,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        }
+      }
+    },
+    {
+      "id": "flow-layout",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-css-2026-07-28"
+      ],
+      "value": {
+        "baseHeight": "456svh",
+        "desktopMultiplier": 1,
+        "maxWidth820Multiplier": 1.25,
+        "wrapper": {
+          "position": "sticky",
+          "top": 0,
+          "desktopHeight": "100svh",
+          "maxWidth820Height": "100dvh"
+        }
+      }
+    },
+    {
+      "id": "dom-step-thresholds",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-07-28"
+      ],
+      "value": [
+        0.191,
+        0.697,
+        0.876
+      ]
+    },
+    {
+      "id": "camera-damping",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-07-28"
+      ],
+      "value": {
+        "defaultSmoothTime": 0.15,
+        "mobileOrTabletSmoothTime": 0.1,
+        "runtime": "camera progress is damped toward target progress each frame"
+      }
+    },
+    {
+      "id": "scene-progress-ranges",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-07-28"
+      ],
+      "value": {
+        "redRoutes": [
+          0,
+          0.17
+        ],
+        "blueRoute0": [
+          0.17,
+          0.74
+        ],
+        "fieldGridReveal": [
+          0.72,
+          0.75
+        ],
+        "fieldCameraComposition": [
+          0.72,
+          0.85
+        ],
+        "blueRoute1": [
+          0.74,
+          0.9
+        ],
+        "arrivalAndLogoActivationStarts": 0.9,
+        "cameraRetreat": [
+          0.9,
+          1.25
+        ]
+      }
+    },
+    {
+      "id": "desktop-pointer-trail",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-07-28"
+      ],
+      "value": {
+        "createdWhen": "isMobileOrTablet is false",
+        "renderTargetSize": 256,
+        "fadeFactor": 0.947,
+        "splatRadius": 0.012,
+        "baseRadius": 0.002,
+        "velocityFactor": 0.0025,
+        "maxRadius": 0.033
+      }
+    },
+    {
+      "id": "scene-asset-selection",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-07-28",
+        "live-desktop-scene-glb-2026-07-28"
+      ],
+      "value": {
+        "desktopUrl": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+        "mobileUrlDeclaredInBundle": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans_mobile.glb",
+        "selectionPredicate": "iPhone, iPad, iPod, or a touch-capable Macintosh user agent",
+        "notSelectionPredicate": "the general isMobileOrTablet flag"
+      }
+    },
+    {
+      "id": "android-emulation-scene-request",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-mobile-390-2026-07-28",
+        "live-desktop-scene-glb-2026-07-28"
+      ],
+      "value": {
+        "profile": "live-mobile-390",
+        "requestedSceneUrl": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+        "requestedMobileSceneUrl": false
+      }
+    },
+    {
+      "id": "reduced-motion-token-audit",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-trace-html-2026-07-28",
+        "live-css-2026-07-28",
+        "live-app-js-2026-07-28"
+      ],
+      "value": {
+        "prefersReducedMotionTokenPresent": false,
+        "scope": "the fetched current HTML, CSS, and app script only"
+      }
+    },
+    {
+      "id": "recording-css-viewport-profile",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "recording-landing-frame",
+        "live-trace-desktop-1440-2026-07-28",
+        "live-trace-desktop-1920-2026-07-28"
+      ],
+      "value": {
+        "isConsistent": true,
+        "candidateCssViewport": {
+          "width": 1508,
+          "height": 761
+        },
+        "candidateDevicePixelRatio": 2,
+        "exactRasterIdentity": {
+          "width": "1508 * 2 = 3016",
+          "height": "761 * 2 = 1522"
+        },
+        "liveDesktopLayoutModel": {
+          "titleBox": {
+            "css": [
+              405.05,
+              128,
+              697.91,
+              172.78
+            ],
+            "predictedRecordingPixels": [
+              810.09,
+              256,
+              1395.82,
+              345.56
+            ]
+          },
+          "subtitleBox": {
+            "css": [
+              444,
+              348.78,
+              620,
+              86.39
+            ],
+            "predictedRecordingPixels": [
+              888,
+              697.56,
+              1240,
+              172.78
+            ]
+          },
+          "logoSvgBox": {
+            "css": [
+              707.5,
+              30.41,
+              93,
+              16
+            ],
+            "predictedRecordingPixels": [
+              1415,
+              60.82,
+              186,
+              32
+            ]
+          },
+          "scrollCueBox": {
+            "css": [
+              611.95,
+              673,
+              284.11,
+              40
+            ],
+            "predictedRecordingPixels": [
+              1223.89,
+              1346,
+              568.22,
+              80
+            ]
+          }
+        },
+        "qualification": "Accepted capture profile: the 2× raster identity is exact and the projected live desktop layout cross-checks against the named landing frame. The MOV does not carry a dedicated CSS-viewport or DPR metadata field, so retain that provenance caveat even though the baseline classification is source-confirmed."
+      }
+    },
+    {
+      "id": "live-webgl-landmark-bounds",
+      "evidenceClass": "unknown",
+      "sourceRefs": [
+        "live-trace-desktop-1440-2026-07-28",
+        "live-trace-desktop-1920-2026-07-28",
+        "live-trace-mobile-390-2026-07-28"
+      ],
+      "value": {
+        "unmeasured": [
+          "building screen-space boxes",
+          "route and arrow screen-space paths",
+          "field contact point",
+          "people and vehicle screen-space boxes",
+          "negative-space silhouettes"
+        ]
+      }
+    }
+  ]
+}
