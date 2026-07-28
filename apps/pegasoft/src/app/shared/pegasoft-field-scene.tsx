@@ -89,6 +89,19 @@ type CameraStop = {
   references: ReferenceAnchor[];
 };
 
+type BeamState = {
+  key: BeamMode;
+  start: number;
+  peak: number;
+  end: number;
+  leadStart: number;
+  leadEnd: number;
+  radius: number;
+  coreRadius: number;
+  tipRadius: number;
+  references: ReferenceAnchor[];
+};
+
 const clamp01 = (value: number) => Math.min(1, Math.max(0, value));
 const smoothStep = (value: number) => value * value * (3 - value * 2);
 const dampAmount = (speed: number, delta: number) =>
@@ -179,77 +192,6 @@ function getRailPosition(progress: number, side = 0, lift = 0): Vec3Tuple {
   return [point.x, point.y, point.z];
 }
 
-function BeamPath({
-  points,
-  progress = 1,
-  radius = 0.05,
-  opacity = 1,
-  color = '#ff4b5f',
-}: {
-  points: Vec3Tuple[];
-  progress?: number;
-  radius?: number;
-  opacity?: number;
-  color?: string;
-}) {
-  const segments = useMemo(() => {
-    const items = points.slice(0, -1).map((point, index) => {
-      const next = points[index + 1];
-      const from = new THREE.Vector3(...point);
-      const to = new THREE.Vector3(...next);
-      return {
-        start: point,
-        end: next,
-        length: from.distanceTo(to),
-      };
-    });
-    const totalLength = items.reduce((sum, item) => sum + item.length, 0) || 1;
-    let cursor = 0;
-
-    return items.map((item) => {
-      const startRatio = cursor / totalLength;
-      cursor += item.length;
-      return {
-        ...item,
-        startRatio,
-        endRatio: cursor / totalLength,
-      };
-    });
-  }, [points]);
-
-  const pathProgress = clamp01(progress);
-
-  return (
-    <group>
-      {segments.map((segment, index) => {
-        const fill = clamp01(
-          (pathProgress - segment.startRatio) /
-            (segment.endRatio - segment.startRatio || 1),
-        );
-
-        if (fill <= 0.01) {
-          return null;
-        }
-
-        return (
-          <GlowBeam
-            key={index}
-            start={segment.start}
-            end={[
-              THREE.MathUtils.lerp(segment.start[0], segment.end[0], fill),
-              THREE.MathUtils.lerp(segment.start[1], segment.end[1], fill),
-              THREE.MathUtils.lerp(segment.start[2], segment.end[2], fill),
-            ]}
-            radius={radius}
-            opacity={opacity}
-            color={color}
-          />
-        );
-      })}
-    </group>
-  );
-}
-
 function windowWeight(value: number, start: number, peak: number, end: number) {
   if (value <= start || value >= end) {
     return 0;
@@ -268,32 +210,32 @@ const monumentStates: MonumentState[] = [
     focusAt: 0.12,
     visibleStart: 0,
     peak: 0.12,
-    visibleEnd: 0.52,
-    floorRadius: 3.1,
-    floorColor: '#c2f5ff',
-    floorOpacity: 0.18,
+    visibleEnd: 0.43,
+    floorRadius: 3.3,
+    floorColor: '#c7f6ff',
+    floorOpacity: 0.16,
     references: ['vectr-ref2-01', 'vectr-ref2-02'],
   },
   {
     key: 'stage2',
     focusAt: 0.38,
-    visibleStart: 0.18,
-    peak: 0.38,
-    visibleEnd: 0.78,
+    visibleStart: 0.31,
+    peak: 0.4,
+    visibleEnd: 0.61,
     floorRadius: 3.5,
     floorColor: '#d5dcff',
-    floorOpacity: 0.22,
+    floorOpacity: 0.18,
     references: ['vectr-ref2-02', 'vectr-ref2-03', 'vectr-ref2-04'],
   },
   {
     key: 'stage3',
     focusAt: 0.66,
-    visibleStart: 0.5,
-    peak: 0.67,
-    visibleEnd: 0.97,
-    floorRadius: 4.2,
+    visibleStart: 0.61,
+    peak: 0.7,
+    visibleEnd: 0.86,
+    floorRadius: 4.36,
     floorColor: '#a8efff',
-    floorOpacity: 0.13,
+    floorOpacity: 0.1,
     references: [
       'vectr-ref2-04',
       'vectr-ref2-05',
@@ -305,12 +247,12 @@ const monumentStates: MonumentState[] = [
   {
     key: 'stage4',
     focusAt: 0.86,
-    visibleStart: 0.78,
-    peak: 0.88,
+    visibleStart: 0.84,
+    peak: 0.91,
     visibleEnd: 1.03,
-    floorRadius: 3.7,
+    floorRadius: 4.2,
     floorColor: '#d7f4ff',
-    floorOpacity: 0.18,
+    floorOpacity: 0.13,
     references: ['vectr-ref2-09', 'vectr-ref2-10'],
   },
 ];
@@ -338,12 +280,12 @@ const heroBeats: HeroBeat[] = [
   },
   {
     key: 'stage2',
-    start: 0.26,
-    peak: 0.39,
+    start: 0.3,
+    peak: 0.41,
     end: 0.58,
     beamMode: 'tunnel-blue',
-    textExitStart: 0.18,
-    textExitEnd: 0.28,
+    textExitStart: 0.22,
+    textExitEnd: 0.31,
     references: ['vectr-ref2-02', 'vectr-ref2-03', 'vectr-ref2-04'],
   },
   {
@@ -376,7 +318,7 @@ const heroBeats: HeroBeat[] = [
 
 const pulseSpec: PulseSpec = {
   contactStart: 0.655,
-  intervalSeconds: 0.4,
+  intervalSeconds: 2,
   bandWidth: 1.5,
   references: [
     'vectr-ref2-05',
@@ -390,49 +332,49 @@ const cameraStops: CameraStop[] = [
   {
     key: 'opening',
     at: 0,
-    side: -18.2,
-    back: 24.4,
-    height: 15.8,
-    targetForward: 9.6,
-    targetSide: 0.8,
-    targetHeight: 1.1,
+    side: -12.2,
+    back: 24.8,
+    height: 18.9,
+    targetForward: 8.6,
+    targetSide: 0.24,
+    targetHeight: 1.02,
     trailerMix: 1,
     references: ['vectr-ref2-01'],
   },
   {
     key: 'stage1',
     at: 0.12,
-    side: -15.2,
-    back: 22.4,
-    height: 14.1,
-    targetForward: 7.8,
-    targetSide: 0.2,
-    targetHeight: 1.15,
-    trailerMix: 0.95,
+    side: -8.2,
+    back: 17.2,
+    height: 12.8,
+    targetForward: 6.2,
+    targetSide: 0.12,
+    targetHeight: 0.84,
+    trailerMix: 0.98,
     references: ['vectr-ref2-01', 'vectr-ref2-02'],
   },
   {
     key: 'stage2',
     at: 0.38,
-    side: 3.8,
-    back: 11.2,
-    height: 7.8,
-    targetForward: 4.8,
-    targetSide: -0.02,
-    targetHeight: 1.18,
-    trailerMix: 0.32,
+    side: -0.2,
+    back: 10.2,
+    height: 7.3,
+    targetForward: 5.7,
+    targetSide: 0,
+    targetHeight: 0.96,
+    trailerMix: 0.42,
     references: ['vectr-ref2-03', 'vectr-ref2-04'],
   },
   {
     key: 'stage3',
     at: 0.66,
-    side: -13.8,
-    back: 23.2,
-    height: 15.1,
-    targetForward: 8.1,
-    targetSide: 0.46,
-    targetHeight: 1.22,
-    trailerMix: 0.98,
+    side: -9.4,
+    back: 22.6,
+    height: 18.1,
+    targetForward: 7.6,
+    targetSide: 0.06,
+    targetHeight: 0.86,
+    trailerMix: 0.96,
     references: [
       'vectr-ref2-04',
       'vectr-ref2-05',
@@ -444,28 +386,122 @@ const cameraStops: CameraStop[] = [
   {
     key: 'stage4',
     at: 0.86,
-    side: 8.6,
-    back: 22.2,
-    height: 14.5,
-    targetForward: 7.6,
-    targetSide: -0.14,
-    targetHeight: 1.24,
-    trailerMix: 0.94,
+    side: -2.6,
+    back: 13.2,
+    height: 10.4,
+    targetForward: 5.8,
+    targetSide: -0.1,
+    targetHeight: 0.78,
+    trailerMix: 0.92,
     references: ['vectr-ref2-09', 'vectr-ref2-10'],
   },
   {
     key: 'stage4',
     at: 1,
-    side: 9.2,
-    back: 23,
-    height: 14.7,
-    targetForward: 7.9,
-    targetSide: -0.18,
-    targetHeight: 1.26,
-    trailerMix: 0.95,
+    side: -2.2,
+    back: 12.8,
+    height: 10.1,
+    targetForward: 5.4,
+    targetSide: -0.08,
+    targetHeight: 0.74,
+    trailerMix: 0.92,
     references: ['vectr-ref2-10'],
   },
 ];
+
+const beamStates: BeamState[] = [
+  {
+    key: 'red-concept',
+    start: 0,
+    peak: 0.12,
+    end: 0.34,
+    leadStart: 0,
+    leadEnd: 0.38,
+    radius: 0.062,
+    coreRadius: 0.044,
+    tipRadius: 0.052,
+    references: ['vectr-ref2-01', 'vectr-ref2-02'],
+  },
+  {
+    key: 'tunnel-blue',
+    start: 0.41,
+    peak: 0.49,
+    end: 0.62,
+    leadStart: 0.398,
+    leadEnd: 0.655,
+    radius: 0.066,
+    coreRadius: 0.034,
+    tipRadius: 0.054,
+    references: ['vectr-ref2-03', 'vectr-ref2-04'],
+  },
+  {
+    key: 'pulse-blue',
+    start: 0.62,
+    peak: 0.75,
+    end: 0.88,
+    leadStart: 0.655,
+    leadEnd: 0.805,
+    radius: 0.068,
+    coreRadius: 0.036,
+    tipRadius: 0.056,
+    references: [
+      'vectr-ref2-05',
+      'vectr-ref2-06',
+      'vectr-ref2-07',
+      'vectr-ref2-08',
+    ],
+  },
+  {
+    key: 'arrival-blue',
+    start: 0.82,
+    peak: 0.92,
+    end: 1.02,
+    leadStart: 0.805,
+    leadEnd: 0.862,
+    radius: 0.07,
+    coreRadius: 0.038,
+    tipRadius: 0.058,
+    references: ['vectr-ref2-09', 'vectr-ref2-10'],
+  },
+];
+
+const referenceAnchors: Record<HeroBeat['key'], ReferenceAnchor[]> = {
+  opening: ['vectr-ref2-01'],
+  stage1: ['vectr-ref2-01', 'vectr-ref2-02'],
+  stage2: ['vectr-ref2-03', 'vectr-ref2-04'],
+  stage3: [
+    'vectr-ref2-04',
+    'vectr-ref2-05',
+    'vectr-ref2-06',
+    'vectr-ref2-07',
+    'vectr-ref2-08',
+  ],
+  stage4: ['vectr-ref2-09', 'vectr-ref2-10'],
+};
+
+const sceneSpec = {
+  beats: heroBeats,
+  monuments: monumentStates,
+  beams: beamStates,
+  pulse: pulseSpec,
+  cameras: cameraStops,
+  references: referenceAnchors,
+  stage3GridOffsets: [
+    -7.1, -5.68, -4.26, -2.84, -1.42, 0, 1.42, 2.84, 4.26, 5.68, 7.1,
+  ] as const,
+};
+
+const beatByKey = Object.fromEntries(
+  sceneSpec.beats.map((beat) => [beat.key, beat]),
+) as Record<HeroBeat['key'], HeroBeat>;
+
+const monumentByKey = Object.fromEntries(
+  sceneSpec.monuments.map((monument) => [monument.key, monument]),
+) as Record<MonumentState['key'], MonumentState>;
+
+const beamByKey = Object.fromEntries(
+  sceneSpec.beams.map((beam) => [beam.key, beam]),
+) as Record<BeamMode, BeamState>;
 
 function getBeatWeight(value: number, beat: HeroBeat) {
   return windowWeight(value, beat.start, beat.peak, beat.end);
@@ -483,27 +519,64 @@ function getMonumentWeight(value: number, monument: MonumentState) {
 function getCameraProgress(progress: number) {
   const clamped = clamp01(progress);
 
-  if (clamped <= 0.12) {
-    return THREE.MathUtils.lerp(0, 0.12, smoothStep(clamped / 0.12));
+  if (clamped <= 0.14) {
+    return THREE.MathUtils.lerp(
+      0,
+      0.12,
+      smoothStep(clamp01(clamped / 0.14)),
+    );
   }
-  if (clamped <= 0.38) {
+  if (clamped <= 0.4) {
     return THREE.MathUtils.lerp(
       0.12,
       0.38,
-      smoothStep(clamp01((clamped - 0.12) / 0.26)),
+      smoothStep(clamp01((clamped - 0.14) / 0.26)),
     );
   }
-  if (clamped <= 0.66) {
+  if (clamped <= 0.69) {
     return THREE.MathUtils.lerp(
       0.38,
       0.66,
-      smoothStep(clamp01((clamped - 0.38) / 0.28)),
+      smoothStep(clamp01((clamped - 0.4) / 0.29)),
     );
   }
   return THREE.MathUtils.lerp(
     0.66,
     0.9,
-    smoothStep(clamp01((clamped - 0.66) / 0.34)),
+    smoothStep(clamp01((clamped - 0.69) / 0.31)),
+  );
+}
+
+function getBeamAnchorProgress(progress: number) {
+  const clamped = clamp01(progress);
+  const redBeam = beamByKey['red-concept'];
+  const tunnelBeam = beamByKey['tunnel-blue'];
+  const arrivalBeam = beamByKey['arrival-blue'];
+  const stage1Focus = monumentByKey.stage1.focusAt;
+
+  if (clamped <= tunnelBeam.start) {
+    const redWindow = clamp01(clamped / Math.max(tunnelBeam.start, 0.0001));
+    return THREE.MathUtils.lerp(
+      stage1Focus,
+      redBeam.leadEnd,
+      smoothStep(redWindow),
+    );
+  }
+
+  const blueTravelProgress = clamp01(
+    (clamped - tunnelBeam.start) / (arrivalBeam.end - tunnelBeam.start || 1),
+  );
+  const lateTravelBoost = clamp01((clamped - 0.62) / 0.28);
+
+  return clamp01(
+    Math.min(
+      arrivalBeam.leadEnd,
+      THREE.MathUtils.lerp(
+        tunnelBeam.leadStart,
+        arrivalBeam.leadEnd,
+        blueTravelProgress,
+      ) + lateTravelBoost * 0.01,
+    ),
   );
 }
 
@@ -551,29 +624,29 @@ function getRigStop(progress: number): RigStop {
 }
 
 const buildingMaterial = new THREE.MeshPhysicalMaterial({
-  color: '#edf3f8',
-  roughness: 0.56,
-  metalness: 0.03,
-  clearcoat: 0.08,
-  clearcoatRoughness: 0.72,
+  color: '#f2f7fb',
+  roughness: 0.62,
+  metalness: 0.01,
+  clearcoat: 0.04,
+  clearcoatRoughness: 0.76,
 });
 
 const roofMaterial = new THREE.MeshPhysicalMaterial({
-  color: '#f9fcff',
-  roughness: 0.38,
+  color: '#fbfdff',
+  roughness: 0.42,
   metalness: 0.01,
-  clearcoat: 0.18,
-  clearcoatRoughness: 0.3,
+  clearcoat: 0.12,
+  clearcoatRoughness: 0.34,
 });
 
 const accentMaterial = new THREE.MeshStandardMaterial({
-  color: '#c1d1dd',
-  roughness: 0.58,
+  color: '#c5d3de',
+  roughness: 0.64,
 });
 
 const softBlueMaterial = new THREE.MeshStandardMaterial({
-  color: '#abc2d6',
-  roughness: 0.52,
+  color: '#afc7db',
+  roughness: 0.6,
 });
 
 function RoofFrame({ size }: { size: [number, number, number] }) {
@@ -885,12 +958,16 @@ function GlowBeam({
   radius = 0.1,
   opacity = 1,
   color = '#a4e8ff',
+  depthTest = true,
+  renderOrder,
 }: {
   start: [number, number, number];
   end: [number, number, number];
   radius?: number;
   opacity?: number;
   color?: string;
+  depthTest?: boolean;
+  renderOrder?: number;
 }) {
   const beam = useMemo(() => {
     const from = new THREE.Vector3(...start);
@@ -909,6 +986,7 @@ function GlowBeam({
   return (
     <mesh
       position={[beam.center.x, beam.center.y, beam.center.z]}
+      renderOrder={renderOrder}
       quaternion={[
         beam.quaternion.x,
         beam.quaternion.y,
@@ -921,6 +999,7 @@ function GlowBeam({
         color={color}
         transparent
         opacity={opacity}
+        depthTest={depthTest}
         depthWrite={false}
         toneMapped={false}
       />
@@ -942,8 +1021,8 @@ function StoryTile({
   size: [number, number, number];
   opacity?: number;
   glow?: number;
-  color?: THREE.ColorRepresentation;
-  edgeColor?: THREE.ColorRepresentation;
+  color?: string;
+  edgeColor?: string;
   edgeOpacity?: number;
   highlight?: number;
 }) {
@@ -1154,80 +1233,122 @@ function RailArrow({
   );
 }
 
+function stagePresence(weight: number, floor = 0.06) {
+  const normalized = smoothStep(clamp01((weight - floor) / (1 - floor)));
+  return normalized < 0.035 ? 0 : normalized;
+}
+
+function useStage3PulseController(
+  beamArrival: number,
+  progress: number,
+  spec: PulseSpec,
+) {
+  const pulseStartRef = useRef<number | null>(null);
+  const pulseElapsedRef = useRef(0);
+  const renderCommitRef = useRef(0);
+  const [, setPulseVersion] = useState(0);
+
+  useFrame(({ clock }) => {
+    const elapsed = clock.getElapsedTime();
+    const stage3Window = beatByKey.stage3;
+    const shouldReset =
+      progress < stage3Window.start - 0.04 && beamArrival < 0.1;
+    const shouldAnimatePulse =
+      progress > stage3Window.start - 0.03 &&
+      progress < stage3Window.end + 0.03 &&
+      (beamArrival > 0.02 || pulseStartRef.current !== null);
+
+    if (beamArrival > 0.94 && pulseStartRef.current === null) {
+      pulseStartRef.current = elapsed;
+    }
+
+    if (shouldReset) {
+      pulseStartRef.current = null;
+      pulseElapsedRef.current = 0;
+    } else if (pulseStartRef.current !== null) {
+      pulseElapsedRef.current = elapsed - pulseStartRef.current;
+    }
+
+    if (
+      shouldAnimatePulse &&
+      elapsed - renderCommitRef.current >= 1 / 6
+    ) {
+      renderCommitRef.current = elapsed;
+      setPulseVersion((current) => (current + 1) % 4096);
+    }
+  });
+
+  const pulseElapsed = pulseElapsedRef.current;
+  const pulseContact = pulseStartRef.current !== null;
+  const interval = Math.max(spec.intervalSeconds, 0.001);
+  const step = Math.floor(pulseElapsed / interval);
+  const phase = pulseElapsed / interval - step;
+
+  return {
+    pulseElapsed,
+    pulseContact,
+    pulseHead: 1 + step,
+    pulseSoftness: 0.88 + Math.sin(phase * Math.PI) * 0.12,
+  };
+}
+
 function JourneyComposition({ progress }: { progress: number }) {
-  const [, setPulseRenderTick] = useState(0);
-  const stage3PulseStartRef = useRef<number | null>(null);
-  const stage3PulseElapsedRef = useRef(0);
-  const pulseCommitRef = useRef(0);
-  const openingBeat = heroBeats[0];
-  const stage1Monument = monumentStates[0];
-  const stage2Monument = monumentStates[1];
-  const stage3Monument = monumentStates[2];
-  const stage4Monument = monumentStates[3];
+  const stage1Monument = monumentByKey.stage1;
+  const stage2Monument = monumentByKey.stage2;
+  const stage3Monument = monumentByKey.stage3;
+  const stage4Monument = monumentByKey.stage4;
   const openingStage1 = 0.74 * (1 - clamp01((progress - 0.08) / 0.22));
   const stage1 = Math.max(openingStage1, getMonumentWeight(progress, stage1Monument));
   const stage2 = getMonumentWeight(progress, stage2Monument);
   const stage3 = getMonumentWeight(progress, stage3Monument);
   const stage4 = getMonumentWeight(progress, stage4Monument);
-  const stage2TunnelActive = smoothStep(clamp01((progress - 0.402) / 0.05));
+  const stage2TunnelActive = smoothStep(clamp01((progress - 0.424) / 0.055));
   const beamBloom = Math.max(stage2, stage3, stage4);
-  const ideaProgress = clamp01(progress / (openingBeat.end + 0.18));
-  const ideaOpacity = clamp01(1 - (progress - 0.25) / 0.15);
-  const blueTravelStart = 0.39;
-  const blueTravelEnd = 0.885;
-  const blueReveal = clamp01((progress - blueTravelStart) / 0.045);
+  const openingFocus = 1 - clamp01(progress / 0.18);
+  const tunnelBeam = beamByKey['tunnel-blue'];
+  const pulseBeam = beamByKey['pulse-blue'];
+  const arrivalBeam = beamByKey['arrival-blue'];
+  const stage1RailLead = smoothStep(
+    clamp01(progress / Math.max(tunnelBeam.start, 0.0001)),
+  );
+  const stage1RailTrail = Math.max(0, stage1RailLead - 0.2);
+  const blueTravelStart = tunnelBeam.start;
+  const blueTravelEnd = arrivalBeam.end;
+  const blueReveal = clamp01((progress - blueTravelStart) / 0.04);
   const lateTravelBoost = clamp01((progress - 0.62) / 0.28);
   const blueTravelProgress = clamp01(
     (progress - blueTravelStart) / (blueTravelEnd - blueTravelStart),
   );
   const blueRailLead = clamp01(
     Math.min(
-      0.862,
-      THREE.MathUtils.lerp(0.382, 0.862, blueTravelProgress) +
+      arrivalBeam.leadEnd,
+      THREE.MathUtils.lerp(tunnelBeam.leadStart, arrivalBeam.leadEnd, blueTravelProgress) +
         lateTravelBoost * 0.01,
     ),
   );
   const blueTipPoint = getRailPointAt(blueRailLead);
   const stage3BeamArrival = smoothStep(
-    clamp01((blueRailLead - pulseSpec.contactStart) / 0.03),
+    clamp01((blueRailLead - sceneSpec.pulse.contactStart) / 0.03),
   );
-  const stage3PulseElapsed = stage3PulseElapsedRef.current;
+  const stage3Pulse = useStage3PulseController(
+    stage3BeamArrival,
+    progress,
+    sceneSpec.pulse,
+  );
   const monumentScale = 0.66;
-  const stage1Position = getRailPosition(stage1Monument.focusAt, 0.2);
-  const stage2Position = getRailPosition(stage2Monument.focusAt, 0);
-  const stage3Position = getRailPosition(stage3Monument.focusAt, -0.2);
-  const stage4Position = getRailPosition(stage4Monument.focusAt, 0.2);
-  const stage3GridOffsets = [
-    -7.1, -5.68, -4.26, -2.84, -1.42, 0, 1.42, 2.84, 4.26, 5.68, 7.1,
-  ];
-  const convergencePoint = getRailPosition(0.265, 0, 0.02);
-  const stage1BundleEntry = getRailPosition(0.348, 0, 0.02);
-  const ideaPaths: Vec3Tuple[][] = [
-    [
-      getRailPosition(0.085, -1.7, 0.02),
-      getRailPosition(0.16, -1.7, 0.02),
-      convergencePoint,
-      stage1BundleEntry,
-    ],
-    [
-      getRailPosition(0.095, 1.1, 0.02),
-      getRailPosition(0.095, 0.36, 0.02),
-      convergencePoint,
-      stage1BundleEntry,
-    ],
-    [
-      getRailPosition(0.12, -0.9, 0.02),
-      getRailPosition(0.21, -0.9, 0.02),
-      getRailPosition(0.21, -0.16, 0.02),
-      stage1BundleEntry,
-    ],
-    [
-      getRailPosition(0.13, 1.8, 0.02),
-      getRailPosition(0.24, 1.8, 0.02),
-      getRailPosition(0.24, 0.18, 0.02),
-      stage1BundleEntry,
-    ],
-  ];
+  const stage1Position = getRailPosition(
+    stage1Monument.focusAt,
+    THREE.MathUtils.lerp(-5.4, -1.6, smoothStep(1 - openingFocus)),
+    THREE.MathUtils.lerp(-1.14, -0.16, smoothStep(1 - openingFocus)),
+  );
+  const stage2Position = getRailPosition(stage2Monument.focusAt, -0.18, 0.02);
+  const stage3Position = getRailPosition(stage3Monument.focusAt, -0.08, 0.03);
+  const stage4Position = getRailPosition(stage4Monument.focusAt, -2.1, 0.06);
+  const stage3GridOffsets = sceneSpec.stage3GridOffsets;
+  const stage1Presence = stagePresence(stage1);
+  const stage2Presence = stagePresence(stage2);
+  const stage3Presence = stagePresence(stage3);
+  const stage4Presence = stagePresence(stage4);
   const stageAnchors: Array<{
     position: [number, number, number];
     radius: number;
@@ -1236,8 +1357,8 @@ function JourneyComposition({ progress }: { progress: number }) {
   }> = [
     {
       position: [stage1Position[0], 0.04, stage1Position[2]],
-      radius: 1.8,
-      opacity: 0.03 + stage1 * 0.16,
+      radius: 2.1,
+      opacity: 0.04 + stage1 * 0.2,
       color: '#b6f0ff',
     },
     {
@@ -1262,8 +1383,8 @@ function JourneyComposition({ progress }: { progress: number }) {
   const entranceBlooms = [
     {
       position: [stage1Position[0], 0.025, stage1Position[2]] as Vec3Tuple,
-      radius: 2.7,
-      opacity: windowWeight(progress, -0.02, 0.11, 0.31) * 0.24,
+      radius: 3,
+      opacity: windowWeight(progress, -0.02, 0.12, 0.33) * 0.27,
     },
     {
       position: [stage2Position[0], 0.025, stage2Position[2]] as Vec3Tuple,
@@ -1282,57 +1403,8 @@ function JourneyComposition({ progress }: { progress: number }) {
     },
   ];
 
-  useFrame(({ clock }) => {
-    const elapsed = clock.getElapsedTime();
-
-    if (stage3BeamArrival > 0.94) {
-      if (stage3PulseStartRef.current === null) {
-        stage3PulseStartRef.current = elapsed;
-        pulseCommitRef.current = elapsed;
-      }
-      stage3PulseElapsedRef.current = elapsed - stage3PulseStartRef.current;
-      if (elapsed - pulseCommitRef.current >= 1 / 30) {
-        pulseCommitRef.current = elapsed;
-        setPulseRenderTick((current) => (current + 1) % 1024);
-      }
-      return;
-    }
-
-    if (stage3PulseStartRef.current !== null) {
-      stage3PulseStartRef.current = null;
-      stage3PulseElapsedRef.current = 0;
-      pulseCommitRef.current = elapsed;
-      setPulseRenderTick((current) => (current + 1) % 1024);
-    }
-  });
-
   return (
-    <group
-      position={[0, 0.01 + Math.sin(progress * Math.PI) * 0.04, 0]}
-      rotation={[0, 0, 0]}
-      scale={1}
-    >
-      {ideaPaths.map((path, index) => (
-        <BeamPath
-          key={`idea-path-${index}`}
-          points={path}
-          progress={ideaProgress}
-          radius={0.062}
-          opacity={ideaOpacity * 0.82}
-          color="#ff4b5f"
-        />
-      ))}
-      {ideaPaths.map((path, index) => (
-        <BeamPath
-          key={`idea-core-${index}`}
-          points={path}
-          progress={ideaProgress}
-          radius={0.044}
-          opacity={ideaOpacity * 0.92}
-          color="#ff8d9a"
-        />
-      ))}
-
+    <group position={[0, 0.01, 0]} rotation={[0, 0, 0]} scale={1}>
       {railSegments.map((segment, index) => {
         if (blueReveal <= 0.01 || segment.endRatio <= 0.38) {
           return null;
@@ -1377,21 +1449,39 @@ function JourneyComposition({ progress }: { progress: number }) {
             <GlowBeam
               start={activeStart}
               end={activeEnd}
-              radius={0.072}
-              opacity={(0.12 + beamBloom * 0.05) * blueReveal}
+              radius={
+                progress < pulseBeam.start
+                  ? tunnelBeam.radius
+                  : progress < arrivalBeam.start
+                    ? pulseBeam.radius
+                    : arrivalBeam.radius
+              }
+              opacity={(0.14 + beamBloom * 0.06) * blueReveal}
               color="#7edfff"
             />
             <GlowBeam
               start={activeStart}
               end={activeEnd}
-              radius={0.038}
+              radius={
+                progress < pulseBeam.start
+                  ? tunnelBeam.coreRadius
+                  : progress < arrivalBeam.start
+                    ? pulseBeam.coreRadius
+                    : arrivalBeam.coreRadius
+              }
               opacity={0.92 * blueReveal}
-              color="#3cbdf2"
+              color="#45c7f6"
             />
             <GlowBeam
               start={tipStart}
               end={activeEnd}
-              radius={0.058 + beamBloom * 0.012}
+              radius={
+                (progress < pulseBeam.start
+                  ? tunnelBeam.tipRadius
+                  : progress < arrivalBeam.start
+                    ? pulseBeam.tipRadius
+                    : arrivalBeam.tipRadius) + beamBloom * 0.012
+              }
               opacity={(0.34 + beamBloom * 0.2) * blueReveal}
               color="#8be9ff"
             />
@@ -1479,110 +1569,233 @@ function JourneyComposition({ progress }: { progress: number }) {
 
       <group
         position={stage1Position}
-        rotation={[0, getRailYaw(0.12) + Math.PI / 2, 0]}
-        scale={monumentScale}
+        rotation={[0, getRailYaw(0.12) + Math.PI / 2 + 0.28, 0]}
+        scale={Math.max(
+          0.001,
+          monumentScale *
+            THREE.MathUtils.lerp(2.22, 1.28, smoothStep(1 - openingFocus)) *
+            stage1Presence,
+        )}
+        visible={stage1Presence > 0.01}
       >
+        <SlabBuilding
+          position={[-4.9, 0.8, 2.96]}
+          size={[1.7, 1.72, 1.7]}
+          ribs={4}
+        />
         <TowerBuilding
-          position={[-3.4, 0.04, 3.2]}
+          position={[-2.42, 0.04, 4.5]}
           levels={[
-            { size: [2.2, 2.2, 2.2], y: 1.1 },
-            { size: [1.86, 1.46, 1.86], y: 2.94 },
+            { size: [2.16, 2.34, 2.16], y: 1.17 },
+            { size: [1.66, 1.38, 1.66], y: 3.02 },
           ]}
         />
         <SlabBuilding
-          position={[-0.7, 1.62, 0.95]}
-          size={[1.94, 3.24, 2.02]}
+          position={[0.02, 1.64, 2.52]}
+          size={[1.96, 3.38, 1.96]}
           ribs={5}
         />
         <SlabBuilding
-          position={[2.28, 1.08, 1.78]}
-          size={[2.18, 2.16, 2.22]}
+          position={[2.52, 0.98, 3.56]}
+          size={[2.1, 2.06, 2.1]}
           ribs={4}
         />
-        <PalletCluster position={[6.2, 0.08, -0.86]} />
-        <WorkerFigure position={[-5.2, 0.02, -0.24]} scale={0.92} />
+        <SlabBuilding
+          position={[4.6, 0.8, 4.36]}
+          size={[1.56, 1.72, 1.62]}
+          ribs={4}
+        />
+        <PalletCluster position={[6.1, 0.08, -4.2]} />
+        <WorkerFigure position={[-5.88, 0.02, 0.74]} scale={0.72} />
+        <WorkerFigure position={[0.82, 0.02, -6.4]} scale={0.74} />
         <GlowBeam
-          start={[-3.45, 0.14, -0.1]}
-          end={[0.95, 0.14, -0.1]}
+          start={[-0.5, 0.34, 1.1]}
+          end={[-0.5, 0.34, -8.2]}
+          radius={0.13}
+          opacity={stage1 * 0.86}
+          color="#ff445a"
+          depthTest={false}
+          renderOrder={24}
+        />
+        <GlowBeam
+          start={[-0.5, 0.34, 1.1]}
+          end={[-0.5, 0.34, -8.2]}
+          radius={0.082}
+          opacity={stage1 * 1.24}
+          color="#ffb7c1"
+          depthTest={false}
+          renderOrder={25}
+        />
+        <GlowBeam
+          start={[
+            -0.5,
+            0.34,
+            THREE.MathUtils.lerp(1.1, -8.2, stage1RailTrail),
+          ]}
+          end={[
+            -0.5,
+            0.34,
+            THREE.MathUtils.lerp(1.1, -8.2, stage1RailLead),
+          ]}
+          radius={0.1}
+          opacity={stage1 * 1.4}
+          color="#fff1f3"
+          depthTest={false}
+          renderOrder={26}
+        />
+        <GlowBeam
+          start={[0.18, 0.31, 1.08]}
+          end={[0.18, 0.31, -8]}
+          radius={0.12}
+          opacity={stage1 * 0.8}
+          color="#ff445a"
+          depthTest={false}
+          renderOrder={24}
+        />
+        <GlowBeam
+          start={[0.18, 0.31, 1.08]}
+          end={[0.18, 0.31, -8]}
           radius={0.072}
+          opacity={stage1 * 1.18}
+          color="#ffb7c1"
+          depthTest={false}
+          renderOrder={25}
+        />
+        <GlowBeam
+          start={[
+            0.18,
+            0.31,
+            THREE.MathUtils.lerp(1.08, -8, stage1RailTrail),
+          ]}
+          end={[
+            0.18,
+            0.31,
+            THREE.MathUtils.lerp(1.08, -8, stage1RailLead),
+          ]}
+          radius={0.094}
+          opacity={stage1 * 1.34}
+          color="#fff1f3"
+          depthTest={false}
+          renderOrder={26}
+        />
+        <GlowBeam
+          start={[0.84, 0.28, 1.24]}
+          end={[0.54, 0.28, -7.76]}
+          radius={0.11}
+          opacity={stage1 * 0.74}
+          color="#ff4d61"
+          depthTest={false}
+          renderOrder={24}
+        />
+        <GlowBeam
+          start={[0.84, 0.28, 1.24]}
+          end={[0.54, 0.28, -7.76]}
+          radius={0.062}
+          opacity={stage1 * 1.08}
+          color="#ffd2d8"
+          depthTest={false}
+          renderOrder={25}
+        />
+        <GlowBeam
+          start={[0.18, 0.28, 1.36]}
+          end={[-0.08, 0.28, 0.92]}
+          radius={0.07}
+          opacity={stage1 * 0.32}
+          color="#ff5165"
+          depthTest={false}
+          renderOrder={23}
+        />
+        <GlowBeam
+          start={[0.18, 0.28, 1.36]}
+          end={[-0.08, 0.28, 0.92]}
+          radius={0.044}
+          opacity={stage1 * 0.94}
+          color="#ffd2d8"
+          depthTest={false}
+          renderOrder={24}
+        />
+        <GlowBeam
+          start={[0.82, 0.28, 1.26]}
+          end={[0.48, 0.28, 0.86]}
+          radius={0.068}
           opacity={stage1 * 0.42}
-          color="#ff6a7a"
+          color="#ff5165"
+          depthTest={false}
+          renderOrder={23}
         />
         <GlowBeam
-          start={[-3.45, 0.14, -0.1]}
-          end={[0.95, 0.14, -0.1]}
-          radius={0.052}
-          opacity={stage1 * 0.9}
-          color="#ff9eaa"
-        />
-        <GlowBeam
-          start={[-3.4, 0.14, 0.56]}
-          end={[1.02, 0.14, 0.56]}
-          radius={0.072}
-          opacity={stage1 * 0.4}
-          color="#ff6a7a"
-        />
-        <GlowBeam
-          start={[-3.4, 0.14, 0.56]}
-          end={[1.02, 0.14, 0.56]}
-          radius={0.052}
-          opacity={stage1 * 0.9}
-          color="#ff9eaa"
-        />
-        <GlowBeam
-          start={[-1.26, 0.14, 2.86]}
-          end={[-1.26, 0.14, 0.2]}
-          radius={0.058}
-          opacity={stage1 * 0.34}
-          color="#ff6a7a"
-        />
-        <GlowBeam
-          start={[-1.26, 0.14, 2.86]}
-          end={[-1.26, 0.14, 0.2]}
+          start={[0.82, 0.28, 1.26]}
+          end={[0.48, 0.28, 0.86]}
           radius={0.042}
-          opacity={stage1 * 0.84}
-          color="#ff9eaa"
+          opacity={stage1 * 0.9}
+          color="#ffd2d8"
+          depthTest={false}
+          renderOrder={24}
+        />
+        <GlowDisc
+          position={[-0.5, 0.36, THREE.MathUtils.lerp(1.1, -8.2, stage1RailLead)]}
+          radius={0.3}
+          opacity={stage1 * 1.08}
+          color="#fff3f4"
+        />
+        <GlowDisc
+          position={[0.18, 0.33, THREE.MathUtils.lerp(1.08, -8, stage1RailLead)]}
+          radius={0.24}
+          opacity={stage1 * 0.88}
+          color="#ffd9dd"
+        />
+        <GlowDisc
+          position={[0.54, 0.31, THREE.MathUtils.lerp(1.24, -7.76, stage1RailLead)]}
+          radius={0.24}
+          opacity={stage1 * 0.72}
+          color="#ffe5e8"
         />
       </group>
 
       <group
         position={stage2Position}
         rotation={[0, getRailYaw(0.38) + Math.PI / 2, 0]}
-        scale={monumentScale}
+        scale={Math.max(0.001, monumentScale * 1.12 * stage2Presence)}
+        visible={stage2Presence > 0.01}
       >
         <DotField
-          position={[0.8, 0, 0.48]}
+          position={[0.68, 0, 0.42]}
           rows={9}
-          cols={15}
-          spacing={1.16}
+          cols={17}
+          spacing={1.1}
           progress={0.18 + stage2 * 0.82}
         />
-        <FactoryBlock position={[-4.58, 1.18, -2.62]} />
-        <FactoryBlock position={[-1.82, 1.18, -3.6]} />
-        <Turbine position={[5.1, 0.02, -3.8]} rotation={0.24} speed={0.58} />
-        <Turbine position={[7.18, 0.02, -2.94]} rotation={0.14} speed={0.64} />
-        <mesh position={[0, 1.05, 0]} castShadow receiveShadow>
-          <boxGeometry args={[4.42, 2.12, 0.88]} />
+        <FactoryBlock position={[-4.22, 1.18, -2.38]} />
+        <FactoryBlock position={[-1.66, 1.18, -3.14]} />
+        <FactoryBlock position={[5.16, 1.18, 2.3]} />
+        <Turbine position={[4.64, 0.02, -3.18]} rotation={0.24} speed={0.58} />
+        <Turbine position={[6.38, 0.02, -2.38]} rotation={0.14} speed={0.64} />
+        <mesh position={[0, 1.18, 0]} castShadow receiveShadow>
+          <boxGeometry args={[5.52, 2.28, 0.88]} />
           <primitive object={buildingMaterial} attach="material" />
         </mesh>
-        <mesh position={[-1.76, 1.06, 0]} castShadow receiveShadow>
-          <boxGeometry args={[0.92, 2.16, 3.38]} />
+        <mesh position={[-2.28, 1.08, 0]} castShadow receiveShadow>
+          <boxGeometry args={[0.92, 2.16, 3.68]} />
           <primitive object={buildingMaterial} attach="material" />
         </mesh>
-        <mesh position={[1.76, 1.06, 0]} castShadow receiveShadow>
-          <boxGeometry args={[0.92, 2.16, 3.38]} />
+        <mesh position={[2.28, 1.08, 0]} castShadow receiveShadow>
+          <boxGeometry args={[0.92, 2.16, 3.68]} />
+          <primitive object={buildingMaterial} attach="material" />
+        </mesh>
+        <mesh position={[0, 0.72, 2.44]} castShadow receiveShadow>
+          <boxGeometry args={[3.94, 1.08, 1.28]} />
           <primitive object={buildingMaterial} attach="material" />
         </mesh>
         <GlowBeam
-          start={[-5.56, 0.26, 0]}
-          end={[5.56, 0.26, 0]}
+          start={[-6.4, 0.28, 0]}
+          end={[6.4, 0.28, 0]}
           radius={0.068}
           opacity={(0.16 + stage2 * 0.2) * stage2TunnelActive}
           color="#94ebff"
         />
         <GlowBeam
-          start={[-5.56, 0.26, 0]}
-          end={[5.56, 0.26, 0]}
+          start={[-6.4, 0.28, 0]}
+          end={[6.4, 0.28, 0]}
           radius={0.03}
           opacity={0.9 * stage2TunnelActive}
           color="#f6fcff"
@@ -1592,7 +1805,8 @@ function JourneyComposition({ progress }: { progress: number }) {
       <group
         position={stage3Position}
         rotation={[0, getRailYaw(0.66) + Math.PI / 2, 0]}
-        scale={monumentScale}
+        scale={Math.max(0.001, monumentScale * stage3Presence)}
+        visible={stage3Presence > 0.01}
       >
         <GlowBeam
           start={[-7.35, 0.28, 0]}
@@ -1622,51 +1836,53 @@ function JourneyComposition({ progress }: { progress: number }) {
             const cellX = Math.round(Math.abs(x) / 1.42);
             const cellZ = Math.round(Math.abs(z) / 1.42);
             const chebyshevRing = Math.max(cellX, cellZ);
-            const hugsPodium = !isCore && cellX <= 1 && cellZ <= 1;
             const isCardinalInner =
               !isCore &&
               chebyshevRing === 1 &&
               ((cellX === 1 && cellZ === 0) || (cellX === 0 && cellZ === 1));
-            const maxRing = 5.25;
-            const pulseTravel = stage3PulseElapsed / pulseSpec.intervalSeconds;
-            const pulseCycle = pulseTravel % (maxRing + pulseSpec.bandWidth + 0.6);
-            const pulseBeat =
-              0.78 + Math.sin((pulseTravel % 1) * Math.PI) * 0.22;
-            const pulseHead = 1 + pulseCycle;
-            const pulseDistance = Math.abs(chebyshevRing - pulseHead);
+            const isInnerCorner =
+              !isCore &&
+              chebyshevRing === 1 &&
+              cellX === 1 &&
+              cellZ === 1;
+            const pulseDistance = Math.abs(
+              chebyshevRing - stage3Pulse.pulseHead,
+            );
             const pulseStrength =
               !isCore && chebyshevRing > 0
-                ? smoothStep(clamp01(1 - pulseDistance / pulseSpec.bandWidth)) *
-                  pulseBeat *
+                ? smoothStep(
+                    clamp01(1 - pulseDistance / sceneSpec.pulse.bandWidth),
+                  ) *
+                  stage3Pulse.pulseSoftness *
                   stage3BeamArrival
                 : 0;
             const pulseCore =
               smoothStep(clamp01(1 - pulseDistance / 0.64)) *
-              pulseBeat *
+              stage3Pulse.pulseSoftness *
               stage3BeamArrival;
             const pulseHalo =
               smoothStep(clamp01(1 - pulseDistance / 2.2)) *
-              pulseBeat *
+              stage3Pulse.pulseSoftness *
               stage3BeamArrival;
             const bandStrength = pulseStrength;
-            const glowBoost = pulseStrength * 0.78 + pulseHalo * 0.16;
-            const tileOpacityBoost = pulseStrength * 0.52 + pulseHalo * 0.08;
-            const tileHighlightBoost = pulseStrength * 0.7 + pulseCore * 0.22;
+            const glowBoost = pulseStrength * 0.42 + pulseHalo * 0.1;
+            const tileOpacityBoost = pulseStrength * 0.58 + pulseHalo * 0.06;
+            const tileHighlightBoost = pulseStrength * 0.64 + pulseCore * 0.18;
             const tileColor = isCore
-              ? '#4750ef'
-              : new THREE.Color('#eef6fb').lerp(
-                  new THREE.Color('#c8f6ff'),
-                  pulseStrength,
-                );
+              ? '#4660e9'
+              : `#${new THREE.Color('#eef6fb')
+                  .lerp(new THREE.Color('#d7fbff'), pulseStrength)
+                  .getHexString()}`;
             const tileEdgeColor = isCore
-              ? new THREE.Color('#89e5ff').lerp(
-                  new THREE.Color('#f7fbff'),
-                  stage3BeamArrival,
-                )
-              : new THREE.Color('#7fdff6').lerp(
-                  new THREE.Color('#bdefff'),
-                  pulseStrength,
-                );
+              ? `#${new THREE.Color('#8adfff')
+                  .lerp(
+                    new THREE.Color('#f7fbff'),
+                    stage3Pulse.pulseContact ? 1 : stage3BeamArrival,
+                  )
+                  .getHexString()}`
+              : `#${new THREE.Color('#92dff4')
+                  .lerp(new THREE.Color('#bdefff'), pulseStrength)
+                  .getHexString()}`;
             const outerTileHeight = 0.1;
             const innerTileHeight = outerTileHeight * 1.1;
             const coreTileHeight = 0.84;
@@ -1674,29 +1890,26 @@ function JourneyComposition({ progress }: { progress: number }) {
               ? coreTileHeight
               : isCardinalInner
                 ? coreTileHeight * 0.5
-                : hugsPodium
+                : isInnerCorner
                   ? innerTileHeight
                   : outerTileHeight;
-            const podiumBlue = stage3BeamArrival;
-            const coreColor = new THREE.Color('#edf6fb').lerp(
-              new THREE.Color('#4750ef'),
-              podiumBlue,
-            );
-            const coreGlow = smoothStep(stage3BeamArrival) * 0.38;
+            const podiumBlue = stage3Pulse.pulseContact ? 1 : stage3BeamArrival;
+            const coreColor = `#${new THREE.Color('#edf6fb')
+              .lerp(new THREE.Color('#4a63ec'), podiumBlue)
+              .getHexString()}`;
+            const coreGlow = smoothStep(podiumBlue) * 0.22;
             const litSurfaceOpacity = !isCore
-              ? clamp01(bandStrength * 0.82 + pulseCore * 0.18)
+              ? clamp01(bandStrength * 0.9 + pulseCore * 0.12)
               : 0;
             return (
               <group key={`${x}-${z}-${index}`} position={[x, 0, z]}>
                 {!isCore && bandStrength > 0.02 ? (
-                  <>
-                    <GlowDisc
-                      position={[0, 0.045, 0]}
-                      radius={0.72}
-                      opacity={bandStrength * 0.24}
-                      color="#94eeff"
-                    />
-                  </>
+                  <GlowDisc
+                    position={[0, 0.032, 0]}
+                    radius={0.62}
+                    opacity={bandStrength * 0.12}
+                    color="#8deeff"
+                  />
                 ) : null}
                 <StoryTile
                   position={[0, 0, 0]}
@@ -1722,29 +1935,29 @@ function JourneyComposition({ progress }: { progress: number }) {
                       : 0.02 +
                         centerBoost * 0.02 +
                         stage3 * 0.06 +
-                        glowBoost * 0.12 +
-                        bandStrength * 0.28
+                        glowBoost * 0.08 +
+                        bandStrength * 0.22
                   }
                   highlight={
                     isCore
-                      ? 0.04 + podiumBlue * 0.14
+                      ? 0.04 + podiumBlue * 0.1
                       : tileHighlightBoost
                   }
                 />
                 {!isCore && litSurfaceOpacity > 0.02 ? (
                   <mesh
-                    position={[0, tileHeight + 0.05, 0]}
+                    position={[0, tileHeight + 0.028, 0]}
                     rotation={[-Math.PI / 2, 0, 0]}
                   >
-                    <planeGeometry args={[0.96, 0.96]} />
+                    <planeGeometry args={[0.9, 0.9]} />
                     <meshBasicMaterial
                       color="#bff8ff"
                       transparent
-                      opacity={litSurfaceOpacity * 0.84}
+                      opacity={litSurfaceOpacity * 0.9}
                       depthWrite={false}
                       polygonOffset
-                      polygonOffsetFactor={-3}
-                      polygonOffsetUnits={-3}
+                      polygonOffsetFactor={-4}
+                      polygonOffsetUnits={-4}
                       toneMapped={false}
                     />
                   </mesh>
@@ -1761,58 +1974,44 @@ function JourneyComposition({ progress }: { progress: number }) {
       <group
         position={stage4Position}
         rotation={[0, getRailYaw(0.86) + Math.PI / 2, 0]}
-        scale={monumentScale}
+        scale={Math.max(0.001, monumentScale * 1.22 * stage4Presence)}
+        visible={stage4Presence > 0.01}
       >
         <DotField
-          position={[-0.8, 0, 0.5]}
-          rows={9}
-          cols={15}
-          spacing={1.08}
-          progress={0.12 + stage4 * 0.88}
+          position={[0.24, 0, 0.2]}
+          rows={13}
+          cols={17}
+          spacing={0.96}
+          progress={0.16 + stage4 * 0.84}
         />
         <GlowBeam
-          start={[-5.8, 0.34, 0.6]}
-          end={[2.6, 0.34, 0.6]}
-          radius={0.058}
-          opacity={0.14 + stage4 * 0.32}
+          start={[-9.6, 0.34, 0.22]}
+          end={[-1.32, 0.34, 0.22]}
+          radius={0.084}
+          opacity={0.18 + stage4 * 0.4}
           color="#f5fdff"
         />
-        <StoryTile
-          position={[-4.9, 0, 0.2]}
-          size={[0.62, 2.28, 5.7]}
-          opacity={0.16 + stage4 * 0.73}
-          color="#edf8ff"
-          edgeColor="#8de6ff"
-          edgeOpacity={0.09 + stage4 * 0.46}
-          highlight={0.04 + stage4 * 0.16}
-        />
-        <StoryTile
-          position={[5.2, 0, 0.2]}
-          size={[0.62, 2.02, 5.1]}
-          opacity={0.14 + stage4 * 0.67}
-          color="#edf8ff"
-          edgeColor="#8de6ff"
-          edgeOpacity={0.08 + stage4 * 0.4}
-        />
         <RailArrow
-          position={[0.6, 0, 0.4]}
-          opacity={0.42 + stage4 * 0.58}
-          color="#4e58ef"
+          position={[0, 0, 0]}
+          opacity={0.5 + stage4 * 0.5}
+          color="#3d44d9"
         />
         {[
-          [-0.8, 0, 3.2],
-          [4.2, 0, 2.2],
-          [4.2, 0, -1.2],
-          [-0.8, 0, -2.2],
+          [0.18, 0, 5.04],
+          [3.34, 0, 2.78],
+          [3.34, 0, -2.36],
+          [0.18, 0, -5.04],
         ].map((pos, index) => (
           <StoryTile
             key={index}
             position={pos as [number, number, number]}
-            size={[1.4, 0.58, 1.4]}
-            opacity={0.16 + stage4 * 0.7}
-            glow={0.04 + stage4 * 0.16}
-            edgeColor="#7480ff"
-            edgeOpacity={0.08 + stage4 * 0.34}
+            size={[1.7, 1.06, 1.7]}
+            opacity={0.22 + stage4 * 0.66}
+            glow={0.08 + stage4 * 0.24}
+            color="#4850df"
+            edgeColor="#7079ff"
+            edgeOpacity={0.16 + stage4 * 0.34}
+            highlight={0.04 + stage4 * 0.18}
           />
         ))}
       </group>
@@ -1820,44 +2019,32 @@ function JourneyComposition({ progress }: { progress: number }) {
   );
 }
 
-function FieldComposition({ flowProgress }: { flowProgress: number }) {
+function FieldComposition({
+  flowProgress,
+  ready,
+  introReady,
+}: {
+  flowProgress: number;
+  ready: boolean;
+  introReady: boolean;
+}) {
   const groupRef = useRef<THREE.Group>(null);
   const previousProgressRef = useRef(flowProgress);
   const progressVelocityRef = useRef(0);
   const initializedRigRef = useRef(false);
-  const pointerRef = useRef({ x: 0, y: 0 });
-  const scrollRatioRef = useRef(0);
+  const introStartRef = useRef<number | null>(null);
+  const introVisibleRef = useRef(false);
   const cameraTarget = useMemo(() => new THREE.Vector3(), []);
   const cameraPositionTarget = useMemo(() => new THREE.Vector3(), []);
   const localLookTarget = useMemo(() => new THREE.Vector3(), []);
   const worldCameraTarget = useMemo(() => new THREE.Vector3(), []);
   const worldLookTarget = useMemo(() => new THREE.Vector3(), []);
+  const introCameraWorld = useMemo(() => new THREE.Vector3(), []);
+  const introLookWorld = useMemo(() => new THREE.Vector3(), []);
+  const activeCameraWorld = useMemo(() => new THREE.Vector3(), []);
+  const activeLookWorld = useMemo(() => new THREE.Vector3(), []);
   const normalizedFlowProgress = clamp01(flowProgress);
   const showLegacyLand = flowProgress < 0 && Number.isFinite(flowProgress);
-
-  useEffect(() => {
-    const onPointerMove = (event: PointerEvent) => {
-      pointerRef.current = {
-        x: event.clientX / window.innerWidth - 0.5,
-        y: event.clientY / window.innerHeight - 0.5,
-      };
-    };
-
-    const onScroll = () => {
-      const limit =
-        document.documentElement.scrollHeight - window.innerHeight || 1;
-      scrollRatioRef.current = window.scrollY / limit;
-    };
-
-    onScroll();
-    window.addEventListener('pointermove', onPointerMove, { passive: true });
-    window.addEventListener('scroll', onScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('pointermove', onPointerMove);
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
 
   useFrame(({ clock, camera }, delta) => {
     const group = groupRef.current;
@@ -1874,140 +2061,192 @@ function FieldComposition({ flowProgress }: { flowProgress: number }) {
       Math.abs(progressDelta) / Math.max(delta, 0.016),
       0.18,
     );
-    const speedBoost = clamp01(progressVelocityRef.current * 0.36);
-    const focusLift = Math.sin(smoothStep(journeyProgress) * Math.PI);
-    const stage1Lock = getBeatWeight(journeyProgress, heroBeats[1]);
-    const stage2Tunnel = getBeatWeight(journeyProgress, heroBeats[2]);
-    const stage3Read = getBeatWeight(journeyProgress, heroBeats[3]);
-    const stage4Settle = getBeatWeight(journeyProgress, heroBeats[4]);
+    const speedBoost = clamp01(progressVelocityRef.current * 0.22);
+    const stage1Lock = getBeatWeight(journeyProgress, beatByKey.stage1);
+    const stage2Tunnel = getBeatWeight(journeyProgress, beatByKey.stage2);
+    const stage3Read = getBeatWeight(journeyProgress, beatByKey.stage3);
+    const stage4Settle = getBeatWeight(journeyProgress, beatByKey.stage4);
     const monumentArrival = Math.max(
-      getMonumentWeight(journeyProgress, monumentStates[0]),
-      getMonumentWeight(journeyProgress, monumentStates[1]),
-      getMonumentWeight(journeyProgress, monumentStates[2]),
-      getMonumentWeight(journeyProgress, monumentStates[3]),
+      getMonumentWeight(journeyProgress, monumentByKey.stage1),
+      getMonumentWeight(journeyProgress, monumentByKey.stage2),
+      getMonumentWeight(journeyProgress, monumentByKey.stage3),
+      getMonumentWeight(journeyProgress, monumentByKey.stage4),
     );
-    const previewBias = smoothStep(clamp01(speedBoost * 0.9 + journeyProgress * 0.14));
+    const previewBias = smoothStep(
+      clamp01(speedBoost * 0.56 + journeyProgress * 0.1),
+    );
     const lookAhead =
       THREE.MathUtils.lerp(0.2, 0.06, monumentArrival) +
-      previewBias * 0.11 +
-      stage4Settle * 0.03;
-    const cameraProgress = getCameraProgress(
+      previewBias * 0.05 +
+      stage4Settle * 0.015;
+    const stopProgress = getCameraProgress(
       clamp01(
         journeyProgress +
-          speedBoost * 0.05 +
+          speedBoost * 0.022 +
           stage1Lock * 0.01 +
-          stage2Tunnel * 0.02 +
-          stage3Read * 0.014,
+          stage2Tunnel * 0.012 +
+          stage3Read * 0.008,
       ),
     );
-    const railFrame = getRailFrameAt(
-      clamp01(cameraProgress + speedBoost * 0.03 + stage2Tunnel * 0.018),
+    const beamAnchorProgress = getBeamAnchorProgress(journeyProgress);
+    const anchorMix = THREE.MathUtils.lerp(
+      0.9,
+      0.78,
+      smoothStep(clamp01((journeyProgress - 0.62) / 0.28)),
     );
+    const cameraProgress = THREE.MathUtils.lerp(
+      stopProgress,
+      beamAnchorProgress,
+      anchorMix,
+    );
+    const railFrame = getRailFrameAt(clamp01(cameraProgress));
     const rig = getRigStop(
-      clamp01(cameraProgress + speedBoost * 0.035 + stage2Tunnel * 0.018),
+      clamp01(stopProgress + speedBoost * 0.018 + stage2Tunnel * 0.01),
     );
-    const pointer = pointerRef.current;
-    const scrollRatio = scrollRatioRef.current;
-    const targetY = pointer.y * 0.18;
+    if (!introReady) {
+      introStartRef.current = null;
+      introVisibleRef.current = false;
+    } else if (introStartRef.current === null) {
+      // Start the visible intro slightly in-progress once the loader clears
+      // so the first visible frame already feels like the dive has begun.
+      introStartRef.current = elapsed - 0.12;
+    }
+    const introElapsed =
+      introStartRef.current === null ? 0 : elapsed - introStartRef.current;
+    const introDive = smoothStep(clamp01((introElapsed - 0.01) / 0.58));
+    const introActive = introReady && introDive < 0.999;
     const groupEase = dampAmount(4.6, delta);
     const cameraEase = dampAmount(8.4 + speedBoost * 5.2, delta);
     const targetEase = dampAmount(11.5 + speedBoost * 6, delta);
 
-    group.position.y = THREE.MathUtils.lerp(
-      group.position.y,
-      -4.46 + focusLift * 0.07 + targetY * 0.04 + scrollRatio * 0.05,
-      groupEase,
-    );
-    group.position.z = THREE.MathUtils.lerp(group.position.z, 0.62, groupEase);
+    group.position.y = THREE.MathUtils.lerp(group.position.y, -5.18, groupEase);
+    group.position.z = THREE.MathUtils.lerp(group.position.z, 1.34, groupEase);
     group.rotation.y = THREE.MathUtils.lerp(
       group.rotation.y,
-      -0.62 + pointer.x * 0.025 + scrollRatio * 0.012,
+      -0.84,
       groupEase,
     );
     group.rotation.x = THREE.MathUtils.lerp(
       group.rotation.x,
-      0.44 + pointer.y * 0.024 - stage2Tunnel * 0.04,
+      0.52 - stage2Tunnel * 0.018 - stage3Read * 0.008,
       groupEase,
     );
-    group.rotation.z = THREE.MathUtils.lerp(group.rotation.z, 0, groupEase);
+    group.rotation.z = THREE.MathUtils.lerp(
+      group.rotation.z,
+      0,
+      groupEase,
+    );
     group.scale.setScalar(
       THREE.MathUtils.lerp(
         group.scale.x,
-        0.82 - stage2Tunnel * 0.015 + focusLift * 0.008,
+        1.02 - stage2Tunnel * 0.008,
         groupEase,
       ),
     );
     group.position.x = THREE.MathUtils.lerp(
       group.position.x,
-      4.1 + pointer.x * 0.08,
+      1.64,
       groupEase,
     );
     group.updateMatrixWorld(true);
 
     cameraPositionTarget.set(
       railFrame.point.x -
-        railFrame.tangent.x * rig.back +
-        railFrame.right.x * (rig.side + pointer.x * 1.05),
-      railFrame.point.y + rig.height + focusLift * 0.28 - pointer.y * 0.18,
+        railFrame.tangent.x *
+          (rig.back + THREE.MathUtils.lerp(0, 6.2, 1 - introDive)) +
+        railFrame.right.x * rig.side,
+      railFrame.point.y +
+        rig.height +
+        THREE.MathUtils.lerp(0, 4.4, 1 - introDive) +
+        stage3Read * 0.06,
       railFrame.point.z -
-        railFrame.tangent.z * rig.back +
-        railFrame.right.z * (rig.side + pointer.x * 1.05),
+        railFrame.tangent.z *
+          (rig.back + THREE.MathUtils.lerp(0, 6.2, 1 - introDive)) +
+        railFrame.right.z * rig.side,
     );
     worldCameraTarget.copy(cameraPositionTarget);
     group.localToWorld(worldCameraTarget);
     localLookTarget.set(
-        railFrame.point.x +
-        railFrame.tangent.x * (rig.targetForward + lookAhead * 11.5) +
-        railFrame.right.x * (rig.targetSide + pointer.x * 0.24),
-      railFrame.point.y + rig.targetHeight + pointer.y * 0.04,
+      railFrame.point.x +
+        railFrame.tangent.x *
+          (rig.targetForward +
+            THREE.MathUtils.lerp(0.2, 1.8, 1 - introDive) +
+            lookAhead * 5.6) +
+        railFrame.right.x * rig.targetSide,
+      railFrame.point.y + rig.targetHeight,
       railFrame.point.z +
-        railFrame.tangent.z * (rig.targetForward + lookAhead * 11.5) +
-        railFrame.right.z * (rig.targetSide + pointer.x * 0.24),
+        railFrame.tangent.z *
+          (rig.targetForward +
+            THREE.MathUtils.lerp(0.2, 1.8, 1 - introDive) +
+            lookAhead * 5.6) +
+        railFrame.right.z * rig.targetSide,
     );
     worldLookTarget.copy(localLookTarget);
     group.localToWorld(worldLookTarget);
 
+    introCameraWorld.set(
+      cameraPositionTarget.x -
+        railFrame.tangent.x * 10.8 +
+        railFrame.right.x * -1,
+      cameraPositionTarget.y + 6.8,
+      cameraPositionTarget.z -
+        railFrame.tangent.z * 10.8 +
+        railFrame.right.z * -1,
+    );
+    group.localToWorld(introCameraWorld);
+    introLookWorld.set(
+      localLookTarget.x + railFrame.tangent.x * 2.1,
+      localLookTarget.y + 0.6,
+      localLookTarget.z + railFrame.tangent.z * 2.1,
+    );
+    group.localToWorld(introLookWorld);
+    activeCameraWorld.copy(introCameraWorld).lerp(worldCameraTarget, introDive);
+    activeLookWorld.copy(introLookWorld).lerp(worldLookTarget, introDive);
+
+    if (introReady && !introVisibleRef.current) {
+      // Make the very first visible world frame start from the intro pose
+      // instead of the already-settled opening pose behind the loader.
+      camera.position.copy(introCameraWorld);
+      cameraTarget.copy(introLookWorld);
+      introVisibleRef.current = true;
+      initializedRigRef.current = true;
+    }
+
     if (!initializedRigRef.current) {
-      camera.position.copy(worldCameraTarget);
-      cameraTarget.copy(worldLookTarget);
+      camera.position.copy(introActive ? activeCameraWorld : worldCameraTarget);
+      cameraTarget.copy(introActive ? activeLookWorld : worldLookTarget);
       initializedRigRef.current = true;
     } else {
-      camera.position.lerp(worldCameraTarget, cameraEase);
-      cameraTarget.lerp(worldLookTarget, targetEase);
+      camera.position.lerp(
+        introActive ? activeCameraWorld : worldCameraTarget,
+        introActive ? dampAmount(5.2, delta) : cameraEase,
+      );
+      cameraTarget.lerp(
+        introActive ? activeLookWorld : worldLookTarget,
+        introActive ? dampAmount(6.8, delta) : targetEase,
+      );
     }
 
     camera.lookAt(cameraTarget.x, cameraTarget.y, cameraTarget.z);
 
-    group.children.forEach((child) => {
-      if (
-        !(child instanceof THREE.Group) ||
-        !child.name.startsWith('worker-')
-      ) {
-        return;
-      }
-
-      child.position.y =
-        Number(child.userData.baseY) +
-        Math.sin(elapsed * 1.4 + Number(child.userData.phase)) * 0.06;
-    });
   });
 
   return (
     <group
       ref={groupRef}
-      position={[4.1, -4.46, 0.62]}
-      rotation={[0.44, -0.62, 0]}
-      scale={0.82}
+      position={[1.64, -5.18, 1.34]}
+      rotation={[0.52, -0.84, 0]}
+      scale={1.02}
     >
       <group position={[0, -1.42, 0]}>
         <mesh castShadow receiveShadow>
           <boxGeometry args={[184, 2.8, 184]} />
           <meshPhysicalMaterial
-            color="#aabac4"
-            roughness={0.95}
-            metalness={0.03}
-            clearcoat={0.04}
-            clearcoatRoughness={0.86}
+            color="#b2c2cb"
+            roughness={0.96}
+            metalness={0.02}
+            clearcoat={0.02}
+            clearcoatRoughness={0.9}
           />
         </mesh>
         <mesh
@@ -2017,19 +2256,19 @@ function FieldComposition({ flowProgress }: { flowProgress: number }) {
         >
           <planeGeometry args={[183, 183]} />
           <meshPhysicalMaterial
-            color="#d7e2e8"
-            roughness={0.9}
+            color="#deebf1"
+            roughness={0.94}
             metalness={0.02}
-            clearcoat={0.04}
-            clearcoatRoughness={0.72}
+            clearcoat={0.02}
+            clearcoatRoughness={0.82}
           />
         </mesh>
         <mesh position={[0, 1.435, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <ringGeometry args={[28, 88, 48]} />
           <meshBasicMaterial
-            color="#99afbe"
+            color="#95abbb"
             transparent
-            opacity={0.035}
+            opacity={0.02}
             depthWrite={false}
           />
         </mesh>
@@ -2192,12 +2431,14 @@ export interface PegasoftFieldSceneProps {
   activeLifecycle?: number;
   flowProgress?: number;
   ready?: boolean;
+  introReady?: boolean;
 }
 
 export function PegasoftFieldScene({
   activeLifecycle = 0,
   flowProgress = 0,
   ready = true,
+  introReady = true,
 }: PegasoftFieldSceneProps) {
   const [canRender, setCanRender] = useState(false);
   const stageRef = useRef<HTMLDivElement>(null);
@@ -2454,7 +2695,7 @@ export function PegasoftFieldScene({
     <div className="pegasoft-field" aria-hidden="true">
       <Canvas
         shadows
-        camera={{ position: [24.4, 12.8, 22.8], fov: 26 }}
+        camera={{ position: [26.8, 16.2, 24.8], fov: 24 }}
         dpr={[1, 1.45]}
         gl={{ antialias: true, powerPreference: 'high-performance' }}
       >
@@ -2475,7 +2716,11 @@ export function PegasoftFieldScene({
           intensity={0.62}
           position={[-12, 9, 22]}
         />
-        <FieldComposition flowProgress={flowProgress} />
+        <FieldComposition
+          flowProgress={flowProgress}
+          ready={ready}
+          introReady={introReady}
+        />
       </Canvas>
       <div
         ref={stageRef}

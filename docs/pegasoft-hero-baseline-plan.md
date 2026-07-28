@@ -1,0 +1,1357 @@
+# Pegasoft Hero Baseline Plan
+
+Status: pre-refactor rebaseline; no delivery phase is accepted
+Last reviewed: 2026-07-26
+
+## Baseline verdict
+
+Every earlier completion claim is withdrawn.
+
+- The evidence baseline is incomplete: the repository does not contain a
+  complete measured-state fixture or accepted Pegasoft comparison matrix.
+- The replacement skeleton is incomplete: it still imports and ships the
+  legacy renderer, has no unit coverage, and has no passing journey-state
+  browser coverage.
+- Existing camera, route, geometry, timing, interaction, responsive, and
+  reduced-motion code is an unverified implementation hypothesis.
+- Cleanup has not passed: legacy code, legacy CSS, opaque reference aliases,
+  stale tests, and bundled dead code remain.
+
+Fresh Nx lint and production build checks pass. That proves the current source
+can compile; it does not prove visual, motion, interaction, responsive, or
+architectural acceptance. The current E2E run is `6 passed / 4 failed`, and the
+failing assertions still target obsolete hero copy and selectors.
+
+The next implementation work is not another visual tuning pass. It is:
+
+1. preserve the current working state in recoverable Git history;
+2. renew the source evidence and state measurements;
+3. cut the active import graph away from legacy;
+4. remove polluted/dead hero blocks and repair ownership boundaries;
+5. only then rebuild and compare the new hero.
+
+## Outcome
+
+Build the Pegasoft hero as a scroll-scrubbed journey through a persistent
+miniature industrial world. Match the reference's screen-space composition,
+visual hierarchy, camera behavior, route continuity, interaction grammar, and
+responsive behavior while retaining Pegasoft branding and copy.
+
+The implementation must have one active scene system. Git history is the
+rollback mechanism; a dormant production renderer is not.
+
+## Documents reviewed and their authority
+
+| Document or code | Role | Authority |
+| --- | --- | --- |
+| [website-plan.md](./website-plan.md) | Pegasoft product, brand, conversion, accessibility, and performance constraints | Product context only |
+| [pegasoft-codex-usage-memo.md](./pegasoft-codex-usage-memo.md) | Delivery and verification working policy | Process context only |
+| [vectr-hero-motion-map.md](./vectr-hero-motion-map.md) | Working observation notebook | Must be rechecked against the live site and recording; never a visual source |
+| Current Pegasoft implementation | Inventory of potentially reusable work and known failure modes | Never reference authority |
+| Earlier hero plans, screenshots, and captures | Historical context | Superseded |
+
+This document is the implementation plan. It does not elevate another Markdown
+document or a generated screenshot into design evidence.
+
+## Source of truth and provenance
+
+The only visual authorities are:
+
+1. the current production hero at [vectrfl.com](https://www.vectrfl.com/);
+2. the repository recording,
+   [vectrfl_recording.mov](./vectrfl_recording.mov), for reproducible desktop
+   states and transition order.
+
+Recording identity:
+
+- SHA-256:
+  `de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321`;
+- H.264, `3016x1522`, `1980` frames;
+- nominal `60fps`, average approximately `59.97fps`, duration `32.927833s`;
+- file size `190835536` bytes.
+
+Evidence rules:
+
+- When the live site and recording differ, record the difference. Use the live
+  site for current behavior and responsive rules; keep the recording as the
+  stable desktop regression anchor.
+- The recording contains user-controlled scrolling. Timestamps identify
+  observed states, not authored animation durations.
+- Scroll progress is the journey clock. Elapsed time is allowed only for the
+  loader/reveal, resolved-landing idle motion, and local stateful effects that
+  the reference demonstrably continues while scroll is stationary.
+- Any extracted frame ladder or Pegasoft screenshot is disposable,
+  reproducible test output. It may aid comparison but must cite the live URL or
+  recording timestamp/frame as its provenance.
+- Every external scratch asset or path from an earlier session is obsolete and
+  forbidden in plan data, runtime metadata, tests, and acceptance records.
+- The opaque `vectr-ref2-01` through `vectr-ref2-10` aliases have no repository
+  assets or traceable provenance. Do not translate them; remove them.
+- Absolute world directions such as “south-west” are implementation
+  inferences unless the current site source proves them. Acceptance uses
+  measured screen-space bounds, route topology, and camera-direction cues.
+
+## Reference findings from this review
+
+These findings come from the current live site and direct inspection of the
+repository recording. Exact contact frames and bounds still belong in the
+evidence gate.
+
+### Recording sequence
+
+The recording begins with a brief already-resolved page before the reload
+loader appears. Do not label frame zero as “loader begins.”
+
+Verified comparison anchors:
+
+| Recording time | Observable state |
+| --- | --- |
+| `0.0–0.8s` | Pre-reload resolved page; capture setup, not a target loader state |
+| `~0.9s` | Reload/reset to pale field and tiny central blue squares |
+| `1.0–1.8s` | Squares orbit/assemble; oversized elliptical contour lines sweep |
+| `1.9–3.1s` | Blue arrow/brand loader resolves while contours continue |
+| `3.2–3.7s` | Industrial world, red rails, and header compose into view |
+| `3.8–4.4s` | Heading tilts/translates into place, followed by body copy |
+| `4.4–8.4s` | Resolved idle landing with red route packets |
+| `~8.5s` | Journey scroll begins and landing copy exits |
+| `8.8–9.0s` | Step 01 becomes established |
+| `9.0–13.3s` | Red route travel and later cyan/blue handoff cues |
+| `13.4–13.6s` | Step 02 becomes active |
+| `13.5–20.4s` | Blue-route travel through broad industrial context |
+| `~20.5s` | Tile field preview begins while Step 02 remains active |
+| `~22.0s` | Step 03 becomes active in a strongly top-down composition |
+| `22.5–29.3s` | Repeated field pulses expand/reset around stable contact |
+| `29.4–29.6s` | Step 04 becomes active |
+| `30.0–31.2s` | Close frontal arrow lockup and horizontal cyan feed |
+| `~31.4s onward` | Journey yields to the following white page section |
+
+These anchors supersede the unverified times currently hard-coded in
+`hero-scene/reference-states.ts`. Gate A must seek exact nearby frames before
+committing runtime progress thresholds.
+
+### Current live implementation clues
+
+- The settled hero copy is “The New Standard in Staffing,” followed by the
+  process steps `01 Activation, simplified`, `02 Cleared to count`,
+  `03 Proven field match`, and `04 Seamless arrival`.
+- The live journey is scroll-scrubbed. Its source uses DOM handoffs near
+  `0.191`, `0.697`, and `0.876`, with route/camera activity distributed across
+  smaller internal ranges. These are measurement clues, not values to paste
+  into Pegasoft without same-viewport comparison.
+- A single raw scroll measurement does not imply identical DOM and scene
+  thresholds. The live source maps them differently; Pegasoft may do the same
+  through explicit, serializable curves owned by one controller.
+- The current live GLB world is not rotated at the stage-3 transition. The
+  apparent reorientation is produced by camera position/quaternion changes.
+  Pegasoft must therefore start with a fixed world and one camera-owned
+  composition transition. A world-root rotation is allowed only if comparison
+  proves it necessary, and camera plus world must never both implement the same
+  turn.
+- The live camera uses a short smoothing window, approximately `0.15s` on
+  desktop and `0.10s` on mobile. “No catch-up” means no lingering or
+  state-divergent lag; it does not mean removing reference-like smoothing.
+- Fine-pointer desktop also includes subtle pointer-driven camera displacement.
+  Treat it as a measured finishing behavior after the core camera track passes,
+  and omit it from mobile/coarse-pointer profiles.
+- The dotted/mouse treatment is a fine-pointer desktop behavior. The current
+  live source does not create its pointer-trail texture or pointer listener on
+  mobile/tablet. Touch activation is not a reference requirement.
+- Mobile uses a separate lighter scene asset, a taller journey, compact
+  centered copy, and a visible bottom scroll cue at `390x844`. Pegasoft needs a
+  measured mobile composition/profile; it must not assume that desktop camera
+  values or desktop pointer behavior merely scale down.
+- The heading reveal includes a visible 3D tilt/translation. The earlier ban on
+  3D copy rotation was unsupported. Its scroll exit also uses pronounced
+  perspective rotation/translation rather than a simple fade.
+- Landing route packets are staggered across four paths. The live source draws
+  each for about `1s`, retracts it over `0.8s`, and respawns it after a random
+  `1.4–3s` idle delay while target progress remains zero.
+- Field pulse and the arrival mark use local elapsed time after their progress
+  gates. The final live camera continues a measured retreat beyond the arrow
+  reveal into journey exit.
+- The current public reference has no dedicated reduced-motion branch.
+  Pegasoft's reduced-motion compositions are therefore a product/accessibility
+  requirement, not behavior to copy from Vectr.
+
+### Observable visual invariants
+
+- One pale industrial world and continuous route explain the full journey.
+- Landmarks have materially more travel space than the current local scene.
+- Red architectural rails lead into a blue illuminated route at the first
+  destination.
+- The camera reads as route/beam-relative during travel and does not make
+  abrupt right-angle or half-turn stage flips.
+- A large irregular rounded-tile field, elevated blue center, and repeated
+  luminous band/ring states dominate stage 03.
+- The blue route continues from the field into a close arrow destination.
+- Ground/context fills accepted frames; a platform edge or dark void is not
+  exposed.
+
+## Current implementation audit
+
+### Work that exists
+
+- `PegasoftHome` owns one normalized `flowProgress` from the sticky process
+  section and derives DOM process state from it.
+- `shared/hero-scene/` contains a replacement shell, pure sequence helper,
+  route, camera sampler, beam, materials, reference-state list, and procedural
+  world.
+- The page currently selects the new `HeroScene`.
+- A Canvas/WebGL check and DOM fallback exist.
+- Fresh Nx lint and build pass.
+
+This is useful work inventory, not proof that any previous phase passed.
+
+### Pollution and coupling that block further refactor
+
+1. `hero-scene/hero-scene.tsx` imports the 2,812-line
+   `pegasoft-field-scene.tsx` and keeps a hard-coded `HERO_RENDERER` switch.
+   The fresh production client output still contains legacy `vectr-ref2-*`,
+   cluster, and stage code; the import was not tree-shaken.
+2. The legacy file owns a second route, camera rig, beam system, world,
+   progress smoothing, scroll/pointer loop, Anime.js DOM choreography,
+   fallback, and an unreachable negative-progress branch.
+3. `pegasoft-home.module.css` is 2,362 lines and retains roughly 600 lines of
+   legacy-only `.pegasoft-stage`, flow-path, node, and cluster styling. The
+   legacy stage is hidden with `display:none`, while its old runtime can still
+   mutate it.
+4. `global.css` still contains unused `.pegasus-engine*` hero blocks.
+   Shared selectors such as `.eyebrow` and `.hero-actions` must be checked
+   before pruning because other pages use them.
+5. `hero-world.tsx` is already a 685-line aggregation of all destinations,
+   pointer behavior, pulse timing, and arrival geometry. Its values are not
+   source-traceable and must not become a second monolith.
+6. The current dotted wake is a globally pre-laid field whose sizes respond to
+   a hard-coded normalized-pointer-to-world approximation. It is not proven to
+   receive pointer updates through the fixed canvas styling and is not yet a
+   faithful local desktop trail.
+7. `ready` and `introReady` are accepted by the new scene boundary but ignored
+   by its active branch.
+8. `reference-states.ts` records only a key, time, progress, and step. It omits
+   the plan-required camera pose, look target, route state, copy state,
+   viewport, and landmark bounds, and several timestamps conflict with the
+   recording.
+9. Reduced motion currently falls into a generic four-block fallback rather
+   than a designed set of useful journey compositions.
+10. Mobile CSS collapses the process flow to `height:auto` while journey
+    progress remains scroll-derived; responsive state behavior is unverified.
+11. The E2E suite targets obsolete hero elements and proves no named state,
+    reverse/jump behavior, pointer behavior, fallback, reduced motion, or
+    visual composition.
+12. The app imports `clsx`, React Three Fiber, Drei, and Three.js without
+    declaring them directly in `apps/pegasoft/package.json`; it relies on root
+    dependency leakage.
+13. `libs/motion-system` exports an unused `particle-field-hero.tsx`. It is an
+    adjacent old-hero candidate to remove only after a dependency search proves
+    no other app owns it.
+
+## Reuse decision
+
+### Retain now
+
+- Pegasoft page copy, navigation, process structure, and downstream sections.
+- The page-level hero boundary and normalized journey-progress ownership.
+- The pure clamp/step-snapshot concept in `hero-sequence.ts`.
+- React Three Fiber, Three.js, and Drei.
+- A WebGL capability boundary with a useful fallback.
+
+Only these contracts are retained. No visual number is accepted here.
+
+### Candidate after isolated comparison
+
+- The untracked modules under `shared/hero-scene/`.
+- Pure route sampling and camera-pose sampling.
+- Low-poly procedural primitives, palette, materials, shadows, buildings,
+  workers, tiles, route segments, beam cores, and arrow geometry.
+- Existing loader and copy CSS.
+
+Candidates are copied or rewritten into clean ownership boundaries only after
+they pass a source-state comparison. Nothing in this list inherits completion
+status.
+
+### Remove or quarantine before visual refactor
+
+- `pegasoft-field-scene.tsx`;
+- the `HERO_RENDERER` toggle and legacy import;
+- legacy negative-progress, duplicate scroll/pointer, Anime.js DOM, camera,
+  route, beam, and world systems;
+- legacy-only stage/flow-node/cluster DOM and CSS;
+- unused old `.pegasus-engine*` blocks after selector ownership is verified;
+- `vectr-ref2-*` reference types, arrays, and annotations;
+- guessed timestamps, cardinal coordinates, camera stops, grid counts, pulse
+  durations, pointer radii, route thresholds, and root rotations that lack
+  direct source provenance;
+- the unused particle-field hero if the Nx/dependency audit confirms it has no
+  consumer.
+
+## Mandatory Gate A — evidence and preservation
+
+Status: not accepted.
+
+Do this before deleting or tuning implementation:
+
+1. Preserve the full current working diff in a recoverable Git commit/branch or
+   equivalent repository-backed snapshot. Do not use an external scratch
+   directory as the archive.
+2. Record the live-reference audit date, URL, browser, DPR, and viewport for
+   desktop, tablet, and mobile observations.
+3. Seek exact recording frames around each anchor below and record the
+   timestamp plus frame number.
+4. Measure in screen space:
+   - camera/travel direction cues;
+   - active landmark bounding box;
+   - route entry/exit point and apparent thickness;
+   - negative-space distribution;
+   - field outline, tile count/profile, and contact center;
+   - pointer trail radius/falloff on desktop;
+   - arrival-arrow and surrounding-mark bounds;
+   - copy block and header bounds.
+5. Capture current Pegasoft states at the same aspect ratio as disposable test
+   output so the existing work is documented before pruning.
+6. Record every live-versus-recording difference instead of silently choosing
+   a convenient version.
+
+Required named states:
+
+- `loader-mark`
+- `world-reveal`
+- `landing`
+- `landing-idle`
+- `activation-route`
+- `activation-contact`
+- `clearance-travel`
+- `clearance-field-preview`
+- `field-approach`
+- `field-contact`
+- `field-pulse-a`
+- `field-pulse-b`
+- `arrival-travel`
+- `arrival-lockup`
+- `journey-exit`
+
+Each accepted state record must contain:
+
+```text
+key
+source URL or recording SHA
+source timestamp and frame
+source viewport and DPR
+journey progress target
+active copy state
+camera position / quaternion or equivalent pose
+look/focus target
+active route segment and interaction mode
+landmark and copy screen bounds
+expected visible context
+confidence and unresolved differences
+```
+
+Gate A exit:
+
+- every named state has traceable source evidence and measurable observables;
+- recording anchors no longer conflict across the plan, motion map, and code;
+- no acceptance record cites a generated screenshot or external scratch asset
+  as its authority.
+
+## Mandatory Gate B — hygiene and hard isolation
+
+Status: not accepted.
+
+No route, camera, monument, glow, or timing tuning begins until this gate
+passes.
+
+1. Keep the public `HeroScene` boundary functional with the current candidate
+   or a minimal static/proxy fallback.
+2. Remove the legacy import and `HERO_RENDERER` switch.
+3. Delete `pegasoft-field-scene.tsx` after any approved neutral primitives are
+   copied into source-owned modules. New code must never import from the legacy
+   file.
+4. Remove the legacy stage DOM, query/mutation loops, and legacy-only CSS.
+5. Remove unused old Pegasus hero CSS only after verifying selector consumers
+   across the app.
+6. Remove `vectr-ref2-*` metadata and any other reference identifier that
+   cannot resolve to the live URL or recording timestamp/frame.
+7. Remove Anime.js from the hero dependency path if no remaining feature uses
+   it.
+8. Move hero-specific Canvas/fallback/copy styling into a scoped module rather
+   than adding more blocks to the page's 2,362-line stylesheet.
+9. Declare all direct runtime dependencies in the Pegasoft app package.
+10. Audit the unused motion-system particle hero and remove it only if the
+    dependency graph confirms no consumer.
+11. Reset `reference-states.ts` to the Gate A schema.
+12. Split the candidate `hero-world.tsx` before adding detail so stage
+    geometry, interactions, and pulse state do not form a replacement
+    monolith.
+
+Gate B exit:
+
+- the app builds without `pegasoft-field-scene.tsx`, `HERO_RENDERER`,
+  `vectr-ref2-*`, the negative-progress branch, or legacy hero DOM;
+- fresh production output contains no legacy cluster/stage/reference strings;
+- only one route, camera, beam, world, progress, and fallback system exists in
+  the active import graph;
+- the page can show a useful static/proxy fallback with the Canvas disabled;
+- fresh Nx lint and build pass after cleanup;
+- dependency ownership is explicit at the app boundary.
+
+## Target architecture after Gate B
+
+```text
+PegasoftHome
+  HeroJourneyController
+    normalized progress
+    lifecycle: loading | landing | journey | exit
+    motion profile: full | reduced | static
+    named reference-state snapshot
+  DOM hero/process copy <- the same snapshot
+  HeroScene <- the same snapshot/ref
+    HeroCanvas | HeroFallback
+      HeroCameraRig
+      HeroWorld
+        Activation
+        Clearance
+        FieldMatch
+        Arrival
+      HeroRoute
+      HeroBeam
+      DesktopPointerTrail
+```
+
+Required ownership rules:
+
+- `PegasoftHome` measures document scroll once.
+- The journey controller creates the snapshot once. DOM copy and WebGL consume
+  the same snapshot; the scene does not calculate step thresholds again.
+- The render loop may sample progress through a ref, but it must not observe
+  document scroll.
+- The camera rig is the only owner of camera pose and reference-like
+  smoothing.
+- One controller owns any distinct DOM-state and scene-state mapping curves.
+  They share raw progress and lifecycle, but need not share identical
+  thresholds.
+- The world root remains fixed for the initial implementation. If evidence
+  later requires a world transform, one dedicated transform owner replaces,
+  rather than compounds, the camera transition.
+- Route geometry is canonical data shared by route rendering, beam tip,
+  camera-relative frames, contact events, and tests.
+- Loader time, landing idle cadence, and field pulse have explicit local
+  clocks and deterministic reset rules.
+- Desktop pointer trail state is independent from camera motion and is absent
+  on coarse-pointer/mobile profiles unless the live source changes.
+- Stage modules own geometry only. They do not own document scroll, global
+  camera state, or DOM queries.
+- Reference records are serializable and testable; Three.js objects do not
+  leak into the evidence schema.
+
+Suggested internal boundaries:
+
+```text
+shared/hero-scene/
+  hero-scene.tsx
+  hero-contract.ts
+  hero-controller.ts
+  hero-sequence.ts
+  hero-route.ts
+  hero-camera.tsx
+  hero-beam.tsx
+  hero-pointer-trail.tsx
+  hero-materials.ts
+  hero-world.tsx
+  reference-states.ts
+  stages/
+    activation.tsx
+    clearance.tsx
+    field-match.tsx
+    arrival.tsx
+```
+
+The filenames may change; the ownership boundaries may not collapse back into
+one file.
+
+## Visual and motion baseline
+
+### Persistent world
+
+- Build one continuous pale-blue industrial world.
+- Reproduce relative screen-space placement and route topology from measured
+  states. Do not begin from unverified “south-west/south/west” coordinates.
+- Keep distant buildings, turbines, trucks, workers, stacks, and
+  infrastructure when naturally inside the camera frustum.
+- Establish hierarchy with framing, atmospheric falloff, route activity,
+  lighting, and local emphasis. Do not use monument opacity windows as the
+  primary stage mechanism unless the source clearly does.
+- Make accepted frames read as unbounded; expose no platform edge or dark void.
+
+### Camera
+
+- Use one route/beam-relative camera rig with measured poses at reference
+  states.
+- Keep the scene world fixed while reproducing the live camera-composition
+  transition around field approach.
+- Do not add 90°/180° flips, procedural bobbing, or speed-dependent scenic
+  look-ahead during the structural baseline. Add the reference's subtle
+  fine-pointer camera displacement only after the core track passes.
+- Match the reference's restrained progress smoothing rather than hard-setting
+  an unrelated series of camera stops or adding open-ended catch-up.
+- Forward, reverse, scrollbar jump, resize, and restored scroll position must
+  converge to the same state without a second clock.
+- Start with the reference's high, product-visualization perspective. Change
+  projection type only after same-viewport comparison.
+
+### Loader and landing
+
+- Keep loader/reveal time separate from journey progress.
+- Do not use the recording's pre-reload opening frames as loader targets.
+- Reveal the world before or with the 3D tilt/translation of the centered hero
+  copy; avoid a blank pose between loader and landing.
+- Preserve a quiet red-route idle cadence after landing resolves and stop it
+  when journey scroll begins.
+- Keep the header stable and above the Canvas.
+
+### Step 01 — activation
+
+- Thin red architectural routes originate inside the city cluster, converge,
+  and leave it.
+- Keep the route crisp and red; it must not read as a recolored blue glow.
+- Move from the landing composition into step-01 route travel while keeping
+  the first handoff destination spatially legible.
+
+### Step 02 — clearance
+
+- At the first destination, hand off from the red route to the blue illuminated
+  route.
+- Follow the blue route through materially open transit space.
+- On fine-pointer desktop, reproduce the local mouse-trail/dotted response with
+  correct camera projection or raycasting. Do not use a fixed NDC-to-world
+  approximation.
+- On mobile/tablet/coarse-pointer profiles, omit the mouse trail. Supply a
+  deliberate static/ambient route treatment instead of inventing touch
+  behavior.
+- Allow the field to preview at the frame edge before step 03 if the measured
+  state does.
+
+### Step 03 — field match
+
+- Reconstruct the field outline and tile count from measured frames. Neither
+  the old `11x11` grid nor the current irregular row list is accepted.
+- Use separated rounded white tiles around an elevated blue center and figure.
+- Reproduce the apparent composition turn through the camera rig; do not rotate
+  both camera and world.
+- Contact starts a deterministic repeated band/ring treatment whose cadence,
+  radius, and reset behavior are measured from the source.
+- If scrolling stops after contact, the reference-like local pulse may
+  continue. Reverse before contact resets it; re-entry restarts predictably.
+
+### Step 04 — arrival
+
+- Continue the blue route and dotted/ambient wake out of the field.
+- Preserve camera continuity into the final destination.
+- Resolve the blue arrow and surrounding square/diamond marks at the measured
+  close scale and screen bounds.
+- Do not retreat before the lockup is readable. After lockup, reproduce the
+  measured camera retreat into journey exit without exposing a world edge or
+  introducing another large reorientation.
+
+### DOM copy, responsive, and reduced motion
+
+- Drive process number, heading, paragraph, compact index, and scene from the
+  same journey snapshot.
+- Match the reference desktop copy placement and measured transition ranges
+  while retaining Pegasoft wording.
+- Define separate desktop, tablet, and mobile camera/layout profiles from live
+  observations. Desktop values must not be scaled blindly.
+- Treat mobile journey height, copy position, asset/geometry detail, DPR, and
+  scroll cue as explicit decisions.
+- Reduced motion uses useful static named compositions and discrete handoffs.
+  It is not a blank Canvas and not the current generic four-block fallback.
+- Maintain header, focus, reading order, contrast, and keyboard behavior
+  independently from Canvas motion.
+
+## Accuracy contract
+
+“Perfect accuracy” means that no visible or behavioral deviation from the
+measured reference remains unexplained. Pegasoft wording and identity may
+differ, but their containers, hierarchy, timing, and screen occupancy must
+match. Accessibility and reduced-motion changes are allowed only when they are
+documented as intentional product requirements.
+
+The following are maximum tolerances, not goals. A visible mismatch still
+fails even when a metric happens to pass.
+
+| Measurement | Maximum accepted error |
+| --- | --- |
+| DOM copy/header/CTA bounds | `2 CSS px` or `0.25%` of the short viewport edge |
+| Primary landmark center | `0.75%` of viewport width/height |
+| Primary landmark width/height | `2%`; silhouette IoU at least `0.90` |
+| Secondary context silhouette | IoU at least `0.85` |
+| Route centerline | Hausdorff distance at most `0.75%` of the short edge |
+| Route entry/contact/exit points | `0.5%` of viewport width/height |
+| Route thickness | `1 CSS px` or `10%`, whichever is larger |
+| Camera-direction or major scene axes | `1°` |
+| Negative-space occupancy | `3%` |
+| Flat solid-color samples | Delta E 2000 at most `3` |
+| Fog/glow samples after structural lock | Delta E 2000 at most `5` |
+| Copy/scene progress handoff | `0.005` normalized progress after live measurement |
+| Time-authored loader event | `50ms` at the locked comparison profile |
+| Settled desktop camera | Under `1%` screen-space error within `450ms` |
+| Settled mobile camera | Under `1%` screen-space error within `300ms` |
+
+Always compare at the exact locked viewport, DPR, font state, journey progress,
+local-effect time, and deterministic seed. Mask only the glyph/logo pixels that
+must differ because of Pegasoft identity; never mask layout, geometry, route,
+lighting, or motion errors.
+
+### Mandatory per-state calibration loop
+
+Every visual phase follows this loop:
+
+1. Lock one authoritative source state, viewport, DPR, timestamp/frame, and
+   local-effect phase.
+2. Enter the corresponding Pegasoft state directly, without scroll momentum.
+3. Render flat/grayscale proxy materials first.
+4. Align projection, camera, primary landmark, copy bounds, route contacts, and
+   negative space in that order.
+5. Capture the implementation and produce an overlay, blink comparison,
+   measurement report, and difference heatmap.
+6. Correct structural errors before color, fog, bloom, or micro-detail.
+7. Verify the state by forward entry, reverse entry, direct jump, resize, and
+   restored reload position.
+8. Record the passing measurements and freeze the state.
+
+A later shared change may not move a frozen state outside tolerance. If it
+does, explicitly reopen that state and every downstream phase that depends on
+it. Full chronological playback is evaluated only after the individual state
+locks pass.
+
+## Ordered execution phases
+
+All phases start `not accepted`. A phase may begin only after the previous
+phase's stop/go gate passes. Phases 0–5 are hard blockers for all visual
+tuning; decorative work cannot begin before Phase 16.
+
+| Phase | Workstream | What becomes locked |
+| --- | --- | --- |
+| 0 | Preserve dirty state | Recoverable source/recording baseline |
+| 1 | Authoritative evidence | State manifest, profiles, and tolerances |
+| 2 | Smoke safety net | Passing current-page tests |
+| 3 | Legacy severance | One active hero import graph |
+| 4 | CSS/dependency hygiene | Clean selectors and package ownership |
+| 5 | Architecture/harness | Deterministic controller, tests, and captures |
+| 6 | DOM/lifecycle | Copy layout and mapping curves |
+| 7 | Proxy topology | World spacing and canonical route |
+| 8 | Static cameras | All high-information anchor poses |
+| 9 | Camera motion | Interpolation and damping |
+| 10 | Loader/landing | Time-based reveal and idle cadence |
+| 11 | Activation | Step 01 silhouette and red route |
+| 12 | Clearance | Step 02, blue route, and desktop trail |
+| 13 | Field match | Step 03 geometry, approach, and pulse |
+| 14 | Arrival | Step 04 lockup and journey exit |
+| 15 | Full desktop motion | Chronological/reverse/jump behavior |
+| 16 | Desktop art | Materials, lighting, typography, and nuance |
+| 17 | Responsive profiles | Authored tablet/mobile states |
+| 18 | Accessible alternatives | Reduced motion and fallback |
+| 19 | Production cutover | Performance, bundle hygiene, final evidence |
+
+### Phase 0 — preserve the current dirty state
+
+Status: not accepted.
+
+Steps:
+
+1. Inventory every modified and untracked hero/document file.
+2. Preserve code and documents in a recoverable Git branch/commit or equivalent
+   repository-backed snapshot.
+3. Preserve the authoritative recording through Git LFS or another
+   repository-backed mechanism appropriate for its `190835536`-byte size, and
+   record its SHA-256 independently.
+4. Record the current fresh verification baseline: app lint/build pass and E2E
+   `6 passed / 4 failed`.
+
+Artifact:
+
+- snapshot identifier, file inventory, recording location/hash, and current
+  verification report.
+
+Stop/go gate:
+
+- a clean checkout or equivalent recovery procedure can reproduce every
+  current source/document change and the exact recording;
+- no deletion begins until this gate passes.
+
+### Phase 1 — lock authoritative evidence and tolerances
+
+Status: not accepted.
+
+Steps:
+
+1. Complete Mandatory Gate A.
+2. Resolve the recording's effective CSS viewport/DPR pair before accepting
+   typography measurements; use normalized coordinates until resolved.
+3. Populate all named state records with exact recording frames, live
+   observations, screen bounds, route/camera/copy data, and confidence.
+4. Label every claim `observed`, `source-confirmed`, `inferred`, or `unknown`.
+5. Record the three independent comparison profiles:
+   - recording desktop at the exact `3016x1522` raster/aspect;
+   - live desktop at `1440x900` and `1920x1080`, DPR `1`;
+   - live mobile at `390x844`.
+6. Record browser version, device/input class, CPU/GPU, display refresh rate,
+   and power mode for representative performance runs.
+7. Define the accuracy report schema from the table above.
+
+Artifact:
+
+- serializable reference-state manifest, comparison-profile manifest, exact
+  extraction instructions, and live-versus-recording decision log.
+
+Stop/go gate:
+
+- every target state resolves to the live URL or recording SHA plus frame;
+- no runtime constant is accepted merely because it exists in current code;
+- no conflicting timestamp, opaque reference alias, or external scratch asset
+  remains in acceptance metadata.
+
+Nx verification:
+
+```sh
+pnpm nx lint @site/pegasoft
+pnpm nx build @site/pegasoft
+pnpm nx run @site/pegasoft-e2e:typecheck
+```
+
+### Phase 2 — repair the smoke-test safety net
+
+Status: not accepted.
+
+Steps:
+
+1. Replace obsolete E2E expectations for the old heading,
+   `.pegasus-engine`, and `.hero-actions`.
+2. Assert the current Pegasoft heading, primary CTA, header, active
+   Canvas/fallback surface, and initial reference-state marker.
+3. Make sure desktop and Mobile Chrome tests reach accessibility analysis.
+4. Add a minimal production-page console/hydration/WebGL smoke assertion.
+5. Do not add visual acceptance assertions yet.
+
+Artifact:
+
+- current-page smoke suite that protects destructive cleanup.
+
+Stop/go gate:
+
+- the existing desktop and Mobile Chrome suite passes against the current page;
+- assertions prove that the active hero or useful fallback mounted.
+
+Nx verification:
+
+```sh
+pnpm nx lint @site/pegasoft-e2e
+pnpm nx run @site/pegasoft-e2e:typecheck
+pnpm nx run @site/pegasoft-e2e:e2e
+```
+
+### Phase 3 — sever and remove the legacy renderer
+
+Status: not accepted.
+
+Steps:
+
+1. Keep a functional candidate/proxy `HeroScene` and useful static fallback.
+2. Remove the `PegasoftFieldScene` import, `HERO_RENDERER`, and compatibility
+   branch from the new entry point.
+3. Delete `pegasoft-field-scene.tsx`; Git history is the rollback.
+4. Remove its negative-progress branch, duplicate route/camera/beam/world,
+   scroll/pointer loops, Anime.js DOM choreography, and hidden stage DOM with
+   the file.
+5. Give `ready`/`introReady` a new explicit lifecycle contract or remove the
+   ignored props.
+6. Search both source and production output for legacy strings.
+
+Artifact:
+
+- one functional new hero boundary that compiles without any legacy scene
+  source.
+
+Stop/go gate:
+
+- the app builds with the legacy file absent;
+- source and production output contain no old renderer, `vectr-ref2-*`,
+  negative-progress, cluster, or legacy-stage strings;
+- only one active Canvas/fallback boundary ships.
+
+Nx verification:
+
+```sh
+pnpm nx lint @site/pegasoft
+pnpm nx build @site/pegasoft
+pnpm nx run @site/pegasoft-e2e:e2e
+```
+
+### Phase 4 — remove polluted CSS and repair dependency ownership
+
+Status: not accepted.
+
+Steps:
+
+1. Remove legacy-only `.pegasoft-stage`, flow-path, flow-node, and cluster CSS.
+2. Audit and prune unused `.pegasus-engine*`/old homepage CSS while preserving
+   shared `.eyebrow` and `.hero-actions` consumers.
+3. Move Canvas, fallback, loader, and hero-specific copy styles into scoped
+   hero modules.
+4. Declare `clsx`, React Three Fiber, Drei, and Three.js directly in the
+   Pegasoft app package.
+5. Remove Anime.js from the Pegasoft dependency path if no active Pegasoft
+   feature uses it.
+6. Audit the unused motion-system particle hero; remove its file/export only
+   after proving no consumer, and preserve motion-system dependency ownership.
+
+Artifact:
+
+- selector-consumer inventory, explicit package manifests, updated lockfile,
+  and clean dependency graph.
+
+Stop/go gate:
+
+- no dead legacy selector remains;
+- homepage and shared pages still render correctly;
+- hero styles no longer grow the monolithic page stylesheet;
+- every direct runtime dependency has one explicit owner.
+
+Nx verification:
+
+```sh
+pnpm nx lint @site/pegasoft
+pnpm nx build @site/pegasoft
+pnpm nx lint @site/motion-system
+pnpm nx run @site/motion-system:typecheck
+pnpm nx test @site/motion-system
+pnpm nx run @site/pegasoft-e2e:e2e
+```
+
+Run the motion-system commands only when that project changes.
+
+### Phase 5 — establish clean architecture and deterministic test control
+
+Status: not accepted.
+
+Steps:
+
+1. Complete Mandatory Gate B.
+2. Split the current `hero-world.tsx` into stage, route, pointer, material, and
+   assembly ownership boundaries.
+3. Add the serializable hero contract/controller and full reference-state
+   schema.
+4. Make `PegasoftHome` create the journey snapshot once; the DOM and scene
+   consume it rather than recomputing thresholds.
+5. Keep the world root fixed and make the camera the only initial owner of the
+   field-approach composition change.
+6. Add an Nx-owned app unit-test target for controller, sequence, route,
+   camera, local-clock reset, and profile selection.
+7. Add E2E-only named-state/progress control outside the production bundle.
+8. Lock viewport, DPR, fonts, random seed, and local-effect time for captures.
+9. Prove that two captures of the same state are pixel-stable enough for useful
+   overlays and heatmaps.
+
+Artifact:
+
+- clean module graph, app unit target, deterministic named-state harness, and
+  useful Canvas-disabled fallback.
+
+Stop/go gate:
+
+- the scene has no document-scroll listener, DOM query, duplicated thresholds,
+  or Three.js object in evidence data;
+- direct state entry is independent of traversal history;
+- repeated captures at one state have no unexplained difference;
+- forward, reverse, jump, resize, and restored-scroll proxy checks converge.
+
+Nx verification:
+
+```sh
+pnpm nx test @site/pegasoft
+pnpm nx lint @site/pegasoft
+pnpm nx build @site/pegasoft
+pnpm nx run @site/pegasoft-e2e:e2e
+```
+
+The app test command becomes valid only after this phase creates the target.
+
+### Phase 6 — lock DOM layout, lifecycle, and progress mappings
+
+Status: not accepted.
+
+Steps:
+
+1. Implement one raw normalized journey progress source.
+2. Define explicit, controller-owned DOM and scene mapping curves; do not force
+   them to share identical thresholds.
+3. Implement `loading`, `landing`, `journey`, and `exit` lifecycle states.
+4. Match fixed header, landing-copy container, process-copy ladder, active
+   number tile, vertical rule, collapsed rows, sticky heights, and next-section
+   boundary.
+5. Lock desktop and mobile page heights without requiring the final 3D world.
+6. Test every copy handoff around both sides of its threshold.
+
+Artifact:
+
+- DOM-only reference captures and tested lifecycle/progress map.
+
+Stop/go gate:
+
+- copy/header bounds pass the accuracy contract;
+- every copy transition occurs in reference order with no dead zone;
+- forward, reverse, jump, and restored reload choose the same DOM state;
+- scene-independent page layout has no horizontal overflow.
+
+### Phase 7 — fit proxy world topology and canonical route
+
+Status: not accepted.
+
+Steps:
+
+1. Render only simple labeled destination proxies and an unbounded proxy
+   ground.
+2. Fit inter-destination spacing, relative placement, and continuous route
+   topology to source screen-space evidence.
+3. Define one canonical route shared by line rendering, beam tip, route frames,
+   contact events, camera sampling, and tests.
+4. Lock route knots, entry/contact/exit points, tangents, and proxy landmark
+   bounds.
+5. Do not add monument detail, world rotation, materials, fog, glow, or bloom.
+
+Artifact:
+
+- canonical route data, proxy world, and structural capture report.
+
+Stop/go gate:
+
+- route/contact tolerances pass at every structural anchor;
+- proxy landmark centers/scales and negative-space occupancy pass;
+- no platform edge or dark void appears;
+- all route consumers produce the same sampled points.
+
+### Phase 8 — solve static camera anchors before interpolation
+
+Status: not accepted.
+
+Solve the high-information compositions in this order:
+
+1. `landing` around `5.0s`;
+2. `activation-route`/first handoff around `10.0–12.5s`;
+3. `clearance-travel` around `17.5–18.0s`;
+4. `clearance-field-preview` around `20.5s`;
+5. `field-contact` around `22.5s`;
+6. `arrival-lockup` around `30.5s`;
+7. `journey-exit` around `31.4–32.0s`.
+
+For each anchor:
+
+1. Hold progress and local time fixed.
+2. Fit projection/FOV, camera position/quaternion, focus target, and proxy
+   bounds.
+3. Keep the world-root transform at identity.
+4. Lock copy/landmark/route/negative-space measurements before proceeding.
+
+Artifact:
+
+- measured camera poses and passing static-anchor reports.
+
+Stop/go gate:
+
+- every anchor passes the accuracy contract independently;
+- changing a later camera pose does not move an earlier frozen anchor;
+- no camera pose depends on prior traversal.
+
+### Phase 9 — implement camera interpolation and smoothing
+
+Status: not accepted.
+
+Steps:
+
+1. Fit route/camera interpolation between the frozen poses.
+2. Reproduce the camera-owned field-approach composition turn.
+3. Match approximately `0.15s` desktop and `0.10s` mobile damping through the
+   measured settling criteria, not arbitrary lerp values.
+4. Sample every interval at start, `25%`, `50%`, `75%`, and end; sample the
+   field-approach turn more densely.
+5. Verify monotonic camera-axis change and beam-relative continuity.
+6. Test slow scrub, fast scrub, reverse, jump, resize, and restored position.
+
+Artifact:
+
+- interpolation curves, smoothing tests, and intermediate-state overlays.
+
+Stop/go gate:
+
+- no snap, 90°/180° flip, compounded world/camera turn, clipping, scale
+  discontinuity, or residual divergence remains;
+- all frozen static anchors still pass.
+
+### Phase 10 — match loader, world reveal, and landing
+
+Status: not accepted.
+
+Implementation order:
+
+1. start from the already-correct frozen `landing` composition;
+2. match the reset field and square/ring assembly across `0.9–1.8s`;
+3. match `loader-mark` at exact frames in `1.9–3.1s`;
+4. match `world-reveal` across `3.2–3.7s`;
+5. match the 3D headline/body reveal across `3.8–4.4s`;
+6. match the resolved `landing-idle` composition;
+7. implement four-path rail packets with measured stagger, draw, retract, and
+   respawn ranges;
+8. stop new packet spawning when journey progress leaves zero and hand off
+   cleanly to scroll.
+
+Artifact:
+
+- deterministic loader time strip, landing comparison report, and local
+  landing-clock tests.
+
+Stop/go gate:
+
+- event boundaries are within the time tolerance;
+- loader geometry, contours, header/copy/world layering, and landing bounds
+  pass;
+- there is no blank frame or unrelated intermediate camera pose;
+- the journey does not inherit loader elapsed time.
+
+### Phase 11 — match Step 01 activation
+
+Status: not accepted.
+
+Steps:
+
+1. Replace the activation proxy with the measured city/first-destination
+   silhouette.
+2. Fit red feeder routes and the converging outbound centerlines.
+3. Match route thickness, tangents, destination contact, and red ownership.
+4. Match the Step 01 process-copy transition.
+5. Verify the red route at start, quarter, midpoint, three-quarter, and
+   contact-near samples in both directions.
+
+Artifact:
+
+- grayscale activation module and Step 01 structural report.
+
+Stop/go gate:
+
+- activation silhouette, red route, copy state, and camera all pass;
+- the route remains thin, red, continuous, and spatially anchored;
+- no blue overlap/gap appears before the measured handoff.
+
+### Phase 12 — match Step 02 clearance and desktop pointer trail
+
+Status: not accepted.
+
+Steps:
+
+1. Replace the clearance proxy with measured industrial silhouettes and open
+   transit space.
+2. Implement the red-to-blue contact as one continuous event.
+3. Fit the first blue route, bright tip, wake, and camera travel through the
+   frozen preview anchor.
+4. Raycast fine-pointer desktop input onto visible ground and write the local
+   fading trail in correct projected coordinates.
+5. Match trail centroid, radius, velocity response, falloff, and persistence.
+6. Omit listener, trail texture/shader, touch substitute, and pointer camera
+   displacement from coarse-pointer/mobile profiles.
+7. Keep Step 02 active while the field first previews.
+
+Artifact:
+
+- grayscale clearance module, route-handoff report, and desktop/mobile
+  interaction probes.
+
+Stop/go gate:
+
+- route/camera/contact remain synchronized through the whole interval;
+- desktop projected trail centroid stays within `12px` of the measured floor
+  intersection and passes the visual tolerances;
+- coarse-pointer/mobile creates no desktop-only interaction branch;
+- clearance and field-preview frozen states still pass.
+
+### Phase 13 — match Step 03 field, approach, and pulse
+
+Status: not accepted.
+
+Steps:
+
+1. Reconstruct the measured tile count, irregular field outline, central tile,
+   figure, spacing, height, and contact point.
+2. Fit the camera-only approach turn from preview to the frozen contact pose.
+3. Keep the world root fixed and camera-axis change monotonic.
+4. Implement `field-pulse-a` from the first authoritative pulse frame.
+5. Implement `field-pulse-b` from a materially different later pulse/reset
+   frame.
+6. Match pulse origin, lit-tile membership, band radius/width, brightness,
+   cadence, repeat, and falloff.
+7. Test stationary continuation, reverse-below-contact reset, deterministic
+   re-entry, and direct-state phase injection.
+
+Artifact:
+
+- grayscale field module, dense approach overlays, pulse time strips, and
+  pulse/reset tests.
+
+Stop/go gate:
+
+- field silhouette/contact/camera/pulse states pass;
+- no world-root rotation, snap, route discontinuity, or unstable pulse phase
+  remains;
+- arrival work does not begin until both pulse states are frozen.
+
+### Phase 14 — match Step 04 arrival and journey exit
+
+Status: not accepted.
+
+Steps:
+
+1. Fit the field-exit tangent, second blue route, horizontal feed, and
+   dotted/ambient wake.
+2. Reconstruct the arrow silhouette and surrounding square/diamond marks.
+3. Match `arrival-travel`, Step 04 copy activation, and `arrival-lockup`.
+4. Hold the lockup long enough to become readable before starting retreat.
+5. Match retreat direction/magnitude, arrow scale loss, world coverage, and
+   white-section boundary at `journey-exit`.
+6. Implement the arrival mark's progress-gated local clock and reverse reset.
+
+Artifact:
+
+- grayscale arrival module, lockup/exit reports, and arrival-clock tests.
+
+Stop/go gate:
+
+- arrow/feed/marks/copy/camera pass at travel, lockup, and exit;
+- no premature retreat, second composition flip, world edge, or blank handoff
+  appears;
+- all earlier frozen states remain in tolerance.
+
+### Phase 15 — run the full chronological desktop motion pass
+
+Status: not accepted.
+
+Steps:
+
+1. Connect every accepted state through the explicit controller curves.
+2. Verify DOM copy and scene thresholds separately while retaining one raw
+   progress owner.
+3. Run the recording sequence at normal, slow, and fast user scroll.
+4. Run the full journey backward.
+5. Jump directly to every named state and across every threshold.
+6. Reload at restored positions and resize within/between desktop profiles.
+7. Check loader, idle rails, pulse, and arrival clocks for deterministic
+   ownership and reset.
+8. Re-run all static-anchor measurements after motion integration.
+
+Artifact:
+
+- complete forward/reverse/jump traces and chronological comparison report.
+
+Stop/go gate:
+
+- state order, route/camera/copy contact, damping, and local clocks match with
+  no dead zone, double trigger, history dependence, or reopened static state;
+- structural work is frozen before art direction begins.
+
+### Phase 16 — apply desktop art direction and final interaction nuance
+
+Status: not accepted.
+
+Steps:
+
+1. Tune palette, materials, lighting, fog, atmosphere, shadows, beam core,
+   glow, trail, and surface response at the recording profile.
+2. Match typography weight, tracking, line-height, and 3D copy entrance/exit
+   after containers are already locked.
+3. Add the subtle measured fine-pointer camera displacement only now.
+4. Calibrate flat colors before fog/glow and micro-detail.
+5. Re-run all geometry, route, camera, and negative-space measurements after
+   each global material/lighting change.
+6. Validate at both live desktop profiles after the recording profile passes.
+
+Artifact:
+
+- desktop accuracy matrix and source-linked comparison report.
+
+Stop/go gate:
+
+- every desktop state passes structural and color tolerances;
+- no art change moves a frozen composition out of tolerance;
+- no world edge, z-fighting, console, hydration, or WebGL error remains.
+
+### Phase 17 — author tablet and mobile profiles
+
+Status: not accepted.
+
+Steps:
+
+1. Measure remaining live tablet/mobile journey states before implementing
+   them; the desktop recording cannot supply this evidence.
+2. Define explicit camera, copy, journey-height, geometry-detail, DPR, cue, and
+   asset/profile rules rather than scaling desktop values.
+3. Match the `390x844` landing measurements, `64px` header, bottom scroll cue,
+   compact centered copy, and approximately `570svh` mobile journey.
+4. Repeat the structural anchor order on mobile.
+5. Preserve the explicit absence of the desktop pointer trail/parallax on
+   coarse-pointer/mobile.
+6. Verify orientation change, resize, and device DPR boundaries.
+
+Artifact:
+
+- tablet/mobile evidence manifest, profile configuration, and viewport matrix.
+
+Stop/go gate:
+
+- every claimed responsive state has live evidence;
+- mobile/tablet anchors and transitions pass profile tolerances;
+- no overflow, clipped primary landmark, desktop-only pointer behavior, or
+  accidental desktop camera scaling remains.
+
+### Phase 18 — reduced motion, fallback, and accessibility
+
+Status: not accepted.
+
+Steps:
+
+1. Build reduced-motion states from already accepted full-motion
+   compositions:
+   - no 3D copy tilt or continuous camera travel;
+   - no pointer trail, idle packet loop, or pulse loop;
+   - discrete pose handoffs with an optional short opacity transition;
+   - static red landing route, one luminous field band, and resolved arrival.
+2. Make every reduced-motion state settle within `100ms` while preserving
+   full-motion landmark/copy bounds.
+3. Verify useful WebGL-disabled/static fallback, keyboard order, focus,
+   contrast, header/menu behavior, and axe results.
+
+Artifact:
+
+- accessibility report and fallback/reduced-motion matrix.
+
+Stop/go gate:
+
+- every named state and behavior passes on desktop, tablet, mobile,
+  reduced-motion, and fallback paths;
+- keyboard, focus, contrast, menu, heading order, and axe checks pass;
+- reduced motion introduces no layout drift or competing clock.
+
+### Phase 19 — performance, bundle hygiene, and final cutover
+
+Status: not accepted.
+
+Steps:
+
+1. Profile frame time, DPR, draw calls, geometry/material counts, asset weight,
+   memory, and long tasks on the locked representative hardware.
+2. Meet at minimum:
+   - LCP below `2.5s`;
+   - CLS below `0.1`;
+   - desktop p95 frame time at or below `16.7ms` at the accepted desktop DPR;
+   - mobile p95 frame time at or below `33.3ms` at the accepted mobile DPR;
+   - no steady-state main-thread task above `50ms` during scrub.
+3. Optimize only in ways that keep all frozen visual states inside tolerance.
+4. Remove proxy geometry, diagnostics, temporary adapters, unused primitives,
+   dead selectors, and production test-control paths.
+5. Audit production output for legacy and temporary payload.
+6. Run the full profile/state/behavior matrix from a fresh production build.
+7. Update this plan and the observation notebook with final evidence.
+
+Artifact:
+
+- performance/bundle report, final comparison matrix, and cutover record.
+
+Stop/go gate:
+
+- every Phase 18 state/profile/accessibility gate remains green;
+- the LCP, CLS, frame-time, and long-task budgets pass on locked hardware;
+- fresh Nx tasks pass;
+- no legacy, diagnostic, or temporary payload ships;
+- the definition below is fully evidenced.
+
+Hard rule: if a phase fails, work returns to that phase. No downstream polish
+may be used to disguise an upstream geometry, camera, progress, or ownership
+failure.
+
+## Verification protocol
+
+For every named state:
+
+1. Open the current live state or seek the authoritative recording frame.
+2. Set Pegasoft to its mapped journey progress without scroll momentum.
+3. Use the same viewport and DPR.
+4. Compare copy/header bounds, camera direction, landmark bounds, negative
+   space, route state/thickness, context visibility, and world-edge exposure.
+5. Fix structure before materials, glow, or micro-detail.
+6. Repeat on reverse entry and direct progress jump.
+
+Behavioral coverage must include:
+
+- forward, reverse, scrollbar jump, resize, reload with restored scroll, and
+  route-state determinism;
+- bounded camera smoothing with no lingering divergence after input stops;
+- no blank frame between loader, world reveal, and landing;
+- landing idle route cadence and clean scroll takeover;
+- continuous red-to-blue-to-field-to-arrival route;
+- fine-pointer desktop trail and explicit absence on coarse-pointer/mobile;
+- camera-owned field-approach composition change with fixed world root;
+- pulse start, repeat, reverse reset, and re-entry restart;
+- close arrow arrival and clean journey exit;
+- mobile/tablet profile behavior, no horizontal overflow, and useful fallback;
+- reduced-motion named compositions;
+- no hydration, console, WebGL, z-fighting, or world-edge error;
+- no legacy symbol or duplicate scene system in production output.
+
+Run repository tasks through Nx:
+
+```sh
+pnpm nx test @site/pegasoft
+pnpm nx lint @site/pegasoft
+pnpm nx build @site/pegasoft
+pnpm nx lint @site/pegasoft-e2e
+pnpm nx run @site/pegasoft-e2e:typecheck
+pnpm nx run @site/pegasoft-e2e:e2e
+```
+
+The app currently has no unit-test target. Phase 5 must add an Nx-owned target
+before the first command becomes valid and before unit coverage can be an exit
+gate.
+
+## Definition of baseline complete
+
+The hero baseline is complete only when:
+
+- the live site and identified recording are the only visual authorities;
+- all prior completion claims remain replaced by evidence-backed phase gates;
+- no external scratch path, generated screenshot, or opaque reference alias
+  appears in implementation or acceptance metadata;
+- only one active route, camera, beam, world, progress, and fallback system
+  ships;
+- legacy hero source, imports, CSS, DOM, dependencies, and bundle strings are
+  absent;
+- one page-owned journey snapshot synchronizes DOM copy and WebGL;
+- every named state has a source frame/viewport and passing comparison;
+- reverse, jump, resize, and restored-scroll behavior are deterministic;
+- camera smoothing and field approach match the source without a compounded
+  world rotation;
+- desktop pointer behavior and mobile omission match the current live site;
+- field layout and pulse are measured rather than inherited;
+- arrival and journey exit match the reference structure;
+- desktop, tablet, mobile, reduced-motion, WebGL-fallback, and keyboard paths
+  are useful;
+- fresh Nx unit, lint, build, E2E typecheck, and E2E tasks pass;
+- performance and production-bundle checks show no legacy payload.
+
+## Scope guardrails
+
+- Preserve Pegasoft's identity and content. Reproduce the reference's
+  interaction grammar and art-direction structure, not Vectr's brand or copy.
+- Hero implementation, process-copy synchronization, fallback, direct
+  dependencies, directly related tests, and removal of proven dead hero blocks
+  are in scope.
+- Unrelated page redesign, content strategy, and downstream sections are out
+  of scope.
+- Do not tune decorative detail before evidence, hygiene, contract, route,
+  camera, and silhouette gates pass.
+- Do not keep an old renderer “just in case.” Preserve history safely, then
+  keep the production implementation singular.
