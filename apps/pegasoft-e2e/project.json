@@ -7,6 +7,13 @@
     "hero-capture": {
       "executor": "nx:run-commands",
       "cache": false,
+      "dependsOn": [
+        "typecheck",
+        {
+          "projects": ["@site/pegasoft"],
+          "target": "typecheck"
+        }
+      ],
       "options": {
         "cwd": "apps/pegasoft-e2e",
         "command": "playwright test --config=playwright.visual.config.ts"
@@ -15,9 +22,7 @@
     "hero-compare": {
       "executor": "nx:run-commands",
       "cache": false,
-      "dependsOn": [
-        "hero-capture"
-      ],
+      "dependsOn": ["hero-capture"],
       "options": {
         "cwd": ".",
         "command": "node tools/hero-reference/compare-captures.mjs"

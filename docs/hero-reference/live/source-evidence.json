@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "auditedAtUtc": "2026-07-30T08:15:00Z",
+  "auditedAtUtc": "2026-07-30T12:27:02.718Z",
   "canonicalUrl": "https://www.vectrfl.com/",
   "sources": [
     {
@@ -19,6 +19,79 @@
         "traceSmoothTimeSeconds": 0.01
       },
       "scope": "Current-live source for recording progress candidate ranking and the locked landing and journey DOM profiles. Disposable screenshots were not retained; repository authority remains the URL plus serialized calibration and DOM measurements."
+    },
+    {
+      "id": "current-live-profile-probe-2026-07-30",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "path": "docs/hero-reference/live/current-live-profiles.json",
+      "schemaId": "vectr-live-profile-probe/v1",
+      "capturedAtUtc": "2026-07-30T12:27:02.718Z",
+      "runStatus": "passed",
+      "profileSummary": {
+        "pass": 4,
+        "fail": 0
+      },
+      "readinessContract": [
+        "HTTP 200",
+        "document fonts loaded",
+        "one unique ready canvas",
+        "four complete flow steps",
+        "requested viewport and input profile",
+        "no observed main-thread WebGL context-loss event"
+      ],
+      "browser": {
+        "name": "chromium",
+        "channel": "chrome",
+        "version": "150.0.7871.188"
+      },
+      "profiles": [
+        {
+          "id": "recording-desktop",
+          "viewportCss": {
+            "width": 1508,
+            "height": 761
+          },
+          "devicePixelRatio": 1,
+          "pointer": "fine",
+          "hover": true,
+          "emulation": false
+        },
+        {
+          "id": "desktop",
+          "viewportCss": {
+            "width": 1440,
+            "height": 900
+          },
+          "devicePixelRatio": 1,
+          "pointer": "fine",
+          "hover": true,
+          "emulation": false
+        },
+        {
+          "id": "tablet",
+          "viewportCss": {
+            "width": 1024,
+            "height": 768
+          },
+          "devicePixelRatio": 1,
+          "pointer": "coarse",
+          "hover": false,
+          "emulation": true
+        },
+        {
+          "id": "mobile",
+          "viewportCss": {
+            "width": 390,
+            "height": 844
+          },
+          "devicePixelRatio": 1,
+          "pointer": "coarse",
+          "hover": false,
+          "emulation": true
+        }
+      ],
+      "scope": "Current repository-owned readiness, landing/flow geometry, responsive, input, diagnostics, and resource observations. The tablet and mobile contexts are browser emulations, not physical-device or performance evidence; worker/OffscreenCanvas context-loss state remains unknown."
     },
     {
       "id": "live-trace-desktop-1440-2026-07-28",
@@ -157,10 +230,7 @@
         "liveDevicePixelRatio": 1,
         "recordingDevicePixelRatio": 2,
         "scrollY": 0,
-        "applicableStates": [
-          "landing",
-          "landing-idle"
-        ],
+        "applicableStates": ["landing", "landing-idle"],
         "boundsToleranceCssPx": 2,
         "qualification": "CSS-pixel geometry is authoritative for the named DOM elements only. WebGL structural landmarks remain unmeasured."
       }
@@ -168,9 +238,7 @@
     {
       "id": "recording-profile-journey-dom-bounds",
       "evidenceClass": "observed",
-      "sourceRefs": [
-        "live-trace-desktop-1508-2026-07-30"
-      ],
+      "sourceRefs": ["live-trace-desktop-1508-2026-07-30"],
       "value": {
         "profileArtifact": "docs/hero-reference/live/recording-profile-journey-dom.json",
         "rawProbeArtifact": "docs/hero-reference/live/journey-dom-probe.json",
@@ -199,9 +267,7 @@
     {
       "id": "identity-only-raster-mask",
       "evidenceClass": "observed",
-      "sourceRefs": [
-        "recording-landing-frame"
-      ],
+      "sourceRefs": ["recording-landing-frame"],
       "value": {
         "status": "blocked",
         "appliedMaskedPixelCount": 0,
@@ -213,9 +279,7 @@
     {
       "id": "hero-copy",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-trace-html-2026-07-28"
-      ],
+      "sourceRefs": ["live-trace-html-2026-07-28"],
       "value": {
         "title": "The New Standard\nin Staffing",
         "subtitle": "AI driven speed. Expert curation.\nWe mobilize verified crews to protect your schedule and your bottom line in high-consequence environments.",
@@ -225,9 +289,7 @@
     {
       "id": "authored-hero-reveal-css",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-css-2026-07-28"
-      ],
+      "sourceRefs": ["live-css-2026-07-28"],
       "value": {
         "title": {
           "opacityAndTransformDurationMs": 1500,
@@ -254,9 +316,7 @@
     {
       "id": "flow-layout",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-css-2026-07-28"
-      ],
+      "sourceRefs": ["live-css-2026-07-28"],
       "value": {
         "baseHeight": "456svh",
         "desktopMultiplier": 1,
@@ -272,21 +332,13 @@
     {
       "id": "dom-step-thresholds",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-app-js-2026-07-28"
-      ],
-      "value": [
-        0.191,
-        0.697,
-        0.876
-      ]
+      "sourceRefs": ["live-app-js-2026-07-28"],
+      "value": [0.191, 0.697, 0.876]
     },
     {
       "id": "camera-damping",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-app-js-2026-07-28"
-      ],
+      "sourceRefs": ["live-app-js-2026-07-28"],
       "value": {
         "defaultSmoothTime": 0.15,
         "mobileOrTabletSmoothTime": 0.1,
@@ -296,43 +348,21 @@
     {
       "id": "scene-progress-ranges",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-app-js-2026-07-28"
-      ],
+      "sourceRefs": ["live-app-js-2026-07-28"],
       "value": {
-        "redRoutes": [
-          0,
-          0.17
-        ],
-        "blueRoute0": [
-          0.17,
-          0.74
-        ],
-        "fieldGridReveal": [
-          0.72,
-          0.75
-        ],
-        "fieldCameraComposition": [
-          0.72,
-          0.85
-        ],
-        "blueRoute1": [
-          0.74,
-          0.9
-        ],
+        "redRoutes": [0, 0.17],
+        "blueRoute0": [0.17, 0.74],
+        "fieldGridReveal": [0.72, 0.75],
+        "fieldCameraComposition": [0.72, 0.85],
+        "blueRoute1": [0.74, 0.9],
         "arrivalAndLogoActivationStarts": 0.9,
-        "cameraRetreat": [
-          0.9,
-          1.25
-        ]
+        "cameraRetreat": [0.9, 1.25]
       }
     },
     {
       "id": "desktop-pointer-trail",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-app-js-2026-07-28"
-      ],
+      "sourceRefs": ["live-app-js-2026-07-28"],
       "value": {
         "createdWhen": "isMobileOrTablet is false",
         "renderTargetSize": 256,
@@ -404,60 +434,20 @@
         },
         "liveDesktopLayoutModel": {
           "titleBox": {
-            "css": [
-              405.05,
-              128,
-              697.91,
-              172.78
-            ],
-            "predictedRecordingPixels": [
-              810.09,
-              256,
-              1395.82,
-              345.56
-            ]
+            "css": [405.05, 128, 697.91, 172.78],
+            "predictedRecordingPixels": [810.09, 256, 1395.82, 345.56]
           },
           "subtitleBox": {
-            "css": [
-              444,
-              348.78,
-              620,
-              86.39
-            ],
-            "predictedRecordingPixels": [
-              888,
-              697.56,
-              1240,
-              172.78
-            ]
+            "css": [444, 348.78, 620, 86.39],
+            "predictedRecordingPixels": [888, 697.56, 1240, 172.78]
           },
           "logoSvgBox": {
-            "css": [
-              707.5,
-              30.41,
-              93,
-              16
-            ],
-            "predictedRecordingPixels": [
-              1415,
-              60.82,
-              186,
-              32
-            ]
+            "css": [707.5, 30.41, 93, 16],
+            "predictedRecordingPixels": [1415, 60.82, 186, 32]
           },
           "scrollCueBox": {
-            "css": [
-              611.95,
-              673,
-              284.11,
-              40
-            ],
-            "predictedRecordingPixels": [
-              1223.89,
-              1346,
-              568.22,
-              80
-            ]
+            "css": [611.95, 673, 284.11, 40],
+            "predictedRecordingPixels": [1223.89, 1346, 568.22, 80]
           }
         },
         "qualification": "Accepted capture profile: the 2× raster identity is exact and the projected live desktop layout cross-checks against the named landing frame. The MOV does not carry a dedicated CSS-viewport or DPR metadata field, so retain that provenance caveat even though the baseline classification is source-confirmed."

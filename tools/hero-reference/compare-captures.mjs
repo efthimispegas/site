@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
@@ -27,6 +28,7 @@ const captureRoot = path.join(
 const implementationRoot = path.join(captureRoot, 'implementation');
 const measurementRoot = path.join(captureRoot, 'measurements');
 const comparisonRoot = path.join(captureRoot, 'comparisons');
+const captureManifestPath = path.join(captureRoot, 'capture-manifest.json');
 const PRELIMINARY_RASTER_THRESHOLDS = {
   meanAbsoluteChannelError: 3,
   rootMeanSquareChannelError: 15,
@@ -34,21 +36,136 @@ const PRELIMINARY_RASTER_THRESHOLDS = {
 };
 
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+const captureManifest = JSON.parse(await readFile(captureManifestPath, 'utf8'));
 const landingDomReference = JSON.parse(
   await readFile(landingDomReferencePath, 'utf8'),
 );
 const journeyDomReference = JSON.parse(
   await readFile(journeyDomReferencePath, 'utf8'),
 );
-const journeyDomProbe = JSON.parse(
-  await readFile(journeyDomProbePath, 'utf8'),
-);
+const journeyDomProbe = JSON.parse(await readFile(journeyDomProbePath, 'utf8'));
 const journeyProfileStateByKey = new Map(
   journeyDomReference.states.map((state) => [state.key, state]),
 );
 const journeyProbeStateByKey = new Map(
   journeyDomProbe.states.map((state) => [state.key, state]),
 );
+
+function verifyMeasurementSemantics(stateKey, artifact) {
+  let measurement;
+  try {
+    measurement = JSON.parse(artifact.toString('utf8'));
+  } catch {
+    throw new Error(`${stateKey}: measurement artifact is not valid JSON`);
+  }
+
+  const recordingProfile = manifest.authority.recordingProfile;
+  const state = measurement.state;
+  const surface = measurement.renderSurface;
+  const validSurface =
+    surface?.kind === 'canvas' &&
+    surface.canvasPresent === true &&
+    surface.webglContextAvailable === true &&
+    ['webgl', 'webgl2'].includes(surface.webglContextType) &&
+    surface.webglContextLost === false &&
+    Number.isSafeInteger(surface.width) &&
+    surface.width > 0 &&
+    Number.isSafeInteger(surface.height) &&
+    surface.height > 0 &&
+    Boolean(measurement.bounds?.canvas);
+
+  if (
+    measurement.stateKey !== stateKey ||
+    measurement.viewport?.width !== recordingProfile.cssViewport.width ||
+    measurement.viewport?.height !== recordingProfile.cssViewport.height ||
+    measurement.viewport?.devicePixelRatio !==
+      recordingProfile.devicePixelRatio.value ||
+    state?.['data-hero-reference-state'] !== stateKey ||
+    state?.['data-hero-render-ready'] !== 'true' ||
+    state?.['data-hero-motion'] !== 'full' ||
+    state?.['data-hero-profile'] !== 'recording-desktop' ||
+    state?.['data-hero-seed'] !== '43117' ||
+    !validSurface
+  ) {
+    throw new Error(
+      `${stateKey}: measurement does not prove a ready full-motion recording-desktop WebGL canvas`,
+    );
+  }
+}
+
+async function verifyCaptureArtifact(stateKey, kind, evidence) {
+  const expectedRelativePath = path.posix.join(
+    kind === 'implementation' ? 'implementation' : 'measurements',
+    `${stateKey}.${kind === 'implementation' ? 'png' : 'json'}`,
+  );
+
+  if (
+    !evidence ||
+    evidence.path !== expectedRelativePath ||
+    !Number.isSafeInteger(evidence.bytes) ||
+    evidence.bytes <= 0 ||
+    !/^[a-f0-9]{64}$/u.test(evidence.sha256)
+  ) {
+    throw new Error(
+      `${stateKey}: capture manifest has invalid ${kind} evidence`,
+    );
+  }
+
+  const artifact = await readFile(path.join(captureRoot, expectedRelativePath));
+  const sha256 = createHash('sha256').update(artifact).digest('hex');
+
+  if (artifact.byteLength !== evidence.bytes || sha256 !== evidence.sha256) {
+    throw new Error(
+      `${stateKey}: ${kind} artifact does not match the completed capture manifest`,
+    );
+  }
+
+  if (kind === 'measurement') {
+    verifyMeasurementSemantics(stateKey, artifact);
+  }
+}
+
+async function verifyCaptureManifest() {
+  const expectedKeys = manifest.states.map((state) => state.key);
+  const capturedKeys = Array.isArray(captureManifest.states)
+    ? captureManifest.states.map((state) => state.key)
+    : [];
+  const captureStartedAt = Date.parse(captureManifest.startedAt);
+  const captureCompletedAt = Date.parse(captureManifest.completedAt);
+  const validRunId =
+    typeof captureManifest.runId === 'string' &&
+    /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/u.test(
+      captureManifest.runId,
+    );
+  const validRunWindow =
+    Number.isFinite(captureStartedAt) &&
+    Number.isFinite(captureCompletedAt) &&
+    captureStartedAt <= captureCompletedAt;
+
+  if (
+    captureManifest.schemaVersion !== 1 ||
+    captureManifest.status !== 'complete' ||
+    !validRunId ||
+    !validRunWindow ||
+    captureManifest.expectedStateCount !== expectedKeys.length ||
+    captureManifest.capturedStateCount !== expectedKeys.length ||
+    capturedKeys.length !== expectedKeys.length ||
+    capturedKeys.some((key, index) => key !== expectedKeys[index])
+  ) {
+    throw new Error(
+      'Capture manifest is incomplete or does not match the authoritative state order',
+    );
+  }
+
+  await Promise.all(
+    captureManifest.states.flatMap((state) => [
+      verifyCaptureArtifact(state.key, 'implementation', state.implementation),
+      verifyCaptureArtifact(state.key, 'measurement', state.measurement),
+    ]),
+  );
+}
+
+await verifyCaptureManifest();
 
 if (
   journeyDomReference.captureProfile.viewportCss.width !==
@@ -103,17 +220,13 @@ function createImageBuffers(reference, implementation) {
 
     absoluteError += redError + greenError + blueError;
     squaredError +=
-      redError * redError +
-      greenError * greenError +
-      blueError * blueError;
+      redError * redError + greenError * greenError + blueError * blueError;
     maximumChannelError = Math.max(maximumChannelError, pixelError);
     if (pixelError > 16) {
       changedPixelCount += 1;
     }
 
-    overlay[index] = Math.round(
-      (reference[index] + implementation[index]) / 2,
-    );
+    overlay[index] = Math.round((reference[index] + implementation[index]) / 2);
     overlay[index + 1] = Math.round(
       (reference[index + 1] + implementation[index + 1]) / 2,
     );
@@ -168,7 +281,7 @@ function createIdentityMaskAudit(pixelCount) {
   };
 }
 
-function evaluateState(state, metrics) {
+function evaluatePreliminaryRaster(metrics) {
   const failures = Object.entries(PRELIMINARY_RASTER_THRESHOLDS)
     .filter(([metric, threshold]) => metrics[metric] > threshold)
     .map(([metric, threshold]) => ({
@@ -177,49 +290,93 @@ function evaluateState(state, metrics) {
       threshold,
       comparison: 'lte',
     }));
-  const hasMeasuredLandmarkBounds =
-    state.screenBounds?.status !== 'unknown' &&
-    Array.isArray(state.screenBounds?.landmark);
-  const hasMeasuredCopyBounds =
-    state.activeCopyState?.value === 'none' ||
-    (state.screenBounds?.status !== 'unknown' &&
-      Array.isArray(state.screenBounds?.copy));
-
   if (failures.length > 0) {
     return {
       status: 'fail',
       failures,
-      blockers: [],
-      note: 'The unmasked raster gate already exceeds conservative diagnostic thresholds; structural calibration must precede masked acceptance.',
-    };
-  }
-
-  const blockers = [];
-  if (!hasMeasuredLandmarkBounds) {
-    blockers.push('authoritative landmark bounds are unmeasured');
-  }
-  if (!hasMeasuredCopyBounds) {
-    blockers.push('authoritative copy bounds are unmeasured');
-  }
-
-  if (blockers.length > 0) {
-    return {
-      status: 'blocked',
-      failures: [],
-      blockers,
-      note: 'Raster diagnostics are within the preliminary gate, but the accuracy contract cannot pass without authoritative structural measurements.',
+      note: 'The full-frame unmasked raster exceeds one or more conservative preliminary thresholds.',
     };
   }
 
   return {
     status: 'pass',
     failures: [],
-    blockers: [],
-    note: 'Preliminary raster and available structural prerequisites pass. State-specific accuracy metrics remain the authoritative final gate.',
+    note: 'The full-frame unmasked raster is within preliminary diagnostic thresholds. This is not structural or final visual acceptance.',
+  };
+}
+
+function evaluateStructuralAccuracy(state, measurement) {
+  const blockers = [];
+  const sourceLandmarkMeasured =
+    state.screenBounds?.status !== 'unknown' &&
+    Array.isArray(state.screenBounds?.landmark);
+  const routeIsApplicable = state.route?.segment !== 'none';
+  const sourceRouteMeasured =
+    !routeIsApplicable || Array.isArray(state.screenBounds?.route);
+  const sourceCopyMeasured =
+    state.activeCopyState?.value === 'none' ||
+    Array.isArray(state.screenBounds?.copy);
+
+  if (!sourceLandmarkMeasured) {
+    blockers.push('authoritative source landmark bounds are unmeasured');
+  }
+  if (!sourceRouteMeasured) {
+    blockers.push('authoritative source route bounds are unmeasured');
+  }
+  if (!sourceCopyMeasured) {
+    blockers.push('authoritative source copy bounds are unmeasured');
+  }
+  if (state.cameraPose?.status === 'unknown') {
+    blockers.push('authoritative source camera structure is unknown');
+  }
+  if (!measurement?.structuralAccuracy) {
+    blockers.push(
+      'implementation landmark, route, camera, and negative-space measurements are not emitted',
+    );
+  }
+
+  return {
+    status: 'blocked',
+    checks: [],
+    failures: [],
+    blockers,
+    note: 'No state can pass structural accuracy until source prerequisites exist and implementation screen-space structure is measured against the Phase 1 tolerances.',
   };
 }
 
 const BOUND_COMPONENTS = ['x', 'y', 'width', 'height'];
+const JOURNEY_STEP_BOX_MAPPINGS = [
+  {
+    id: 'bounds',
+    probeField: 'box',
+    implementationField: 'bounds',
+    components: BOUND_COMPONENTS,
+  },
+  {
+    id: 'header',
+    probeField: 'header',
+    implementationField: 'header',
+    components: BOUND_COMPONENTS,
+  },
+  {
+    id: 'number',
+    probeField: 'number',
+    implementationField: 'number',
+    components: BOUND_COMPONENTS,
+  },
+  {
+    id: 'title',
+    probeField: 'title',
+    implementationField: 'title',
+    components: ['x', 'y', 'height'],
+  },
+  {
+    id: 'body',
+    probeField: 'body',
+    implementationField: 'body',
+    components: BOUND_COMPONENTS,
+  },
+];
 
 function compareScalar(metric, expected, actual, tolerance) {
   const delta = actual - expected;
@@ -313,8 +470,7 @@ function evaluateLandingDomLayout(stateKey, measurement) {
     };
   }
 
-  const tolerance =
-    landingDomReference.acceptance.boundsToleranceCssPx;
+  const tolerance = landingDomReference.acceptance.boundsToleranceCssPx;
   const checks = [
     compareScalar(
       'viewport.width',
@@ -330,8 +486,7 @@ function evaluateLandingDomLayout(stateKey, measurement) {
     ),
     compareScalar(
       'viewport.devicePixelRatio',
-      landingDomReference.captureProfile
-        .implementationCaptureDevicePixelRatio,
+      landingDomReference.captureProfile.implementationCaptureDevicePixelRatio,
       measurement.viewport.devicePixelRatio,
       0,
     ),
@@ -350,9 +505,7 @@ function evaluateLandingDomLayout(stateKey, measurement) {
   ];
   const failures = [];
 
-  for (const [key, reference] of Object.entries(
-    landingDomReference.bounds,
-  )) {
+  for (const [key, reference] of Object.entries(landingDomReference.bounds)) {
     appendBoundsChecks({
       checks,
       failures,
@@ -390,9 +543,7 @@ function evaluateJourneyDomLayout(stateKey, measurement) {
     return null;
   }
 
-  const probeState = journeyProbeStateByKey.get(
-    profileState.probeStateKey,
-  );
+  const probeState = journeyProbeStateByKey.get(profileState.probeStateKey);
   if (!probeState) {
     throw new Error(
       `${stateKey}: journey DOM profile references a missing probe state`,
@@ -416,10 +567,8 @@ function evaluateJourneyDomLayout(stateKey, measurement) {
     };
   }
 
-  const boundsTolerance =
-    journeyDomReference.acceptance.boundsToleranceCssPx;
-  const scrollTolerance =
-    journeyDomReference.acceptance.scrollToleranceCssPx;
+  const boundsTolerance = journeyDomReference.acceptance.boundsToleranceCssPx;
+  const scrollTolerance = journeyDomReference.acceptance.scrollToleranceCssPx;
   const activeStepIndexTolerance =
     journeyDomReference.acceptance.activeStepIndexTolerance;
   const checks = [
@@ -437,17 +586,11 @@ function evaluateJourneyDomLayout(stateKey, measurement) {
     ),
     compareScalar(
       'viewport.devicePixelRatio',
-      journeyDomReference.captureProfile
-        .implementationCaptureDevicePixelRatio,
+      journeyDomReference.captureProfile.implementationCaptureDevicePixelRatio,
       measurement.viewport.devicePixelRatio,
       0,
     ),
-    compareScalar(
-      'scroll.x',
-      0,
-      measurement.scroll.x,
-      scrollTolerance,
-    ),
+    compareScalar('scroll.x', 0, measurement.scroll.x, scrollTolerance),
     compareScalar(
       'scroll.y',
       probeState.actualScrollY,
@@ -457,6 +600,7 @@ function evaluateJourneyDomLayout(stateKey, measurement) {
   ];
   const failures = [];
   const processSteps = measurement.processSteps ?? [];
+  const sourceSteps = probeState.steps ?? [];
   const activeStepIndexes = processSteps
     .map((step, index) => (step.active ? index : -1))
     .filter((index) => index >= 0);
@@ -468,6 +612,45 @@ function evaluateJourneyDomLayout(stateKey, measurement) {
       actual: activeStepIndexes.length,
       reason: 'active-step-count-mismatch',
     });
+  }
+
+  appendBoundsChecks({
+    checks,
+    failures,
+    metricPrefix: 'processSteps.container',
+    label: 'full process-step ladder',
+    expected: probeState.flowSteps,
+    actual: measurement.bounds?.processSteps,
+    components: BOUND_COMPONENTS,
+    tolerance: boundsTolerance,
+  });
+
+  if (sourceSteps.length !== 4 || processSteps.length !== 4) {
+    failures.push({
+      metric: 'processSteps.count',
+      expected: 4,
+      actual: processSteps.length,
+      sourceCount: sourceSteps.length,
+      reason: 'process-step-count-mismatch',
+    });
+  } else {
+    for (let index = 0; index < sourceSteps.length; index += 1) {
+      const sourceStep = sourceSteps[index];
+      const implementationStep = processSteps[index];
+
+      for (const mapping of JOURNEY_STEP_BOX_MAPPINGS) {
+        appendBoundsChecks({
+          checks,
+          failures,
+          metricPrefix: `processSteps.${index}.${mapping.id}`,
+          label: `process step ${index + 1} ${mapping.id}`,
+          expected: sourceStep?.[mapping.probeField],
+          actual: implementationStep?.[mapping.implementationField],
+          components: mapping.components,
+          tolerance: boundsTolerance,
+        });
+      }
+    }
   }
 
   const activeStepIndex = activeStepIndexes[0];
@@ -547,18 +730,9 @@ function evaluateDomLayout(stateKey, measurement) {
 const states = [];
 
 for (const state of manifest.states) {
-  const referencePath = path.join(
-    workspaceRoot,
-    state.anchor.capturePath,
-  );
-  const implementationPath = path.join(
-    implementationRoot,
-    `${state.key}.png`,
-  );
-  const measurementPath = path.join(
-    measurementRoot,
-    `${state.key}.json`,
-  );
+  const referencePath = path.join(workspaceRoot, state.anchor.capturePath);
+  const implementationPath = path.join(implementationRoot, `${state.key}.png`);
+  const measurementPath = path.join(measurementRoot, `${state.key}.json`);
   let measurement = null;
   try {
     measurement = JSON.parse(await readFile(measurementPath, 'utf8'));
@@ -567,7 +741,19 @@ for (const state of manifest.states) {
       throw error;
     }
   }
-  const referenceImage = await sharp(referencePath)
+  const referenceArtifact = await readFile(referencePath);
+  const referenceSha256 = createHash('sha256')
+    .update(referenceArtifact)
+    .digest('hex');
+  if (
+    !/^[a-f0-9]{64}$/u.test(state.anchor.captureSha256) ||
+    referenceSha256 !== state.anchor.captureSha256
+  ) {
+    throw new Error(
+      `${state.key}: recording anchor does not match captureSha256`,
+    );
+  }
+  const referenceImage = await sharp(referenceArtifact)
     .removeAlpha()
     .raw()
     .toBuffer({ resolveWithObject: true });
@@ -597,19 +783,14 @@ for (const state of manifest.states) {
       channels: 3,
     },
   };
-  const overlayPath = path.join(
-    comparisonRoot,
-    `${state.key}-overlay.png`,
-  );
-  const heatmapPath = path.join(
-    comparisonRoot,
-    `${state.key}-heatmap.png`,
-  );
+  const overlayPath = path.join(comparisonRoot, `${state.key}-overlay.png`);
+  const heatmapPath = path.join(comparisonRoot, `${state.key}-heatmap.png`);
 
   await sharp(overlay, imageOptions).png().toFile(overlayPath);
   await sharp(heatmap, imageOptions).png().toFile(heatmapPath);
 
-  const acceptance = evaluateState(state, metrics);
+  const preliminaryRaster = evaluatePreliminaryRaster(metrics);
+  const structuralAccuracy = evaluateStructuralAccuracy(state, measurement);
   const domLayout = evaluateDomLayout(state.key, measurement);
   const identityMask = createIdentityMaskAudit(
     referenceImage.info.width * referenceImage.info.height,
@@ -622,6 +803,7 @@ for (const state of manifest.states) {
       decodedFrameIndex: state.anchor.decodedFrameIndex,
       timestampSeconds: state.anchor.timestampSeconds,
       referencePath: state.anchor.capturePath,
+      referenceSha256,
     },
     implementationPath: relative(implementationPath),
     overlayPath: relative(overlayPath),
@@ -637,13 +819,21 @@ for (const state of manifest.states) {
     identityMask,
     preliminaryRasterThresholds: PRELIMINARY_RASTER_THRESHOLDS,
     domLayout,
-    acceptance,
+    preliminaryRaster,
+    structuralAccuracy,
   });
 }
 
-const summary = states.reduce(
+const preliminaryRasterSummary = states.reduce(
   (counts, state) => {
-    counts[state.acceptance.status] += 1;
+    counts[state.preliminaryRaster.status] += 1;
+    return counts;
+  },
+  { pass: 0, fail: 0 },
+);
+const structuralAccuracySummary = states.reduce(
+  (counts, state) => {
+    counts[state.structuralAccuracy.status] += 1;
     return counts;
   },
   { pass: 0, fail: 0, blocked: 0 },
@@ -656,14 +846,19 @@ const domSummary = states.reduce(
   },
   { pass: 0, fail: 0, blocked: 0, 'not-applicable': 0 },
 );
-const rasterStructuralGateSatisfied =
-  summary.fail === 0 && summary.blocked === 0;
+const preliminaryRasterGateSatisfied = preliminaryRasterSummary.fail === 0;
+const structuralAccuracyGateSatisfied =
+  structuralAccuracySummary.fail === 0 &&
+  structuralAccuracySummary.blocked === 0;
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 4,
+  schemaVersion: 5,
   generatedFrom: {
     manifestPath: relative(manifestPath),
+    captureManifestPath: relative(captureManifestPath),
+    captureRunId: captureManifest.runId,
+    captureCompletedAt: captureManifest.completedAt,
     landingDomReferencePath: relative(landingDomReferencePath),
     journeyDomReferencePath: relative(journeyDomReferencePath),
     journeyDomProbePath: relative(journeyDomProbePath),
@@ -674,11 +869,9 @@ const report = {
   identityMaskPolicy: {
     status: 'blocked',
     appliedMaskedPixelCount: 0,
-    perStateRasterPixelCount:
-      states[0].identityMask.evaluatedPixelCount,
+    perStateRasterPixelCount: states[0].identityMask.evaluatedPixelCount,
     reportRasterPixelCount: states.reduce(
-      (count, state) =>
-        count + state.identityMask.evaluatedPixelCount,
+      (count, state) => count + state.identityMask.evaluatedPixelCount,
       0,
     ),
     policy:
@@ -686,19 +879,23 @@ const report = {
     consequence:
       'Every raster metric in this report remains unmasked; DOM identity exclusions affect only explicitly named DOM width/text checks.',
   },
-  summary,
+  preliminaryRasterSummary,
+  structuralAccuracySummary,
   domSummary,
-  rasterStructuralGateSatisfied,
+  preliminaryRasterGateSatisfied,
+  structuralAccuracyGateSatisfied,
   domLayoutGateSatisfied,
   gateSatisfied:
-    rasterStructuralGateSatisfied && domLayoutGateSatisfied,
+    preliminaryRasterGateSatisfied &&
+    structuralAccuracyGateSatisfied &&
+    domLayoutGateSatisfied,
   states,
 };
 const reportPath = path.join(captureRoot, 'comparison-report.json');
 await writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8');
 
 console.log(
-  `Compared ${states.length} states (raster/structure: ${summary.pass} pass, ${summary.fail} fail, ${summary.blocked} blocked; DOM: ${domSummary.pass} pass, ${domSummary.fail} fail, ${domSummary.blocked} blocked, ${domSummary['not-applicable']} not applicable); report: ${relative(reportPath)}`,
+  `Compared ${states.length} states (preliminary raster: ${preliminaryRasterSummary.pass} pass, ${preliminaryRasterSummary.fail} fail; structural accuracy: ${structuralAccuracySummary.pass} pass, ${structuralAccuracySummary.fail} fail, ${structuralAccuracySummary.blocked} blocked; DOM: ${domSummary.pass} pass, ${domSummary.fail} fail, ${domSummary.blocked} blocked, ${domSummary['not-applicable']} not applicable); report: ${relative(reportPath)}`,
 );
 
 if (!report.gateSatisfied) {

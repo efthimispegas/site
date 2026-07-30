@@ -64,7 +64,6 @@
   text-rendering: optimizeLegibility;
 }
 
-
 :global(.pegasoft-header) {
   position: fixed;
   top: 0;
@@ -74,7 +73,8 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   width: 100%;
-  padding: 16px 18px;
+  height: var(--header-height);
+  padding: 0 18px;
   opacity: 0;
   transform: translateY(-16px);
   transition:
@@ -1007,7 +1007,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-
 
   :global(.features__sticky) {
     padding: 80px 24px;

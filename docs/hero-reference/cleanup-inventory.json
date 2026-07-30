@@ -1,10 +1,7 @@
 {
-  "schemaVersion": 2,
-  "generatedAtUtc": "2026-07-30T10:24:14Z",
-  "phaseScope": [
-    3,
-    4
-  ],
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-07-30T12:58:31Z",
+  "phaseScope": [3, 4],
   "workingTree": {
     "branch": "codex/hero-reference-rebaseline",
     "implementationState": "implementation-checkpoint",
@@ -14,6 +11,7 @@
     "liveSite": "https://vectrfl.com/",
     "recording": {
       "path": "docs/vectrfl_recording.mov",
+      "sizeBytes": 190835536,
       "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
     },
     "legacyPolicy": "Legacy Pegasoft values, opaque capture aliases, generated comparisons, and external scratch assets are not acceptance authority."
@@ -22,13 +20,13 @@
     "deletedFiles": [
       {
         "path": "apps/pegasoft/src/app/shared/pegasoft-field-scene.tsx",
-        "status": "deleted-in-working-tree",
+        "status": "absent-from-current-tree-preserved-in-git-history",
         "deletedLines": 2812,
         "reason": "The obsolete monolithic renderer and its duplicate camera, route, world, beam, scroll, pointer, DOM choreography, and fallback systems can no longer ship through the active graph."
       },
       {
         "path": "libs/motion-system/src/lib/particle-field-hero.tsx",
-        "status": "deleted-in-working-tree",
+        "status": "absent-from-current-tree-preserved-in-git-history",
         "deletedLines": 106,
         "reason": "The dependency search found no owner for this adjacent old-hero implementation."
       }
@@ -87,13 +85,21 @@
     }
   ],
   "residualHygieneDebt": {
-    "status": "accepted",
-    "summary": "No unconsumed legacy or old-page selector family remains in the inspected CSS sources.",
+    "status": "passed-current-checkpoint",
+    "summary": "No unconsumed legacy or old-page selector family, obsolete external-scratch reference, or duplicate hero renderer remains in the inspected sources.",
     "families": []
+  },
+  "currentLayoutHygiene": {
+    "status": "passed-current-checkpoint",
+    "changes": [
+      "Removed the duplicate 48px flow-wrapper inset and retained one 48px steps-container inset, matching the authoritative whole-ladder DOM container without shifting child rows.",
+      "Added ResizeObserver and visual-viewport resize scheduling so page geometry is recomputed after mobile hydration, layout changes, resize, and restored reload."
+    ]
   },
   "dependencyHygiene": {
     "applicationManifest": "apps/pegasoft/package.json",
     "lockfile": "pnpm-lock.yaml",
+    "workspaceNodeEngine": "^20.19.0 || ^22.13.0 || >=24.0.0",
     "directRuntimeDependencies": [
       "@react-three/drei",
       "@react-three/fiber",
@@ -117,10 +123,7 @@
   "evidenceSearches": [
     {
       "purpose": "Legacy source scan",
-      "scope": [
-        "apps/pegasoft/src",
-        "libs/motion-system/src"
-      ],
+      "scope": ["apps/pegasoft/src", "libs/motion-system/src"],
       "patterns": [
         "pegasoft-field-scene",
         "ParticleFieldHero",
@@ -137,8 +140,8 @@
       "result": "hero-shell 32/32 consumed; hero-scene 26/26 consumed; homepage globals 76/76 consumed; shared global.css 25/25 consumed"
     },
     {
-      "purpose": "Production payload scan after a fresh production build",
-      "scope": "apps/pegasoft/.next executable JavaScript, CSS, JSON, HTML, and source maps under server and static output",
+      "purpose": "Production executable payload scan after a fresh production build",
+      "scope": "apps/pegasoft/.next executable JavaScript, CSS, JSON, and HTML",
       "patterns": [
         "legacy renderer and particle-hero symbols",
         "Anime.js",
@@ -148,32 +151,49 @@
         "external scratch paths"
       ],
       "result": "zero matches"
+    },
+    {
+      "purpose": "Production source-map scan after a fresh production build",
+      "scope": "apps/pegasoft/.next server and static source maps",
+      "result": "zero legacy, evidence, direct-control query, state/seed contract, recording, or external-scratch markers; one private server source map retains two dynamic-import module path strings (hero-development-control and hero-development-diagnostics), while the actual __heroState control contract is absent"
+    },
+    {
+      "purpose": "Obsolete external-scratch reference scan",
+      "scope": [
+        "apps/pegasoft",
+        "apps/pegasoft-e2e",
+        "docs",
+        "tools/hero-reference",
+        "libs/motion-system"
+      ],
+      "result": "zero matches"
     }
   ],
   "validation": [
     {
-      "command": "pnpm nx run-many -t lint test typecheck -p @site/pegasoft @site/pegasoft-e2e @site/motion-system --skipNxCache --parallel=3 --output-style=stream",
+      "command": "pnpm nx run-many --targets=lint,typecheck --projects=@site/pegasoft,@site/pegasoft-e2e,@site/motion-system --skipNxCache",
       "result": "passed",
-      "details": "App lint passed; 5 Vitest files and 32 tests passed. E2E lint/typecheck and motion-system lint/typecheck/test also passed."
+      "details": "Run with Node 24.14.0, matching CI and the declared jsdom-compatible engine range. App, E2E, and motion-system lint and typecheck passed."
     },
     {
-      "command": "pnpm nx run-many -t lint typecheck -p @site/pegasoft-e2e --skipNxCache --parallel=2",
-      "result": "passed"
+      "command": "CI=1 pnpm nx run-many --target=test --projects=@site/pegasoft,@site/motion-system --skipNxCache",
+      "result": "passed",
+      "details": "The Pegasoft app passed 5 Vitest files and 32 tests; motion-system passed 1 Vitest file and 2 tests."
     },
     {
       "command": "Playwright current-page smoke suite",
-      "result": "passed-historical-checkpoint",
-      "details": "20/20 configured desktop and Mobile Chrome executions passed before the latest renderer/layout calibration. Browser recertification of the current checkpoint was blocked when local-browser/server permission was denied."
+      "result": "passed-current-checkpoint",
+      "details": "22/22 configured desktop and Mobile Chrome executions passed against the current renderer/layout checkpoint."
     },
     {
       "command": "Playwright reduced-motion, fallback, and navigation alternative suite",
-      "result": "passed-historical-checkpoint",
-      "details": "8/8 configured desktop and Mobile Chrome executions passed before the latest renderer/layout calibration; the current checkpoint has not been recertified in a browser."
+      "result": "passed-current-checkpoint",
+      "details": "8/8 configured desktop and Mobile Chrome executions passed against the current renderer/layout checkpoint."
     },
     {
-      "command": "pnpm nx run-many -t lint typecheck test -p @site/motion-system --skipNxCache --parallel=3",
-      "result": "passed",
-      "details": "Lint and typecheck passed; 1 Vitest file and 2 tests passed."
+      "command": "pnpm nx run @site/pegasoft-e2e:e2e",
+      "result": "passed-current-checkpoint",
+      "details": "The final full-suite rerun passed 30 Chromium and Mobile Chrome executions; the two opt-in Phase 19 performance probes were skipped. Profile-aware desktop and mobile restored-reload convergence passed."
     },
     {
       "command": "NODE_ENV=production pnpm nx run @site/pegasoft:build --skipNxCache",
@@ -183,24 +203,27 @@
   ],
   "phaseGate": {
     "phase3": {
-      "status": "implementation-complete-acceptance-pending-browser-recertification",
+      "status": "own-gate-passed-ordered-acceptance-blocked-by-phase-1",
       "evidence": [
         "legacy renderer source deleted",
         "single active Canvas/fallback boundary",
-        "source and production payload scans clean",
+        "source and production executable payload scans clean",
+        "source maps contain no legacy/evidence/control contract, with two development module path strings explicitly recorded",
+        "obsolete external-scratch reference scan clean",
         "app lint, unit tests, and production build pass",
-        "historical browser smoke passed; current browser recertification is blocked"
+        "current desktop and Mobile Chrome browser smoke passed"
       ]
     },
     "phase4": {
-      "status": "implementation-complete-acceptance-pending-browser-recertification",
+      "status": "own-gate-passed-ordered-acceptance-blocked-by-phase-1",
       "evidence": [
         "zero residual unconsumed selector families",
         "hero CSS has scoped owners",
+        "duplicate 48px flow-wrapper inset removed",
         "direct app dependencies declared",
         "motion-system particle hero removed after dependency audit",
         "app and motion-system non-browser checks pass",
-        "historical shared-page browser smoke passed; current browser recertification is blocked"
+        "current shared-page desktop and Mobile Chrome browser smoke passed"
       ]
     }
   }

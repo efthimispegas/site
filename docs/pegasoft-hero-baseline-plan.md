@@ -12,24 +12,30 @@ evidence.
 - Phase 1 remains not accepted. Deterministic recording analysis now measures
   four primary landmarks and three auxiliary route cores, but explicitly
   blocks 11 primary landmarks rather than inventing boxes. Locked landing and
-  11-state journey DOM profiles exist; their last captured implementation
-  comparison is red.
-- Phase 2 has a valid historical `20/20` safety checkpoint, but the latest
-  renderer/layout candidate has not been browser-recertified.
-- Phases 3 and 4 have their hygiene implementation complete: the legacy
+  11-state journey DOM profiles exist. The current manifest-verified capture
+  passes all 13 applicable whole-ladder DOM states. The preliminary unmasked
+  raster diagnostic passes only 1 of 15 states, while structural accuracy is
+  blocked for all 15 states.
+- Phase 2 now passes its own current-checkpoint safety gate: all 22 configured
+  current-page Chromium and Mobile Chrome executions pass.
+- Phases 3 and 4 now pass their own hygiene gates: the legacy
   runtime is deleted, the active graph is singular, selector residue is gone,
   direct dependencies are app-owned, and fresh source/production executable
-  scans are clean. Full phase acceptance remains pending current-browser
-  recertification.
-- Phase 5 and every later phase remain not accepted. The architecture and
-  harness are implemented as candidates, but the complete convergence matrix
-  is authored but unverified. The last complete, now-stale comparison is `1
-  raster pass / 14 raster fail / 0 blocked`; its DOM gate is `0 pass / 13 fail
-  / 0 blocked / 2 not applicable`.
+  scans and current browser smoke are clean.
+- Phase 5 passes its own architecture/determinism gate: current browser
+  convergence covers forward, reverse, direct jump, resize, and restored
+  reload on genuine desktop and mobile profiles; repeated named-state captures
+  are stable; and a complete atomic capture manifest verifies all 30 artifacts
+  by byte count and SHA-256.
+- Phase 6 passes its own DOM/lifecycle gate with 13 passes, no failures or
+  blocked checks, and 2 states not applicable across the entire four-row
+  ladder. Phase 7 and every later visual-construction phase remain not
+  accepted. Comparator schema 5 reports preliminary raster at 1 pass and 14
+  failures, while all 15 structural-accuracy states remain blocked.
 
-The ordered visual release therefore remains held at Phase 1. Work already
-implemented beyond that gate is provisional and may be replaced; it does not
-inherit acceptance merely because it builds or has tests.
+The ordered visual release therefore remains held at Phase 1. Passing a later
+phase's own gate records what is proven at the current checkpoint; it does not
+waive the Phase 1 evidence prerequisite or confer final visual acceptance.
 
 ## Outcome
 
@@ -43,13 +49,13 @@ rollback mechanism; a dormant production renderer is not.
 
 ## Documents reviewed and their authority
 
-| Document or code | Role | Authority |
-| --- | --- | --- |
-| [website-plan.md](./website-plan.md) | Pegasoft product, brand, conversion, accessibility, and performance constraints | Product context only |
-| [pegasoft-codex-usage-memo.md](./pegasoft-codex-usage-memo.md) | Delivery and verification working policy | Process context only |
-| [vectr-hero-motion-map.md](./vectr-hero-motion-map.md) | Working observation notebook | Must be rechecked against the live site and recording; never a visual source |
-| Current Pegasoft implementation | Inventory of potentially reusable work and known failure modes | Never reference authority |
-| Earlier hero plans, screenshots, and captures | Historical context | Superseded |
+| Document or code                                               | Role                                                                            | Authority                                                                    |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| [website-plan.md](./website-plan.md)                           | Pegasoft product, brand, conversion, accessibility, and performance constraints | Product context only                                                         |
+| [pegasoft-codex-usage-memo.md](./pegasoft-codex-usage-memo.md) | Delivery and verification working policy                                        | Process context only                                                         |
+| [vectr-hero-motion-map.md](./vectr-hero-motion-map.md)         | Working observation notebook                                                    | Must be rechecked against the live site and recording; never a visual source |
+| Current Pegasoft implementation                                | Inventory of potentially reusable work and known failure modes                  | Never reference authority                                                    |
+| Earlier hero plans, screenshots, and captures                  | Historical context                                                              | Superseded                                                                   |
 
 This document is the implementation plan. It does not elevate another Markdown
 document or a generated screenshot into design evidence.
@@ -92,6 +98,14 @@ Evidence rules:
   inferences unless the current site source proves them. Acceptance uses
   measured screen-space bounds, route topology, and camera-direction cues.
 
+The repository-owned current-live refresh generated at
+`2026-07-30T12:27:02.718Z` passed all four isolated Chrome
+`150.0.7871.188` profiles: recording desktop `1508x761`, desktop `1440x900`,
+tablet `1024x768`, and mobile `390x844`. The tablet and mobile results are
+browser emulations, not physical-device or performance evidence. Main-thread
+WebGL context-loss events were monitored and none were observed;
+worker/OffscreenCanvas context-loss state remains unknown.
+
 ## Reference findings from this review
 
 These findings come from the current live site and direct inspection of the
@@ -105,26 +119,26 @@ loader appears. Do not label frame zero as “loader begins.”
 
 Verified comparison anchors:
 
-| Recording time | Observable state |
-| --- | --- |
-| `0.0–0.8s` | Pre-reload resolved page; capture setup, not a target loader state |
-| `~0.9s` | Reload/reset to pale field and tiny central blue squares |
-| `1.0–1.8s` | Squares orbit/assemble; oversized elliptical contour lines sweep |
-| `1.9–3.1s` | Blue arrow/brand loader resolves while contours continue |
-| `3.2–3.7s` | Industrial world, red rails, and header compose into view |
-| `3.8–4.4s` | Heading tilts/translates into place, followed by body copy |
-| `4.4–8.4s` | Resolved idle landing with red route packets |
-| `~8.5s` | Journey scroll begins and landing copy exits |
-| `8.8–9.0s` | Step 01 becomes established |
-| `9.0–13.3s` | Red route travel and later cyan/blue handoff cues |
-| `13.4–13.6s` | Step 02 becomes active |
-| `13.5–20.4s` | Blue-route travel through broad industrial context |
-| `~20.5s` | Tile field preview begins while Step 02 remains active |
-| `~22.0s` | Step 03 becomes active in a strongly top-down composition |
-| `22.5–29.3s` | Repeated field pulses expand/reset around stable contact |
-| `29.4–29.6s` | Step 04 becomes active |
-| `30.0–31.2s` | Close frontal arrow lockup and horizontal cyan feed |
-| `~31.4s onward` | Journey yields to the following white page section |
+| Recording time  | Observable state                                                   |
+| --------------- | ------------------------------------------------------------------ |
+| `0.0–0.8s`      | Pre-reload resolved page; capture setup, not a target loader state |
+| `~0.9s`         | Reload/reset to pale field and tiny central blue squares           |
+| `1.0–1.8s`      | Squares orbit/assemble; oversized elliptical contour lines sweep   |
+| `1.9–3.1s`      | Blue arrow/brand loader resolves while contours continue           |
+| `3.2–3.7s`      | Industrial world, red rails, and header compose into view          |
+| `3.8–4.4s`      | Heading tilts/translates into place, followed by body copy         |
+| `4.4–8.4s`      | Resolved idle landing with red route packets                       |
+| `~8.5s`         | Journey scroll begins and landing copy exits                       |
+| `8.8–9.0s`      | Step 01 becomes established                                        |
+| `9.0–13.3s`     | Red route travel and later cyan/blue handoff cues                  |
+| `13.4–13.6s`    | Step 02 becomes active                                             |
+| `13.5–20.4s`    | Blue-route travel through broad industrial context                 |
+| `~20.5s`        | Tile field preview begins while Step 02 remains active             |
+| `~22.0s`        | Step 03 becomes active in a strongly top-down composition          |
+| `22.5–29.3s`    | Repeated field pulses expand/reset around stable contact           |
+| `29.4–29.6s`    | Step 04 becomes active                                             |
+| `30.0–31.2s`    | Close frontal arrow lockup and horizontal cyan feed                |
+| `~31.4s onward` | Journey yields to the following white page section                 |
 
 The repository now stores exact selected frames for all 15 states and a
 2026-07-30 live-to-recording target-progress calibration. Those progress
@@ -194,28 +208,38 @@ remain missing.
 
 ### Accepted hygiene and isolation
 
+- The audit caught the later accidental deletion of
+  `docs/vectrfl_recording.mov` and restored it from commit `4db3f5b`'s local
+  Git LFS object. Its current `190835536` bytes reproduce the recorded
+  SHA-256, and the structural-bounds reproducibility check passes.
 - `pegasoft-field-scene.tsx`, its renderer switch, and the adjacent unused
-  motion-system particle hero are deleted in the working tree and remain
-  recoverable from Git.
-- The source, fresh production executable payload, and production source maps
-  contain no legacy renderer,
-  `vectr-ref2-*`, Anime.js hero path, development query key, development
-  state/seed diagnostic, recording-evidence payload, or external scratch
-  marker.
+  motion-system particle hero are absent from the current tree and remain
+  recoverable from Git history.
+- The source and fresh production executable payload contain no legacy
+  renderer, `vectr-ref2-*`, Anime.js hero path, development query key,
+  development state/seed contract, recording-evidence payload, or external
+  scratch marker. Production source maps also contain none of those contracts,
+  but one private server source map retains the two dynamic-import module path
+  strings `hero-development-control` and `hero-development-diagnostics`.
+  `__heroState` and the actual control contract are absent.
 - Former legacy hero CSS and the 19 unowned old-page selector families are
   gone. Scoped hero shell/scene modules have source consumers, and every
   remaining `global.css` class family has an exact app consumer.
 - The Pegasoft app directly declares `clsx`, React Three Fiber, Drei, and
   Three.js. Motion-system lint, typecheck, and its two tests pass after removal
   of the unowned particle hero.
+- The workspace declares Node `^20.19.0 || ^22.13.0 || >=24.0.0`, matching
+  jsdom 29's runtime floor and the Node 24 CI environment; this prevents the
+  merged dependency resolution from being misdiagnosed under Node 20.15.
 
 The detailed evidence is in
 [`cleanup-inventory.json`](./hero-reference/cleanup-inventory.json).
 
 ### Implemented candidate architecture
 
-- `PegasoftHome` measures physical page geometry once; a pure controller owns
-  raw, DOM, scene, lifecycle, profile, state, and local-clock outputs.
+- `PegasoftHome` owns one animation-frame-scheduled physical page-geometry
+  stream; a pure controller owns raw, DOM, scene, lifecycle, profile, state,
+  and local-clock outputs.
 - DOM copy and `HeroScene` consume the same snapshot.
 - The 45-line fixed-world assembly delegates bounded geometry to stage modules.
   One canonical route feeds route rendering, camera/contact sampling, beam, and
@@ -230,18 +254,32 @@ The detailed evidence is in
   arrival, and exit compositions rather than one generic fallback.
 - Five Vitest files pass 32 tests, including typed topology-manifest and
   measured-bound contract coverage.
-  Historical current-page smoke passed 20 configured browser executions,
-  alternative/focus coverage passed 8, and an older implementation completed
-  all 15 named captures. Those browser/capture results predate the latest
-  layout, readiness, lighting, and progress-mapping changes.
+  Current-page smoke passes 22 configured browser executions and
+  alternative/focus coverage passes 8; the two opt-in performance probes are
+  intentionally excluded from that functional result.
 - A browser convergence suite now covers forward, reverse, direct jump,
-  resize, and restored-scroll reload. It is authored but not accepted because
-  local-browser/server permission was denied before the current checkpoint
-  could complete it.
+  resize, and restored-scroll reload on genuine desktop and mobile profiles,
+  and the same named state produces a stable repeated capture. The targeted
+  convergence run passed `2/2`; the final full browser suite passed `30`, with
+  the two opt-in Phase 19 performance probes skipped.
+- Page geometry now observes flow/feature resizing and visual-viewport changes.
+  This closes the mobile post-hydration and restored-reload measurement gap
+  without introducing a second progress source.
+- The process copy no longer applies a duplicate `48px` wrapper inset. One
+  `48px` steps-container inset preserves child-row placement while matching
+  the authoritative whole-ladder container bounds.
+- The current recording-profile run captures all 15 states only after app and
+  E2E typechecks pass. It publishes an atomic manifest whose byte counts and
+  SHA-256 values are required by the comparator for all 15 images and 15
+  measurement records. Run
+  `3ea50840-e8ad-439b-9ee9-e7e8bca3e24b` completed at
+  `2026-07-30T12:45:18.739Z`; every capture required a visible real WebGL
+  canvas, full motion, the `recording-desktop` profile, seed `43117`, render
+  readiness, and no observed context loss.
 
-This architecture is still provisional. Phase 5 remains not accepted because
-the complete forward/reverse/jump/resize/restored-state browser convergence
-matrix has not been demonstrated.
+Phase 5 passes its own current-checkpoint gate. Its architecture remains
+provisional in the ordered program because Phase 1 source evidence is
+incomplete; passing the harness gate does not freeze visual constants.
 
 ### Accuracy blockers
 
@@ -249,9 +287,11 @@ matrix has not been demonstrated.
   Deterministic recording analysis measures four primary landmarks and three
   auxiliary route cores; 11 primary landmark states remain explicitly blocked.
 - The 15-state comparator is operational and intentionally returns a non-zero
-  result. Its last complete inputs predate the latest code and report `1
-  raster pass / 14 raster fail / 0 blocked`, with `0 DOM pass / 13 DOM fail /
-  0 blocked / 2 not applicable`.
+  result. Schema 5 keeps three independent verdicts: preliminary unmasked
+  raster has 1 pass and 14 failures; structural accuracy has 0 passes, 0
+  failures, and 15 blocked states; and whole four-row ladder DOM has 13 passes,
+  no failures or blocked checks, and 2 states not applicable. Preliminary
+  raster is a diagnostic, not structural or final visual acceptance.
 - No identity pixels are hidden: the pixel-precise identity mask is blocked,
   zero pixels are masked, and all `68,855,280` report pixels are evaluated.
 - Recording structural evidence is serialized in
@@ -265,8 +305,9 @@ matrix has not been demonstrated.
   Exact source-asset reuse requires explicit rights; otherwise matching must be
   achieved with independently owned geometry.
 - The performance harness is implemented, but the available software-rendered
-  development run is not a locked-hardware production acceptance run and
-  exceeds multiple budgets.
+  development diagnostic is not a locked-hardware production acceptance run
+  and exceeds multiple budgets. The Phase 19 acceptance performance run
+  remains unrun.
 
 No code listed in this candidate section inherits visual acceptance.
 
@@ -279,9 +320,11 @@ live target-progress candidates. A deterministic, hash-verifying measurement
 pipeline resolves four primary landmark boxes and three auxiliary route cores;
 11 primary landmarks are explicitly blocked where semantic isolation is not
 defensible. Locked live DOM contracts cover the two landing and 11 journey
-states. The last implementation capture fails all 13 applicable DOM states and
-predates the latest CSS/progress corrections; generated captures may not fill
-the remaining source-evidence gaps.
+states, and the current implementation passes all 13 applicable DOM checks.
+Those checks cover the entire four-row process ladder, not only the active row.
+Generated implementation captures may not fill the remaining source-evidence
+gaps. Structural accuracy remains blocked for all 15 states, while the
+preliminary unmasked raster diagnostic remains red in 14 of 15 states.
 
 Complete this evidence before accepting visual tuning:
 
@@ -359,8 +402,9 @@ Evidence:
 - hero styles have scoped owners and the shared CSS consumer audit has no
   residue;
 - direct app dependencies are declared;
-- app, E2E definition, motion-system, production build, and production payload
-  checks pass.
+- app, E2E definition, motion-system, production build, and production
+  executable payload checks pass; the recorded source-map module-path caveat
+  does not hide a legacy renderer or direct-control contract.
 
 See [`cleanup-inventory.json`](./hero-reference/cleanup-inventory.json). The
 steps below remain the durable checklist that this accepted gate must continue
@@ -585,23 +629,23 @@ documented as intentional product requirements.
 The following are maximum tolerances, not goals. A visible mismatch still
 fails even when a metric happens to pass.
 
-| Measurement | Maximum accepted error |
-| --- | --- |
-| DOM copy/header/CTA bounds | `2 CSS px` or `0.25%` of the short viewport edge |
-| Primary landmark center | `0.75%` of viewport width/height |
-| Primary landmark width/height | `2%`; silhouette IoU at least `0.90` |
-| Secondary context silhouette | IoU at least `0.85` |
-| Route centerline | Hausdorff distance at most `0.75%` of the short edge |
-| Route entry/contact/exit points | `0.5%` of viewport width/height |
-| Route thickness | `1 CSS px` or `10%`, whichever is larger |
-| Camera-direction or major scene axes | `1°` |
-| Negative-space occupancy | `3%` |
-| Flat solid-color samples | Delta E 2000 at most `3` |
-| Fog/glow samples after structural lock | Delta E 2000 at most `5` |
-| Copy/scene progress handoff | `0.005` normalized progress after live measurement |
-| Time-authored loader event | `50ms` at the locked comparison profile |
-| Settled desktop camera | Under `1%` screen-space error within `450ms` |
-| Settled mobile camera | Under `1%` screen-space error within `300ms` |
+| Measurement                            | Maximum accepted error                               |
+| -------------------------------------- | ---------------------------------------------------- |
+| DOM copy/header/CTA bounds             | `2 CSS px` or `0.25%` of the short viewport edge     |
+| Primary landmark center                | `0.75%` of viewport width/height                     |
+| Primary landmark width/height          | `2%`; silhouette IoU at least `0.90`                 |
+| Secondary context silhouette           | IoU at least `0.85`                                  |
+| Route centerline                       | Hausdorff distance at most `0.75%` of the short edge |
+| Route entry/contact/exit points        | `0.5%` of viewport width/height                      |
+| Route thickness                        | `1 CSS px` or `10%`, whichever is larger             |
+| Camera-direction or major scene axes   | `1°`                                                 |
+| Negative-space occupancy               | `3%`                                                 |
+| Flat solid-color samples               | Delta E 2000 at most `3`                             |
+| Fog/glow samples after structural lock | Delta E 2000 at most `5`                             |
+| Copy/scene progress handoff            | `0.005` normalized progress after live measurement   |
+| Time-authored loader event             | `50ms` at the locked comparison profile              |
+| Settled desktop camera                 | Under `1%` screen-space error within `450ms`         |
+| Settled mobile camera                  | Under `1%` screen-space error within `300ms`         |
 
 Always compare at the exact locked viewport, DPR, font state, journey progress,
 local-effect time, and deterministic seed. Mask only the glyph/logo pixels that
@@ -636,59 +680,62 @@ All phases start `not accepted`. A phase may begin only after the previous
 phase's stop/go gate passes. Phases 0–5 are hard blockers for all visual
 tuning; decorative work cannot begin before Phase 16.
 
-| Phase | Workstream | What becomes locked |
-| --- | --- | --- |
-| 0 | Preserve dirty state | Recoverable source/recording baseline |
-| 1 | Authoritative evidence | State manifest, profiles, and tolerances |
-| 2 | Smoke safety net | Passing current-page tests |
-| 3 | Legacy severance | One active hero import graph |
-| 4 | CSS/dependency hygiene | Clean selectors and package ownership |
-| 5 | Architecture/harness | Deterministic controller, tests, and captures |
-| 6 | DOM/lifecycle | Copy layout and mapping curves |
-| 7 | Proxy topology | World spacing and canonical route |
-| 8 | Static cameras | All high-information anchor poses |
-| 9 | Camera motion | Interpolation and damping |
-| 10 | Loader/landing | Time-based reveal and idle cadence |
-| 11 | Activation | Step 01 silhouette and red route |
-| 12 | Clearance | Step 02, blue route, and desktop trail |
-| 13 | Field match | Step 03 geometry, approach, and pulse |
-| 14 | Arrival | Step 04 lockup and journey exit |
-| 15 | Full desktop motion | Chronological/reverse/jump behavior |
-| 16 | Desktop art | Materials, lighting, typography, and nuance |
-| 17 | Responsive profiles | Authored tablet/mobile states |
-| 18 | Accessible alternatives | Reduced motion and fallback |
-| 19 | Production cutover | Performance, bundle hygiene, final evidence |
+| Phase | Workstream              | What becomes locked                           |
+| ----- | ----------------------- | --------------------------------------------- |
+| 0     | Preserve dirty state    | Recoverable source/recording baseline         |
+| 1     | Authoritative evidence  | State manifest, profiles, and tolerances      |
+| 2     | Smoke safety net        | Passing current-page tests                    |
+| 3     | Legacy severance        | One active hero import graph                  |
+| 4     | CSS/dependency hygiene  | Clean selectors and package ownership         |
+| 5     | Architecture/harness    | Deterministic controller, tests, and captures |
+| 6     | DOM/lifecycle           | Copy layout and mapping curves                |
+| 7     | Proxy topology          | World spacing and canonical route             |
+| 8     | Static cameras          | All high-information anchor poses             |
+| 9     | Camera motion           | Interpolation and damping                     |
+| 10    | Loader/landing          | Time-based reveal and idle cadence            |
+| 11    | Activation              | Step 01 silhouette and red route              |
+| 12    | Clearance               | Step 02, blue route, and desktop trail        |
+| 13    | Field match             | Step 03 geometry, approach, and pulse         |
+| 14    | Arrival                 | Step 04 lockup and journey exit               |
+| 15    | Full desktop motion     | Chronological/reverse/jump behavior           |
+| 16    | Desktop art             | Materials, lighting, typography, and nuance   |
+| 17    | Responsive profiles     | Authored tablet/mobile states                 |
+| 18    | Accessible alternatives | Reduced motion and fallback                   |
+| 19    | Production cutover      | Performance, bundle hygiene, final evidence   |
 
 ### Implementation checkpoint — 2026-07-30
 
 The status below reports each phase's own evidence without pretending that
 provisional downstream implementation waived the ordered release gate.
 
-| Phase | Gate status | Evidence or blocker |
-| --- | --- | --- |
-| 0 | **Accepted** | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed. |
-| 1 | **Not accepted** | Exact frames, profiles, target calibration, classifications, schemas, four primary landmark boxes, three route cores, and 13-state DOM authority exist; 11 primary landmarks and additional structural observables remain blocked. |
-| 2 | **Historical checkpoint passed; current recertification pending** | Chromium/Mobile Chrome smoke was `20/20` before the latest renderer/layout calibration. The current checkpoint could not be rerun after local-browser/server permission was denied. |
-| 3 | **Implementation complete; acceptance pending browser recertification** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans plus lint/unit/build pass. Current browser smoke is unrun. |
-| 4 | **Implementation complete; acceptance pending browser recertification** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, and motion-system validation passes. Current shared-page browser smoke is unrun. |
-| 5 | **Not accepted** | Candidate architecture, 32 unit tests, direct-state control, current capture tooling, and an authored convergence suite exist; the full current-browser matrix and repeat-capture proof are missing. |
-| 6 | **Not accepted** | Landing and 11 journey DOM profiles are locked, and implementation CSS/progress mapping has been recalibrated. The last capture fails all 13 applicable states and predates those corrections. |
-| 7–17 | **Not accepted** | The last complete comparator reports `1 raster pass / 14 fail / 0 blocked`; it predates the latest implementation and cannot accept route, geometry, camera, motion, art, or responsive states. |
-| 18 | **Not accepted** | State-specific fallback and reduced-motion paths are implemented and passed an older browser checkpoint, but the current candidate is unrecertified and the phase depends on accepted full-motion/profile compositions. |
-| 19 | **Not accepted** | Production executable assets and source maps are clean, and a performance schema/harness exists. Locked-hardware budgets are unrun and every upstream visual/browser gate has not passed. |
+| Phase | Gate status                                             | Evidence or blocker                                                                                                                                                                                                                                           |
+| ----- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | **Accepted**                                            | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed.                                                                                                                                      |
+| 1     | **Not accepted**                                        | Exact frames, profiles, target calibration, classifications, schemas, four primary landmark boxes, three route cores, and 13-state DOM authority exist; 11 primary landmarks and additional structural observables remain blocked.                            |
+| 2     | **Own gate passed; ordered acceptance held at Phase 1** | All 22 configured current-page Chromium and Mobile Chrome executions pass against the current renderer/layout checkpoint.                                                                                                                                     |
+| 3     | **Own gate passed; ordered acceptance held at Phase 1** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans, lint/unit/build, and current browser smoke pass.                                                                                                  |
+| 4     | **Own gate passed; ordered acceptance held at Phase 1** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, motion-system validation passes, and current shared-route browser smoke passes.                                                                                                  |
+| 5     | **Own gate passed; ordered acceptance held at Phase 1** | The architecture, 32 unit tests, direct-state control, repeat-capture stability, genuine desktop/mobile forward/reverse/jump/resize/restored convergence, and atomic 15-state size/SHA-256 artifact manifest pass.                                            |
+| 6     | **Own gate passed; ordered acceptance held at Phase 1** | The current manifest-verified capture passes all 13 applicable landing/journey DOM contracts across the entire four-row ladder; two states are correctly not applicable.                                                                                      |
+| 7–17  | **Not accepted**                                        | Comparator schema 5 reports preliminary raster at `1 pass / 14 fail` and structural accuracy at `0 pass / 0 fail / 15 blocked`; it cannot accept route, geometry, camera, motion, art, or responsive scene states.                                            |
+| 18    | **Not accepted**                                        | All eight current reduced-motion, fallback, mobile-navigation, and deterministic static-composition executions pass, but the phase depends on accepted full-motion and responsive compositions.                                                               |
+| 19    | **Not accepted**                                        | Production executable assets are clean. Source maps retain two development dynamic-import module path strings but no control contract. The two opt-in performance probes and locked-hardware budgets remain unrun, and upstream visual gates have not passed. |
 
 The next legal acceptance work is to continue Phase 1 structural measurement
-where the automated pipeline is blocked, then recertify Phases 2–6 against the
-current checkpoint before any visual phase can turn green. Existing Phase
-5–19 code is testable scaffolding or a comparison candidate, not a reason to
-skip those gates.
+where the automated pipeline is blocked. Phases 2–6 have current own-gate
+evidence, but no visual-construction phase can turn green until Phase 1 closes.
+Existing Phase 7–19 code is testable scaffolding or a comparison candidate,
+not a reason to skip those gates.
 
 ### Phase 0 — preserve the current dirty state
 
-Status: accepted on 2026-07-28.
+Status: accepted on 2026-07-28 and reverified on 2026-07-30.
 
 Evidence: commits `e7897fe`, `4db3f5b`, and `cac3844`; recording Git LFS object
 and SHA; [`phase-0-baseline.json`](./hero-reference/phase-0-baseline.json).
+The current audit found that commit `8000ccc` had later deleted the working
+recording despite the plan's acceptance claim, restored it from the verified
+LFS object, and reran the hash-verifying structural measurement successfully.
 
 Steps:
 
@@ -698,8 +745,9 @@ Steps:
 3. Preserve the authoritative recording through Git LFS or another
    repository-backed mechanism appropriate for its `190835536`-byte size, and
    record its SHA-256 independently.
-4. Record the current fresh verification baseline: app lint/build pass and E2E
-   `6 passed / 4 failed`.
+4. Preserve the Phase 0 verification baseline—app lint/build pass and E2E
+   `6 passed / 4 failed`—as historical evidence, distinct from the current
+   validation snapshot.
 
 Artifact:
 
@@ -763,12 +811,12 @@ pnpm nx run @site/pegasoft-e2e:typecheck
 
 ### Phase 2 — repair the smoke-test safety net
 
-Status: historical checkpoint accepted on 2026-07-28; current candidate
-recertification pending and ordered release held at Phase 1.
+Status: own gate passed on the 2026-07-30 current checkpoint; ordered release
+held at Phase 1.
 
-Evidence: commit `476c8a9`; 20/20 configured Chromium and Mobile Chrome smoke
-executions passed at that checkpoint. The latest renderer/layout candidate has
-not rerun this gate because local-browser/server permission was denied.
+Evidence: all 22 configured current-page Chromium and Mobile Chrome executions
+pass against the latest renderer/layout candidate. The checks require a named,
+render-ready hero surface without forcing a landing-only milestone.
 
 Steps:
 
@@ -799,13 +847,13 @@ pnpm nx run @site/pegasoft-e2e:e2e
 
 ### Phase 3 — sever and remove the legacy renderer
 
-Status: implementation complete; browser-dependent acceptance recertification
-pending and ordered release held at Phase 1.
+Status: own gate passed on the 2026-07-30 current checkpoint; ordered release
+held at Phase 1.
 
 Evidence: the legacy file and renderer switch are absent; one Canvas/fallback
 boundary remains; source and fresh production executable scans are clean; app
-lint, 32 unit tests, and production build pass. Browser smoke passed at an
-older checkpoint but is unrun on the latest candidate.
+lint, 32 unit tests, production build, and current Chromium/Mobile Chrome
+browser smoke pass.
 
 Steps:
 
@@ -829,7 +877,7 @@ Stop/go gate:
 
 - the app builds with the legacy file absent;
 - source and production output contain no old renderer, `vectr-ref2-*`,
-  negative-progress, cluster, or legacy-stage strings;
+  negative-progress, `.pegasoft-cluster*`, or `.pegasoft-stage*` identifiers;
 - only one active Canvas/fallback boundary ships.
 
 Nx verification:
@@ -842,13 +890,13 @@ pnpm nx run @site/pegasoft-e2e:e2e
 
 ### Phase 4 — remove polluted CSS and repair dependency ownership
 
-Status: implementation complete; browser-dependent acceptance recertification
-pending and ordered release held at Phase 1.
+Status: own gate passed on the 2026-07-30 current checkpoint; ordered release
+held at Phase 1.
 
 Evidence: the former 19-family residue is removed; remaining shared and scoped
 class families have consumers; direct app dependencies are explicit; app,
-and motion-system lint/typecheck/test pass. Shared-route smoke passed at an
-older checkpoint but is unrun on the latest candidate. See
+and motion-system lint/typecheck/test pass. Current shared-route Chromium and
+Mobile Chrome smoke also passes. See
 [`cleanup-inventory.json`](./hero-reference/cleanup-inventory.json).
 
 Steps:
@@ -892,14 +940,19 @@ Run the motion-system commands only when that project changes.
 
 ### Phase 5 — establish clean architecture and deterministic test control
 
-Status: not accepted.
+Status: own gate passed on the 2026-07-30 current checkpoint; ordered
+acceptance held at Phase 1.
 
-Implementation checkpoint: ownership boundaries, runtime/evidence separation,
-32 passing unit tests, 15-state direct capture control, state-specific fallback,
-and the failing acceptance comparator are present. A browser test now covers
-forward, reverse, direct jump, resize, and restored-scroll reload, but it has
-not completed against the current checkpoint. Repeat-capture stability and
-accepted visual evidence are also absent.
+Evidence: ownership boundaries, runtime/evidence separation, 32 passing unit
+tests, 15-state direct capture control, state-specific fallback, and the
+intentional failing visual comparator are present. Current Chromium and Mobile
+Chrome runs pass forward, reverse, direct jump, resize, restored-scroll reload,
+and repeated named-state stability on their genuine desktop/mobile profiles.
+The targeted convergence run passed `2/2`; the final full suite passed `30`,
+with the two opt-in Phase 19 performance probes skipped. ResizeObserver-backed
+page measurement keeps mobile hydration and reload geometry current. The clean
+capture target runs app/E2E typechecks first and emits a complete atomic
+size/SHA-256 manifest only after all 15 states succeed.
 
 Steps:
 
@@ -941,19 +994,25 @@ pnpm nx build @site/pegasoft
 pnpm nx run @site/pegasoft-e2e:e2e
 ```
 
-The app test target now exists and currently passes 32 tests; that result is
-necessary but not sufficient for the Phase 5 convergence gate.
+The app test target passes 32 tests, and the independent browser convergence
+and repeat-capture checks now close the remainder of this phase's own gate.
+Phase 1 still prevents ordered acceptance and still permits replacement of
+unproven visual constants.
 
 ### Phase 6 — lock DOM layout, lifecycle, and progress mappings
 
-Status: not accepted.
+Status: own gate passed on the 2026-07-30 current checkpoint; ordered
+acceptance held at Phase 1.
 
-Implementation checkpoint: one raw physical-progress source now feeds explicit
-DOM and scene mapping curves. The recording-desktop scene curve is fitted to
-the locked live-to-recording calibration, DOM handoffs use the same
-controller-owned scene target, and the latest CSS adjusts header/process
-geometry to the live probe. These are unrecaptured candidates, not accepted
-bounds.
+Evidence: one raw physical-progress source feeds explicit DOM and scene mapping
+curves. The recording-desktop scene curve is fitted to the locked
+live-to-recording calibration, DOM handoffs use the same controller-owned scene
+target, and the current manifest-verified capture passes all 13 applicable DOM
+contracts—including the container and every header, number, title, and body in
+the four-row ladder—with zero failures or blocked checks. Removing the
+duplicate `48px` wrapper inset aligned the container without moving its rows.
+Current profile-aware convergence and horizontal-overflow browser checks also
+pass.
 
 Steps:
 

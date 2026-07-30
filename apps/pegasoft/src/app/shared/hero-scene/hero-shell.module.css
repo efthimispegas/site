@@ -317,12 +317,8 @@
   max-width: 100%;
   height: 100svh;
   align-items: flex-end;
-  padding: 0 0 0 48px;
-  transform: translate3d(
-    0,
-    calc((1 - var(--flow-reveal-progress)) * 18px),
-    0
-  );
+  padding: 0;
+  transform: translate3d(0, calc((1 - var(--flow-reveal-progress)) * 18px), 0);
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform;
 }
@@ -330,11 +326,12 @@
 .flowSteps {
   position: relative;
   display: flex;
-  width: 568px;
-  max-width: calc(100% - 48px);
+  box-sizing: border-box;
+  width: 664px;
+  max-width: 100%;
   flex-direction: column;
-  margin-bottom: 48px;
-  padding-top: 48px;
+  margin-bottom: 0;
+  padding: 48px;
 }
 
 .flowStep {
@@ -398,7 +395,7 @@
   color: rgba(5, 4, 25, 0.95);
   font-size: 18px;
   font-weight: 500;
-  line-height: 28.8px;
+  line-height: 19.78px;
   letter-spacing: -0.02em;
   transform: scale(0.92);
   transform-origin: left center;
@@ -414,12 +411,13 @@
 .flowStepActive .flowTitle {
   color: var(--color-text);
   font-size: 22px;
+  line-height: 28.8px;
   transform: scale(1);
 }
 
 .flowBody {
   display: grid;
-  grid-template-rows: 0px 0fr;
+  grid-template-rows: 0px minmax(0, 0fr);
   overflow: hidden;
   margin-top: 0;
   transition:
@@ -428,7 +426,7 @@
 }
 
 .flowStepActive .flowBody {
-  grid-template-rows: 0px 124.75px;
+  grid-template-rows: 0px minmax(0, 124.75px);
   margin-top: 0;
 }
 
@@ -567,7 +565,7 @@
     width: 340px;
     max-width: calc(100% - 24px);
     margin-bottom: 0;
-    padding-top: 24px;
+    padding: 24px 0 0;
   }
 
   .flowStep {

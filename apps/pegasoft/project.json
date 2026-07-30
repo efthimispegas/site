@@ -2,5 +2,14 @@
   "name": "@site/pegasoft",
   "projectType": "application",
   "sourceRoot": "apps/pegasoft/src",
-  "tags": ["type:app", "scope:pegasoft"]
+  "tags": ["type:app", "scope:pegasoft"],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/pegasoft",
+        "command": "tsc --noEmit --project tsconfig.json"
+      }
+    }
+  }
 }
