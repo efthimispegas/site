@@ -1,10 +1,12 @@
 import type {
   HeroEvidenceClass,
   HeroLocalClocks,
+  HeroPrimaryStructureKind,
   HeroProgressConstraint,
   HeroReferenceState,
   HeroReferenceStateKey,
   HeroScreenBounds,
+  HeroStructuralFeatureStatus,
 } from './hero-contract';
 
 const SETTLED_PAGE_CLOCKS: HeroLocalClocks = {
@@ -34,9 +36,16 @@ type ReferenceStateInput = Omit<
   routeSegment: string;
   interactionMode?: string | null;
   interactionEvidence?: HeroEvidenceClass;
+  primaryStructureKind?: HeroPrimaryStructureKind;
+  primaryStructureLabel?: string;
+  primaryStructureEvidenceRef?: string | null;
+  landmarkStatus?: HeroStructuralFeatureStatus;
   landmarkBounds?: HeroScreenBounds | null;
+  routeStatus?: HeroStructuralFeatureStatus;
+  routeBounds?: HeroScreenBounds | null;
+  boundaryStatus?: HeroStructuralFeatureStatus;
+  boundaryBounds?: HeroScreenBounds | null;
   copyBounds?: HeroScreenBounds | null;
-  screenBoundsEvidence?: HeroEvidenceClass;
   context: readonly string[];
   unresolvedDifferences?: readonly string[];
 };
@@ -52,13 +61,42 @@ function state(input: ReferenceStateInput): HeroReferenceState {
     routeSegment,
     interactionMode = 'scroll-driven journey',
     interactionEvidence = 'inferred',
+    primaryStructureKind = 'landmark',
+    primaryStructureLabel = focus,
+    primaryStructureEvidenceRef = null,
+    landmarkStatus,
     landmarkBounds = null,
+    routeStatus,
+    routeBounds = null,
+    boundaryStatus,
+    boundaryBounds = null,
     copyBounds = null,
-    screenBoundsEvidence = 'unknown',
     context,
     unresolvedDifferences = [],
     ...contract
   } = input;
+  const resolvedLandmarkStatus =
+    landmarkStatus ?? (landmarkBounds === null ? 'blocked' : 'observed');
+  const resolvedRouteStatus =
+    routeStatus ??
+    (routeBounds !== null
+      ? 'observed'
+      : routeSegment === 'none'
+        ? 'not-applicable'
+        : 'blocked');
+  const resolvedBoundaryStatus =
+    boundaryStatus ?? (boundaryBounds === null ? 'not-applicable' : 'observed');
+  const primaryStatus = {
+    landmark: resolvedLandmarkStatus,
+    route: resolvedRouteStatus,
+    boundary: resolvedBoundaryStatus,
+  }[primaryStructureKind];
+
+  if (primaryStatus === 'not-applicable') {
+    throw new Error(
+      `${contract.key}: primary structure cannot be not applicable`,
+    );
+  }
 
   return {
     ...contract,
@@ -66,10 +104,9 @@ function state(input: ReferenceStateInput): HeroReferenceState {
       decodedFrameIndex: frame,
       bestEffortTimestampPts: pts,
       timestampSeconds: time,
-      capturePath: `docs/hero-reference/recording/frame-${String(frame).padStart(
-        6,
-        '0',
-      )}-${contract.key}.png`,
+      capturePath: `docs/hero-reference/recording/frame-${String(
+        frame,
+      ).padStart(6, '0')}-${contract.key}.png`,
       captureSha256,
     },
     cameraPose: {
@@ -88,9 +125,26 @@ function state(input: ReferenceStateInput): HeroReferenceState {
       interactionEvidence,
     },
     screenBounds: {
+      status: primaryStatus === 'observed' ? 'observed' : 'unknown',
+      primaryStructure: {
+        kind: primaryStructureKind,
+        status: primaryStatus,
+        label: primaryStructureLabel,
+        evidenceRef: primaryStructureEvidenceRef,
+      },
+      landmarkStatus: resolvedLandmarkStatus,
       landmark: landmarkBounds,
+      routeStatus: resolvedRouteStatus,
+      route: routeBounds,
+      boundaryStatus: resolvedBoundaryStatus,
+      boundary: boundaryBounds,
+      copyStatus:
+        copyBounds !== null
+          ? 'observed'
+          : contract.copyState === 'none'
+            ? 'not-applicable'
+            : 'unknown',
       copy: copyBounds,
-      evidence: screenBoundsEvidence,
     },
     expectedVisibleContext: context,
     confidence: 'high',
@@ -136,8 +190,10 @@ export const referenceStates = [
     focus: 'central loader mark',
     routeSegment: 'none',
     interactionMode: 'elapsed-time reveal',
+    primaryStructureLabel: 'central blue loader mark',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/0/landmark',
     landmarkBounds: [714, 340, 85, 85.5],
-    screenBoundsEvidence: 'observed',
     context: [
       'blue arrow loader mark',
       'oversized thin elliptical contours',
@@ -170,8 +226,10 @@ export const referenceStates = [
     focus: 'loader mark and emerging landing city',
     routeSegment: 'emerging red landing rails',
     interactionMode: 'elapsed-time reveal',
+    primaryStructureLabel: 'central blue loader mark during world reveal',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/1/landmark',
     landmarkBounds: [714, 341, 84.5, 84],
-    screenBoundsEvidence: 'observed',
     context: [
       'central blue loader mark',
       'elliptical contours',
@@ -184,12 +242,7 @@ export const referenceStates = [
   state({
     key: 'landing',
     phase: 'landing',
-    progress: progress(
-      0,
-      { kind: 'point', value: 0 },
-      'observed',
-      'observed',
-    ),
+    progress: progress(0, { kind: 'point', value: 0 }, 'observed', 'observed'),
     copyState: 'landing',
     processStepIndex: null,
     localPhase: 'landing-base',
@@ -205,6 +258,7 @@ export const referenceStates = [
     routeSegment: 'landing red rails',
     interactionMode: 'local landing clock',
     interactionEvidence: 'source-confirmed',
+    primaryStructureLabel: 'landing industrial context aggregate',
     context: [
       'fixed desktop header',
       'centered hero copy',
@@ -243,6 +297,7 @@ export const referenceStates = [
     routeSegment: 'active red landing packet',
     interactionMode: 'local landing clock',
     interactionEvidence: 'source-confirmed',
+    primaryStructureLabel: 'landing industrial context aggregate at route idle',
     context: [
       'fixed desktop header',
       'settled landing copy',
@@ -272,6 +327,7 @@ export const referenceStates = [
       'left process copy with converging red rails traversing toward the first destination',
     focus: 'first destination building',
     routeSegment: 'parallel red activation rails',
+    primaryStructureLabel: 'first-destination building before route contact',
     context: [
       'Step 01 process copy',
       'thin parallel red rails',
@@ -301,6 +357,8 @@ export const referenceStates = [
       'red rails terminate at the logo-bearing destination while Step 01 remains active',
     focus: 'logo-bearing first destination',
     routeSegment: 'red activation contact',
+    primaryStructureLabel:
+      'logo-bearing first-destination building at route contact',
     context: [
       'Step 01 process copy',
       'red contact point',
@@ -329,6 +387,13 @@ export const referenceStates = [
     composition: 'wide blue-route transit through open industrial context',
     focus: 'cyan route direction across the landscape',
     routeSegment: 'first cyan/blue travel route',
+    primaryStructureKind: 'route',
+    primaryStructureLabel: 'high-chroma core of connected cyan clearance route',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/6/route',
+    landmarkStatus: 'not-applicable',
+    routeStatus: 'observed',
+    routeBounds: [88, 123, 474, 264],
     context: [
       'Step 02 process copy',
       'open industrial travel space',
@@ -358,6 +423,14 @@ export const referenceStates = [
       'Step 02 transit with the rounded-tile field first entering at the upper-right edge',
     focus: 'route direction toward the previewing field',
     routeSegment: 'cyan clearance route approaching field',
+    primaryStructureKind: 'route',
+    primaryStructureLabel:
+      'high-chroma core of cyan route approaching the field preview',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/7/route',
+    landmarkStatus: 'not-applicable',
+    routeStatus: 'observed',
+    routeBounds: [242, 556, 116, 54],
     context: [
       'Step 02 process copy',
       'cyan route',
@@ -387,6 +460,7 @@ export const referenceStates = [
       'rounded-tile field dominates the upper/right frame as the camera becomes strongly top-down',
     focus: 'elevated field center',
     routeSegment: 'cyan field-approach route',
+    primaryStructureLabel: 'elevated field-center tile and figure',
     context: [
       'Step 02 process copy in the recording',
       'dominant irregular tile field',
@@ -416,6 +490,8 @@ export const referenceStates = [
       'top-angle field composition at the first clear saturated-center reaction',
     focus: 'elevated center tile and figure',
     routeSegment: 'cyan route contacting field center',
+    primaryStructureLabel:
+      'elevated center tile and standing figure at first contact',
     context: [
       'Step 03 process copy',
       'elevated center tile and figure',
@@ -426,12 +502,7 @@ export const referenceStates = [
   state({
     key: 'field-pulse-a',
     phase: 'journey',
-    progress: progress(
-      0.74,
-      { kind: 'unknown' },
-      'unknown',
-      'inferred',
-    ),
+    progress: progress(0.74, { kind: 'unknown' }, 'unknown', 'inferred'),
     copyState: 'step-03-field-match',
     processStepIndex: 2,
     localPhase: 'field-pulse-inner',
@@ -441,12 +512,12 @@ export const referenceStates = [
     time: 23.5,
     captureSha256:
       '156123978b207b9a46c266d35aaec5627567cf8055750baa6a3e3bb0ed793404',
-    composition:
-      'stable top-angle contact with bright inner square/ring band',
+    composition: 'stable top-angle contact with bright inner square/ring band',
     focus: 'elevated center tile and inner luminous band',
     routeSegment: 'connected cyan route plus inner field pulse',
     interactionMode: 'progress-gated local field clock',
     interactionEvidence: 'inferred',
+    primaryStructureLabel: 'field center during inner pulse',
     context: [
       'Step 03 process copy',
       'connected cyan route',
@@ -457,12 +528,7 @@ export const referenceStates = [
   state({
     key: 'field-pulse-b',
     phase: 'journey',
-    progress: progress(
-      0.74,
-      { kind: 'unknown' },
-      'unknown',
-      'inferred',
-    ),
+    progress: progress(0.74, { kind: 'unknown' }, 'unknown', 'inferred'),
     copyState: 'step-03-field-match',
     processStepIndex: 2,
     localPhase: 'field-pulse-outer',
@@ -478,8 +544,10 @@ export const referenceStates = [
     routeSegment: 'connected cyan route plus outer field pulse',
     interactionMode: 'progress-gated local field clock',
     interactionEvidence: 'inferred',
+    primaryStructureLabel: 'elevated blue center tile',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/11/landmark',
     landmarkBounds: [682, 326, 85, 87.5],
-    screenBoundsEvidence: 'observed',
     context: [
       'Step 03 process copy',
       'connected cyan route',
@@ -509,6 +577,13 @@ export const referenceStates = [
       'field recedes left while a horizontal cyan feed carries travel toward the arrow destination',
     focus: 'arrival arrow direction beyond the right edge',
     routeSegment: 'second horizontal cyan route',
+    primaryStructureKind: 'route',
+    primaryStructureLabel: 'high-chroma core of second horizontal cyan route',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/12/route',
+    landmarkStatus: 'not-applicable',
+    routeStatus: 'observed',
+    routeBounds: [714, 352, 118, 9],
     context: [
       'Step 04 process copy',
       'field receding left',
@@ -540,8 +615,10 @@ export const referenceStates = [
     routeSegment: 'horizontal cyan feed into arrival arrow',
     interactionMode: 'progress-gated local arrival clock',
     interactionEvidence: 'inferred',
+    primaryStructureLabel: 'large frontal arrival arrow',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/13/landmark',
     landmarkBounds: [597, 235.5, 179, 262.5],
-    screenBoundsEvidence: 'observed',
     context: [
       'Step 04 process copy',
       'large centered arrow',
@@ -572,6 +649,14 @@ export const referenceStates = [
     focus: 'handoff from arrival composition to following content',
     routeSegment: 'arrival route leaving visible journey area',
     interactionMode: 'scroll-driven section exit',
+    primaryStructureKind: 'boundary',
+    primaryStructureLabel: 'hero-to-following-section boundary at journey exit',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/14/boundary',
+    landmarkStatus: 'not-applicable',
+    routeStatus: 'not-applicable',
+    boundaryStatus: 'observed',
+    boundaryBounds: [0, 367.5, 1508, 1],
     context: [
       'receding arrival composition',
       'pale world coverage',
@@ -582,10 +667,7 @@ export const referenceStates = [
 ] as const satisfies readonly HeroReferenceState[];
 
 const referenceStateByKey = new Map<HeroReferenceStateKey, HeroReferenceState>(
-  referenceStates.map((referenceState) => [
-    referenceState.key,
-    referenceState,
-  ]),
+  referenceStates.map((referenceState) => [referenceState.key, referenceState]),
 );
 
 export function getReferenceState(

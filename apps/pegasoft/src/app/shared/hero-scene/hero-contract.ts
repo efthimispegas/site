@@ -67,6 +67,13 @@ export type HeroProgressConstraint =
   | { kind: 'range'; min: number; max: number }
   | { kind: 'unknown' };
 
+export type HeroStructuralFeatureStatus =
+  | 'observed'
+  | 'blocked'
+  | 'not-applicable';
+
+export type HeroPrimaryStructureKind = 'landmark' | 'route' | 'boundary';
+
 export type HeroReferenceState = {
   key: HeroReferenceStateKey;
   phase: 'loader' | 'reveal' | 'landing' | 'journey' | 'exit';
@@ -104,9 +111,21 @@ export type HeroReferenceState = {
     interactionEvidence: HeroEvidenceClass;
   };
   screenBounds: {
+    status: 'observed' | 'unknown';
+    primaryStructure: {
+      kind: HeroPrimaryStructureKind;
+      status: 'observed' | 'blocked';
+      label: string;
+      evidenceRef: string | null;
+    };
+    landmarkStatus: HeroStructuralFeatureStatus;
     landmark: HeroScreenBounds | null;
+    routeStatus: HeroStructuralFeatureStatus;
+    route: HeroScreenBounds | null;
+    boundaryStatus: HeroStructuralFeatureStatus;
+    boundary: HeroScreenBounds | null;
+    copyStatus: HeroStructuralFeatureStatus | 'unknown';
     copy: HeroScreenBounds | null;
-    evidence: HeroEvidenceClass;
   };
   expectedVisibleContext: readonly string[];
   confidence: 'high' | 'medium' | 'low';

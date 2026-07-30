@@ -32,42 +32,178 @@ describe('hero reference-state contract', () => {
     });
   });
 
-  it('exposes only the four deterministically measured primary landmarks', () => {
+  it('exposes the four deterministically measured primary landmarks', () => {
     const measured = referenceStates
-      .filter(({ screenBounds }) => screenBounds.landmark !== null)
+      .filter(
+        ({ screenBounds }) =>
+          screenBounds.primaryStructure.kind === 'landmark' &&
+          screenBounds.primaryStructure.status === 'observed',
+      )
       .map(({ key, screenBounds }) => ({
         key,
         landmark: screenBounds.landmark,
-        evidence: screenBounds.evidence,
+        landmarkStatus: screenBounds.landmarkStatus,
+        primaryStructure: {
+          kind: screenBounds.primaryStructure.kind,
+          status: screenBounds.primaryStructure.status,
+          label: screenBounds.primaryStructure.label,
+          evidenceRef: screenBounds.primaryStructure.evidenceRef,
+        },
       }));
 
     expect(measured).toEqual([
       {
         key: 'loader-mark',
         landmark: [714, 340, 85, 85.5],
-        evidence: 'observed',
+        landmarkStatus: 'observed',
+        primaryStructure: {
+          kind: 'landmark',
+          status: 'observed',
+          label: 'central blue loader mark',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/0/landmark',
+        },
       },
       {
         key: 'world-reveal',
         landmark: [714, 341, 84.5, 84],
-        evidence: 'observed',
+        landmarkStatus: 'observed',
+        primaryStructure: {
+          kind: 'landmark',
+          status: 'observed',
+          label: 'central blue loader mark during world reveal',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/1/landmark',
+        },
       },
       {
         key: 'field-pulse-b',
         landmark: [682, 326, 85, 87.5],
-        evidence: 'observed',
+        landmarkStatus: 'observed',
+        primaryStructure: {
+          kind: 'landmark',
+          status: 'observed',
+          label: 'elevated blue center tile',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/11/landmark',
+        },
       },
       {
         key: 'arrival-lockup',
         landmark: [597, 235.5, 179, 262.5],
-        evidence: 'observed',
+        landmarkStatus: 'observed',
+        primaryStructure: {
+          kind: 'landmark',
+          status: 'observed',
+          label: 'large frontal arrival arrow',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/13/landmark',
+        },
       },
+    ]);
+  });
+
+  it('treats route-primary anchors as observed without requiring a landmark', () => {
+    const expected = [
+      {
+        key: 'clearance-travel',
+        route: [88, 123, 474, 264],
+        label: 'high-chroma core of connected cyan clearance route',
+        evidenceRef:
+          'docs/hero-reference/recording-structural-bounds.json#/states/6/route',
+      },
+      {
+        key: 'clearance-field-preview',
+        route: [242, 556, 116, 54],
+        label: 'high-chroma core of cyan route approaching the field preview',
+        evidenceRef:
+          'docs/hero-reference/recording-structural-bounds.json#/states/7/route',
+      },
+      {
+        key: 'arrival-travel',
+        route: [714, 352, 118, 9],
+        label: 'high-chroma core of second horizontal cyan route',
+        evidenceRef:
+          'docs/hero-reference/recording-structural-bounds.json#/states/12/route',
+      },
+    ] as const;
+
+    for (const { key, route, label, evidenceRef } of expected) {
+      expect(getReferenceState(key).screenBounds).toMatchObject({
+        status: 'observed',
+        landmark: null,
+        landmarkStatus: 'not-applicable',
+        route,
+        routeStatus: 'observed',
+        boundary: null,
+        boundaryStatus: 'not-applicable',
+        primaryStructure: {
+          kind: 'route',
+          status: 'observed',
+          label,
+          evidenceRef,
+        },
+      });
+    }
+  });
+
+  it('uses the observed section boundary as the journey-exit primary structure', () => {
+    const { screenBounds } = getReferenceState('journey-exit');
+
+    expect(screenBounds).toMatchObject({
+      status: 'observed',
+      landmark: null,
+      landmarkStatus: 'not-applicable',
+      route: null,
+      routeStatus: 'not-applicable',
+      boundary: [0, 367.5, 1508, 1],
+      boundaryStatus: 'observed',
+      primaryStructure: {
+        kind: 'boundary',
+        status: 'observed',
+        label: 'hero-to-following-section boundary at journey exit',
+        evidenceRef:
+          'docs/hero-reference/recording-structural-bounds.json#/states/14/boundary',
+      },
+    });
+  });
+
+  it('keeps only unresolved landmark-primary anchors blocked', () => {
+    const blocked = referenceStates
+      .filter(
+        ({ screenBounds }) =>
+          screenBounds.primaryStructure.kind === 'landmark' &&
+          screenBounds.primaryStructure.status === 'blocked',
+      )
+      .map(({ key }) => key);
+    const notApplicable = referenceStates
+      .filter(
+        ({ screenBounds }) => screenBounds.landmarkStatus === 'not-applicable',
+      )
+      .map(({ key }) => key);
+
+    expect(blocked).toEqual([
+      'landing',
+      'landing-idle',
+      'activation-route',
+      'activation-contact',
+      'field-approach',
+      'field-contact',
+      'field-pulse-a',
+    ]);
+    expect(notApplicable).toEqual([
+      'clearance-travel',
+      'clearance-field-preview',
+      'arrival-travel',
+      'journey-exit',
     ]);
     expect(
       referenceStates.filter(
-        ({ screenBounds }) => screenBounds.landmark === null,
+        ({ screenBounds }) =>
+          screenBounds.primaryStructure.kind === 'landmark' &&
+          screenBounds.primaryStructure.status === 'blocked',
       ),
-    ).toHaveLength(11);
+    ).toHaveLength(7);
   });
 
   it('keeps same-progress local phases independently addressable', () => {
@@ -82,9 +218,9 @@ describe('hero reference-state contract', () => {
       'field-pulse-a',
       'field-pulse-b',
     ] as const;
-    expect(fieldKeys.map((key) => getReferenceState(key).progress.target)).toEqual(
-      [0.74, 0.74, 0.74],
-    );
+    expect(
+      fieldKeys.map((key) => getReferenceState(key).progress.target),
+    ).toEqual([0.74, 0.74, 0.74]);
     expect(
       new Set(fieldKeys.map((key) => getReferenceState(key).localPhase)).size,
     ).toBe(3);
