@@ -1,0 +1,27 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "@site/pegasoft-e2e",
+  "projectType": "application",
+  "sourceRoot": "apps/pegasoft-e2e/src",
+  "targets": {
+    "hero-capture": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.visual.config.ts"
+      }
+    },
+    "hero-compare": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "dependsOn": [
+        "hero-capture"
+      ],
+      "options": {
+        "cwd": ".",
+        "command": "node tools/hero-reference/compare-captures.mjs"
+      }
+    }
+  }
+}

@@ -3,7 +3,11 @@ import { nxE2EPreset } from '@nx/playwright/preset';
 import { workspaceRoot } from '@nx/devkit';
 
 // For CI, you may want to set BASE_URL to the deployed application.
-const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
+const requestedBaseURL = process.env['BASE_URL'];
+const baseURL =
+  requestedBaseURL && /^https?:\/\//u.test(requestedBaseURL)
+    ? requestedBaseURL
+    : 'http://127.0.0.1:4200';
 
 /**
  * Read environment variables from file.
@@ -16,6 +20,10 @@ const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
  */
 export default defineConfig({
   ...nxE2EPreset(__filename, { testDir: './src' }),
+  // The hero acceptance suite opens GPU-backed canvases and compares exact
+  // frames. Serial execution avoids browser WebGL context eviction and keeps
+  // capture results deterministic across desktop and mobile profiles.
+  workers: 1,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     baseURL,
@@ -24,8 +32,9 @@ export default defineConfig({
   },
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm --filter @site/pegasoft exec next dev -p 4200',
-    url: 'http://localhost:4200',
+    command:
+      'pnpm --filter @site/pegasoft exec next dev -H 127.0.0.1 -p 4200',
+    url: baseURL,
     reuseExistingServer: true,
     cwd: workspaceRoot,
   },

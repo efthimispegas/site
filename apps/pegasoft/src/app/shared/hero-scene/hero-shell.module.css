@@ -1,0 +1,631 @@
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  background: var(--color-bg);
+  transition:
+    background-color 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loader[data-revealing='true'] {
+  background-color: transparent;
+  pointer-events: none;
+}
+
+.loader[data-hidden='true'] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader[data-direct='true'],
+.loader[data-direct='true'] * {
+  transition: none !important;
+  animation-play-state: paused !important;
+}
+
+.loaderCore {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: clamp(
+    80px,
+    min(calc((100vw - 120px) * 0.064), calc((100vh - 60px) * 0.12)),
+    96px
+  );
+  height: auto;
+  color: #0f32dc;
+  transition:
+    transform 0.56s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.56s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.56s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loaderEllipse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  fill: none;
+  overflow: visible;
+  stroke: #585765;
+  stroke-width: 1px;
+  stroke-dasharray: 2 4;
+  transform: translate(-50%, -50%);
+  animation: loader-dash-move 4s linear infinite;
+  transition:
+    opacity 0.56s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.68s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.56s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.loaderEllipseOuter {
+  width: 1500px;
+  max-width: calc(100vw - 120px);
+  max-height: calc(100vh - 60px);
+  aspect-ratio: 1500 / 800;
+}
+
+.loaderEllipseOuter ellipse {
+  stroke-dashoffset: 24;
+}
+
+.loaderEllipseInner {
+  width: 800px;
+  max-width: min(calc(100vh - 60px), calc((100vw - 120px) * 8 / 15));
+  aspect-ratio: 1;
+}
+
+.loader[data-hidden='true'] .loaderCore {
+  opacity: 0;
+  transform: scale(0.78);
+  filter: blur(10px);
+}
+
+.loader[data-hidden='true'] .loaderEllipseOuter {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.08);
+  filter: blur(8px);
+}
+
+.loader[data-hidden='true'] .loaderEllipseInner {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.92);
+  filter: blur(8px);
+}
+
+@keyframes loader-dash-move {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.top {
+  position: relative;
+  --hero-exit-progress: 0;
+  --hero-fade-progress: 0;
+  --flow-reveal-progress: 0;
+  --field-visibility: 1;
+}
+
+.heroSpacer {
+  width: 100%;
+  min-height: max(40svh, 420px);
+}
+
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  display: flex;
+  width: 100%;
+  height: 100svh;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.heroContent {
+  display: flex;
+  width: 697.90625px;
+  max-width: calc(100% - 40px);
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xl);
+  padding-top: var(--space-4xl);
+  text-align: center;
+  opacity: calc(1 - var(--hero-fade-progress) * 0.98);
+  transform: translate3d(
+      calc(var(--hero-exit-progress) * -38px),
+      calc(var(--hero-exit-progress) * 8px),
+      0
+    )
+    rotateZ(calc(var(--hero-exit-progress) * -2.4deg))
+    rotateY(calc(var(--hero-exit-progress) * -8deg));
+  transform-origin: 18% 50%;
+  transition:
+    opacity 0.36s ease,
+    transform 0.56s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.heroHidden .heroContent {
+  opacity: 0;
+  transform: translate3d(-48px, 10px, 0) rotateZ(-3deg) rotateY(-10deg);
+}
+
+.heroTitle {
+  width: 100%;
+  height: 172.8px;
+  flex: 0 0 172.8px;
+  font-family: Roboto, sans-serif;
+  font-size: 93px;
+  font-weight: 500;
+  line-height: 0.929;
+  letter-spacing: var(--tracking-hero);
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroTitle span {
+  display: block;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.heroTitle span:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.heroSubtitle {
+  width: 620px;
+  height: 86.4px;
+  flex: 0 0 86.4px;
+  max-width: 620px;
+  font-family: Roboto, sans-serif;
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition:
+    opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s,
+    transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.heroSubtitle span {
+  display: block;
+}
+
+.heroVisible .heroTitle,
+.heroVisible .heroSubtitle,
+.heroVisible .heroTitle span {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.heroVisible .heroSubtitle {
+  transform: translate3d(
+      calc(var(--hero-exit-progress) * -18px),
+      calc(var(--hero-exit-progress) * 6px),
+      0
+    )
+    rotateZ(calc(var(--hero-exit-progress) * -1.2deg));
+  transform-origin: 18% 48%;
+}
+
+.heroHidden .heroTitle,
+.heroHidden .heroSubtitle,
+.heroHidden .heroTitle span {
+  opacity: 0;
+}
+
+.scrollButton {
+  position: absolute;
+  bottom: var(--space-2xl);
+  left: 50%;
+  display: flex;
+  width: 284.11px;
+  height: var(--btn-height);
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--space-md);
+  pointer-events: auto;
+  border: 0;
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  font-size: 14px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  opacity: calc(1 - var(--hero-fade-progress) * 1.2);
+  transform: translate3d(-50%, calc(var(--hero-exit-progress) * 8px), 0);
+  transition:
+    opacity 0.28s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scrollButton > span {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 8px;
+}
+
+.scrollButton > span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0) translateZ(0);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s;
+}
+
+.scrollLabel {
+  display: flex;
+  transform: translate3d(0, calc(100% + 7px), 0);
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.65s;
+}
+
+.heroVisible .scrollButton > span::after {
+  transform: scaleX(1) translateZ(0);
+}
+
+.heroVisible .scrollLabel {
+  transform: translateZ(0);
+}
+
+.heroHidden .scrollLabel {
+  transform: translate3d(0, calc(100% + 7px), 0);
+  transition: transform 0.35s ease;
+}
+
+.heroHidden .scrollButton > span::after {
+  transform: scaleX(0) translateZ(0);
+  transition: transform 0.4s cubic-bezier(0.55, 0, 1, 0.45) 0.1s;
+}
+
+.flow {
+  position: relative;
+  width: 100%;
+  height: var(--hero-journey-height, 456svh);
+}
+
+.flowWrapper {
+  position: sticky;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  width: 664px;
+  max-width: 100%;
+  height: 100svh;
+  align-items: flex-end;
+  padding: 0 0 0 48px;
+  transform: translate3d(
+    0,
+    calc((1 - var(--flow-reveal-progress)) * 18px),
+    0
+  );
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.flowSteps {
+  position: relative;
+  display: flex;
+  width: 568px;
+  max-width: calc(100% - 48px);
+  flex-direction: column;
+  margin-bottom: 48px;
+  padding-top: 48px;
+}
+
+.flowStep {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+.flowStep:first-child {
+  margin-top: 0;
+}
+
+.flowHeader {
+  display: flex;
+  width: 100%;
+  height: 48px;
+  align-items: center;
+  gap: var(--space-md);
+  padding: 0;
+  border: 0;
+  appearance: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.flowStepActive .flowHeader {
+  cursor: default;
+}
+
+.flowNumber {
+  position: relative;
+  display: flex;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.flowNumber::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--color-bg-surface);
+  transform: scale(0);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flowNumber span {
+  position: relative;
+  z-index: 1;
+}
+
+.flowTitle {
+  color: rgba(5, 4, 25, 0.95);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28.8px;
+  letter-spacing: -0.02em;
+  transform: scale(0.92);
+  transform-origin: left center;
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.35s ease;
+}
+
+.flowStepActive .flowNumber::before {
+  transform: scale(1);
+}
+
+.flowStepActive .flowTitle {
+  color: var(--color-text);
+  font-size: 22px;
+  transform: scale(1);
+}
+
+.flowBody {
+  display: grid;
+  grid-template-rows: 0px 0fr;
+  overflow: hidden;
+  margin-top: 0;
+  transition:
+    grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    margin-top 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flowStepActive .flowBody {
+  grid-template-rows: 0px 124.75px;
+  margin-top: 0;
+}
+
+.flowBody::before {
+  content: '';
+  min-height: 0;
+  overflow: hidden;
+}
+
+.flowBodyInner {
+  display: flex;
+  min-height: 0;
+  gap: 43px;
+  overflow: hidden;
+  padding: 24px 0 0 23px;
+}
+
+.flowTrack {
+  display: flex;
+  width: 2px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.flowTrackBar {
+  position: relative;
+  width: 2px;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(5, 4, 25, 0.2);
+}
+
+.flowTrackFill {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-dark);
+  transform: scaleY(var(--flow-progress, 0));
+  transform-origin: top center;
+}
+
+.flowDescription {
+  width: 500px;
+  height: 100.75px;
+  max-width: 500px;
+  margin: 0;
+  color: rgba(5, 4, 25, 0.72);
+  font-family: Roboto, sans-serif;
+  font-size: 17px;
+  line-height: var(--leading-normal);
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flowStepActive .flowDescription {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 820px) {
+  .loaderCore {
+    width: 48px;
+    height: 48px;
+  }
+
+  .loaderEllipseOuter {
+    width: 330px;
+    height: 176px;
+  }
+
+  .loaderEllipseInner {
+    width: 176px;
+    height: 176px;
+  }
+
+  :global(.pegasoft-vectr-page .pegasoft-header) {
+    height: 64px;
+    padding: 0;
+  }
+
+  :global(.pegasoft-vectr-page .pegasoft-header__logo) {
+    position: absolute;
+    left: 18px;
+    justify-self: auto;
+  }
+
+  :global(.pegasoft-vectr-page .pegasoft-header__nav-right) {
+    grid-column: 3;
+  }
+
+  .heroContent {
+    width: 390px;
+    max-width: 100%;
+    gap: var(--space-lg);
+    padding: 126px var(--space-md) 0;
+  }
+
+  .heroTitle {
+    width: 350px;
+    height: 172.8px;
+    flex-basis: 172.8px;
+    font-size: 64px;
+    line-height: 0.929;
+    letter-spacing: -2px;
+  }
+
+  .heroSubtitle {
+    width: 280px;
+    height: 76.8px;
+    flex-basis: 76.8px;
+    max-width: 280px;
+    font-size: 16px;
+  }
+
+  .heroSubtitle span {
+    display: inline;
+  }
+
+  .scrollButton {
+    bottom: 32px;
+    width: 233.59px;
+    font-size: 11px;
+  }
+
+  .flowWrapper {
+    height: 100dvh;
+    padding: 0 0 0 24px;
+  }
+
+  .flowSteps {
+    width: 340px;
+    max-width: calc(100% - 24px);
+    margin-bottom: 0;
+    padding-top: 24px;
+  }
+
+  .flowStep {
+    margin-top: 8px;
+  }
+
+  .flowHeader {
+    height: 40px;
+  }
+
+  .flowNumber {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .flowTitle,
+  .flowStepActive .flowTitle {
+    font-size: 20px;
+    transform: scale(1);
+  }
+
+  .flowDescription {
+    width: 280px;
+    height: 111.95px;
+    max-width: 280px;
+    font-size: 16px;
+  }
+
+  .flowStepActive .flowBody {
+    grid-template-rows: 0px 111.95px;
+    margin-top: 24px;
+  }
+
+  .flowBodyInner {
+    gap: 39px;
+    padding-left: 19px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+
+  .heroContent,
+  .heroHidden .heroContent,
+  .flowWrapper,
+  .flowStep {
+    transform: none !important;
+    transition-duration: 80ms !important;
+  }
+
+  .heroTitle,
+  .heroSubtitle,
+  .scrollLabel {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
