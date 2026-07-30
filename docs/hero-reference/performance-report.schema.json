@@ -1,0 +1,500 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pegasoft.local/schemas/hero-performance-report.schema.json",
+  "title": "Pegasoft Hero Phase 19 Performance Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "classification",
+    "acceptance",
+    "source",
+    "environment",
+    "scrub",
+    "metrics",
+    "budgets"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 2
+    },
+    "classification": {
+      "enum": [
+        "locked-production-acceptance",
+        "non-acceptance-development",
+        "non-acceptance-production-observation",
+        "non-acceptance-unverified-environment"
+      ]
+    },
+    "acceptance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eligible",
+        "gatePassed",
+        "requested",
+        "eligibilityFailures",
+        "evidenceComplete",
+        "evidenceCompleteness",
+        "note"
+      ],
+      "properties": {
+        "eligible": {
+          "type": "boolean"
+        },
+        "gatePassed": {
+          "type": "boolean"
+        },
+        "requested": {
+          "type": "boolean"
+        },
+        "eligibilityFailures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidenceComplete": {
+          "type": "boolean"
+        },
+        "evidenceCompleteness": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "assetTiming",
+            "canvas",
+            "hardwareGpu",
+            "heap",
+            "webgl"
+          ],
+          "properties": {
+            "assetTiming": {
+              "type": "boolean"
+            },
+            "canvas": {
+              "type": "boolean"
+            },
+            "hardwareGpu": {
+              "type": "boolean"
+            },
+            "heap": {
+              "type": "boolean"
+            },
+            "webgl": {
+              "type": "boolean"
+            }
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "baseUrl",
+        "baseUrlExplicit",
+        "navigationStatus",
+        "pageUrl",
+        "projectName",
+        "serverMode"
+      ],
+      "properties": {
+        "baseUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "baseUrlExplicit": {
+          "type": "boolean"
+        },
+        "navigationStatus": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "pageUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "projectName": {
+          "type": "string"
+        },
+        "serverMode": {
+          "enum": [
+            "production",
+            "development",
+            "unverified"
+          ]
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "required": [
+        "browserName",
+        "devicePixelRatio",
+        "hardwareConcurrency",
+        "hardwareProfile",
+        "profile",
+        "userAgent",
+        "viewport"
+      ],
+      "properties": {
+        "browserName": {
+          "type": "string"
+        },
+        "devicePixelRatio": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "hardwareConcurrency": {
+          "type": "number",
+          "minimum": 1
+        },
+        "hardwareProfile": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "profile": {
+          "enum": [
+            "desktop",
+            "mobile"
+          ]
+        },
+        "userAgent": {
+          "type": "string"
+        },
+        "viewport": {
+          "$ref": "#/$defs/size"
+        }
+      }
+    },
+    "scrub": {
+      "type": "object",
+      "required": [
+        "coverage",
+        "durationMs",
+        "durationPerDirectionMs",
+        "forward",
+        "reverse"
+      ],
+      "properties": {
+        "coverage": {
+          "type": "object",
+          "required": [
+            "diagnosticsAvailable",
+            "fullForward",
+            "fullReverse",
+            "forwardScrollCovered",
+            "reverseScrollCovered"
+          ],
+          "properties": {
+            "diagnosticsAvailable": {
+              "type": "boolean"
+            },
+            "fullForward": {
+              "type": "boolean"
+            },
+            "fullReverse": {
+              "type": "boolean"
+            },
+            "forwardScrollCovered": {
+              "type": "boolean"
+            },
+            "reverseScrollCovered": {
+              "type": "boolean"
+            }
+          }
+        },
+        "durationMs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "durationPerDirectionMs": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "forward": {
+          "$ref": "#/$defs/scrubLeg"
+        },
+        "reverse": {
+          "$ref": "#/$defs/scrubLeg"
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "canvas",
+        "cls",
+        "frameIntervals",
+        "jsHeap",
+        "lcp",
+        "longTasks",
+        "networkAssets",
+        "renderer",
+        "supported"
+      ],
+      "properties": {
+        "canvas": {
+          "type": "object"
+        },
+        "cls": {
+          "type": "object"
+        },
+        "frameIntervals": {
+          "type": "object"
+        },
+        "jsHeap": {
+          "type": "object"
+        },
+        "lcp": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "longTasks": {
+          "type": "object"
+        },
+        "networkAssets": {
+          "type": "object"
+        },
+        "renderer": {
+          "type": "object",
+          "required": [
+            "drawCalls",
+            "measurement",
+            "resources",
+            "threeRendererInfoAvailable",
+            "threeRendererInfoNote"
+          ],
+          "properties": {
+            "drawCalls": {
+              "type": "object"
+            },
+            "measurement": {
+              "type": "string"
+            },
+            "resources": {
+              "type": "object",
+              "required": [
+                "geometry",
+                "materials",
+                "textures"
+              ],
+              "properties": {
+                "geometry": {
+                  "$ref": "#/$defs/rendererResource"
+                },
+                "materials": {
+                  "$ref": "#/$defs/rendererResource"
+                },
+                "textures": {
+                  "$ref": "#/$defs/rendererResource"
+                }
+              }
+            },
+            "threeRendererInfoAvailable": {
+              "const": false
+            },
+            "threeRendererInfoNote": {
+              "type": "string"
+            }
+          }
+        },
+        "supported": {
+          "type": "object"
+        }
+      }
+    },
+    "budgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "checks",
+        "note",
+        "passed"
+      ],
+      "properties": {
+        "checks": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "$ref": "#/$defs/budgetCheck"
+          }
+        },
+        "note": {
+          "type": "string"
+        },
+        "passed": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "height",
+        "width"
+      ],
+      "properties": {
+        "height": {
+          "type": "number",
+          "minimum": 0
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "scrubLeg": {
+      "type": "object",
+      "required": [
+        "endRawProgress",
+        "endSceneProgress",
+        "endScrollY",
+        "fromY",
+        "intervalCount",
+        "toY"
+      ],
+      "properties": {
+        "endRawProgress": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "endSceneProgress": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "endScrollY": {
+          "type": "number"
+        },
+        "fromY": {
+          "type": "number"
+        },
+        "intervalCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "toY": {
+          "type": "number"
+        }
+      }
+    },
+    "rendererResource": {
+      "type": "object",
+      "required": [
+        "proxy"
+      ],
+      "properties": {
+        "exactThreeGeometryCount": {
+          "type": "null"
+        },
+        "exactThreeMaterialCount": {
+          "type": "null"
+        },
+        "exactThreeTextureCount": {
+          "type": "null"
+        },
+        "proxy": {
+          "type": "object",
+          "required": [
+            "label",
+            "created",
+            "deleted",
+            "live",
+            "peakLive"
+          ],
+          "properties": {
+            "label": {
+              "type": "string"
+            },
+            "created": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "deleted": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "live": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "peakLive": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "budgetCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "limit",
+        "measured",
+        "operator",
+        "passed",
+        "unit",
+        "value"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "lcp",
+            "cls",
+            "frame-interval-p95",
+            "long-task"
+          ]
+        },
+        "limit": {
+          "type": "number"
+        },
+        "measured": {
+          "type": "boolean"
+        },
+        "operator": {
+          "enum": [
+            "<",
+            "<="
+          ]
+        },
+        "passed": {
+          "type": "boolean"
+        },
+        "unit": {
+          "enum": [
+            "ms",
+            "score"
+          ]
+        },
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

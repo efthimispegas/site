@@ -1,7 +1,7 @@
 # Vectr Hero Motion Map
 
 Status: working observation notebook; not a source of truth
-Last reviewed: 2026-07-26
+Last reviewed: 2026-07-30
 
 ## Authority
 
@@ -180,8 +180,17 @@ comparison.
 
 ## Remaining measurements
 
-- exact recording frame numbers for each accepted state;
-- screen-space bounds for landmarks, copy, field, arrow, and negative space;
+- Exact recording frame numbers are now locked for all 15 states.
+- Deterministic recording analysis now measures four primary landmarks
+  (`loader-mark`, `world-reveal`, `field-pulse-b`, and `arrival-lockup`) and
+  three auxiliary route cores. Eleven primary landmarks remain explicitly
+  blocked because the semantic subject cannot be isolated without invented
+  hand-drawn bounds.
+- Live DOM contracts now cover the two landing and 11 journey states at the
+  recording CSS profile. Their latest implementation comparison is red and
+  predates the newest CSS/progress corrections.
+- Remaining screen-space work includes the blocked landmarks, complete route
+  paths, copy/scene correspondence, field outline, and negative space;
 - route thickness and handoff/contact frames at matched viewports;
 - exact field tile boundary/count and pulse band profile;
 - pointer trail radius/falloff and camera displacement on representative

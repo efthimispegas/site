@@ -1,0 +1,207 @@
+{
+  "schemaVersion": 2,
+  "generatedAtUtc": "2026-07-30T10:24:14Z",
+  "phaseScope": [
+    3,
+    4
+  ],
+  "workingTree": {
+    "branch": "codex/hero-reference-rebaseline",
+    "implementationState": "implementation-checkpoint",
+    "note": "This evidence describes the files in the repository revision containing this report; Git history is the recovery mechanism."
+  },
+  "authority": {
+    "liveSite": "https://vectrfl.com/",
+    "recording": {
+      "path": "docs/vectrfl_recording.mov",
+      "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+    },
+    "legacyPolicy": "Legacy Pegasoft values, opaque capture aliases, generated comparisons, and external scratch assets are not acceptance authority."
+  },
+  "removedLegacyRuntime": {
+    "deletedFiles": [
+      {
+        "path": "apps/pegasoft/src/app/shared/pegasoft-field-scene.tsx",
+        "status": "deleted-in-working-tree",
+        "deletedLines": 2812,
+        "reason": "The obsolete monolithic renderer and its duplicate camera, route, world, beam, scroll, pointer, DOM choreography, and fallback systems can no longer ship through the active graph."
+      },
+      {
+        "path": "libs/motion-system/src/lib/particle-field-hero.tsx",
+        "status": "deleted-in-working-tree",
+        "deletedLines": 106,
+        "reason": "The dependency search found no owner for this adjacent old-hero implementation."
+      }
+    ],
+    "removedExports": [
+      {
+        "path": "libs/motion-system/src/index.ts",
+        "symbol": "ParticleFieldHero",
+        "formerModule": "./lib/particle-field-hero"
+      }
+    ],
+    "removedSymbolsAndFamilies": [
+      "PegasoftFieldScene",
+      "HERO_RENDERER",
+      "vectr-ref2-*",
+      ".pegasus-engine*",
+      ".pegasoft-stage*",
+      ".pegasoft-flow-path*",
+      ".pegasoft-flow-node*",
+      ".pegasoft-cluster*"
+    ],
+    "recovery": "All removals remain recoverable from Git history; no history rewrite was used."
+  },
+  "styleOwnership": [
+    {
+      "path": "apps/pegasoft/src/app/shared/hero-scene/hero-shell.module.css",
+      "scope": "loader, landing copy, scroll cue, process copy, responsive and reduced-motion presentation",
+      "declaredClassCount": 32,
+      "unconsumedClassCount": 0,
+      "consumer": "apps/pegasoft/src/app/shared/pegasoft-home.tsx"
+    },
+    {
+      "path": "apps/pegasoft/src/app/shared/hero-scene/hero-scene.module.css",
+      "scope": "Canvas and the state-specific static fallback compositions",
+      "declaredClassCount": 26,
+      "unconsumedClassCount": 0,
+      "consumers": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-scene.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-fallback.tsx"
+      ]
+    },
+    {
+      "path": "apps/pegasoft/src/app/shared/pegasoft-home.module.css",
+      "scope": "non-hero homepage header, navigation, downstream sections, CTA, and footer",
+      "declaredGlobalClassCount": 76,
+      "unconsumedGlobalClassCount": 0,
+      "consumer": "apps/pegasoft/src/app/shared/pegasoft-home.tsx"
+    },
+    {
+      "path": "apps/pegasoft/src/app/global.css",
+      "scope": "shared subpage shell and subpage content",
+      "declaredClassFamilyCount": 25,
+      "unconsumedClassFamilyCount": 0,
+      "consumerScope": "apps/pegasoft/src/**/*.ts(x)",
+      "note": "The former 19-family residue was removed. Every remaining class token has an exact source consumer; runtime route smoke coverage protects the shared-page consumers."
+    }
+  ],
+  "residualHygieneDebt": {
+    "status": "accepted",
+    "summary": "No unconsumed legacy or old-page selector family remains in the inspected CSS sources.",
+    "families": []
+  },
+  "dependencyHygiene": {
+    "applicationManifest": "apps/pegasoft/package.json",
+    "lockfile": "pnpm-lock.yaml",
+    "directRuntimeDependencies": [
+      "@react-three/drei",
+      "@react-three/fiber",
+      "clsx",
+      "three"
+    ],
+    "lockfileImporterMatchesManifest": true,
+    "applicationDependsOnMotionSystem": false,
+    "animeJsInApplicationManifest": false,
+    "animeJsInApplicationNxGraph": false,
+    "motionSystemBoundary": {
+      "particleHeroRemoved": true,
+      "unrelatedAnimeJsConsumersPreserved": [
+        "libs/motion-system/src/lib/fable-menu.tsx",
+        "libs/motion-system/src/lib/kinetic-reveal.tsx",
+        "libs/motion-system/src/lib/reference-preloader.tsx",
+        "libs/motion-system/src/lib/split-text-reveal.tsx"
+      ]
+    }
+  },
+  "evidenceSearches": [
+    {
+      "purpose": "Legacy source scan",
+      "scope": [
+        "apps/pegasoft/src",
+        "libs/motion-system/src"
+      ],
+      "patterns": [
+        "pegasoft-field-scene",
+        "ParticleFieldHero",
+        "particle-field-hero",
+        "HERO_RENDERER",
+        "heroRenderer",
+        "pegasus-engine",
+        "vectr-ref2"
+      ],
+      "result": "zero matches"
+    },
+    {
+      "purpose": "CSS selector-consumer scan",
+      "result": "hero-shell 32/32 consumed; hero-scene 26/26 consumed; homepage globals 76/76 consumed; shared global.css 25/25 consumed"
+    },
+    {
+      "purpose": "Production payload scan after a fresh production build",
+      "scope": "apps/pegasoft/.next executable JavaScript, CSS, JSON, HTML, and source maps under server and static output",
+      "patterns": [
+        "legacy renderer and particle-hero symbols",
+        "Anime.js",
+        "development direct-control query keys",
+        "development state/seed diagnostics",
+        "recording evidence paths and SHA",
+        "external scratch paths"
+      ],
+      "result": "zero matches"
+    }
+  ],
+  "validation": [
+    {
+      "command": "pnpm nx run-many -t lint test typecheck -p @site/pegasoft @site/pegasoft-e2e @site/motion-system --skipNxCache --parallel=3 --output-style=stream",
+      "result": "passed",
+      "details": "App lint passed; 5 Vitest files and 32 tests passed. E2E lint/typecheck and motion-system lint/typecheck/test also passed."
+    },
+    {
+      "command": "pnpm nx run-many -t lint typecheck -p @site/pegasoft-e2e --skipNxCache --parallel=2",
+      "result": "passed"
+    },
+    {
+      "command": "Playwright current-page smoke suite",
+      "result": "passed-historical-checkpoint",
+      "details": "20/20 configured desktop and Mobile Chrome executions passed before the latest renderer/layout calibration. Browser recertification of the current checkpoint was blocked when local-browser/server permission was denied."
+    },
+    {
+      "command": "Playwright reduced-motion, fallback, and navigation alternative suite",
+      "result": "passed-historical-checkpoint",
+      "details": "8/8 configured desktop and Mobile Chrome executions passed before the latest renderer/layout calibration; the current checkpoint has not been recertified in a browser."
+    },
+    {
+      "command": "pnpm nx run-many -t lint typecheck test -p @site/motion-system --skipNxCache --parallel=3",
+      "result": "passed",
+      "details": "Lint and typecheck passed; 1 Vitest file and 2 tests passed."
+    },
+    {
+      "command": "NODE_ENV=production pnpm nx run @site/pegasoft:build --skipNxCache",
+      "result": "passed",
+      "details": "The production application compiled, type-checked, generated its routes, and produced a clean payload scan."
+    }
+  ],
+  "phaseGate": {
+    "phase3": {
+      "status": "implementation-complete-acceptance-pending-browser-recertification",
+      "evidence": [
+        "legacy renderer source deleted",
+        "single active Canvas/fallback boundary",
+        "source and production payload scans clean",
+        "app lint, unit tests, and production build pass",
+        "historical browser smoke passed; current browser recertification is blocked"
+      ]
+    },
+    "phase4": {
+      "status": "implementation-complete-acceptance-pending-browser-recertification",
+      "evidence": [
+        "zero residual unconsumed selector families",
+        "hero CSS has scoped owners",
+        "direct app dependencies declared",
+        "motion-system particle hero removed after dependency audit",
+        "app and motion-system non-browser checks pass",
+        "historical shared-page browser smoke passed; current browser recertification is blocked"
+      ]
+    }
+  }
+}

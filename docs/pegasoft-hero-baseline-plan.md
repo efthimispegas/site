@@ -1,34 +1,35 @@
 # Pegasoft Hero Baseline Plan
 
-Status: pre-refactor rebaseline; no delivery phase is accepted
-Last reviewed: 2026-07-26
+Status: implementation checkpoint; visual baseline is not accepted
+Last reviewed: 2026-07-30
 
 ## Baseline verdict
 
-Every earlier completion claim is withdrawn.
+Earlier completion claims remain withdrawn unless a gate below now cites fresh
+evidence.
 
-- The evidence baseline is incomplete: the repository does not contain a
-  complete measured-state fixture or accepted Pegasoft comparison matrix.
-- The replacement skeleton is incomplete: it still imports and ships the
-  legacy renderer, has no unit coverage, and has no passing journey-state
-  browser coverage.
-- Existing camera, route, geometry, timing, interaction, responsive, and
-  reduced-motion code is an unverified implementation hypothesis.
-- Cleanup has not passed: legacy code, legacy CSS, opaque reference aliases,
-  stale tests, and bundled dead code remain.
+- Phase 0 preservation is accepted.
+- Phase 1 remains not accepted. Deterministic recording analysis now measures
+  four primary landmarks and three auxiliary route cores, but explicitly
+  blocks 11 primary landmarks rather than inventing boxes. Locked landing and
+  11-state journey DOM profiles exist; their last captured implementation
+  comparison is red.
+- Phase 2 has a valid historical `20/20` safety checkpoint, but the latest
+  renderer/layout candidate has not been browser-recertified.
+- Phases 3 and 4 have their hygiene implementation complete: the legacy
+  runtime is deleted, the active graph is singular, selector residue is gone,
+  direct dependencies are app-owned, and fresh source/production executable
+  scans are clean. Full phase acceptance remains pending current-browser
+  recertification.
+- Phase 5 and every later phase remain not accepted. The architecture and
+  harness are implemented as candidates, but the complete convergence matrix
+  is authored but unverified. The last complete, now-stale comparison is `1
+  raster pass / 14 raster fail / 0 blocked`; its DOM gate is `0 pass / 13 fail
+  / 0 blocked / 2 not applicable`.
 
-Fresh Nx lint and production build checks pass. That proves the current source
-can compile; it does not prove visual, motion, interaction, responsive, or
-architectural acceptance. The current E2E run is `6 passed / 4 failed`, and the
-failing assertions still target obsolete hero copy and selectors.
-
-The next implementation work is not another visual tuning pass. It is:
-
-1. preserve the current working state in recoverable Git history;
-2. renew the source evidence and state measurements;
-3. cut the active import graph away from legacy;
-4. remove polluted/dead hero blocks and repair ownership boundaries;
-5. only then rebuild and compare the new hero.
+The ordered visual release therefore remains held at Phase 1. Work already
+implemented beyond that gate is provisional and may be replaced; it does not
+inherit acceptance merely because it builds or has tests.
 
 ## Outcome
 
@@ -125,9 +126,11 @@ Verified comparison anchors:
 | `30.0–31.2s` | Close frontal arrow lockup and horizontal cyan feed |
 | `~31.4s onward` | Journey yields to the following white page section |
 
-These anchors supersede the unverified times currently hard-coded in
-`hero-scene/reference-states.ts`. Gate A must seek exact nearby frames before
-committing runtime progress thresholds.
+The repository now stores exact selected frames for all 15 states and a
+2026-07-30 live-to-recording target-progress calibration. Those progress
+targets are evidence-backed capture candidates, not visual acceptance:
+authoritative landmark/copy bounds and state-specific structural measurements
+remain missing.
 
 ### Current live implementation clues
 
@@ -189,106 +192,98 @@ committing runtime progress thresholds.
 
 ## Current implementation audit
 
-### Work that exists
+### Accepted hygiene and isolation
 
-- `PegasoftHome` owns one normalized `flowProgress` from the sticky process
-  section and derives DOM process state from it.
-- `shared/hero-scene/` contains a replacement shell, pure sequence helper,
-  route, camera sampler, beam, materials, reference-state list, and procedural
-  world.
-- The page currently selects the new `HeroScene`.
-- A Canvas/WebGL check and DOM fallback exist.
-- Fresh Nx lint and build pass.
+- `pegasoft-field-scene.tsx`, its renderer switch, and the adjacent unused
+  motion-system particle hero are deleted in the working tree and remain
+  recoverable from Git.
+- The source, fresh production executable payload, and production source maps
+  contain no legacy renderer,
+  `vectr-ref2-*`, Anime.js hero path, development query key, development
+  state/seed diagnostic, recording-evidence payload, or external scratch
+  marker.
+- Former legacy hero CSS and the 19 unowned old-page selector families are
+  gone. Scoped hero shell/scene modules have source consumers, and every
+  remaining `global.css` class family has an exact app consumer.
+- The Pegasoft app directly declares `clsx`, React Three Fiber, Drei, and
+  Three.js. Motion-system lint, typecheck, and its two tests pass after removal
+  of the unowned particle hero.
 
-This is useful work inventory, not proof that any previous phase passed.
+The detailed evidence is in
+[`cleanup-inventory.json`](./hero-reference/cleanup-inventory.json).
 
-### Pollution and coupling that block further refactor
+### Implemented candidate architecture
 
-1. `hero-scene/hero-scene.tsx` imports the 2,812-line
-   `pegasoft-field-scene.tsx` and keeps a hard-coded `HERO_RENDERER` switch.
-   The fresh production client output still contains legacy `vectr-ref2-*`,
-   cluster, and stage code; the import was not tree-shaken.
-2. The legacy file owns a second route, camera rig, beam system, world,
-   progress smoothing, scroll/pointer loop, Anime.js DOM choreography,
-   fallback, and an unreachable negative-progress branch.
-3. `pegasoft-home.module.css` is 2,362 lines and retains roughly 600 lines of
-   legacy-only `.pegasoft-stage`, flow-path, node, and cluster styling. The
-   legacy stage is hidden with `display:none`, while its old runtime can still
-   mutate it.
-4. `global.css` still contains unused `.pegasus-engine*` hero blocks.
-   Shared selectors such as `.eyebrow` and `.hero-actions` must be checked
-   before pruning because other pages use them.
-5. `hero-world.tsx` is already a 685-line aggregation of all destinations,
-   pointer behavior, pulse timing, and arrival geometry. Its values are not
-   source-traceable and must not become a second monolith.
-6. The current dotted wake is a globally pre-laid field whose sizes respond to
-   a hard-coded normalized-pointer-to-world approximation. It is not proven to
-   receive pointer updates through the fixed canvas styling and is not yet a
-   faithful local desktop trail.
-7. `ready` and `introReady` are accepted by the new scene boundary but ignored
-   by its active branch.
-8. `reference-states.ts` records only a key, time, progress, and step. It omits
-   the plan-required camera pose, look target, route state, copy state,
-   viewport, and landmark bounds, and several timestamps conflict with the
-   recording.
-9. Reduced motion currently falls into a generic four-block fallback rather
-   than a designed set of useful journey compositions.
-10. Mobile CSS collapses the process flow to `height:auto` while journey
-    progress remains scroll-derived; responsive state behavior is unverified.
-11. The E2E suite targets obsolete hero elements and proves no named state,
-    reverse/jump behavior, pointer behavior, fallback, reduced motion, or
-    visual composition.
-12. The app imports `clsx`, React Three Fiber, Drei, and Three.js without
-    declaring them directly in `apps/pegasoft/package.json`; it relies on root
-    dependency leakage.
-13. `libs/motion-system` exports an unused `particle-field-hero.tsx`. It is an
-    adjacent old-hero candidate to remove only after a dependency search proves
-    no other app owns it.
+- `PegasoftHome` measures physical page geometry once; a pure controller owns
+  raw, DOM, scene, lifecycle, profile, state, and local-clock outputs.
+- DOM copy and `HeroScene` consume the same snapshot.
+- The 45-line fixed-world assembly delegates bounded geometry to stage modules.
+  One canonical route feeds route rendering, camera/contact sampling, beam, and
+  tests.
+- The camera render adapter owns actual damped progress. The controller does
+  not fabricate a settled-camera snapshot.
+- The production runtime imports a minimal 15-state projection; full recording
+  paths, hashes, measurements, and audit prose remain in evidence/test code.
+- Reduced motion uses demand rendering, immediate poses, discrete copy
+  handoffs, no pointer trail, and no continuing route/pulse clocks.
+- The static alternative has deterministic loader, landing, journey, field,
+  arrival, and exit compositions rather than one generic fallback.
+- Five Vitest files pass 32 tests, including typed topology-manifest and
+  measured-bound contract coverage.
+  Historical current-page smoke passed 20 configured browser executions,
+  alternative/focus coverage passed 8, and an older implementation completed
+  all 15 named captures. Those browser/capture results predate the latest
+  layout, readiness, lighting, and progress-mapping changes.
+- A browser convergence suite now covers forward, reverse, direct jump,
+  resize, and restored-scroll reload. It is authored but not accepted because
+  local-browser/server permission was denied before the current checkpoint
+  could complete it.
 
-## Reuse decision
+This architecture is still provisional. Phase 5 remains not accepted because
+the complete forward/reverse/jump/resize/restored-state browser convergence
+matrix has not been demonstrated.
 
-### Retain now
+### Accuracy blockers
 
-- Pegasoft page copy, navigation, process structure, and downstream sections.
-- The page-level hero boundary and normalized journey-progress ownership.
-- The pure clamp/step-snapshot concept in `hero-sequence.ts`.
-- React Three Fiber, Three.js, and Drei.
-- A WebGL capability boundary with a useful fallback.
+- Locked landing and journey DOM profiles cover 13 applicable states.
+  Deterministic recording analysis measures four primary landmarks and three
+  auxiliary route cores; 11 primary landmark states remain explicitly blocked.
+- The 15-state comparator is operational and intentionally returns a non-zero
+  result. Its last complete inputs predate the latest code and report `1
+  raster pass / 14 raster fail / 0 blocked`, with `0 DOM pass / 13 DOM fail /
+  0 blocked / 2 not applicable`.
+- No identity pixels are hidden: the pixel-precise identity mask is blocked,
+  zero pixels are masked, and all `68,855,280` report pixels are evaluated.
+- Recording structural evidence is serialized in
+  [`recording-structural-bounds.json`](./hero-reference/recording-structural-bounds.json)
+  and is byte-reproducible with
+  `node tools/hero-reference/measure-recording-bounds.mjs --check`.
+- The procedural world, projected route, camera anchors, loader/packet/pulse
+  timing, pointer-trail appearance, arrival lockup, materials, and lighting are
+  implementation candidates, not frozen reference matches.
+- The current public scene assets are not copied or hotlinked into Pegasoft.
+  Exact source-asset reuse requires explicit rights; otherwise matching must be
+  achieved with independently owned geometry.
+- The performance harness is implemented, but the available software-rendered
+  development run is not a locked-hardware production acceptance run and
+  exceeds multiple budgets.
 
-Only these contracts are retained. No visual number is accepted here.
-
-### Candidate after isolated comparison
-
-- The untracked modules under `shared/hero-scene/`.
-- Pure route sampling and camera-pose sampling.
-- Low-poly procedural primitives, palette, materials, shadows, buildings,
-  workers, tiles, route segments, beam cores, and arrow geometry.
-- Existing loader and copy CSS.
-
-Candidates are copied or rewritten into clean ownership boundaries only after
-they pass a source-state comparison. Nothing in this list inherits completion
-status.
-
-### Remove or quarantine before visual refactor
-
-- `pegasoft-field-scene.tsx`;
-- the `HERO_RENDERER` toggle and legacy import;
-- legacy negative-progress, duplicate scroll/pointer, Anime.js DOM, camera,
-  route, beam, and world systems;
-- legacy-only stage/flow-node/cluster DOM and CSS;
-- unused old `.pegasus-engine*` blocks after selector ownership is verified;
-- `vectr-ref2-*` reference types, arrays, and annotations;
-- guessed timestamps, cardinal coordinates, camera stops, grid counts, pulse
-  durations, pointer radii, route thresholds, and root rotations that lack
-  direct source provenance;
-- the unused particle-field hero if the Nx/dependency audit confirms it has no
-  consumer.
+No code listed in this candidate section inherits visual acceptance.
 
 ## Mandatory Gate A — evidence and preservation
 
 Status: not accepted.
 
-Do this before deleting or tuning implementation:
+Current blocker: all 15 states resolve to exact recording frames and current
+live target-progress candidates. A deterministic, hash-verifying measurement
+pipeline resolves four primary landmark boxes and three auxiliary route cores;
+11 primary landmarks are explicitly blocked where semantic isolation is not
+defensible. Locked live DOM contracts cover the two landing and 11 journey
+states. The last implementation capture fails all 13 applicable DOM states and
+predates the latest CSS/progress corrections; generated captures may not fill
+the remaining source-evidence gaps.
+
+Complete this evidence before accepting visual tuning:
 
 1. Preserve the full current working diff in a recoverable Git commit/branch or
    equivalent repository-backed snapshot. Do not use an external scratch
@@ -355,10 +350,21 @@ Gate A exit:
 
 ## Mandatory Gate B — hygiene and hard isolation
 
-Status: not accepted.
+Status: accepted on 2026-07-30.
 
-No route, camera, monument, glow, or timing tuning begins until this gate
-passes.
+Evidence:
+
+- the legacy renderer, switch, duplicate systems, opaque aliases, particle
+  hero, and legacy DOM/CSS are absent;
+- hero styles have scoped owners and the shared CSS consumer audit has no
+  residue;
+- direct app dependencies are declared;
+- app, E2E definition, motion-system, production build, and production payload
+  checks pass.
+
+See [`cleanup-inventory.json`](./hero-reference/cleanup-inventory.json). The
+steps below remain the durable checklist that this accepted gate must continue
+to satisfy.
 
 1. Keep the public `HeroScene` boundary functional with the current candidate
    or a minimal static/proxy fallback.
@@ -373,8 +379,8 @@ passes.
    cannot resolve to the live URL or recording timestamp/frame.
 7. Remove Anime.js from the hero dependency path if no remaining feature uses
    it.
-8. Move hero-specific Canvas/fallback/copy styling into a scoped module rather
-   than adding more blocks to the page's 2,362-line stylesheet.
+8. Move hero-specific Canvas/fallback/copy styling into scoped modules rather
+   than growing the page stylesheet.
 9. Declare all direct runtime dependencies in the Pegasoft app package.
 10. Audit the unused motion-system particle hero and remove it only if the
     dependency graph confirms no consumer.
@@ -563,7 +569,8 @@ one file.
 - Treat mobile journey height, copy position, asset/geometry detail, DPR, and
   scroll cue as explicit decisions.
 - Reduced motion uses useful static named compositions and discrete handoffs.
-  It is not a blank Canvas and not the current generic four-block fallback.
+  It must not regress to a blank Canvas or a generic state-independent
+  fallback.
 - Maintain header, focus, reading order, contrast, and keyboard behavior
   independently from Canvas motion.
 
@@ -652,9 +659,36 @@ tuning; decorative work cannot begin before Phase 16.
 | 18 | Accessible alternatives | Reduced motion and fallback |
 | 19 | Production cutover | Performance, bundle hygiene, final evidence |
 
+### Implementation checkpoint — 2026-07-30
+
+The status below reports each phase's own evidence without pretending that
+provisional downstream implementation waived the ordered release gate.
+
+| Phase | Gate status | Evidence or blocker |
+| --- | --- | --- |
+| 0 | **Accepted** | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed. |
+| 1 | **Not accepted** | Exact frames, profiles, target calibration, classifications, schemas, four primary landmark boxes, three route cores, and 13-state DOM authority exist; 11 primary landmarks and additional structural observables remain blocked. |
+| 2 | **Historical checkpoint passed; current recertification pending** | Chromium/Mobile Chrome smoke was `20/20` before the latest renderer/layout calibration. The current checkpoint could not be rerun after local-browser/server permission was denied. |
+| 3 | **Implementation complete; acceptance pending browser recertification** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans plus lint/unit/build pass. Current browser smoke is unrun. |
+| 4 | **Implementation complete; acceptance pending browser recertification** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, and motion-system validation passes. Current shared-page browser smoke is unrun. |
+| 5 | **Not accepted** | Candidate architecture, 32 unit tests, direct-state control, current capture tooling, and an authored convergence suite exist; the full current-browser matrix and repeat-capture proof are missing. |
+| 6 | **Not accepted** | Landing and 11 journey DOM profiles are locked, and implementation CSS/progress mapping has been recalibrated. The last capture fails all 13 applicable states and predates those corrections. |
+| 7–17 | **Not accepted** | The last complete comparator reports `1 raster pass / 14 fail / 0 blocked`; it predates the latest implementation and cannot accept route, geometry, camera, motion, art, or responsive states. |
+| 18 | **Not accepted** | State-specific fallback and reduced-motion paths are implemented and passed an older browser checkpoint, but the current candidate is unrecertified and the phase depends on accepted full-motion/profile compositions. |
+| 19 | **Not accepted** | Production executable assets and source maps are clean, and a performance schema/harness exists. Locked-hardware budgets are unrun and every upstream visual/browser gate has not passed. |
+
+The next legal acceptance work is to continue Phase 1 structural measurement
+where the automated pipeline is blocked, then recertify Phases 2–6 against the
+current checkpoint before any visual phase can turn green. Existing Phase
+5–19 code is testable scaffolding or a comparison candidate, not a reason to
+skip those gates.
+
 ### Phase 0 — preserve the current dirty state
 
-Status: not accepted.
+Status: accepted on 2026-07-28.
+
+Evidence: commits `e7897fe`, `4db3f5b`, and `cac3844`; recording Git LFS object
+and SHA; [`phase-0-baseline.json`](./hero-reference/phase-0-baseline.json).
 
 Steps:
 
@@ -682,6 +716,14 @@ Stop/go gate:
 
 Status: not accepted.
 
+Implemented but insufficient: all 15 exact frames, comparison profiles,
+classification vocabulary, accuracy schema, live-source evidence, locked
+landing/journey DOM profiles, 2026-07-30 target-progress calibration, and a
+hash-verifying structural measurement pipeline exist. That pipeline measures
+four primary landmarks and three route cores but blocks 11 primary landmarks;
+additional camera, negative-space, field, pointer, and copy observables still
+block the gate.
+
 Steps:
 
 1. Complete Mandatory Gate A.
@@ -701,7 +743,8 @@ Steps:
 Artifact:
 
 - serializable reference-state manifest, comparison-profile manifest, exact
-  extraction instructions, and live-versus-recording decision log.
+  extraction instructions, deterministic structural-bounds report, locked
+  landing/journey DOM profiles, and live-versus-recording decision log.
 
 Stop/go gate:
 
@@ -720,7 +763,12 @@ pnpm nx run @site/pegasoft-e2e:typecheck
 
 ### Phase 2 — repair the smoke-test safety net
 
-Status: not accepted.
+Status: historical checkpoint accepted on 2026-07-28; current candidate
+recertification pending and ordered release held at Phase 1.
+
+Evidence: commit `476c8a9`; 20/20 configured Chromium and Mobile Chrome smoke
+executions passed at that checkpoint. The latest renderer/layout candidate has
+not rerun this gate because local-browser/server permission was denied.
 
 Steps:
 
@@ -751,7 +799,13 @@ pnpm nx run @site/pegasoft-e2e:e2e
 
 ### Phase 3 — sever and remove the legacy renderer
 
-Status: not accepted.
+Status: implementation complete; browser-dependent acceptance recertification
+pending and ordered release held at Phase 1.
+
+Evidence: the legacy file and renderer switch are absent; one Canvas/fallback
+boundary remains; source and fresh production executable scans are clean; app
+lint, 32 unit tests, and production build pass. Browser smoke passed at an
+older checkpoint but is unrun on the latest candidate.
 
 Steps:
 
@@ -788,7 +842,14 @@ pnpm nx run @site/pegasoft-e2e:e2e
 
 ### Phase 4 — remove polluted CSS and repair dependency ownership
 
-Status: not accepted.
+Status: implementation complete; browser-dependent acceptance recertification
+pending and ordered release held at Phase 1.
+
+Evidence: the former 19-family residue is removed; remaining shared and scoped
+class families have consumers; direct app dependencies are explicit; app,
+and motion-system lint/typecheck/test pass. Shared-route smoke passed at an
+older checkpoint but is unrun on the latest candidate. See
+[`cleanup-inventory.json`](./hero-reference/cleanup-inventory.json).
 
 Steps:
 
@@ -833,6 +894,13 @@ Run the motion-system commands only when that project changes.
 
 Status: not accepted.
 
+Implementation checkpoint: ownership boundaries, runtime/evidence separation,
+32 passing unit tests, 15-state direct capture control, state-specific fallback,
+and the failing acceptance comparator are present. A browser test now covers
+forward, reverse, direct jump, resize, and restored-scroll reload, but it has
+not completed against the current checkpoint. Repeat-capture stability and
+accepted visual evidence are also absent.
+
 Steps:
 
 1. Complete Mandatory Gate B.
@@ -873,11 +941,19 @@ pnpm nx build @site/pegasoft
 pnpm nx run @site/pegasoft-e2e:e2e
 ```
 
-The app test command becomes valid only after this phase creates the target.
+The app test target now exists and currently passes 32 tests; that result is
+necessary but not sufficient for the Phase 5 convergence gate.
 
 ### Phase 6 — lock DOM layout, lifecycle, and progress mappings
 
 Status: not accepted.
+
+Implementation checkpoint: one raw physical-progress source now feeds explicit
+DOM and scene mapping curves. The recording-desktop scene curve is fitted to
+the locked live-to-recording calibration, DOM handoffs use the same
+controller-owned scene target, and the latest CSS adjusts header/process
+geometry to the live probe. These are unrecaptured candidates, not accepted
+bounds.
 
 Steps:
 
@@ -1313,9 +1389,9 @@ pnpm nx run @site/pegasoft-e2e:typecheck
 pnpm nx run @site/pegasoft-e2e:e2e
 ```
 
-The app currently has no unit-test target. Phase 5 must add an Nx-owned target
-before the first command becomes valid and before unit coverage can be an exit
-gate.
+The Nx-owned app unit target now exists and currently passes 32 tests. Browser
+and comparison gates remain independent; unit success cannot accept a visual
+phase.
 
 ## Definition of baseline complete
 

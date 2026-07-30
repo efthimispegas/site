@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "profileId": "live-recording-desktop-1508-journey",
+  "authority": {
+    "evidenceClass": "observed",
+    "sourceRef": "live-trace-desktop-1508-2026-07-30",
+    "url": "https://www.vectrfl.com/?trace=1",
+    "probeArtifact": "docs/hero-reference/live/journey-dom-probe.json",
+    "calibrationArtifact": "docs/hero-reference/live/recording-progress-calibration.json",
+    "qualification": "Each state uses the exact live scroll selected for its recording target and the active process-step boxes observed by the locked live probe. This profile promotes no field whose source-to-implementation element correspondence is unknown."
+  },
+  "captureProfile": {
+    "viewportCss": {
+      "width": 1508,
+      "height": 761
+    },
+    "liveDevicePixelRatio": 1,
+    "implementationCaptureDevicePixelRatio": 2,
+    "pointer": "fine",
+    "hover": true
+  },
+  "acceptance": {
+    "boundsToleranceCssPx": 2,
+    "scrollToleranceCssPx": 2,
+    "activeStepIndexTolerance": 0,
+    "policy": "Viewport, source scroll, active-step index, and every promoted layout component are independent DOM gates. Missing or multiply-active implementation steps fail. Passing this profile cannot waive raster or WebGL structural failures."
+  },
+  "boxMappings": [
+    {
+      "id": "activeStep",
+      "probeField": "activeStep",
+      "implementationField": "bounds",
+      "components": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ]
+    },
+    {
+      "id": "activeHeader",
+      "probeField": "activeHeader",
+      "implementationField": "header",
+      "components": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ]
+    },
+    {
+      "id": "activeNumber",
+      "probeField": "activeNumber",
+      "implementationField": "number",
+      "components": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ]
+    },
+    {
+      "id": "activeTitle",
+      "probeField": "activeTitle",
+      "implementationField": "title",
+      "components": [
+        "x",
+        "y",
+        "height"
+      ],
+      "identityExclusion": "Width is determined by the state-title glyph sequence; title position and line-box height remain gated."
+    },
+    {
+      "id": "activeBody",
+      "probeField": "activeBody",
+      "implementationField": "body",
+      "components": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ]
+    },
+    {
+      "id": "activeDescription",
+      "probeField": "activeDescription",
+      "implementationField": "description",
+      "components": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ]
+    }
+  ],
+  "states": [
+    {
+      "key": "activation-route",
+      "target": 0.12395,
+      "probeStateKey": "activation-route"
+    },
+    {
+      "key": "activation-contact",
+      "target": 0.16128,
+      "probeStateKey": "activation-contact"
+    },
+    {
+      "key": "clearance-travel",
+      "target": 0.32704,
+      "probeStateKey": "clearance-travel"
+    },
+    {
+      "key": "clearance-field-preview",
+      "target": 0.54059,
+      "probeStateKey": "clearance-field-preview"
+    },
+    {
+      "key": "field-approach",
+      "target": 0.60928,
+      "probeStateKey": "field-approach"
+    },
+    {
+      "key": "field-contact",
+      "target": 0.74,
+      "probeStateKey": "field-contact"
+    },
+    {
+      "key": "field-pulse-a",
+      "target": 0.74,
+      "probeStateKey": "field-pulse-a"
+    },
+    {
+      "key": "field-pulse-b",
+      "target": 0.74,
+      "probeStateKey": "field-pulse-b"
+    },
+    {
+      "key": "arrival-travel",
+      "target": 0.89301,
+      "probeStateKey": "arrival-travel"
+    },
+    {
+      "key": "arrival-lockup",
+      "target": 0.9,
+      "probeStateKey": "arrival-lockup"
+    },
+    {
+      "key": "journey-exit",
+      "target": 1.0513,
+      "probeStateKey": "journey-exit"
+    }
+  ],
+  "notPromoted": [
+    {
+      "probeField": "flowSteps",
+      "reason": "The raw probe does not serialize the source selector identity, so choosing an implementation container would invent a correspondence."
+    },
+    {
+      "probeField": "steps[*].title.width",
+      "reason": "Inactive and active title widths are glyph-sequence identity measurements; their container positions and active line-box height are covered by promoted gates."
+    },
+    {
+      "probeField": "nextSection",
+      "reason": "The probe records null for every state and therefore provides no authoritative box."
+    }
+  ],
+  "identityExclusions": [
+    "Title and description text content",
+    "Title glyph-sequence width",
+    "Step-number glyph pixels"
+  ],
+  "identityRasterMask": {
+    "status": "blocked",
+    "appliedMaskedPixelCount": 0,
+    "policySource": "docs/hero-reference/live/recording-profile-dom.json#identityRasterMask",
+    "qualification": "DOM identity exclusions do not create a raster mask. All recording pixels remain evaluated."
+  },
+  "stillIndependentAndUnmeasured": [
+    "WebGL building and subject bounds",
+    "Route and arrow centerlines",
+    "Field contact point",
+    "Negative-space silhouettes"
+  ]
+}

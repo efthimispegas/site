@@ -1,0 +1,742 @@
+{
+  "schemaVersion": 1,
+  "algorithmVersion": "recording-structural-bounds-v1",
+  "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
+  "authority": {
+    "recordingPath": "docs/vectrfl_recording.mov",
+    "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+    "anchorManifest": "docs/hero-reference/recording-anchors.json",
+    "derivativePolicy": "Locked PNG frames are reproducible derivatives. The MOV SHA plus decoded frame index and PTS remain authoritative."
+  },
+  "coordinateSpaces": {
+    "rasterPixels": {
+      "width": 3016,
+      "height": 1522
+    },
+    "cssPixels": {
+      "width": 1508,
+      "height": 761
+    },
+    "devicePixelRatio": 2,
+    "boundsFormat": "[x, y, width, height]",
+    "pixelConvention": "Half-open rectangle enclosing every selected source pixel; width and height include the final selected raster coordinate."
+  },
+  "methodPolicy": {
+    "noManualBoxes": "No output rectangle is hand-entered. State configuration supplies only a documented normalized semantic ROI and fixed segmentation/quality thresholds.",
+    "chroma": "Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.",
+    "edges": "The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.",
+    "quality": "A state is blocked when the selected support does not meet its fixed pixel gate or when the semantic landmark cannot be isolated without substituting a partial feature.",
+    "reproducibility": "The authoritative MOV SHA and every input PNG SHA are verified before measurement. --check recomputes both evidence files and fails on byte drift."
+  },
+  "summary": {
+    "totalAnchors": 15,
+    "landmarkMeasured": 4,
+    "landmarkBlocked": 11,
+    "routeMeasured": 3
+  },
+  "states": [
+    {
+      "key": "loader-mark",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 118,
+        "timestampSeconds": 2,
+        "capturePath": "docs/hero-reference/recording/frame-000118-loader-mark.png",
+        "captureSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "central blue loader mark",
+        "bounds": {
+          "rasterPixels": [
+            1428,
+            680,
+            170,
+            171
+          ],
+          "cssPixels": [
+            714,
+            340,
+            85,
+            85.5
+          ],
+          "normalized": [
+            0.473475,
+            0.446781,
+            0.056366,
+            0.112352
+          ]
+        },
+        "pixelSupport": 9226,
+        "method": {
+          "id": "chroma-component-union",
+          "roiNormalized": [
+            0.3,
+            0.28,
+            0.4,
+            0.48
+          ],
+          "roiRasterPixels": [
+            904,
+            426,
+            1208,
+            731
+          ],
+          "predicate": {
+            "id": "deep-blue",
+            "description": "b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 24,
+          "minimumSelectedPixels": 300,
+          "totalComponentCount": 7,
+          "eligibleComponentCount": 6,
+          "selectedComponentCount": 6,
+          "rationale": "The manifest identifies the saturated blue loader mark as the central focus. The ROI excludes contour-only margins and the recorded pointer without constraining the resulting box."
+        }
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      }
+    },
+    {
+      "key": "world-reveal",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 208,
+        "timestampSeconds": 3.5,
+        "capturePath": "docs/hero-reference/recording/frame-000208-world-reveal.png",
+        "captureSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "central blue loader mark during world reveal",
+        "bounds": {
+          "rasterPixels": [
+            1428,
+            682,
+            169,
+            168
+          ],
+          "cssPixels": [
+            714,
+            341,
+            84.5,
+            84
+          ],
+          "normalized": [
+            0.473475,
+            0.448095,
+            0.056034,
+            0.110381
+          ]
+        },
+        "pixelSupport": 10353,
+        "method": {
+          "id": "chroma-component-union",
+          "roiNormalized": [
+            0.3,
+            0.2,
+            0.4,
+            0.5
+          ],
+          "roiRasterPixels": [
+            904,
+            304,
+            1208,
+            762
+          ],
+          "predicate": {
+            "id": "deep-blue",
+            "description": "b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 24,
+          "minimumSelectedPixels": 300,
+          "totalComponentCount": 6,
+          "eligibleComponentCount": 6,
+          "selectedComponentCount": 6,
+          "rationale": "The blue loader mark remains the only saturated-blue central landmark while the pale world emerges. The ROI excludes the red rails and peripheral scene objects."
+        }
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      }
+    },
+    {
+      "key": "landing",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 298,
+        "timestampSeconds": 5,
+        "capturePath": "docs/hero-reference/recording/frame-000298-landing.png",
+        "captureSha256": "6ff1d23779f76059f7ba4ba437cfb712886a78516bc9e2f317964949e7a565d5",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The pale industrial cluster shares color and edge statistics with background context; no deterministic segmentation isolates the complete semantic cluster without hand-drawn boundaries."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "The pale industrial cluster shares color and edge statistics with background context; no deterministic segmentation isolates the complete semantic cluster without hand-drawn boundaries."
+    },
+    {
+      "key": "landing-idle",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 448,
+        "timestampSeconds": 7.5,
+        "capturePath": "docs/hero-reference/recording/frame-000448-landing-idle.png",
+        "captureSha256": "0718c8673e4099495397b9a3e3e19737a2013a59d288b9d3acd29bfd4f69fd1b",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The pale industrial cluster shares color and edge statistics with background context; the red packet is a route effect rather than the complete primary landmark."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "The pale industrial cluster shares color and edge statistics with background context; the red packet is a route effect rather than the complete primary landmark."
+    },
+    {
+      "key": "activation-route",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 598,
+        "timestampSeconds": 10,
+        "capturePath": "docs/hero-reference/recording/frame-000598-activation-route.png",
+        "captureSha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The first destination is partially clipped at the lower edge and is not separable from rails and adjacent pale context by the approved chroma/edge methods."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "The first destination is partially clipped at the lower edge and is not separable from rails and adjacent pale context by the approved chroma/edge methods."
+    },
+    {
+      "key": "activation-contact",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 748,
+        "timestampSeconds": 12.5,
+        "capturePath": "docs/hero-reference/recording/frame-000748-activation-contact.png",
+        "captureSha256": "8975a69102da5583678abd435df6244ffba93008406420a0ac768e9d5a226ce6",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The blue logo can be segmented, but it is only a feature on the destination; treating that logo box as the full building landmark would under-report the silhouette."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "The blue logo can be segmented, but it is only a feature on the destination; treating that logo box as the full building landmark would under-report the silhouette."
+    },
+    {
+      "key": "clearance-travel",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1078,
+        "timestampSeconds": 18,
+        "capturePath": "docs/hero-reference/recording/frame-001078-clearance-travel.png",
+        "captureSha256": "621c0d2d39a3ddc4f8cc8e7fd1a3a3053122c7b20b0dd46a211066698e8556c9",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "This transit anchor has no single named destination silhouette; the source-confirmed cyan direction is measured separately as a route feature."
+      },
+      "route": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "high-chroma core of connected cyan clearance route",
+        "bounds": {
+          "rasterPixels": [
+            176,
+            246,
+            948,
+            528
+          ],
+          "cssPixels": [
+            88,
+            123,
+            474,
+            264
+          ],
+          "normalized": [
+            0.058355,
+            0.161629,
+            0.314324,
+            0.346912
+          ]
+        },
+        "pixelSupport": 17320,
+        "method": {
+          "id": "largest-chroma-component",
+          "roiNormalized": [
+            0,
+            0.1,
+            0.66,
+            0.52
+          ],
+          "roiRasterPixels": [
+            0,
+            152,
+            1991,
+            792
+          ],
+          "predicate": {
+            "id": "cyan-route",
+            "description": "b-r >= 70, g-r >= 40, b >= 180, g >= 135, and r <= 205 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 180,
+          "minimumSelectedPixels": 180,
+          "totalComponentCount": 78,
+          "eligibleComponentCount": 13,
+          "selectedComponentCount": 1,
+          "rationale": "The source record defines route direction as the observable focus. The saturated cyan route is connected, while the ambient dotted wake is split into smaller components."
+        }
+      },
+      "blockedReason": "This transit anchor has no single named destination silhouette; the source-confirmed cyan direction is measured separately as a route feature."
+    },
+    {
+      "key": "clearance-field-preview",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1228,
+        "timestampSeconds": 20.5,
+        "capturePath": "docs/hero-reference/recording/frame-001228-clearance-field-preview.png",
+        "captureSha256": "42a8b8da9bed387e5aab1e767a0e6290aff44189d11b8e7653d7180936866268",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The field is only partially visible and clipped by the upper-right frame edge; the approaching cyan route core is measured separately."
+      },
+      "route": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "high-chroma core of cyan route approaching the field preview",
+        "bounds": {
+          "rasterPixels": [
+            484,
+            1112,
+            232,
+            108
+          ],
+          "cssPixels": [
+            242,
+            556,
+            116,
+            54
+          ],
+          "normalized": [
+            0.160477,
+            0.730618,
+            0.076923,
+            0.070959
+          ]
+        },
+        "pixelSupport": 3120,
+        "method": {
+          "id": "largest-chroma-component",
+          "roiNormalized": [
+            0.12,
+            0.4,
+            0.58,
+            0.5
+          ],
+          "roiRasterPixels": [
+            361,
+            608,
+            1751,
+            762
+          ],
+          "predicate": {
+            "id": "cyan-route",
+            "description": "b-r >= 70, g-r >= 40, b >= 180, g >= 135, and r <= 205 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 180,
+          "minimumSelectedPixels": 180,
+          "totalComponentCount": 90,
+          "eligibleComponentCount": 12,
+          "selectedComponentCount": 1,
+          "rationale": "The ROI follows the lower transit band named by the manifest and excludes the top-right field tiles. Component size separates the continuous route from the dotted wake."
+        }
+      },
+      "blockedReason": "The field is only partially visible and clipped by the upper-right frame edge; the approaching cyan route core is measured separately."
+    },
+    {
+      "key": "field-approach",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1288,
+        "timestampSeconds": 21.5,
+        "capturePath": "docs/hero-reference/recording/frame-001288-field-approach.png",
+        "captureSha256": "df0381011892710f879b805b2f149adfb95dbe8e95c2a7097d7d716a181faf35",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The elevated center is pale and partially occluded among similarly colored tiles; a complete center or field silhouette cannot be isolated without semantic/manual annotation."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "The elevated center is pale and partially occluded among similarly colored tiles; a complete center or field silhouette cannot be isolated without semantic/manual annotation."
+    },
+    {
+      "key": "field-contact",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1390,
+        "timestampSeconds": 23.2,
+        "capturePath": "docs/hero-reference/recording/frame-001390-field-contact.png",
+        "captureSha256": "f14b7ffe780fcdb2ee6a9a90211efd592267291017974340c0228a822832cfdc",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The first reaction changes several pale/cyan tiles, but the elevated center tile and figure do not form a uniquely separable color component."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "The first reaction changes several pale/cyan tiles, but the elevated center tile and figure do not form a uniquely separable color component."
+    },
+    {
+      "key": "field-pulse-a",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1408,
+        "timestampSeconds": 23.5,
+        "capturePath": "docs/hero-reference/recording/frame-001408-field-pulse-a.png",
+        "captureSha256": "156123978b207b9a46c266d35aaec5627567cf8055750baa6a3e3bb0ed793404",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "Bloom joins the inner pulse, route, and neighboring tiles; a threshold box would measure the bloom envelope rather than a stable structural landmark."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "Bloom joins the inner pulse, route, and neighboring tiles; a threshold box would measure the bloom envelope rather than a stable structural landmark."
+    },
+    {
+      "key": "field-pulse-b",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1558,
+        "timestampSeconds": 26,
+        "capturePath": "docs/hero-reference/recording/frame-001558-field-pulse-b.png",
+        "captureSha256": "e5a6fc292809185e8a83be83db0e94fc2db2a2cfffbd9f72a933b2e1168160a4",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "elevated blue center tile",
+        "bounds": {
+          "rasterPixels": [
+            1364,
+            652,
+            170,
+            175
+          ],
+          "cssPixels": [
+            682,
+            326,
+            85,
+            87.5
+          ],
+          "normalized": [
+            0.452255,
+            0.428384,
+            0.056366,
+            0.11498
+          ]
+        },
+        "pixelSupport": 22599,
+        "method": {
+          "id": "largest-chroma-component",
+          "roiNormalized": [
+            0.35,
+            0.25,
+            0.3,
+            0.5
+          ],
+          "roiRasterPixels": [
+            1055,
+            380,
+            906,
+            762
+          ],
+          "predicate": {
+            "id": "deep-blue",
+            "description": "b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 120,
+          "minimumSelectedPixels": 1200,
+          "totalComponentCount": 181,
+          "eligibleComponentCount": 8,
+          "selectedComponentCount": 1,
+          "rationale": "The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box."
+        }
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      }
+    },
+    {
+      "key": "arrival-travel",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1786,
+        "timestampSeconds": 29.8,
+        "capturePath": "docs/hero-reference/recording/frame-001786-arrival-travel.png",
+        "captureSha256": "45c268491236fdd992f9184e4657b4a315527a654d36a34dac3dab72415f310f",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The arrow destination remains beyond the right frame edge; the post-field horizontal cyan route core is measured separately."
+      },
+      "route": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "high-chroma core of second horizontal cyan route",
+        "bounds": {
+          "rasterPixels": [
+            1428,
+            704,
+            236,
+            18
+          ],
+          "cssPixels": [
+            714,
+            352,
+            118,
+            9
+          ],
+          "normalized": [
+            0.473475,
+            0.462549,
+            0.078249,
+            0.011827
+          ]
+        },
+        "pixelSupport": 1090,
+        "method": {
+          "id": "largest-chroma-component",
+          "roiNormalized": [
+            0,
+            0.36,
+            0.62,
+            0.28
+          ],
+          "roiRasterPixels": [
+            0,
+            547,
+            1870,
+            428
+          ],
+          "predicate": {
+            "id": "cyan-route",
+            "description": "b-r >= 70, g-r >= 40, b >= 180, g >= 135, and r <= 205 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 180,
+          "minimumSelectedPixels": 180,
+          "totalComponentCount": 33,
+          "eligibleComponentCount": 14,
+          "selectedComponentCount": 1,
+          "rationale": "The destination is beyond the right edge in this anchor, so the horizontal feed is the only measurable source-confirmed travel structure. The ROI excludes header and process copy."
+        }
+      },
+      "blockedReason": "The arrow destination remains beyond the right frame edge; the post-field horizontal cyan route core is measured separately."
+    },
+    {
+      "key": "arrival-lockup",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1858,
+        "timestampSeconds": 31,
+        "capturePath": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+        "captureSha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "large frontal arrival arrow",
+        "bounds": {
+          "rasterPixels": [
+            1194,
+            471,
+            358,
+            525
+          ],
+          "cssPixels": [
+            597,
+            235.5,
+            179,
+            262.5
+          ],
+          "normalized": [
+            0.395889,
+            0.309461,
+            0.1187,
+            0.344941
+          ]
+        },
+        "pixelSupport": 10467,
+        "method": {
+          "id": "largest-dilated-sobel-component",
+          "roiNormalized": [
+            0.385,
+            0.24,
+            0.17,
+            0.48
+          ],
+          "roiRasterPixels": [
+            1161,
+            365,
+            513,
+            731
+          ],
+          "predicate": null,
+          "sobelThreshold": 72,
+          "dilationIterations": 4,
+          "connectivity": 8,
+          "minimumComponentPixels": 1200,
+          "minimumSelectedPixels": 900,
+          "totalComponentCount": 52,
+          "eligibleComponentCount": 5,
+          "selectedComponentCount": 1,
+          "rationale": "The manifest identifies the frontal arrow as the primary landmark. A narrow semantic ROI excludes process copy, header, most of the incoming feed, and surrounding marks; the layered arrow is the largest connected edge structure inside it."
+        }
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      }
+    },
+    {
+      "key": "journey-exit",
+      "source": {
+        "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "decodedFrameIndex": 1918,
+        "timestampSeconds": 32,
+        "capturePath": "docs/hero-reference/recording/frame-001918-journey-exit.png",
+        "captureSha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b",
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      },
+      "landmark": {
+        "status": "blocked",
+        "reason": "The arrival landmark is no longer visible; the observable structure is the moving hero/next-section boundary, which is not a landmark silhouette."
+      },
+      "route": {
+        "status": "not-measured",
+        "reason": "This pass only measures a route when it is the anchor’s named primary directional structure."
+      },
+      "blockedReason": "The arrival landmark is no longer visible; the observable structure is the moving hero/next-section boundary, which is not a landmark silhouette."
+    }
+  ]
+}

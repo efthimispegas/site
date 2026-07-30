@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-07-30T08:15:00Z",
+  "status": "calibration-evidence-not-visual-acceptance",
+  "authority": {
+    "liveSite": "https://www.vectrfl.com/?trace=1",
+    "recordingPath": "docs/vectrfl_recording.mov",
+    "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+    "viewportCss": {
+      "width": 1508,
+      "height": 761
+    },
+    "recordingDevicePixelRatio": 2
+  },
+  "method": {
+    "tool": "tools/hero-reference/calibrate-live-progress.mjs",
+    "liveTraceSmoothTimeSeconds": 0.01,
+    "coarseCandidateStepCssPx": 30,
+    "refinementCandidateStepCssPx": 5,
+    "analysisScale": 0.25,
+    "backgroundColorAlignment": "40x40 analysis-pixel top-left mean RGB shift",
+    "landingCropCssPx": [
+      0,
+      80,
+      1508,
+      761
+    ],
+    "journeyCropCssPx": [
+      600,
+      80,
+      1508,
+      761
+    ],
+    "rankingScore": "aligned mean absolute RGB-channel error + 2 × mean absolute luma-edge error",
+    "observedLiveTargetPerScrollCssPx": 0.00029866613689781856,
+    "targetResolutionAtRefinementStep": 0.0014933306844890928,
+    "provenance": "Candidates were captured from the current live trace endpoint and ranked directly against the immutable recording anchors. Candidate rasters are disposable analysis inputs and are not acceptance authorities or repository artifacts."
+  },
+  "states": [
+    {
+      "key": "landing",
+      "target": 0,
+      "evidenceClass": "source-confirmed",
+      "selection": "live and recording landing state at zero scroll"
+    },
+    {
+      "key": "landing-idle",
+      "target": 0,
+      "evidenceClass": "source-confirmed",
+      "selection": "same camera target as landing; local rail time differs"
+    },
+    {
+      "key": "activation-route",
+      "target": 0.12395,
+      "selectedLiveScrollYCssPx": 415,
+      "refinedRankingScore": 10.20573256445255,
+      "evidenceClass": "observed"
+    },
+    {
+      "key": "activation-contact",
+      "target": 0.16128,
+      "selectedLiveScrollYCssPx": 540,
+      "refinedRankingScore": 9.33053496447694,
+      "evidenceClass": "observed"
+    },
+    {
+      "key": "clearance-travel",
+      "target": 0.32704,
+      "selectedLiveScrollYCssPx": 1095,
+      "refinedRankingScore": 15.290324831128437,
+      "evidenceClass": "observed"
+    },
+    {
+      "key": "clearance-field-preview",
+      "target": 0.54059,
+      "selectedLiveScrollYCssPx": 1810,
+      "refinedRankingScore": 8.655042429001835,
+      "evidenceClass": "observed"
+    },
+    {
+      "key": "field-approach",
+      "target": 0.60928,
+      "selectedLiveScrollYCssPx": 2040,
+      "refinedRankingScore": 13.564236461665097,
+      "evidenceClass": "observed"
+    },
+    {
+      "key": "field-contact",
+      "target": 0.74,
+      "evidenceClass": "source-confirmed",
+      "selection": "live source contact threshold, cross-checked against recording frame 1390"
+    },
+    {
+      "key": "field-pulse-a",
+      "target": 0.74,
+      "evidenceClass": "inferred",
+      "selection": "recording retains the contact camera while the local field clock advances"
+    },
+    {
+      "key": "field-pulse-b",
+      "target": 0.74,
+      "evidenceClass": "inferred",
+      "selection": "recording retains the contact camera while the local field clock advances"
+    },
+    {
+      "key": "arrival-travel",
+      "target": 0.89301,
+      "selectedLiveScrollYCssPx": 2990,
+      "refinedRankingScore": 9.940064252670188,
+      "evidenceClass": "observed"
+    },
+    {
+      "key": "arrival-lockup",
+      "target": 0.9,
+      "evidenceClass": "source-confirmed",
+      "selection": "live arrival activation threshold, cross-checked against recording frame 1858"
+    },
+    {
+      "key": "journey-exit",
+      "target": 1.0513,
+      "selectedLiveScrollYCssPx": 3520,
+      "refinedRankingScore": 16.51687034132764,
+      "evidenceClass": "observed"
+    }
+  ],
+  "limitations": [
+    "The ranking score selects the closest current-live camera/progress candidate; it is not a substitute for landmark bounds, silhouette IoU, route Hausdorff distance, or masked identity comparisons.",
+    "Field pulse local times remain inferred because two recording phases do not establish the full pulse period.",
+    "No live or recording asset is granted implementation reuse by this calibration."
+  ]
+}

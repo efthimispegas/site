@@ -1,63 +1,16 @@
 import { useFrame, type RootState } from '@react-three/fiber';
-import * as THREE from 'three';
-import { clampJourneyProgress } from './hero-sequence';
+import { useRef } from 'react';
+import type { HeroJourneySnapshot } from './hero-contract';
 import {
-  getFieldReorientation,
-  getHeroRoutePoint,
-  getHeroRouteProgress,
-  getHeroRouteTangent,
-  getWorldRotation,
-  transformWorldPoint,
-} from './hero-route';
+  dampHeroProgress,
+  sampleHeroCameraPose,
+  type HeroCameraPose,
+  type HeroDampedProgress,
+} from './hero-camera-model';
 
-export type HeroCameraPose = {
-  position: [number, number, number];
-  target: [number, number, number];
-  fov: number;
+export type HeroCameraProgressRef = {
+  current: number;
 };
-
-export function sampleHeroCameraPose(progress: number): HeroCameraPose {
-  const normalizedProgress = clampJourneyProgress(progress);
-  const routeProgress = getHeroRouteProgress(normalizedProgress);
-  const worldRotation = getWorldRotation(normalizedProgress);
-  const followBlend = getFieldReorientation(normalizedProgress);
-  const routePoint = getHeroRoutePoint(routeProgress);
-  const tangent = getHeroRouteTangent(routeProgress)
-    .applyAxisAngle(new THREE.Vector3(0, 1, 0), worldRotation)
-    .normalize();
-  const side = new THREE.Vector3(-tangent.z, 0, tangent.x).normalize();
-  const target = transformWorldPoint(routePoint, normalizedProgress);
-  const trailDistance = THREE.MathUtils.lerp(20, 8, followBlend);
-  const sideDistance = THREE.MathUtils.lerp(10, 2.5, followBlend);
-  const height = THREE.MathUtils.lerp(28, 42, followBlend);
-  const position = target
-    .clone()
-    .addScaledVector(tangent, -trailDistance)
-    .addScaledVector(side, sideDistance)
-    .add(new THREE.Vector3(0, height, 0));
-  const lockupBlend = THREE.MathUtils.smoothstep(
-    normalizedProgress,
-    0.955,
-    1,
-  );
-  const lockupPosition = target
-    .clone()
-    .addScaledVector(tangent, -11)
-    .addScaledVector(side, 1.8)
-    .add(new THREE.Vector3(0, 24, 0));
-  position.lerp(lockupPosition, lockupBlend);
-  target.y = THREE.MathUtils.lerp(target.y, 0.85, lockupBlend);
-
-  return {
-    position: [position.x, position.y, position.z],
-    target: [target.x, target.y, target.z],
-    fov: THREE.MathUtils.lerp(
-      THREE.MathUtils.lerp(28, 25.5, followBlend),
-      21.5,
-      lockupBlend,
-    ),
-  };
-}
 
 type AdjustableCamera = RootState['camera'] & {
   fov: number;
@@ -80,12 +33,51 @@ function applyCameraPose(state: RootState, pose: HeroCameraPose) {
   camera.position.set(...pose.position);
   camera.fov = pose.fov;
   camera.updateProjectionMatrix();
-  camera.lookAt(...pose.target);
+  camera.quaternion.set(...pose.quaternion);
 }
 
-export function HeroCamera({ progress }: { progress: number }) {
-  useFrame((state) => {
-    applyCameraPose(state, sampleHeroCameraPose(progress));
+export function HeroCamera({
+  snapshot,
+  settledProgressRef,
+}: {
+  snapshot: HeroJourneySnapshot;
+  settledProgressRef: HeroCameraProgressRef;
+}) {
+  const progressRef = useRef<HeroDampedProgress>({
+    value:
+      snapshot.referenceState.progress.settledCamera ??
+      snapshot.sceneTargetProgress,
+    velocity: 0,
+  });
+
+  useFrame((state, deltaSeconds) => {
+    const immediate =
+      snapshot.directEntry ||
+      snapshot.motion === 'reduced' ||
+      snapshot.motion === 'static';
+
+    progressRef.current = immediate
+      ? {
+          value:
+            snapshot.referenceState.progress.settledCamera ??
+            snapshot.sceneTargetProgress,
+          velocity: 0,
+        }
+      : dampHeroProgress(
+          progressRef.current,
+          snapshot.sceneTargetProgress,
+          snapshot.profile.cameraSmoothTimeSeconds,
+          deltaSeconds,
+        );
+
+    settledProgressRef.current = progressRef.current.value;
+    applyCameraPose(
+      state,
+      sampleHeroCameraPose(
+        progressRef.current.value,
+        state.size.width / state.size.height,
+      ),
+    );
   }, -1);
 
   return null;

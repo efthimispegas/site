@@ -1,8 +1,25 @@
 {
   "schemaVersion": 1,
-  "auditedAtUtc": "2026-07-28T12:19:04.901Z",
+  "auditedAtUtc": "2026-07-30T08:15:00Z",
   "canonicalUrl": "https://www.vectrfl.com/",
   "sources": [
+    {
+      "id": "live-trace-desktop-1508-2026-07-30",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-30T08:15:00Z",
+      "profile": {
+        "viewportCss": {
+          "width": 1508,
+          "height": 761
+        },
+        "devicePixelRatio": 1,
+        "pointer": "fine",
+        "hover": true,
+        "traceSmoothTimeSeconds": 0.01
+      },
+      "scope": "Current-live source for recording progress candidate ranking and the locked landing and journey DOM profiles. Disposable screenshots were not retained; repository authority remains the URL plus serialized calibration and DOM measurements."
+    },
     {
       "id": "live-trace-desktop-1440-2026-07-28",
       "evidenceClass": "observed",
@@ -124,6 +141,75 @@
     }
   ],
   "claims": [
+    {
+      "id": "recording-profile-dom-bounds",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-desktop-1508-2026-07-30",
+        "recording-landing-frame"
+      ],
+      "value": {
+        "artifact": "docs/hero-reference/live/recording-profile-dom.json",
+        "viewportCss": {
+          "width": 1508,
+          "height": 761
+        },
+        "liveDevicePixelRatio": 1,
+        "recordingDevicePixelRatio": 2,
+        "scrollY": 0,
+        "applicableStates": [
+          "landing",
+          "landing-idle"
+        ],
+        "boundsToleranceCssPx": 2,
+        "qualification": "CSS-pixel geometry is authoritative for the named DOM elements only. WebGL structural landmarks remain unmeasured."
+      }
+    },
+    {
+      "id": "recording-profile-journey-dom-bounds",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-desktop-1508-2026-07-30"
+      ],
+      "value": {
+        "profileArtifact": "docs/hero-reference/live/recording-profile-journey-dom.json",
+        "rawProbeArtifact": "docs/hero-reference/live/journey-dom-probe.json",
+        "viewportCss": {
+          "width": 1508,
+          "height": 761
+        },
+        "liveDevicePixelRatio": 1,
+        "recordingDevicePixelRatio": 2,
+        "stateCount": 11,
+        "boundsToleranceCssPx": 2,
+        "scrollToleranceCssPx": 2,
+        "promotedGeometry": [
+          "source scroll",
+          "active step index",
+          "active step container",
+          "active header",
+          "active number container",
+          "active title position and line-box height",
+          "active body container",
+          "active description container"
+        ],
+        "qualification": "Title glyph-sequence width and text pixels are identity-specific. No full DOM box is excluded, and WebGL structural landmarks remain independent and unmeasured."
+      }
+    },
+    {
+      "id": "identity-only-raster-mask",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "recording-landing-frame"
+      ],
+      "value": {
+        "status": "blocked",
+        "appliedMaskedPixelCount": 0,
+        "perStateRasterPixelCount": 4590352,
+        "provenance": "The recording frames are flattened RGB rasters without a pixel-precise source glyph/logo alpha or mask artifact.",
+        "decision": "No whole DOM box or color/edge-derived approximation is masked. Such a mask cannot prove exclusion of container, background, scene, and antialiasing pixels."
+      }
+    },
     {
       "id": "hero-copy",
       "evidenceClass": "source-confirmed",

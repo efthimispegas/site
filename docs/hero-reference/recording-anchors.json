@@ -35,7 +35,7 @@
     "selection": "Each anchor is a representative frame for a named visual state, not necessarily the first transition frame.",
     "timing": "Journey timestamps are seek coordinates in this user-scrolled recording, not authored durations or normalized progress.",
     "generatedCapture": "The capture path and capture SHA verify a reproducible derivative; acceptance authority remains the MOV SHA plus frame index and PTS.",
-    "unmeasuredFields": "Camera coordinates, normalized journey progress, and screen bounds remain explicitly unknown rather than being copied from legacy code."
+    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. This structural-bounds pass measures four primary landmarks and three route cores while keeping eleven ambiguous landmark silhouettes explicitly blocked."
   },
   "planCorrectionsEstablishedByExactFrames": [
     {
@@ -103,10 +103,23 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
-        "landmark": null,
+        "status": "observed",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
+        "landmark": [
+          714,
+          340,
+          85,
+          85.5
+        ],
+        "landmarkLabel": "central blue loader mark",
+        "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/0/landmark",
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Not measured in this recording-only pass; full-raster capture is retained for measurement."
+        "copyStatus": "not-applicable",
+        "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy remains independently unmeasured when applicable."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -170,10 +183,23 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
-        "landmark": null,
+        "status": "observed",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
+        "landmark": [
+          714,
+          341,
+          84.5,
+          84
+        ],
+        "landmarkLabel": "central blue loader mark during world reveal",
+        "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/1/landmark",
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Not measured in this recording-only pass."
+        "copyStatus": "not-applicable",
+        "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy remains independently unmeasured when applicable."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -209,9 +235,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,298)'\" -frames:v 1 docs/hero-reference/recording/frame-000298-landing.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "The recording contains no normalized scroll-progress telemetry."
+        "status": "source-confirmed",
+        "value": 0,
+        "reason": "The recording landing frame and current live zero-scroll composition agree; see live/recording-progress-calibration.json."
       },
       "activeCopyState": {
         "status": "observed",
@@ -238,9 +264,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Typography and scene bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "The pale industrial cluster shares color and edge statistics with background context; no deterministic segmentation isolates the complete semantic cluster without hand-drawn boundaries."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -278,9 +312,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,448)'\" -frames:v 1 docs/hero-reference/recording/frame-000448-landing-idle.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Pre-scroll position is visible, but normalized progress is not encoded."
+        "status": "source-confirmed",
+        "value": 0,
+        "reason": "The camera remains at zero progress while the landing-local route clock advances; see live/recording-progress-calibration.json."
       },
       "activeCopyState": {
         "status": "observed",
@@ -307,9 +341,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Not measured in this recording-only pass."
+        "copyStatus": "unknown",
+        "reason": "The pale industrial cluster shares color and edge statistics with background context; the red packet is a route effect rather than the complete primary landmark."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -346,9 +388,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,598)'\" -frames:v 1 docs/hero-reference/recording/frame-000598-activation-route.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "observed",
+        "value": 0.12395,
+        "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
       "activeCopyState": {
         "status": "observed",
@@ -374,9 +416,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Not measured in this recording-only pass."
+        "copyStatus": "unknown",
+        "reason": "The first destination is partially clipped at the lower edge and is not separable from rails and adjacent pale context by the approved chroma/edge methods."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -413,9 +463,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,748)'\" -frames:v 1 docs/hero-reference/recording/frame-000748-activation-contact.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "observed",
+        "value": 0.16128,
+        "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
       "activeCopyState": {
         "status": "observed",
@@ -441,9 +491,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Not measured in this recording-only pass."
+        "copyStatus": "unknown",
+        "reason": "The blue logo can be segmented, but it is only a feature on the destination; treating that logo box as the full building landmark would under-report the silhouette."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -481,9 +539,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1078)'\" -frames:v 1 docs/hero-reference/recording/frame-001078-clearance-travel.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "observed",
+        "value": 0.32704,
+        "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
       "activeCopyState": {
         "status": "observed",
@@ -510,9 +568,22 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": [
+          88,
+          123,
+          474,
+          264
+        ],
+        "routeLabel": "high-chroma core of connected cyan clearance route",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/6/route",
         "copy": null,
-        "reason": "Not measured in this recording-only pass."
+        "copyStatus": "unknown",
+        "reason": "This transit anchor has no single named destination silhouette; the source-confirmed cyan direction is measured separately as a route feature."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -550,9 +621,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1228)'\" -frames:v 1 docs/hero-reference/recording/frame-001228-clearance-field-preview.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "observed",
+        "value": 0.54059,
+        "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
       "activeCopyState": {
         "status": "observed",
@@ -579,9 +650,22 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": [
+          242,
+          556,
+          116,
+          54
+        ],
+        "routeLabel": "high-chroma core of cyan route approaching the field preview",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/7/route",
         "copy": null,
-        "reason": "Field-preview and copy bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "The field is only partially visible and clipped by the upper-right frame edge; the approaching cyan route core is measured separately."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -615,9 +699,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1288)'\" -frames:v 1 docs/hero-reference/recording/frame-001288-field-approach.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "observed",
+        "value": 0.60928,
+        "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
       "activeCopyState": {
         "status": "observed",
@@ -643,9 +727,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Not measured in this recording-only pass."
+        "copyStatus": "unknown",
+        "reason": "The elevated center is pale and partially occluded among similarly colored tiles; a complete center or field silhouette cannot be isolated without semantic/manual annotation."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -682,9 +774,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1390)'\" -frames:v 1 docs/hero-reference/recording/frame-001390-field-contact.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "source-confirmed",
+        "value": 0.74,
+        "reason": "The live source contact threshold is cross-checked against the corrected recording contact frame."
       },
       "activeCopyState": {
         "status": "observed",
@@ -711,9 +803,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Field outline, center, and copy bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "The first reaction changes several pale/cyan tiles, but the elevated center tile and figure do not form a uniquely separable color component."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -752,9 +852,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1408)'\" -frames:v 1 docs/hero-reference/recording/frame-001408-field-pulse-a.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "inferred",
+        "value": 0.74,
+        "reason": "The recording retains the contact camera while the progress-gated local field clock advances."
       },
       "activeCopyState": {
         "status": "observed",
@@ -781,9 +881,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Pulse-band and field bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "Bloom joins the inner pulse, route, and neighboring tiles; a threshold box would measure the bloom envelope rather than a stable structural landmark."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -821,9 +929,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1558)'\" -frames:v 1 docs/hero-reference/recording/frame-001558-field-pulse-b.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "inferred",
+        "value": 0.74,
+        "reason": "The recording retains the contact camera while the progress-gated local field clock advances."
       },
       "activeCopyState": {
         "status": "observed",
@@ -849,10 +957,23 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
-        "landmark": null,
+        "status": "observed",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
+        "landmark": [
+          682,
+          326,
+          85,
+          87.5
+        ],
+        "landmarkLabel": "elevated blue center tile",
+        "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/landmark",
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Pulse-band and field bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy remains independently unmeasured when applicable."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -890,9 +1011,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1786)'\" -frames:v 1 docs/hero-reference/recording/frame-001786-arrival-travel.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "observed",
+        "value": 0.89301,
+        "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
       "activeCopyState": {
         "status": "observed",
@@ -919,9 +1040,22 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": [
+          714,
+          352,
+          118,
+          9
+        ],
+        "routeLabel": "high-chroma core of second horizontal cyan route",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/12/route",
         "copy": null,
-        "reason": "Route, field-exit, and copy bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "The arrow destination remains beyond the right frame edge; the post-field horizontal cyan route core is measured separately."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -959,9 +1093,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1858)'\" -frames:v 1 docs/hero-reference/recording/frame-001858-arrival-lockup.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "source-confirmed",
+        "value": 0.9,
+        "reason": "The live arrival activation threshold is cross-checked against the corrected readable recording lockup."
       },
       "activeCopyState": {
         "status": "observed",
@@ -987,10 +1121,23 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
-        "landmark": null,
+        "status": "observed",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
+        "landmark": [
+          597,
+          235.5,
+          179,
+          262.5
+        ],
+        "landmarkLabel": "large frontal arrival arrow",
+        "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/13/landmark",
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Arrow, surrounding marks, route, and copy bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy remains independently unmeasured when applicable."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1028,9 +1175,9 @@
         "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1918)'\" -frames:v 1 docs/hero-reference/recording/frame-001918-journey-exit.png"
       },
       "journeyProgressTarget": {
-        "status": "unknown",
-        "value": null,
-        "reason": "Timestamp is not normalized scroll progress."
+        "status": "observed",
+        "value": 1.0513,
+        "reason": "Selected by current-live trace candidate ranking at the locked recording viewport and the observed following-section boundary."
       },
       "activeCopyState": {
         "status": "observed",
@@ -1056,9 +1203,17 @@
       },
       "screenBounds": {
         "status": "unknown",
+        "coordinateSpace": "css-pixels",
+        "profileId": "recording-desktop",
         "landmark": null,
+        "landmarkLabel": null,
+        "landmarkEvidenceRef": null,
+        "route": null,
+        "routeLabel": null,
+        "routeEvidenceRef": null,
         "copy": null,
-        "reason": "Journey/next-section boundary and copy bounds require a dedicated pixel-measurement pass."
+        "copyStatus": "unknown",
+        "reason": "The arrival landmark is no longer visible; the observable structure is the moving hero/next-section boundary, which is not a landmark silhouette."
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1093,8 +1248,8 @@
     },
     {
       "field": "screen-space bounds",
-      "status": "unknown",
-      "reason": "The exact frames are now locked, but a separate agreed measurement convention is required before bounds are accepted."
+      "status": "partially-observed",
+      "reason": "The deterministic structural-bounds pipeline measures four primary landmarks and three route cores; eleven landmark silhouettes and all applicable copy bounds remain blocked or unknown."
     },
     {
       "field": "pointer versus local-clock versus scroll ownership",
@@ -1106,5 +1261,14 @@
       "status": "unknown",
       "reason": "Neither is present in capture metadata."
     }
-  ]
+  ],
+  "structuralBoundsEvidence": {
+    "status": "partially-observed",
+    "verifiedOn": "2026-07-30",
+    "artifact": "docs/hero-reference/recording-structural-bounds.json",
+    "algorithmVersion": "recording-structural-bounds-v1",
+    "landmarkMeasured": 4,
+    "landmarkBlocked": 11,
+    "routeMeasured": 3
+  }
 }

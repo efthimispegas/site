@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "manifestId": "vectr-live-hero-2026-07-28",
-  "generatedAtUtc": "2026-07-28T12:19:04.901Z",
+  "generatedAtUtc": "2026-07-30T08:15:00Z",
   "scope": "Fresh live-reference portion of the hero baseline. This records externally observable behavior and audited current live resources; it does not endorse the live site's internal architecture or any local legacy implementation.",
   "evidenceVocabulary": {
     "observed": "Measured directly in a named probe or reference frame.",
@@ -23,10 +23,33 @@
     "value": {
       "method": "docs/hero-reference/live/probe-method.md",
       "domProfiles": "docs/hero-reference/live/dom-profiles.json",
-      "sourceEvidence": "docs/hero-reference/live/source-evidence.json"
+      "recordingProfileDom": "docs/hero-reference/live/recording-profile-dom.json",
+      "journeyDomProbe": "docs/hero-reference/live/journey-dom-probe.json",
+      "recordingProfileJourneyDom": "docs/hero-reference/live/recording-profile-journey-dom.json",
+      "sourceEvidence": "docs/hero-reference/live/source-evidence.json",
+      "recordingProgressCalibration": "docs/hero-reference/live/recording-progress-calibration.json"
     }
   },
   "profiles": [
+    {
+      "id": "live-recording-desktop-1508",
+      "evidenceClass": "observed",
+      "sourceRef": "live-trace-desktop-1508-2026-07-30",
+      "capturedAtUtc": "2026-07-30T08:15:00Z",
+      "value": {
+        "viewportCss": {
+          "width": 1508,
+          "height": 761
+        },
+        "devicePixelRatio": 1,
+        "recordingAndImplementationDevicePixelRatio": 2,
+        "pointer": "fine",
+        "hover": true,
+        "touch": false,
+        "scrollY": 0,
+        "artifact": "docs/hero-reference/live/recording-profile-dom.json"
+      }
+    },
     {
       "id": "live-desktop-1440",
       "evidenceClass": "observed",
@@ -81,6 +104,79 @@
     }
   ],
   "referenceFacts": [
+    {
+      "id": "recording-profile-dom-geometry",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-desktop-1508-2026-07-30",
+        "recording-landing-frame"
+      ],
+      "value": {
+        "artifact": "docs/hero-reference/live/recording-profile-dom.json",
+        "applicableStates": [
+          "landing",
+          "landing-idle"
+        ],
+        "boundsToleranceCssPx": 2,
+        "qualification": "The live CSS-pixel boxes are an independent DOM gate. They do not resolve or waive raster failures or unknown WebGL structural landmarks."
+      }
+    },
+    {
+      "id": "recording-profile-journey-dom-geometry",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-desktop-1508-2026-07-30"
+      ],
+      "value": {
+        "profileArtifact": "docs/hero-reference/live/recording-profile-journey-dom.json",
+        "rawProbeArtifact": "docs/hero-reference/live/journey-dom-probe.json",
+        "applicableStates": [
+          "activation-route",
+          "activation-contact",
+          "clearance-travel",
+          "clearance-field-preview",
+          "field-approach",
+          "field-contact",
+          "field-pulse-a",
+          "field-pulse-b",
+          "arrival-travel",
+          "arrival-lockup",
+          "journey-exit"
+        ],
+        "boundsToleranceCssPx": 2,
+        "scrollToleranceCssPx": 2,
+        "qualification": "Only exact source-to-implementation active-step layout correspondences are promoted. Glyph-sequence widths and text pixels are identity-specific; container geometry, active index, and scroll mapping remain gated."
+      }
+    },
+    {
+      "id": "identity-only-raster-mask",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "recording-landing-frame"
+      ],
+      "value": {
+        "status": "blocked",
+        "appliedMaskedPixelCount": 0,
+        "perStateRasterPixelCount": 4590352,
+        "policy": "Only proven Vectr/Pegasoft glyph or logo pixels may be masked.",
+        "qualification": "The flattened recording provides no pixel-precise source glyph/logo layer. Box and color/edge approximations are prohibited, so raster metrics remain unmasked."
+      }
+    },
+    {
+      "id": "recording-to-live-progress-calibration",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-desktop-1508-2026-07-30",
+        "recording-landing-frame"
+      ],
+      "value": {
+        "profile": "1508x761 CSS pixels; recording DPR 2",
+        "refinementStepCssPx": 5,
+        "targetResolution": 0.0014933306844890928,
+        "artifact": "docs/hero-reference/live/recording-progress-calibration.json",
+        "qualification": "Cross-source candidate ranking establishes target selections inside the progress-handoff tolerance. It does not establish visual acceptance."
+      }
+    },
     {
       "id": "landing-dom-responsive-geometry",
       "evidenceClass": "observed",

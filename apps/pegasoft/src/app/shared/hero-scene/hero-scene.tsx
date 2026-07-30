@@ -1,112 +1,102 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { useEffect, useState } from 'react';
-import { PegasoftFieldScene } from '../pegasoft-field-scene';
-import { HeroCamera } from './hero-camera';
-import { HERO_LIGHTING, HERO_PALETTE } from './hero-materials';
-import { getHeroJourneySnapshot } from './hero-sequence';
+import { useEffect, useRef, useState } from 'react';
+import type { HeroJourneySnapshot } from './hero-contract';
+import type { HeroDevelopmentDiagnostics } from './hero-development-diagnostics';
+import {
+  HeroCamera,
+  type HeroCameraProgressRef,
+} from './hero-camera';
+import { HERO_CAMERA_SOURCE } from './hero-camera-model';
+import { HeroFallback } from './hero-fallback';
+import { HeroLighting } from './hero-lighting';
+import { HERO_PALETTE, HERO_STANDARD_MATERIAL_COMPATIBILITY } from './hero-materials';
 import { HeroWorld } from './hero-world';
-
-const HERO_RENDERER: 'baseline' | 'legacy' = 'baseline';
+import styles from './hero-scene.module.css';
 
 export interface HeroSceneProps {
-  progress: number;
-  ready?: boolean;
-  introReady?: boolean;
+  snapshot: HeroJourneySnapshot;
 }
 
-export function HeroScene({
-  progress,
-  ready = true,
-  introReady = true,
-}: HeroSceneProps) {
-  const journey = getHeroJourneySnapshot(progress);
-  const [canRender, setCanRender] = useState(false);
+export function HeroScene({ snapshot }: HeroSceneProps) {
+  const canRender = snapshot.motion !== 'static';
+  const [canvasReady, setCanvasReady] = useState(false);
+  const [developmentDiagnostics, setDevelopmentDiagnostics] =
+    useState<HeroDevelopmentDiagnostics>({});
+  const settledCameraProgressRef = useRef<HeroCameraProgressRef>({
+    current:
+      snapshot.referenceState.progress.settledCamera ??
+      snapshot.sceneTargetProgress,
+  }).current;
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
-
-    if (reducedMotion) {
+    if (process.env.NODE_ENV === 'production') {
       return;
     }
 
-    try {
-      const canvas = document.createElement('canvas');
-      setCanRender(
-        Boolean(
-          canvas.getContext('webgl2') ??
-            canvas.getContext('webgl') ??
-            canvas.getContext('experimental-webgl'),
-        ),
-      );
-    } catch {
-      setCanRender(false);
-    }
-  }, []);
+    let active = true;
 
-  if (HERO_RENDERER === 'legacy') {
-    return (
-      <PegasoftFieldScene
-        ready={ready}
-        introReady={introReady}
-        activeLifecycle={journey.stepIndex}
-        flowProgress={journey.progress}
-      />
+    void import('./hero-development-diagnostics').then(
+      ({ getHeroSceneDevelopmentDiagnostics }) => {
+        if (active) {
+          setDevelopmentDiagnostics(
+            getHeroSceneDevelopmentDiagnostics(snapshot),
+          );
+        }
+      },
     );
-  }
+
+    return () => {
+      active = false;
+    };
+  }, [snapshot]);
 
   return (
     <div
-      data-hero-reference-state={journey.referenceState.key}
-      data-hero-step={journey.stepIndex + 1}
+      {...developmentDiagnostics}
+      data-hero-render-ready={!canRender || canvasReady}
       style={{ display: 'contents' }}
     >
       {canRender ? (
-        <div className="pegasoft-field" aria-hidden="true">
+        <div
+          className={styles.field}
+          data-hero-surface="canvas"
+          aria-hidden="true"
+        >
           <Canvas
+            frameloop={snapshot.motion === 'full' ? 'always' : 'demand'}
             shadows
-            camera={{ position: [25, 32, 34], fov: 28 }}
-            dpr={[1, 1.4]}
-            gl={{ antialias: true, powerPreference: 'high-performance' }}
+            camera={{
+              position: [-80, HERO_CAMERA_SOURCE.baseY, 15],
+              fov: HERO_CAMERA_SOURCE.baseFov,
+            }}
+            dpr={[1, snapshot.profile.maxDpr]}
+            gl={{
+              alpha: true,
+              antialias: true,
+              powerPreference: 'high-performance',
+            }}
             onCreated={({ gl }) => {
-              gl.toneMappingExposure = HERO_LIGHTING.exposure;
+              gl.setClearColor(HERO_PALETTE.background, 0);
+              gl.toneMappingExposure =
+                HERO_STANDARD_MATERIAL_COMPATIBILITY.exposure;
+              setCanvasReady(true);
             }}
           >
-            <color attach="background" args={[HERO_PALETTE.background]} />
-            <fog attach="fog" args={[HERO_PALETTE.background, 54, 118]} />
-            <ambientLight intensity={HERO_LIGHTING.ambientIntensity} />
-            <hemisphereLight
-              color="#f7fbfd"
-              groundColor="#89a6b5"
-              intensity={HERO_LIGHTING.hemisphereIntensity}
+            <HeroLighting profile={snapshot.profile} />
+            <HeroCamera
+              snapshot={snapshot}
+              settledProgressRef={settledCameraProgressRef}
             />
-            <directionalLight
-              color="#fffefb"
-              intensity={HERO_LIGHTING.keyIntensity}
-              position={[18, 34, 16]}
+            <HeroWorld
+              snapshot={snapshot}
+              settledCameraProgressRef={settledCameraProgressRef}
             />
-            <directionalLight
-              color="#b8d8e6"
-              intensity={HERO_LIGHTING.fillIntensity}
-              position={[-18, 12, 20]}
-            />
-            <HeroCamera progress={journey.progress} />
-            <HeroWorld progress={journey.progress} />
           </Canvas>
         </div>
       ) : (
-        <div
-          className="pegasoft-field pegasoft-field--fallback"
-          aria-hidden="true"
-        >
-          <span className="pegasoft-field__fallback pegasoft-field__fallback--a" />
-          <span className="pegasoft-field__fallback pegasoft-field__fallback--b" />
-          <span className="pegasoft-field__fallback pegasoft-field__fallback--c" />
-          <span className="pegasoft-field__fallback pegasoft-field__fallback--d" />
-        </div>
+        <HeroFallback snapshot={snapshot} />
       )}
     </div>
   );

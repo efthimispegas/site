@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-07-30T10:24:14Z",
+  "phaseScope": [
+    5
+  ],
+  "workingTree": {
+    "branch": "codex/hero-reference-rebaseline",
+    "implementationState": "implementation-checkpoint",
+    "note": "This evidence describes the files in the repository revision containing this report; Git history is the recovery mechanism."
+  },
+  "authoritativeReferences": [
+    {
+      "authority": "live-site",
+      "source": "https://vectrfl.com/",
+      "scope": "current geometry, responsive behavior, input causality, and scroll mappings"
+    },
+    {
+      "authority": "recording",
+      "source": "docs/vectrfl_recording.mov",
+      "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "scope": "immutable supplied chronology and exact frame anchors"
+    }
+  ],
+  "resolvedNxConfiguration": {
+    "application": {
+      "name": "@site/pegasoft",
+      "root": "apps/pegasoft",
+      "sourceRoot": "apps/pegasoft/src",
+      "targets": [
+        "build",
+        "dev",
+        "lint",
+        "serve-static",
+        "start",
+        "test",
+        "test-ci"
+      ]
+    },
+    "browserHarness": {
+      "name": "@site/pegasoft-e2e",
+      "root": "apps/pegasoft-e2e",
+      "targets": [
+        "e2e",
+        "lint",
+        "typecheck",
+        "hero-capture",
+        "hero-compare"
+      ],
+      "implicitDependency": "@site/pegasoft"
+    }
+  },
+  "moduleOwnership": [
+    {
+      "owner": "serializable-domain-contract",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-contract.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/reference-states.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-runtime-states.ts"
+      ],
+      "responsibilities": [
+        "15 canonical state keys and evidence schema",
+        "full source-linked evidence records outside the production runtime graph",
+        "minimal production runtime-state projection kept in contract sync by unit test"
+      ],
+      "mustNotOwn": [
+        "Three.js objects",
+        "browser listeners",
+        "render-loop mutation"
+      ]
+    },
+    {
+      "owner": "profile-progress-controller",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-profile.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-sequence.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-controller.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/use-hero-controller.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-development-control.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-development-diagnostics.ts"
+      ],
+      "responsibilities": [
+        "desktop, tablet, mobile, reduced, and static profiles",
+        "one physical page measurement mapped to raw, DOM, and scene domains",
+        "one journey snapshot consumed by DOM and scene",
+        "development-only direct state/time/fallback controls"
+      ]
+    },
+    {
+      "owner": "page-measurement-and-dom-consumer",
+      "path": "apps/pegasoft/src/app/shared/pegasoft-home.tsx",
+      "responsibilities": [
+        "one animation-frame page geometry measurement",
+        "loader, landing and process DOM",
+        "consumption of the controller snapshot",
+        "development-only direct-state scroll positioning"
+      ],
+      "mustNotOwn": [
+        "camera interpolation",
+        "route geometry",
+        "duplicate progress thresholds"
+      ]
+    },
+    {
+      "owner": "canvas-and-static-alternative",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-scene.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-fallback.tsx"
+      ],
+      "responsibilities": [
+        "one Canvas boundary",
+        "state-specific loader, landing, journey, field, arrival, and exit fallback compositions",
+        "development-only state diagnostics",
+        "production-safe readiness and surface markers"
+      ]
+    },
+    {
+      "owner": "camera",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-camera-model.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-camera.tsx"
+      ],
+      "responsibilities": [
+        "history-independent pose sampling",
+        "camera-only smoothing",
+        "writing actual damped progress to a scene-local render ref",
+        "immediate direct, reduced, and static pose entry"
+      ],
+      "mustNotOwn": [
+        "document scroll",
+        "world-root compensation"
+      ]
+    },
+    {
+      "owner": "route-and-local-effects",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-route.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-local-clock.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-pointer-trail.tsx"
+      ],
+      "responsibilities": [
+        "one canonical route and contact model",
+        "progress-gated resettable local clocks",
+        "route beam and landing cadence",
+        "fine-pointer ground-plane raycast trail with no coarse-pointer substitute"
+      ]
+    },
+    {
+      "owner": "fixed-world-assembly",
+      "path": "apps/pegasoft/src/app/shared/hero-scene/hero-world.tsx",
+      "lineCountAtInspection": 45,
+      "stagePaths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-world-layout.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/clearance.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/field-match.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/arrival.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx"
+      ],
+      "responsibilities": [
+        "fixed world root",
+        "bounded stage geometry",
+        "31 activation-layout and 46 clearance-layout items in a typed, explicitly provisional and unaccepted proxy manifest",
+        "ground, contact shadow, route, beam, and optional pointer-trail assembly"
+      ]
+    }
+  ],
+  "dataflow": [
+    "PegasoftHome measures page geometry once",
+    "useHeroController observes capabilities and invokes the pure controller",
+    "the controller returns one HeroJourneySnapshot",
+    "PegasoftHome DOM and HeroScene consume the same snapshot",
+    "HeroCamera owns damped camera progress and shares the actual render value with stage effects through a scene-local ref",
+    "HeroWorld consumes no document scroll and keeps its root fixed"
+  ],
+  "deterministicHarness": {
+    "contract": {
+      "referenceStateCount": 15,
+      "captureSeed": 43117,
+      "recordingProfile": {
+        "cssViewport": {
+          "width": 1508,
+          "height": 761
+        },
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      }
+    },
+    "developmentControls": [
+      "__heroState",
+      "__heroTime",
+      "__heroFallback"
+    ],
+    "productionIsolation": {
+      "queryParsingDisabled": true,
+      "stateProgressSeedAndDirectDiagnosticsAbsent": true,
+      "executableAssetScan": "zero development-control, evidence, recording, external-scratch, or legacy markers in production JavaScript, CSS, JSON, and HTML",
+      "sourceMapScan": "zero development-control, evidence, recording, external-scratch, or legacy markers after diagnostics were moved behind a development-only dynamic boundary"
+    },
+    "unitCoverage": {
+      "files": 5,
+      "tests": 32,
+      "status": "passed",
+      "coverage": [
+        "canonical evidence/runtime state synchronization",
+        "all 15 direct states independent of traversal history",
+        "DOM and scene mapping curves",
+        "forward, reverse, jump, and restored threshold selection",
+        "profile and journey-height selection",
+        "provisional route continuity with source/candidate evidence labels",
+        "typed world-layout item counts and unique keys",
+        "camera pose, retreat, FOV, and damping budgets",
+        "local clock reset and deterministic injection"
+      ]
+    },
+    "browserCoverage": {
+      "currentPageSmoke": {
+        "configuredExecutions": 20,
+        "status": "passed-historical-checkpoint",
+        "currentCheckpointRecertified": false
+      },
+      "accessibleAlternatives": {
+        "configuredExecutions": 8,
+        "status": "passed-historical-checkpoint",
+        "currentCheckpointRecertified": false,
+        "coverage": [
+          "reduced-motion deterministic pose",
+          "forced fallback",
+          "mobile navigation focus and assistive-technology state",
+          "deterministic state-specific fallback compositions"
+        ]
+      },
+      "recordingProfileCapture": {
+        "states": 15,
+        "status": "historical-complete-current-checkpoint-not-captured",
+        "artifactRoot": "apps/pegasoft-e2e/test-output/hero-reference/recording",
+        "note": "A prior implementation completed 15/15 captures. Later partial attempts did not produce a complete current-checkpoint set; after the readiness fix, local-browser/server permission was denied, so the historical artifacts cannot accept the latest code."
+      },
+      "convergenceMatrix": {
+        "coverage": [
+          "forward",
+          "reverse",
+          "direct jump",
+          "resize",
+          "restored-scroll reload"
+        ],
+        "status": "authored-not-executed-on-current-checkpoint",
+        "blocker": "Local-browser/server permission was denied after the environment approval quota was exhausted."
+      }
+    },
+    "comparison": {
+      "command": "pnpm nx run @site/pegasoft-e2e:hero-compare",
+      "status": "failed-as-designed",
+      "summary": {
+        "pass": 1,
+        "fail": 14,
+        "blocked": 0
+      },
+      "domSummary": {
+        "pass": 0,
+        "fail": 13,
+        "blocked": 0,
+        "notApplicable": 2
+      },
+      "gateSatisfied": false,
+      "report": "apps/pegasoft-e2e/test-output/hero-reference/recording/comparison-report.json",
+      "domAuthority": [
+        "docs/hero-reference/live/recording-profile-dom.json",
+        "docs/hero-reference/live/recording-profile-journey-dom.json"
+      ],
+      "identityRasterMask": {
+        "status": "blocked",
+        "appliedMaskedPixelCount": 0,
+        "evaluatedPixelCount": 68855280
+      },
+      "currency": "last-complete-capture-predates-latest-layout-readiness-and-progress-mapping-changes",
+      "reason": "The last complete report passes only loader-mark and fails the other 14 unmasked raster states. All 13 DOM-applicable states fail; loader-mark and world-reveal have no applicable DOM profile. This report is diagnostic history and cannot accept the latest code until recaptured."
+    }
+  },
+  "validationSnapshot": [
+    {
+      "command": "pnpm nx run-many -t lint test typecheck -p @site/pegasoft @site/pegasoft-e2e @site/motion-system --skipNxCache --parallel=3 --output-style=stream",
+      "result": "passed",
+      "details": "App lint passed; 5 Vitest files and 32 tests passed. E2E lint/typecheck and motion-system lint/typecheck/test passed."
+    },
+    {
+      "command": "pnpm nx run-many -t lint typecheck -p @site/pegasoft-e2e --skipNxCache --parallel=2",
+      "result": "passed"
+    },
+    {
+      "command": "NODE_ENV=production pnpm nx run @site/pegasoft:build --skipNxCache",
+      "result": "passed"
+    },
+    {
+      "command": "Production executable scan",
+      "result": "passed",
+      "details": "No legacy renderer, development query/diagnostic, recording evidence, or external scratch marker matched production JavaScript, CSS, JSON, or HTML."
+    },
+    {
+      "command": "Production source-map scan",
+      "result": "passed",
+      "details": "No legacy renderer, development query/diagnostic, recording evidence, or external scratch marker matched."
+    },
+    {
+      "command": "Current-checkpoint Playwright capture and convergence recertification",
+      "result": "blocked",
+      "details": "Local-browser/server permission was denied after the environment approval quota was exhausted. No workaround was used."
+    },
+    {
+      "command": "Last complete comparator report (stale capture inputs)",
+      "result": "failed-acceptance-stale-input",
+      "details": "The last complete comparison is 1 raster pass, 14 raster fails, 0 blocked; DOM is 0 pass, 13 fail, 0 blocked, and 2 not applicable. Its inputs predate the latest implementation changes."
+    }
+  ],
+  "resolvedFormerDebts": [
+    "The fallback is state-specific rather than a generic four-block composition.",
+    "Unit direct-entry coverage iterates all 15 states.",
+    "The controller no longer publishes a fictitious settled-camera snapshot; the render adapter owns actual damping.",
+    "The production runtime imports the minimal runtime-state projection rather than the full evidence manifest.",
+    "Development controls and state/seed diagnostics are absent from production executable assets and source maps.",
+    "Reduced motion uses demand rendering, immediate poses, no pointer trail, and discrete DOM handoffs."
+  ],
+  "blockingEvidence": [
+    {
+      "severity": "blocks-phase-1-and-visual-acceptance",
+      "issue": "Deterministic recording measurement resolves 4 primary landmarks and 3 auxiliary route cores, but 11 primary landmarks remain explicitly blocked. Landing and 11 journey states have live DOM contracts, yet the last captured implementation fails all 13 applicable DOM states."
+    },
+    {
+      "severity": "blocks-phase-5",
+      "issue": "The forward, reverse, direct-jump, resize, and restored-scroll convergence suite is authored but has not run successfully against the current checkpoint."
+    },
+    {
+      "severity": "blocks-phases-7-through-16",
+      "issue": "The procedural world, route projection, static cameras, materials, lighting, effects, and geometry have not passed state-specific structural and visual tolerances."
+    },
+    {
+      "severity": "blocks-phases-10-through-14",
+      "issue": "Loader, landing packets, field pulse cadence, pointer-trail appearance, and arrival timing remain comparison candidates rather than accepted source matches."
+    },
+    {
+      "severity": "blocks-phase-19",
+      "issue": "Performance evidence is not an acceptance run on locked hardware; the development software-renderer run also exceeded frame-time, long-task, and mobile CLS budgets."
+    }
+  ],
+  "acceptance": {
+    "architectureCandidateImplemented": true,
+    "decoupledFromDeletedLegacyRenderer": true,
+    "singleSnapshotBoundaryPresent": true,
+    "fixedWorldRootPresent": true,
+    "canonicalRoutePresent": true,
+    "stateSpecificFallbackPresent": true,
+    "deterministicUnitHarnessPassed": true,
+    "historicalCurrentPageBrowserHarnessPassed": true,
+    "currentCheckpointBrowserHarnessPassed": false,
+    "freshProductionBuildPassed": true,
+    "fullStateConvergenceMatrixPassed": false,
+    "visualComparisonPassed": false,
+    "phase5Status": "not-accepted",
+    "reason": "The architecture and evidence machinery are implemented and buildable, but the current checkpoint has no complete browser convergence/capture run and the last source-linked visual gate is red and stale. No Phase 5 or later acceptance is claimed."
+  }
+}

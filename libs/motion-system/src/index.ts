@@ -1,7 +1,6 @@
 export * from './lib/dot-field';
 export * from './lib/fable-menu';
 export * from './lib/kinetic-reveal';
-export * from './lib/particle-field-hero';
 export * from './lib/pill-cta';
 export * from './lib/reference-cursor';
 export * from './lib/reference-preloader';
