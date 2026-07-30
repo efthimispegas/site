@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { createReadStream } from 'node:fs';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import sharp from 'sharp';
@@ -14,19 +14,15 @@ const outputPath = path.join(
   workspaceRoot,
   'docs/hero-reference/recording-structural-bounds.json',
 );
-const evidenceRef =
-  'docs/hero-reference/recording-structural-bounds.json#';
-const algorithmVersion = 'recording-structural-bounds-v1';
+const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
+const algorithmVersion = 'recording-structural-bounds-v2';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
 const debugArgumentIndex = process.argv.indexOf('--debug-dir');
 const debugDirectory =
   debugArgumentIndex >= 0
-    ? path.resolve(
-        workspaceRoot,
-        process.argv[debugArgumentIndex + 1] ?? '',
-      )
+    ? path.resolve(workspaceRoot, process.argv[debugArgumentIndex + 1] ?? '')
     : null;
 
 if (debugArgumentIndex >= 0 && !process.argv[debugArgumentIndex + 1]) {
@@ -35,13 +31,9 @@ if (debugArgumentIndex >= 0 && !process.argv[debugArgumentIndex + 1]) {
 
 const DEEP_BLUE = {
   id: 'deep-blue',
-  description:
-    'b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB',
+  description: 'b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB',
   test: (red, green, blue) =>
-    blue - red >= 55 &&
-    blue - green >= 25 &&
-    blue >= 120 &&
-    red <= 150,
+    blue - red >= 55 && blue - green >= 25 && blue >= 120 && red <= 150,
 };
 
 const CYAN_ROUTE = {
@@ -58,6 +50,7 @@ const CYAN_ROUTE = {
 
 const STATE_MEASUREMENTS = {
   'loader-mark': {
+    primaryStructure: 'landmark',
     landmark: {
       label: 'central blue loader mark',
       method: 'chroma-component-union',
@@ -70,6 +63,7 @@ const STATE_MEASUREMENTS = {
     },
   },
   'world-reveal': {
+    primaryStructure: 'landmark',
     landmark: {
       label: 'central blue loader mark during world reveal',
       method: 'chroma-component-union',
@@ -81,7 +75,50 @@ const STATE_MEASUREMENTS = {
         'The blue loader mark remains the only saturated-blue central landmark while the pale world emerges. The ROI excludes the red rails and peripheral scene objects.',
     },
   },
+  landing: {
+    primaryStructure: 'landmark',
+    landmark: {
+      status: 'blocked',
+      label: 'landing industrial context aggregate',
+      reason:
+        'The landing focus is a disconnected industrial-context aggregate with members clipped by the lower viewport. A single enclosure would encode subjective membership and cannot be used as a precise landmark gate.',
+    },
+  },
+  'landing-idle': {
+    primaryStructure: 'landmark',
+    landmark: {
+      status: 'blocked',
+      label: 'landing industrial context aggregate at route idle',
+      reason:
+        'The landing focus remains a disconnected, lower-viewport-clipped aggregate. The red packet is a route effect, and neither it nor a near-viewport-wide hand enclosure is a defensible landmark substitute.',
+    },
+  },
+  'activation-route': {
+    primaryStructure: 'landmark',
+    landmark: {
+      status: 'blocked',
+      label: 'first-destination building before route contact',
+      reason:
+        'The destination building is fully visible, correcting the prior clipping claim, but its pale silhouette is not isolated by the approved pixel methods. A versioned semantic mask with explicit inclusion rules is required.',
+    },
+  },
+  'activation-contact': {
+    primaryStructure: 'landmark',
+    landmark: {
+      status: 'blocked',
+      label: 'logo-bearing first-destination building at route contact',
+      reason:
+        'The complete destination building is visible, but only its blue logo is deterministically separable. A logo box would under-report the structure; a reviewed semantic silhouette mask is still required.',
+    },
+  },
   'clearance-travel': {
+    primaryStructure: 'route',
+    landmark: {
+      status: 'not-applicable',
+      label: null,
+      reason:
+        'This is a route-primary transit anchor with no single destination landmark in frame.',
+    },
     route: {
       label: 'high-chroma core of connected cyan clearance route',
       method: 'largest-chroma-component',
@@ -94,6 +131,13 @@ const STATE_MEASUREMENTS = {
     },
   },
   'clearance-field-preview': {
+    primaryStructure: 'route',
+    landmark: {
+      status: 'not-applicable',
+      label: null,
+      reason:
+        'The approaching route is the primary structure. The field is only a secondary preview clipped by the top and right viewport edges.',
+    },
     route: {
       label: 'high-chroma core of cyan route approaching the field preview',
       method: 'largest-chroma-component',
@@ -105,7 +149,35 @@ const STATE_MEASUREMENTS = {
         'The ROI follows the lower transit band named by the manifest and excludes the top-right field tiles. Component size separates the continuous route from the dotted wake.',
     },
   },
+  'field-approach': {
+    primaryStructure: 'landmark',
+    landmark: {
+      status: 'blocked',
+      label: 'elevated field-center tile and figure',
+      reason:
+        'Only a pale fragment of the elevated center and figure is visible among similar tiles, and the fixed header/viewport occludes its upper extent. Partial censored evidence cannot supply a complete landmark box.',
+    },
+  },
+  'field-contact': {
+    primaryStructure: 'landmark',
+    landmark: {
+      status: 'blocked',
+      label: 'elevated center tile and standing figure at first contact',
+      reason:
+        'The complete center tile and figure are visible, but current chroma support covers only part of the blue tile and not the pale figure. A reviewed semantic mask is required before this union becomes source evidence.',
+    },
+  },
+  'field-pulse-a': {
+    primaryStructure: 'landmark',
+    landmark: {
+      status: 'blocked',
+      label: 'field center during inner pulse',
+      reason:
+        'Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark.',
+    },
+  },
   'field-pulse-b': {
+    primaryStructure: 'landmark',
     landmark: {
       label: 'elevated blue center tile',
       method: 'largest-chroma-component',
@@ -118,6 +190,13 @@ const STATE_MEASUREMENTS = {
     },
   },
   'arrival-travel': {
+    primaryStructure: 'route',
+    landmark: {
+      status: 'not-applicable',
+      label: null,
+      reason:
+        'This is a route-primary travel anchor; the arrival-arrow destination remains outside the right viewport edge.',
+    },
     route: {
       label: 'high-chroma core of second horizontal cyan route',
       method: 'largest-chroma-component',
@@ -130,6 +209,7 @@ const STATE_MEASUREMENTS = {
     },
   },
   'arrival-lockup': {
+    primaryStructure: 'landmark',
     landmark: {
       label: 'large frontal arrival arrow',
       method: 'largest-dilated-sobel-component',
@@ -142,33 +222,35 @@ const STATE_MEASUREMENTS = {
         'The manifest identifies the frontal arrow as the primary landmark. A narrow semantic ROI excludes process copy, header, most of the incoming feed, and surrounding marks; the layered arrow is the largest connected edge structure inside it.',
     },
   },
-};
-
-const BLOCKED_REASONS = {
-  landing:
-    'The pale industrial cluster shares color and edge statistics with background context; no deterministic segmentation isolates the complete semantic cluster without hand-drawn boundaries.',
-  'landing-idle':
-    'The pale industrial cluster shares color and edge statistics with background context; the red packet is a route effect rather than the complete primary landmark.',
-  'activation-route':
-    'The first destination is partially clipped at the lower edge and is not separable from rails and adjacent pale context by the approved chroma/edge methods.',
-  'activation-contact':
-    'The blue logo can be segmented, but it is only a feature on the destination; treating that logo box as the full building landmark would under-report the silhouette.',
-  'clearance-travel':
-    'This transit anchor has no single named destination silhouette; the source-confirmed cyan direction is measured separately as a route feature.',
-  'clearance-field-preview':
-    'The field is only partially visible and clipped by the upper-right frame edge; the approaching cyan route core is measured separately.',
-  'field-approach':
-    'The elevated center is pale and partially occluded among similarly colored tiles; a complete center or field silhouette cannot be isolated without semantic/manual annotation.',
-  'field-contact':
-    'The first reaction changes several pale/cyan tiles, but the elevated center tile and figure do not form a uniquely separable color component.',
-  'field-pulse-a':
-    'Bloom joins the inner pulse, route, and neighboring tiles; a threshold box would measure the bloom envelope rather than a stable structural landmark.',
-  'field-pulse-b':
-    'The outer pulse band is not part of the center-tile landmark box and remains independently unmeasured.',
-  'arrival-travel':
-    'The arrow destination remains beyond the right frame edge; the post-field horizontal cyan route core is measured separately.',
-  'journey-exit':
-    'The arrival landmark is no longer visible; the observable structure is the moving hero/next-section boundary, which is not a landmark silhouette.',
+  'journey-exit': {
+    primaryStructure: 'boundary',
+    landmark: {
+      status: 'not-applicable',
+      label: null,
+      reason:
+        'The state focus is the section handoff. An upper arrival-arrow fragment remains visible, correcting the prior absence claim, but the following section censors the rest of the arrow.',
+    },
+    route: {
+      status: 'not-applicable',
+      label: null,
+      reason:
+        'The route is no longer a separately readable primary structure at the section-handoff anchor.',
+    },
+    boundary: {
+      label: 'hero-to-following-section boundary at journey exit',
+      method: 'dominant-horizontal-boundary',
+      roi: [0, 0.32, 1, 0.5],
+      minimumPixelDelta: 8,
+      minimumMeanDelta: 20,
+      minimumRowSupportRatio: 0.8,
+      minimumDominanceRatio: 3,
+      verticalExclusionRadius: 3,
+      localSearchRadius: 3,
+      maximumVerticalStandardDeviation: 1,
+      rationale:
+        'The compositional focus is the nearly full-width horizontal discontinuity between the pale hero and the following white section. Row support, peak dominance, and per-column vertical variance reject text and arrow edges.',
+    },
+  },
 };
 
 function sha256(buffer) {
@@ -181,6 +263,15 @@ async function sha256File(filePath) {
     hash.update(chunk);
   }
   return hash.digest('hex');
+}
+
+async function writeFileAtomically(filePath, contents) {
+  const temporaryPath = path.join(
+    path.dirname(filePath),
+    `.${path.basename(filePath)}.${process.pid}.tmp`,
+  );
+  await writeFile(temporaryPath, contents, 'utf8');
+  await rename(temporaryPath, filePath);
 }
 
 function round(value, digits = 3) {
@@ -238,14 +329,8 @@ function createSobelMask(data, image, roi, threshold) {
   const mask = new Uint8Array(image.width * image.height);
   const expandedX = Math.max(0, roi.x - 1);
   const expandedY = Math.max(0, roi.y - 1);
-  const expandedRight = Math.min(
-    image.width,
-    roi.x + roi.width + 1,
-  );
-  const expandedBottom = Math.min(
-    image.height,
-    roi.y + roi.height + 1,
-  );
+  const expandedRight = Math.min(image.width, roi.x + roi.width + 1);
+  const expandedBottom = Math.min(image.height, roi.y + roi.height + 1);
 
   for (let y = expandedY; y < expandedBottom; y += 1) {
     for (let x = expandedX; x < expandedRight; x += 1) {
@@ -261,8 +346,16 @@ function createSobelMask(data, image, roi, threshold) {
 
   const right = roi.x + roi.width;
   const bottom = roi.y + roi.height;
-  for (let y = Math.max(roi.y, 1); y < Math.min(bottom, image.height - 1); y += 1) {
-    for (let x = Math.max(roi.x, 1); x < Math.min(right, image.width - 1); x += 1) {
+  for (
+    let y = Math.max(roi.y, 1);
+    y < Math.min(bottom, image.height - 1);
+    y += 1
+  ) {
+    for (
+      let x = Math.max(roi.x, 1);
+      x < Math.min(right, image.width - 1);
+      x += 1
+    ) {
       const topLeft = grayscale[(y - 1) * image.width + x - 1];
       const top = grayscale[(y - 1) * image.width + x];
       const topRight = grayscale[(y - 1) * image.width + x + 1];
@@ -381,10 +474,7 @@ function connectedComponents(mask, width, height, roi) {
               continue;
             }
             const candidateIndex = candidateY * width + candidateX;
-            if (
-              mask[candidateIndex] &&
-              labels[candidateIndex] === 0
-            ) {
+            if (mask[candidateIndex] && labels[candidateIndex] === 0) {
               labels[candidateIndex] = nextLabel;
               queue[tail] = candidateIndex;
               tail += 1;
@@ -445,6 +535,25 @@ function boundsFromMask(mask, width, height) {
   };
 }
 
+function colorDelta(data, leftIndex, rightIndex) {
+  return (
+    (Math.abs(data[leftIndex] - data[rightIndex]) +
+      Math.abs(data[leftIndex + 1] - data[rightIndex + 1]) +
+      Math.abs(data[leftIndex + 2] - data[rightIndex + 2])) /
+    3
+  );
+}
+
+function standardDeviation(values, mean) {
+  if (values.length === 0) {
+    return 0;
+  }
+
+  return Math.sqrt(
+    values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / values.length,
+  );
+}
+
 function selectChromaComponents(mask, image, roi, config) {
   const { components } = connectedComponents(
     mask,
@@ -453,8 +562,7 @@ function selectChromaComponents(mask, image, roi, config) {
     roi,
   );
   const eligible = components.filter(
-    (component) =>
-      component.pixels >= config.minimumComponentPixels,
+    (component) => component.pixels >= config.minimumComponentPixels,
   );
   const selected =
     config.method === 'largest-chroma-component'
@@ -471,10 +579,8 @@ function selectChromaComponents(mask, image, roi, config) {
   const selectedMask = new Uint8Array(mask.length);
 
   for (const component of selected) {
-    const componentRight =
-      component.bounds.x + component.bounds.width;
-    const componentBottom =
-      component.bounds.y + component.bounds.height;
+    const componentRight = component.bounds.x + component.bounds.width;
+    const componentBottom = component.bounds.y + component.bounds.height;
     for (let y = component.bounds.y; y < componentBottom; y += 1) {
       for (let x = component.bounds.x; x < componentRight; x += 1) {
         const index = y * image.width + x;
@@ -493,12 +599,176 @@ function selectChromaComponents(mask, image, roi, config) {
   };
 }
 
-function selectLargestDilatedEdgeComponent(
-  originalMask,
+async function measureHorizontalBoundary(
+  sourcePath,
+  data,
   image,
-  roi,
+  stateKey,
   config,
+  dpr,
 ) {
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  const right = roi.x + roi.width;
+  const bottom = roi.y + roi.height;
+  const rowScores = [];
+
+  for (let y = roi.y + 1; y < bottom; y += 1) {
+    let deltaSum = 0;
+    let supportedColumns = 0;
+    for (let x = roi.x; x < right; x += 1) {
+      const currentIndex = (y * image.width + x) * image.channels;
+      const priorIndex = ((y - 1) * image.width + x) * image.channels;
+      const delta = colorDelta(data, currentIndex, priorIndex);
+      deltaSum += delta;
+      if (delta >= config.minimumPixelDelta) {
+        supportedColumns += 1;
+      }
+    }
+
+    const meanDelta = deltaSum / roi.width;
+    const rowSupportRatio = supportedColumns / roi.width;
+    rowScores.push({
+      y,
+      meanDelta,
+      rowSupportRatio,
+      score: meanDelta * rowSupportRatio,
+    });
+  }
+
+  rowScores.sort(
+    (left, rightScore) =>
+      rightScore.score - left.score || left.y - rightScore.y,
+  );
+  const peak = rowScores[0];
+  const runnerUp = rowScores.find(
+    (candidate) =>
+      Math.abs(candidate.y - peak.y) > config.verticalExclusionRadius,
+  );
+  const dominanceRatio =
+    runnerUp && runnerUp.score > 0 ? peak.score / runnerUp.score : null;
+  const localRows = [];
+  const selectedMask = new Uint8Array(image.width * image.height);
+  const localTop = Math.max(roi.y + 1, peak.y - config.localSearchRadius);
+  const localBottom = Math.min(bottom - 1, peak.y + config.localSearchRadius);
+
+  for (let x = roi.x; x < right; x += 1) {
+    let bestDelta = -1;
+    let bestY = peak.y;
+    for (let y = localTop; y <= localBottom; y += 1) {
+      const currentIndex = (y * image.width + x) * image.channels;
+      const priorIndex = ((y - 1) * image.width + x) * image.channels;
+      const delta = colorDelta(data, currentIndex, priorIndex);
+      if (delta > bestDelta) {
+        bestDelta = delta;
+        bestY = y;
+      }
+    }
+
+    if (bestDelta >= config.minimumPixelDelta) {
+      localRows.push(bestY);
+      selectedMask[bestY * image.width + x] = 1;
+    }
+  }
+
+  const localSupportRatio = localRows.length / roi.width;
+  const meanY =
+    localRows.reduce((sum, value) => sum + value, 0) /
+    Math.max(localRows.length, 1);
+  const verticalStandardDeviation = standardDeviation(localRows, meanY);
+  const selected = boundsFromMask(selectedMask, image.width, image.height);
+  const qualityFailures = [];
+
+  if (peak.meanDelta < config.minimumMeanDelta) {
+    qualityFailures.push(
+      `mean row delta ${round(peak.meanDelta)} is below ${config.minimumMeanDelta}`,
+    );
+  }
+  if (peak.rowSupportRatio < config.minimumRowSupportRatio) {
+    qualityFailures.push(
+      `peak row support ${round(peak.rowSupportRatio)} is below ${config.minimumRowSupportRatio}`,
+    );
+  }
+  if (
+    dominanceRatio !== null &&
+    dominanceRatio < config.minimumDominanceRatio
+  ) {
+    qualityFailures.push(
+      `peak dominance ${round(dominanceRatio)} is below ${config.minimumDominanceRatio}`,
+    );
+  }
+  if (localSupportRatio < config.minimumRowSupportRatio) {
+    qualityFailures.push(
+      `local column support ${round(localSupportRatio)} is below ${config.minimumRowSupportRatio}`,
+    );
+  }
+  if (verticalStandardDeviation > config.maximumVerticalStandardDeviation) {
+    qualityFailures.push(
+      `vertical standard deviation ${round(verticalStandardDeviation)} exceeds ${config.maximumVerticalStandardDeviation}`,
+    );
+  }
+  if (!selected) {
+    qualityFailures.push('no supported boundary pixels were selected');
+  }
+
+  if (qualityFailures.length > 0 || !selected) {
+    return {
+      status: 'blocked',
+      label: config.label,
+      reason: `The deterministic ${config.method} quality gate failed: ${qualityFailures.join('; ')}.`,
+      method: {
+        id: config.method,
+        roiNormalized: config.roi,
+        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+      },
+    };
+  }
+
+  await writeDebugOverlay(
+    sourcePath,
+    stateKey,
+    'boundary',
+    selectedMask,
+    image,
+    selected.bounds,
+  );
+
+  return {
+    status: 'observed',
+    evidenceClass: 'observed',
+    label: config.label,
+    bounds: serializeBounds(selected.bounds, image, dpr),
+    position: {
+      rasterY: round(meanY),
+      cssY: round(meanY / dpr),
+      normalizedY: round(meanY / image.height, 6),
+    },
+    pixelSupport: selected.pixels,
+    method: {
+      id: config.method,
+      roiNormalized: config.roi,
+      roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+      minimumPixelDelta: config.minimumPixelDelta,
+      minimumMeanDelta: config.minimumMeanDelta,
+      minimumRowSupportRatio: config.minimumRowSupportRatio,
+      minimumDominanceRatio: config.minimumDominanceRatio,
+      verticalExclusionRadius: config.verticalExclusionRadius,
+      localSearchRadius: config.localSearchRadius,
+      maximumVerticalStandardDeviation: config.maximumVerticalStandardDeviation,
+      peakRasterY: peak.y,
+      peakMeanDelta: round(peak.meanDelta),
+      peakRowSupportRatio: round(peak.rowSupportRatio),
+      peakScore: round(peak.score),
+      runnerUpRasterY: runnerUp?.y ?? null,
+      runnerUpScore: round(runnerUp?.score ?? 0),
+      dominanceRatio: dominanceRatio === null ? null : round(dominanceRatio),
+      localColumnSupportRatio: round(localSupportRatio),
+      verticalStandardDeviation: round(verticalStandardDeviation),
+      rationale: config.rationale,
+    },
+  };
+}
+
+function selectLargestDilatedEdgeComponent(originalMask, image, roi, config) {
   const dilated = dilate(
     originalMask,
     image.width,
@@ -513,10 +783,7 @@ function selectLargestDilatedEdgeComponent(
     roi,
   );
   const eligible = components
-    .filter(
-      (component) =>
-        component.pixels >= config.minimumComponentPixels,
-    )
+    .filter((component) => component.pixels >= config.minimumComponentPixels)
     .sort(
       (left, right) =>
         right.pixels - left.pixels ||
@@ -528,10 +795,7 @@ function selectLargestDilatedEdgeComponent(
 
   if (selectedComponent) {
     for (let index = 0; index < originalMask.length; index += 1) {
-      if (
-        originalMask[index] &&
-        labels[index] === selectedComponent.label
-      ) {
+      if (originalMask[index] && labels[index] === selectedComponent.label) {
         selectedMask[index] = 1;
       }
     }
@@ -539,9 +803,7 @@ function selectLargestDilatedEdgeComponent(
 
   return {
     selectedMask,
-    selectedComponents: selectedComponent
-      ? [selectedComponent]
-      : [],
+    selectedComponents: selectedComponent ? [selectedComponent] : [],
     eligibleComponentCount: eligible.length,
     totalComponentCount: components.length,
   };
@@ -549,12 +811,7 @@ function selectLargestDilatedEdgeComponent(
 
 function serializeBounds(bounds, image, dpr) {
   return {
-    rasterPixels: [
-      bounds.x,
-      bounds.y,
-      bounds.width,
-      bounds.height,
-    ],
+    rasterPixels: [bounds.x, bounds.y, bounds.width, bounds.height],
     cssPixels: [
       round(bounds.x / dpr),
       round(bounds.y / dpr),
@@ -611,12 +868,7 @@ async function writeDebugOverlay(
       { input: svg },
     ])
     .png()
-    .toFile(
-      path.join(
-        debugDirectory,
-        `${stateKey}-${featureKind}.png`,
-      ),
-    );
+    .toFile(path.join(debugDirectory, `${stateKey}-${featureKind}.png`));
 }
 
 async function measureFeature(
@@ -628,39 +880,18 @@ async function measureFeature(
   config,
   dpr,
 ) {
-  const roi = normalizedRoiToPixels(
-    config.roi,
-    image.width,
-    image.height,
-  );
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
   let selection;
 
   if (
     config.method === 'chroma-component-union' ||
     config.method === 'largest-chroma-component'
   ) {
-    const mask = createPredicateMask(
-      data,
-      image,
-      roi,
-      config.predicate,
-    );
+    const mask = createPredicateMask(data, image, roi, config.predicate);
     selection = selectChromaComponents(mask, image, roi, config);
-  } else if (
-    config.method === 'largest-dilated-sobel-component'
-  ) {
-    const mask = createSobelMask(
-      data,
-      image,
-      roi,
-      config.sobelThreshold,
-    );
-    selection = selectLargestDilatedEdgeComponent(
-      mask,
-      image,
-      roi,
-      config,
-    );
+  } else if (config.method === 'largest-dilated-sobel-component') {
+    const mask = createSobelMask(data, image, roi, config.sobelThreshold);
+    selection = selectLargestDilatedEdgeComponent(mask, image, roi, config);
   } else {
     throw new Error(`Unknown measurement method: ${config.method}`);
   }
@@ -678,12 +909,7 @@ async function measureFeature(
       method: {
         id: config.method,
         roiNormalized: config.roi,
-        roiRasterPixels: [
-          roi.x,
-          roi.y,
-          roi.width,
-          roi.height,
-        ],
+        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
       },
     };
   }
@@ -706,12 +932,7 @@ async function measureFeature(
     method: {
       id: config.method,
       roiNormalized: config.roi,
-      roiRasterPixels: [
-        roi.x,
-        roi.y,
-        roi.width,
-        roi.height,
-      ],
+      roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
       predicate: config.predicate
         ? {
             id: config.predicate.id,
@@ -725,77 +946,127 @@ async function measureFeature(
       minimumSelectedPixels: config.minimumSelectedPixels,
       totalComponentCount: selection.totalComponentCount,
       eligibleComponentCount: selection.eligibleComponentCount,
-      selectedComponentCount:
-        selection.selectedComponents.length,
+      selectedComponentCount: selection.selectedComponents.length,
       rationale: config.rationale,
     },
   };
 }
 
-function updateAnchorScreenBounds(
-  anchor,
-  stateEvidence,
-  stateIndex,
-) {
+async function measureConfiguredFeature({
+  sourcePath,
+  data,
+  image,
+  stateKey,
+  featureKind,
+  config,
+  dpr,
+}) {
+  if (config.status) {
+    if (config.status !== 'blocked' && config.status !== 'not-applicable') {
+      throw new Error(
+        `${stateKey}/${featureKind}: unsupported declared status ${config.status}`,
+      );
+    }
+    if (!config.reason) {
+      throw new Error(
+        `${stateKey}/${featureKind}: ${config.status} requires a reason`,
+      );
+    }
+    return {
+      status: config.status,
+      label: config.label ?? null,
+      reason: config.reason,
+    };
+  }
+
+  if (featureKind === 'boundary') {
+    return measureHorizontalBoundary(
+      sourcePath,
+      data,
+      image,
+      stateKey,
+      config,
+      dpr,
+    );
+  }
+
+  return measureFeature(
+    sourcePath,
+    data,
+    image,
+    stateKey,
+    featureKind,
+    config,
+    dpr,
+  );
+}
+
+function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
   const prior = anchor.screenBounds ?? {};
-  const landmarkObserved =
-    stateEvidence.landmark?.status === 'observed';
+  const landmarkObserved = stateEvidence.landmark?.status === 'observed';
   const routeObserved = stateEvidence.route?.status === 'observed';
+  const boundaryObserved = stateEvidence.boundary?.status === 'observed';
+  const primaryObserved = stateEvidence.primaryStructure.status === 'observed';
+  const landmarkEvidenceRef = landmarkObserved
+    ? `${evidenceRef}/states/${stateIndex}/landmark`
+    : null;
+  const routeEvidenceRef = routeObserved
+    ? `${evidenceRef}/states/${stateIndex}/route`
+    : null;
+  const boundaryEvidenceRef = boundaryObserved
+    ? `${evidenceRef}/states/${stateIndex}/boundary`
+    : null;
+  const primaryEvidenceRef =
+    stateEvidence.primaryStructure.kind === 'landmark'
+      ? landmarkEvidenceRef
+      : stateEvidence.primaryStructure.kind === 'route'
+        ? routeEvidenceRef
+        : boundaryEvidenceRef;
   const next = {
-    status: landmarkObserved ? 'observed' : 'unknown',
+    ...prior,
+    status: primaryObserved ? 'observed' : 'unknown',
     coordinateSpace: 'css-pixels',
     profileId: 'recording-desktop',
-    landmark: landmarkObserved
-      ? stateEvidence.landmark.bounds.cssPixels
-      : null,
-    landmarkLabel: landmarkObserved
-      ? stateEvidence.landmark.label
-      : null,
-    landmarkEvidenceRef: landmarkObserved
-      ? `${evidenceRef}/states/${stateIndex}/landmark`
-      : null,
-    route: routeObserved
-      ? stateEvidence.route.bounds.cssPixels
-      : null,
-    routeLabel: routeObserved ? stateEvidence.route.label : null,
-    routeEvidenceRef: routeObserved
-      ? `${evidenceRef}/states/${stateIndex}/route`
-      : null,
-    copy: null,
+    primaryStructure: {
+      ...stateEvidence.primaryStructure,
+      evidenceRef: primaryEvidenceRef,
+    },
+    landmarkStatus: stateEvidence.landmark.status,
+    landmark: landmarkObserved ? stateEvidence.landmark.bounds.cssPixels : null,
+    landmarkLabel: stateEvidence.landmark.label ?? null,
+    landmarkEvidenceRef,
+    routeStatus: stateEvidence.route.status,
+    route: routeObserved ? stateEvidence.route.bounds.cssPixels : null,
+    routeLabel: stateEvidence.route.label ?? null,
+    routeEvidenceRef,
+    boundaryStatus: stateEvidence.boundary.status,
+    boundary: boundaryObserved ? stateEvidence.boundary.bounds.cssPixels : null,
+    boundaryLabel: stateEvidence.boundary.label ?? null,
+    boundaryEvidenceRef,
     copyStatus:
-      anchor.activeCopyState?.value === 'none'
-        ? 'not-applicable'
-        : 'unknown',
-    reason: landmarkObserved
-      ? 'Primary landmark measured by the reproducible recording structural-bounds pipeline; copy remains independently unmeasured when applicable.'
-      : stateEvidence.blockedReason ??
-        prior.reason ??
-        'Primary landmark remains unmeasured.',
+      prior.copyStatus ??
+      (anchor.activeCopyState?.value === 'none' ? 'not-applicable' : 'unknown'),
+    reason: primaryObserved
+      ? `Primary ${stateEvidence.primaryStructure.kind} measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.`
+      : stateEvidence.primaryStructure.reason,
   };
 
   return next;
 }
 
 const manifest = JSON.parse(await readFile(anchorsPath, 'utf8'));
-const recordingPath = path.join(
-  workspaceRoot,
-  'docs/vectrfl_recording.mov',
-);
+const recordingPath = path.join(workspaceRoot, 'docs/vectrfl_recording.mov');
 const recordingSha = await sha256File(recordingPath);
 if (recordingSha !== manifest.authority.sourceSha256) {
   throw new Error(
     `Authoritative recording SHA mismatch (${recordingSha} != ${manifest.authority.sourceSha256})`,
   );
 }
-const dpr =
-  manifest.authority.recordingProfile.devicePixelRatio.value;
+const dpr = manifest.authority.recordingProfile.devicePixelRatio.value;
 const states = [];
 
 for (const anchor of manifest.states) {
-  const sourcePath = path.join(
-    workspaceRoot,
-    anchor.anchor.capturePath,
-  );
+  const sourcePath = path.join(workspaceRoot, anchor.anchor.capturePath);
   const sourceBuffer = await readFile(sourcePath);
   const actualSha = sha256(sourceBuffer);
   if (actualSha !== anchor.anchor.captureSha256) {
@@ -809,10 +1080,8 @@ for (const anchor of manifest.states) {
     .raw()
     .toBuffer({ resolveWithObject: true });
   if (
-    info.width !==
-      manifest.authority.recordingProfile.rasterPixels.width ||
-    info.height !==
-      manifest.authority.recordingProfile.rasterPixels.height ||
+    info.width !== manifest.authority.recordingProfile.rasterPixels.width ||
+    info.height !== manifest.authority.recordingProfile.rasterPixels.height ||
     info.channels !== 3
   ) {
     throw new Error(
@@ -825,7 +1094,72 @@ for (const anchor of manifest.states) {
     height: info.height,
     channels: info.channels,
   };
-  const config = STATE_MEASUREMENTS[anchor.key] ?? {};
+  const config = STATE_MEASUREMENTS[anchor.key];
+  if (!config) {
+    throw new Error(
+      `${anchor.key}: every source state requires explicit structural configuration`,
+    );
+  }
+  if (
+    config.primaryStructure !== 'landmark' &&
+    config.primaryStructure !== 'route' &&
+    config.primaryStructure !== 'boundary'
+  ) {
+    throw new Error(
+      `${anchor.key}: unsupported primary structure ${config.primaryStructure}`,
+    );
+  }
+  if (!config.landmark) {
+    throw new Error(`${anchor.key}: landmark applicability must be explicit`);
+  }
+  const landmark = await measureConfiguredFeature({
+    sourcePath,
+    data,
+    image,
+    stateKey: anchor.key,
+    featureKind: 'landmark',
+    config: config.landmark,
+    dpr,
+  });
+  const route = await measureConfiguredFeature({
+    sourcePath,
+    data,
+    image,
+    stateKey: anchor.key,
+    featureKind: 'route',
+    config:
+      config.route ??
+      (anchor.route?.segment === 'none'
+        ? {
+            status: 'not-applicable',
+            reason: 'The source state has no applicable route structure.',
+          }
+        : {
+            status: 'blocked',
+            reason:
+              'The applicable route structure is not yet measured in this pass.',
+          }),
+    dpr,
+  });
+  const boundary = await measureConfiguredFeature({
+    sourcePath,
+    data,
+    image,
+    stateKey: anchor.key,
+    featureKind: 'boundary',
+    config: config.boundary ?? {
+      status: 'not-applicable',
+      reason:
+        'No section-transition boundary is applicable to this source state.',
+    },
+    dpr,
+  });
+  const primaryFeature = {
+    landmark,
+    route,
+    boundary,
+  }[config.primaryStructure];
+  const stateIndex = states.length;
   const stateEvidence = {
     key: anchor.key,
     source: {
@@ -840,43 +1174,22 @@ for (const anchor of manifest.states) {
       },
       devicePixelRatio: dpr,
     },
-    landmark: config.landmark
-      ? await measureFeature(
-          sourcePath,
-          data,
-          image,
-          anchor.key,
-          'landmark',
-          config.landmark,
-          dpr,
-        )
-      : {
-          status: 'blocked',
-          reason:
-            BLOCKED_REASONS[anchor.key] ??
-            'No approved deterministic landmark segmentation is defined for this anchor.',
-        },
-    route: config.route
-      ? await measureFeature(
-          sourcePath,
-          data,
-          image,
-          anchor.key,
-          'route',
-          config.route,
-          dpr,
-        )
-      : {
-          status: 'not-measured',
-          reason:
-            'This pass only measures a route when it is the anchor’s named primary directional structure.',
-        },
+    primaryStructure: {
+      kind: config.primaryStructure,
+      status: primaryFeature.status,
+      label: primaryFeature.label ?? null,
+      evidenceRef:
+        primaryFeature.status === 'observed'
+          ? `${evidenceRef}/states/${stateIndex}/${config.primaryStructure}`
+          : null,
+      reason:
+        primaryFeature.status === 'observed' ? null : primaryFeature.reason,
+    },
+    landmark,
+    route,
+    boundary,
   };
 
-  if (stateEvidence.landmark.status !== 'observed') {
-    stateEvidence.blockedReason =
-      stateEvidence.landmark.reason;
-  }
   states.push(stateEvidence);
 }
 
@@ -884,11 +1197,29 @@ const summary = states.reduce(
   (counts, state) => {
     if (state.landmark.status === 'observed') {
       counts.landmarkMeasured += 1;
-    } else {
+    } else if (state.landmark.status === 'blocked') {
       counts.landmarkBlocked += 1;
+    } else {
+      counts.landmarkNotApplicable += 1;
     }
     if (state.route.status === 'observed') {
       counts.routeMeasured += 1;
+    } else if (state.route.status === 'blocked') {
+      counts.routeBlocked += 1;
+    } else {
+      counts.routeNotApplicable += 1;
+    }
+    if (state.boundary.status === 'observed') {
+      counts.boundaryMeasured += 1;
+    } else if (state.boundary.status === 'blocked') {
+      counts.boundaryBlocked += 1;
+    } else {
+      counts.boundaryNotApplicable += 1;
+    }
+    if (state.primaryStructure.status === 'observed') {
+      counts.primaryStructureMeasured += 1;
+    } else {
+      counts.primaryStructureBlocked += 1;
     }
     return counts;
   },
@@ -896,35 +1227,37 @@ const summary = states.reduce(
     totalAnchors: states.length,
     landmarkMeasured: 0,
     landmarkBlocked: 0,
+    landmarkNotApplicable: 0,
     routeMeasured: 0,
+    routeBlocked: 0,
+    routeNotApplicable: 0,
+    boundaryMeasured: 0,
+    boundaryBlocked: 0,
+    boundaryNotApplicable: 0,
+    primaryStructureMeasured: 0,
+    primaryStructureBlocked: 0,
   },
 );
 
 const report = {
-  schemaVersion: 1,
+  schemaVersion: 2,
   algorithmVersion,
-  generatedBy:
-    'tools/hero-reference/measure-recording-bounds.mjs',
+  generatedBy: 'tools/hero-reference/measure-recording-bounds.mjs',
   authority: {
     recordingPath: 'docs/vectrfl_recording.mov',
     recordingSha256: manifest.authority.sourceSha256,
-    anchorManifest:
-      'docs/hero-reference/recording-anchors.json',
+    anchorManifest: 'docs/hero-reference/recording-anchors.json',
     derivativePolicy:
       'Locked PNG frames are reproducible derivatives. The MOV SHA plus decoded frame index and PTS remain authoritative.',
   },
   coordinateSpaces: {
     rasterPixels: {
-      width:
-        manifest.authority.recordingProfile.rasterPixels.width,
-      height:
-        manifest.authority.recordingProfile.rasterPixels.height,
+      width: manifest.authority.recordingProfile.rasterPixels.width,
+      height: manifest.authority.recordingProfile.rasterPixels.height,
     },
     cssPixels: {
-      width:
-        manifest.authority.recordingProfile.cssViewport.width,
-      height:
-        manifest.authority.recordingProfile.cssViewport.height,
+      width: manifest.authority.recordingProfile.cssViewport.width,
+      height: manifest.authority.recordingProfile.cssViewport.height,
     },
     devicePixelRatio: dpr,
     boundsFormat: '[x, y, width, height]',
@@ -934,12 +1267,16 @@ const report = {
   methodPolicy: {
     noManualBoxes:
       'No output rectangle is hand-entered. State configuration supplies only a documented normalized semantic ROI and fixed segmentation/quality thresholds.',
+    featureStatus:
+      'Every landmark is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.',
     chroma:
       'Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.',
     edges:
       'The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.',
+    boundary:
+      'The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.',
     quality:
-      'A state is blocked when the selected support does not meet its fixed pixel gate or when the semantic landmark cannot be isolated without substituting a partial feature.',
+      'An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.',
     reproducibility:
       'The authoritative MOV SHA and every input PNG SHA are verified before measurement. --check recomputes both evidence files and fails on byte drift.',
   },
@@ -949,49 +1286,45 @@ const report = {
 
 const updatedManifest = {
   ...manifest,
+  schemaVersion: 2,
   anchorPolicy: {
     ...manifest.anchorPolicy,
     unmeasuredFields:
-      'Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. This structural-bounds pass measures four primary landmarks and three route cores while keeping eleven ambiguous landmark silhouettes explicitly blocked.',
+      'Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures four landmarks, three route cores, and one section boundary; four route/transition-primary states mark landmark bounds not applicable, while seven genuinely ambiguous landmark states remain blocked.',
   },
   structuralBoundsEvidence: {
     status:
-      summary.landmarkBlocked === 0
-        ? 'observed'
-        : 'partially-observed',
+      summary.primaryStructureBlocked === 0 ? 'observed' : 'partially-observed',
     verifiedOn: '2026-07-30',
-    artifact:
-      'docs/hero-reference/recording-structural-bounds.json',
+    artifact: 'docs/hero-reference/recording-structural-bounds.json',
     algorithmVersion,
     landmarkMeasured: summary.landmarkMeasured,
     landmarkBlocked: summary.landmarkBlocked,
+    landmarkNotApplicable: summary.landmarkNotApplicable,
     routeMeasured: summary.routeMeasured,
+    boundaryMeasured: summary.boundaryMeasured,
+    primaryStructureMeasured: summary.primaryStructureMeasured,
+    primaryStructureBlocked: summary.primaryStructureBlocked,
   },
   states: manifest.states.map((anchor) => {
-    const stateIndex = states.findIndex(
-      (state) => state.key === anchor.key,
-    );
+    const stateIndex = states.findIndex((state) => state.key === anchor.key);
     const stateEvidence = states[stateIndex];
     return {
       ...anchor,
-      screenBounds: updateAnchorScreenBounds(
-        anchor,
-        stateEvidence,
-        stateIndex,
-      ),
+      screenBounds: updateAnchorScreenBounds(anchor, stateEvidence, stateIndex),
     };
   }),
-  unresolvableFromRecordingAlone:
-    manifest.unresolvableFromRecordingAlone.map((entry) =>
+  unresolvableFromRecordingAlone: manifest.unresolvableFromRecordingAlone.map(
+    (entry) =>
       entry.field === 'screen-space bounds'
         ? {
             ...entry,
             status: 'partially-observed',
             reason:
-              'The deterministic structural-bounds pipeline measures four primary landmarks and three route cores; eleven landmark silhouettes and all applicable copy bounds remain blocked or unknown.',
+              'The deterministic structural-bounds pipeline measures four landmarks, three route cores, and one section boundary. Four route/transition-primary states correctly mark landmark bounds not applicable; seven landmark-primary states and all applicable recording copy bounds remain blocked or unknown.',
           }
         : entry,
-    ),
+  ),
 };
 
 const reportText = `${JSON.stringify(report, null, 2)}\n`;
@@ -1014,11 +1347,11 @@ if (checkOnly) {
   }
 } else {
   await Promise.all([
-    writeFile(outputPath, reportText, 'utf8'),
-    writeFile(anchorsPath, manifestText, 'utf8'),
+    writeFileAtomically(outputPath, reportText),
+    writeFileAtomically(anchorsPath, manifestText),
   ]);
 }
 
 console.log(
-  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.routeMeasured} route measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
+  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.landmarkNotApplicable} landmark not applicable, ${summary.routeMeasured} route measured, ${summary.boundaryMeasured} boundary measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
 );

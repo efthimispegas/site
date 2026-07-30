@@ -10,12 +10,14 @@ evidence.
 
 - Phase 0 preservation is accepted.
 - Phase 1 remains not accepted. Deterministic recording analysis now measures
-  four primary landmarks and three auxiliary route cores, but explicitly
-  blocks 11 primary landmarks rather than inventing boxes. Locked landing and
-  11-state journey DOM profiles exist. The current manifest-verified capture
-  passes all 13 applicable whole-ladder DOM states. The preliminary unmasked
-  raster diagnostic passes only 1 of 15 states, while structural accuracy is
-  blocked for all 15 states.
+  four landmarks, three route cores, and one section boundary. Four
+  route/transition-primary states correctly mark landmark bounds not
+  applicable; seven genuinely landmark-primary states remain blocked rather
+  than accepting partial or effect-only boxes. Locked landing and 11-state
+  journey DOM profiles exist. The current manifest-verified capture passes all
+  13 applicable whole-ladder DOM states. The preliminary unmasked raster
+  diagnostic passes only 1 of 15 states, while structural accuracy is blocked
+  for all 15 states.
 - Phase 2 now passes its own current-checkpoint safety gate: all 22 configured
   current-page Chromium and Mobile Chrome executions pass.
 - Phases 3 and 4 now pass their own hygiene gates: the legacy
@@ -252,7 +254,7 @@ The detailed evidence is in
   handoffs, no pointer trail, and no continuing route/pulse clocks.
 - The static alternative has deterministic loader, landing, journey, field,
   arrival, and exit compositions rather than one generic fallback.
-- Five Vitest files pass 32 tests, including typed topology-manifest and
+- Five Vitest files pass 35 tests, including typed topology-manifest and
   measured-bound contract coverage.
   Current-page smoke passes 22 configured browser executions and
   alternative/focus coverage passes 8; the two opt-in performance probes are
@@ -284,8 +286,10 @@ incomplete; passing the harness gate does not freeze visual constants.
 ### Accuracy blockers
 
 - Locked landing and journey DOM profiles cover 13 applicable states.
-  Deterministic recording analysis measures four primary landmarks and three
-  auxiliary route cores; 11 primary landmark states remain explicitly blocked.
+  Deterministic recording analysis measures four landmarks, three route cores,
+  and one section boundary. Four states use a source-visible route or boundary
+  as their primary structure and correctly mark landmark bounds not
+  applicable; seven landmark-primary states remain explicitly blocked.
 - The 15-state comparator is operational and intentionally returns a non-zero
   result. Schema 5 keeps three independent verdicts: preliminary unmasked
   raster has 1 pass and 14 failures; structural accuracy has 0 passes, 0
@@ -317,14 +321,16 @@ Status: not accepted.
 
 Current blocker: all 15 states resolve to exact recording frames and current
 live target-progress candidates. A deterministic, hash-verifying measurement
-pipeline resolves four primary landmark boxes and three auxiliary route cores;
-11 primary landmarks are explicitly blocked where semantic isolation is not
-defensible. Locked live DOM contracts cover the two landing and 11 journey
-states, and the current implementation passes all 13 applicable DOM checks.
-Those checks cover the entire four-row process ladder, not only the active row.
-Generated implementation captures may not fill the remaining source-evidence
-gaps. Structural accuracy remains blocked for all 15 states, while the
-preliminary unmasked raster diagnostic remains red in 14 of 15 states.
+pipeline resolves four landmark boxes, three route cores, and the journey-exit
+section boundary. It marks four landmark fields not applicable where the
+source-visible primary structure is instead a route or boundary, and blocks
+seven landmark-primary states where semantic isolation is not defensible.
+Locked live DOM contracts cover the two landing and 11 journey states, and the
+current implementation passes all 13 applicable DOM checks. Those checks cover
+the entire four-row process ladder, not only the active row. Generated
+implementation captures may not fill the remaining source-evidence gaps.
+Structural accuracy remains blocked for all 15 states, while the preliminary
+unmasked raster diagnostic remains red in 14 of 15 states.
 
 Complete this evidence before accepting visual tuning:
 
@@ -708,18 +714,18 @@ tuning; decorative work cannot begin before Phase 16.
 The status below reports each phase's own evidence without pretending that
 provisional downstream implementation waived the ordered release gate.
 
-| Phase | Gate status                                             | Evidence or blocker                                                                                                                                                                                                                                           |
-| ----- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | **Accepted**                                            | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed.                                                                                                                                      |
-| 1     | **Not accepted**                                        | Exact frames, profiles, target calibration, classifications, schemas, four primary landmark boxes, three route cores, and 13-state DOM authority exist; 11 primary landmarks and additional structural observables remain blocked.                            |
-| 2     | **Own gate passed; ordered acceptance held at Phase 1** | All 22 configured current-page Chromium and Mobile Chrome executions pass against the current renderer/layout checkpoint.                                                                                                                                     |
-| 3     | **Own gate passed; ordered acceptance held at Phase 1** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans, lint/unit/build, and current browser smoke pass.                                                                                                  |
-| 4     | **Own gate passed; ordered acceptance held at Phase 1** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, motion-system validation passes, and current shared-route browser smoke passes.                                                                                                  |
-| 5     | **Own gate passed; ordered acceptance held at Phase 1** | The architecture, 32 unit tests, direct-state control, repeat-capture stability, genuine desktop/mobile forward/reverse/jump/resize/restored convergence, and atomic 15-state size/SHA-256 artifact manifest pass.                                            |
-| 6     | **Own gate passed; ordered acceptance held at Phase 1** | The current manifest-verified capture passes all 13 applicable landing/journey DOM contracts across the entire four-row ladder; two states are correctly not applicable.                                                                                      |
-| 7–17  | **Not accepted**                                        | Comparator schema 5 reports preliminary raster at `1 pass / 14 fail` and structural accuracy at `0 pass / 0 fail / 15 blocked`; it cannot accept route, geometry, camera, motion, art, or responsive scene states.                                            |
-| 18    | **Not accepted**                                        | All eight current reduced-motion, fallback, mobile-navigation, and deterministic static-composition executions pass, but the phase depends on accepted full-motion and responsive compositions.                                                               |
-| 19    | **Not accepted**                                        | Production executable assets are clean. Source maps retain two development dynamic-import module path strings but no control contract. The two opt-in performance probes and locked-hardware budgets remain unrun, and upstream visual gates have not passed. |
+| Phase | Gate status                                             | Evidence or blocker                                                                                                                                                                                                                                                                                                |
+| ----- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 0     | **Accepted**                                            | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed.                                                                                                                                                                                           |
+| 1     | **Not accepted**                                        | Exact frames, profiles, target calibration, classifications, schemas, four landmark boxes, three route cores, one section boundary, and 13-state DOM authority exist; four landmark fields are correctly not applicable, while seven landmark-primary states and additional structural observables remain blocked. |
+| 2     | **Own gate passed; ordered acceptance held at Phase 1** | All 22 configured current-page Chromium and Mobile Chrome executions pass against the current renderer/layout checkpoint.                                                                                                                                                                                          |
+| 3     | **Own gate passed; ordered acceptance held at Phase 1** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans, lint/unit/build, and current browser smoke pass.                                                                                                                                                       |
+| 4     | **Own gate passed; ordered acceptance held at Phase 1** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, motion-system validation passes, and current shared-route browser smoke passes.                                                                                                                                                       |
+| 5     | **Own gate passed; ordered acceptance held at Phase 1** | The architecture, 35 unit tests, direct-state control, repeat-capture stability, genuine desktop/mobile forward/reverse/jump/resize/restored convergence, and atomic 15-state size/SHA-256 artifact manifest pass.                                                                                                 |
+| 6     | **Own gate passed; ordered acceptance held at Phase 1** | The current manifest-verified capture passes all 13 applicable landing/journey DOM contracts across the entire four-row ladder; two states are correctly not applicable.                                                                                                                                           |
+| 7–17  | **Not accepted**                                        | Comparator schema 5 reports preliminary raster at `1 pass / 14 fail` and structural accuracy at `0 pass / 0 fail / 15 blocked`; it cannot accept route, geometry, camera, motion, art, or responsive scene states.                                                                                                 |
+| 18    | **Not accepted**                                        | All eight current reduced-motion, fallback, mobile-navigation, and deterministic static-composition executions pass, but the phase depends on accepted full-motion and responsive compositions.                                                                                                                    |
+| 19    | **Not accepted**                                        | Production executable assets are clean. Source maps retain two development dynamic-import module path strings but no control contract. The two opt-in performance probes and locked-hardware budgets remain unrun, and upstream visual gates have not passed.                                                      |
 
 The next legal acceptance work is to continue Phase 1 structural measurement
 where the automated pipeline is blocked. Phases 2–6 have current own-gate
@@ -768,9 +774,11 @@ Implemented but insufficient: all 15 exact frames, comparison profiles,
 classification vocabulary, accuracy schema, live-source evidence, locked
 landing/journey DOM profiles, 2026-07-30 target-progress calibration, and a
 hash-verifying structural measurement pipeline exist. That pipeline measures
-four primary landmarks and three route cores but blocks 11 primary landmarks;
-additional camera, negative-space, field, pointer, and copy observables still
-block the gate.
+four landmarks, three route cores, and one section boundary; it correctly
+classifies four route/transition-primary landmark fields not applicable and
+blocks seven genuinely landmark-primary states. Additional camera,
+negative-space, field, pointer, route, and copy observables still block the
+gate.
 
 Steps:
 
@@ -852,7 +860,7 @@ held at Phase 1.
 
 Evidence: the legacy file and renderer switch are absent; one Canvas/fallback
 boundary remains; source and fresh production executable scans are clean; app
-lint, 32 unit tests, production build, and current Chromium/Mobile Chrome
+lint, 35 unit tests, production build, and current Chromium/Mobile Chrome
 browser smoke pass.
 
 Steps:
@@ -943,7 +951,7 @@ Run the motion-system commands only when that project changes.
 Status: own gate passed on the 2026-07-30 current checkpoint; ordered
 acceptance held at Phase 1.
 
-Evidence: ownership boundaries, runtime/evidence separation, 32 passing unit
+Evidence: ownership boundaries, runtime/evidence separation, 35 passing unit
 tests, 15-state direct capture control, state-specific fallback, and the
 intentional failing visual comparator are present. Current Chromium and Mobile
 Chrome runs pass forward, reverse, direct jump, resize, restored-scroll reload,
@@ -994,7 +1002,7 @@ pnpm nx build @site/pegasoft
 pnpm nx run @site/pegasoft-e2e:e2e
 ```
 
-The app test target passes 32 tests, and the independent browser convergence
+The app test target passes 35 tests, and the independent browser convergence
 and repeat-capture checks now close the remainder of this phase's own gate.
 Phase 1 still prevents ordered acceptance and still permits replacement of
 unproven visual constants.
@@ -1448,7 +1456,7 @@ pnpm nx run @site/pegasoft-e2e:typecheck
 pnpm nx run @site/pegasoft-e2e:e2e
 ```
 
-The Nx-owned app unit target now exists and currently passes 32 tests. Browser
+The Nx-owned app unit target now exists and currently passes 35 tests. Browser
 and comparison gates remain independent; unit success cannot accept a visual
 phase.
 

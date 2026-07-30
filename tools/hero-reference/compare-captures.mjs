@@ -307,18 +307,24 @@ function evaluatePreliminaryRaster(metrics) {
 
 function evaluateStructuralAccuracy(state, measurement) {
   const blockers = [];
-  const sourceLandmarkMeasured =
-    state.screenBounds?.status !== 'unknown' &&
-    Array.isArray(state.screenBounds?.landmark);
-  const routeIsApplicable = state.route?.segment !== 'none';
+  const primaryStructure = state.screenBounds?.primaryStructure ?? {
+    kind: 'landmark',
+    status: 'blocked',
+  };
+  const primaryBounds = state.screenBounds?.[primaryStructure.kind];
+  const sourcePrimaryMeasured =
+    primaryStructure.status === 'observed' && Array.isArray(primaryBounds);
   const sourceRouteMeasured =
-    !routeIsApplicable || Array.isArray(state.screenBounds?.route);
+    state.screenBounds?.routeStatus === 'observed' ||
+    state.screenBounds?.routeStatus === 'not-applicable';
   const sourceCopyMeasured =
     state.activeCopyState?.value === 'none' ||
     Array.isArray(state.screenBounds?.copy);
 
-  if (!sourceLandmarkMeasured) {
-    blockers.push('authoritative source landmark bounds are unmeasured');
+  if (!sourcePrimaryMeasured) {
+    blockers.push(
+      `authoritative source ${primaryStructure.kind} primary-structure bounds are unmeasured`,
+    );
   }
   if (!sourceRouteMeasured) {
     blockers.push('authoritative source route bounds are unmeasured');

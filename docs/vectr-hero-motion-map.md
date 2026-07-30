@@ -33,26 +33,26 @@ touch, breakpoint, or reduced-motion evidence.
 
 ## Verified desktop recording ladder
 
-| Recording time | Verified visual state |
-| --- | --- |
-| `0.0–0.8s` | Already-resolved hero remains visible before the apparent reload. |
-| `~0.9s` | Pale field and tiny central blue squares appear. |
-| `1.0–1.8s` | Squares orbit/assemble; thin oversized elliptical contours sweep around them. |
-| `1.9–3.1s` | Loader resolves into the blue arrow/brand mark. |
-| `3.2–3.7s` | Industrial world, red rails, and header compose into view. |
-| `3.8–4.4s` | Headline tilts/translates into place, followed by body copy. |
-| `4.4–8.4s` | Resolved landing; intermittent red rail packets continue while idle. |
-| `~8.5s` | Scroll begins; landing copy rotates/translates out and process copy enters. |
-| `8.8–9.0s` | Step 01, “Activation, simplified,” is established. |
-| `9.0–13.3s` | Red route travels toward its first destination; cyan/blue handoff cues begin later in the interval. |
-| `13.4–13.6s` | Step 02, “Cleared to count,” becomes active. |
-| `13.5–20.4s` | Blue route crosses broad industrial context. |
-| `~20.5s` | Tile field starts previewing while Step 02 remains active. |
-| `~22.0s` | Step 03, “Proven field match,” becomes active in a strongly top-down composition. |
-| `22.5–29.3s` | Contact holds while bright square/ring tile bands repeatedly expand and reset. |
-| `29.4–29.6s` | Step 04, “Seamless arrival,” becomes active. |
-| `30.0–31.2s` | Large frontal blue arrow lockup dominates with horizontal cyan feed and surrounding marks. |
-| `~31.4s onward` | The following white content section enters. |
+| Recording time  | Verified visual state                                                                               |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| `0.0–0.8s`      | Already-resolved hero remains visible before the apparent reload.                                   |
+| `~0.9s`         | Pale field and tiny central blue squares appear.                                                    |
+| `1.0–1.8s`      | Squares orbit/assemble; thin oversized elliptical contours sweep around them.                       |
+| `1.9–3.1s`      | Loader resolves into the blue arrow/brand mark.                                                     |
+| `3.2–3.7s`      | Industrial world, red rails, and header compose into view.                                          |
+| `3.8–4.4s`      | Headline tilts/translates into place, followed by body copy.                                        |
+| `4.4–8.4s`      | Resolved landing; intermittent red rail packets continue while idle.                                |
+| `~8.5s`         | Scroll begins; landing copy rotates/translates out and process copy enters.                         |
+| `8.8–9.0s`      | Step 01, “Activation, simplified,” is established.                                                  |
+| `9.0–13.3s`     | Red route travels toward its first destination; cyan/blue handoff cues begin later in the interval. |
+| `13.4–13.6s`    | Step 02, “Cleared to count,” becomes active.                                                        |
+| `13.5–20.4s`    | Blue route crosses broad industrial context.                                                        |
+| `~20.5s`        | Tile field starts previewing while Step 02 remains active.                                          |
+| `~22.0s`        | Step 03, “Proven field match,” becomes active in a strongly top-down composition.                   |
+| `22.5–29.3s`    | Contact holds while bright square/ring tile bands repeatedly expand and reset.                      |
+| `29.4–29.6s`    | Step 04, “Seamless arrival,” becomes active.                                                        |
+| `30.0–31.2s`    | Large frontal blue arrow lockup dominates with horizontal cyan feed and surrounding marks.          |
+| `~31.4s onward` | The following white content section enters.                                                         |
 
 ## Current live-site audit
 
@@ -181,16 +181,19 @@ comparison.
 ## Remaining measurements
 
 - Exact recording frame numbers are now locked for all 15 states.
-- Deterministic recording analysis now measures four primary landmarks
+- Deterministic recording analysis now measures four landmarks
   (`loader-mark`, `world-reveal`, `field-pulse-b`, and `arrival-lockup`) and
-  three auxiliary route cores. Eleven primary landmarks remain explicitly
-  blocked because the semantic subject cannot be isolated without invented
-  hand-drawn bounds.
+  three route cores, plus the `journey-exit` section boundary. Four
+  route/transition-primary states correctly mark landmark bounds not
+  applicable. Seven landmark-primary states remain explicitly blocked because
+  the semantic subject cannot be isolated without a reviewed source-tied mask
+  or because only a partial/effect-only feature is visible.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile. Their latest implementation comparison is red and
   predates the newest CSS/progress corrections.
-- Remaining screen-space work includes the blocked landmarks, complete route
-  paths, copy/scene correspondence, field outline, and negative space;
+- Remaining screen-space work includes the seven blocked landmark-primary
+  states, complete route paths, copy/scene correspondence, field outline, and
+  negative space;
 - route thickness and handoff/contact frames at matched viewports;
 - exact field tile boundary/count and pulse band profile;
 - pointer trail radius/falloff and camera displacement on representative

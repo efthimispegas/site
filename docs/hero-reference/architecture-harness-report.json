@@ -1,6 +1,6 @@
 {
   "schemaVersion": 5,
-  "generatedAtUtc": "2026-07-30T12:58:31Z",
+  "generatedAtUtc": "2026-07-30T14:06:55Z",
   "phaseScope": [5],
   "workingTree": {
     "branch": "codex/hero-reference-rebaseline",
@@ -21,8 +21,11 @@
       "scope": "immutable supplied chronology and exact frame anchors",
       "measurementStatus": {
         "primaryLandmarksMeasured": 4,
-        "primaryLandmarksBlocked": 11,
-        "routeCoresMeasured": 3
+        "primaryLandmarksBlocked": 7,
+        "landmarksNotApplicable": 4,
+        "routeCoresMeasured": 3,
+        "sectionBoundariesMeasured": 1,
+        "primaryStructuresMeasured": 8
       }
     }
   ],
@@ -197,7 +200,7 @@
     },
     "unitCoverage": {
       "files": 5,
-      "tests": 32,
+      "tests": 35,
       "status": "passed",
       "coverage": [
         "canonical evidence/runtime state synchronization",
@@ -320,7 +323,7 @@
     {
       "command": "CI=1 pnpm nx run-many --target=test --projects=@site/pegasoft,@site/motion-system --skipNxCache",
       "result": "passed",
-      "details": "The Pegasoft app passed 5 Vitest files and 32 tests; motion-system passed 1 Vitest file and 2 tests."
+      "details": "The Pegasoft app passed 5 Vitest files and 35 tests; motion-system passed 1 Vitest file and 2 tests."
     },
     {
       "command": "NODE_ENV=production pnpm nx run @site/pegasoft:build --skipNxCache",
@@ -339,7 +342,7 @@
     {
       "command": "node tools/hero-reference/measure-recording-bounds.mjs --check",
       "result": "passed",
-      "details": "The restored 190835536-byte Git LFS recording matched SHA-256 de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321; 4 landmark measurements, 11 explicit landmark blocks, and 3 route-core measurements reproduced byte-for-byte."
+      "details": "The restored 190835536-byte Git LFS recording matched SHA-256 de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321; schema 2 reproduced 4 landmark measurements, 7 explicit landmark blocks, 4 landmark-not-applicable classifications, 3 route-core measurements, and 1 section-boundary measurement byte-for-byte."
     },
     {
       "command": "pnpm nx run @site/pegasoft-e2e:e2e",
@@ -380,7 +383,7 @@
   "blockingEvidence": [
     {
       "severity": "blocks-phase-1-and-visual-acceptance",
-      "issue": "Deterministic recording measurement resolves 4 primary landmarks and 3 auxiliary route cores, but 11 primary landmarks remain explicitly blocked. The current implementation passes all 13 applicable live DOM contracts, but generated implementation captures cannot substitute for the missing source measurements."
+      "issue": "Deterministic recording measurement resolves 4 landmarks, 3 route cores, and 1 section boundary. Four route/transition-primary states correctly mark landmark bounds not applicable; 7 landmark-primary states and additional source observables remain blocked. The current implementation passes all 13 applicable live DOM contracts, but generated implementation captures cannot substitute for missing source measurements."
     },
     {
       "severity": "blocks-phases-7-through-16",
@@ -414,6 +417,6 @@
     "structuralAccuracyComparisonPassed": false,
     "visualComparisonPassed": false,
     "phase5Status": "own-gate-passed-ordered-acceptance-blocked-by-phase-1",
-    "reason": "The current architecture, deterministic controls, repeat capture, genuine desktop/mobile convergence matrix, and manifest integrity pass their local Phase 5 gate. Ordered acceptance remains held at Phase 1 because 11 source landmarks are unmeasured. The comparator separately reports only 1/15 preliminary raster states passing and all 15 structural states blocked, despite a 13/13 applicable whole-ladder DOM pass; final hero acceptance is therefore blocked."
+    "reason": "The current architecture, deterministic controls, repeat capture, genuine desktop/mobile convergence matrix, and manifest integrity pass their local Phase 5 gate. Ordered acceptance remains held at Phase 1 because seven landmark-primary states and additional source observables remain unmeasured; four route/transition-primary landmark fields are correctly not applicable. The comparator separately reports only 1/15 preliminary raster states passing and all 15 structural states blocked, despite a 13/13 applicable whole-ladder DOM pass; final hero acceptance is therefore blocked."
   }
 }
