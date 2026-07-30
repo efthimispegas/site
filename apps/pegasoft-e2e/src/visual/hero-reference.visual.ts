@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { createHash, randomUUID } from 'node:crypto';
+import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const REFERENCE_STATES = [
@@ -39,6 +40,105 @@ const outputRoot = path.resolve(
   process.cwd(),
   'test-output/hero-reference/recording',
 );
+const implementationRoot = path.join(outputRoot, 'implementation');
+const measurementRoot = path.join(outputRoot, 'measurements');
+const comparisonRoot = path.join(outputRoot, 'comparisons');
+const comparisonReportPath = path.join(outputRoot, 'comparison-report.json');
+const captureManifestPath = path.join(outputRoot, 'capture-manifest.json');
+const captureManifestTemporaryPath = path.join(
+  outputRoot,
+  '.capture-manifest.json.tmp',
+);
+const generatedOutputPaths = [
+  implementationRoot,
+  measurementRoot,
+  comparisonRoot,
+  comparisonReportPath,
+  captureManifestPath,
+  captureManifestTemporaryPath,
+] as const;
+
+type RuntimeErrors = {
+  console: string[];
+  first: Promise<string>;
+  page: string[];
+};
+
+let captureRunId = '';
+let captureRunStartedAt = '';
+const capturedStates = new Set<ReferenceStateKey>();
+
+function captureRuntimeErrors(page: Page): RuntimeErrors {
+  let reportFirstError: (message: string) => void = () => undefined;
+  const errors: RuntimeErrors = {
+    console: [],
+    first: new Promise<string>((resolve) => {
+      reportFirstError = resolve;
+    }),
+    page: [],
+  };
+
+  page.on('pageerror', (error) => {
+    const message = error.stack ?? error.message;
+    errors.page.push(message);
+    reportFirstError(`pageerror: ${message}`);
+  });
+  page.on('console', (message) => {
+    if (message.type() === 'error') {
+      const text = message.text();
+      errors.console.push(text);
+      reportFirstError(`console.error: ${text}`);
+    }
+  });
+
+  return errors;
+}
+
+async function installWebGlContextLossMonitor(page: Page) {
+  await page.addInitScript(() => {
+    window.addEventListener(
+      'webglcontextlost',
+      (event) => {
+        const statusMessage =
+          'statusMessage' in event && typeof event.statusMessage === 'string'
+            ? event.statusMessage
+            : '';
+        console.error(
+          `HERO_CAPTURE_WEBGL_CONTEXT_LOST${
+            statusMessage ? `: ${statusMessage}` : ''
+          }`,
+        );
+      },
+      true,
+    );
+  });
+}
+
+function expectNoRuntimeErrors(
+  errors: RuntimeErrors,
+  stateKey: ReferenceStateKey,
+) {
+  expect(
+    {
+      console: errors.console,
+      page: errors.page,
+    },
+    `${stateKey}: hero capture emitted browser runtime errors`,
+  ).toEqual({
+    console: [],
+    page: [],
+  });
+}
+
+async function createArtifactEvidence(relativePath: string) {
+  const artifact = await readFile(path.join(outputRoot, relativePath));
+
+  return {
+    path: relativePath,
+    bytes: artifact.byteLength,
+    sha256: createHash('sha256').update(artifact).digest('hex'),
+  };
+}
 
 function createStateQuery(stateKey: ReferenceStateKey) {
   const query = new URLSearchParams({
@@ -62,24 +162,20 @@ async function waitForSettledDirectState(
 
   await expect(root).toHaveCount(1);
   await expect(root).toHaveAttribute('data-hero-render-ready', 'true');
-  await expect(root.locator('[data-hero-surface]')).toBeVisible();
+  await expect(root).toHaveAttribute('data-hero-motion', 'full');
+  await expect(root).toHaveAttribute('data-hero-profile', 'recording-desktop');
+  await expect(root).toHaveAttribute('data-hero-seed', '43117');
+  await expect(
+    root.locator('[data-hero-surface="canvas"] canvas'),
+  ).toBeVisible();
   await page.evaluate(() => document.fonts.ready);
   if (stateKey === 'journey-exit') {
-    await page.evaluate(() => {
-      const nextSection = document.querySelector<HTMLElement>(
-        '[data-hero-next-section]',
-      );
-      if (!nextSection) {
-        throw new Error('Hero exit capture requires the following section');
-      }
-
-      window.scrollBy({
-        top:
-          nextSection.getBoundingClientRect().top -
-          window.innerHeight * (367.5 / 761),
+    await page.evaluate(() =>
+      window.scrollTo({
+        top: 3520,
         behavior: 'auto',
-      });
-    });
+      }),
+    );
   }
   await page.locator('nextjs-portal').evaluateAll((portals) => {
     portals.forEach((portal) => portal.remove());
@@ -92,6 +188,29 @@ async function waitForSettledDirectState(
   );
 
   return root;
+}
+
+async function waitForSettledStateOrRuntimeError(
+  page: Page,
+  stateKey: ReferenceStateKey,
+  runtimeErrors: RuntimeErrors,
+) {
+  const outcome = await Promise.race([
+    waitForSettledDirectState(page, stateKey).then((root) => ({
+      root,
+    })),
+    runtimeErrors.first.then((runtimeError) => ({
+      runtimeError,
+    })),
+  ]);
+
+  if ('runtimeError' in outcome) {
+    throw new Error(
+      `${stateKey}: hero failed before render readiness: ${outcome.runtimeError}`,
+    );
+  }
+
+  return outcome.root;
 }
 
 async function measurePage(page: Page, stateKey: ReferenceStateKey) {
@@ -120,17 +239,29 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
       `[data-hero-reference-state="${key}"]`,
     );
     const shell = document.querySelector<HTMLElement>('[data-hero-shell]');
+    const surface = root?.querySelector<HTMLElement>('[data-hero-surface]');
     const canvas = document.querySelector<HTMLCanvasElement>(
       '[data-hero-surface] canvas',
     );
     const canvasStyle = canvas ? getComputedStyle(canvas) : null;
     let canvasCenterPixel: number[] | null = null;
+    let webglContextAvailable = false;
+    let webglContextType: 'webgl2' | 'webgl' | null = null;
     let webglContextLost: boolean | null = null;
 
     if (canvas) {
-      const context =
-        canvas.getContext('webgl2') ?? canvas.getContext('webgl');
+      let context: WebGLRenderingContext | WebGL2RenderingContext | null =
+        canvas.getContext('webgl2');
       if (context) {
+        webglContextType = 'webgl2';
+      } else {
+        context = canvas.getContext('webgl');
+        if (context) {
+          webglContextType = 'webgl';
+        }
+      }
+      if (context) {
+        webglContextAvailable = true;
         const pixel = new Uint8Array(4);
         context.readPixels(
           Math.floor(context.drawingBufferWidth / 2),
@@ -145,6 +276,10 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
         webglContextLost = context.isContextLost();
       }
     }
+    const processStepElements = [
+      ...document.querySelectorAll<HTMLElement>('[data-hero-process-step]'),
+    ];
+    const processStepsContainer = processStepElements[0]?.parentElement ?? null;
 
     return {
       stateKey: key,
@@ -167,22 +302,28 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
         : null,
       cssVariables: shell
         ? {
-            heroExitProgress:
-              shell.style.getPropertyValue('--hero-exit-progress'),
-            heroFadeProgress:
-              shell.style.getPropertyValue('--hero-fade-progress'),
-            flowRevealProgress:
-              shell.style.getPropertyValue('--flow-reveal-progress'),
-            fieldVisibility:
-              shell.style.getPropertyValue('--field-visibility'),
+            heroExitProgress: shell.style.getPropertyValue(
+              '--hero-exit-progress',
+            ),
+            heroFadeProgress: shell.style.getPropertyValue(
+              '--hero-fade-progress',
+            ),
+            flowRevealProgress: shell.style.getPropertyValue(
+              '--flow-reveal-progress',
+            ),
+            fieldVisibility: shell.style.getPropertyValue('--field-visibility'),
           }
         : null,
-      renderSurface: canvasStyle
+      renderSurface: surface
         ? {
-            opacity: canvasStyle.opacity,
-            visibility: canvasStyle.visibility,
-            display: canvasStyle.display,
-            backgroundColor: canvasStyle.backgroundColor,
+            kind: surface.getAttribute('data-hero-surface'),
+            canvasPresent: Boolean(canvas),
+            webglContextAvailable,
+            webglContextType,
+            opacity: canvasStyle?.opacity ?? null,
+            visibility: canvasStyle?.visibility ?? null,
+            display: canvasStyle?.display ?? null,
+            backgroundColor: canvasStyle?.backgroundColor ?? null,
             width: canvas?.width ?? null,
             height: canvas?.height ?? null,
             centerPixel: canvasCenterPixel,
@@ -222,16 +363,15 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
         landingSubtitle: rect('[data-hero-copy="landing"] p'),
         scrollCue: rect('[data-hero-copy="landing"] button'),
         process: rect('[data-hero-process]'),
+        processSteps: processStepsContainer
+          ? serializeBounds(processStepsContainer.getBoundingClientRect())
+          : null,
         nextSection: rect('[data-hero-next-section]'),
-        activeProcessStep: rect(
-          '[data-hero-process-step][data-active="true"]',
-        ),
+        activeProcessStep: rect('[data-hero-process-step][data-active="true"]'),
         canvas: rect('[data-hero-surface] canvas'),
         fallback: rect('[data-hero-surface="fallback"]'),
       },
-      processSteps: [
-        ...document.querySelectorAll<HTMLElement>('[data-hero-process-step]'),
-      ].map((step) => {
+      processSteps: processStepElements.map((step) => {
         const childBounds = (selector: string) => {
           const element = step.querySelector<HTMLElement>(selector);
           return element
@@ -254,41 +394,107 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
 }
 
 test.beforeAll(async () => {
-  await mkdir(path.join(outputRoot, 'implementation'), { recursive: true });
-  await mkdir(path.join(outputRoot, 'measurements'), { recursive: true });
+  captureRunId = randomUUID();
+  captureRunStartedAt = new Date().toISOString();
+  capturedStates.clear();
+
+  await Promise.all(
+    generatedOutputPaths.map((generatedPath) =>
+      rm(generatedPath, { force: true, recursive: true }),
+    ),
+  );
+  await Promise.all([
+    mkdir(implementationRoot, { recursive: true }),
+    mkdir(measurementRoot, { recursive: true }),
+  ]);
+});
+
+test.afterAll(async () => {
+  if (REFERENCE_STATES.some((stateKey) => !capturedStates.has(stateKey))) {
+    return;
+  }
+
+  const states = await Promise.all(
+    REFERENCE_STATES.map(async (stateKey) => ({
+      key: stateKey,
+      implementation: await createArtifactEvidence(
+        path.posix.join('implementation', `${stateKey}.png`),
+      ),
+      measurement: await createArtifactEvidence(
+        path.posix.join('measurements', `${stateKey}.json`),
+      ),
+    })),
+  );
+  const manifest = {
+    schemaVersion: 1,
+    status: 'complete',
+    runId: captureRunId,
+    startedAt: captureRunStartedAt,
+    completedAt: new Date().toISOString(),
+    expectedStateCount: REFERENCE_STATES.length,
+    capturedStateCount: capturedStates.size,
+    states,
+  };
+
+  await writeFile(
+    captureManifestTemporaryPath,
+    `${JSON.stringify(manifest, null, 2)}\n`,
+    'utf8',
+  );
+  await rename(captureManifestTemporaryPath, captureManifestPath);
 });
 
 for (const stateKey of REFERENCE_STATES) {
   test(`capture ${stateKey} at the recording profile`, async ({ page }) => {
+    const runtimeErrors = captureRuntimeErrors(page);
+    await installWebGlContextLossMonitor(page);
+
     await page.goto(`/?${createStateQuery(stateKey)}`, {
       waitUntil: 'domcontentloaded',
     });
-    const stateRoot = await waitForSettledDirectState(page, stateKey);
+    const stateRoot = await waitForSettledStateOrRuntimeError(
+      page,
+      stateKey,
+      runtimeErrors,
+    );
     await expect(stateRoot).toHaveAttribute(
       'data-hero-reference-state',
       stateKey,
     );
+    expectNoRuntimeErrors(runtimeErrors, stateKey);
 
-    const imagePath = path.join(
-      outputRoot,
-      'implementation',
-      `${stateKey}.png`,
-    );
-    const measurementPath = path.join(
-      outputRoot,
-      'measurements',
-      `${stateKey}.json`,
-    );
+    const imagePath = path.join(implementationRoot, `${stateKey}.png`);
+    const measurementPath = path.join(measurementRoot, `${stateKey}.json`);
 
     await page.screenshot({
       path: imagePath,
       animations: 'disabled',
       scale: 'device',
     });
+    const measurement = await measurePage(page, stateKey);
+    expect(measurement.state).toMatchObject({
+      'data-hero-motion': 'full',
+      'data-hero-profile': 'recording-desktop',
+      'data-hero-render-ready': 'true',
+      'data-hero-seed': '43117',
+    });
+    expect(measurement.renderSurface).toMatchObject({
+      kind: 'canvas',
+      canvasPresent: true,
+      webglContextAvailable: true,
+      webglContextLost: false,
+    });
+    expect(
+      measurement.renderSurface?.webglContextLost,
+      `${stateKey}: hero WebGL context was lost`,
+    ).not.toBe(true);
+    expectNoRuntimeErrors(runtimeErrors, stateKey);
     await writeFile(
       measurementPath,
-      `${JSON.stringify(await measurePage(page, stateKey), null, 2)}\n`,
+      `${JSON.stringify(measurement, null, 2)}\n`,
       'utf8',
     );
+    expectNoRuntimeErrors(runtimeErrors, stateKey);
+    capturedStates.add(stateKey);
   });
 }

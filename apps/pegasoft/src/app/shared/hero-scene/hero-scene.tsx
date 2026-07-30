@@ -4,14 +4,14 @@ import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef, useState } from 'react';
 import type { HeroJourneySnapshot } from './hero-contract';
 import type { HeroDevelopmentDiagnostics } from './hero-development-diagnostics';
-import {
-  HeroCamera,
-  type HeroCameraProgressRef,
-} from './hero-camera';
+import { HeroCamera, type HeroCameraProgressRef } from './hero-camera';
 import { HERO_CAMERA_SOURCE } from './hero-camera-model';
 import { HeroFallback } from './hero-fallback';
 import { HeroLighting } from './hero-lighting';
-import { HERO_PALETTE, HERO_STANDARD_MATERIAL_COMPATIBILITY } from './hero-materials';
+import {
+  HERO_PALETTE,
+  HERO_STANDARD_MATERIAL_COMPATIBILITY,
+} from './hero-materials';
 import { HeroWorld } from './hero-world';
 import styles from './hero-scene.module.css';
 
@@ -19,11 +19,16 @@ export interface HeroSceneProps {
   snapshot: HeroJourneySnapshot;
 }
 
+type HeroSceneDiagnosticsFactory = (
+  snapshot: HeroJourneySnapshot,
+) => HeroDevelopmentDiagnostics;
+
 export function HeroScene({ snapshot }: HeroSceneProps) {
   const canRender = snapshot.motion !== 'static';
   const [canvasReady, setCanvasReady] = useState(false);
-  const [developmentDiagnostics, setDevelopmentDiagnostics] =
-    useState<HeroDevelopmentDiagnostics>({});
+  const [getDevelopmentDiagnostics, setGetDevelopmentDiagnostics] =
+    useState<HeroSceneDiagnosticsFactory | null>(null);
+  const developmentDiagnostics = getDevelopmentDiagnostics?.(snapshot) ?? {};
   const settledCameraProgressRef = useRef<HeroCameraProgressRef>({
     current:
       snapshot.referenceState.progress.settledCamera ??
@@ -40,8 +45,8 @@ export function HeroScene({ snapshot }: HeroSceneProps) {
     void import('./hero-development-diagnostics').then(
       ({ getHeroSceneDevelopmentDiagnostics }) => {
         if (active) {
-          setDevelopmentDiagnostics(
-            getHeroSceneDevelopmentDiagnostics(snapshot),
+          setGetDevelopmentDiagnostics(
+            () => getHeroSceneDevelopmentDiagnostics,
           );
         }
       },
@@ -50,7 +55,7 @@ export function HeroScene({ snapshot }: HeroSceneProps) {
     return () => {
       active = false;
     };
-  }, [snapshot]);
+  }, []);
 
   return (
     <div

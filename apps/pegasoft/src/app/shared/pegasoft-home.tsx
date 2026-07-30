@@ -5,7 +5,10 @@ import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import type { HeroPageScrollMeasurement } from './hero-scene/hero-contract';
+import type {
+  HeroJourneySnapshot,
+  HeroPageScrollMeasurement,
+} from './hero-scene/hero-contract';
 import type { HeroDevelopmentDiagnostics } from './hero-scene/hero-development-diagnostics';
 import { HeroScene } from './hero-scene/hero-scene';
 import {
@@ -89,6 +92,10 @@ const INITIAL_PAGE_MEASUREMENT: HeroPageScrollMeasurement = {
   fieldSectionViewportTop: null,
 };
 
+type HeroShellDiagnosticsFactory = (
+  snapshot: HeroJourneySnapshot,
+) => HeroDevelopmentDiagnostics;
+
 function pageMeasurementsMatch(
   current: HeroPageScrollMeasurement,
   next: HeroPageScrollMeasurement,
@@ -146,11 +153,7 @@ function PegasoftLoader({
               stroke="white"
               strokeWidth="16.1"
             />
-            <path
-              d="M0 47.9917H56"
-              stroke="white"
-              strokeWidth="16.1"
-            />
+            <path d="M0 47.9917H56" stroke="white" strokeWidth="16.1" />
           </mask>
         </defs>
         <g fill="currentColor">
@@ -212,9 +215,11 @@ export function PegasoftHome() {
     useState<HeroPageScrollMeasurement>(INITIAL_PAGE_MEASUREMENT);
   const [activeFaqIndex, setActiveFaqIndex] = useState(0);
   const [headerWhite, setHeaderWhite] = useState(false);
-  const [developmentHeroDiagnostics, setDevelopmentHeroDiagnostics] =
-    useState<HeroDevelopmentDiagnostics>({});
+  const [getDevelopmentHeroDiagnostics, setGetDevelopmentHeroDiagnostics] =
+    useState<HeroShellDiagnosticsFactory | null>(null);
   const heroJourney = useHeroJourneyController(pageMeasurement);
+  const developmentHeroDiagnostics =
+    getDevelopmentHeroDiagnostics?.(heroJourney) ?? {};
   const sceneReady =
     heroJourney.motion === 'reduced' ||
     heroJourney.localClocks.loaderMs >= 2100;
@@ -247,8 +252,8 @@ export function PegasoftHome() {
     void import('./hero-scene/hero-development-diagnostics').then(
       ({ getHeroShellDevelopmentDiagnostics }) => {
         if (active) {
-          setDevelopmentHeroDiagnostics(
-            getHeroShellDevelopmentDiagnostics(heroJourney),
+          setGetDevelopmentHeroDiagnostics(
+            () => getHeroShellDevelopmentDiagnostics,
           );
         }
       },
@@ -257,7 +262,7 @@ export function PegasoftHome() {
     return () => {
       active = false;
     };
-  }, [heroJourney]);
+  }, []);
 
   useEffect(() => {
     document.body.classList.toggle(
@@ -442,7 +447,7 @@ export function PegasoftHome() {
       revealSection(footerRef.current);
     };
 
-    const onScroll = () => {
+    const scheduleUpdate = () => {
       if (frame) {
         return;
       }
@@ -451,16 +456,30 @@ export function PegasoftHome() {
     };
 
     update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    const geometryObserver = new ResizeObserver(scheduleUpdate);
+    const flowSection = flowRef.current;
+    const featureSection = featuresRef.current;
+
+    if (flowSection) {
+      geometryObserver.observe(flowSection);
+    }
+    if (featureSection) {
+      geometryObserver.observe(featureSection);
+    }
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    window.visualViewport?.addEventListener('resize', scheduleUpdate);
 
     return () => {
       if (frame) {
         window.cancelAnimationFrame(frame);
       }
 
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      geometryObserver.disconnect();
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      window.visualViewport?.removeEventListener('resize', scheduleUpdate);
     };
   }, []);
 
