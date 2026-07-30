@@ -91,4 +91,4 @@ cost_per_peak_day = (peak_day_tokens / 1_000_000) * price_per_1M_tokens
 
 ## Principle
 
-Spend tokens where they shorten delivery time or improve quality. Reduce tokens spent on repeated ambiguity, output and unnecessary feedback.
+Spend tokens where they shorten delivery time or improve quality. Reduce tokens spent on repeated ambiguity, unnecessary output, and unnecessary feedback.
