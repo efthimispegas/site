@@ -32,7 +32,7 @@ describe('hero reference-state contract', () => {
     });
   });
 
-  it('exposes the four deterministically measured primary landmarks', () => {
+  it('exposes the seven deterministically measured primary landmarks', () => {
     const measured = referenceStates
       .filter(
         ({ screenBounds }) =>
@@ -74,6 +74,42 @@ describe('hero reference-state contract', () => {
           label: 'central blue loader mark during world reveal',
           evidenceRef:
             'docs/hero-reference/recording-structural-bounds.json#/states/1/landmark',
+        },
+      },
+      {
+        key: 'activation-route',
+        landmark: [815.5, 501, 247.5, 230.5],
+        landmarkStatus: 'observed',
+        primaryStructure: {
+          kind: 'landmark',
+          status: 'observed',
+          label: 'first-destination building before route contact',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/4/landmark',
+        },
+      },
+      {
+        key: 'activation-contact',
+        landmark: [682.5, 301, 234, 211],
+        landmarkStatus: 'observed',
+        primaryStructure: {
+          kind: 'landmark',
+          status: 'observed',
+          label: 'logo-bearing first-destination building at route contact',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/5/landmark',
+        },
+      },
+      {
+        key: 'field-contact',
+        landmark: [754.5, 291, 90, 104.5],
+        landmarkStatus: 'observed',
+        primaryStructure: {
+          kind: 'landmark',
+          status: 'observed',
+          label: 'elevated center tile and standing figure at first contact',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/9/landmark',
         },
       },
       {
@@ -185,10 +221,7 @@ describe('hero reference-state contract', () => {
     expect(blocked).toEqual([
       'landing',
       'landing-idle',
-      'activation-route',
-      'activation-contact',
       'field-approach',
-      'field-contact',
       'field-pulse-a',
     ]);
     expect(notApplicable).toEqual([
@@ -203,7 +236,7 @@ describe('hero reference-state contract', () => {
           screenBounds.primaryStructure.kind === 'landmark' &&
           screenBounds.primaryStructure.status === 'blocked',
       ),
-    ).toHaveLength(7);
+    ).toHaveLength(4);
   });
 
   it('keeps same-progress local phases independently addressable', () => {

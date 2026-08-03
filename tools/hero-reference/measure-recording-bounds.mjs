@@ -14,8 +14,13 @@ const outputPath = path.join(
   workspaceRoot,
   'docs/hero-reference/recording-structural-bounds.json',
 );
+const semanticMasksPath = path.join(
+  workspaceRoot,
+  'docs/hero-reference/recording-semantic-masks.json',
+);
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
-const algorithmVersion = 'recording-structural-bounds-v2';
+const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
+const algorithmVersion = 'recording-structural-bounds-v3';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -96,19 +101,19 @@ const STATE_MEASUREMENTS = {
   'activation-route': {
     primaryStructure: 'landmark',
     landmark: {
-      status: 'blocked',
       label: 'first-destination building before route contact',
-      reason:
-        'The destination building is fully visible, correcting the prior clipping claim, but its pale silhouette is not isolated by the approved pixel methods. A versioned semantic mask with explicit inclusion rules is required.',
+      method: 'source-semantic-mask',
+      rationale:
+        'The complete destination building is fully visible. A hash-locked, source-frame-tied semantic silhouette includes its connected volumes while excluding rails, shadows, figures, vegetation, and surrounding context.',
     },
   },
   'activation-contact': {
     primaryStructure: 'landmark',
     landmark: {
-      status: 'blocked',
       label: 'logo-bearing first-destination building at route contact',
-      reason:
-        'The complete destination building is visible, but only its blue logo is deterministically separable. A logo box would under-report the structure; a reviewed semantic silhouette mask is still required.',
+      method: 'source-semantic-mask',
+      rationale:
+        'The complete logo-bearing destination is visible. A hash-locked semantic silhouette prevents the separable blue logo or red contact rails from substituting for the full landmark.',
     },
   },
   'clearance-travel': {
@@ -161,10 +166,10 @@ const STATE_MEASUREMENTS = {
   'field-contact': {
     primaryStructure: 'landmark',
     landmark: {
-      status: 'blocked',
       label: 'elevated center tile and standing figure at first contact',
-      reason:
-        'The complete center tile and figure are visible, but current chroma support covers only part of the blue tile and not the pale figure. A reviewed semantic mask is required before this union becomes source evidence.',
+      method: 'source-semantic-mask',
+      rationale:
+        'The complete center tile and its standing figure are visible. Their hash-locked semantic union excludes the incoming route, adjacent reacting tiles, and contact glow.',
     },
   },
   'field-pulse-a': {
@@ -871,6 +876,105 @@ async function writeDebugOverlay(
     .toFile(path.join(debugDirectory, `${stateKey}-${featureKind}.png`));
 }
 
+async function selectSemanticMask(sourcePath, image, stateKey, featureKind) {
+  const entry = semanticMasksByKey.get(`${stateKey}:${featureKind}`);
+  if (!entry) {
+    throw new Error(
+      `${stateKey}/${featureKind}: no source semantic mask is declared in ${semanticMasksRef}`,
+    );
+  }
+
+  const relativeSourcePath = path
+    .relative(workspaceRoot, sourcePath)
+    .split(path.sep)
+    .join('/');
+  if (entry.sourceCapturePath !== relativeSourcePath) {
+    throw new Error(
+      `${stateKey}/${featureKind}: semantic mask source ${entry.sourceCapturePath} does not match ${relativeSourcePath}`,
+    );
+  }
+
+  const actualSourceSha = await sha256File(sourcePath);
+  if (entry.sourceCaptureSha256 !== actualSourceSha) {
+    throw new Error(
+      `${stateKey}/${featureKind}: semantic mask source SHA mismatch (${actualSourceSha} != ${entry.sourceCaptureSha256})`,
+    );
+  }
+
+  const maskPath = path.join(workspaceRoot, entry.maskPath);
+  const maskBuffer = await readFile(maskPath);
+  const actualMaskSha = sha256(maskBuffer);
+  if (actualMaskSha !== entry.maskSha256) {
+    throw new Error(
+      `${stateKey}/${featureKind}: semantic mask SHA mismatch (${actualMaskSha} != ${entry.maskSha256})`,
+    );
+  }
+
+  const { data: maskData, info: maskInfo } = await sharp(maskBuffer)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  if (
+    maskInfo.width !== image.width ||
+    maskInfo.height !== image.height ||
+    maskInfo.channels !== 4
+  ) {
+    throw new Error(
+      `${stateKey}/${featureKind}: semantic mask must rasterize to ${image.width}x${image.height} RGBA; received ${maskInfo.width}x${maskInfo.height}x${maskInfo.channels}`,
+    );
+  }
+  if (
+    !Number.isInteger(entry.alphaThreshold) ||
+    entry.alphaThreshold < 1 ||
+    entry.alphaThreshold > 255 ||
+    !Number.isInteger(entry.minimumSelectedPixels) ||
+    entry.minimumSelectedPixels < 1
+  ) {
+    throw new Error(
+      `${stateKey}/${featureKind}: semantic mask thresholds must be positive integers and alphaThreshold must not exceed 255`,
+    );
+  }
+
+  const selectedMask = new Uint8Array(image.width * image.height);
+  for (let index = 0; index < selectedMask.length; index += 1) {
+    if (maskData[index * maskInfo.channels + 3] >= entry.alphaThreshold) {
+      selectedMask[index] = 1;
+    }
+  }
+  const selected = boundsFromMask(selectedMask, image.width, image.height);
+  if (
+    selected &&
+    (selected.bounds.x === 0 ||
+      selected.bounds.y === 0 ||
+      selected.bounds.x + selected.bounds.width === image.width ||
+      selected.bounds.y + selected.bounds.height === image.height)
+  ) {
+    throw new Error(
+      `${stateKey}/${featureKind}: complete-landmark semantic mask touches the source raster edge`,
+    );
+  }
+
+  return {
+    selectedMask,
+    selectedComponents: selected ? [selected] : [],
+    eligibleComponentCount: selected ? 1 : 0,
+    totalComponentCount: selected ? 1 : 0,
+    minimumSelectedPixels: entry.minimumSelectedPixels,
+    semanticMask: {
+      manifest: semanticMasksRef,
+      maskPath: entry.maskPath,
+      maskSha256: entry.maskSha256,
+      sourceCapturePath: entry.sourceCapturePath,
+      sourceCaptureSha256: entry.sourceCaptureSha256,
+      alphaThreshold: entry.alphaThreshold,
+      inclusion: entry.inclusion,
+      exclusion: entry.exclusion,
+      uncertainty: entry.uncertainty,
+      reviewStatus: entry.reviewStatus,
+    },
+  };
+}
+
 async function measureFeature(
   sourcePath,
   data,
@@ -880,10 +984,19 @@ async function measureFeature(
   config,
   dpr,
 ) {
-  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  const roi = config.roi
+    ? normalizedRoiToPixels(config.roi, image.width, image.height)
+    : null;
   let selection;
 
-  if (
+  if (config.method === 'source-semantic-mask') {
+    selection = await selectSemanticMask(
+      sourcePath,
+      image,
+      stateKey,
+      featureKind,
+    );
+  } else if (
     config.method === 'chroma-component-union' ||
     config.method === 'largest-chroma-component'
   ) {
@@ -901,15 +1014,20 @@ async function measureFeature(
     image.width,
     image.height,
   );
-  if (!selected || selected.pixels < config.minimumSelectedPixels) {
+  const minimumSelectedPixels =
+    selection.minimumSelectedPixels ?? config.minimumSelectedPixels;
+  if (!selected || selected.pixels < minimumSelectedPixels) {
     return {
       status: 'blocked',
       label: config.label,
-      reason: `The deterministic ${config.method} quality gate found ${selected?.pixels ?? 0} selected pixels; at least ${config.minimumSelectedPixels} are required.`,
+      reason: `The deterministic ${config.method} quality gate found ${selected?.pixels ?? 0} selected pixels; at least ${minimumSelectedPixels} are required.`,
       method: {
         id: config.method,
-        roiNormalized: config.roi,
-        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+        roiNormalized: config.roi ?? null,
+        roiRasterPixels: roi
+          ? [roi.x, roi.y, roi.width, roi.height]
+          : null,
+        semanticMask: selection.semanticMask ?? null,
       },
     };
   }
@@ -931,8 +1049,10 @@ async function measureFeature(
     pixelSupport: selected.pixels,
     method: {
       id: config.method,
-      roiNormalized: config.roi,
-      roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+      roiNormalized: config.roi ?? null,
+      roiRasterPixels: roi
+        ? [roi.x, roi.y, roi.width, roi.height]
+        : null,
       predicate: config.predicate
         ? {
             id: config.predicate.id,
@@ -941,12 +1061,13 @@ async function measureFeature(
         : null,
       sobelThreshold: config.sobelThreshold ?? null,
       dilationIterations: config.dilationIterations ?? 0,
-      connectivity: 8,
-      minimumComponentPixels: config.minimumComponentPixels,
-      minimumSelectedPixels: config.minimumSelectedPixels,
+      connectivity: config.method === 'source-semantic-mask' ? null : 8,
+      minimumComponentPixels: config.minimumComponentPixels ?? null,
+      minimumSelectedPixels,
       totalComponentCount: selection.totalComponentCount,
       eligibleComponentCount: selection.eligibleComponentCount,
       selectedComponentCount: selection.selectedComponents.length,
+      semanticMask: selection.semanticMask ?? null,
       rationale: config.rationale,
     },
   };
@@ -1054,7 +1175,59 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
   return next;
 }
 
-const manifest = JSON.parse(await readFile(anchorsPath, 'utf8'));
+const [manifest, semanticMaskManifest] = await Promise.all([
+  readFile(anchorsPath, 'utf8').then((contents) => JSON.parse(contents)),
+  readFile(semanticMasksPath, 'utf8').then((contents) => JSON.parse(contents)),
+]);
+if (
+  semanticMaskManifest.schemaVersion !== 1 ||
+  semanticMaskManifest.authority.recordingSha256 !==
+    manifest.authority.sourceSha256 ||
+  semanticMaskManifest.authority.rasterPixels.width !==
+    manifest.authority.recordingProfile.rasterPixels.width ||
+  semanticMaskManifest.authority.rasterPixels.height !==
+    manifest.authority.recordingProfile.rasterPixels.height
+) {
+  throw new Error(
+    `${semanticMasksRef}: authority must match the locked recording manifest`,
+  );
+}
+const semanticMasksByKey = new Map();
+for (const entry of semanticMaskManifest.masks) {
+  const key = `${entry.stateKey}:${entry.featureKind}`;
+  if (semanticMasksByKey.has(key)) {
+    throw new Error(`${semanticMasksRef}: duplicate semantic mask ${key}`);
+  }
+  if (
+    path.isAbsolute(entry.maskPath) ||
+    path.isAbsolute(entry.sourceCapturePath) ||
+    !entry.maskPath.startsWith('docs/hero-reference/annotations/') ||
+    !entry.sourceCapturePath.startsWith('docs/hero-reference/recording/')
+  ) {
+    throw new Error(
+      `${semanticMasksRef}: only repository-relative annotation and locked-frame paths are allowed`,
+    );
+  }
+  semanticMasksByKey.set(key, entry);
+}
+const configuredSemanticMaskKeys = new Set(
+  Object.entries(STATE_MEASUREMENTS).flatMap(([stateKey, stateConfig]) =>
+    ['landmark', 'route', 'boundary']
+      .filter(
+        (featureKind) =>
+          stateConfig[featureKind]?.method === 'source-semantic-mask',
+      )
+      .map((featureKind) => `${stateKey}:${featureKind}`),
+  ),
+);
+if (
+  configuredSemanticMaskKeys.size !== semanticMasksByKey.size ||
+  [...configuredSemanticMaskKeys].some((key) => !semanticMasksByKey.has(key))
+) {
+  throw new Error(
+    `${semanticMasksRef}: every semantic mask must map one-to-one to an active measurement configuration`,
+  );
+}
 const recordingPath = path.join(workspaceRoot, 'docs/vectrfl_recording.mov');
 const recordingSha = await sha256File(recordingPath);
 if (recordingSha !== manifest.authority.sourceSha256) {
@@ -1240,13 +1413,14 @@ const summary = states.reduce(
 );
 
 const report = {
-  schemaVersion: 2,
+  schemaVersion: 3,
   algorithmVersion,
   generatedBy: 'tools/hero-reference/measure-recording-bounds.mjs',
   authority: {
     recordingPath: 'docs/vectrfl_recording.mov',
     recordingSha256: manifest.authority.sourceSha256,
     anchorManifest: 'docs/hero-reference/recording-anchors.json',
+    semanticMaskManifest: semanticMasksRef,
     derivativePolicy:
       'Locked PNG frames are reproducible derivatives. The MOV SHA plus decoded frame index and PTS remain authoritative.',
   },
@@ -1266,7 +1440,7 @@ const report = {
   },
   methodPolicy: {
     noManualBoxes:
-      'No output rectangle is hand-entered. State configuration supplies only a documented normalized semantic ROI and fixed segmentation/quality thresholds.',
+      'No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.',
     featureStatus:
       'Every landmark is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.',
     chroma:
@@ -1275,10 +1449,12 @@ const report = {
       'The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.',
     boundary:
       'The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.',
+    semanticMasks:
+      'A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.',
     quality:
       'An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.',
     reproducibility:
-      'The authoritative MOV SHA and every input PNG SHA are verified before measurement. --check recomputes both evidence files and fails on byte drift.',
+      'The authoritative MOV SHA, every input PNG SHA, and every referenced semantic SVG SHA are verified before measurement. --check recomputes both generated evidence files and fails on byte drift.',
   },
   summary,
   states,
@@ -1290,12 +1466,12 @@ const updatedManifest = {
   anchorPolicy: {
     ...manifest.anchorPolicy,
     unmeasuredFields:
-      'Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures four landmarks, three route cores, and one section boundary; four route/transition-primary states mark landmark bounds not applicable, while seven genuinely ambiguous landmark states remain blocked.',
+      `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states remain blocked.`,
   },
   structuralBoundsEvidence: {
     status:
       summary.primaryStructureBlocked === 0 ? 'observed' : 'partially-observed',
-    verifiedOn: '2026-07-30',
+    verifiedOn: '2026-08-03',
     artifact: 'docs/hero-reference/recording-structural-bounds.json',
     algorithmVersion,
     landmarkMeasured: summary.landmarkMeasured,
@@ -1321,7 +1497,7 @@ const updatedManifest = {
             ...entry,
             status: 'partially-observed',
             reason:
-              'The deterministic structural-bounds pipeline measures four landmarks, three route cores, and one section boundary. Four route/transition-primary states correctly mark landmark bounds not applicable; seven landmark-primary states and all applicable recording copy bounds remain blocked or unknown.',
+              `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states and all applicable recording copy bounds remain blocked or unknown.`,
           }
         : entry,
   ),

@@ -328,6 +328,9 @@ export const referenceStates = [
     focus: 'first destination building',
     routeSegment: 'parallel red activation rails',
     primaryStructureLabel: 'first-destination building before route contact',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/4/landmark',
+    landmarkBounds: [815.5, 501, 247.5, 230.5],
     context: [
       'Step 01 process copy',
       'thin parallel red rails',
@@ -359,6 +362,9 @@ export const referenceStates = [
     routeSegment: 'red activation contact',
     primaryStructureLabel:
       'logo-bearing first-destination building at route contact',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/5/landmark',
+    landmarkBounds: [682.5, 301, 234, 211],
     context: [
       'Step 01 process copy',
       'red contact point',
@@ -492,6 +498,9 @@ export const referenceStates = [
     routeSegment: 'cyan route contacting field center',
     primaryStructureLabel:
       'elevated center tile and standing figure at first contact',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/9/landmark',
+    landmarkBounds: [754.5, 291, 90, 104.5],
     context: [
       'Step 03 process copy',
       'elevated center tile and figure',
