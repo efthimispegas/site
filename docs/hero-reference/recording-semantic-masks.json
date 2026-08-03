@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "authority": {
+    "recordingPath": "docs/vectrfl_recording.mov",
+    "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+    "rasterPixels": {
+      "width": 3016,
+      "height": 1522
+    },
+    "policy": "Each transparent SVG is a repository-owned, source-tied semantic classification of visible pixels. The measurement pipeline verifies the MOV, locked frame, and mask hashes, rasterizes the SVG at the recording raster, and derives the reported AABB mechanically. The mask is an evidence input; its output rectangle is never entered by hand."
+  },
+  "masks": [
+    {
+      "stateKey": "activation-route",
+      "featureKind": "landmark",
+      "sourceCapturePath": "docs/hero-reference/recording/frame-000598-activation-route.png",
+      "sourceCaptureSha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180",
+      "maskPath": "docs/hero-reference/annotations/activation-route-landmark-mask.svg",
+      "maskSha256": "513b676dff75928f7bd371e40d4937f1a73e0a6adc978f765dfce8d6cf69b55c",
+      "alphaThreshold": 128,
+      "minimumSelectedPixels": 80000,
+      "inclusion": "All visible projected surfaces of the complete first-destination building before route contact, including its connected left annex, center logo-bearing tower, and right volume.",
+      "exclusion": "Parallel red rails, blue logo-only support outside the building union, ground shadows, trees, workers, and all surrounding world context.",
+      "uncertainty": "The pale object/background boundary is reviewed at the exact locked frame; anti-aliased edge pixels below the fixed alpha threshold are excluded.",
+      "reviewStatus": "awaiting-personal-visual-review"
+    },
+    {
+      "stateKey": "activation-contact",
+      "featureKind": "landmark",
+      "sourceCapturePath": "docs/hero-reference/recording/frame-000748-activation-contact.png",
+      "sourceCaptureSha256": "8975a69102da5583678abd435df6244ffba93008406420a0ac768e9d5a226ce6",
+      "maskPath": "docs/hero-reference/annotations/activation-contact-landmark-mask.svg",
+      "maskSha256": "0d80ac8a014574c56763a1ffce5611d596415c0ef378ce46098d9f84df1f2f95",
+      "alphaThreshold": 128,
+      "minimumSelectedPixels": 80000,
+      "inclusion": "All visible projected surfaces of the complete logo-bearing first-destination building at route contact, including its connected left annex, center tower, and right volume.",
+      "exclusion": "Red contact rails, logo-only support outside the building union, ground shadows, workers, trees, and all surrounding world context.",
+      "uncertainty": "The pale object/background boundary is reviewed at the exact locked frame; anti-aliased edge pixels below the fixed alpha threshold are excluded.",
+      "reviewStatus": "awaiting-personal-visual-review"
+    },
+    {
+      "stateKey": "field-contact",
+      "featureKind": "landmark",
+      "sourceCapturePath": "docs/hero-reference/recording/frame-001390-field-contact.png",
+      "sourceCaptureSha256": "f14b7ffe780fcdb2ee6a9a90211efd592267291017974340c0228a822832cfdc",
+      "maskPath": "docs/hero-reference/annotations/field-contact-landmark-mask.svg",
+      "maskSha256": "57768ef3493a51ffd7fd4763b7760c2a79905a2d74b64cc7b230e78bb216dc6c",
+      "alphaThreshold": 128,
+      "minimumSelectedPixels": 20000,
+      "inclusion": "The complete elevated center tile at first contact plus the standing figure rooted on that tile, treated as one landmark union.",
+      "exclusion": "The connected cyan route, adjacent reacting tiles, bloom, contact glow outside the tile silhouette, and every other field figure.",
+      "uncertainty": "The standing figure overlaps the tile in projection; their union is intentional. Anti-aliased edge pixels below the fixed alpha threshold are excluded.",
+      "reviewStatus": "awaiting-personal-visual-review"
+    }
+  ]
+}

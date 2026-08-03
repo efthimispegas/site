@@ -181,17 +181,18 @@ comparison.
 ## Remaining measurements
 
 - Exact recording frame numbers are now locked for all 15 states.
-- Deterministic recording analysis now measures four landmarks
-  (`loader-mark`, `world-reveal`, `field-pulse-b`, and `arrival-lockup`) and
+- Deterministic recording analysis now measures seven landmarks
+  (`loader-mark`, `world-reveal`, `activation-route`, `activation-contact`,
+  `field-contact`, `field-pulse-b`, and `arrival-lockup`) and
   three route cores, plus the `journey-exit` section boundary. Four
   route/transition-primary states correctly mark landmark bounds not
-  applicable. Seven landmark-primary states remain explicitly blocked because
+  applicable. Four landmark-primary states remain explicitly blocked because
   the semantic subject cannot be isolated without a reviewed source-tied mask
   or because only a partial/effect-only feature is visible.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile. Their latest implementation comparison is red and
   predates the newest CSS/progress corrections.
-- Remaining screen-space work includes the seven blocked landmark-primary
+- Remaining screen-space work includes the four blocked landmark-primary
   states, complete route paths, copy/scene correspondence, field outline, and
   negative space;
 - route thickness and handoff/contact frames at matched viewports;

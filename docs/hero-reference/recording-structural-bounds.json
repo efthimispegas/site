@@ -1,11 +1,12 @@
 {
-  "schemaVersion": 2,
-  "algorithmVersion": "recording-structural-bounds-v2",
+  "schemaVersion": 3,
+  "algorithmVersion": "recording-structural-bounds-v3",
   "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
   "authority": {
     "recordingPath": "docs/vectrfl_recording.mov",
     "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
     "anchorManifest": "docs/hero-reference/recording-anchors.json",
+    "semanticMaskManifest": "docs/hero-reference/recording-semantic-masks.json",
     "derivativePolicy": "Locked PNG frames are reproducible derivatives. The MOV SHA plus decoded frame index and PTS remain authoritative."
   },
   "coordinateSpaces": {
@@ -22,18 +23,19 @@
     "pixelConvention": "Half-open rectangle enclosing every selected source pixel; width and height include the final selected raster coordinate."
   },
   "methodPolicy": {
-    "noManualBoxes": "No output rectangle is hand-entered. State configuration supplies only a documented normalized semantic ROI and fixed segmentation/quality thresholds.",
+    "noManualBoxes": "No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.",
     "featureStatus": "Every landmark is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.",
     "chroma": "Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.",
     "edges": "The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.",
     "boundary": "The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.",
+    "semanticMasks": "A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.",
     "quality": "An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.",
-    "reproducibility": "The authoritative MOV SHA and every input PNG SHA are verified before measurement. --check recomputes both evidence files and fails on byte drift."
+    "reproducibility": "The authoritative MOV SHA, every input PNG SHA, and every referenced semantic SVG SHA are verified before measurement. --check recomputes both generated evidence files and fails on byte drift."
   },
   "summary": {
     "totalAnchors": 15,
-    "landmarkMeasured": 4,
-    "landmarkBlocked": 7,
+    "landmarkMeasured": 7,
+    "landmarkBlocked": 4,
     "landmarkNotApplicable": 4,
     "routeMeasured": 3,
     "routeBlocked": 10,
@@ -41,8 +43,8 @@
     "boundaryMeasured": 1,
     "boundaryBlocked": 0,
     "boundaryNotApplicable": 14,
-    "primaryStructureMeasured": 8,
-    "primaryStructureBlocked": 7
+    "primaryStructureMeasured": 11,
+    "primaryStructureBlocked": 4
   },
   "states": [
     {
@@ -117,6 +119,7 @@
           "totalComponentCount": 7,
           "eligibleComponentCount": 6,
           "selectedComponentCount": 6,
+          "semanticMask": null,
           "rationale": "The manifest identifies the saturated blue loader mark as the central focus. The ROI excludes contour-only margins and the recorded pointer without constraining the resulting box."
         }
       },
@@ -203,6 +206,7 @@
           "totalComponentCount": 6,
           "eligibleComponentCount": 6,
           "selectedComponentCount": 6,
+          "semanticMask": null,
           "rationale": "The blue loader mark remains the only saturated-blue central landmark while the pale world emerges. The ROI excludes the red rails and peripheral scene objects."
         }
       },
@@ -307,15 +311,63 @@
       },
       "primaryStructure": {
         "kind": "landmark",
-        "status": "blocked",
+        "status": "observed",
         "label": "first-destination building before route contact",
-        "evidenceRef": null,
-        "reason": "The destination building is fully visible, correcting the prior clipping claim, but its pale silhouette is not isolated by the approved pixel methods. A versioned semantic mask with explicit inclusion rules is required."
+        "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/4/landmark",
+        "reason": null
       },
       "landmark": {
-        "status": "blocked",
+        "status": "observed",
+        "evidenceClass": "observed",
         "label": "first-destination building before route contact",
-        "reason": "The destination building is fully visible, correcting the prior clipping claim, but its pale silhouette is not isolated by the approved pixel methods. A versioned semantic mask with explicit inclusion rules is required."
+        "bounds": {
+          "rasterPixels": [
+            1631,
+            1002,
+            495,
+            461
+          ],
+          "cssPixels": [
+            815.5,
+            501,
+            247.5,
+            230.5
+          ],
+          "normalized": [
+            0.540782,
+            0.658344,
+            0.164125,
+            0.302891
+          ]
+        },
+        "pixelSupport": 145861,
+        "method": {
+          "id": "source-semantic-mask",
+          "roiNormalized": null,
+          "roiRasterPixels": null,
+          "predicate": null,
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": null,
+          "minimumComponentPixels": null,
+          "minimumSelectedPixels": 80000,
+          "totalComponentCount": 1,
+          "eligibleComponentCount": 1,
+          "selectedComponentCount": 1,
+          "semanticMask": {
+            "manifest": "docs/hero-reference/recording-semantic-masks.json",
+            "maskPath": "docs/hero-reference/annotations/activation-route-landmark-mask.svg",
+            "maskSha256": "513b676dff75928f7bd371e40d4937f1a73e0a6adc978f765dfce8d6cf69b55c",
+            "sourceCapturePath": "docs/hero-reference/recording/frame-000598-activation-route.png",
+            "sourceCaptureSha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180",
+            "alphaThreshold": 128,
+            "inclusion": "All visible projected surfaces of the complete first-destination building before route contact, including its connected left annex, center logo-bearing tower, and right volume.",
+            "exclusion": "Parallel red rails, blue logo-only support outside the building union, ground shadows, trees, workers, and all surrounding world context.",
+            "uncertainty": "The pale object/background boundary is reviewed at the exact locked frame; anti-aliased edge pixels below the fixed alpha threshold are excluded.",
+            "reviewStatus": "awaiting-personal-visual-review"
+          },
+          "rationale": "The complete destination building is fully visible. A hash-locked, source-frame-tied semantic silhouette includes its connected volumes while excluding rails, shadows, figures, vegetation, and surrounding context."
+        }
       },
       "route": {
         "status": "blocked",
@@ -344,15 +396,63 @@
       },
       "primaryStructure": {
         "kind": "landmark",
-        "status": "blocked",
+        "status": "observed",
         "label": "logo-bearing first-destination building at route contact",
-        "evidenceRef": null,
-        "reason": "The complete destination building is visible, but only its blue logo is deterministically separable. A logo box would under-report the structure; a reviewed semantic silhouette mask is still required."
+        "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/5/landmark",
+        "reason": null
       },
       "landmark": {
-        "status": "blocked",
+        "status": "observed",
+        "evidenceClass": "observed",
         "label": "logo-bearing first-destination building at route contact",
-        "reason": "The complete destination building is visible, but only its blue logo is deterministically separable. A logo box would under-report the structure; a reviewed semantic silhouette mask is still required."
+        "bounds": {
+          "rasterPixels": [
+            1365,
+            602,
+            468,
+            422
+          ],
+          "cssPixels": [
+            682.5,
+            301,
+            234,
+            211
+          ],
+          "normalized": [
+            0.452586,
+            0.395532,
+            0.155172,
+            0.277267
+          ]
+        },
+        "pixelSupport": 143600,
+        "method": {
+          "id": "source-semantic-mask",
+          "roiNormalized": null,
+          "roiRasterPixels": null,
+          "predicate": null,
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": null,
+          "minimumComponentPixels": null,
+          "minimumSelectedPixels": 80000,
+          "totalComponentCount": 1,
+          "eligibleComponentCount": 1,
+          "selectedComponentCount": 1,
+          "semanticMask": {
+            "manifest": "docs/hero-reference/recording-semantic-masks.json",
+            "maskPath": "docs/hero-reference/annotations/activation-contact-landmark-mask.svg",
+            "maskSha256": "0d80ac8a014574c56763a1ffce5611d596415c0ef378ce46098d9f84df1f2f95",
+            "sourceCapturePath": "docs/hero-reference/recording/frame-000748-activation-contact.png",
+            "sourceCaptureSha256": "8975a69102da5583678abd435df6244ffba93008406420a0ac768e9d5a226ce6",
+            "alphaThreshold": 128,
+            "inclusion": "All visible projected surfaces of the complete logo-bearing first-destination building at route contact, including its connected left annex, center tower, and right volume.",
+            "exclusion": "Red contact rails, logo-only support outside the building union, ground shadows, workers, trees, and all surrounding world context.",
+            "uncertainty": "The pale object/background boundary is reviewed at the exact locked frame; anti-aliased edge pixels below the fixed alpha threshold are excluded.",
+            "reviewStatus": "awaiting-personal-visual-review"
+          },
+          "rationale": "The complete logo-bearing destination is visible. A hash-locked semantic silhouette prevents the separable blue logo or red contact rails from substituting for the full landmark."
+        }
       },
       "route": {
         "status": "blocked",
@@ -442,6 +542,7 @@
           "totalComponentCount": 78,
           "eligibleComponentCount": 13,
           "selectedComponentCount": 1,
+          "semanticMask": null,
           "rationale": "The source record defines route direction as the observable focus. The saturated cyan route is connected, while the ambient dotted wake is split into smaller components."
         }
       },
@@ -528,6 +629,7 @@
           "totalComponentCount": 90,
           "eligibleComponentCount": 12,
           "selectedComponentCount": 1,
+          "semanticMask": null,
           "rationale": "The ROI follows the lower transit band named by the manifest and excludes the top-right field tiles. Component size separates the continuous route from the dotted wake."
         }
       },
@@ -590,15 +692,63 @@
       },
       "primaryStructure": {
         "kind": "landmark",
-        "status": "blocked",
+        "status": "observed",
         "label": "elevated center tile and standing figure at first contact",
-        "evidenceRef": null,
-        "reason": "The complete center tile and figure are visible, but current chroma support covers only part of the blue tile and not the pale figure. A reviewed semantic mask is required before this union becomes source evidence."
+        "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/landmark",
+        "reason": null
       },
       "landmark": {
-        "status": "blocked",
+        "status": "observed",
+        "evidenceClass": "observed",
         "label": "elevated center tile and standing figure at first contact",
-        "reason": "The complete center tile and figure are visible, but current chroma support covers only part of the blue tile and not the pale figure. A reviewed semantic mask is required before this union becomes source evidence."
+        "bounds": {
+          "rasterPixels": [
+            1509,
+            582,
+            180,
+            209
+          ],
+          "cssPixels": [
+            754.5,
+            291,
+            90,
+            104.5
+          ],
+          "normalized": [
+            0.500332,
+            0.382392,
+            0.059682,
+            0.137319
+          ]
+        },
+        "pixelSupport": 30130,
+        "method": {
+          "id": "source-semantic-mask",
+          "roiNormalized": null,
+          "roiRasterPixels": null,
+          "predicate": null,
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": null,
+          "minimumComponentPixels": null,
+          "minimumSelectedPixels": 20000,
+          "totalComponentCount": 1,
+          "eligibleComponentCount": 1,
+          "selectedComponentCount": 1,
+          "semanticMask": {
+            "manifest": "docs/hero-reference/recording-semantic-masks.json",
+            "maskPath": "docs/hero-reference/annotations/field-contact-landmark-mask.svg",
+            "maskSha256": "57768ef3493a51ffd7fd4763b7760c2a79905a2d74b64cc7b230e78bb216dc6c",
+            "sourceCapturePath": "docs/hero-reference/recording/frame-001390-field-contact.png",
+            "sourceCaptureSha256": "f14b7ffe780fcdb2ee6a9a90211efd592267291017974340c0228a822832cfdc",
+            "alphaThreshold": 128,
+            "inclusion": "The complete elevated center tile at first contact plus the standing figure rooted on that tile, treated as one landmark union.",
+            "exclusion": "The connected cyan route, adjacent reacting tiles, bloom, contact glow outside the tile silhouette, and every other field figure.",
+            "uncertainty": "The standing figure overlaps the tile in projection; their union is intentional. Anti-aliased edge pixels below the fixed alpha threshold are excluded.",
+            "reviewStatus": "awaiting-personal-visual-review"
+          },
+          "rationale": "The complete center tile and its standing figure are visible. Their hash-locked semantic union excludes the incoming route, adjacent reacting tiles, and contact glow."
+        }
       },
       "route": {
         "status": "blocked",
@@ -720,6 +870,7 @@
           "totalComponentCount": 181,
           "eligibleComponentCount": 8,
           "selectedComponentCount": 1,
+          "semanticMask": null,
           "rationale": "The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box."
         }
       },
@@ -811,6 +962,7 @@
           "totalComponentCount": 33,
           "eligibleComponentCount": 14,
           "selectedComponentCount": 1,
+          "semanticMask": null,
           "rationale": "The destination is beyond the right edge in this anchor, so the horizontal feed is the only measurable source-confirmed travel structure. The ROI excludes header and process copy."
         }
       },
@@ -889,6 +1041,7 @@
           "totalComponentCount": 52,
           "eligibleComponentCount": 5,
           "selectedComponentCount": 1,
+          "semanticMask": null,
           "rationale": "The manifest identifies the frontal arrow as the primary landmark. A narrow semantic ROI excludes process copy, header, most of the incoming feed, and surrounding marks; the layered arrow is the largest connected edge structure inside it."
         }
       },
