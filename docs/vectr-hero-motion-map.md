@@ -184,7 +184,9 @@ comparison.
 - Deterministic recording analysis now measures seven landmarks
   (`loader-mark`, `world-reveal`, `activation-route`, `activation-contact`,
   `field-contact`, `field-pulse-b`, and `arrival-lockup`) and
-  three route cores, plus the `journey-exit` section boundary. Four
+  12 visible route cores, plus the `journey-exit` section boundary. Every
+  applicable route state is measured; `loader-mark`, the exact `landing`
+  frame, and `journey-exit` correctly mark route bounds not applicable. Four
   route/transition-primary states correctly mark landmark bounds not
   applicable. Four landmark-primary states remain explicitly blocked because
   the semantic subject cannot be isolated without a reviewed source-tied mask

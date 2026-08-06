@@ -1,7 +1,7 @@
 # Pegasoft Hero Baseline Plan
 
 Status: implementation checkpoint; visual baseline is not accepted
-Last reviewed: 2026-08-03
+Last reviewed: 2026-08-06
 
 ## Baseline verdict
 
@@ -10,12 +10,14 @@ evidence.
 
 - Phase 0 preservation is accepted.
 - Phase 1 remains not accepted. Deterministic recording analysis now measures
-  seven landmarks, three route cores, and one section boundary. Four
+  seven landmarks, 12 visible route cores, and one section boundary. All 12
+  applicable route states are measured; the loader, exact landing frame, and
+  journey exit correctly mark route bounds not applicable. Four
   route/transition-primary states correctly mark landmark bounds not
   applicable; four genuinely landmark-primary states remain blocked rather
-  than accepting partial or effect-only boxes. The three newest complete
-  subjects are measured from repository-owned SVG masks locked to the exact
-  recording/frame/mask hashes and are awaiting personal visual review. Locked
+  than accepting partial or effect-only boxes. The three source-tied semantic
+  masks completed their personal-review checkpoint and remain reproducible
+  inputs, not visual acceptance. Locked
   landing and 11-state journey DOM profiles exist. The current
   manifest-verified capture passes all 13 applicable whole-ladder DOM states.
   The preliminary unmasked raster diagnostic passes only 1 of 15 states, while
@@ -288,12 +290,14 @@ incomplete; passing the harness gate does not freeze visual constants.
 ### Accuracy blockers
 
 - Locked landing and journey DOM profiles cover 13 applicable states.
-  Deterministic recording analysis measures seven landmarks, three route cores,
-  and one section boundary. Four states use a source-visible route or boundary
-  as their primary structure and correctly mark landmark bounds not
-  applicable; four landmark-primary states remain explicitly blocked. The
-  `activation-route`, `activation-contact`, and `field-contact` semantic-mask
-  overlays remain queued for personal visual review before more landmark work.
+  Deterministic recording analysis measures seven landmarks, 12 visible route
+  cores, and one section boundary. Every applicable route state is measured;
+  three states correctly mark route bounds not applicable. Four states use a
+  source-visible route or boundary as their primary structure and correctly
+  mark landmark bounds not applicable; four landmark-primary states remain
+  explicitly blocked. The `activation-route`, `activation-contact`, and
+  `field-contact` semantic-mask overlays completed their personal-review
+  checkpoint; that review does not confer visual acceptance.
 - The 15-state comparator is operational and intentionally returns a non-zero
   result. Schema 5 keeps three independent verdicts: preliminary unmasked
   raster has 1 pass and 14 failures; structural accuracy has 0 passes, 0
@@ -325,12 +329,14 @@ Status: not accepted.
 
 Current blocker: all 15 states resolve to exact recording frames and current
 live target-progress candidates. A deterministic, hash-verifying measurement
-pipeline resolves seven landmark boxes, three route cores, and the journey-exit
-section boundary. It marks four landmark fields not applicable where the
+pipeline resolves seven landmark boxes, 12 visible route cores, and the
+journey-exit section boundary. It marks three route fields not applicable and
+no applicable route field blocked. It marks four landmark fields not
+applicable where the
 source-visible primary structure is instead a route or boundary, and blocks
 four landmark-primary states where semantic isolation is not defensible. Three
-new complete-subject boxes are derived mechanically from source-tied,
-hash-locked semantic SVG masks and await personal visual review.
+complete-subject boxes are derived mechanically from source-tied, hash-locked
+semantic SVG masks whose personal-review checkpoint is complete.
 Locked live DOM contracts cover the two landing and 11 journey states, and the
 current implementation passes all 13 applicable DOM checks. Those checks cover
 the entire four-row process ladder, not only the active row. Generated
@@ -723,7 +729,7 @@ provisional downstream implementation waived the ordered release gate.
 | Phase | Gate status                                             | Evidence or blocker                                                                                                                                                                                                                                                                                                |
 | ----- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 0     | **Accepted**                                            | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed.                                                                                                                                                                                           |
-| 1     | **Not accepted**                                        | Exact frames, profiles, target calibration, classifications, schemas, seven landmark boxes, three route cores, one section boundary, and 13-state DOM authority exist; four landmark fields are correctly not applicable, while four landmark-primary states and additional structural observables remain blocked. The three newest source-tied masks await personal visual review. |
+| 1     | **Not accepted**                                        | Exact frames, profiles, target calibration, classifications, schemas, seven landmark boxes, 12 visible route cores, one section boundary, and 13-state DOM authority exist. All applicable route states are measured; three route fields and four landmark fields are correctly not applicable, while four landmark-primary states and additional structural observables remain blocked. The source-tied masks completed their personal-review checkpoint without conferring visual acceptance. |
 | 2     | **Own gate passed; ordered acceptance held at Phase 1** | All 22 configured current-page Chromium and Mobile Chrome executions pass against the current renderer/layout checkpoint.                                                                                                                                                                                          |
 | 3     | **Own gate passed; ordered acceptance held at Phase 1** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans, lint/unit/build, and current browser smoke pass.                                                                                                                                                       |
 | 4     | **Own gate passed; ordered acceptance held at Phase 1** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, motion-system validation passes, and current shared-route browser smoke passes.                                                                                                                                                       |
@@ -780,10 +786,11 @@ Implemented but insufficient: all 15 exact frames, comparison profiles,
 classification vocabulary, accuracy schema, live-source evidence, locked
 landing/journey DOM profiles, 2026-07-30 target-progress calibration, and a
 hash-verifying structural measurement pipeline exist. That pipeline measures
-seven landmarks, three route cores, and one section boundary; it correctly
-classifies four route/transition-primary landmark fields not applicable and
-blocks four genuinely landmark-primary states. The three newest semantic-mask
-measurements await personal visual review. Additional camera,
+seven landmarks, 12 visible route cores, and one section boundary; it measures
+every applicable route state, correctly classifies three route fields and four
+route/transition-primary landmark fields not applicable, and blocks four
+genuinely landmark-primary states. The source-tied semantic-mask measurements
+completed their personal-review checkpoint. Additional camera,
 negative-space, field, pointer, route, and copy observables still block the
 gate.
 

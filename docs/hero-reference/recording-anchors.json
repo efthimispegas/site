@@ -35,7 +35,7 @@
     "selection": "Each anchor is a representative frame for a named visual state, not necessarily the first transition frame.",
     "timing": "Journey timestamps are seek coordinates in this user-scrolled recording, not authored durations or normalized progress.",
     "generatedCapture": "The capture path and capture SHA verify a reproducible derivative; acceptance authority remains the MOV SHA plus frame index and PTS.",
-    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 3 route cores, and 1 section boundary; 4 route/transition-primary states mark landmark bounds not applicable, while 4 genuinely ambiguous landmark states remain blocked."
+    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, and 1 section boundary; 4 route/transition-primary states mark landmark bounds not applicable, while 4 genuinely ambiguous landmark states remain blocked."
   },
   "planCorrectionsEstablishedByExactFrames": [
     {
@@ -207,9 +207,14 @@
         ],
         "landmarkLabel": "central blue loader mark during world reveal",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/1/landmark",
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          660,
+          556,
+          224,
+          204.5
+        ],
+        "routeLabel": "visible high-chroma core of emerging red landing rails",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/1/route",
         "copy": null,
         "copyStatus": "not-applicable",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.",
@@ -221,7 +226,7 @@
           "reason": null
         },
         "landmarkStatus": "observed",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -281,11 +286,11 @@
       },
       "route": {
         "status": "observed",
-        "segment": "landing red rails",
+        "segment": "none",
         "interactionMode": {
-          "status": "unknown",
-          "value": null,
-          "reason": "The frame does not establish route-packet clock ownership."
+          "status": "observed",
+          "value": "not-applicable",
+          "reason": "The locked resolved-landing frame contains no source-visible route."
         }
       },
       "screenBounds": {
@@ -309,7 +314,7 @@
           "reason": "The landing focus is a disconnected industrial-context aggregate with members clipped by the lower viewport. A single enclosure would encode subjective membership and cannot be used as a precise landmark gate."
         },
         "landmarkStatus": "blocked",
-        "routeStatus": "blocked",
+        "routeStatus": "not-applicable",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -325,7 +330,7 @@
           "city buildings",
           "figures",
           "turbines",
-          "red rails"
+          "no source-visible route"
         ]
       },
       "confidence": "high",
@@ -385,9 +390,14 @@
         "landmark": null,
         "landmarkLabel": "landing industrial context aggregate at route idle",
         "landmarkEvidenceRef": null,
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          610,
+          599,
+          208,
+          162
+        ],
+        "routeLabel": "visible high-chroma core of landing-idle red route",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/3/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "The landing focus remains a disconnected, lower-viewport-clipped aggregate. The red packet is a route effect, and neither it nor a near-viewport-wide hand enclosure is a defensible landmark substitute.",
@@ -399,7 +409,7 @@
           "reason": "The landing focus remains a disconnected, lower-viewport-clipped aggregate. The red packet is a route effect, and neither it nor a near-viewport-wide hand enclosure is a defensible landmark substitute."
         },
         "landmarkStatus": "blocked",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -478,9 +488,14 @@
         ],
         "landmarkLabel": "first-destination building before route contact",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/4/landmark",
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          430,
+          4,
+          374,
+          471
+        ],
+        "routeLabel": "visible high-chroma core of parallel red activation rails",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/4/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.",
@@ -492,7 +507,7 @@
           "reason": null
         },
         "landmarkStatus": "observed",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -571,9 +586,14 @@
         ],
         "landmarkLabel": "logo-bearing first-destination building at route contact",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/5/landmark",
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          342,
+          1,
+          399,
+          377
+        ],
+        "routeLabel": "visible high-chroma core of red activation contact rails",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/5/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.",
@@ -585,7 +605,7 @@
           "reason": null
         },
         "landmarkStatus": "observed",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -757,10 +777,10 @@
         "landmarkLabel": null,
         "landmarkEvidenceRef": null,
         "route": [
-          242,
-          556,
-          116,
-          54
+          217,
+          429,
+          441,
+          193
         ],
         "routeLabel": "high-chroma core of cyan route approaching the field preview",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/7/route",
@@ -846,9 +866,14 @@
         "landmark": null,
         "landmarkLabel": "elevated field-center tile and figure",
         "landmarkEvidenceRef": null,
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          53,
+          387,
+          697,
+          298
+        ],
+        "routeLabel": "visible high-chroma core of cyan field-approach feed",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/8/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "Only a pale fragment of the elevated center and figure is visible among similar tiles, and the fixed header/viewport occludes its upper extent. Partial censored evidence cannot supply a complete landmark box.",
@@ -860,7 +885,7 @@
           "reason": "Only a pale fragment of the elevated center and figure is visible among similar tiles, and the fixed header/viewport occludes its upper extent. Partial censored evidence cannot supply a complete landmark box."
         },
         "landmarkStatus": "blocked",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -940,9 +965,14 @@
         ],
         "landmarkLabel": "elevated center tile and standing figure at first contact",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/landmark",
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          0,
+          345,
+          724,
+          298
+        ],
+        "routeLabel": "visible high-chroma core of cyan route before field contact",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.",
@@ -954,7 +984,7 @@
           "reason": null
         },
         "landmarkStatus": "observed",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -1031,9 +1061,14 @@
         "landmark": null,
         "landmarkLabel": "field center during inner pulse",
         "landmarkEvidenceRef": null,
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          1,
+          361,
+          622,
+          155
+        ],
+        "routeLabel": "visible high-chroma core of incoming cyan feed during inner pulse",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/10/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark.",
@@ -1045,7 +1080,7 @@
           "reason": "Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark."
         },
         "landmarkStatus": "blocked",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -1126,9 +1161,14 @@
         ],
         "landmarkLabel": "elevated blue center tile",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/landmark",
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          1,
+          394,
+          605,
+          80
+        ],
+        "routeLabel": "visible high-chroma core of incoming cyan feed during outer pulse",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.",
@@ -1140,7 +1180,7 @@
           "reason": null
         },
         "landmarkStatus": "observed",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -1316,9 +1356,14 @@
         ],
         "landmarkLabel": "large frontal arrival arrow",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/13/landmark",
-        "route": null,
-        "routeLabel": null,
-        "routeEvidenceRef": null,
+        "route": [
+          1,
+          352,
+          479,
+          10
+        ],
+        "routeLabel": "visible high-chroma core of cyan arrival feed before the arrow",
+        "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/13/route",
         "copy": null,
         "copyStatus": "unknown",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.",
@@ -1330,7 +1375,7 @@
           "reason": null
         },
         "landmarkStatus": "observed",
-        "routeStatus": "blocked",
+        "routeStatus": "observed",
         "boundaryStatus": "not-applicable",
         "boundary": null,
         "boundaryLabel": null,
@@ -1464,7 +1509,7 @@
     {
       "field": "screen-space bounds",
       "status": "partially-observed",
-      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 3 route cores, and 1 section boundary. 4 route/transition-primary states correctly mark landmark bounds not applicable; 4 landmark-primary states and all applicable recording copy bounds remain blocked or unknown."
+      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, and 1 section boundary. 4 route/transition-primary states correctly mark landmark bounds not applicable; 4 landmark-primary states and all applicable recording copy bounds remain blocked or unknown."
     },
     {
       "field": "pointer versus local-clock versus scroll ownership",
@@ -1481,11 +1526,13 @@
     "status": "partially-observed",
     "verifiedOn": "2026-08-03",
     "artifact": "docs/hero-reference/recording-structural-bounds.json",
-    "algorithmVersion": "recording-structural-bounds-v3",
+    "algorithmVersion": "recording-structural-bounds-v4",
     "landmarkMeasured": 7,
     "landmarkBlocked": 4,
     "landmarkNotApplicable": 4,
-    "routeMeasured": 3,
+    "routeMeasured": 12,
+    "routeBlocked": 0,
+    "routeNotApplicable": 3,
     "boundaryMeasured": 1,
     "primaryStructureMeasured": 11,
     "primaryStructureBlocked": 4
