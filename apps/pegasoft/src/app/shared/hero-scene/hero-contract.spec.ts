@@ -150,7 +150,7 @@ describe('hero reference-state contract', () => {
       },
       {
         key: 'clearance-field-preview',
-        route: [242, 556, 116, 54],
+        route: [217, 429, 441, 193],
         label: 'high-chroma core of cyan route approaching the field preview',
         evidenceRef:
           'docs/hero-reference/recording-structural-bounds.json#/states/7/route',
@@ -181,6 +181,100 @@ describe('hero reference-state contract', () => {
         },
       });
     }
+  });
+
+  it('retains source-tied route evidence for every applicable route state', () => {
+    const expected = [
+      {
+        key: 'world-reveal',
+        route: [660, 556, 224, 204.5],
+        label: 'visible high-chroma core of emerging red landing rails',
+      },
+      {
+        key: 'landing-idle',
+        route: [610, 599, 208, 162],
+        label: 'visible high-chroma core of landing-idle red route',
+      },
+      {
+        key: 'activation-route',
+        route: [430, 4, 374, 471],
+        label: 'visible high-chroma core of parallel red activation rails',
+      },
+      {
+        key: 'activation-contact',
+        route: [342, 1, 399, 377],
+        label: 'visible high-chroma core of red activation contact rails',
+      },
+      {
+        key: 'clearance-travel',
+        route: [88, 123, 474, 264],
+        label: 'high-chroma core of connected cyan clearance route',
+      },
+      {
+        key: 'clearance-field-preview',
+        route: [217, 429, 441, 193],
+        label: 'high-chroma core of cyan route approaching the field preview',
+      },
+      {
+        key: 'field-approach',
+        route: [53, 387, 697, 298],
+        label: 'visible high-chroma core of cyan field-approach feed',
+      },
+      {
+        key: 'field-contact',
+        route: [0, 345, 724, 298],
+        label: 'visible high-chroma core of cyan route before field contact',
+      },
+      {
+        key: 'field-pulse-a',
+        route: [1, 361, 622, 155],
+        label:
+          'visible high-chroma core of incoming cyan feed during inner pulse',
+      },
+      {
+        key: 'field-pulse-b',
+        route: [1, 394, 605, 80],
+        label:
+          'visible high-chroma core of incoming cyan feed during outer pulse',
+      },
+      {
+        key: 'arrival-travel',
+        route: [714, 352, 118, 9],
+        label: 'high-chroma core of second horizontal cyan route',
+      },
+      {
+        key: 'arrival-lockup',
+        route: [1, 352, 479, 10],
+        label:
+          'visible high-chroma core of cyan arrival feed before the arrow',
+      },
+    ] as const;
+
+    expect(
+      referenceStates
+        .filter(({ screenBounds }) => screenBounds.routeStatus === 'observed')
+        .map(({ key }) => key),
+    ).toEqual(expected.map(({ key }) => key));
+
+    for (const { key, route, label } of expected) {
+      expect(getReferenceState(key).screenBounds).toMatchObject({
+        routeStatus: 'observed',
+        route,
+        routeLabel: label,
+        routeEvidenceRef: `docs/hero-reference/recording-structural-bounds.json#/states/${HERO_REFERENCE_STATE_KEYS.indexOf(
+          key,
+        )}/route`,
+      });
+    }
+
+    expect(
+      referenceStates
+        .filter(
+          ({ screenBounds }) =>
+            screenBounds.routeStatus === 'not-applicable',
+        )
+        .map(({ key }) => key),
+    ).toEqual(['loader-mark', 'landing', 'journey-exit']);
   });
 
   it('uses the observed section boundary as the journey-exit primary structure', () => {

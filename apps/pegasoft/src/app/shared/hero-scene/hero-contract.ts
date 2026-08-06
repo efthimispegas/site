@@ -121,6 +121,8 @@ export type HeroReferenceState = {
     landmarkStatus: HeroStructuralFeatureStatus;
     landmark: HeroScreenBounds | null;
     routeStatus: HeroStructuralFeatureStatus;
+    routeLabel: string | null;
+    routeEvidenceRef: string | null;
     route: HeroScreenBounds | null;
     boundaryStatus: HeroStructuralFeatureStatus;
     boundary: HeroScreenBounds | null;
