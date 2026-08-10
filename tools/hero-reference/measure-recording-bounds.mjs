@@ -20,7 +20,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v4';
+const algorithmVersion = 'recording-structural-bounds-v5';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -60,6 +60,51 @@ const RED_ROUTE = {
   test: (red, green, blue) =>
     red - green >= 55 && red - blue >= 35 && red >= 180 && green <= 195,
 };
+
+const DARK_COPY = {
+  id: 'dark-neutral-copy-ink',
+  description:
+    'max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB',
+  test: (red, green, blue) => {
+    const maximum = Math.max(red, green, blue);
+    const minimum = Math.min(red, green, blue);
+    return maximum <= 150 && maximum - minimum <= 40;
+  },
+};
+
+const PROCESS_COPY_ROI = [0.042, 0.52, 0.39, 0.43];
+
+const LANDING_COPY = {
+  label: 'visible centered landing headline and supporting-copy ink envelope',
+  method: 'predicate-component-union',
+  predicate: DARK_COPY,
+  roi: [0.24, 0.15, 0.52, 0.44],
+  minimumComponentPixels: 8,
+  maximumComponentPixels: 25000,
+  maximumComponentWidth: 260,
+  maximumComponentHeight: 220,
+  minimumComponentFillRatio: 0.1,
+  minimumSelectedPixels: 12000,
+  rationale:
+    'The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink.',
+};
+
+function processCopy(roi) {
+  return {
+    label: 'visible four-row process-ladder copy ink envelope',
+    method: 'predicate-component-union',
+    predicate: DARK_COPY,
+    roi,
+    minimumComponentPixels: 8,
+    maximumComponentPixels: 8000,
+    maximumComponentWidth: 150,
+    maximumComponentHeight: 110,
+    minimumComponentFillRatio: 0.1,
+    minimumSelectedPixels: 2500,
+    rationale:
+      'The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink.',
+  };
+}
 
 const STATE_MEASUREMENTS = {
   'loader-mark': {
@@ -112,6 +157,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'The locked resolved-landing frame contains no source-visible route pixels. Red rails appear in the earlier reveal and later landing-idle anchors; an off-screen or future continuation is not inferred here.',
     },
+    copy: LANDING_COPY,
   },
   'landing-idle': {
     primaryStructure: 'landmark',
@@ -131,6 +177,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The same lower journey band captures the saturated landing route at the later local-clock phase. It remains route evidence and is not substituted for the blocked industrial aggregate landmark.',
     },
+    copy: LANDING_COPY,
   },
   'activation-route': {
     primaryStructure: 'landmark',
@@ -150,6 +197,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The source-visible activation network is a separated bundle of saturated red rails. Unioning qualifying components preserves the parallel structure and branch handoffs without using the destination mask or ground shadows.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'activation-contact': {
     primaryStructure: 'landmark',
@@ -169,6 +217,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The upper-left-to-contact ROI isolates the saturated parallel rail bundle as it reaches the destination. The building silhouette and blue logo are excluded by the red predicate.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'clearance-travel': {
     primaryStructure: 'route',
@@ -188,6 +237,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The source record defines route direction as the observable focus. The saturated cyan route is connected, while the ambient dotted wake is split into smaller components.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'clearance-field-preview': {
     primaryStructure: 'route',
@@ -207,6 +257,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The ROI follows the lower transit band named by the manifest and excludes the top-right field tiles. Qualifying-component support preserves source-visible beam segments split by copy/white core while rejecting the smaller dotted wake.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'field-approach': {
     primaryStructure: 'landmark',
@@ -226,6 +277,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The lower transit band isolates the cyan approach feed from the top-right field tiles. Unioning only supported components preserves beam sections split by copy/white core while rejecting the dotted wake and small tile reactions.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'field-contact': {
     primaryStructure: 'landmark',
@@ -245,6 +297,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The ROI ends before the elevated center so supported incoming-feed components remain measurable without merging contact glow or adjacent reacting tiles into the route core.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'field-pulse-a': {
     primaryStructure: 'landmark',
@@ -264,6 +317,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The left-side ROI unions supported sections of the still-readable incoming feed before it merges with the inner bloom. The occluded center, smaller dotted wake, and luminous pulse remain outside route evidence.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'field-pulse-b': {
     primaryStructure: 'landmark',
@@ -287,6 +341,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The same left-side transit ROI unions supported incoming-feed sections while excluding the outer tile reaction, smaller dotted wake, and elevated blue center landmark.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'arrival-travel': {
     primaryStructure: 'route',
@@ -305,6 +360,12 @@ const STATE_MEASUREMENTS = {
       minimumSelectedPixels: 180,
       rationale:
         'The destination is beyond the right edge in this anchor, so the horizontal feed is the only measurable source-confirmed travel structure. The ROI excludes header and process copy.',
+    },
+    copy: {
+      status: 'blocked',
+      label: 'transitioning four-row process-ladder copy',
+      reason:
+        'The active arrival body copy is materially faded into similar-valued field tiles and route bloom at this travel anchor. A dark-ink box would report only the headings, while a looser threshold would merge scene structure; bounds from the later lockup are not inferred backward.',
     },
   },
   'arrival-lockup': {
@@ -330,6 +391,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The left horizontal band isolates the saturated arrival feed before it reaches the layered arrow. Arrow edges, surrounding marks, copy, and the glow field lie outside the selected core.',
     },
+    copy: processCopy(PROCESS_COPY_ROI),
   },
   'journey-exit': {
     primaryStructure: 'boundary',
@@ -358,6 +420,12 @@ const STATE_MEASUREMENTS = {
       maximumVerticalStandardDeviation: 1,
       rationale:
         'The compositional focus is the nearly full-width horizontal discontinuity between the pale hero and the following white section. Row support, peak dominance, and per-column vertical variance reject text and arrow edges.',
+    },
+    copy: {
+      status: 'blocked',
+      label: 'clipped exiting process-ladder copy',
+      reason:
+        'The exiting ladder is vertically clipped and overlaps the fixed left navigation at this exact frame. Visible dark pixels cannot distinguish the two text systems, and a complete pre-exit ladder box is not inferred through the section handoff.',
     },
   },
 };
@@ -774,7 +842,17 @@ function selectChromaComponents(mask, image, roi, config) {
     roi,
   );
   const eligible = components.filter(
-    (component) => component.pixels >= config.minimumComponentPixels,
+    (component) =>
+      component.pixels >= config.minimumComponentPixels &&
+      component.pixels <=
+        (config.maximumComponentPixels ?? Number.POSITIVE_INFINITY) &&
+      component.bounds.width <=
+        (config.maximumComponentWidth ?? Number.POSITIVE_INFINITY) &&
+      component.bounds.height <=
+        (config.maximumComponentHeight ?? Number.POSITIVE_INFINITY) &&
+      component.pixels /
+        (component.bounds.width * component.bounds.height) >=
+        (config.minimumComponentFillRatio ?? 0),
   );
   const selected =
     config.method === 'largest-chroma-component'
@@ -1205,7 +1283,8 @@ async function measureFeature(
     );
   } else if (
     config.method === 'chroma-component-union' ||
-    config.method === 'largest-chroma-component'
+    config.method === 'largest-chroma-component' ||
+    config.method === 'predicate-component-union'
   ) {
     const mask = createPredicateMask(data, image, roi, config.predicate);
     selection = selectChromaComponents(mask, image, roi, config);
@@ -1279,6 +1358,10 @@ async function measureFeature(
       dilationIterations: config.dilationIterations ?? 0,
       connectivity: config.method === 'source-semantic-mask' ? null : 8,
       minimumComponentPixels: config.minimumComponentPixels ?? null,
+      maximumComponentPixels: config.maximumComponentPixels ?? null,
+      maximumComponentWidth: config.maximumComponentWidth ?? null,
+      maximumComponentHeight: config.maximumComponentHeight ?? null,
+      minimumComponentFillRatio: config.minimumComponentFillRatio ?? null,
       minimumSelectedPixels,
       totalComponentCount: selection.totalComponentCount,
       eligibleComponentCount: selection.eligibleComponentCount,
@@ -1343,6 +1426,7 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
   const landmarkObserved = stateEvidence.landmark?.status === 'observed';
   const routeObserved = stateEvidence.route?.status === 'observed';
   const boundaryObserved = stateEvidence.boundary?.status === 'observed';
+  const copyObserved = stateEvidence.copy?.status === 'observed';
   const primaryObserved = stateEvidence.primaryStructure.status === 'observed';
   const landmarkEvidenceRef = landmarkObserved
     ? `${evidenceRef}/states/${stateIndex}/landmark`
@@ -1352,6 +1436,9 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
     : null;
   const boundaryEvidenceRef = boundaryObserved
     ? `${evidenceRef}/states/${stateIndex}/boundary`
+    : null;
+  const copyEvidenceRef = copyObserved
+    ? `${evidenceRef}/states/${stateIndex}/copy`
     : null;
   const primaryEvidenceRef =
     stateEvidence.primaryStructure.kind === 'landmark'
@@ -1380,11 +1467,12 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
     boundary: boundaryObserved ? stateEvidence.boundary.bounds.cssPixels : null,
     boundaryLabel: stateEvidence.boundary.label ?? null,
     boundaryEvidenceRef,
-    copyStatus:
-      prior.copyStatus ??
-      (anchor.activeCopyState?.value === 'none' ? 'not-applicable' : 'unknown'),
+    copyStatus: stateEvidence.copy.status,
+    copy: copyObserved ? stateEvidence.copy.bounds.cssPixels : null,
+    copyLabel: stateEvidence.copy.label ?? null,
+    copyEvidenceRef,
     reason: primaryObserved
-      ? `Primary ${stateEvidence.primaryStructure.kind} measured by the reproducible recording structural-bounds pipeline; independently owned copy evidence is preserved.`
+      ? `Primary ${stateEvidence.primaryStructure.kind} measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.`
       : stateEvidence.primaryStructure.reason,
   };
 
@@ -1543,10 +1631,31 @@ for (const anchor of manifest.states) {
     },
     dpr,
   });
+  const copy = await measureConfiguredFeature({
+    sourcePath,
+    data,
+    image,
+    stateKey: anchor.key,
+    featureKind: 'copy',
+    config:
+      config.copy ??
+      (anchor.activeCopyState?.value === 'none'
+        ? {
+            status: 'not-applicable',
+            reason: 'The source state has no applicable hero copy.',
+          }
+        : {
+            status: 'blocked',
+            reason:
+              'The applicable source copy is not yet defensibly measurable in this pass.',
+          }),
+    dpr,
+  });
   const primaryFeature = {
     landmark,
     route,
     boundary,
+    copy,
   }[config.primaryStructure];
   const stateIndex = states.length;
   const stateEvidence = {
@@ -1577,6 +1686,7 @@ for (const anchor of manifest.states) {
     landmark,
     route,
     boundary,
+    copy,
   };
 
   states.push(stateEvidence);
@@ -1605,6 +1715,13 @@ const summary = states.reduce(
     } else {
       counts.boundaryNotApplicable += 1;
     }
+    if (state.copy.status === 'observed') {
+      counts.copyMeasured += 1;
+    } else if (state.copy.status === 'blocked') {
+      counts.copyBlocked += 1;
+    } else {
+      counts.copyNotApplicable += 1;
+    }
     if (state.primaryStructure.status === 'observed') {
       counts.primaryStructureMeasured += 1;
     } else {
@@ -1623,13 +1740,16 @@ const summary = states.reduce(
     boundaryMeasured: 0,
     boundaryBlocked: 0,
     boundaryNotApplicable: 0,
+    copyMeasured: 0,
+    copyBlocked: 0,
+    copyNotApplicable: 0,
     primaryStructureMeasured: 0,
     primaryStructureBlocked: 0,
   },
 );
 
 const report = {
-  schemaVersion: 4,
+  schemaVersion: 5,
   algorithmVersion,
   generatedBy: 'tools/hero-reference/measure-recording-bounds.mjs',
   authority: {
@@ -1658,7 +1778,7 @@ const report = {
     noManualBoxes:
       'No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.',
     featureStatus:
-      'Every landmark is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.',
+      'Every landmark, route, boundary, and copy feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.',
     chroma:
       'Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.',
     edges:
@@ -1669,6 +1789,8 @@ const report = {
       'A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.',
     routeGeometry:
       'Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.',
+    copyInk:
+      'Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.',
     quality:
       'An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.',
     reproducibility:
@@ -1684,12 +1806,12 @@ const updatedManifest = {
   anchorPolicy: {
     ...manifest.anchorPolicy,
     unmeasuredFields:
-      `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states remain blocked.`,
+      `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states and ${summary.copyBlocked} copy states remain blocked.`,
   },
   structuralBoundsEvidence: {
     status:
       summary.primaryStructureBlocked === 0 ? 'observed' : 'partially-observed',
-    verifiedOn: '2026-08-03',
+    verifiedOn: '2026-08-10',
     artifact: 'docs/hero-reference/recording-structural-bounds.json',
     algorithmVersion,
     landmarkMeasured: summary.landmarkMeasured,
@@ -1699,6 +1821,9 @@ const updatedManifest = {
     routeBlocked: summary.routeBlocked,
     routeNotApplicable: summary.routeNotApplicable,
     boundaryMeasured: summary.boundaryMeasured,
+    copyMeasured: summary.copyMeasured,
+    copyBlocked: summary.copyBlocked,
+    copyNotApplicable: summary.copyNotApplicable,
     primaryStructureMeasured: summary.primaryStructureMeasured,
     primaryStructureBlocked: summary.primaryStructureBlocked,
   },
@@ -1717,7 +1842,7 @@ const updatedManifest = {
             ...entry,
             status: 'partially-observed',
             reason:
-              `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states and all applicable recording copy bounds remain blocked or unknown.`,
+              `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states and ${summary.copyBlocked} copy states remain blocked.`,
           }
         : entry,
   ),
@@ -1749,5 +1874,5 @@ if (checkOnly) {
 }
 
 console.log(
-  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.landmarkNotApplicable} landmark not applicable, ${summary.routeMeasured} route measured, ${summary.boundaryMeasured} boundary measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
+  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.landmarkNotApplicable} landmark not applicable, ${summary.routeMeasured} route measured, ${summary.copyMeasured} copy measured, ${summary.copyBlocked} copy blocked, ${summary.boundaryMeasured} boundary measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
 );

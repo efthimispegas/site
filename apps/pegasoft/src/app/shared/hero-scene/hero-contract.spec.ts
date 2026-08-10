@@ -277,6 +277,116 @@ describe('hero reference-state contract', () => {
     ).toEqual(['loader-mark', 'landing', 'journey-exit']);
   });
 
+  it('retains measured copy ink without inferring faded or clipped states', () => {
+    const landingLabel =
+      'visible centered landing headline and supporting-copy ink envelope';
+    const processLabel =
+      'visible four-row process-ladder copy ink envelope';
+    const expected = [
+      { key: 'landing', copy: [409, 132.5, 696, 306], label: landingLabel },
+      {
+        key: 'landing-idle',
+        copy: [409, 132, 696, 303],
+        label: landingLabel,
+      },
+      {
+        key: 'activation-route',
+        copy: [64.5, 419.5, 545.5, 284],
+        label: processLabel,
+      },
+      {
+        key: 'activation-contact',
+        copy: [64.5, 413, 545.5, 284],
+        label: processLabel,
+      },
+      {
+        key: 'clearance-travel',
+        copy: [64.5, 417, 541, 280],
+        label: processLabel,
+      },
+      {
+        key: 'clearance-field-preview',
+        copy: [64.5, 417, 541.5, 280],
+        label: processLabel,
+      },
+      {
+        key: 'field-approach',
+        copy: [64.5, 417, 541, 280],
+        label: processLabel,
+      },
+      {
+        key: 'field-contact',
+        copy: [64.5, 417, 541, 280],
+        label: processLabel,
+      },
+      {
+        key: 'field-pulse-a',
+        copy: [64.5, 417, 541, 280],
+        label: processLabel,
+      },
+      {
+        key: 'field-pulse-b',
+        copy: [64.5, 417, 541, 280],
+        label: processLabel,
+      },
+      {
+        key: 'arrival-lockup',
+        copy: [64.5, 405, 549, 294.5],
+        label: processLabel,
+      },
+    ] as const;
+
+    expect(
+      referenceStates
+        .filter(({ screenBounds }) => screenBounds.copyStatus === 'observed')
+        .map(({ key }) => key),
+    ).toEqual(expected.map(({ key }) => key));
+
+    for (const { key, copy, label } of expected) {
+      expect(getReferenceState(key).screenBounds).toMatchObject({
+        copyStatus: 'observed',
+        copy,
+        copyLabel: label,
+        copyEvidenceRef: `docs/hero-reference/recording-structural-bounds.json#/states/${HERO_REFERENCE_STATE_KEYS.indexOf(
+          key,
+        )}/copy`,
+      });
+    }
+
+    expect(
+      referenceStates
+        .filter(({ screenBounds }) => screenBounds.copyStatus === 'blocked')
+        .map(({ key, screenBounds }) => ({
+          key,
+          label: screenBounds.copyLabel,
+          copy: screenBounds.copy,
+          evidenceRef: screenBounds.copyEvidenceRef,
+        })),
+    ).toEqual([
+      {
+        key: 'arrival-travel',
+        label: 'transitioning four-row process-ladder copy',
+        copy: null,
+        evidenceRef: null,
+      },
+      {
+        key: 'journey-exit',
+        label: 'clipped exiting process-ladder copy',
+        copy: null,
+        evidenceRef: null,
+      },
+    ]);
+
+    expect(
+      referenceStates
+        .filter(
+          ({ screenBounds }) =>
+            screenBounds.copyStatus === 'not-applicable',
+        )
+        .map(({ key }) => key),
+    ).toEqual(['loader-mark', 'world-reveal']);
+  });
+
   it('uses the observed section boundary as the journey-exit primary structure', () => {
     const { screenBounds } = getReferenceState('journey-exit');
 
