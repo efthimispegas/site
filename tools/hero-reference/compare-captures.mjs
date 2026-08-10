@@ -320,6 +320,18 @@ function evaluateStructuralAccuracy(state, measurement) {
   const sourceCopyMeasured =
     state.activeCopyState?.value === 'none' ||
     Array.isArray(state.screenBounds?.copy);
+  const sourceComposition = state.screenComposition;
+  const sourceCompositionMeasured =
+    sourceComposition?.status === 'observed' &&
+    Number.isFinite(sourceComposition.edgeDensity) &&
+    sourceComposition.edgeDensity >= 0 &&
+    Array.isArray(sourceComposition.edgeCentroid?.normalized) &&
+    sourceComposition.edgeCentroid.normalized.length === 2 &&
+    sourceComposition.grid?.columns === 4 &&
+    sourceComposition.grid?.rows === 4 &&
+    Array.isArray(sourceComposition.grid.cells) &&
+    sourceComposition.grid.cells.length === 16 &&
+    typeof sourceComposition.evidenceRef === 'string';
 
   if (!sourcePrimaryMeasured) {
     blockers.push(
@@ -332,12 +344,14 @@ function evaluateStructuralAccuracy(state, measurement) {
   if (!sourceCopyMeasured) {
     blockers.push('authoritative source copy bounds are unmeasured');
   }
-  if (state.cameraPose?.status === 'unknown') {
-    blockers.push('authoritative source camera structure is unknown');
+  if (!sourceCompositionMeasured) {
+    blockers.push(
+      'authoritative source screen-space composition proxy is unmeasured',
+    );
   }
   if (!measurement?.structuralAccuracy) {
     blockers.push(
-      'implementation landmark, route, camera, and negative-space measurements are not emitted',
+      'implementation landmark, route, composition, and negative-space measurements are not emitted',
     );
   }
 

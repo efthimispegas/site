@@ -20,7 +20,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v5';
+const algorithmVersion = 'recording-structural-bounds-v6';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -73,6 +73,14 @@ const DARK_COPY = {
 };
 
 const PROCESS_COPY_ROI = [0.042, 0.52, 0.39, 0.43];
+const SCREEN_COMPOSITION = {
+  label: 'screen-space edge-support distribution proxy',
+  roi: [0.01, 0.12, 0.98, 0.87],
+  sobelThreshold: 36,
+  gridColumns: 4,
+  gridRows: 4,
+  minimumEdgePixels: 1000,
+};
 
 const LANDING_COPY = {
   label: 'visible centered landing headline and supporting-copy ink envelope',
@@ -563,6 +571,114 @@ function createSobelMask(data, image, roi, threshold) {
   }
 
   return mask;
+}
+
+async function measureScreenComposition(
+  sourcePath,
+  data,
+  image,
+  stateKey,
+  config,
+  dpr,
+) {
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  const mask = createSobelMask(
+    data,
+    image,
+    roi,
+    config.sobelThreshold,
+  );
+  const selected = boundsFromMask(mask, image.width, image.height);
+  const cellCount = config.gridColumns * config.gridRows;
+  const cellEdgePixels = Array.from({ length: cellCount }, () => 0);
+  const cellPixels = Array.from({ length: cellCount }, () => 0);
+  let sumX = 0;
+  let sumY = 0;
+  const right = roi.x + roi.width;
+  const bottom = roi.y + roi.height;
+
+  for (let y = roi.y; y < bottom; y += 1) {
+    const row = Math.min(
+      config.gridRows - 1,
+      Math.floor(((y - roi.y) * config.gridRows) / roi.height),
+    );
+    for (let x = roi.x; x < right; x += 1) {
+      const column = Math.min(
+        config.gridColumns - 1,
+        Math.floor(((x - roi.x) * config.gridColumns) / roi.width),
+      );
+      const cellIndex = row * config.gridColumns + column;
+      cellPixels[cellIndex] += 1;
+      if (mask[y * image.width + x]) {
+        cellEdgePixels[cellIndex] += 1;
+        sumX += x;
+        sumY += y;
+      }
+    }
+  }
+
+  if (!selected || selected.pixels < config.minimumEdgePixels) {
+    return {
+      status: 'blocked',
+      label: config.label,
+      reason: `The deterministic screen-composition quality gate found ${selected?.pixels ?? 0} edge-support pixels; at least ${config.minimumEdgePixels} are required.`,
+      method: {
+        id: 'screen-space-sobel-grid',
+        roiNormalized: config.roi,
+        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+        sobelThreshold: config.sobelThreshold,
+      },
+    };
+  }
+
+  await writeDebugOverlay(
+    sourcePath,
+    stateKey,
+    'composition',
+    mask,
+    image,
+    roi,
+  );
+
+  const edgeDensity = selected.pixels / (roi.width * roi.height);
+  const centroidX = sumX / selected.pixels;
+  const centroidY = sumY / selected.pixels;
+  return {
+    status: 'observed',
+    evidenceClass: 'observed',
+    label: config.label,
+    edgePixelSupport: selected.pixels,
+    edgeDensity: round(edgeDensity, 6),
+    edgeCentroid: {
+      rasterPixels: [round(centroidX), round(centroidY)],
+      cssPixels: [round(centroidX / dpr), round(centroidY / dpr)],
+      normalized: [
+        round(centroidX / image.width, 6),
+        round(centroidY / image.height, 6),
+      ],
+    },
+    grid: {
+      columns: config.gridColumns,
+      rows: config.gridRows,
+      cells: cellEdgePixels.map((edgePixels, index) => ({
+        column: index % config.gridColumns,
+        row: Math.floor(index / config.gridColumns),
+        edgePixels,
+        edgeDensity: round(edgePixels / cellPixels[index], 6),
+        edgeShare: round(edgePixels / selected.pixels, 6),
+        negativeSpaceProxy: round(1 - edgePixels / cellPixels[index], 6),
+      })),
+    },
+    method: {
+      id: 'screen-space-sobel-grid',
+      roiNormalized: config.roi,
+      roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+      sobelThreshold: config.sobelThreshold,
+      minimumEdgePixels: config.minimumEdgePixels,
+      interpretation:
+        'Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform.',
+    },
+  };
 }
 
 function dilate(mask, width, height, roi, iterations) {
@@ -1479,6 +1595,17 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
   return next;
 }
 
+function updateAnchorScreenComposition(stateEvidence, stateIndex) {
+  const composition = stateEvidence.composition;
+  return {
+    ...composition,
+    evidenceRef:
+      composition.status === 'observed'
+        ? `${evidenceRef}/states/${stateIndex}/composition`
+        : null,
+  };
+}
+
 const [manifest, semanticMaskManifest] = await Promise.all([
   readFile(anchorsPath, 'utf8').then((contents) => JSON.parse(contents)),
   readFile(semanticMasksPath, 'utf8').then((contents) => JSON.parse(contents)),
@@ -1651,6 +1778,14 @@ for (const anchor of manifest.states) {
           }),
     dpr,
   });
+  const composition = await measureScreenComposition(
+    sourcePath,
+    data,
+    image,
+    anchor.key,
+    SCREEN_COMPOSITION,
+    dpr,
+  );
   const primaryFeature = {
     landmark,
     route,
@@ -1687,6 +1822,7 @@ for (const anchor of manifest.states) {
     route,
     boundary,
     copy,
+    composition,
   };
 
   states.push(stateEvidence);
@@ -1722,6 +1858,11 @@ const summary = states.reduce(
     } else {
       counts.copyNotApplicable += 1;
     }
+    if (state.composition.status === 'observed') {
+      counts.compositionMeasured += 1;
+    } else {
+      counts.compositionBlocked += 1;
+    }
     if (state.primaryStructure.status === 'observed') {
       counts.primaryStructureMeasured += 1;
     } else {
@@ -1743,13 +1884,15 @@ const summary = states.reduce(
     copyMeasured: 0,
     copyBlocked: 0,
     copyNotApplicable: 0,
+    compositionMeasured: 0,
+    compositionBlocked: 0,
     primaryStructureMeasured: 0,
     primaryStructureBlocked: 0,
   },
 );
 
 const report = {
-  schemaVersion: 5,
+  schemaVersion: 6,
   algorithmVersion,
   generatedBy: 'tools/hero-reference/measure-recording-bounds.mjs',
   authority: {
@@ -1791,6 +1934,8 @@ const report = {
       'Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.',
     copyInk:
       'Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.',
+    screenComposition:
+      'Every state reports a fixed-grid binary Sobel edge-support distribution, density, and centroid below the header band. These are screen-space composition and negative-space proxies; the 3D camera position/quaternion remain explicitly unknown and are never reconstructed from rendered pixels.',
     quality:
       'An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.',
     reproducibility:
@@ -1806,7 +1951,7 @@ const updatedManifest = {
   anchorPolicy: {
     ...manifest.anchorPolicy,
     unmeasuredFields:
-      `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states and ${summary.copyBlocked} copy states remain blocked.`,
+      `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states and ${summary.copyBlocked} copy states remain blocked.`,
   },
   structuralBoundsEvidence: {
     status:
@@ -1824,6 +1969,8 @@ const updatedManifest = {
     copyMeasured: summary.copyMeasured,
     copyBlocked: summary.copyBlocked,
     copyNotApplicable: summary.copyNotApplicable,
+    compositionMeasured: summary.compositionMeasured,
+    compositionBlocked: summary.compositionBlocked,
     primaryStructureMeasured: summary.primaryStructureMeasured,
     primaryStructureBlocked: summary.primaryStructureBlocked,
   },
@@ -1833,18 +1980,30 @@ const updatedManifest = {
     return {
       ...anchor,
       screenBounds: updateAnchorScreenBounds(anchor, stateEvidence, stateIndex),
+      screenComposition: updateAnchorScreenComposition(
+        stateEvidence,
+        stateIndex,
+      ),
     };
   }),
   unresolvableFromRecordingAlone: manifest.unresolvableFromRecordingAlone.map(
-    (entry) =>
-      entry.field === 'screen-space bounds'
+    (entry) => {
+      if (entry.field === 'camera position and quaternion') {
+        return {
+          ...entry,
+          reason:
+            'Rendered pixels do not expose the 3D camera transform. All 15 states instead carry observed screen-space edge-support distributions and centroids as comparison proxies; those proxies do not recover position or quaternion.',
+        };
+      }
+      return entry.field === 'screen-space bounds'
         ? {
             ...entry,
             status: 'partially-observed',
             reason:
-              `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states and ${summary.copyBlocked} copy states remain blocked.`,
+              `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states and ${summary.copyBlocked} copy states remain blocked.`,
           }
-        : entry,
+        : entry;
+    },
   ),
 };
 
@@ -1874,5 +2033,5 @@ if (checkOnly) {
 }
 
 console.log(
-  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.landmarkNotApplicable} landmark not applicable, ${summary.routeMeasured} route measured, ${summary.copyMeasured} copy measured, ${summary.copyBlocked} copy blocked, ${summary.boundaryMeasured} boundary measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
+  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.landmarkNotApplicable} landmark not applicable, ${summary.routeMeasured} route measured, ${summary.copyMeasured} copy measured, ${summary.copyBlocked} copy blocked, ${summary.boundaryMeasured} boundary measured, ${summary.compositionMeasured} composition measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
 );
