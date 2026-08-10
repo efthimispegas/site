@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 5,
-  "algorithmVersion": "recording-structural-bounds-v5",
+  "schemaVersion": 6,
+  "algorithmVersion": "recording-structural-bounds-v6",
   "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
   "authority": {
     "recordingPath": "docs/vectrfl_recording.mov",
@@ -31,6 +31,7 @@
     "semanticMasks": "A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.",
     "routeGeometry": "Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.",
     "copyInk": "Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.",
+    "screenComposition": "Every state reports a fixed-grid binary Sobel edge-support distribution, density, and centroid below the header band. These are screen-space composition and negative-space proxies; the 3D camera position/quaternion remain explicitly unknown and are never reconstructed from rendered pixels.",
     "quality": "An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.",
     "reproducibility": "The authoritative MOV SHA, every input PNG SHA, and every referenced semantic SVG SHA are verified before measurement. --check recomputes both generated evidence files and fails on byte drift."
   },
@@ -48,6 +49,8 @@
     "copyMeasured": 11,
     "copyBlocked": 2,
     "copyNotApplicable": 2,
+    "compositionMeasured": 15,
+    "compositionBlocked": 0,
     "primaryStructureMeasured": 11,
     "primaryStructureBlocked": 4
   },
@@ -147,6 +150,179 @@
         "status": "not-applicable",
         "label": null,
         "reason": "The source state has no applicable hero copy."
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 21202,
+        "edgeDensity": 0.005413,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1808.991,
+            1010.298
+          ],
+          "cssPixels": [
+            904.495,
+            505.149
+          ],
+          "normalized": [
+            0.599798,
+            0.663796
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 1239,
+              "edgeDensity": 0.00505,
+              "edgeShare": 0.058438,
+              "negativeSpaceProxy": 0.99495
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 1694,
+              "edgeDensity": 0.006904,
+              "edgeShare": 0.079898,
+              "negativeSpaceProxy": 0.993096
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 2054,
+              "edgeDensity": 0.008397,
+              "edgeShare": 0.096878,
+              "negativeSpaceProxy": 0.991603
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 2661,
+              "edgeDensity": 0.010879,
+              "edgeShare": 0.125507,
+              "negativeSpaceProxy": 0.989121
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 947,
+              "edgeDensity": 0.003871,
+              "edgeShare": 0.044666,
+              "negativeSpaceProxy": 0.996129
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 296,
+              "edgeDensity": 0.00121,
+              "edgeShare": 0.013961,
+              "negativeSpaceProxy": 0.99879
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 1124,
+              "edgeDensity": 0.004595,
+              "edgeShare": 0.053014,
+              "negativeSpaceProxy": 0.995405
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 1174,
+              "edgeDensity": 0.004799,
+              "edgeShare": 0.055372,
+              "negativeSpaceProxy": 0.995201
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 990,
+              "edgeDensity": 0.004047,
+              "edgeShare": 0.046694,
+              "negativeSpaceProxy": 0.995953
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 3502,
+              "edgeDensity": 0.014317,
+              "edgeShare": 0.165173,
+              "negativeSpaceProxy": 0.985683
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 4474,
+              "edgeDensity": 0.01829,
+              "edgeShare": 0.211018,
+              "negativeSpaceProxy": 0.98171
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 1047,
+              "edgeDensity": 0.00428,
+              "edgeShare": 0.049382,
+              "negativeSpaceProxy": 0.99572
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -339,6 +515,179 @@
         "status": "not-applicable",
         "label": null,
         "reason": "The source state has no applicable hero copy."
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 61750,
+        "edgeDensity": 0.015766,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1567.87,
+            1036.362
+          ],
+          "cssPixels": [
+            783.935,
+            518.181
+          ],
+          "normalized": [
+            0.519851,
+            0.680921
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 1695,
+              "edgeDensity": 0.006909,
+              "edgeShare": 0.027449,
+              "negativeSpaceProxy": 0.993091
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 1252,
+              "edgeDensity": 0.005103,
+              "edgeShare": 0.020275,
+              "negativeSpaceProxy": 0.994897
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 1238,
+              "edgeDensity": 0.005046,
+              "edgeShare": 0.020049,
+              "negativeSpaceProxy": 0.994954
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 1686,
+              "edgeDensity": 0.006872,
+              "edgeShare": 0.027304,
+              "negativeSpaceProxy": 0.993128
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 953,
+              "edgeDensity": 0.003896,
+              "edgeShare": 0.015433,
+              "negativeSpaceProxy": 0.996104
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 2655,
+              "edgeDensity": 0.010854,
+              "edgeShare": 0.042996,
+              "negativeSpaceProxy": 0.989146
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 8372,
+              "edgeDensity": 0.034226,
+              "edgeShare": 0.135579,
+              "negativeSpaceProxy": 0.965774
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 947,
+              "edgeDensity": 0.003871,
+              "edgeShare": 0.015336,
+              "negativeSpaceProxy": 0.996129
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 1196,
+              "edgeDensity": 0.004889,
+              "edgeShare": 0.019368,
+              "negativeSpaceProxy": 0.995111
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 7625,
+              "edgeDensity": 0.031172,
+              "edgeShare": 0.123482,
+              "negativeSpaceProxy": 0.968828
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 6212,
+              "edgeDensity": 0.025396,
+              "edgeShare": 0.100599,
+              "negativeSpaceProxy": 0.974604
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 1377,
+              "edgeDensity": 0.005629,
+              "edgeShare": 0.0223,
+              "negativeSpaceProxy": 0.994371
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 990,
+              "edgeDensity": 0.004047,
+              "edgeShare": 0.016032,
+              "negativeSpaceProxy": 0.995953
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 11730,
+              "edgeDensity": 0.047954,
+              "edgeShare": 0.18996,
+              "negativeSpaceProxy": 0.952046
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 12066,
+              "edgeDensity": 0.049328,
+              "edgeShare": 0.195401,
+              "negativeSpaceProxy": 0.950672
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 1756,
+              "edgeDensity": 0.007179,
+              "edgeShare": 0.028437,
+              "negativeSpaceProxy": 0.992821
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -435,6 +784,179 @@
           "selectedComponentCount": 152,
           "semanticMask": null,
           "rationale": "The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink."
+        }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 208659,
+        "edgeDensity": 0.053274,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1586.402,
+            892.977
+          ],
+          "cssPixels": [
+            793.201,
+            446.489
+          ],
+          "normalized": [
+            0.525995,
+            0.586713
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 18931,
+              "edgeDensity": 0.07716,
+              "edgeShare": 0.090727,
+              "negativeSpaceProxy": 0.92284
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 21615,
+              "edgeDensity": 0.088099,
+              "edgeShare": 0.10359,
+              "negativeSpaceProxy": 0.911901
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 24455,
+              "edgeDensity": 0.099976,
+              "edgeShare": 0.117201,
+              "negativeSpaceProxy": 0.900024
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 27157,
+              "edgeDensity": 0.111022,
+              "edgeShare": 0.13015,
+              "negativeSpaceProxy": 0.888978
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 12469,
+              "edgeDensity": 0.050975,
+              "edgeShare": 0.059758,
+              "negativeSpaceProxy": 0.949025
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 3693,
+              "edgeDensity": 0.015098,
+              "edgeShare": 0.017699,
+              "negativeSpaceProxy": 0.984902
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 18605,
+              "edgeDensity": 0.07606,
+              "edgeShare": 0.089165,
+              "negativeSpaceProxy": 0.92394
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 18707,
+              "edgeDensity": 0.076477,
+              "edgeShare": 0.089653,
+              "negativeSpaceProxy": 0.923523
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 2950,
+              "edgeDensity": 0.01206,
+              "edgeShare": 0.014138,
+              "negativeSpaceProxy": 0.98794
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 4142,
+              "edgeDensity": 0.016933,
+              "edgeShare": 0.019851,
+              "negativeSpaceProxy": 0.983067
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 25370,
+              "edgeDensity": 0.103717,
+              "edgeShare": 0.121586,
+              "negativeSpaceProxy": 0.896283
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 23018,
+              "edgeDensity": 0.094101,
+              "edgeShare": 0.110314,
+              "negativeSpaceProxy": 0.905899
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 7547,
+              "edgeDensity": 0.030853,
+              "edgeShare": 0.036169,
+              "negativeSpaceProxy": 0.969147
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
         }
       }
     },
@@ -627,6 +1149,179 @@
           "selectedComponentCount": 152,
           "semanticMask": null,
           "rationale": "The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink."
+        }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 199384,
+        "edgeDensity": 0.050906,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1589.954,
+            924.635
+          ],
+          "cssPixels": [
+            794.977,
+            462.317
+          ],
+          "normalized": [
+            0.527173,
+            0.607513
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 16198,
+              "edgeDensity": 0.066021,
+              "edgeShare": 0.08124,
+              "negativeSpaceProxy": 0.933979
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 19112,
+              "edgeDensity": 0.077898,
+              "edgeShare": 0.095855,
+              "negativeSpaceProxy": 0.922102
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 22808,
+              "edgeDensity": 0.093243,
+              "edgeShare": 0.114392,
+              "negativeSpaceProxy": 0.906757
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 24865,
+              "edgeDensity": 0.101652,
+              "edgeShare": 0.124709,
+              "negativeSpaceProxy": 0.898348
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 12509,
+              "edgeDensity": 0.051139,
+              "edgeShare": 0.062738,
+              "negativeSpaceProxy": 0.948861
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 3688,
+              "edgeDensity": 0.015077,
+              "edgeShare": 0.018497,
+              "negativeSpaceProxy": 0.984923
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 15710,
+              "edgeDensity": 0.064225,
+              "edgeShare": 0.078793,
+              "negativeSpaceProxy": 0.935775
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 16104,
+              "edgeDensity": 0.065836,
+              "edgeShare": 0.080769,
+              "negativeSpaceProxy": 0.934164
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 2971,
+              "edgeDensity": 0.012146,
+              "edgeShare": 0.014901,
+              "negativeSpaceProxy": 0.987854
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 4138,
+              "edgeDensity": 0.016917,
+              "edgeShare": 0.020754,
+              "negativeSpaceProxy": 0.983083
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 26233,
+              "edgeDensity": 0.107245,
+              "edgeShare": 0.13157,
+              "negativeSpaceProxy": 0.892755
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 27490,
+              "edgeDensity": 0.112383,
+              "edgeShare": 0.137875,
+              "negativeSpaceProxy": 0.887617
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 7558,
+              "edgeDensity": 0.030898,
+              "edgeShare": 0.037907,
+              "negativeSpaceProxy": 0.969102
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
         }
       }
     },
@@ -873,6 +1568,179 @@
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 188239,
+        "edgeDensity": 0.048061,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1215.211,
+            869.337
+          ],
+          "cssPixels": [
+            607.606,
+            434.668
+          ],
+          "normalized": [
+            0.402921,
+            0.571181
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 3476,
+              "edgeDensity": 0.014168,
+              "edgeShare": 0.018466,
+              "negativeSpaceProxy": 0.985832
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 26004,
+              "edgeDensity": 0.105988,
+              "edgeShare": 0.138144,
+              "negativeSpaceProxy": 0.894012
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 11924,
+              "edgeDensity": 0.0486,
+              "edgeShare": 0.063345,
+              "negativeSpaceProxy": 0.9514
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 734,
+              "edgeDensity": 0.003001,
+              "edgeShare": 0.003899,
+              "negativeSpaceProxy": 0.996999
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 22765,
+              "edgeDensity": 0.093067,
+              "edgeShare": 0.120937,
+              "negativeSpaceProxy": 0.906933
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 15042,
+              "edgeDensity": 0.061494,
+              "edgeShare": 0.079909,
+              "negativeSpaceProxy": 0.938506
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 36392,
+              "edgeDensity": 0.148776,
+              "edgeShare": 0.193329,
+              "negativeSpaceProxy": 0.851224
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 19291,
+              "edgeDensity": 0.078865,
+              "edgeShare": 0.102481,
+              "negativeSpaceProxy": 0.921135
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 10516,
+              "edgeDensity": 0.042991,
+              "edgeShare": 0.055865,
+              "negativeSpaceProxy": 0.957009
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 332,
+              "edgeDensity": 0.001357,
+              "edgeShare": 0.001764,
+              "negativeSpaceProxy": 0.998643
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 11425,
+              "edgeDensity": 0.046707,
+              "edgeShare": 0.060694,
+              "negativeSpaceProxy": 0.953293
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 23963,
+              "edgeDensity": 0.097965,
+              "edgeShare": 0.127301,
+              "negativeSpaceProxy": 0.902035
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 6375,
+              "edgeDensity": 0.026062,
+              "edgeShare": 0.033867,
+              "negativeSpaceProxy": 0.973938
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -1118,6 +1986,179 @@
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 168893,
+        "edgeDensity": 0.043121,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1175.747,
+            822
+          ],
+          "cssPixels": [
+            587.873,
+            411
+          ],
+          "normalized": [
+            0.389836,
+            0.540079
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 33322,
+              "edgeDensity": 0.135815,
+              "edgeShare": 0.197297,
+              "negativeSpaceProxy": 0.864185
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 469,
+              "edgeDensity": 0.001912,
+              "edgeShare": 0.002777,
+              "negativeSpaceProxy": 0.998088
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 10347,
+              "edgeDensity": 0.0423,
+              "edgeShare": 0.061264,
+              "negativeSpaceProxy": 0.9577
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 16916,
+              "edgeDensity": 0.069155,
+              "edgeShare": 0.100158,
+              "negativeSpaceProxy": 0.930845
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 13808,
+              "edgeDensity": 0.056449,
+              "edgeShare": 0.081756,
+              "negativeSpaceProxy": 0.943551
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 2706,
+              "edgeDensity": 0.011063,
+              "edgeShare": 0.016022,
+              "negativeSpaceProxy": 0.988937
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 33514,
+              "edgeDensity": 0.13701,
+              "edgeShare": 0.198433,
+              "negativeSpaceProxy": 0.86299
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 17163,
+              "edgeDensity": 0.070165,
+              "edgeShare": 0.101621,
+              "negativeSpaceProxy": 0.929835
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 13610,
+              "edgeDensity": 0.05564,
+              "edgeShare": 0.080584,
+              "negativeSpaceProxy": 0.94436
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 8730,
+              "edgeDensity": 0.03569,
+              "edgeShare": 0.05169,
+              "negativeSpaceProxy": 0.96431
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 11432,
+              "edgeDensity": 0.046736,
+              "edgeShare": 0.067688,
+              "negativeSpaceProxy": 0.953264
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 2521,
+              "edgeDensity": 0.010306,
+              "edgeShare": 0.014927,
+              "negativeSpaceProxy": 0.989694
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 1833,
+              "edgeDensity": 0.007494,
+              "edgeShare": 0.010853,
+              "negativeSpaceProxy": 0.992506
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 2522,
+              "edgeDensity": 0.01031,
+              "edgeShare": 0.014933,
+              "negativeSpaceProxy": 0.98969
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -1309,6 +2350,179 @@
           "selectedComponentCount": 267,
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 230202,
+        "edgeDensity": 0.058774,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1213.608,
+            735.422
+          ],
+          "cssPixels": [
+            606.804,
+            367.711
+          ],
+          "normalized": [
+            0.40239,
+            0.483194
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 19103,
+              "edgeDensity": 0.077861,
+              "edgeShare": 0.082984,
+              "negativeSpaceProxy": 0.922139
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 13367,
+              "edgeDensity": 0.054482,
+              "edgeShare": 0.058066,
+              "negativeSpaceProxy": 0.945518
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 22313,
+              "edgeDensity": 0.090944,
+              "edgeShare": 0.096928,
+              "negativeSpaceProxy": 0.909056
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 11079,
+              "edgeDensity": 0.045156,
+              "edgeShare": 0.048127,
+              "negativeSpaceProxy": 0.954844
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 14627,
+              "edgeDensity": 0.059797,
+              "edgeShare": 0.06354,
+              "negativeSpaceProxy": 0.940203
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 26760,
+              "edgeDensity": 0.109399,
+              "edgeShare": 0.116246,
+              "negativeSpaceProxy": 0.890601
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 13346,
+              "edgeDensity": 0.054561,
+              "edgeShare": 0.057975,
+              "negativeSpaceProxy": 0.945439
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 16972,
+              "edgeDensity": 0.069384,
+              "edgeShare": 0.073727,
+              "negativeSpaceProxy": 0.930616
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 35538,
+              "edgeDensity": 0.145285,
+              "edgeShare": 0.154377,
+              "negativeSpaceProxy": 0.854715
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 20474,
+              "edgeDensity": 0.083701,
+              "edgeShare": 0.088939,
+              "negativeSpaceProxy": 0.916299
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 17229,
+              "edgeDensity": 0.070435,
+              "edgeShare": 0.074843,
+              "negativeSpaceProxy": 0.929565
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 1398,
+              "edgeDensity": 0.005715,
+              "edgeShare": 0.006073,
+              "negativeSpaceProxy": 0.994285
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 15682,
+              "edgeDensity": 0.06411,
+              "edgeShare": 0.068123,
+              "negativeSpaceProxy": 0.93589
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 454,
+              "edgeDensity": 0.001856,
+              "edgeShare": 0.001972,
+              "negativeSpaceProxy": 0.998144
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 1788,
+              "edgeDensity": 0.00731,
+              "edgeShare": 0.007767,
+              "negativeSpaceProxy": 0.99269
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 72,
+              "edgeDensity": 0.000294,
+              "edgeShare": 0.000313,
+              "negativeSpaceProxy": 0.999706
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
         }
       }
     },
@@ -1502,6 +2716,179 @@
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 200163,
+        "edgeDensity": 0.051105,
+        "edgeCentroid": {
+          "rasterPixels": [
+            979.37,
+            861.19
+          ],
+          "cssPixels": [
+            489.685,
+            430.595
+          ],
+          "normalized": [
+            0.324725,
+            0.565828
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 9819,
+              "edgeDensity": 0.040021,
+              "edgeShare": 0.049055,
+              "negativeSpaceProxy": 0.959979
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 18545,
+              "edgeDensity": 0.075587,
+              "edgeShare": 0.092649,
+              "negativeSpaceProxy": 0.924413
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 1334,
+              "edgeDensity": 0.005437,
+              "edgeShare": 0.006665,
+              "negativeSpaceProxy": 0.994563
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 15431,
+              "edgeDensity": 0.062894,
+              "edgeShare": 0.077092,
+              "negativeSpaceProxy": 0.937106
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 16177,
+              "edgeDensity": 0.066134,
+              "edgeShare": 0.080819,
+              "negativeSpaceProxy": 0.933866
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 11687,
+              "edgeDensity": 0.047778,
+              "edgeShare": 0.058387,
+              "negativeSpaceProxy": 0.952222
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 3850,
+              "edgeDensity": 0.015739,
+              "edgeShare": 0.019234,
+              "negativeSpaceProxy": 0.984261
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 41793,
+              "edgeDensity": 0.170856,
+              "edgeShare": 0.208795,
+              "negativeSpaceProxy": 0.829144
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 36209,
+              "edgeDensity": 0.148028,
+              "edgeShare": 0.180898,
+              "negativeSpaceProxy": 0.851972
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 13592,
+              "edgeDensity": 0.055566,
+              "edgeShare": 0.067905,
+              "negativeSpaceProxy": 0.944434
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 973,
+              "edgeDensity": 0.003978,
+              "edgeShare": 0.004861,
+              "negativeSpaceProxy": 0.996022
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 25630,
+              "edgeDensity": 0.104779,
+              "edgeShare": 0.128046,
+              "negativeSpaceProxy": 0.895221
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 4927,
+              "edgeDensity": 0.020142,
+              "edgeShare": 0.024615,
+              "negativeSpaceProxy": 0.979858
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 196,
+              "edgeDensity": 0.000801,
+              "edgeShare": 0.000979,
+              "negativeSpaceProxy": 0.999199
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -1693,6 +3080,179 @@
           "selectedComponentCount": 268,
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 238076,
+        "edgeDensity": 0.060785,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1325.464,
+            825.08
+          ],
+          "cssPixels": [
+            662.732,
+            412.54
+          ],
+          "normalized": [
+            0.439477,
+            0.542102
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 15843,
+              "edgeDensity": 0.064574,
+              "edgeShare": 0.066546,
+              "negativeSpaceProxy": 0.935426
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 303,
+              "edgeDensity": 0.001235,
+              "edgeShare": 0.001273,
+              "negativeSpaceProxy": 0.998765
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 15753,
+              "edgeDensity": 0.064207,
+              "edgeShare": 0.066168,
+              "negativeSpaceProxy": 0.935793
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 36384,
+              "edgeDensity": 0.148295,
+              "edgeShare": 0.152825,
+              "negativeSpaceProxy": 0.851705
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 11861,
+              "edgeDensity": 0.04849,
+              "edgeShare": 0.04982,
+              "negativeSpaceProxy": 0.95151
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 5889,
+              "edgeDensity": 0.024075,
+              "edgeShare": 0.024736,
+              "negativeSpaceProxy": 0.975925
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 8361,
+              "edgeDensity": 0.034181,
+              "edgeShare": 0.035119,
+              "negativeSpaceProxy": 0.965819
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 25967,
+              "edgeDensity": 0.106157,
+              "edgeShare": 0.10907,
+              "negativeSpaceProxy": 0.893843
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 40748,
+              "edgeDensity": 0.166584,
+              "edgeShare": 0.171155,
+              "negativeSpaceProxy": 0.833416
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 26133,
+              "edgeDensity": 0.106836,
+              "edgeShare": 0.109767,
+              "negativeSpaceProxy": 0.893164
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 1321,
+              "edgeDensity": 0.0054,
+              "edgeShare": 0.005549,
+              "negativeSpaceProxy": 0.9946
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 33062,
+              "edgeDensity": 0.135163,
+              "edgeShare": 0.138872,
+              "negativeSpaceProxy": 0.864837
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 11554,
+              "edgeDensity": 0.047235,
+              "edgeShare": 0.048531,
+              "negativeSpaceProxy": 0.952765
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 4897,
+              "edgeDensity": 0.02002,
+              "edgeShare": 0.020569,
+              "negativeSpaceProxy": 0.97998
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
         }
       }
     },
@@ -1939,6 +3499,179 @@
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 283304,
+        "edgeDensity": 0.072332,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1298.048,
+            900.627
+          ],
+          "cssPixels": [
+            649.024,
+            450.314
+          ],
+          "normalized": [
+            0.430387,
+            0.591739
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 20825,
+              "edgeDensity": 0.084879,
+              "edgeShare": 0.073508,
+              "negativeSpaceProxy": 0.915121
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 25294,
+              "edgeDensity": 0.103094,
+              "edgeShare": 0.089282,
+              "negativeSpaceProxy": 0.896906
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 1665,
+              "edgeDensity": 0.006786,
+              "edgeShare": 0.005877,
+              "negativeSpaceProxy": 0.993214
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 2144,
+              "edgeDensity": 0.008765,
+              "edgeShare": 0.007568,
+              "negativeSpaceProxy": 0.991235
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 26232,
+              "edgeDensity": 0.107241,
+              "edgeShare": 0.092593,
+              "negativeSpaceProxy": 0.892759
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 30839,
+              "edgeDensity": 0.126075,
+              "edgeShare": 0.108855,
+              "negativeSpaceProxy": 0.873925
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 7154,
+              "edgeDensity": 0.029247,
+              "edgeShare": 0.025252,
+              "negativeSpaceProxy": 0.970753
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 28463,
+              "edgeDensity": 0.116361,
+              "edgeShare": 0.100468,
+              "negativeSpaceProxy": 0.883639
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 35863,
+              "edgeDensity": 0.146614,
+              "edgeShare": 0.126588,
+              "negativeSpaceProxy": 0.853386
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 28106,
+              "edgeDensity": 0.114902,
+              "edgeShare": 0.099208,
+              "negativeSpaceProxy": 0.885098
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 1707,
+              "edgeDensity": 0.006978,
+              "edgeShare": 0.006025,
+              "negativeSpaceProxy": 0.993022
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 30772,
+              "edgeDensity": 0.125801,
+              "edgeShare": 0.108618,
+              "negativeSpaceProxy": 0.874199
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 24610,
+              "edgeDensity": 0.10061,
+              "edgeShare": 0.086868,
+              "negativeSpaceProxy": 0.89939
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 19630,
+              "edgeDensity": 0.080251,
+              "edgeShare": 0.06929,
+              "negativeSpaceProxy": 0.919749
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -2130,6 +3863,179 @@
           "selectedComponentCount": 298,
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 234437,
+        "edgeDensity": 0.059856,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1200.924,
+            940.237
+          ],
+          "cssPixels": [
+            600.462,
+            470.118
+          ],
+          "normalized": [
+            0.398184,
+            0.617764
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 20584,
+              "edgeDensity": 0.083897,
+              "edgeShare": 0.087802,
+              "negativeSpaceProxy": 0.916103
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 17335,
+              "edgeDensity": 0.070655,
+              "edgeShare": 0.073943,
+              "negativeSpaceProxy": 0.929345
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 224,
+              "edgeDensity": 0.000913,
+              "edgeShare": 0.000955,
+              "negativeSpaceProxy": 0.999087
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 5430,
+              "edgeDensity": 0.022199,
+              "edgeShare": 0.023162,
+              "negativeSpaceProxy": 0.977801
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 15129,
+              "edgeDensity": 0.06185,
+              "edgeShare": 0.064533,
+              "negativeSpaceProxy": 0.93815
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 18522,
+              "edgeDensity": 0.075721,
+              "edgeShare": 0.079006,
+              "negativeSpaceProxy": 0.924279
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 4930,
+              "edgeDensity": 0.020155,
+              "edgeShare": 0.021029,
+              "negativeSpaceProxy": 0.979845
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 30280,
+              "edgeDensity": 0.123789,
+              "edgeShare": 0.12916,
+              "negativeSpaceProxy": 0.876211
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 26073,
+              "edgeDensity": 0.106591,
+              "edgeShare": 0.111215,
+              "negativeSpaceProxy": 0.893409
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 22048,
+              "edgeDensity": 0.090136,
+              "edgeShare": 0.094047,
+              "negativeSpaceProxy": 0.909864
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 722,
+              "edgeDensity": 0.002952,
+              "edgeShare": 0.00308,
+              "negativeSpaceProxy": 0.997048
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 28326,
+              "edgeDensity": 0.115801,
+              "edgeShare": 0.120826,
+              "negativeSpaceProxy": 0.884199
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 28935,
+              "edgeDensity": 0.118291,
+              "edgeShare": 0.123423,
+              "negativeSpaceProxy": 0.881709
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 15899,
+              "edgeDensity": 0.064998,
+              "edgeShare": 0.067818,
+              "negativeSpaceProxy": 0.935002
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
         }
       }
     },
@@ -2378,6 +4284,179 @@
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 242414,
+        "edgeDensity": 0.061892,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1186.984,
+            926.431
+          ],
+          "cssPixels": [
+            593.492,
+            463.215
+          ],
+          "normalized": [
+            0.393562,
+            0.608693
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 50,
+              "edgeDensity": 0.000204,
+              "edgeShare": 0.000206,
+              "negativeSpaceProxy": 0.999796
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 19068,
+              "edgeDensity": 0.077718,
+              "edgeShare": 0.078659,
+              "negativeSpaceProxy": 0.922282
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 16059,
+              "edgeDensity": 0.065454,
+              "edgeShare": 0.066246,
+              "negativeSpaceProxy": 0.934546
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 65,
+              "edgeDensity": 0.000265,
+              "edgeShare": 0.000268,
+              "negativeSpaceProxy": 0.999735
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 4929,
+              "edgeDensity": 0.020151,
+              "edgeShare": 0.020333,
+              "negativeSpaceProxy": 0.979849
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 25248,
+              "edgeDensity": 0.103218,
+              "edgeShare": 0.104152,
+              "negativeSpaceProxy": 0.896782
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 25616,
+              "edgeDensity": 0.104722,
+              "edgeShare": 0.10567,
+              "negativeSpaceProxy": 0.895278
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 569,
+              "edgeDensity": 0.002326,
+              "edgeShare": 0.002347,
+              "negativeSpaceProxy": 0.997674
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 27976,
+              "edgeDensity": 0.11437,
+              "edgeShare": 0.115406,
+              "negativeSpaceProxy": 0.88563
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 27683,
+              "edgeDensity": 0.113172,
+              "edgeShare": 0.114197,
+              "negativeSpaceProxy": 0.886828
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 22246,
+              "edgeDensity": 0.090945,
+              "edgeShare": 0.091769,
+              "negativeSpaceProxy": 0.909055
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 1254,
+              "edgeDensity": 0.005127,
+              "edgeShare": 0.005173,
+              "negativeSpaceProxy": 0.994873
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 28598,
+              "edgeDensity": 0.116913,
+              "edgeShare": 0.117972,
+              "negativeSpaceProxy": 0.883087
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 30266,
+              "edgeDensity": 0.123732,
+              "edgeShare": 0.124853,
+              "negativeSpaceProxy": 0.876268
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 12787,
+              "edgeDensity": 0.052275,
+              "edgeShare": 0.052749,
+              "negativeSpaceProxy": 0.947725
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -2515,6 +4594,179 @@
         "status": "blocked",
         "label": "transitioning four-row process-ladder copy",
         "reason": "The active arrival body copy is materially faded into similar-valued field tiles and route bloom at this travel anchor. A dark-ink box would report only the headings, while a looser threshold would merge scene structure; bounds from the later lockup are not inferred backward."
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 170548,
+        "edgeDensity": 0.043544,
+        "edgeCentroid": {
+          "rasterPixels": [
+            713.846,
+            955.037
+          ],
+          "cssPixels": [
+            356.923,
+            477.519
+          ],
+          "normalized": [
+            0.236686,
+            0.627488
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 14355,
+              "edgeDensity": 0.058509,
+              "edgeShare": 0.08417,
+              "negativeSpaceProxy": 0.941491
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 12122,
+              "edgeDensity": 0.049407,
+              "edgeShare": 0.071077,
+              "negativeSpaceProxy": 0.950593
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 1036,
+              "edgeDensity": 0.004223,
+              "edgeShare": 0.006075,
+              "negativeSpaceProxy": 0.995777
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 19900,
+              "edgeDensity": 0.081354,
+              "edgeShare": 0.116683,
+              "negativeSpaceProxy": 0.918646
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 13485,
+              "edgeDensity": 0.055129,
+              "edgeShare": 0.079069,
+              "negativeSpaceProxy": 0.944871
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 4097,
+              "edgeDensity": 0.016749,
+              "edgeShare": 0.024023,
+              "negativeSpaceProxy": 0.983251
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 27820,
+              "edgeDensity": 0.113733,
+              "edgeShare": 0.163121,
+              "negativeSpaceProxy": 0.886267
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 11357,
+              "edgeDensity": 0.046429,
+              "edgeShare": 0.066591,
+              "negativeSpaceProxy": 0.953571
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 2916,
+              "edgeDensity": 0.011921,
+              "edgeShare": 0.017098,
+              "negativeSpaceProxy": 0.988079
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 37871,
+              "edgeDensity": 0.154823,
+              "edgeShare": 0.222055,
+              "negativeSpaceProxy": 0.845177
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 25374,
+              "edgeDensity": 0.103733,
+              "edgeShare": 0.148779,
+              "negativeSpaceProxy": 0.896267
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 215,
+              "edgeDensity": 0.000879,
+              "edgeShare": 0.001261,
+              "negativeSpaceProxy": 0.999121
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -2759,6 +5011,179 @@
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 156936,
+        "edgeDensity": 0.040068,
+        "edgeCentroid": {
+          "rasterPixels": [
+            1035.453,
+            989.306
+          ],
+          "cssPixels": [
+            517.727,
+            494.653
+          ],
+          "normalized": [
+            0.34332,
+            0.650004
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 347,
+              "edgeDensity": 0.001414,
+              "edgeShare": 0.002211,
+              "negativeSpaceProxy": 0.998586
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 5948,
+              "edgeDensity": 0.024243,
+              "edgeShare": 0.037901,
+              "negativeSpaceProxy": 0.975757
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 3688,
+              "edgeDensity": 0.015032,
+              "edgeShare": 0.0235,
+              "negativeSpaceProxy": 0.984968
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 7263,
+              "edgeDensity": 0.029692,
+              "edgeShare": 0.04628,
+              "negativeSpaceProxy": 0.970308
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 24934,
+              "edgeDensity": 0.101934,
+              "edgeShare": 0.15888,
+              "negativeSpaceProxy": 0.898066
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 15900,
+              "edgeDensity": 0.065002,
+              "edgeShare": 0.101315,
+              "negativeSpaceProxy": 0.934998
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 15625,
+              "edgeDensity": 0.063877,
+              "edgeShare": 0.099563,
+              "negativeSpaceProxy": 0.936123
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 13987,
+              "edgeDensity": 0.057181,
+              "edgeShare": 0.089126,
+              "negativeSpaceProxy": 0.942819
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 9897,
+              "edgeDensity": 0.04046,
+              "edgeShare": 0.063064,
+              "negativeSpaceProxy": 0.95954
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 33577,
+              "edgeDensity": 0.137268,
+              "edgeShare": 0.213953,
+              "negativeSpaceProxy": 0.862732
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 22590,
+              "edgeDensity": 0.092351,
+              "edgeShare": 0.143944,
+              "negativeSpaceProxy": 0.907649
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 1702,
+              "edgeDensity": 0.006958,
+              "edgeShare": 0.010845,
+              "negativeSpaceProxy": 0.993042
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 1478,
+              "edgeDensity": 0.006042,
+              "edgeShare": 0.009418,
+              "negativeSpaceProxy": 0.993958
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     },
     {
@@ -2859,6 +5284,179 @@
         "status": "blocked",
         "label": "clipped exiting process-ladder copy",
         "reason": "The exiting ladder is vertically clipped and overlaps the fixed left navigation at this exact frame. Visible dark pixels cannot distinguish the two text systems, and a complete pre-exit ladder box is not inferred through the section handoff."
+      },
+      "composition": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "screen-space edge-support distribution proxy",
+        "edgePixelSupport": 161762,
+        "edgeDensity": 0.041301,
+        "edgeCentroid": {
+          "rasterPixels": [
+            905.552,
+            760.158
+          ],
+          "cssPixels": [
+            452.776,
+            380.079
+          ],
+          "normalized": [
+            0.300249,
+            0.499447
+          ]
+        },
+        "grid": {
+          "columns": 4,
+          "rows": 4,
+          "cells": [
+            {
+              "column": 0,
+              "row": 0,
+              "edgePixels": 23472,
+              "edgeDensity": 0.095668,
+              "edgeShare": 0.145102,
+              "negativeSpaceProxy": 0.904332
+            },
+            {
+              "column": 1,
+              "row": 0,
+              "edgePixels": 11546,
+              "edgeDensity": 0.04706,
+              "edgeShare": 0.071376,
+              "negativeSpaceProxy": 0.95294
+            },
+            {
+              "column": 2,
+              "row": 0,
+              "edgePixels": 1065,
+              "edgeDensity": 0.004341,
+              "edgeShare": 0.006584,
+              "negativeSpaceProxy": 0.995659
+            },
+            {
+              "column": 3,
+              "row": 0,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 1,
+              "edgePixels": 22568,
+              "edgeDensity": 0.092262,
+              "edgeShare": 0.139514,
+              "negativeSpaceProxy": 0.907738
+            },
+            {
+              "column": 1,
+              "row": 1,
+              "edgePixels": 25882,
+              "edgeDensity": 0.10581,
+              "edgeShare": 0.16,
+              "negativeSpaceProxy": 0.89419
+            },
+            {
+              "column": 2,
+              "row": 1,
+              "edgePixels": 10400,
+              "edgeDensity": 0.042517,
+              "edgeShare": 0.064292,
+              "negativeSpaceProxy": 0.957483
+            },
+            {
+              "column": 3,
+              "row": 1,
+              "edgePixels": 1478,
+              "edgeDensity": 0.006042,
+              "edgeShare": 0.009137,
+              "negativeSpaceProxy": 0.993958
+            },
+            {
+              "column": 0,
+              "row": 2,
+              "edgePixels": 25022,
+              "edgeDensity": 0.102294,
+              "edgeShare": 0.154684,
+              "negativeSpaceProxy": 0.897706
+            },
+            {
+              "column": 1,
+              "row": 2,
+              "edgePixels": 27384,
+              "edgeDensity": 0.11195,
+              "edgeShare": 0.169286,
+              "negativeSpaceProxy": 0.88805
+            },
+            {
+              "column": 2,
+              "row": 2,
+              "edgePixels": 9639,
+              "edgeDensity": 0.039406,
+              "edgeShare": 0.059588,
+              "negativeSpaceProxy": 0.960594
+            },
+            {
+              "column": 3,
+              "row": 2,
+              "edgePixels": 0,
+              "edgeDensity": 0,
+              "edgeShare": 0,
+              "negativeSpaceProxy": 1
+            },
+            {
+              "column": 0,
+              "row": 3,
+              "edgePixels": 1179,
+              "edgeDensity": 0.00482,
+              "edgeShare": 0.007288,
+              "negativeSpaceProxy": 0.99518
+            },
+            {
+              "column": 1,
+              "row": 3,
+              "edgePixels": 1119,
+              "edgeDensity": 0.004575,
+              "edgeShare": 0.006918,
+              "negativeSpaceProxy": 0.995425
+            },
+            {
+              "column": 2,
+              "row": 3,
+              "edgePixels": 504,
+              "edgeDensity": 0.00206,
+              "edgeShare": 0.003116,
+              "negativeSpaceProxy": 0.99794
+            },
+            {
+              "column": 3,
+              "row": 3,
+              "edgePixels": 504,
+              "edgeDensity": 0.00206,
+              "edgeShare": 0.003116,
+              "negativeSpaceProxy": 0.99794
+            }
+          ]
+        },
+        "method": {
+          "id": "screen-space-sobel-grid",
+          "roiNormalized": [
+            0.01,
+            0.12,
+            0.98,
+            0.87
+          ],
+          "roiRasterPixels": [
+            30,
+            182,
+            2956,
+            1325
+          ],
+          "sobelThreshold": 36,
+          "minimumEdgePixels": 1000,
+          "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
+        }
       }
     }
   ]

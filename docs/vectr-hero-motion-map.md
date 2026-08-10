@@ -197,6 +197,11 @@ comparison.
   faded into similar-valued field/route pixels; `journey-exit` remains blocked
   because the clipped ladder overlaps the fixed header. Neither box is copied
   from a cleaner neighboring frame.
+- All 15 states now carry an observed 4x4 edge-support distribution, global
+  edge density, and screen-space centroid below the fixed-header band. These
+  are reproducible composition/negative-space proxies, not reconstructed 3D
+  camera positions or quaternions. The actual camera transform remains
+  unknown from the recording and is not used as a source acceptance gate.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile. Their latest implementation comparison is red and
   predates the newest CSS/progress corrections.

@@ -101,6 +101,14 @@ export type HeroReferenceState = {
     quaternion: HeroTuple4 | null;
     visualComposition: string;
   };
+  screenComposition: {
+    status: 'observed' | 'blocked';
+    evidence: HeroEvidenceClass;
+    evidenceRef: string | null;
+    edgeDensity: number | null;
+    edgeCentroidNormalized: readonly [x: number, y: number] | null;
+    grid: { columns: 4; rows: 4 } | null;
+  };
   focusTarget: {
     evidence: HeroEvidenceClass;
     value: string | null;

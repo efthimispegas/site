@@ -1,3 +1,4 @@
+import { HERO_REFERENCE_STATE_KEYS } from './hero-contract';
 import type {
   HeroEvidenceClass,
   HeroLocalClocks,
@@ -20,6 +21,63 @@ const LANDING_COPY_LABEL =
   'visible centered landing headline and supporting-copy ink envelope';
 const PROCESS_COPY_LABEL = 'visible four-row process-ladder copy ink envelope';
 
+const SCREEN_COMPOSITION_SUMMARIES = {
+  'loader-mark': { edgeDensity: 0.005413, centroid: [0.599798, 0.663796] },
+  'world-reveal': { edgeDensity: 0.015766, centroid: [0.519851, 0.680921] },
+  landing: { edgeDensity: 0.053274, centroid: [0.525995, 0.586713] },
+  'landing-idle': { edgeDensity: 0.050906, centroid: [0.527173, 0.607513] },
+  'activation-route': {
+    edgeDensity: 0.048061,
+    centroid: [0.402921, 0.571181],
+  },
+  'activation-contact': {
+    edgeDensity: 0.043121,
+    centroid: [0.389836, 0.540079],
+  },
+  'clearance-travel': {
+    edgeDensity: 0.058774,
+    centroid: [0.40239, 0.483194],
+  },
+  'clearance-field-preview': {
+    edgeDensity: 0.051105,
+    centroid: [0.324725, 0.565828],
+  },
+  'field-approach': {
+    edgeDensity: 0.060785,
+    centroid: [0.439477, 0.542102],
+  },
+  'field-contact': {
+    edgeDensity: 0.072332,
+    centroid: [0.430387, 0.591739],
+  },
+  'field-pulse-a': {
+    edgeDensity: 0.059856,
+    centroid: [0.398184, 0.617764],
+  },
+  'field-pulse-b': {
+    edgeDensity: 0.061892,
+    centroid: [0.393562, 0.608693],
+  },
+  'arrival-travel': {
+    edgeDensity: 0.043544,
+    centroid: [0.236686, 0.627488],
+  },
+  'arrival-lockup': {
+    edgeDensity: 0.040068,
+    centroid: [0.34332, 0.650004],
+  },
+  'journey-exit': {
+    edgeDensity: 0.041301,
+    centroid: [0.300249, 0.499447],
+  },
+} as const satisfies Record<
+  HeroReferenceStateKey,
+  {
+    edgeDensity: number;
+    centroid: readonly [number, number];
+  }
+>;
+
 function structuralCopyEvidenceRef(stateIndex: number) {
   return `docs/hero-reference/recording-structural-bounds.json#/states/${stateIndex}/copy`;
 }
@@ -28,6 +86,7 @@ type ReferenceStateInput = Omit<
   HeroReferenceState,
   | 'recordingAnchor'
   | 'cameraPose'
+  | 'screenComposition'
   | 'focusTarget'
   | 'route'
   | 'screenBounds'
@@ -111,6 +170,8 @@ function state(input: ReferenceStateInput): HeroReferenceState {
     route: resolvedRouteStatus,
     boundary: resolvedBoundaryStatus,
   }[primaryStructureKind];
+  const screenComposition = SCREEN_COMPOSITION_SUMMARIES[contract.key];
+  const stateIndex = HERO_REFERENCE_STATE_KEYS.indexOf(contract.key);
 
   if (primaryStatus === 'not-applicable') {
     throw new Error(
@@ -134,6 +195,14 @@ function state(input: ReferenceStateInput): HeroReferenceState {
       position: null,
       quaternion: null,
       visualComposition: composition,
+    },
+    screenComposition: {
+      status: 'observed',
+      evidence: 'observed',
+      evidenceRef: `docs/hero-reference/recording-structural-bounds.json#/states/${stateIndex}/composition`,
+      edgeDensity: screenComposition.edgeDensity,
+      edgeCentroidNormalized: screenComposition.centroid,
+      grid: { columns: 4, rows: 4 },
     },
     focusTarget: {
       evidence: 'inferred',

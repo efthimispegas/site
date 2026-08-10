@@ -32,6 +32,53 @@ describe('hero reference-state contract', () => {
     });
   });
 
+  it('uses observed screen composition without inventing 3D camera transforms', () => {
+    expect(
+      referenceStates.map(({ screenComposition }) =>
+        screenComposition.edgeDensity,
+      ),
+    ).toEqual([
+      0.005413, 0.015766, 0.053274, 0.050906, 0.048061, 0.043121,
+      0.058774, 0.051105, 0.060785, 0.072332, 0.059856, 0.061892,
+      0.043544, 0.040068, 0.041301,
+    ]);
+    expect(
+      referenceStates.map(({ screenComposition }) =>
+        screenComposition.edgeCentroidNormalized,
+      ),
+    ).toEqual([
+      [0.599798, 0.663796],
+      [0.519851, 0.680921],
+      [0.525995, 0.586713],
+      [0.527173, 0.607513],
+      [0.402921, 0.571181],
+      [0.389836, 0.540079],
+      [0.40239, 0.483194],
+      [0.324725, 0.565828],
+      [0.439477, 0.542102],
+      [0.430387, 0.591739],
+      [0.398184, 0.617764],
+      [0.393562, 0.608693],
+      [0.236686, 0.627488],
+      [0.34332, 0.650004],
+      [0.300249, 0.499447],
+    ]);
+
+    for (const [index, referenceState] of referenceStates.entries()) {
+      expect(referenceState.screenComposition).toMatchObject({
+        status: 'observed',
+        evidence: 'observed',
+        evidenceRef: `docs/hero-reference/recording-structural-bounds.json#/states/${index}/composition`,
+        grid: { columns: 4, rows: 4 },
+      });
+      expect(referenceState.cameraPose).toMatchObject({
+        evidence: 'unknown',
+        position: null,
+        quaternion: null,
+      });
+    }
+  });
+
   it('exposes the seven deterministically measured primary landmarks', () => {
     const measured = referenceStates
       .filter(
