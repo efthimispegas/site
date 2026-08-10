@@ -3,6 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import sharp from 'sharp';
+import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 
 const workspaceRoot = process.cwd();
 const manifestPath = path.join(
@@ -34,6 +35,10 @@ const PRELIMINARY_RASTER_THRESHOLDS = {
   rootMeanSquareChannelError: 15,
   changedPixelRatioAt16: 0.03,
 };
+const STRUCTURAL_TOLERANCES = {
+  compositionCentroidNormalized: 0.0075,
+  negativeSpaceOccupancy: 0.03,
+};
 
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
 const captureManifest = JSON.parse(await readFile(captureManifestPath, 'utf8'));
@@ -51,6 +56,60 @@ const journeyProbeStateByKey = new Map(
   journeyDomProbe.states.map((state) => [state.key, state]),
 );
 
+function isObservedScreenComposition(composition) {
+  return (
+    composition?.status === 'observed' &&
+    composition.evidenceClass === 'observed' &&
+    composition.label === SCREEN_COMPOSITION_CONFIG.label &&
+    Number.isSafeInteger(composition.edgePixelSupport) &&
+    composition.edgePixelSupport >=
+      SCREEN_COMPOSITION_CONFIG.minimumEdgePixels &&
+    Number.isFinite(composition.edgeDensity) &&
+    composition.edgeDensity >= 0 &&
+    composition.edgeDensity <= 1 &&
+    Array.isArray(composition.edgeCentroid?.normalized) &&
+    composition.edgeCentroid.normalized.length === 2 &&
+    composition.edgeCentroid.normalized.every(
+      (component) =>
+        Number.isFinite(component) && component >= 0 && component <= 1,
+    ) &&
+    composition.grid?.columns === SCREEN_COMPOSITION_CONFIG.gridColumns &&
+    composition.grid?.rows === SCREEN_COMPOSITION_CONFIG.gridRows &&
+    Array.isArray(composition.grid.cells) &&
+    composition.grid.cells.length ===
+      SCREEN_COMPOSITION_CONFIG.gridColumns *
+        SCREEN_COMPOSITION_CONFIG.gridRows &&
+    composition.grid.cells.every(
+      (cell, index) =>
+        cell.column === index % SCREEN_COMPOSITION_CONFIG.gridColumns &&
+        cell.row ===
+          Math.floor(index / SCREEN_COMPOSITION_CONFIG.gridColumns) &&
+        Number.isSafeInteger(cell.edgePixels) &&
+        cell.edgePixels >= 0 &&
+        Number.isFinite(cell.edgeDensity) &&
+        cell.edgeDensity >= 0 &&
+        cell.edgeDensity <= 1 &&
+        Number.isFinite(cell.edgeShare) &&
+        cell.edgeShare >= 0 &&
+        cell.edgeShare <= 1 &&
+        Number.isFinite(cell.negativeSpaceProxy) &&
+        cell.negativeSpaceProxy >= 0 &&
+        cell.negativeSpaceProxy <= 1,
+    ) &&
+    composition.method?.id === 'screen-space-sobel-grid' &&
+    composition.method.sobelThreshold ===
+      SCREEN_COMPOSITION_CONFIG.sobelThreshold &&
+    composition.method.minimumEdgePixels ===
+      SCREEN_COMPOSITION_CONFIG.minimumEdgePixels &&
+    Array.isArray(composition.method.roiNormalized) &&
+    composition.method.roiNormalized.length ===
+      SCREEN_COMPOSITION_CONFIG.roi.length &&
+    composition.method.roiNormalized.every(
+      (value, index) => value === SCREEN_COMPOSITION_CONFIG.roi[index],
+    )
+  );
+}
+
 function verifyMeasurementSemantics(stateKey, artifact) {
   let measurement;
   try {
@@ -62,6 +121,7 @@ function verifyMeasurementSemantics(stateKey, artifact) {
   const recordingProfile = manifest.authority.recordingProfile;
   const state = measurement.state;
   const surface = measurement.renderSurface;
+  const screenComposition = measurement.structuralAccuracy?.screenComposition;
   const validSurface =
     surface?.kind === 'canvas' &&
     surface.canvasPresent === true &&
@@ -75,6 +135,11 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     Boolean(measurement.bounds?.canvas);
 
   if (
+    measurement.schemaVersion !== 2 ||
+    measurement.structuralAccuracy?.schemaVersion !== 1 ||
+    !isObservedScreenComposition(screenComposition) ||
+    screenComposition.sourceArtifact !==
+      path.posix.join('implementation', `${stateKey}.png`) ||
     measurement.stateKey !== stateKey ||
     measurement.viewport?.width !== recordingProfile.cssViewport.width ||
     measurement.viewport?.height !== recordingProfile.cssViewport.height ||
@@ -143,7 +208,7 @@ async function verifyCaptureManifest() {
     captureStartedAt <= captureCompletedAt;
 
   if (
-    captureManifest.schemaVersion !== 1 ||
+    captureManifest.schemaVersion !== 2 ||
     captureManifest.status !== 'complete' ||
     !validRunId ||
     !validRunWindow ||
@@ -307,6 +372,8 @@ function evaluatePreliminaryRaster(metrics) {
 
 function evaluateStructuralAccuracy(state, measurement) {
   const blockers = [];
+  const checks = [];
+  const failures = [];
   const primaryStructure = state.screenBounds?.primaryStructure ?? {
     kind: 'landmark',
     status: 'blocked',
@@ -322,16 +389,15 @@ function evaluateStructuralAccuracy(state, measurement) {
     Array.isArray(state.screenBounds?.copy);
   const sourceComposition = state.screenComposition;
   const sourceCompositionMeasured =
-    sourceComposition?.status === 'observed' &&
-    Number.isFinite(sourceComposition.edgeDensity) &&
-    sourceComposition.edgeDensity >= 0 &&
-    Array.isArray(sourceComposition.edgeCentroid?.normalized) &&
-    sourceComposition.edgeCentroid.normalized.length === 2 &&
-    sourceComposition.grid?.columns === 4 &&
-    sourceComposition.grid?.rows === 4 &&
-    Array.isArray(sourceComposition.grid.cells) &&
-    sourceComposition.grid.cells.length === 16 &&
+    isObservedScreenComposition(sourceComposition) &&
     typeof sourceComposition.evidenceRef === 'string';
+  const implementationStructural = measurement?.structuralAccuracy;
+  const implementationComposition = implementationStructural?.screenComposition;
+  const implementationCompositionMeasured = isObservedScreenComposition(
+    implementationComposition,
+  );
+  const implementationPrimaryMeasured =
+    implementationStructural?.[primaryStructure.kind]?.status === 'observed';
 
   if (!sourcePrimaryMeasured) {
     blockers.push(
@@ -349,18 +415,86 @@ function evaluateStructuralAccuracy(state, measurement) {
       'authoritative source screen-space composition proxy is unmeasured',
     );
   }
-  if (!measurement?.structuralAccuracy) {
+  if (sourcePrimaryMeasured && !implementationPrimaryMeasured) {
     blockers.push(
-      'implementation landmark, route, composition, and negative-space measurements are not emitted',
+      primaryStructure.kind === 'route'
+        ? 'implementation route bounds are not emitted'
+        : `implementation ${primaryStructure.kind} primary-structure bounds are not emitted`,
+    );
+  }
+  if (
+    state.screenBounds?.routeStatus === 'observed' &&
+    primaryStructure.kind !== 'route' &&
+    implementationStructural?.route?.status !== 'observed'
+  ) {
+    blockers.push('implementation route bounds are not emitted');
+  }
+  if (
+    Array.isArray(state.screenBounds?.copy) &&
+    implementationStructural?.copy?.status !== 'observed'
+  ) {
+    blockers.push('implementation copy bounds are not emitted');
+  }
+  if (!implementationCompositionMeasured) {
+    blockers.push(
+      'implementation screen-space composition proxy is not emitted',
     );
   }
 
+  if (sourceCompositionMeasured && implementationCompositionMeasured) {
+    checks.push(
+      compareScalar(
+        'composition.negativeSpaceOccupancy',
+        1 - sourceComposition.edgeDensity,
+        1 - implementationComposition.edgeDensity,
+        STRUCTURAL_TOLERANCES.negativeSpaceOccupancy,
+      ),
+      compareScalar(
+        'composition.edgeCentroid.normalized.x',
+        sourceComposition.edgeCentroid.normalized[0],
+        implementationComposition.edgeCentroid.normalized[0],
+        STRUCTURAL_TOLERANCES.compositionCentroidNormalized,
+      ),
+      compareScalar(
+        'composition.edgeCentroid.normalized.y',
+        sourceComposition.edgeCentroid.normalized[1],
+        implementationComposition.edgeCentroid.normalized[1],
+        STRUCTURAL_TOLERANCES.compositionCentroidNormalized,
+      ),
+    );
+
+    for (
+      let index = 0;
+      index < sourceComposition.grid.cells.length;
+      index += 1
+    ) {
+      const sourceCell = sourceComposition.grid.cells[index];
+      const implementationCell = implementationComposition.grid.cells[index];
+      checks.push(
+        compareScalar(
+          `composition.grid.cells.${index}.negativeSpaceProxy`,
+          sourceCell.negativeSpaceProxy,
+          implementationCell.negativeSpaceProxy,
+          STRUCTURAL_TOLERANCES.negativeSpaceOccupancy,
+        ),
+      );
+    }
+    appendFailedChecks(checks, failures);
+  }
+
+  const status =
+    blockers.length > 0 ? 'blocked' : failures.length > 0 ? 'fail' : 'pass';
+
   return {
-    status: 'blocked',
-    checks: [],
-    failures: [],
+    status,
+    checks,
+    failures,
     blockers,
-    note: 'No state can pass structural accuracy until source prerequisites exist and implementation screen-space structure is measured against the Phase 1 tolerances.',
+    tolerances: STRUCTURAL_TOLERANCES,
+    note:
+      blockers.length > 0
+        ? 'Measured composition checks are reported, but structural accuracy remains blocked until the remaining source and implementation geometry prerequisites exist.'
+        : 'Structural screen-space evidence is evaluated against the locked Phase 1 tolerances.',
   };
 }
 
@@ -873,7 +1007,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 5,
+  schemaVersion: 6,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),
@@ -901,6 +1035,7 @@ const report = {
   },
   preliminaryRasterSummary,
   structuralAccuracySummary,
+  structuralTolerances: STRUCTURAL_TOLERANCES,
   domSummary,
   preliminaryRasterGateSatisfied,
   structuralAccuracyGateSatisfied,

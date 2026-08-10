@@ -2,6 +2,8 @@ import { expect, test, type Page } from '@playwright/test';
 import { createHash, randomUUID } from 'node:crypto';
 import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import sharp from 'sharp';
+import { measureScreenComposition } from './screen-composition.mjs';
 
 const REFERENCE_STATES = [
   'loader-mark',
@@ -137,6 +139,31 @@ async function createArtifactEvidence(relativePath: string) {
     path: relativePath,
     bytes: artifact.byteLength,
     sha256: createHash('sha256').update(artifact).digest('hex'),
+  };
+}
+
+async function measureImplementationComposition(
+  imagePath: string,
+  stateKey: ReferenceStateKey,
+  devicePixelRatio: number,
+) {
+  const { data, info } = await sharp(imagePath)
+    .removeAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const { measurement } = measureScreenComposition({
+    data,
+    image: info,
+    dpr: devicePixelRatio,
+  });
+
+  if (measurement.status !== 'observed') {
+    throw new Error(`${stateKey}: ${measurement.reason}`);
+  }
+
+  return {
+    ...measurement,
+    sourceArtifact: path.posix.join('implementation', `${stateKey}.png`),
   };
 }
 
@@ -426,7 +453,7 @@ test.afterAll(async () => {
     })),
   );
   const manifest = {
-    schemaVersion: 1,
+    schemaVersion: 2,
     status: 'complete',
     runId: captureRunId,
     startedAt: captureRunStartedAt,
@@ -471,7 +498,20 @@ for (const stateKey of REFERENCE_STATES) {
       animations: 'disabled',
       scale: 'device',
     });
-    const measurement = await measurePage(page, stateKey);
+    const pageMeasurement = await measurePage(page, stateKey);
+    const screenComposition = await measureImplementationComposition(
+      imagePath,
+      stateKey,
+      pageMeasurement.viewport.devicePixelRatio,
+    );
+    const measurement = {
+      schemaVersion: 2,
+      ...pageMeasurement,
+      structuralAccuracy: {
+        schemaVersion: 1,
+        screenComposition,
+      },
+    };
     expect(measurement.state).toMatchObject({
       'data-hero-motion': 'full',
       'data-hero-profile': 'recording-desktop',
