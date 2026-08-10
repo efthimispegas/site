@@ -16,6 +16,14 @@ const SETTLED_PAGE_CLOCKS: HeroLocalClocks = {
   arrivalMs: 0,
 };
 
+const LANDING_COPY_LABEL =
+  'visible centered landing headline and supporting-copy ink envelope';
+const PROCESS_COPY_LABEL = 'visible four-row process-ladder copy ink envelope';
+
+function structuralCopyEvidenceRef(stateIndex: number) {
+  return `docs/hero-reference/recording-structural-bounds.json#/states/${stateIndex}/copy`;
+}
+
 type ReferenceStateInput = Omit<
   HeroReferenceState,
   | 'recordingAnchor'
@@ -47,6 +55,9 @@ type ReferenceStateInput = Omit<
   routeBounds?: HeroScreenBounds | null;
   boundaryStatus?: HeroStructuralFeatureStatus;
   boundaryBounds?: HeroScreenBounds | null;
+  copyStatus?: HeroStructuralFeatureStatus | 'unknown';
+  copyLabel?: string | null;
+  copyEvidenceRef?: string | null;
   copyBounds?: HeroScreenBounds | null;
   context: readonly string[];
   unresolvedDifferences?: readonly string[];
@@ -76,6 +87,9 @@ function state(input: ReferenceStateInput): HeroReferenceState {
     routeBounds = null,
     boundaryStatus,
     boundaryBounds = null,
+    copyStatus,
+    copyLabel = null,
+    copyEvidenceRef = null,
     copyBounds = null,
     context,
     unresolvedDifferences = [],
@@ -147,11 +161,14 @@ function state(input: ReferenceStateInput): HeroReferenceState {
       boundaryStatus: resolvedBoundaryStatus,
       boundary: boundaryBounds,
       copyStatus:
-        copyBounds !== null
+        copyStatus ??
+        (copyBounds !== null
           ? 'observed'
           : contract.copyState === 'none'
             ? 'not-applicable'
-            : 'unknown',
+            : 'unknown'),
+      copyLabel,
+      copyEvidenceRef,
       copy: copyBounds,
     },
     expectedVisibleContext: context,
@@ -273,6 +290,9 @@ export const referenceStates = [
     interactionEvidence: 'observed',
     routeStatus: 'not-applicable',
     primaryStructureLabel: 'landing industrial context aggregate',
+    copyLabel: LANDING_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(2),
+    copyBounds: [409, 132.5, 696, 306],
     context: [
       'fixed desktop header',
       'centered hero copy',
@@ -317,6 +337,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/3/route',
     routeBounds: [610, 599, 208, 162],
+    copyLabel: LANDING_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(3),
+    copyBounds: [409, 132, 696, 303],
     context: [
       'fixed desktop header',
       'settled landing copy',
@@ -355,6 +378,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/4/route',
     routeBounds: [430, 4, 374, 471],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(4),
+    copyBounds: [64.5, 419.5, 545.5, 284],
     context: [
       'Step 01 process copy',
       'thin parallel red rails',
@@ -394,6 +420,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/5/route',
     routeBounds: [342, 1, 399, 377],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(5),
+    copyBounds: [64.5, 413, 545.5, 284],
     context: [
       'Step 01 process copy',
       'red contact point',
@@ -429,6 +458,9 @@ export const referenceStates = [
     landmarkStatus: 'not-applicable',
     routeStatus: 'observed',
     routeBounds: [88, 123, 474, 264],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(6),
+    copyBounds: [64.5, 417, 541, 280],
     context: [
       'Step 02 process copy',
       'open industrial travel space',
@@ -466,6 +498,9 @@ export const referenceStates = [
     landmarkStatus: 'not-applicable',
     routeStatus: 'observed',
     routeBounds: [217, 429, 441, 193],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(7),
+    copyBounds: [64.5, 417, 541.5, 280],
     context: [
       'Step 02 process copy',
       'cyan route',
@@ -501,6 +536,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/8/route',
     routeBounds: [53, 387, 697, 298],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(8),
+    copyBounds: [64.5, 417, 541, 280],
     context: [
       'Step 02 process copy in the recording',
       'dominant irregular tile field',
@@ -540,6 +578,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/9/route',
     routeBounds: [0, 345, 724, 298],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(9),
+    copyBounds: [64.5, 417, 541, 280],
     context: [
       'Step 03 process copy',
       'elevated center tile and figure',
@@ -572,6 +613,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/10/route',
     routeBounds: [1, 361, 622, 155],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(10),
+    copyBounds: [64.5, 417, 541, 280],
     context: [
       'Step 03 process copy',
       'connected cyan route',
@@ -608,6 +652,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/11/route',
     routeBounds: [1, 394, 605, 80],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(11),
+    copyBounds: [64.5, 417, 541, 280],
     context: [
       'Step 03 process copy',
       'connected cyan route',
@@ -644,6 +691,8 @@ export const referenceStates = [
     landmarkStatus: 'not-applicable',
     routeStatus: 'observed',
     routeBounds: [714, 352, 118, 9],
+    copyStatus: 'blocked',
+    copyLabel: 'transitioning four-row process-ladder copy',
     context: [
       'Step 04 process copy',
       'field receding left',
@@ -685,6 +734,9 @@ export const referenceStates = [
     routeEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/13/route',
     routeBounds: [1, 352, 479, 10],
+    copyLabel: PROCESS_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(13),
+    copyBounds: [64.5, 405, 549, 294.5],
     context: [
       'Step 04 process copy',
       'large centered arrow',
@@ -723,6 +775,8 @@ export const referenceStates = [
     routeStatus: 'not-applicable',
     boundaryStatus: 'observed',
     boundaryBounds: [0, 367.5, 1508, 1],
+    copyStatus: 'blocked',
+    copyLabel: 'clipped exiting process-ladder copy',
     context: [
       'receding arrival composition',
       'pale world coverage',

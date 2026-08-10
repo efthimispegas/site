@@ -184,13 +184,19 @@ comparison.
 - Deterministic recording analysis now measures seven landmarks
   (`loader-mark`, `world-reveal`, `activation-route`, `activation-contact`,
   `field-contact`, `field-pulse-b`, and `arrival-lockup`) and
-  12 visible route cores, plus the `journey-exit` section boundary. Every
+  12 visible route cores, 11 visible copy-ink envelopes, plus the
+  `journey-exit` section boundary. Every
   applicable route state is measured; `loader-mark`, the exact `landing`
   frame, and `journey-exit` correctly mark route bounds not applicable. Four
   route/transition-primary states correctly mark landmark bounds not
   applicable. Four landmark-primary states remain explicitly blocked because
   the semantic subject cannot be isolated without a reviewed source-tied mask
   or because only a partial/effect-only feature is visible.
+- Copy ink is measured for both landing anchors and nine fully readable
+  process-ladder anchors. `arrival-travel` remains blocked because its body is
+  faded into similar-valued field/route pixels; `journey-exit` remains blocked
+  because the clipped ladder overlaps the fixed header. Neither box is copied
+  from a cleaner neighboring frame.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile. Their latest implementation comparison is red and
   predates the newest CSS/progress corrections.

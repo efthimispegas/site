@@ -323,7 +323,7 @@
     {
       "command": "CI=1 pnpm nx run-many --target=test --projects=@site/pegasoft,@site/motion-system --skipNxCache",
       "result": "passed",
-      "details": "The Pegasoft app passed 5 Vitest files and 35 tests; motion-system passed 1 Vitest file and 2 tests."
+      "details": "The Pegasoft app passed 5 Vitest files and 37 tests; motion-system passed 1 Vitest file and 2 tests."
     },
     {
       "command": "NODE_ENV=production pnpm nx run @site/pegasoft:build --skipNxCache",
@@ -383,7 +383,7 @@
   "blockingEvidence": [
     {
       "severity": "blocks-phase-1-and-visual-acceptance",
-      "issue": "Deterministic recording measurement resolves 7 landmarks, 12 visible route cores, and 1 section boundary. All 12 applicable route states are measured; 3 route fields and 4 route/transition-primary landmark fields are correctly not applicable. Four landmark-primary states and additional source observables remain blocked. The repository-owned semantic masks remain tied to exact source-frame and mask hashes and completed their personal-review checkpoint without conferring visual acceptance. The current implementation passes all 13 applicable live DOM contracts, but generated implementation captures cannot substitute for missing source measurements."
+      "issue": "Deterministic recording measurement resolves 7 landmarks, 12 visible route cores, 11 copy-ink envelopes, and 1 section boundary. All 12 applicable route states are measured; 3 route fields, 2 copy fields, and 4 route/transition-primary landmark fields are correctly not applicable. Four landmark-primary states, the faded arrival-travel copy, the clipped/header-overlapped journey-exit copy, and additional source observables remain blocked. The repository-owned semantic masks remain tied to exact source-frame and mask hashes and completed their personal-review checkpoint without conferring visual acceptance. The current implementation passes all 13 applicable live DOM contracts, but generated implementation captures cannot substitute for missing source measurements."
     },
     {
       "severity": "blocks-phases-7-through-16",
@@ -417,6 +417,6 @@
     "structuralAccuracyComparisonPassed": false,
     "visualComparisonPassed": false,
     "phase5Status": "own-gate-passed-ordered-acceptance-blocked-by-phase-1",
-    "reason": "The current architecture, deterministic controls, repeat capture, genuine desktop/mobile convergence matrix, and manifest integrity pass their local Phase 5 gate. Ordered acceptance remains held at Phase 1 because four landmark-primary states and additional source observables remain unmeasured; all 12 applicable route states are measured, 3 route fields and 4 route/transition-primary landmark fields are correctly not applicable, and the source-tied masks completed their personal-review checkpoint without conferring visual acceptance. The comparator separately reports only 1/15 preliminary raster states passing and all 15 structural states blocked, despite a 13/13 applicable whole-ladder DOM pass; final hero acceptance is therefore blocked."
+    "reason": "The current architecture, deterministic controls, repeat capture, genuine desktop/mobile convergence matrix, and manifest integrity pass their local Phase 5 gate. Ordered acceptance remains held at Phase 1 because four landmark-primary states, two faded/clipped copy states, and additional source observables remain unmeasured; all 12 applicable route states and 11 copy-ink envelopes are measured, 3 route fields, 2 copy fields, and 4 route/transition-primary landmark fields are correctly not applicable, and the source-tied masks completed their personal-review checkpoint without conferring visual acceptance. The comparator separately reports only 1/15 preliminary raster states passing and all 15 structural states blocked, despite a 13/13 applicable whole-ladder DOM pass; final hero acceptance is therefore blocked."
   }
 }

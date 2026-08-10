@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 4,
-  "algorithmVersion": "recording-structural-bounds-v4",
+  "schemaVersion": 5,
+  "algorithmVersion": "recording-structural-bounds-v5",
   "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
   "authority": {
     "recordingPath": "docs/vectrfl_recording.mov",
@@ -24,12 +24,13 @@
   },
   "methodPolicy": {
     "noManualBoxes": "No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.",
-    "featureStatus": "Every landmark is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.",
+    "featureStatus": "Every landmark, route, boundary, and copy feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.",
     "chroma": "Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.",
     "edges": "The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.",
     "boundary": "The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.",
     "semanticMasks": "A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.",
     "routeGeometry": "Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.",
+    "copyInk": "Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.",
     "quality": "An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.",
     "reproducibility": "The authoritative MOV SHA, every input PNG SHA, and every referenced semantic SVG SHA are verified before measurement. --check recomputes both generated evidence files and fails on byte drift."
   },
@@ -44,6 +45,9 @@
     "boundaryMeasured": 1,
     "boundaryBlocked": 0,
     "boundaryNotApplicable": 14,
+    "copyMeasured": 11,
+    "copyBlocked": 2,
+    "copyNotApplicable": 2,
     "primaryStructureMeasured": 11,
     "primaryStructureBlocked": 4
   },
@@ -117,6 +121,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 24,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 300,
           "totalComponentCount": 7,
           "eligibleComponentCount": 6,
@@ -134,6 +142,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "The source state has no applicable hero copy."
       }
     },
     {
@@ -205,6 +218,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 24,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 300,
           "totalComponentCount": 6,
           "eligibleComponentCount": 6,
@@ -301,6 +318,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 20,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 5,
           "eligibleComponentCount": 5,
@@ -313,6 +334,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "The source state has no applicable hero copy."
       }
     },
     {
@@ -350,6 +376,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible centered landing headline and supporting-copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            818,
+            265,
+            1392,
+            612
+          ],
+          "cssPixels": [
+            409,
+            132.5,
+            696,
+            306
+          ],
+          "normalized": [
+            0.27122,
+            0.174113,
+            0.461538,
+            0.402102
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 167381,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.24,
+            0.15,
+            0.52,
+            0.44
+          ],
+          "roiRasterPixels": [
+            723,
+            228,
+            1570,
+            670
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 25000,
+          "maximumComponentWidth": 260,
+          "maximumComponentHeight": 220,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 12000,
+          "totalComponentCount": 152,
+          "eligibleComponentCount": 152,
+          "selectedComponentCount": 152,
+          "semanticMask": null,
+          "rationale": "The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink."
+        }
       }
     },
     {
@@ -466,6 +552,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 20,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 120,
           "totalComponentCount": 5,
           "eligibleComponentCount": 5,
@@ -478,6 +568,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible centered landing headline and supporting-copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            818,
+            264,
+            1392,
+            606
+          ],
+          "cssPixels": [
+            409,
+            132,
+            696,
+            303
+          ],
+          "normalized": [
+            0.27122,
+            0.173456,
+            0.461538,
+            0.39816
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 166126,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.24,
+            0.15,
+            0.52,
+            0.44
+          ],
+          "roiRasterPixels": [
+            723,
+            228,
+            1570,
+            670
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 25000,
+          "maximumComponentWidth": 260,
+          "maximumComponentHeight": 220,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 12000,
+          "totalComponentCount": 152,
+          "eligibleComponentCount": 152,
+          "selectedComponentCount": 152,
+          "semanticMask": null,
+          "rationale": "The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink."
+        }
       }
     },
     {
@@ -536,6 +686,10 @@
           "dilationIterations": 0,
           "connectivity": null,
           "minimumComponentPixels": null,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 80000,
           "totalComponentCount": 1,
           "eligibleComponentCount": 1,
@@ -643,6 +797,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 80,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 1500,
           "totalComponentCount": 4,
           "eligibleComponentCount": 4,
@@ -655,6 +813,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            839,
+            1091,
+            568
+          ],
+          "cssPixels": [
+            64.5,
+            419.5,
+            545.5,
+            284
+          ],
+          "normalized": [
+            0.042772,
+            0.551248,
+            0.361737,
+            0.373193
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 31799,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 248,
+          "eligibleComponentCount": 248,
+          "selectedComponentCount": 248,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -713,6 +931,10 @@
           "dilationIterations": 0,
           "connectivity": null,
           "minimumComponentPixels": null,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 80000,
           "totalComponentCount": 1,
           "eligibleComponentCount": 1,
@@ -820,6 +1042,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 80,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 1200,
           "totalComponentCount": 4,
           "eligibleComponentCount": 4,
@@ -832,6 +1058,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            826,
+            1091,
+            568
+          ],
+          "cssPixels": [
+            64.5,
+            413,
+            545.5,
+            284
+          ],
+          "normalized": [
+            0.042772,
+            0.542707,
+            0.361737,
+            0.373193
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 31976,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 248,
+          "eligibleComponentCount": 248,
+          "selectedComponentCount": 248,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -948,6 +1234,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 78,
           "eligibleComponentCount": 13,
@@ -960,6 +1250,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            834,
+            1082,
+            560
+          ],
+          "cssPixels": [
+            64.5,
+            417,
+            541,
+            280
+          ],
+          "normalized": [
+            0.042772,
+            0.547963,
+            0.358753,
+            0.367937
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 34065,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 268,
+          "eligibleComponentCount": 267,
+          "selectedComponentCount": 267,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -1076,6 +1426,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 90,
           "eligibleComponentCount": 12,
@@ -1088,6 +1442,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            834,
+            1083,
+            560
+          ],
+          "cssPixels": [
+            64.5,
+            417,
+            541.5,
+            280
+          ],
+          "normalized": [
+            0.042772,
+            0.547963,
+            0.359085,
+            0.367937
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 33462,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 277,
+          "eligibleComponentCount": 263,
+          "selectedComponentCount": 263,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -1204,6 +1618,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 69,
           "eligibleComponentCount": 15,
@@ -1216,6 +1634,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            834,
+            1082,
+            560
+          ],
+          "cssPixels": [
+            64.5,
+            417,
+            541,
+            280
+          ],
+          "normalized": [
+            0.042772,
+            0.547963,
+            0.358753,
+            0.367937
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 33473,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 288,
+          "eligibleComponentCount": 268,
+          "selectedComponentCount": 268,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -1274,6 +1752,10 @@
           "dilationIterations": 0,
           "connectivity": null,
           "minimumComponentPixels": null,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 20000,
           "totalComponentCount": 1,
           "eligibleComponentCount": 1,
@@ -1381,6 +1863,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 204,
           "eligibleComponentCount": 10,
@@ -1393,6 +1879,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            834,
+            1082,
+            560
+          ],
+          "cssPixels": [
+            64.5,
+            417,
+            541,
+            280
+          ],
+          "normalized": [
+            0.042772,
+            0.547963,
+            0.358753,
+            0.367937
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 37772,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 299,
+          "eligibleComponentCount": 297,
+          "selectedComponentCount": 297,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -1509,6 +2055,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 122,
           "eligibleComponentCount": 10,
@@ -1521,6 +2071,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            834,
+            1082,
+            560
+          ],
+          "cssPixels": [
+            64.5,
+            417,
+            541,
+            280
+          ],
+          "normalized": [
+            0.042772,
+            0.547963,
+            0.358753,
+            0.367937
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 37862,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 299,
+          "eligibleComponentCount": 298,
+          "selectedComponentCount": 298,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -1592,6 +2202,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 120,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 1200,
           "totalComponentCount": 181,
           "eligibleComponentCount": 8,
@@ -1688,6 +2302,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 83,
           "eligibleComponentCount": 5,
@@ -1700,6 +2318,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            834,
+            1082,
+            560
+          ],
+          "cssPixels": [
+            64.5,
+            417,
+            541,
+            280
+          ],
+          "normalized": [
+            0.042772,
+            0.547963,
+            0.358753,
+            0.367937
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 37925,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 299,
+          "eligibleComponentCount": 298,
+          "selectedComponentCount": 298,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -1816,6 +2494,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 33,
           "eligibleComponentCount": 14,
@@ -1828,6 +2510,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "blocked",
+        "label": "transitioning four-row process-ladder copy",
+        "reason": "The active arrival body copy is materially faded into similar-valued field tiles and route bloom at this travel anchor. A dark-ink box would report only the headings, while a looser threshold would merge scene structure; bounds from the later lockup are not inferred backward."
       }
     },
     {
@@ -1896,6 +2583,10 @@
           "dilationIterations": 4,
           "connectivity": 8,
           "minimumComponentPixels": 1200,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 900,
           "totalComponentCount": 52,
           "eligibleComponentCount": 5,
@@ -1992,6 +2683,10 @@
           "dilationIterations": 0,
           "connectivity": 8,
           "minimumComponentPixels": 180,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 180,
           "totalComponentCount": 53,
           "eligibleComponentCount": 8,
@@ -2004,6 +2699,66 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No section-transition boundary is applicable to this source state."
+      },
+      "copy": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible four-row process-ladder copy ink envelope",
+        "bounds": {
+          "rasterPixels": [
+            129,
+            810,
+            1098,
+            589
+          ],
+          "cssPixels": [
+            64.5,
+            405,
+            549,
+            294.5
+          ],
+          "normalized": [
+            0.042772,
+            0.532194,
+            0.364058,
+            0.386991
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 36260,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [
+            0.042,
+            0.52,
+            0.39,
+            0.43
+          ],
+          "roiRasterPixels": [
+            126,
+            791,
+            1177,
+            655
+          ],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 2500,
+          "totalComponentCount": 308,
+          "eligibleComponentCount": 307,
+          "selectedComponentCount": 307,
+          "semanticMask": null,
+          "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
       }
     },
     {
@@ -2099,6 +2854,11 @@
           "verticalStandardDeviation": 0.34,
           "rationale": "The compositional focus is the nearly full-width horizontal discontinuity between the pale hero and the following white section. Row support, peak dominance, and per-column vertical variance reject text and arrow edges."
         }
+      },
+      "copy": {
+        "status": "blocked",
+        "label": "clipped exiting process-ladder copy",
+        "reason": "The exiting ladder is vertically clipped and overlaps the fixed left navigation at this exact frame. Visible dark pixels cannot distinguish the two text systems, and a complete pre-exit ladder box is not inferred through the section handoff."
       }
     }
   ]

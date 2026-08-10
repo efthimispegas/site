@@ -127,6 +127,8 @@ export type HeroReferenceState = {
     boundaryStatus: HeroStructuralFeatureStatus;
     boundary: HeroScreenBounds | null;
     copyStatus: HeroStructuralFeatureStatus | 'unknown';
+    copyLabel: string | null;
+    copyEvidenceRef: string | null;
     copy: HeroScreenBounds | null;
   };
   expectedVisibleContext: readonly string[];
