@@ -4,6 +4,7 @@ import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
 import sharp from 'sharp';
+import { measureScreenComposition } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 
 const workspaceRoot = process.cwd();
 const anchorsPath = path.join(
@@ -20,7 +21,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v6';
+const algorithmVersion = 'recording-structural-bounds-v7';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -55,8 +56,7 @@ const CYAN_ROUTE = {
 
 const RED_ROUTE = {
   id: 'red-route',
-  description:
-    'r-g >= 55, r-b >= 35, r >= 180, and g <= 195 in 8-bit sRGB',
+  description: 'r-g >= 55, r-b >= 35, r >= 180, and g <= 195 in 8-bit sRGB',
   test: (red, green, blue) =>
     red - green >= 55 && red - blue >= 35 && red >= 180 && green <= 195,
 };
@@ -73,15 +73,6 @@ const DARK_COPY = {
 };
 
 const PROCESS_COPY_ROI = [0.042, 0.52, 0.39, 0.43];
-const SCREEN_COMPOSITION = {
-  label: 'screen-space edge-support distribution proxy',
-  roi: [0.01, 0.12, 0.98, 0.87],
-  sobelThreshold: 36,
-  gridColumns: 4,
-  gridRows: 4,
-  minimumEdgePixels: 1000,
-};
-
 const LANDING_COPY = {
   label: 'visible centered landing headline and supporting-copy ink envelope',
   method: 'predicate-component-union',
@@ -316,7 +307,8 @@ const STATE_MEASUREMENTS = {
         'Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark.',
     },
     route: {
-      label: 'visible high-chroma core of incoming cyan feed during inner pulse',
+      label:
+        'visible high-chroma core of incoming cyan feed during inner pulse',
       method: 'chroma-component-union',
       predicate: CYAN_ROUTE,
       roi: [0, 0.43, 0.45, 0.3],
@@ -340,7 +332,8 @@ const STATE_MEASUREMENTS = {
         'The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box.',
     },
     route: {
-      label: 'visible high-chroma core of incoming cyan feed during outer pulse',
+      label:
+        'visible high-chroma core of incoming cyan feed during outer pulse',
       method: 'chroma-component-union',
       predicate: CYAN_ROUTE,
       roi: [0, 0.43, 0.45, 0.3],
@@ -573,114 +566,6 @@ function createSobelMask(data, image, roi, threshold) {
   return mask;
 }
 
-async function measureScreenComposition(
-  sourcePath,
-  data,
-  image,
-  stateKey,
-  config,
-  dpr,
-) {
-  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
-  const mask = createSobelMask(
-    data,
-    image,
-    roi,
-    config.sobelThreshold,
-  );
-  const selected = boundsFromMask(mask, image.width, image.height);
-  const cellCount = config.gridColumns * config.gridRows;
-  const cellEdgePixels = Array.from({ length: cellCount }, () => 0);
-  const cellPixels = Array.from({ length: cellCount }, () => 0);
-  let sumX = 0;
-  let sumY = 0;
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-
-  for (let y = roi.y; y < bottom; y += 1) {
-    const row = Math.min(
-      config.gridRows - 1,
-      Math.floor(((y - roi.y) * config.gridRows) / roi.height),
-    );
-    for (let x = roi.x; x < right; x += 1) {
-      const column = Math.min(
-        config.gridColumns - 1,
-        Math.floor(((x - roi.x) * config.gridColumns) / roi.width),
-      );
-      const cellIndex = row * config.gridColumns + column;
-      cellPixels[cellIndex] += 1;
-      if (mask[y * image.width + x]) {
-        cellEdgePixels[cellIndex] += 1;
-        sumX += x;
-        sumY += y;
-      }
-    }
-  }
-
-  if (!selected || selected.pixels < config.minimumEdgePixels) {
-    return {
-      status: 'blocked',
-      label: config.label,
-      reason: `The deterministic screen-composition quality gate found ${selected?.pixels ?? 0} edge-support pixels; at least ${config.minimumEdgePixels} are required.`,
-      method: {
-        id: 'screen-space-sobel-grid',
-        roiNormalized: config.roi,
-        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
-        sobelThreshold: config.sobelThreshold,
-      },
-    };
-  }
-
-  await writeDebugOverlay(
-    sourcePath,
-    stateKey,
-    'composition',
-    mask,
-    image,
-    roi,
-  );
-
-  const edgeDensity = selected.pixels / (roi.width * roi.height);
-  const centroidX = sumX / selected.pixels;
-  const centroidY = sumY / selected.pixels;
-  return {
-    status: 'observed',
-    evidenceClass: 'observed',
-    label: config.label,
-    edgePixelSupport: selected.pixels,
-    edgeDensity: round(edgeDensity, 6),
-    edgeCentroid: {
-      rasterPixels: [round(centroidX), round(centroidY)],
-      cssPixels: [round(centroidX / dpr), round(centroidY / dpr)],
-      normalized: [
-        round(centroidX / image.width, 6),
-        round(centroidY / image.height, 6),
-      ],
-    },
-    grid: {
-      columns: config.gridColumns,
-      rows: config.gridRows,
-      cells: cellEdgePixels.map((edgePixels, index) => ({
-        column: index % config.gridColumns,
-        row: Math.floor(index / config.gridColumns),
-        edgePixels,
-        edgeDensity: round(edgePixels / cellPixels[index], 6),
-        edgeShare: round(edgePixels / selected.pixels, 6),
-        negativeSpaceProxy: round(1 - edgePixels / cellPixels[index], 6),
-      })),
-    },
-    method: {
-      id: 'screen-space-sobel-grid',
-      roiNormalized: config.roi,
-      roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
-      sobelThreshold: config.sobelThreshold,
-      minimumEdgePixels: config.minimumEdgePixels,
-      interpretation:
-        'Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform.',
-    },
-  };
-}
-
 function dilate(mask, width, height, roi, iterations) {
   let current = mask;
   const right = roi.x + roi.width;
@@ -869,10 +754,7 @@ function deriveRouteCoreGeometry(mask, width, height, dpr) {
   covarianceXY /= pixels;
   covarianceYY /= pixels;
 
-  const angle = 0.5 * Math.atan2(
-    2 * covarianceXY,
-    covarianceXX - covarianceYY,
-  );
+  const angle = 0.5 * Math.atan2(2 * covarianceXY, covarianceXX - covarianceYY);
   let axisX = Math.cos(angle);
   let axisY = Math.sin(angle);
   if (
@@ -966,8 +848,7 @@ function selectChromaComponents(mask, image, roi, config) {
         (config.maximumComponentWidth ?? Number.POSITIVE_INFINITY) &&
       component.bounds.height <=
         (config.maximumComponentHeight ?? Number.POSITIVE_INFINITY) &&
-      component.pixels /
-        (component.bounds.width * component.bounds.height) >=
+      component.pixels / (component.bounds.width * component.bounds.height) >=
         (config.minimumComponentFillRatio ?? 0),
   );
   const selected =
@@ -1426,9 +1307,7 @@ async function measureFeature(
       method: {
         id: config.method,
         roiNormalized: config.roi ?? null,
-        roiRasterPixels: roi
-          ? [roi.x, roi.y, roi.width, roi.height]
-          : null,
+        roiRasterPixels: roi ? [roi.x, roi.y, roi.width, roi.height] : null,
         semanticMask: selection.semanticMask ?? null,
       },
     };
@@ -1461,9 +1340,7 @@ async function measureFeature(
     method: {
       id: config.method,
       roiNormalized: config.roi ?? null,
-      roiRasterPixels: roi
-        ? [roi.x, roi.y, roi.width, roi.height]
-        : null,
+      roiRasterPixels: roi ? [roi.x, roi.y, roi.width, roi.height] : null,
       predicate: config.predicate
         ? {
             id: config.predicate.id,
@@ -1778,14 +1655,18 @@ for (const anchor of manifest.states) {
           }),
     dpr,
   });
-  const composition = await measureScreenComposition(
-    sourcePath,
-    data,
-    image,
-    anchor.key,
-    SCREEN_COMPOSITION,
-    dpr,
-  );
+  const { measurement: composition, debug: compositionDebug } =
+    measureScreenComposition({ data, image, dpr });
+  if (composition.status === 'observed') {
+    await writeDebugOverlay(
+      sourcePath,
+      anchor.key,
+      'composition',
+      compositionDebug.mask,
+      image,
+      compositionDebug.roi,
+    );
+  }
   const primaryFeature = {
     landmark,
     route,
@@ -1950,8 +1831,7 @@ const updatedManifest = {
   schemaVersion: 2,
   anchorPolicy: {
     ...manifest.anchorPolicy,
-    unmeasuredFields:
-      `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states and ${summary.copyBlocked} copy states remain blocked.`,
+    unmeasuredFields: `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states and ${summary.copyBlocked} copy states remain blocked.`,
   },
   structuralBoundsEvidence: {
     status:
@@ -1999,8 +1879,7 @@ const updatedManifest = {
         ? {
             ...entry,
             status: 'partially-observed',
-            reason:
-              `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states and ${summary.copyBlocked} copy states remain blocked.`,
+            reason: `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states and ${summary.copyBlocked} copy states remain blocked.`,
           }
         : entry;
     },

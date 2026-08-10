@@ -202,9 +202,14 @@ comparison.
   are reproducible composition/negative-space proxies, not reconstructed 3D
   camera positions or quaternions. The actual camera transform remains
   unknown from the recording and is not used as a source acceptance gate.
+- The current atomic implementation capture uses that same renderer-independent
+  algorithm for all 15 screenshots. Its 285 composition checks pass 191 and
+  fail 94: global negative-space occupancy passes 14/15, centroid axes pass
+  5/30, and fixed-grid occupancy passes 172/240. These failures are current
+  calibration evidence, not visual acceptance.
 - Live DOM contracts now cover the two landing and 11 journey states at the
-  recording CSS profile. Their latest implementation comparison is red and
-  predates the newest CSS/progress corrections.
+  recording CSS profile; all 13 applicable contracts pass in the same current
+  comparison run.
 - Remaining screen-space work includes the four blocked landmark-primary
   states, complete route paths, copy/scene correspondence, field outline, and
   negative space;
