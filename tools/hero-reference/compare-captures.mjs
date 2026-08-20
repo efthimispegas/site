@@ -38,7 +38,22 @@ const PRELIMINARY_RASTER_THRESHOLDS = {
 const STRUCTURAL_TOLERANCES = {
   compositionCentroidNormalized: 0.0075,
   negativeSpaceOccupancy: 0.03,
+  copyBoundsCssPixels: 2,
+  sectionBoundaryBoundsCssPixels: 2,
 };
+const IMPLEMENTATION_COPY_STATES = new Set([
+  'landing',
+  'landing-idle',
+  'activation-route',
+  'activation-contact',
+  'clearance-travel',
+  'clearance-field-preview',
+  'field-approach',
+  'field-contact',
+  'field-pulse-a',
+  'field-pulse-b',
+  'arrival-lockup',
+]);
 
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
 const captureManifest = JSON.parse(await readFile(captureManifestPath, 'utf8'));
@@ -110,6 +125,36 @@ function isObservedScreenComposition(composition) {
   );
 }
 
+function isFiniteTuple(value, length) {
+  return (
+    Array.isArray(value) &&
+    value.length === length &&
+    value.every((component) => Number.isFinite(component))
+  );
+}
+
+function isValidStructuralFeature(feature, sourceArtifact, methodId) {
+  if (
+    !feature ||
+    feature.sourceArtifact !== sourceArtifact ||
+    feature.method?.id !== methodId ||
+    !['observed', 'blocked'].includes(feature.status)
+  ) {
+    return false;
+  }
+  if (feature.status === 'blocked') {
+    return typeof feature.reason === 'string' && feature.reason.length > 0;
+  }
+  return (
+    feature.evidenceClass === 'observed' &&
+    Number.isSafeInteger(feature.pixelSupport) &&
+    feature.pixelSupport > 0 &&
+    isFiniteTuple(feature.bounds?.rasterPixels, 4) &&
+    isFiniteTuple(feature.bounds?.cssPixels, 4) &&
+    isFiniteTuple(feature.bounds?.normalized, 4)
+  );
+}
+
 function verifyMeasurementSemantics(stateKey, artifact) {
   let measurement;
   try {
@@ -122,6 +167,27 @@ function verifyMeasurementSemantics(stateKey, artifact) {
   const state = measurement.state;
   const surface = measurement.renderSurface;
   const screenComposition = measurement.structuralAccuracy?.screenComposition;
+  const expectedSourceArtifact = path.posix.join(
+    'implementation',
+    `${stateKey}.png`,
+  );
+  const copyFeature = measurement.structuralAccuracy?.copy;
+  const boundaryFeature = measurement.structuralAccuracy?.boundary;
+  const validCopyFeature = IMPLEMENTATION_COPY_STATES.has(stateKey)
+    ? isValidStructuralFeature(
+        copyFeature,
+        expectedSourceArtifact,
+        'predicate-component-union',
+      )
+    : copyFeature === undefined;
+  const validBoundaryFeature =
+    stateKey === 'journey-exit'
+      ? isValidStructuralFeature(
+          boundaryFeature,
+          expectedSourceArtifact,
+          'dominant-horizontal-boundary',
+        )
+      : boundaryFeature === undefined;
   const validSurface =
     surface?.kind === 'canvas' &&
     surface.canvasPresent === true &&
@@ -135,11 +201,12 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     Boolean(measurement.bounds?.canvas);
 
   if (
-    measurement.schemaVersion !== 2 ||
-    measurement.structuralAccuracy?.schemaVersion !== 1 ||
+    measurement.schemaVersion !== 3 ||
+    measurement.structuralAccuracy?.schemaVersion !== 2 ||
     !isObservedScreenComposition(screenComposition) ||
-    screenComposition.sourceArtifact !==
-      path.posix.join('implementation', `${stateKey}.png`) ||
+    screenComposition.sourceArtifact !== expectedSourceArtifact ||
+    !validCopyFeature ||
+    !validBoundaryFeature ||
     measurement.stateKey !== stateKey ||
     measurement.viewport?.width !== recordingProfile.cssViewport.width ||
     measurement.viewport?.height !== recordingProfile.cssViewport.height ||
@@ -208,7 +275,7 @@ async function verifyCaptureManifest() {
     captureStartedAt <= captureCompletedAt;
 
   if (
-    captureManifest.schemaVersion !== 2 ||
+    captureManifest.schemaVersion !== 3 ||
     captureManifest.status !== 'complete' ||
     !validRunId ||
     !validRunWindow ||
@@ -441,6 +508,43 @@ function evaluateStructuralAccuracy(state, measurement) {
     );
   }
 
+  if (
+    Array.isArray(state.screenBounds?.copy) &&
+    implementationStructural?.copy?.status === 'observed'
+  ) {
+    appendBoundsChecks({
+      checks,
+      failures,
+      metricPrefix: 'copy.bounds',
+      label: state.screenBounds.copyLabel,
+      expected: boundsTupleToObject(state.screenBounds.copy),
+      actual: boundsTupleToObject(
+        implementationStructural.copy.bounds.cssPixels,
+      ),
+      components: BOUND_COMPONENTS,
+      tolerance: STRUCTURAL_TOLERANCES.copyBoundsCssPixels,
+    });
+  }
+
+  if (
+    primaryStructure.kind === 'boundary' &&
+    sourcePrimaryMeasured &&
+    implementationStructural?.boundary?.status === 'observed'
+  ) {
+    appendBoundsChecks({
+      checks,
+      failures,
+      metricPrefix: 'boundary.bounds',
+      label: primaryStructure.label,
+      expected: boundsTupleToObject(primaryBounds),
+      actual: boundsTupleToObject(
+        implementationStructural.boundary.bounds.cssPixels,
+      ),
+      components: BOUND_COMPONENTS,
+      tolerance: STRUCTURAL_TOLERANCES.sectionBoundaryBoundsCssPixels,
+    });
+  }
+
   if (sourceCompositionMeasured && implementationCompositionMeasured) {
     checks.push(
       compareScalar(
@@ -479,8 +583,8 @@ function evaluateStructuralAccuracy(state, measurement) {
         ),
       );
     }
-    appendFailedChecks(checks, failures);
   }
+  appendFailedChecks(checks, failures);
 
   const status =
     blockers.length > 0 ? 'blocked' : failures.length > 0 ? 'fail' : 'pass';
@@ -493,12 +597,17 @@ function evaluateStructuralAccuracy(state, measurement) {
     tolerances: STRUCTURAL_TOLERANCES,
     note:
       blockers.length > 0
-        ? 'Measured composition checks are reported, but structural accuracy remains blocked until the remaining source and implementation geometry prerequisites exist.'
+        ? 'Measured composition and available geometry checks are reported, but structural accuracy remains blocked until the remaining source and implementation geometry prerequisites exist.'
         : 'Structural screen-space evidence is evaluated against the locked Phase 1 tolerances.',
   };
 }
 
 const BOUND_COMPONENTS = ['x', 'y', 'width', 'height'];
+
+function boundsTupleToObject([x, y, width, height]) {
+  return { x, y, width, height };
+}
+
 const JOURNEY_STEP_BOX_MAPPINGS = [
   {
     id: 'bounds',
@@ -992,6 +1101,24 @@ const structuralAccuracySummary = states.reduce(
   },
   { pass: 0, fail: 0, blocked: 0 },
 );
+const structuralCheckSummary = states.reduce(
+  (summary, state) => {
+    for (const check of state.structuralAccuracy.checks) {
+      const group = check.metric.startsWith('copy.')
+        ? 'copy'
+        : check.metric.startsWith('boundary.')
+          ? 'boundary'
+          : 'composition';
+      summary[group][check.status] += 1;
+    }
+    return summary;
+  },
+  {
+    composition: { pass: 0, fail: 0 },
+    copy: { pass: 0, fail: 0 },
+    boundary: { pass: 0, fail: 0 },
+  },
+);
 const domSummary = states.reduce(
   (counts, state) => {
     const status = state.domLayout.status;
@@ -1007,7 +1134,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 6,
+  schemaVersion: 7,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),
@@ -1035,6 +1162,7 @@ const report = {
   },
   preliminaryRasterSummary,
   structuralAccuracySummary,
+  structuralCheckSummary,
   structuralTolerances: STRUCTURAL_TOLERANCES,
   domSummary,
   preliminaryRasterGateSatisfied,
