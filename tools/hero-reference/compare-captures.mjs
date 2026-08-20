@@ -4,6 +4,7 @@ import path from 'node:path';
 import process from 'node:process';
 import sharp from 'sharp';
 import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
+import { ROUTE_CONFIG_BY_STATE } from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
 
 const workspaceRoot = process.cwd();
 const manifestPath = path.join(
@@ -39,8 +40,13 @@ const STRUCTURAL_TOLERANCES = {
   compositionCentroidNormalized: 0.0075,
   negativeSpaceOccupancy: 0.03,
   copyBoundsCssPixels: 2,
+  routeDirectionDegrees: 1,
+  routeEndpointNormalized: 0.005,
+  routeThicknessCssPixelsMinimum: 1,
+  routeThicknessRatio: 0.1,
   sectionBoundaryBoundsCssPixels: 2,
 };
+const IMPLEMENTATION_ROUTE_STATES = new Set(Object.keys(ROUTE_CONFIG_BY_STATE));
 const IMPLEMENTATION_COPY_STATES = new Set([
   'landing',
   'landing-idle',
@@ -155,6 +161,40 @@ function isValidStructuralFeature(feature, sourceArtifact, methodId) {
   );
 }
 
+function isValidRouteFeature(feature, sourceArtifact, stateKey) {
+  const config = ROUTE_CONFIG_BY_STATE[stateKey];
+  if (
+    !config ||
+    !isValidStructuralFeature(feature, sourceArtifact, config.method) ||
+    feature.label !== config.label ||
+    !isFiniteTuple(feature.method?.roiNormalized, 4) ||
+    feature.method.roiNormalized.some(
+      (component, index) => component !== config.roi[index],
+    )
+  ) {
+    return false;
+  }
+  if (feature.status === 'blocked') {
+    return true;
+  }
+  return (
+    feature.method.predicate?.id === config.predicate.id &&
+    feature.method.minimumComponentPixels === config.minimumComponentPixels &&
+    feature.method.minimumSelectedPixels === config.minimumSelectedPixels &&
+    isFiniteTuple(feature.geometry?.rasterPixels?.start, 2) &&
+    isFiniteTuple(feature.geometry?.rasterPixels?.end, 2) &&
+    isFiniteTuple(feature.geometry?.rasterPixels?.direction, 2) &&
+    isFiniteTuple(feature.geometry?.cssPixels?.start, 2) &&
+    isFiniteTuple(feature.geometry?.cssPixels?.end, 2) &&
+    Number.isFinite(feature.geometry?.cssPixels?.principalSpan) &&
+    Number.isFinite(
+      feature.geometry?.cssPixels?.equivalentSelectedCoreThickness,
+    ) &&
+    isFiniteTuple(feature.geometry?.normalized?.start, 2) &&
+    isFiniteTuple(feature.geometry?.normalized?.end, 2)
+  );
+}
+
 function verifyMeasurementSemantics(stateKey, artifact) {
   let measurement;
   try {
@@ -172,7 +212,11 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     `${stateKey}.png`,
   );
   const copyFeature = measurement.structuralAccuracy?.copy;
+  const routeFeature = measurement.structuralAccuracy?.route;
   const boundaryFeature = measurement.structuralAccuracy?.boundary;
+  const validRouteFeature = IMPLEMENTATION_ROUTE_STATES.has(stateKey)
+    ? isValidRouteFeature(routeFeature, expectedSourceArtifact, stateKey)
+    : routeFeature === undefined;
   const validCopyFeature = IMPLEMENTATION_COPY_STATES.has(stateKey)
     ? isValidStructuralFeature(
         copyFeature,
@@ -201,10 +245,11 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     Boolean(measurement.bounds?.canvas);
 
   if (
-    measurement.schemaVersion !== 3 ||
-    measurement.structuralAccuracy?.schemaVersion !== 2 ||
+    measurement.schemaVersion !== 4 ||
+    measurement.structuralAccuracy?.schemaVersion !== 3 ||
     !isObservedScreenComposition(screenComposition) ||
     screenComposition.sourceArtifact !== expectedSourceArtifact ||
+    !validRouteFeature ||
     !validCopyFeature ||
     !validBoundaryFeature ||
     measurement.stateKey !== stateKey ||
@@ -275,7 +320,7 @@ async function verifyCaptureManifest() {
     captureStartedAt <= captureCompletedAt;
 
   if (
-    captureManifest.schemaVersion !== 3 ||
+    captureManifest.schemaVersion !== 4 ||
     captureManifest.status !== 'complete' ||
     !validRunId ||
     !validRunWindow ||
@@ -465,6 +510,8 @@ function evaluateStructuralAccuracy(state, measurement) {
   );
   const implementationPrimaryMeasured =
     implementationStructural?.[primaryStructure.kind]?.status === 'observed';
+  const implementationPrimaryBlocked =
+    implementationStructural?.[primaryStructure.kind]?.status === 'blocked';
 
   if (!sourcePrimaryMeasured) {
     blockers.push(
@@ -485,7 +532,9 @@ function evaluateStructuralAccuracy(state, measurement) {
   if (sourcePrimaryMeasured && !implementationPrimaryMeasured) {
     blockers.push(
       primaryStructure.kind === 'route'
-        ? 'implementation route bounds are not emitted'
+        ? implementationPrimaryBlocked
+          ? 'implementation route source-predicate quality gate is blocked'
+          : 'implementation route bounds are not emitted'
         : `implementation ${primaryStructure.kind} primary-structure bounds are not emitted`,
     );
   }
@@ -494,7 +543,11 @@ function evaluateStructuralAccuracy(state, measurement) {
     primaryStructure.kind !== 'route' &&
     implementationStructural?.route?.status !== 'observed'
   ) {
-    blockers.push('implementation route bounds are not emitted');
+    blockers.push(
+      implementationStructural?.route?.status === 'blocked'
+        ? 'implementation route source-predicate quality gate is blocked'
+        : 'implementation route bounds are not emitted',
+    );
   }
   if (
     Array.isArray(state.screenBounds?.copy) &&
@@ -505,6 +558,61 @@ function evaluateStructuralAccuracy(state, measurement) {
   if (!implementationCompositionMeasured) {
     blockers.push(
       'implementation screen-space composition proxy is not emitted',
+    );
+  }
+
+  if (
+    state.screenBounds?.routeStatus === 'observed' &&
+    implementationStructural?.route?.status === 'observed'
+  ) {
+    const sourceRouteGeometry = state.screenBounds.routeGeometry;
+    const implementationRouteGeometry = implementationStructural.route.geometry;
+    if (
+      !isFiniteTuple(sourceRouteGeometry?.normalized?.start, 2) ||
+      !isFiniteTuple(sourceRouteGeometry?.normalized?.end, 2) ||
+      !isFiniteTuple(sourceRouteGeometry?.rasterPixels?.direction, 2) ||
+      !Number.isFinite(
+        sourceRouteGeometry?.cssPixels?.equivalentSelectedCoreThickness,
+      )
+    ) {
+      blockers.push('authoritative source route geometry is unmeasured');
+    } else {
+      for (const [endpoint, component, index] of [
+        ['start', 'x', 0],
+        ['start', 'y', 1],
+        ['end', 'x', 0],
+        ['end', 'y', 1],
+      ]) {
+        checks.push(
+          compareScalar(
+            `route.${endpoint}.normalized.${component}`,
+            sourceRouteGeometry.normalized[endpoint][index],
+            implementationRouteGeometry.normalized[endpoint][index],
+            STRUCTURAL_TOLERANCES.routeEndpointNormalized,
+          ),
+        );
+      }
+
+      const sourceThickness =
+        sourceRouteGeometry.cssPixels.equivalentSelectedCoreThickness;
+      checks.push(
+        compareScalar(
+          'route.equivalentSelectedCoreThickness.cssPixels',
+          sourceThickness,
+          implementationRouteGeometry.cssPixels.equivalentSelectedCoreThickness,
+          Math.max(
+            STRUCTURAL_TOLERANCES.routeThicknessCssPixelsMinimum,
+            sourceThickness * STRUCTURAL_TOLERANCES.routeThicknessRatio,
+          ),
+        ),
+        compareRouteDirection(
+          sourceRouteGeometry.rasterPixels.direction,
+          implementationRouteGeometry.rasterPixels.direction,
+        ),
+      );
+    }
+    blockers.push(
+      'route centerline Hausdorff evidence is not emitted by the current core-envelope proxy',
     );
   }
 
@@ -606,6 +714,27 @@ const BOUND_COMPONENTS = ['x', 'y', 'width', 'height'];
 
 function boundsTupleToObject([x, y, width, height]) {
   return { x, y, width, height };
+}
+
+function compareRouteDirection(expected, actual) {
+  const expectedDegrees =
+    (Math.atan2(expected[1], expected[0]) * 180) / Math.PI;
+  const actualDegrees = (Math.atan2(actual[1], actual[0]) * 180) / Math.PI;
+  const rawDelta = Math.abs(actualDegrees - expectedDegrees) % 180;
+  const absoluteDelta = Math.min(rawDelta, 180 - rawDelta);
+
+  return {
+    metric: 'route.direction.degrees',
+    expected: expectedDegrees,
+    actual: actualDegrees,
+    delta: actualDegrees - expectedDegrees,
+    absoluteDelta,
+    tolerance: STRUCTURAL_TOLERANCES.routeDirectionDegrees,
+    status:
+      absoluteDelta <= STRUCTURAL_TOLERANCES.routeDirectionDegrees
+        ? 'pass'
+        : 'fail',
+  };
 }
 
 const JOURNEY_STEP_BOX_MAPPINGS = [
@@ -1106,9 +1235,11 @@ const structuralCheckSummary = states.reduce(
     for (const check of state.structuralAccuracy.checks) {
       const group = check.metric.startsWith('copy.')
         ? 'copy'
-        : check.metric.startsWith('boundary.')
-          ? 'boundary'
-          : 'composition';
+        : check.metric.startsWith('route.')
+          ? 'route'
+          : check.metric.startsWith('boundary.')
+            ? 'boundary'
+            : 'composition';
       summary[group][check.status] += 1;
     }
     return summary;
@@ -1116,6 +1247,7 @@ const structuralCheckSummary = states.reduce(
   {
     composition: { pass: 0, fail: 0 },
     copy: { pass: 0, fail: 0 },
+    route: { pass: 0, fail: 0 },
     boundary: { pass: 0, fail: 0 },
   },
 );
@@ -1134,7 +1266,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 7,
+  schemaVersion: 8,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),

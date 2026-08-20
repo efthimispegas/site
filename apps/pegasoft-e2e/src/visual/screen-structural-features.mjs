@@ -9,6 +9,152 @@ const DARK_COPY = Object.freeze({
   },
 });
 
+const CYAN_ROUTE = Object.freeze({
+  id: 'cyan-route',
+  description:
+    'b-r >= 70, g-r >= 40, b >= 180, g >= 135, and r <= 205 in 8-bit sRGB',
+  test(red, green, blue) {
+    return (
+      blue - red >= 70 &&
+      green - red >= 40 &&
+      blue >= 180 &&
+      green >= 135 &&
+      red <= 205
+    );
+  },
+});
+
+const RED_ROUTE = Object.freeze({
+  id: 'red-route',
+  description: 'r-g >= 55, r-b >= 35, r >= 180, and g <= 195 in 8-bit sRGB',
+  test(red, green, blue) {
+    return red - green >= 55 && red - blue >= 35 && red >= 180 && green <= 195;
+  },
+});
+
+export const ROUTE_CONFIG_BY_STATE = Object.freeze({
+  'world-reveal': Object.freeze({
+    label: 'visible high-chroma core of emerging red landing rails',
+    method: 'chroma-component-union',
+    predicate: RED_ROUTE,
+    roi: Object.freeze([0.34, 0.58, 0.34, 0.42]),
+    minimumComponentPixels: 20,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The lower-center ROI contains the source-visible emerging red rails while excluding the blue loader mark and unrelated pale world geometry. Only visible saturated route pixels are reported; the bottom-clipped continuation remains outside the measurement.',
+  }),
+  'landing-idle': Object.freeze({
+    label: 'visible high-chroma core of landing-idle red route',
+    method: 'chroma-component-union',
+    predicate: RED_ROUTE,
+    roi: Object.freeze([0.2, 0.54, 0.52, 0.46]),
+    minimumComponentPixels: 20,
+    minimumSelectedPixels: 120,
+    rationale:
+      'The same lower journey band captures the saturated landing route at the later local-clock phase. It remains route evidence and is not substituted for the blocked industrial aggregate landmark.',
+  }),
+  'activation-route': Object.freeze({
+    label: 'visible high-chroma core of parallel red activation rails',
+    method: 'chroma-component-union',
+    predicate: RED_ROUTE,
+    roi: Object.freeze([0.24, 0, 0.5, 0.76]),
+    minimumComponentPixels: 80,
+    minimumSelectedPixels: 1500,
+    rationale:
+      'The source-visible activation network is a separated bundle of saturated red rails. Unioning qualifying components preserves the parallel structure and branch handoffs without using the destination mask or ground shadows.',
+  }),
+  'activation-contact': Object.freeze({
+    label: 'visible high-chroma core of red activation contact rails',
+    method: 'chroma-component-union',
+    predicate: RED_ROUTE,
+    roi: Object.freeze([0.08, 0, 0.44, 0.53]),
+    minimumComponentPixels: 80,
+    minimumSelectedPixels: 1200,
+    rationale:
+      'The upper-left-to-contact ROI isolates the saturated parallel rail bundle as it reaches the destination. The building silhouette and blue logo are excluded by the red predicate.',
+  }),
+  'clearance-travel': Object.freeze({
+    label: 'high-chroma core of connected cyan clearance route',
+    method: 'largest-chroma-component',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0, 0.1, 0.66, 0.52]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The source record defines route direction as the observable focus. The saturated cyan route is connected, while the ambient dotted wake is split into smaller components.',
+  }),
+  'clearance-field-preview': Object.freeze({
+    label: 'high-chroma core of cyan route approaching the field preview',
+    method: 'chroma-component-union',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0.12, 0.4, 0.58, 0.5]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The ROI follows the lower transit band named by the manifest and excludes the top-right field tiles. Qualifying-component support preserves source-visible beam segments split by copy/white core while rejecting the smaller dotted wake.',
+  }),
+  'field-approach': Object.freeze({
+    label: 'visible high-chroma core of cyan field-approach feed',
+    method: 'chroma-component-union',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0, 0.44, 0.72, 0.46]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The lower transit band isolates the cyan approach feed from the top-right field tiles. Unioning only supported components preserves beam sections split by copy/white core while rejecting the dotted wake and small tile reactions.',
+  }),
+  'field-contact': Object.freeze({
+    label: 'visible high-chroma core of cyan route before field contact',
+    method: 'chroma-component-union',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0, 0.44, 0.48, 0.42]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The ROI ends before the elevated center so supported incoming-feed components remain measurable without merging contact glow or adjacent reacting tiles into the route core.',
+  }),
+  'field-pulse-a': Object.freeze({
+    label: 'visible high-chroma core of incoming cyan feed during inner pulse',
+    method: 'chroma-component-union',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0, 0.43, 0.45, 0.3]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The left-side ROI unions supported sections of the still-readable incoming feed before it merges with the inner bloom. The occluded center, smaller dotted wake, and luminous pulse remain outside route evidence.',
+  }),
+  'field-pulse-b': Object.freeze({
+    label: 'visible high-chroma core of incoming cyan feed during outer pulse',
+    method: 'chroma-component-union',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0, 0.43, 0.45, 0.3]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The same left-side transit ROI unions supported incoming-feed sections while excluding the outer tile reaction, smaller dotted wake, and elevated blue center landmark.',
+  }),
+  'arrival-travel': Object.freeze({
+    label: 'high-chroma core of second horizontal cyan route',
+    method: 'largest-chroma-component',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0, 0.36, 0.62, 0.28]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The destination is beyond the right edge in this anchor, so the horizontal feed is the only measurable source-confirmed travel structure. The ROI excludes header and process copy.',
+  }),
+  'arrival-lockup': Object.freeze({
+    label: 'visible high-chroma core of cyan arrival feed before the arrow',
+    method: 'largest-chroma-component',
+    predicate: CYAN_ROUTE,
+    roi: Object.freeze([0, 0.37, 0.4, 0.2]),
+    minimumComponentPixels: 180,
+    minimumSelectedPixels: 180,
+    rationale:
+      'The left horizontal band isolates the saturated arrival feed before it reaches the layered arrow. Arrow edges, surrounding marks, copy, and the glow field lie outside the selected core.',
+  }),
+});
+
 export const LANDING_COPY_CONFIG = Object.freeze({
   label: 'visible centered landing headline and supporting-copy ink envelope',
   method: 'predicate-component-union',
@@ -244,6 +390,212 @@ function validateImageInput(data, image, dpr) {
       'Structural screen measurement requires valid RGB image data and DPR.',
     );
   }
+}
+
+function deriveRouteCoreGeometry(mask, width, height, dpr) {
+  let pixels = 0;
+  let sumX = 0;
+  let sumY = 0;
+
+  for (let index = 0; index < mask.length; index += 1) {
+    if (!mask[index]) {
+      continue;
+    }
+    const y = Math.floor(index / width);
+    const x = index - y * width;
+    pixels += 1;
+    sumX += x;
+    sumY += y;
+  }
+
+  if (pixels === 0) {
+    return null;
+  }
+
+  const meanX = sumX / pixels;
+  const meanY = sumY / pixels;
+  let covarianceXX = 0;
+  let covarianceXY = 0;
+  let covarianceYY = 0;
+
+  for (let index = 0; index < mask.length; index += 1) {
+    if (!mask[index]) {
+      continue;
+    }
+    const y = Math.floor(index / width);
+    const x = index - y * width;
+    const centeredX = x - meanX;
+    const centeredY = y - meanY;
+    covarianceXX += centeredX * centeredX;
+    covarianceXY += centeredX * centeredY;
+    covarianceYY += centeredY * centeredY;
+  }
+  covarianceXX /= pixels;
+  covarianceXY /= pixels;
+  covarianceYY /= pixels;
+
+  const angle = 0.5 * Math.atan2(2 * covarianceXY, covarianceXX - covarianceYY);
+  let axisX = Math.cos(angle);
+  let axisY = Math.sin(angle);
+  if (
+    (Math.abs(axisX) >= Math.abs(axisY) && axisX < 0) ||
+    (Math.abs(axisX) < Math.abs(axisY) && axisY < 0)
+  ) {
+    axisX *= -1;
+    axisY *= -1;
+  }
+
+  let minimumProjection = Number.POSITIVE_INFINITY;
+  let maximumProjection = Number.NEGATIVE_INFINITY;
+  let start = null;
+  let end = null;
+
+  for (let index = 0; index < mask.length; index += 1) {
+    if (!mask[index]) {
+      continue;
+    }
+    const y = Math.floor(index / width);
+    const x = index - y * width;
+    const projection = (x - meanX) * axisX + (y - meanY) * axisY;
+    if (projection < minimumProjection) {
+      minimumProjection = projection;
+      start = [x, y];
+    }
+    if (projection > maximumProjection) {
+      maximumProjection = projection;
+      end = [x, y];
+    }
+  }
+
+  const principalSpan = Math.max(maximumProjection - minimumProjection, 1);
+  const equivalentSelectedCoreThickness = pixels / principalSpan;
+
+  return {
+    rasterPixels: {
+      start,
+      end,
+      direction: [round(axisX, 6), round(axisY, 6)],
+      principalSpan: round(principalSpan),
+      equivalentSelectedCoreThickness: round(equivalentSelectedCoreThickness),
+    },
+    cssPixels: {
+      start: start.map((value) => round(value / dpr)),
+      end: end.map((value) => round(value / dpr)),
+      principalSpan: round(principalSpan / dpr),
+      equivalentSelectedCoreThickness: round(
+        equivalentSelectedCoreThickness / dpr,
+      ),
+    },
+    normalized: {
+      start: [round(start[0] / width, 6), round(start[1] / height, 6)],
+      end: [round(end[0] / width, 6), round(end[1] / height, 6)],
+    },
+    interpretation:
+      'PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width.',
+  };
+}
+
+export function measureChromaFeature({ data, image, dpr, config }) {
+  validateImageInput(data, image, dpr);
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  const mask = createPredicateMask(data, image, roi, config.predicate);
+  const components = connectedComponents(mask, image.width, image.height, roi);
+  const eligibleComponents = components.filter(
+    (component) =>
+      component.pixels >= config.minimumComponentPixels &&
+      component.pixels <=
+        (config.maximumComponentPixels ?? Number.POSITIVE_INFINITY) &&
+      component.bounds.width <=
+        (config.maximumComponentWidth ?? Number.POSITIVE_INFINITY) &&
+      component.bounds.height <=
+        (config.maximumComponentHeight ?? Number.POSITIVE_INFINITY) &&
+      component.pixels / (component.bounds.width * component.bounds.height) >=
+        (config.minimumComponentFillRatio ?? 0),
+  );
+  const selectedComponents =
+    config.method === 'largest-chroma-component'
+      ? eligibleComponents
+          .slice()
+          .sort(
+            (left, right) =>
+              right.pixels - left.pixels ||
+              left.bounds.y - right.bounds.y ||
+              left.bounds.x - right.bounds.x,
+          )
+          .slice(0, 1)
+      : eligibleComponents;
+  const selectedMask = new Uint8Array(mask.length);
+
+  for (const component of selectedComponents) {
+    const componentRight = component.bounds.x + component.bounds.width;
+    const componentBottom = component.bounds.y + component.bounds.height;
+    for (let y = component.bounds.y; y < componentBottom; y += 1) {
+      for (let x = component.bounds.x; x < componentRight; x += 1) {
+        const index = y * image.width + x;
+        if (mask[index]) {
+          selectedMask[index] = 1;
+        }
+      }
+    }
+  }
+
+  const selected = boundsFromMask(selectedMask, image.width, image.height);
+  if (!selected || selected.pixels < config.minimumSelectedPixels) {
+    return {
+      measurement: {
+        status: 'blocked',
+        label: config.label,
+        reason: `The deterministic ${config.method} quality gate found ${selected?.pixels ?? 0} selected pixels; at least ${config.minimumSelectedPixels} are required.`,
+        method: {
+          id: config.method,
+          roiNormalized: config.roi,
+          roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+          semanticMask: null,
+        },
+      },
+      debug: { mask: selectedMask, bounds: selected?.bounds ?? roi },
+    };
+  }
+
+  return {
+    measurement: {
+      status: 'observed',
+      evidenceClass: 'observed',
+      label: config.label,
+      bounds: serializeBounds(selected.bounds, image, dpr),
+      geometry: deriveRouteCoreGeometry(
+        selectedMask,
+        image.width,
+        image.height,
+        dpr,
+      ),
+      pixelSupport: selected.pixels,
+      method: {
+        id: config.method,
+        roiNormalized: config.roi,
+        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+        predicate: {
+          id: config.predicate.id,
+          description: config.predicate.description,
+        },
+        sobelThreshold: null,
+        dilationIterations: 0,
+        connectivity: 8,
+        minimumComponentPixels: config.minimumComponentPixels,
+        maximumComponentPixels: config.maximumComponentPixels ?? null,
+        maximumComponentWidth: config.maximumComponentWidth ?? null,
+        maximumComponentHeight: config.maximumComponentHeight ?? null,
+        minimumComponentFillRatio: config.minimumComponentFillRatio ?? null,
+        minimumSelectedPixels: config.minimumSelectedPixels,
+        totalComponentCount: components.length,
+        eligibleComponentCount: eligibleComponents.length,
+        selectedComponentCount: selectedComponents.length,
+        semanticMask: null,
+        rationale: config.rationale,
+      },
+    },
+    debug: { mask: selectedMask, bounds: selected.bounds },
+  };
 }
 
 export function measureCopyInk({ data, image, dpr, config }) {

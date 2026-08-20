@@ -9,6 +9,8 @@ import {
   JOURNEY_EXIT_BOUNDARY_CONFIG,
   LANDING_COPY_CONFIG,
   PROCESS_COPY_CONFIG,
+  ROUTE_CONFIG_BY_STATE,
+  measureChromaFeature,
   measureCopyInk,
   measureHorizontalBoundary as measureSharedHorizontalBoundary,
 } from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
@@ -28,7 +30,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v8';
+const algorithmVersion = 'recording-structural-bounds-v9';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -47,25 +49,6 @@ const DEEP_BLUE = {
   description: 'b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB',
   test: (red, green, blue) =>
     blue - red >= 55 && blue - green >= 25 && blue >= 120 && red <= 150,
-};
-
-const CYAN_ROUTE = {
-  id: 'cyan-route',
-  description:
-    'b-r >= 70, g-r >= 40, b >= 180, g >= 135, and r <= 205 in 8-bit sRGB',
-  test: (red, green, blue) =>
-    blue - red >= 70 &&
-    green - red >= 40 &&
-    blue >= 180 &&
-    green >= 135 &&
-    red <= 205,
-};
-
-const RED_ROUTE = {
-  id: 'red-route',
-  description: 'r-g >= 55, r-b >= 35, r >= 180, and g <= 195 in 8-bit sRGB',
-  test: (red, green, blue) =>
-    red - green >= 55 && red - blue >= 35 && red >= 180 && green <= 195,
 };
 
 const STATE_MEASUREMENTS = {
@@ -94,16 +77,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The blue loader mark remains the only saturated-blue central landmark while the pale world emerges. The ROI excludes the red rails and peripheral scene objects.',
     },
-    route: {
-      label: 'visible high-chroma core of emerging red landing rails',
-      method: 'chroma-component-union',
-      predicate: RED_ROUTE,
-      roi: [0.34, 0.58, 0.34, 0.42],
-      minimumComponentPixels: 20,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The lower-center ROI contains the source-visible emerging red rails while excluding the blue loader mark and unrelated pale world geometry. Only visible saturated route pixels are reported; the bottom-clipped continuation remains outside the measurement.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['world-reveal'],
   },
   landing: {
     primaryStructure: 'landmark',
@@ -129,16 +103,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'The landing focus remains a disconnected, lower-viewport-clipped aggregate. The red packet is a route effect, and neither it nor a near-viewport-wide hand enclosure is a defensible landmark substitute.',
     },
-    route: {
-      label: 'visible high-chroma core of landing-idle red route',
-      method: 'chroma-component-union',
-      predicate: RED_ROUTE,
-      roi: [0.2, 0.54, 0.52, 0.46],
-      minimumComponentPixels: 20,
-      minimumSelectedPixels: 120,
-      rationale:
-        'The same lower journey band captures the saturated landing route at the later local-clock phase. It remains route evidence and is not substituted for the blocked industrial aggregate landmark.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['landing-idle'],
     copy: LANDING_COPY_CONFIG,
   },
   'activation-route': {
@@ -149,16 +114,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The complete destination building is fully visible. A hash-locked, source-frame-tied semantic silhouette includes its connected volumes while excluding rails, shadows, figures, vegetation, and surrounding context.',
     },
-    route: {
-      label: 'visible high-chroma core of parallel red activation rails',
-      method: 'chroma-component-union',
-      predicate: RED_ROUTE,
-      roi: [0.24, 0, 0.5, 0.76],
-      minimumComponentPixels: 80,
-      minimumSelectedPixels: 1500,
-      rationale:
-        'The source-visible activation network is a separated bundle of saturated red rails. Unioning qualifying components preserves the parallel structure and branch handoffs without using the destination mask or ground shadows.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['activation-route'],
     copy: PROCESS_COPY_CONFIG,
   },
   'activation-contact': {
@@ -169,16 +125,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The complete logo-bearing destination is visible. A hash-locked semantic silhouette prevents the separable blue logo or red contact rails from substituting for the full landmark.',
     },
-    route: {
-      label: 'visible high-chroma core of red activation contact rails',
-      method: 'chroma-component-union',
-      predicate: RED_ROUTE,
-      roi: [0.08, 0, 0.44, 0.53],
-      minimumComponentPixels: 80,
-      minimumSelectedPixels: 1200,
-      rationale:
-        'The upper-left-to-contact ROI isolates the saturated parallel rail bundle as it reaches the destination. The building silhouette and blue logo are excluded by the red predicate.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['activation-contact'],
     copy: PROCESS_COPY_CONFIG,
   },
   'clearance-travel': {
@@ -189,16 +136,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'This is a route-primary transit anchor with no single destination landmark in frame.',
     },
-    route: {
-      label: 'high-chroma core of connected cyan clearance route',
-      method: 'largest-chroma-component',
-      predicate: CYAN_ROUTE,
-      roi: [0, 0.1, 0.66, 0.52],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The source record defines route direction as the observable focus. The saturated cyan route is connected, while the ambient dotted wake is split into smaller components.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['clearance-travel'],
     copy: PROCESS_COPY_CONFIG,
   },
   'clearance-field-preview': {
@@ -209,16 +147,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'The approaching route is the primary structure. The field is only a secondary preview clipped by the top and right viewport edges.',
     },
-    route: {
-      label: 'high-chroma core of cyan route approaching the field preview',
-      method: 'chroma-component-union',
-      predicate: CYAN_ROUTE,
-      roi: [0.12, 0.4, 0.58, 0.5],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The ROI follows the lower transit band named by the manifest and excludes the top-right field tiles. Qualifying-component support preserves source-visible beam segments split by copy/white core while rejecting the smaller dotted wake.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['clearance-field-preview'],
     copy: PROCESS_COPY_CONFIG,
   },
   'field-approach': {
@@ -229,16 +158,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'Only a pale fragment of the elevated center and figure is visible among similar tiles, and the fixed header/viewport occludes its upper extent. Partial censored evidence cannot supply a complete landmark box.',
     },
-    route: {
-      label: 'visible high-chroma core of cyan field-approach feed',
-      method: 'chroma-component-union',
-      predicate: CYAN_ROUTE,
-      roi: [0, 0.44, 0.72, 0.46],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The lower transit band isolates the cyan approach feed from the top-right field tiles. Unioning only supported components preserves beam sections split by copy/white core while rejecting the dotted wake and small tile reactions.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['field-approach'],
     copy: PROCESS_COPY_CONFIG,
   },
   'field-contact': {
@@ -249,16 +169,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The complete center tile and its standing figure are visible. Their hash-locked semantic union excludes the incoming route, adjacent reacting tiles, and contact glow.',
     },
-    route: {
-      label: 'visible high-chroma core of cyan route before field contact',
-      method: 'chroma-component-union',
-      predicate: CYAN_ROUTE,
-      roi: [0, 0.44, 0.48, 0.42],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The ROI ends before the elevated center so supported incoming-feed components remain measurable without merging contact glow or adjacent reacting tiles into the route core.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['field-contact'],
     copy: PROCESS_COPY_CONFIG,
   },
   'field-pulse-a': {
@@ -269,17 +180,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark.',
     },
-    route: {
-      label:
-        'visible high-chroma core of incoming cyan feed during inner pulse',
-      method: 'chroma-component-union',
-      predicate: CYAN_ROUTE,
-      roi: [0, 0.43, 0.45, 0.3],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The left-side ROI unions supported sections of the still-readable incoming feed before it merges with the inner bloom. The occluded center, smaller dotted wake, and luminous pulse remain outside route evidence.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['field-pulse-a'],
     copy: PROCESS_COPY_CONFIG,
   },
   'field-pulse-b': {
@@ -294,17 +195,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box.',
     },
-    route: {
-      label:
-        'visible high-chroma core of incoming cyan feed during outer pulse',
-      method: 'chroma-component-union',
-      predicate: CYAN_ROUTE,
-      roi: [0, 0.43, 0.45, 0.3],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The same left-side transit ROI unions supported incoming-feed sections while excluding the outer tile reaction, smaller dotted wake, and elevated blue center landmark.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['field-pulse-b'],
     copy: PROCESS_COPY_CONFIG,
   },
   'arrival-travel': {
@@ -315,16 +206,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'This is a route-primary travel anchor; the arrival-arrow destination remains outside the right viewport edge.',
     },
-    route: {
-      label: 'high-chroma core of second horizontal cyan route',
-      method: 'largest-chroma-component',
-      predicate: CYAN_ROUTE,
-      roi: [0, 0.36, 0.62, 0.28],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The destination is beyond the right edge in this anchor, so the horizontal feed is the only measurable source-confirmed travel structure. The ROI excludes header and process copy.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['arrival-travel'],
     copy: {
       status: 'blocked',
       label: 'transitioning four-row process-ladder copy',
@@ -345,16 +227,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The manifest identifies the frontal arrow as the primary landmark. A narrow semantic ROI excludes process copy, header, most of the incoming feed, and surrounding marks; the layered arrow is the largest connected edge structure inside it.',
     },
-    route: {
-      label: 'visible high-chroma core of cyan arrival feed before the arrow',
-      method: 'largest-chroma-component',
-      predicate: CYAN_ROUTE,
-      roi: [0, 0.37, 0.4, 0.2],
-      minimumComponentPixels: 180,
-      minimumSelectedPixels: 180,
-      rationale:
-        'The left horizontal band isolates the saturated arrival feed before it reaches the layered arrow. Arrow edges, surrounding marks, copy, and the glow field lie outside the selected core.',
-    },
+    route: ROUTE_CONFIG_BY_STATE['arrival-lockup'],
     copy: PROCESS_COPY_CONFIG,
   },
   'journey-exit': {
@@ -660,106 +533,6 @@ function boundsFromMask(mask, width, height) {
       width: maxX - minX + 1,
       height: maxY - minY + 1,
     },
-  };
-}
-
-function deriveRouteCoreGeometry(mask, width, height, dpr) {
-  let pixels = 0;
-  let sumX = 0;
-  let sumY = 0;
-
-  for (let index = 0; index < mask.length; index += 1) {
-    if (!mask[index]) {
-      continue;
-    }
-    const y = Math.floor(index / width);
-    const x = index - y * width;
-    pixels += 1;
-    sumX += x;
-    sumY += y;
-  }
-
-  if (pixels === 0) {
-    return null;
-  }
-
-  const meanX = sumX / pixels;
-  const meanY = sumY / pixels;
-  let covarianceXX = 0;
-  let covarianceXY = 0;
-  let covarianceYY = 0;
-  for (let index = 0; index < mask.length; index += 1) {
-    if (!mask[index]) {
-      continue;
-    }
-    const y = Math.floor(index / width);
-    const x = index - y * width;
-    const centeredX = x - meanX;
-    const centeredY = y - meanY;
-    covarianceXX += centeredX * centeredX;
-    covarianceXY += centeredX * centeredY;
-    covarianceYY += centeredY * centeredY;
-  }
-  covarianceXX /= pixels;
-  covarianceXY /= pixels;
-  covarianceYY /= pixels;
-
-  const angle = 0.5 * Math.atan2(2 * covarianceXY, covarianceXX - covarianceYY);
-  let axisX = Math.cos(angle);
-  let axisY = Math.sin(angle);
-  if (
-    (Math.abs(axisX) >= Math.abs(axisY) && axisX < 0) ||
-    (Math.abs(axisX) < Math.abs(axisY) && axisY < 0)
-  ) {
-    axisX *= -1;
-    axisY *= -1;
-  }
-
-  let minimumProjection = Number.POSITIVE_INFINITY;
-  let maximumProjection = Number.NEGATIVE_INFINITY;
-  let start = null;
-  let end = null;
-  for (let index = 0; index < mask.length; index += 1) {
-    if (!mask[index]) {
-      continue;
-    }
-    const y = Math.floor(index / width);
-    const x = index - y * width;
-    const projection = (x - meanX) * axisX + (y - meanY) * axisY;
-    if (projection < minimumProjection) {
-      minimumProjection = projection;
-      start = [x, y];
-    }
-    if (projection > maximumProjection) {
-      maximumProjection = projection;
-      end = [x, y];
-    }
-  }
-
-  const principalSpan = Math.max(maximumProjection - minimumProjection, 1);
-  const equivalentSelectedCoreThickness = pixels / principalSpan;
-  return {
-    rasterPixels: {
-      start,
-      end,
-      direction: [round(axisX, 6), round(axisY, 6)],
-      principalSpan: round(principalSpan),
-      equivalentSelectedCoreThickness: round(equivalentSelectedCoreThickness),
-    },
-    cssPixels: {
-      start: start.map((value) => round(value / dpr)),
-      end: end.map((value) => round(value / dpr)),
-      principalSpan: round(principalSpan / dpr),
-      equivalentSelectedCoreThickness: round(
-        equivalentSelectedCoreThickness / dpr,
-      ),
-    },
-    normalized: {
-      start: [round(start[0] / width, 6), round(start[1] / height, 6)],
-      end: [round(end[0] / width, 6), round(end[1] / height, 6)],
-    },
-    interpretation:
-      'PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width.',
   };
 }
 
@@ -1089,15 +862,7 @@ async function measureFeature(
     evidenceClass: 'observed',
     label: config.label,
     bounds: serializeBounds(selected.bounds, image, dpr),
-    geometry:
-      featureKind === 'route'
-        ? deriveRouteCoreGeometry(
-            selection.selectedMask,
-            image.width,
-            image.height,
-            dpr,
-          )
-        : null,
+    geometry: null,
     pixelSupport: selected.pixels,
     method: {
       id: config.method,
@@ -1189,6 +954,25 @@ async function measureConfiguredFeature({
     return result.measurement;
   }
 
+  if (
+    featureKind === 'route' &&
+    (config.method === 'chroma-component-union' ||
+      config.method === 'largest-chroma-component')
+  ) {
+    const result = measureChromaFeature({ data, image, dpr, config });
+    if (result.measurement.status === 'observed') {
+      await writeDebugOverlay(
+        sourcePath,
+        stateKey,
+        featureKind,
+        result.debug.mask,
+        image,
+        result.debug.bounds,
+      );
+    }
+    return result.measurement;
+  }
+
   return measureFeature(
     sourcePath,
     data,
@@ -1240,6 +1024,7 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
     landmarkEvidenceRef,
     routeStatus: stateEvidence.route.status,
     route: routeObserved ? stateEvidence.route.bounds.cssPixels : null,
+    routeGeometry: routeObserved ? stateEvidence.route.geometry : null,
     routeLabel: stateEvidence.route.label ?? null,
     routeEvidenceRef,
     boundaryStatus: stateEvidence.boundary.status,
