@@ -4,7 +4,11 @@ import path from 'node:path';
 import process from 'node:process';
 import sharp from 'sharp';
 import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
-import { ROUTE_CONFIG_BY_STATE } from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
+import {
+  IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
+  LANDMARK_CONFIG_BY_STATE,
+  ROUTE_CONFIG_BY_STATE,
+} from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
 
 const workspaceRoot = process.cwd();
 const manifestPath = path.join(
@@ -40,6 +44,8 @@ const STRUCTURAL_TOLERANCES = {
   compositionCentroidNormalized: 0.0075,
   negativeSpaceOccupancy: 0.03,
   copyBoundsCssPixels: 2,
+  landmarkCenterNormalized: 0.0075,
+  landmarkSizeRatio: 0.02,
   routeDirectionDegrees: 1,
   routeEndpointNormalized: 0.005,
   routeThicknessCssPixelsMinimum: 1,
@@ -47,6 +53,10 @@ const STRUCTURAL_TOLERANCES = {
   sectionBoundaryBoundsCssPixels: 2,
 };
 const IMPLEMENTATION_ROUTE_STATES = new Set(Object.keys(ROUTE_CONFIG_BY_STATE));
+const IMPLEMENTATION_LANDMARK_STATES = new Set([
+  ...Object.keys(LANDMARK_CONFIG_BY_STATE),
+  ...Object.keys(IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE),
+]);
 const IMPLEMENTATION_COPY_STATES = new Set([
   'landing',
   'landing-idle',
@@ -195,6 +205,65 @@ function isValidRouteFeature(feature, sourceArtifact, stateKey) {
   );
 }
 
+function isValidLandmarkFeature(feature, sourceArtifact, stateKey) {
+  const transferableConfig = LANDMARK_CONFIG_BY_STATE[stateKey];
+  const semanticBlocker =
+    IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[stateKey];
+
+  if (semanticBlocker) {
+    return (
+      isValidStructuralFeature(
+        feature,
+        sourceArtifact,
+        semanticBlocker.method.id,
+      ) &&
+      feature.status === 'blocked' &&
+      feature.label === semanticBlocker.label &&
+      feature.reason === semanticBlocker.reason &&
+      feature.method.sourceMethod === semanticBlocker.method.sourceMethod
+    );
+  }
+
+  if (
+    !transferableConfig ||
+    !isValidStructuralFeature(
+      feature,
+      sourceArtifact,
+      transferableConfig.method,
+    ) ||
+    feature.label !== transferableConfig.label ||
+    !isFiniteTuple(feature.method?.roiNormalized, 4) ||
+    feature.method.roiNormalized.some(
+      (component, index) => component !== transferableConfig.roi[index],
+    )
+  ) {
+    return false;
+  }
+  if (feature.status === 'blocked') {
+    return true;
+  }
+
+  if (transferableConfig.method === 'largest-dilated-sobel-component') {
+    return (
+      feature.method.sobelThreshold === transferableConfig.sobelThreshold &&
+      feature.method.dilationIterations ===
+        transferableConfig.dilationIterations &&
+      feature.method.minimumComponentPixels ===
+        transferableConfig.minimumComponentPixels &&
+      feature.method.minimumSelectedPixels ===
+        transferableConfig.minimumSelectedPixels
+    );
+  }
+
+  return (
+    feature.method.predicate?.id === transferableConfig.predicate.id &&
+    feature.method.minimumComponentPixels ===
+      transferableConfig.minimumComponentPixels &&
+    feature.method.minimumSelectedPixels ===
+      transferableConfig.minimumSelectedPixels
+  );
+}
+
 function verifyMeasurementSemantics(stateKey, artifact) {
   let measurement;
   try {
@@ -212,11 +281,15 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     `${stateKey}.png`,
   );
   const copyFeature = measurement.structuralAccuracy?.copy;
+  const landmarkFeature = measurement.structuralAccuracy?.landmark;
   const routeFeature = measurement.structuralAccuracy?.route;
   const boundaryFeature = measurement.structuralAccuracy?.boundary;
   const validRouteFeature = IMPLEMENTATION_ROUTE_STATES.has(stateKey)
     ? isValidRouteFeature(routeFeature, expectedSourceArtifact, stateKey)
     : routeFeature === undefined;
+  const validLandmarkFeature = IMPLEMENTATION_LANDMARK_STATES.has(stateKey)
+    ? isValidLandmarkFeature(landmarkFeature, expectedSourceArtifact, stateKey)
+    : landmarkFeature === undefined;
   const validCopyFeature = IMPLEMENTATION_COPY_STATES.has(stateKey)
     ? isValidStructuralFeature(
         copyFeature,
@@ -245,10 +318,11 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     Boolean(measurement.bounds?.canvas);
 
   if (
-    measurement.schemaVersion !== 4 ||
-    measurement.structuralAccuracy?.schemaVersion !== 3 ||
+    measurement.schemaVersion !== 5 ||
+    measurement.structuralAccuracy?.schemaVersion !== 4 ||
     !isObservedScreenComposition(screenComposition) ||
     screenComposition.sourceArtifact !== expectedSourceArtifact ||
+    !validLandmarkFeature ||
     !validRouteFeature ||
     !validCopyFeature ||
     !validBoundaryFeature ||
@@ -320,7 +394,7 @@ async function verifyCaptureManifest() {
     captureStartedAt <= captureCompletedAt;
 
   if (
-    captureManifest.schemaVersion !== 4 ||
+    captureManifest.schemaVersion !== 5 ||
     captureManifest.status !== 'complete' ||
     !validRunId ||
     !validRunWindow ||
@@ -535,7 +609,11 @@ function evaluateStructuralAccuracy(state, measurement) {
         ? implementationPrimaryBlocked
           ? 'implementation route source-predicate quality gate is blocked'
           : 'implementation route bounds are not emitted'
-        : `implementation ${primaryStructure.kind} primary-structure bounds are not emitted`,
+        : primaryStructure.kind === 'landmark' && implementationPrimaryBlocked
+          ? IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[state.key]
+            ? 'implementation landmark semantic isolation is blocked'
+            : 'implementation landmark source-pixel quality gate is blocked'
+          : `implementation ${primaryStructure.kind} primary-structure bounds are not emitted`,
     );
   }
   if (
@@ -558,6 +636,49 @@ function evaluateStructuralAccuracy(state, measurement) {
   if (!implementationCompositionMeasured) {
     blockers.push(
       'implementation screen-space composition proxy is not emitted',
+    );
+  }
+
+  if (
+    primaryStructure.kind === 'landmark' &&
+    sourcePrimaryMeasured &&
+    implementationStructural?.landmark?.status === 'observed'
+  ) {
+    const [sourceX, sourceY, sourceWidth, sourceHeight] = primaryBounds;
+    const [actualX, actualY, actualWidth, actualHeight] =
+      implementationStructural.landmark.bounds.cssPixels;
+    const profileWidth = manifest.authority.recordingProfile.cssViewport.width;
+    const profileHeight =
+      manifest.authority.recordingProfile.cssViewport.height;
+
+    checks.push(
+      compareScalar(
+        'landmark.center.normalized.x',
+        (sourceX + sourceWidth / 2) / profileWidth,
+        (actualX + actualWidth / 2) / profileWidth,
+        STRUCTURAL_TOLERANCES.landmarkCenterNormalized,
+      ),
+      compareScalar(
+        'landmark.center.normalized.y',
+        (sourceY + sourceHeight / 2) / profileHeight,
+        (actualY + actualHeight / 2) / profileHeight,
+        STRUCTURAL_TOLERANCES.landmarkCenterNormalized,
+      ),
+      compareScalar(
+        'landmark.size.cssPixels.width',
+        sourceWidth,
+        actualWidth,
+        sourceWidth * STRUCTURAL_TOLERANCES.landmarkSizeRatio,
+      ),
+      compareScalar(
+        'landmark.size.cssPixels.height',
+        sourceHeight,
+        actualHeight,
+        sourceHeight * STRUCTURAL_TOLERANCES.landmarkSizeRatio,
+      ),
+    );
+    blockers.push(
+      'landmark silhouette IoU evidence is not emitted by the current bounds proxy',
     );
   }
 
@@ -1235,11 +1356,13 @@ const structuralCheckSummary = states.reduce(
     for (const check of state.structuralAccuracy.checks) {
       const group = check.metric.startsWith('copy.')
         ? 'copy'
-        : check.metric.startsWith('route.')
-          ? 'route'
-          : check.metric.startsWith('boundary.')
-            ? 'boundary'
-            : 'composition';
+        : check.metric.startsWith('landmark.')
+          ? 'landmark'
+          : check.metric.startsWith('route.')
+            ? 'route'
+            : check.metric.startsWith('boundary.')
+              ? 'boundary'
+              : 'composition';
       summary[group][check.status] += 1;
     }
     return summary;
@@ -1247,6 +1370,7 @@ const structuralCheckSummary = states.reduce(
   {
     composition: { pass: 0, fail: 0 },
     copy: { pass: 0, fail: 0 },
+    landmark: { pass: 0, fail: 0 },
     route: { pass: 0, fail: 0 },
     boundary: { pass: 0, fail: 0 },
   },
@@ -1266,7 +1390,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 8,
+  schemaVersion: 9,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),
