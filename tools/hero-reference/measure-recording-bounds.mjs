@@ -5,6 +5,13 @@ import path from 'node:path';
 import process from 'node:process';
 import sharp from 'sharp';
 import { measureScreenComposition } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
+import {
+  JOURNEY_EXIT_BOUNDARY_CONFIG,
+  LANDING_COPY_CONFIG,
+  PROCESS_COPY_CONFIG,
+  measureCopyInk,
+  measureHorizontalBoundary as measureSharedHorizontalBoundary,
+} from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
 
 const workspaceRoot = process.cwd();
 const anchorsPath = path.join(
@@ -21,7 +28,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v7';
+const algorithmVersion = 'recording-structural-bounds-v8';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -60,50 +67,6 @@ const RED_ROUTE = {
   test: (red, green, blue) =>
     red - green >= 55 && red - blue >= 35 && red >= 180 && green <= 195,
 };
-
-const DARK_COPY = {
-  id: 'dark-neutral-copy-ink',
-  description:
-    'max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB',
-  test: (red, green, blue) => {
-    const maximum = Math.max(red, green, blue);
-    const minimum = Math.min(red, green, blue);
-    return maximum <= 150 && maximum - minimum <= 40;
-  },
-};
-
-const PROCESS_COPY_ROI = [0.042, 0.52, 0.39, 0.43];
-const LANDING_COPY = {
-  label: 'visible centered landing headline and supporting-copy ink envelope',
-  method: 'predicate-component-union',
-  predicate: DARK_COPY,
-  roi: [0.24, 0.15, 0.52, 0.44],
-  minimumComponentPixels: 8,
-  maximumComponentPixels: 25000,
-  maximumComponentWidth: 260,
-  maximumComponentHeight: 220,
-  minimumComponentFillRatio: 0.1,
-  minimumSelectedPixels: 12000,
-  rationale:
-    'The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink.',
-};
-
-function processCopy(roi) {
-  return {
-    label: 'visible four-row process-ladder copy ink envelope',
-    method: 'predicate-component-union',
-    predicate: DARK_COPY,
-    roi,
-    minimumComponentPixels: 8,
-    maximumComponentPixels: 8000,
-    maximumComponentWidth: 150,
-    maximumComponentHeight: 110,
-    minimumComponentFillRatio: 0.1,
-    minimumSelectedPixels: 2500,
-    rationale:
-      'The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink.',
-  };
-}
 
 const STATE_MEASUREMENTS = {
   'loader-mark': {
@@ -156,7 +119,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'The locked resolved-landing frame contains no source-visible route pixels. Red rails appear in the earlier reveal and later landing-idle anchors; an off-screen or future continuation is not inferred here.',
     },
-    copy: LANDING_COPY,
+    copy: LANDING_COPY_CONFIG,
   },
   'landing-idle': {
     primaryStructure: 'landmark',
@@ -176,7 +139,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The same lower journey band captures the saturated landing route at the later local-clock phase. It remains route evidence and is not substituted for the blocked industrial aggregate landmark.',
     },
-    copy: LANDING_COPY,
+    copy: LANDING_COPY_CONFIG,
   },
   'activation-route': {
     primaryStructure: 'landmark',
@@ -196,7 +159,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The source-visible activation network is a separated bundle of saturated red rails. Unioning qualifying components preserves the parallel structure and branch handoffs without using the destination mask or ground shadows.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'activation-contact': {
     primaryStructure: 'landmark',
@@ -216,7 +179,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The upper-left-to-contact ROI isolates the saturated parallel rail bundle as it reaches the destination. The building silhouette and blue logo are excluded by the red predicate.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'clearance-travel': {
     primaryStructure: 'route',
@@ -236,7 +199,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The source record defines route direction as the observable focus. The saturated cyan route is connected, while the ambient dotted wake is split into smaller components.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'clearance-field-preview': {
     primaryStructure: 'route',
@@ -256,7 +219,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The ROI follows the lower transit band named by the manifest and excludes the top-right field tiles. Qualifying-component support preserves source-visible beam segments split by copy/white core while rejecting the smaller dotted wake.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'field-approach': {
     primaryStructure: 'landmark',
@@ -276,7 +239,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The lower transit band isolates the cyan approach feed from the top-right field tiles. Unioning only supported components preserves beam sections split by copy/white core while rejecting the dotted wake and small tile reactions.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'field-contact': {
     primaryStructure: 'landmark',
@@ -296,7 +259,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The ROI ends before the elevated center so supported incoming-feed components remain measurable without merging contact glow or adjacent reacting tiles into the route core.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'field-pulse-a': {
     primaryStructure: 'landmark',
@@ -317,7 +280,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The left-side ROI unions supported sections of the still-readable incoming feed before it merges with the inner bloom. The occluded center, smaller dotted wake, and luminous pulse remain outside route evidence.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'field-pulse-b': {
     primaryStructure: 'landmark',
@@ -342,7 +305,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The same left-side transit ROI unions supported incoming-feed sections while excluding the outer tile reaction, smaller dotted wake, and elevated blue center landmark.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'arrival-travel': {
     primaryStructure: 'route',
@@ -392,7 +355,7 @@ const STATE_MEASUREMENTS = {
       rationale:
         'The left horizontal band isolates the saturated arrival feed before it reaches the layered arrow. Arrow edges, surrounding marks, copy, and the glow field lie outside the selected core.',
     },
-    copy: processCopy(PROCESS_COPY_ROI),
+    copy: PROCESS_COPY_CONFIG,
   },
   'journey-exit': {
     primaryStructure: 'boundary',
@@ -408,20 +371,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'The route is no longer a separately readable primary structure at the section-handoff anchor.',
     },
-    boundary: {
-      label: 'hero-to-following-section boundary at journey exit',
-      method: 'dominant-horizontal-boundary',
-      roi: [0, 0.32, 1, 0.5],
-      minimumPixelDelta: 8,
-      minimumMeanDelta: 20,
-      minimumRowSupportRatio: 0.8,
-      minimumDominanceRatio: 3,
-      verticalExclusionRadius: 3,
-      localSearchRadius: 3,
-      maximumVerticalStandardDeviation: 1,
-      rationale:
-        'The compositional focus is the nearly full-width horizontal discontinuity between the pale hero and the following white section. Row support, peak dominance, and per-column vertical variance reject text and arrow edges.',
-    },
+    boundary: JOURNEY_EXIT_BOUNDARY_CONFIG,
     copy: {
       status: 'blocked',
       label: 'clipped exiting process-ladder copy',
@@ -813,25 +763,6 @@ function deriveRouteCoreGeometry(mask, width, height, dpr) {
   };
 }
 
-function colorDelta(data, leftIndex, rightIndex) {
-  return (
-    (Math.abs(data[leftIndex] - data[rightIndex]) +
-      Math.abs(data[leftIndex + 1] - data[rightIndex + 1]) +
-      Math.abs(data[leftIndex + 2] - data[rightIndex + 2])) /
-    3
-  );
-}
-
-function standardDeviation(values, mean) {
-  if (values.length === 0) {
-    return 0;
-  }
-
-  return Math.sqrt(
-    values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / values.length,
-  );
-}
-
 function selectChromaComponents(mask, image, roi, config) {
   const { components } = connectedComponents(
     mask,
@@ -883,175 +814,6 @@ function selectChromaComponents(mask, image, roi, config) {
     selectedComponents: selected,
     eligibleComponentCount: eligible.length,
     totalComponentCount: components.length,
-  };
-}
-
-async function measureHorizontalBoundary(
-  sourcePath,
-  data,
-  image,
-  stateKey,
-  config,
-  dpr,
-) {
-  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-  const rowScores = [];
-
-  for (let y = roi.y + 1; y < bottom; y += 1) {
-    let deltaSum = 0;
-    let supportedColumns = 0;
-    for (let x = roi.x; x < right; x += 1) {
-      const currentIndex = (y * image.width + x) * image.channels;
-      const priorIndex = ((y - 1) * image.width + x) * image.channels;
-      const delta = colorDelta(data, currentIndex, priorIndex);
-      deltaSum += delta;
-      if (delta >= config.minimumPixelDelta) {
-        supportedColumns += 1;
-      }
-    }
-
-    const meanDelta = deltaSum / roi.width;
-    const rowSupportRatio = supportedColumns / roi.width;
-    rowScores.push({
-      y,
-      meanDelta,
-      rowSupportRatio,
-      score: meanDelta * rowSupportRatio,
-    });
-  }
-
-  rowScores.sort(
-    (left, rightScore) =>
-      rightScore.score - left.score || left.y - rightScore.y,
-  );
-  const peak = rowScores[0];
-  const runnerUp = rowScores.find(
-    (candidate) =>
-      Math.abs(candidate.y - peak.y) > config.verticalExclusionRadius,
-  );
-  const dominanceRatio =
-    runnerUp && runnerUp.score > 0 ? peak.score / runnerUp.score : null;
-  const localRows = [];
-  const selectedMask = new Uint8Array(image.width * image.height);
-  const localTop = Math.max(roi.y + 1, peak.y - config.localSearchRadius);
-  const localBottom = Math.min(bottom - 1, peak.y + config.localSearchRadius);
-
-  for (let x = roi.x; x < right; x += 1) {
-    let bestDelta = -1;
-    let bestY = peak.y;
-    for (let y = localTop; y <= localBottom; y += 1) {
-      const currentIndex = (y * image.width + x) * image.channels;
-      const priorIndex = ((y - 1) * image.width + x) * image.channels;
-      const delta = colorDelta(data, currentIndex, priorIndex);
-      if (delta > bestDelta) {
-        bestDelta = delta;
-        bestY = y;
-      }
-    }
-
-    if (bestDelta >= config.minimumPixelDelta) {
-      localRows.push(bestY);
-      selectedMask[bestY * image.width + x] = 1;
-    }
-  }
-
-  const localSupportRatio = localRows.length / roi.width;
-  const meanY =
-    localRows.reduce((sum, value) => sum + value, 0) /
-    Math.max(localRows.length, 1);
-  const verticalStandardDeviation = standardDeviation(localRows, meanY);
-  const selected = boundsFromMask(selectedMask, image.width, image.height);
-  const qualityFailures = [];
-
-  if (peak.meanDelta < config.minimumMeanDelta) {
-    qualityFailures.push(
-      `mean row delta ${round(peak.meanDelta)} is below ${config.minimumMeanDelta}`,
-    );
-  }
-  if (peak.rowSupportRatio < config.minimumRowSupportRatio) {
-    qualityFailures.push(
-      `peak row support ${round(peak.rowSupportRatio)} is below ${config.minimumRowSupportRatio}`,
-    );
-  }
-  if (
-    dominanceRatio !== null &&
-    dominanceRatio < config.minimumDominanceRatio
-  ) {
-    qualityFailures.push(
-      `peak dominance ${round(dominanceRatio)} is below ${config.minimumDominanceRatio}`,
-    );
-  }
-  if (localSupportRatio < config.minimumRowSupportRatio) {
-    qualityFailures.push(
-      `local column support ${round(localSupportRatio)} is below ${config.minimumRowSupportRatio}`,
-    );
-  }
-  if (verticalStandardDeviation > config.maximumVerticalStandardDeviation) {
-    qualityFailures.push(
-      `vertical standard deviation ${round(verticalStandardDeviation)} exceeds ${config.maximumVerticalStandardDeviation}`,
-    );
-  }
-  if (!selected) {
-    qualityFailures.push('no supported boundary pixels were selected');
-  }
-
-  if (qualityFailures.length > 0 || !selected) {
-    return {
-      status: 'blocked',
-      label: config.label,
-      reason: `The deterministic ${config.method} quality gate failed: ${qualityFailures.join('; ')}.`,
-      method: {
-        id: config.method,
-        roiNormalized: config.roi,
-        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
-      },
-    };
-  }
-
-  await writeDebugOverlay(
-    sourcePath,
-    stateKey,
-    'boundary',
-    selectedMask,
-    image,
-    selected.bounds,
-  );
-
-  return {
-    status: 'observed',
-    evidenceClass: 'observed',
-    label: config.label,
-    bounds: serializeBounds(selected.bounds, image, dpr),
-    position: {
-      rasterY: round(meanY),
-      cssY: round(meanY / dpr),
-      normalizedY: round(meanY / image.height, 6),
-    },
-    pixelSupport: selected.pixels,
-    method: {
-      id: config.method,
-      roiNormalized: config.roi,
-      roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
-      minimumPixelDelta: config.minimumPixelDelta,
-      minimumMeanDelta: config.minimumMeanDelta,
-      minimumRowSupportRatio: config.minimumRowSupportRatio,
-      minimumDominanceRatio: config.minimumDominanceRatio,
-      verticalExclusionRadius: config.verticalExclusionRadius,
-      localSearchRadius: config.localSearchRadius,
-      maximumVerticalStandardDeviation: config.maximumVerticalStandardDeviation,
-      peakRasterY: peak.y,
-      peakMeanDelta: round(peak.meanDelta),
-      peakRowSupportRatio: round(peak.rowSupportRatio),
-      peakScore: round(peak.score),
-      runnerUpRasterY: runnerUp?.y ?? null,
-      runnerUpScore: round(runnerUp?.score ?? 0),
-      dominanceRatio: dominanceRatio === null ? null : round(dominanceRatio),
-      localColumnSupportRatio: round(localSupportRatio),
-      verticalStandardDeviation: round(verticalStandardDeviation),
-      rationale: config.rationale,
-    },
   };
 }
 
@@ -1393,14 +1155,38 @@ async function measureConfiguredFeature({
   }
 
   if (featureKind === 'boundary') {
-    return measureHorizontalBoundary(
-      sourcePath,
+    const result = measureSharedHorizontalBoundary({
       data,
       image,
-      stateKey,
-      config,
       dpr,
-    );
+      config,
+    });
+    if (result.measurement.status === 'observed') {
+      await writeDebugOverlay(
+        sourcePath,
+        stateKey,
+        featureKind,
+        result.debug.mask,
+        image,
+        result.debug.bounds,
+      );
+    }
+    return result.measurement;
+  }
+
+  if (featureKind === 'copy') {
+    const result = measureCopyInk({ data, image, dpr, config });
+    if (result.measurement.status === 'observed') {
+      await writeDebugOverlay(
+        sourcePath,
+        stateKey,
+        featureKind,
+        result.debug.mask,
+        image,
+        result.debug.bounds,
+      );
+    }
+    return result.measurement;
   }
 
   return measureFeature(
@@ -1836,7 +1622,7 @@ const updatedManifest = {
   structuralBoundsEvidence: {
     status:
       summary.primaryStructureBlocked === 0 ? 'observed' : 'partially-observed',
-    verifiedOn: '2026-08-10',
+    verifiedOn: '2026-08-20',
     artifact: 'docs/hero-reference/recording-structural-bounds.json',
     algorithmVersion,
     landmarkMeasured: summary.landmarkMeasured,

@@ -4,6 +4,13 @@ import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 import { measureScreenComposition } from './screen-composition.mjs';
+import {
+  JOURNEY_EXIT_BOUNDARY_CONFIG,
+  LANDING_COPY_CONFIG,
+  PROCESS_COPY_CONFIG,
+  measureCopyInk,
+  measureHorizontalBoundary,
+} from './screen-structural-features.mjs';
 
 const REFERENCE_STATES = [
   'loader-mark',
@@ -36,6 +43,25 @@ const LOCAL_TIME_MS: Partial<Record<ReferenceStateKey, number>> = {
   'arrival-travel': 300,
   'arrival-lockup': 0,
   'journey-exit': 1000,
+};
+
+const COPY_CONFIG_BY_STATE: Partial<
+  Record<
+    ReferenceStateKey,
+    typeof LANDING_COPY_CONFIG | typeof PROCESS_COPY_CONFIG
+  >
+> = {
+  landing: LANDING_COPY_CONFIG,
+  'landing-idle': LANDING_COPY_CONFIG,
+  'activation-route': PROCESS_COPY_CONFIG,
+  'activation-contact': PROCESS_COPY_CONFIG,
+  'clearance-travel': PROCESS_COPY_CONFIG,
+  'clearance-field-preview': PROCESS_COPY_CONFIG,
+  'field-approach': PROCESS_COPY_CONFIG,
+  'field-contact': PROCESS_COPY_CONFIG,
+  'field-pulse-a': PROCESS_COPY_CONFIG,
+  'field-pulse-b': PROCESS_COPY_CONFIG,
+  'arrival-lockup': PROCESS_COPY_CONFIG,
 };
 
 const outputRoot = path.resolve(
@@ -142,7 +168,7 @@ async function createArtifactEvidence(relativePath: string) {
   };
 }
 
-async function measureImplementationComposition(
+async function measureImplementationStructure(
   imagePath: string,
   stateKey: ReferenceStateKey,
   devicePixelRatio: number,
@@ -151,19 +177,53 @@ async function measureImplementationComposition(
     .removeAlpha()
     .raw()
     .toBuffer({ resolveWithObject: true });
-  const { measurement } = measureScreenComposition({
+  const { measurement: screenComposition } = measureScreenComposition({
     data,
     image: info,
     dpr: devicePixelRatio,
   });
 
-  if (measurement.status !== 'observed') {
-    throw new Error(`${stateKey}: ${measurement.reason}`);
+  if (screenComposition.status !== 'observed') {
+    throw new Error(`${stateKey}: ${screenComposition.reason}`);
   }
 
+  const sourceArtifact = path.posix.join('implementation', `${stateKey}.png`);
+  const withSourceArtifact = (
+    measurement:
+      | ReturnType<typeof measureCopyInk>['measurement']
+      | ReturnType<typeof measureHorizontalBoundary>['measurement'],
+  ) => ({ ...measurement, sourceArtifact });
+  const copyConfig = COPY_CONFIG_BY_STATE[stateKey];
+  const copy = copyConfig
+    ? withSourceArtifact(
+        measureCopyInk({
+          data,
+          image: info,
+          dpr: devicePixelRatio,
+          config: copyConfig,
+        }).measurement,
+      )
+    : undefined;
+  const boundary =
+    stateKey === 'journey-exit'
+      ? withSourceArtifact(
+          measureHorizontalBoundary({
+            data,
+            image: info,
+            dpr: devicePixelRatio,
+            config: JOURNEY_EXIT_BOUNDARY_CONFIG,
+          }).measurement,
+        )
+      : undefined;
+
   return {
-    ...measurement,
-    sourceArtifact: path.posix.join('implementation', `${stateKey}.png`),
+    schemaVersion: 2,
+    screenComposition: {
+      ...screenComposition,
+      sourceArtifact,
+    },
+    ...(copy ? { copy } : {}),
+    ...(boundary ? { boundary } : {}),
   };
 }
 
@@ -453,7 +513,7 @@ test.afterAll(async () => {
     })),
   );
   const manifest = {
-    schemaVersion: 2,
+    schemaVersion: 3,
     status: 'complete',
     runId: captureRunId,
     startedAt: captureRunStartedAt,
@@ -499,18 +559,15 @@ for (const stateKey of REFERENCE_STATES) {
       scale: 'device',
     });
     const pageMeasurement = await measurePage(page, stateKey);
-    const screenComposition = await measureImplementationComposition(
+    const structuralAccuracy = await measureImplementationStructure(
       imagePath,
       stateKey,
       pageMeasurement.viewport.devicePixelRatio,
     );
     const measurement = {
-      schemaVersion: 2,
+      schemaVersion: 3,
       ...pageMeasurement,
-      structuralAccuracy: {
-        schemaVersion: 1,
-        screenComposition,
-      },
+      structuralAccuracy,
     };
     expect(measurement.state).toMatchObject({
       'data-hero-motion': 'full',
