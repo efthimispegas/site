@@ -5,13 +5,16 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { measureScreenComposition } from './screen-composition.mjs';
 import {
+  IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
   JOURNEY_EXIT_BOUNDARY_CONFIG,
+  LANDMARK_CONFIG_BY_STATE,
   LANDING_COPY_CONFIG,
   PROCESS_COPY_CONFIG,
   ROUTE_CONFIG_BY_STATE,
   measureChromaFeature,
   measureCopyInk,
   measureHorizontalBoundary,
+  measureLandmarkFeature,
 } from './screen-structural-features.mjs';
 
 const REFERENCE_STATES = [
@@ -71,6 +74,12 @@ type RouteConfig =
 
 const ROUTE_CONFIGS: Partial<Record<ReferenceStateKey, RouteConfig>> =
   ROUTE_CONFIG_BY_STATE;
+
+type LandmarkConfig =
+  (typeof LANDMARK_CONFIG_BY_STATE)[keyof typeof LANDMARK_CONFIG_BY_STATE];
+
+const LANDMARK_CONFIGS: Partial<Record<ReferenceStateKey, LandmarkConfig>> =
+  LANDMARK_CONFIG_BY_STATE;
 
 const outputRoot = path.resolve(
   process.cwd(),
@@ -196,12 +205,27 @@ async function measureImplementationStructure(
   }
 
   const sourceArtifact = path.posix.join('implementation', `${stateKey}.png`);
-  const withSourceArtifact = (
-    measurement:
-      | ReturnType<typeof measureChromaFeature>['measurement']
-      | ReturnType<typeof measureCopyInk>['measurement']
-      | ReturnType<typeof measureHorizontalBoundary>['measurement'],
-  ) => ({ ...measurement, sourceArtifact });
+  const withSourceArtifact = <T extends object>(measurement: T) => ({
+    ...measurement,
+    sourceArtifact,
+  });
+  const landmarkConfig = LANDMARK_CONFIGS[stateKey];
+  const semanticLandmarkBlocker =
+    IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[
+      stateKey as keyof typeof IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE
+    ];
+  const landmark = landmarkConfig
+    ? withSourceArtifact(
+        measureLandmarkFeature({
+          data,
+          image: info,
+          dpr: devicePixelRatio,
+          config: landmarkConfig,
+        }).measurement,
+      )
+    : semanticLandmarkBlocker
+      ? withSourceArtifact(semanticLandmarkBlocker)
+      : undefined;
   const copyConfig = COPY_CONFIG_BY_STATE[stateKey];
   const routeConfig = ROUTE_CONFIGS[stateKey];
   const route = routeConfig
@@ -237,11 +261,12 @@ async function measureImplementationStructure(
       : undefined;
 
   return {
-    schemaVersion: 3,
+    schemaVersion: 4,
     screenComposition: {
       ...screenComposition,
       sourceArtifact,
     },
+    ...(landmark ? { landmark } : {}),
     ...(route ? { route } : {}),
     ...(copy ? { copy } : {}),
     ...(boundary ? { boundary } : {}),
@@ -534,7 +559,7 @@ test.afterAll(async () => {
     })),
   );
   const manifest = {
-    schemaVersion: 4,
+    schemaVersion: 5,
     status: 'complete',
     runId: captureRunId,
     startedAt: captureRunStartedAt,
@@ -586,7 +611,7 @@ for (const stateKey of REFERENCE_STATES) {
       pageMeasurement.viewport.devicePixelRatio,
     );
     const measurement = {
-      schemaVersion: 4,
+      schemaVersion: 5,
       ...pageMeasurement,
       structuralAccuracy,
     };

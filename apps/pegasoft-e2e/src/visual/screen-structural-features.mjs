@@ -32,6 +32,93 @@ const RED_ROUTE = Object.freeze({
   },
 });
 
+const DEEP_BLUE = Object.freeze({
+  id: 'deep-blue',
+  description: 'b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB',
+  test(red, green, blue) {
+    return blue - red >= 55 && blue - green >= 25 && blue >= 120 && red <= 150;
+  },
+});
+
+export const LANDMARK_CONFIG_BY_STATE = Object.freeze({
+  'loader-mark': Object.freeze({
+    label: 'central blue loader mark',
+    method: 'chroma-component-union',
+    predicate: DEEP_BLUE,
+    roi: Object.freeze([0.3, 0.28, 0.4, 0.48]),
+    minimumComponentPixels: 24,
+    minimumSelectedPixels: 300,
+    rationale:
+      'The manifest identifies the saturated blue loader mark as the central focus. The ROI excludes contour-only margins and the recorded pointer without constraining the resulting box.',
+  }),
+  'world-reveal': Object.freeze({
+    label: 'central blue loader mark during world reveal',
+    method: 'chroma-component-union',
+    predicate: DEEP_BLUE,
+    roi: Object.freeze([0.3, 0.2, 0.4, 0.5]),
+    minimumComponentPixels: 24,
+    minimumSelectedPixels: 300,
+    rationale:
+      'The blue loader mark remains the only saturated-blue central landmark while the pale world emerges. The ROI excludes the red rails and peripheral scene objects.',
+  }),
+  'field-pulse-b': Object.freeze({
+    label: 'elevated blue center tile',
+    method: 'largest-chroma-component',
+    predicate: DEEP_BLUE,
+    roi: Object.freeze([0.35, 0.25, 0.3, 0.5]),
+    minimumComponentPixels: 120,
+    minimumSelectedPixels: 1200,
+    rationale:
+      'The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box.',
+  }),
+  'arrival-lockup': Object.freeze({
+    label: 'large frontal arrival arrow',
+    method: 'largest-dilated-sobel-component',
+    roi: Object.freeze([0.385, 0.24, 0.17, 0.48]),
+    sobelThreshold: 72,
+    dilationIterations: 4,
+    minimumComponentPixels: 1200,
+    minimumSelectedPixels: 900,
+    rationale:
+      'The manifest identifies the frontal arrow as the primary landmark. A narrow semantic ROI excludes process copy, header, most of the incoming feed, and surrounding marks; the layered arrow is the largest connected edge structure inside it.',
+  }),
+});
+
+export const IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE = Object.freeze(
+  {
+    'activation-route': Object.freeze({
+      status: 'blocked',
+      label: 'first-destination building before route contact',
+      reason:
+        'The authoritative semantic mask is hash-tied to the recording frame and cannot classify implementation pixels. A renderer-independent implementation silhouette measurement is required.',
+      method: Object.freeze({
+        id: 'implementation-semantic-isolation-required',
+        sourceMethod: 'source-semantic-mask',
+      }),
+    }),
+    'activation-contact': Object.freeze({
+      status: 'blocked',
+      label: 'logo-bearing first-destination building at route contact',
+      reason:
+        'The authoritative semantic mask is hash-tied to the recording frame and cannot classify implementation pixels. A renderer-independent implementation silhouette measurement is required.',
+      method: Object.freeze({
+        id: 'implementation-semantic-isolation-required',
+        sourceMethod: 'source-semantic-mask',
+      }),
+    }),
+    'field-contact': Object.freeze({
+      status: 'blocked',
+      label: 'elevated center tile and standing figure at first contact',
+      reason:
+        'The authoritative semantic mask is hash-tied to the recording frame and cannot classify implementation pixels. A renderer-independent implementation silhouette measurement is required.',
+      method: Object.freeze({
+        id: 'implementation-semantic-isolation-required',
+        sourceMethod: 'source-semantic-mask',
+      }),
+    }),
+  },
+);
+
 export const ROUTE_CONFIG_BY_STATE = Object.freeze({
   'world-reveal': Object.freeze({
     label: 'visible high-chroma core of emerging red landing rails',
@@ -263,6 +350,105 @@ function createPredicateMask(data, image, roi, predicate) {
   return mask;
 }
 
+function createSobelMask(data, image, roi, threshold) {
+  const grayscale = new Uint8Array(image.width * image.height);
+  const mask = new Uint8Array(image.width * image.height);
+  const expandedX = Math.max(0, roi.x - 1);
+  const expandedY = Math.max(0, roi.y - 1);
+  const expandedRight = Math.min(image.width, roi.x + roi.width + 1);
+  const expandedBottom = Math.min(image.height, roi.y + roi.height + 1);
+
+  for (let y = expandedY; y < expandedBottom; y += 1) {
+    for (let x = expandedX; x < expandedRight; x += 1) {
+      const pixelIndex = y * image.width + x;
+      const channelIndex = pixelIndex * image.channels;
+      grayscale[pixelIndex] = Math.round(
+        data[channelIndex] * 0.2126 +
+          data[channelIndex + 1] * 0.7152 +
+          data[channelIndex + 2] * 0.0722,
+      );
+    }
+  }
+
+  const right = roi.x + roi.width;
+  const bottom = roi.y + roi.height;
+  for (
+    let y = Math.max(roi.y, 1);
+    y < Math.min(bottom, image.height - 1);
+    y += 1
+  ) {
+    for (
+      let x = Math.max(roi.x, 1);
+      x < Math.min(right, image.width - 1);
+      x += 1
+    ) {
+      const topLeft = grayscale[(y - 1) * image.width + x - 1];
+      const top = grayscale[(y - 1) * image.width + x];
+      const topRight = grayscale[(y - 1) * image.width + x + 1];
+      const left = grayscale[y * image.width + x - 1];
+      const rightPixel = grayscale[y * image.width + x + 1];
+      const bottomLeft = grayscale[(y + 1) * image.width + x - 1];
+      const bottomPixel = grayscale[(y + 1) * image.width + x];
+      const bottomRight = grayscale[(y + 1) * image.width + x + 1];
+      const gradientX =
+        -topLeft +
+        topRight -
+        2 * left +
+        2 * rightPixel -
+        bottomLeft +
+        bottomRight;
+      const gradientY =
+        -topLeft -
+        2 * top -
+        topRight +
+        bottomLeft +
+        2 * bottomPixel +
+        bottomRight;
+
+      if (Math.abs(gradientX) + Math.abs(gradientY) >= threshold) {
+        mask[y * image.width + x] = 1;
+      }
+    }
+  }
+
+  return mask;
+}
+
+function dilate(mask, width, roi, iterations) {
+  let current = mask;
+  const right = roi.x + roi.width;
+  const bottom = roi.y + roi.height;
+
+  for (let iteration = 0; iteration < iterations; iteration += 1) {
+    const next = new Uint8Array(current);
+    for (let y = roi.y; y < bottom; y += 1) {
+      for (let x = roi.x; x < right; x += 1) {
+        const pixelIndex = y * width + x;
+        if (!current[pixelIndex]) {
+          continue;
+        }
+
+        for (let offsetY = -1; offsetY <= 1; offsetY += 1) {
+          const candidateY = y + offsetY;
+          if (candidateY < roi.y || candidateY >= bottom) {
+            continue;
+          }
+          for (let offsetX = -1; offsetX <= 1; offsetX += 1) {
+            const candidateX = x + offsetX;
+            if (candidateX < roi.x || candidateX >= right) {
+              continue;
+            }
+            next[candidateY * width + candidateX] = 1;
+          }
+        }
+      }
+    }
+    current = next;
+  }
+
+  return current;
+}
+
 function connectedComponents(mask, width, height, roi) {
   const labels = new Int32Array(width * height);
   const queue = new Int32Array(roi.width * roi.height);
@@ -337,7 +523,7 @@ function connectedComponents(mask, width, height, roi) {
     }
   }
 
-  return components;
+  return { components, labels };
 }
 
 function boundsFromMask(mask, width, height) {
@@ -499,7 +685,12 @@ export function measureChromaFeature({ data, image, dpr, config }) {
   validateImageInput(data, image, dpr);
   const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
   const mask = createPredicateMask(data, image, roi, config.predicate);
-  const components = connectedComponents(mask, image.width, image.height, roi);
+  const { components } = connectedComponents(
+    mask,
+    image.width,
+    image.height,
+    roi,
+  );
   const eligibleComponents = components.filter(
     (component) =>
       component.pixels >= config.minimumComponentPixels &&
@@ -598,11 +789,122 @@ export function measureChromaFeature({ data, image, dpr, config }) {
   };
 }
 
+export function measureLandmarkFeature({ data, image, dpr, config }) {
+  if (
+    config.method === 'chroma-component-union' ||
+    config.method === 'largest-chroma-component'
+  ) {
+    const result = measureChromaFeature({ data, image, dpr, config });
+    return {
+      ...result,
+      measurement:
+        result.measurement.status === 'observed'
+          ? { ...result.measurement, geometry: null }
+          : result.measurement,
+    };
+  }
+
+  if (config.method !== 'largest-dilated-sobel-component') {
+    throw new Error(
+      `Unsupported landmark measurement method: ${config.method}`,
+    );
+  }
+
+  validateImageInput(data, image, dpr);
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  const originalMask = createSobelMask(data, image, roi, config.sobelThreshold);
+  const dilatedMask = dilate(
+    originalMask,
+    image.width,
+    roi,
+    config.dilationIterations,
+  );
+  const { components, labels } = connectedComponents(
+    dilatedMask,
+    image.width,
+    image.height,
+    roi,
+  );
+  const eligibleComponents = components
+    .filter((component) => component.pixels >= config.minimumComponentPixels)
+    .sort(
+      (left, right) =>
+        right.pixels - left.pixels ||
+        left.bounds.y - right.bounds.y ||
+        left.bounds.x - right.bounds.x,
+    );
+  const selectedComponent = eligibleComponents[0] ?? null;
+  const selectedMask = new Uint8Array(originalMask.length);
+
+  if (selectedComponent) {
+    for (let index = 0; index < originalMask.length; index += 1) {
+      if (originalMask[index] && labels[index] === selectedComponent.label) {
+        selectedMask[index] = 1;
+      }
+    }
+  }
+
+  const selected = boundsFromMask(selectedMask, image.width, image.height);
+  if (!selected || selected.pixels < config.minimumSelectedPixels) {
+    return {
+      measurement: {
+        status: 'blocked',
+        label: config.label,
+        reason: `The deterministic ${config.method} quality gate found ${selected?.pixels ?? 0} selected pixels; at least ${config.minimumSelectedPixels} are required.`,
+        method: {
+          id: config.method,
+          roiNormalized: config.roi,
+          roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+          semanticMask: null,
+        },
+      },
+      debug: { mask: selectedMask, bounds: selected?.bounds ?? roi },
+    };
+  }
+
+  return {
+    measurement: {
+      status: 'observed',
+      evidenceClass: 'observed',
+      label: config.label,
+      bounds: serializeBounds(selected.bounds, image, dpr),
+      geometry: null,
+      pixelSupport: selected.pixels,
+      method: {
+        id: config.method,
+        roiNormalized: config.roi,
+        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+        predicate: null,
+        sobelThreshold: config.sobelThreshold,
+        dilationIterations: config.dilationIterations,
+        connectivity: 8,
+        minimumComponentPixels: config.minimumComponentPixels,
+        maximumComponentPixels: null,
+        maximumComponentWidth: null,
+        maximumComponentHeight: null,
+        minimumComponentFillRatio: null,
+        minimumSelectedPixels: config.minimumSelectedPixels,
+        totalComponentCount: components.length,
+        eligibleComponentCount: eligibleComponents.length,
+        selectedComponentCount: selectedComponent ? 1 : 0,
+        semanticMask: null,
+        rationale: config.rationale,
+      },
+    },
+    debug: { mask: selectedMask, bounds: selected.bounds },
+  };
+}
+
 export function measureCopyInk({ data, image, dpr, config }) {
   validateImageInput(data, image, dpr);
   const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
   const mask = createPredicateMask(data, image, roi, config.predicate);
-  const components = connectedComponents(mask, image.width, image.height, roi);
+  const { components } = connectedComponents(
+    mask,
+    image.width,
+    image.height,
+    roi,
+  );
   const selectedComponents = components.filter(
     (component) =>
       component.pixels >= config.minimumComponentPixels &&

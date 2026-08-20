@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 8,
-  "generatedAtUtc": "2026-08-20T14:52:47.135Z",
+  "schemaVersion": 9,
+  "generatedAtUtc": "2026-08-20T15:30:55.150Z",
   "phaseScope": [1, 5],
   "workingTree": {
     "branch": "codex/hero-reference-rebaseline",
@@ -239,10 +239,10 @@
         "status": "passed-current-checkpoint",
         "artifactRoot": "apps/pegasoft-e2e/test-output/hero-reference/recording",
         "captureManifest": "apps/pegasoft-e2e/test-output/hero-reference/recording/capture-manifest.json",
-        "captureManifestSchemaVersion": 4,
-        "captureRunId": "1f659f32-22dd-42ff-aa62-cdcc53c2129c",
-        "captureStartedAt": "2026-08-20T14:51:11.097Z",
-        "captureCompletedAt": "2026-08-20T14:52:47.135Z",
+        "captureManifestSchemaVersion": 5,
+        "captureRunId": "05c67056-d239-45d3-8ee2-7798f5da9523",
+        "captureStartedAt": "2026-08-20T15:29:17.837Z",
+        "captureCompletedAt": "2026-08-20T15:30:55.150Z",
         "artifactIntegrity": "all 15 implementation images and 15 measurement records matched manifest byte counts and SHA-256 values",
         "requiredRendererSemantics": {
           "motion": "full",
@@ -251,7 +251,7 @@
           "surface": "visible WebGL canvas",
           "contextLoss": "none observed"
         },
-        "note": "The Nx capture target ran both the app and E2E typecheck prerequisites before completing all 15 states. Every state required a real recording-desktop full-motion WebGL canvas, seed 43117, render readiness, no observed context loss, and an observed screen-composition measurement. The 11 source-applicable copy states, all 12 source-applicable route states, and journey-exit additionally carry screenshot-derived structural evidence from the same algorithms and configurations used for the recording. Two red routes are observed; ten routes explicitly fail the unchanged source-predicate quality gate. Runtime errors, context loss, invalid structural records, and missing composition evidence are hard failures, and the complete size/SHA-256 manifest is published atomically."
+        "note": "The Nx capture target ran both the app and E2E typecheck prerequisites before completing all 15 states. Every state required a real recording-desktop full-motion WebGL canvas, seed 43117, render readiness, no observed context loss, and an observed screen-composition measurement. The 11 source-applicable copy states, all 12 source-applicable route states, all 7 source-observed landmark states, and journey-exit additionally carry structural evidence records. Three transferable landmarks and two red routes are observed; one landmark and ten routes fail unchanged source-pixel quality gates. Three source-mask landmarks are explicit semantic-isolation blocks rather than misusing recording-frame masks on implementation pixels. Runtime errors, context loss, invalid structural records, and missing composition evidence are hard failures, and the complete size/SHA-256 manifest is published atomically."
       },
       "convergenceMatrix": {
         "coverage": [
@@ -284,7 +284,7 @@
     "comparison": {
       "command": "pnpm nx run @site/pegasoft-e2e:hero-compare",
       "status": "failed-as-designed",
-      "schemaVersion": 8,
+      "schemaVersion": 9,
       "preliminaryRasterSummary": {
         "pass": 1,
         "fail": 14
@@ -309,6 +309,15 @@
           "pass": 18,
           "fail": 26
         },
+        "landmarkBounds": {
+          "statesObserved": 3,
+          "statesSemanticIsolationBlocked": 3,
+          "statesSourcePixelQualityBlocked": 1,
+          "checks": 12,
+          "pass": 8,
+          "fail": 4,
+          "qualification": "Center and size bounds do not replace the required silhouette IoU measurement."
+        },
         "routeCoreProxies": {
           "statesObserved": 2,
           "statesQualityBlocked": 10,
@@ -327,6 +336,8 @@
           "compositionCentroidNormalized": 0.0075,
           "negativeSpaceOccupancy": 0.03,
           "copyBoundsCssPixels": 2,
+          "landmarkCenterNormalized": 0.0075,
+          "landmarkSizeRatio": 0.02,
           "routeDirectionDegrees": 1,
           "routeEndpointNormalized": 0.005,
           "routeThicknessCssPixelsMinimum": 1,
@@ -355,7 +366,7 @@
         "evaluatedPixelCount": 68855280
       },
       "currency": "current-checkpoint-complete-and-manifest-verified",
-      "reason": "The whole four-row landing/journey DOM ladder passes all 13 applicable state contracts; loader-mark and world-reveal have no applicable DOM profile. The unmasked full-frame raster is only a preliminary diagnostic and passes 1 of 15 states. Shared source/implementation algorithms now measure all 15 composition records, all 11 source-applicable copy envelopes, all 12 source-applicable route states, and the journey-exit boundary. Composition passes 191/285 checks, copy bounds pass 18/44, two observed red routes pass 5/12 proxy checks, and the boundary passes 4/4. Ten implementation routes fail the unchanged source-predicate quality gate, and centerline Hausdorff evidence remains unavailable. Structural accuracy remains blocked for all 15 states because four authoritative source landmarks, two authoritative source copy envelopes, seven implementation landmarks, route centerlines, and the ten route quality blocks remain incomplete. Neither preliminary raster, partial geometry success, nor DOM success confers final visual acceptance."
+      "reason": "The whole four-row landing/journey DOM ladder passes all 13 applicable state contracts; loader-mark and world-reveal have no applicable DOM profile. The unmasked full-frame raster is only a preliminary diagnostic and passes 1 of 15 states. Shared source/implementation algorithms now measure all 15 composition records, all 11 source-applicable copy envelopes, all 12 source-applicable route states, four transferable landmark states, and the journey-exit boundary; three additional source-mask landmarks carry explicit semantic-isolation records. Composition passes 191/285 checks, copy bounds pass 18/44, three observed landmarks pass 8/12 center/size checks, two observed red routes pass 5/12 proxy checks, and the boundary passes 4/4. One landmark and ten routes fail unchanged source-pixel quality gates; landmark silhouette IoU and route centerline Hausdorff evidence remain unavailable. Structural accuracy remains blocked for all 15 states because four authoritative source landmarks, two authoritative source copy envelopes, three semantic-isolation landmarks, one landmark quality block, landmark silhouettes, route centerlines, and the ten route quality blocks remain incomplete. Neither preliminary raster, partial geometry success, nor DOM success confers final visual acceptance."
     }
   },
   "validationSnapshot": [
@@ -386,7 +397,7 @@
     {
       "command": "node tools/hero-reference/measure-recording-bounds.mjs --check",
       "result": "passed",
-      "details": "The restored 190835536-byte Git LFS recording matched SHA-256 de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321; structural-bounds v9 reproduced 7 landmark measurements, 4 explicit landmark blocks, 4 landmark-not-applicable classifications, 12 route cores and their PCA proxy geometry, 11 copy-ink envelopes, 15 composition proxies, and 1 section boundary byte-for-byte."
+      "details": "The restored 190835536-byte Git LFS recording matched SHA-256 de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321; structural-bounds v10 reproduced 7 landmark measurements, 4 explicit landmark blocks, 4 landmark-not-applicable classifications, 12 route cores and their PCA proxy geometry, 11 copy-ink envelopes, 15 composition proxies, and 1 section boundary byte-for-byte."
     },
     {
       "command": "pnpm nx run @site/pegasoft-e2e:e2e",
@@ -401,12 +412,12 @@
     {
       "command": "pnpm nx run @site/pegasoft-e2e:hero-capture --skipNxCache",
       "result": "passed",
-      "details": "The app typecheck and E2E typecheck prerequisites passed before all 15 recording-profile states were captured. Run 1f659f32-22dd-42ff-aa62-cdcc53c2129c completed at 2026-08-20T14:52:47.135Z and published a complete schema-v4 atomic size/SHA-256 manifest with composition evidence for every state, copy evidence for all 11 source-applicable states, route evidence records for all 12 source-applicable states, and journey-exit boundary evidence. Two routes were observed and ten were explicitly quality-blocked by the unchanged source predicate."
+      "details": "The app typecheck and E2E typecheck prerequisites passed before all 15 recording-profile states were captured. Run 05c67056-d239-45d3-8ee2-7798f5da9523 completed at 2026-08-20T15:30:55.150Z and published a complete schema-v5 atomic size/SHA-256 manifest with composition evidence for every state, copy evidence for all 11 source-applicable states, route records for all 12 source-applicable states, landmark records for all 7 source-observed states, and journey-exit boundary evidence. Three landmarks and two routes were observed; one landmark and ten routes were source-pixel quality-blocked; three source-mask landmarks were semantic-isolation blocked."
     },
     {
       "command": "node tools/hero-reference/compare-captures.mjs",
       "result": "failed-acceptance-current-input",
-      "details": "Schema 8 reports preliminary raster at 1 pass / 14 fail, composition at 191 pass / 94 fail, copy bounds at 18 pass / 26 fail, route proxies at 5 pass / 7 fail, boundary bounds at 4 pass / 0 fail, structural accuracy at 0 pass / 0 fail / 15 blocked, and whole-ladder DOM at 13 pass / 0 fail / 0 blocked / 2 not applicable. The non-zero exit is required while structural and final visual acceptance remain blocked."
+      "details": "Schema 9 reports preliminary raster at 1 pass / 14 fail, composition at 191 pass / 94 fail, copy bounds at 18 pass / 26 fail, landmark bounds at 8 pass / 4 fail, route proxies at 5 pass / 7 fail, boundary bounds at 4 pass / 0 fail, structural accuracy at 0 pass / 0 fail / 15 blocked, and whole-ladder DOM at 13 pass / 0 fail / 0 blocked / 2 not applicable. The non-zero exit is required while structural and final visual acceptance remain blocked."
     },
     {
       "command": "node tools/hero-reference/probe-live-profiles.mjs --output docs/hero-reference/live/current-live-profiles.json",
@@ -415,7 +426,7 @@
     }
   ],
   "resolvedFormerDebts": [
-    "Recording and implementation screenshots now use shared pure screen-composition, route-core, copy-ink, and section-boundary algorithms; schema-v4 capture records and their source PNGs are integrity-bound by the atomic manifest.",
+    "Recording and implementation screenshots now use shared pure screen-composition, transferable landmark, route-core, copy-ink, and section-boundary algorithms; schema-v5 capture records and their source PNGs are integrity-bound by the atomic manifest. Source semantic masks remain isolated to hash-locked recording frames.",
     "The fallback is state-specific rather than a generic four-block composition.",
     "Unit direct-entry coverage iterates all 15 states.",
     "The controller no longer publishes a fictitious settled-camera snapshot; the render adapter owns actual damping.",
@@ -428,7 +439,7 @@
   "blockingEvidence": [
     {
       "severity": "blocks-phase-1-and-visual-acceptance",
-      "issue": "Deterministic recording measurement resolves 7 landmarks, 12 visible route cores, 11 copy-ink envelopes, 15 fixed-grid screen-space composition proxies, and 1 section boundary. Shared renderer-independent algorithms now measure screen composition for all 15 manifest-verified implementation captures, copy ink for all 11 source-applicable captures, route evidence records for all 12 source-applicable captures, and the journey-exit boundary. Composition passes 191/285 checks, copy bounds pass 18/44, two observed red-route cores pass 5/12 proxy checks, and boundary bounds pass 4/4. Ten implementation routes fail the unchanged source-predicate quality gate; the current PCA envelope cannot satisfy the required centerline Hausdorff metric. Four landmark-primary source states, the faded arrival-travel copy, the clipped/header-overlapped journey-exit copy, seven implementation landmark measurements, and additional source observables remain blocked. The recording cannot expose a 3D camera transform, so the comparator requires observed screen-space composition evidence while preserving camera position/quaternion as unknown. The repository-owned semantic masks remain tied to exact source-frame and mask hashes and completed their personal-review checkpoint without conferring visual acceptance. The current implementation passes all 13 applicable live DOM contracts, but neither DOM success nor implementation captures can substitute for missing source measurements."
+      "issue": "Deterministic recording measurement resolves 7 landmarks, 12 visible route cores, 11 copy-ink envelopes, 15 fixed-grid screen-space composition proxies, and 1 section boundary. Shared renderer-independent algorithms now measure screen composition for all 15 manifest-verified implementation captures, copy ink for all 11 source-applicable captures, route records for all 12 source-applicable captures, transferable landmarks for 4 states, and the journey-exit boundary; the 3 source-mask landmarks are explicitly isolated. Composition passes 191/285 checks, copy bounds pass 18/44, three observed landmark bounds pass 8/12 checks, two observed red-route cores pass 5/12 proxy checks, and boundary bounds pass 4/4. One implementation landmark and ten routes fail unchanged source-pixel quality gates; bounds and PCA envelopes cannot satisfy landmark silhouette IoU or route centerline Hausdorff metrics. Four landmark-primary source states, the faded arrival-travel copy, the clipped/header-overlapped journey-exit copy, three implementation semantic-isolation landmarks, and additional source observables remain blocked. The recording cannot expose a 3D camera transform, so the comparator requires observed screen-space composition evidence while preserving camera position/quaternion as unknown. The repository-owned semantic masks remain tied to exact source-frame and mask hashes and completed their personal-review checkpoint without conferring visual acceptance. The current implementation passes all 13 applicable live DOM contracts, but neither DOM success nor implementation captures can substitute for missing source measurements."
     },
     {
       "severity": "blocks-phases-7-through-16",
@@ -462,6 +473,6 @@
     "structuralAccuracyComparisonPassed": false,
     "visualComparisonPassed": false,
     "phase5Status": "own-gate-passed-ordered-acceptance-blocked-by-phase-1",
-    "reason": "The current architecture, deterministic controls, repeat capture, genuine desktop/mobile convergence matrix, and manifest integrity pass their local Phase 5 gate. Ordered acceptance remains held at Phase 1 because four landmark-primary source states, two faded/clipped source copy states, seven implementation landmarks, ten source-predicate-blocked implementation routes, route centerlines, and additional source observables remain unmeasured. Shared algorithms now measure all 15 source/implementation composition records, all 11 source-applicable implementation copy envelopes, route evidence records for all 12 source-applicable states, and both journey-exit boundaries; composition passes 191/285 checks, copy bounds pass 18/44, the two observed red routes pass 5/12 proxy checks, and boundary bounds pass 4/4. Unknown 3D camera transforms remain documented without serving as an impossible source gate. The comparator separately reports only 1/15 preliminary raster states passing and all 15 structural states blocked, despite a 13/13 applicable whole-ladder DOM pass; final hero acceptance is therefore blocked."
+    "reason": "The current architecture, deterministic controls, repeat capture, genuine desktop/mobile convergence matrix, and manifest integrity pass their local Phase 5 gate. Ordered acceptance remains held at Phase 1 because four landmark-primary source states, two faded/clipped source copy states, three implementation semantic-isolation landmarks, one source-pixel landmark block, landmark silhouettes, ten source-predicate-blocked routes, route centerlines, and additional source observables remain unmeasured. Shared algorithms now measure all 15 source/implementation composition records, all 11 source-applicable implementation copy envelopes, transferable landmarks for 4 states, route records for all 12 source-applicable states, and both journey-exit boundaries; composition passes 191/285 checks, copy bounds pass 18/44, three observed landmarks pass 8/12 bounds checks, two observed red routes pass 5/12 proxy checks, and boundary bounds pass 4/4. Unknown 3D camera transforms remain documented without serving as an impossible source gate. The comparator separately reports only 1/15 preliminary raster states passing and all 15 structural states blocked, despite a 13/13 applicable whole-ladder DOM pass; final hero acceptance is therefore blocked."
   }
 }

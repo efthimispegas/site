@@ -7,12 +7,14 @@ import sharp from 'sharp';
 import { measureScreenComposition } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 import {
   JOURNEY_EXIT_BOUNDARY_CONFIG,
+  LANDMARK_CONFIG_BY_STATE,
   LANDING_COPY_CONFIG,
   PROCESS_COPY_CONFIG,
   ROUTE_CONFIG_BY_STATE,
   measureChromaFeature,
   measureCopyInk,
   measureHorizontalBoundary as measureSharedHorizontalBoundary,
+  measureLandmarkFeature,
 } from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
 
 const workspaceRoot = process.cwd();
@@ -30,7 +32,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v9';
+const algorithmVersion = 'recording-structural-bounds-v10';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -44,39 +46,14 @@ if (debugArgumentIndex >= 0 && !process.argv[debugArgumentIndex + 1]) {
   throw new Error('--debug-dir requires a directory path');
 }
 
-const DEEP_BLUE = {
-  id: 'deep-blue',
-  description: 'b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB',
-  test: (red, green, blue) =>
-    blue - red >= 55 && blue - green >= 25 && blue >= 120 && red <= 150,
-};
-
 const STATE_MEASUREMENTS = {
   'loader-mark': {
     primaryStructure: 'landmark',
-    landmark: {
-      label: 'central blue loader mark',
-      method: 'chroma-component-union',
-      predicate: DEEP_BLUE,
-      roi: [0.3, 0.28, 0.4, 0.48],
-      minimumComponentPixels: 24,
-      minimumSelectedPixels: 300,
-      rationale:
-        'The manifest identifies the saturated blue loader mark as the central focus. The ROI excludes contour-only margins and the recorded pointer without constraining the resulting box.',
-    },
+    landmark: LANDMARK_CONFIG_BY_STATE['loader-mark'],
   },
   'world-reveal': {
     primaryStructure: 'landmark',
-    landmark: {
-      label: 'central blue loader mark during world reveal',
-      method: 'chroma-component-union',
-      predicate: DEEP_BLUE,
-      roi: [0.3, 0.2, 0.4, 0.5],
-      minimumComponentPixels: 24,
-      minimumSelectedPixels: 300,
-      rationale:
-        'The blue loader mark remains the only saturated-blue central landmark while the pale world emerges. The ROI excludes the red rails and peripheral scene objects.',
-    },
+    landmark: LANDMARK_CONFIG_BY_STATE['world-reveal'],
     route: ROUTE_CONFIG_BY_STATE['world-reveal'],
   },
   landing: {
@@ -185,16 +162,7 @@ const STATE_MEASUREMENTS = {
   },
   'field-pulse-b': {
     primaryStructure: 'landmark',
-    landmark: {
-      label: 'elevated blue center tile',
-      method: 'largest-chroma-component',
-      predicate: DEEP_BLUE,
-      roi: [0.35, 0.25, 0.3, 0.5],
-      minimumComponentPixels: 120,
-      minimumSelectedPixels: 1200,
-      rationale:
-        'The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box.',
-    },
+    landmark: LANDMARK_CONFIG_BY_STATE['field-pulse-b'],
     route: ROUTE_CONFIG_BY_STATE['field-pulse-b'],
     copy: PROCESS_COPY_CONFIG,
   },
@@ -216,17 +184,7 @@ const STATE_MEASUREMENTS = {
   },
   'arrival-lockup': {
     primaryStructure: 'landmark',
-    landmark: {
-      label: 'large frontal arrival arrow',
-      method: 'largest-dilated-sobel-component',
-      roi: [0.385, 0.24, 0.17, 0.48],
-      sobelThreshold: 72,
-      dilationIterations: 4,
-      minimumComponentPixels: 1200,
-      minimumSelectedPixels: 900,
-      rationale:
-        'The manifest identifies the frontal arrow as the primary landmark. A narrow semantic ROI excludes process copy, header, most of the incoming feed, and surrounding marks; the layered arrow is the largest connected edge structure inside it.',
-    },
+    landmark: LANDMARK_CONFIG_BY_STATE['arrival-lockup'],
     route: ROUTE_CONFIG_BY_STATE['arrival-lockup'],
     copy: PROCESS_COPY_CONFIG,
   },
@@ -280,227 +238,6 @@ function round(value, digits = 3) {
   return Math.round(value * scale) / scale;
 }
 
-function normalizedRoiToPixels(roi, width, height) {
-  const [normalizedX, normalizedY, normalizedWidth, normalizedHeight] = roi;
-  const x = Math.max(0, Math.floor(normalizedX * width));
-  const y = Math.max(0, Math.floor(normalizedY * height));
-  const right = Math.min(
-    width,
-    Math.ceil((normalizedX + normalizedWidth) * width),
-  );
-  const bottom = Math.min(
-    height,
-    Math.ceil((normalizedY + normalizedHeight) * height),
-  );
-
-  return {
-    x,
-    y,
-    width: right - x,
-    height: bottom - y,
-  };
-}
-
-function createPredicateMask(data, image, roi, predicate) {
-  const mask = new Uint8Array(image.width * image.height);
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-
-  for (let y = roi.y; y < bottom; y += 1) {
-    for (let x = roi.x; x < right; x += 1) {
-      const pixelIndex = y * image.width + x;
-      const channelIndex = pixelIndex * image.channels;
-      if (
-        predicate.test(
-          data[channelIndex],
-          data[channelIndex + 1],
-          data[channelIndex + 2],
-        )
-      ) {
-        mask[pixelIndex] = 1;
-      }
-    }
-  }
-
-  return mask;
-}
-
-function createSobelMask(data, image, roi, threshold) {
-  const grayscale = new Uint8Array(image.width * image.height);
-  const mask = new Uint8Array(image.width * image.height);
-  const expandedX = Math.max(0, roi.x - 1);
-  const expandedY = Math.max(0, roi.y - 1);
-  const expandedRight = Math.min(image.width, roi.x + roi.width + 1);
-  const expandedBottom = Math.min(image.height, roi.y + roi.height + 1);
-
-  for (let y = expandedY; y < expandedBottom; y += 1) {
-    for (let x = expandedX; x < expandedRight; x += 1) {
-      const pixelIndex = y * image.width + x;
-      const channelIndex = pixelIndex * image.channels;
-      grayscale[pixelIndex] = Math.round(
-        data[channelIndex] * 0.2126 +
-          data[channelIndex + 1] * 0.7152 +
-          data[channelIndex + 2] * 0.0722,
-      );
-    }
-  }
-
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-  for (
-    let y = Math.max(roi.y, 1);
-    y < Math.min(bottom, image.height - 1);
-    y += 1
-  ) {
-    for (
-      let x = Math.max(roi.x, 1);
-      x < Math.min(right, image.width - 1);
-      x += 1
-    ) {
-      const topLeft = grayscale[(y - 1) * image.width + x - 1];
-      const top = grayscale[(y - 1) * image.width + x];
-      const topRight = grayscale[(y - 1) * image.width + x + 1];
-      const left = grayscale[y * image.width + x - 1];
-      const rightPixel = grayscale[y * image.width + x + 1];
-      const bottomLeft = grayscale[(y + 1) * image.width + x - 1];
-      const bottomPixel = grayscale[(y + 1) * image.width + x];
-      const bottomRight = grayscale[(y + 1) * image.width + x + 1];
-      const gradientX =
-        -topLeft +
-        topRight -
-        2 * left +
-        2 * rightPixel -
-        bottomLeft +
-        bottomRight;
-      const gradientY =
-        -topLeft -
-        2 * top -
-        topRight +
-        bottomLeft +
-        2 * bottomPixel +
-        bottomRight;
-
-      if (Math.abs(gradientX) + Math.abs(gradientY) >= threshold) {
-        mask[y * image.width + x] = 1;
-      }
-    }
-  }
-
-  return mask;
-}
-
-function dilate(mask, width, height, roi, iterations) {
-  let current = mask;
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-
-  for (let iteration = 0; iteration < iterations; iteration += 1) {
-    const next = new Uint8Array(current);
-    for (let y = roi.y; y < bottom; y += 1) {
-      for (let x = roi.x; x < right; x += 1) {
-        const pixelIndex = y * width + x;
-        if (!current[pixelIndex]) {
-          continue;
-        }
-
-        for (let offsetY = -1; offsetY <= 1; offsetY += 1) {
-          const candidateY = y + offsetY;
-          if (candidateY < roi.y || candidateY >= bottom) {
-            continue;
-          }
-          for (let offsetX = -1; offsetX <= 1; offsetX += 1) {
-            const candidateX = x + offsetX;
-            if (candidateX < roi.x || candidateX >= right) {
-              continue;
-            }
-            next[candidateY * width + candidateX] = 1;
-          }
-        }
-      }
-    }
-    current = next;
-  }
-
-  return current;
-}
-
-function connectedComponents(mask, width, height, roi) {
-  const labels = new Int32Array(width * height);
-  const queue = new Int32Array(roi.width * roi.height);
-  const components = [];
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-  let nextLabel = 1;
-
-  for (let startY = roi.y; startY < bottom; startY += 1) {
-    for (let startX = roi.x; startX < right; startX += 1) {
-      const startIndex = startY * width + startX;
-      if (!mask[startIndex] || labels[startIndex] !== 0) {
-        continue;
-      }
-
-      let head = 0;
-      let tail = 0;
-      let pixels = 0;
-      let minX = startX;
-      let minY = startY;
-      let maxX = startX;
-      let maxY = startY;
-      queue[tail] = startIndex;
-      tail += 1;
-      labels[startIndex] = nextLabel;
-
-      while (head < tail) {
-        const pixelIndex = queue[head];
-        head += 1;
-        const y = Math.floor(pixelIndex / width);
-        const x = pixelIndex - y * width;
-        pixels += 1;
-        minX = Math.min(minX, x);
-        minY = Math.min(minY, y);
-        maxX = Math.max(maxX, x);
-        maxY = Math.max(maxY, y);
-
-        for (let offsetY = -1; offsetY <= 1; offsetY += 1) {
-          const candidateY = y + offsetY;
-          if (candidateY < roi.y || candidateY >= bottom) {
-            continue;
-          }
-          for (let offsetX = -1; offsetX <= 1; offsetX += 1) {
-            if (offsetX === 0 && offsetY === 0) {
-              continue;
-            }
-            const candidateX = x + offsetX;
-            if (candidateX < roi.x || candidateX >= right) {
-              continue;
-            }
-            const candidateIndex = candidateY * width + candidateX;
-            if (mask[candidateIndex] && labels[candidateIndex] === 0) {
-              labels[candidateIndex] = nextLabel;
-              queue[tail] = candidateIndex;
-              tail += 1;
-            }
-          }
-        }
-      }
-
-      components.push({
-        label: nextLabel,
-        pixels,
-        bounds: {
-          x: minX,
-          y: minY,
-          width: maxX - minX + 1,
-          height: maxY - minY + 1,
-        },
-      });
-      nextLabel += 1;
-    }
-  }
-
-  return { components, labels };
-}
-
 function boundsFromMask(mask, width, height) {
   let pixels = 0;
   let minX = width;
@@ -533,101 +270,6 @@ function boundsFromMask(mask, width, height) {
       width: maxX - minX + 1,
       height: maxY - minY + 1,
     },
-  };
-}
-
-function selectChromaComponents(mask, image, roi, config) {
-  const { components } = connectedComponents(
-    mask,
-    image.width,
-    image.height,
-    roi,
-  );
-  const eligible = components.filter(
-    (component) =>
-      component.pixels >= config.minimumComponentPixels &&
-      component.pixels <=
-        (config.maximumComponentPixels ?? Number.POSITIVE_INFINITY) &&
-      component.bounds.width <=
-        (config.maximumComponentWidth ?? Number.POSITIVE_INFINITY) &&
-      component.bounds.height <=
-        (config.maximumComponentHeight ?? Number.POSITIVE_INFINITY) &&
-      component.pixels / (component.bounds.width * component.bounds.height) >=
-        (config.minimumComponentFillRatio ?? 0),
-  );
-  const selected =
-    config.method === 'largest-chroma-component'
-      ? eligible
-          .slice()
-          .sort(
-            (left, right) =>
-              right.pixels - left.pixels ||
-              left.bounds.y - right.bounds.y ||
-              left.bounds.x - right.bounds.x,
-          )
-          .slice(0, 1)
-      : eligible;
-  const selectedMask = new Uint8Array(mask.length);
-
-  for (const component of selected) {
-    const componentRight = component.bounds.x + component.bounds.width;
-    const componentBottom = component.bounds.y + component.bounds.height;
-    for (let y = component.bounds.y; y < componentBottom; y += 1) {
-      for (let x = component.bounds.x; x < componentRight; x += 1) {
-        const index = y * image.width + x;
-        if (mask[index]) {
-          selectedMask[index] = 1;
-        }
-      }
-    }
-  }
-
-  return {
-    selectedMask,
-    selectedComponents: selected,
-    eligibleComponentCount: eligible.length,
-    totalComponentCount: components.length,
-  };
-}
-
-function selectLargestDilatedEdgeComponent(originalMask, image, roi, config) {
-  const dilated = dilate(
-    originalMask,
-    image.width,
-    image.height,
-    roi,
-    config.dilationIterations,
-  );
-  const { components, labels } = connectedComponents(
-    dilated,
-    image.width,
-    image.height,
-    roi,
-  );
-  const eligible = components
-    .filter((component) => component.pixels >= config.minimumComponentPixels)
-    .sort(
-      (left, right) =>
-        right.pixels - left.pixels ||
-        left.bounds.y - right.bounds.y ||
-        left.bounds.x - right.bounds.x,
-    );
-  const selectedComponent = eligible[0] ?? null;
-  const selectedMask = new Uint8Array(originalMask.length);
-
-  if (selectedComponent) {
-    for (let index = 0; index < originalMask.length; index += 1) {
-      if (originalMask[index] && labels[index] === selectedComponent.label) {
-        selectedMask[index] = 1;
-      }
-    }
-  }
-
-  return {
-    selectedMask,
-    selectedComponents: selectedComponent ? [selectedComponent] : [],
-    eligibleComponentCount: eligible.length,
-    totalComponentCount: components.length,
   };
 }
 
@@ -794,38 +436,23 @@ async function selectSemanticMask(sourcePath, image, stateKey, featureKind) {
 
 async function measureFeature(
   sourcePath,
-  data,
   image,
   stateKey,
   featureKind,
   config,
   dpr,
 ) {
-  const roi = config.roi
-    ? normalizedRoiToPixels(config.roi, image.width, image.height)
-    : null;
-  let selection;
-
-  if (config.method === 'source-semantic-mask') {
-    selection = await selectSemanticMask(
-      sourcePath,
-      image,
-      stateKey,
-      featureKind,
+  if (config.method !== 'source-semantic-mask') {
+    throw new Error(
+      `Only source-semantic-mask remains source-tool-specific; received ${config.method}`,
     );
-  } else if (
-    config.method === 'chroma-component-union' ||
-    config.method === 'largest-chroma-component' ||
-    config.method === 'predicate-component-union'
-  ) {
-    const mask = createPredicateMask(data, image, roi, config.predicate);
-    selection = selectChromaComponents(mask, image, roi, config);
-  } else if (config.method === 'largest-dilated-sobel-component') {
-    const mask = createSobelMask(data, image, roi, config.sobelThreshold);
-    selection = selectLargestDilatedEdgeComponent(mask, image, roi, config);
-  } else {
-    throw new Error(`Unknown measurement method: ${config.method}`);
   }
+  const selection = await selectSemanticMask(
+    sourcePath,
+    image,
+    stateKey,
+    featureKind,
+  );
 
   const selected = boundsFromMask(
     selection.selectedMask,
@@ -841,8 +468,8 @@ async function measureFeature(
       reason: `The deterministic ${config.method} quality gate found ${selected?.pixels ?? 0} selected pixels; at least ${minimumSelectedPixels} are required.`,
       method: {
         id: config.method,
-        roiNormalized: config.roi ?? null,
-        roiRasterPixels: roi ? [roi.x, roi.y, roi.width, roi.height] : null,
+        roiNormalized: null,
+        roiRasterPixels: null,
         semanticMask: selection.semanticMask ?? null,
       },
     };
@@ -866,22 +493,17 @@ async function measureFeature(
     pixelSupport: selected.pixels,
     method: {
       id: config.method,
-      roiNormalized: config.roi ?? null,
-      roiRasterPixels: roi ? [roi.x, roi.y, roi.width, roi.height] : null,
-      predicate: config.predicate
-        ? {
-            id: config.predicate.id,
-            description: config.predicate.description,
-          }
-        : null,
-      sobelThreshold: config.sobelThreshold ?? null,
-      dilationIterations: config.dilationIterations ?? 0,
-      connectivity: config.method === 'source-semantic-mask' ? null : 8,
-      minimumComponentPixels: config.minimumComponentPixels ?? null,
-      maximumComponentPixels: config.maximumComponentPixels ?? null,
-      maximumComponentWidth: config.maximumComponentWidth ?? null,
-      maximumComponentHeight: config.maximumComponentHeight ?? null,
-      minimumComponentFillRatio: config.minimumComponentFillRatio ?? null,
+      roiNormalized: null,
+      roiRasterPixels: null,
+      predicate: null,
+      sobelThreshold: null,
+      dilationIterations: 0,
+      connectivity: null,
+      minimumComponentPixels: null,
+      maximumComponentPixels: null,
+      maximumComponentWidth: null,
+      maximumComponentHeight: null,
+      minimumComponentFillRatio: null,
       minimumSelectedPixels,
       totalComponentCount: selection.totalComponentCount,
       eligibleComponentCount: selection.eligibleComponentCount,
@@ -973,15 +595,22 @@ async function measureConfiguredFeature({
     return result.measurement;
   }
 
-  return measureFeature(
-    sourcePath,
-    data,
-    image,
-    stateKey,
-    featureKind,
-    config,
-    dpr,
-  );
+  if (featureKind === 'landmark' && config.method !== 'source-semantic-mask') {
+    const result = measureLandmarkFeature({ data, image, dpr, config });
+    if (result.measurement.status === 'observed') {
+      await writeDebugOverlay(
+        sourcePath,
+        stateKey,
+        featureKind,
+        result.debug.mask,
+        image,
+        result.debug.bounds,
+      );
+    }
+    return result.measurement;
+  }
+
+  return measureFeature(sourcePath, image, stateKey, featureKind, config, dpr);
 }
 
 function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
