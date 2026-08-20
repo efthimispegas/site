@@ -222,8 +222,14 @@ comparison.
   reusing source masks on implementation pixels. `loader-mark`, `world-reveal`,
   and `arrival-lockup` are observed and pass 8/12 center/size checks;
   `field-pulse-b` is source-pixel quality-blocked. The three hash-locked
-  source-mask states are explicit semantic-isolation blocks, and bounds do not
-  replace silhouette IoU evidence.
+  source-mask states are explicit semantic-isolation blocks. The comparator
+  now recomputes shared masks from both integrity-bound rasters: true
+  chroma-silhouette IoU is `0.3987` for `loader-mark` and `0.6460` for
+  `world-reveal`, both below the locked `0.90` minimum. The
+  `arrival-lockup` value of `0.0261` is explicitly a Sobel edge-support proxy,
+  not a filled silhouette. Full-frame four-color mask comparisons are emitted
+  for all four transferable configurations, including the quality-blocked
+  field state.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile; all 13 applicable contracts pass in the same current
   comparison run.

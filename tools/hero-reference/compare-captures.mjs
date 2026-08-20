@@ -1,3 +1,4 @@
+import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -8,6 +9,7 @@ import {
   IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
   LANDMARK_CONFIG_BY_STATE,
   ROUTE_CONFIG_BY_STATE,
+  measureLandmarkFeature,
 } from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
 
 const workspaceRoot = process.cwd();
@@ -44,7 +46,9 @@ const STRUCTURAL_TOLERANCES = {
   compositionCentroidNormalized: 0.0075,
   negativeSpaceOccupancy: 0.03,
   copyBoundsCssPixels: 2,
+  landmarkEdgeSupportIouDiagnosticMinimum: 0.9,
   landmarkCenterNormalized: 0.0075,
+  landmarkSilhouetteIouMinimum: 0.9,
   landmarkSizeRatio: 0.02,
   routeDirectionDegrees: 1,
   routeEndpointNormalized: 0.005,
@@ -506,6 +510,177 @@ function createImageBuffers(reference, implementation) {
   };
 }
 
+function createLandmarkMaskComparison(referenceMask, implementationMask) {
+  assert.equal(referenceMask.length, implementationMask.length);
+  const comparison = Buffer.alloc(referenceMask.length * 3);
+
+  for (let index = 0; index < referenceMask.length; index += 1) {
+    const outputIndex = index * 3;
+    const referenceSelected = referenceMask[index] === 1;
+    const implementationSelected = implementationMask[index] === 1;
+    const color =
+      referenceSelected && implementationSelected
+        ? [245, 245, 245]
+        : referenceSelected
+          ? [255, 64, 192]
+          : implementationSelected
+            ? [0, 200, 255]
+            : [14, 16, 20];
+
+    comparison[outputIndex] = color[0];
+    comparison[outputIndex + 1] = color[1];
+    comparison[outputIndex + 2] = color[2];
+  }
+
+  return comparison;
+}
+
+function countMaskOverlap(referenceMask, implementationMask) {
+  assert.equal(referenceMask.length, implementationMask.length);
+  let referencePixelSupport = 0;
+  let implementationPixelSupport = 0;
+  let intersectionPixelCount = 0;
+  let unionPixelCount = 0;
+
+  for (let index = 0; index < referenceMask.length; index += 1) {
+    const referenceSelected = referenceMask[index] === 1;
+    const implementationSelected = implementationMask[index] === 1;
+    referencePixelSupport += Number(referenceSelected);
+    implementationPixelSupport += Number(implementationSelected);
+    intersectionPixelCount += Number(
+      referenceSelected && implementationSelected,
+    );
+    unionPixelCount += Number(referenceSelected || implementationSelected);
+  }
+
+  return {
+    referencePixelSupport,
+    implementationPixelSupport,
+    intersectionPixelCount,
+    unionPixelCount,
+    iou:
+      unionPixelCount === 0 ? null : intersectionPixelCount / unionPixelCount,
+  };
+}
+
+function measureLandmarkMaskEvidence({
+  state,
+  measurement,
+  referenceImage,
+  implementationImage,
+  dpr,
+}) {
+  const config = LANDMARK_CONFIG_BY_STATE[state.key];
+  if (!config) {
+    return null;
+  }
+
+  const referenceResult = measureLandmarkFeature({
+    data: referenceImage.data,
+    image: referenceImage.info,
+    dpr,
+    config,
+  });
+  const implementationResult = measureLandmarkFeature({
+    data: implementationImage.data,
+    image: implementationImage.info,
+    dpr,
+    config,
+  });
+  const referenceMeasurement = referenceResult.measurement;
+  const implementationMeasurement = implementationResult.measurement;
+  const recordedImplementation = measurement?.structuralAccuracy?.landmark;
+  const sourceBounds = state.screenBounds?.landmark;
+
+  assert.equal(
+    referenceMeasurement.status,
+    'observed',
+    `${state.key}: transferable landmark measurement no longer observes the locked recording anchor`,
+  );
+  assert.deepEqual(
+    referenceMeasurement.bounds.cssPixels,
+    sourceBounds,
+    `${state.key}: recomputed recording landmark bounds drifted from the locked manifest`,
+  );
+  assert.ok(
+    recordedImplementation,
+    `${state.key}: capture did not record a landmark measurement`,
+  );
+  const recordedImplementationCore = Object.fromEntries(
+    Object.entries(recordedImplementation).filter(
+      ([property]) => property !== 'sourceArtifact',
+    ),
+  );
+  assert.deepEqual(
+    implementationMeasurement,
+    recordedImplementationCore,
+    `${state.key}: recomputed implementation landmark measurement drifted from the capture record`,
+  );
+
+  const semanticRole = config.method.includes('chroma')
+    ? 'silhouette'
+    : 'edge-support-proxy';
+  const overlap = countMaskOverlap(
+    referenceResult.debug.mask,
+    implementationResult.debug.mask,
+  );
+  const status =
+    implementationMeasurement.status === 'observed' &&
+    Number.isFinite(overlap.iou)
+      ? 'observed'
+      : 'blocked';
+
+  return {
+    evidence: {
+      status,
+      evidenceClass: status === 'observed' ? 'observed' : 'blocked',
+      semanticRole,
+      label: config.label,
+      method: {
+        id: config.method,
+        sharedImplementation:
+          'apps/pegasoft-e2e/src/visual/screen-structural-features.mjs#measureLandmarkFeature',
+        sourceSemanticMask: null,
+      },
+      reference: {
+        artifactPath: state.anchor.capturePath,
+        bounds: referenceMeasurement.bounds,
+        pixelSupport: overlap.referencePixelSupport,
+      },
+      implementation: {
+        artifactPath: relative(
+          path.join(implementationRoot, `${state.key}.png`),
+        ),
+        bounds:
+          implementationMeasurement.status === 'observed'
+            ? implementationMeasurement.bounds
+            : null,
+        pixelSupport: overlap.implementationPixelSupport,
+      },
+      overlap: {
+        intersectionPixelCount: overlap.intersectionPixelCount,
+        unionPixelCount: overlap.unionPixelCount,
+        iou: overlap.iou,
+      },
+      reason:
+        status === 'blocked'
+          ? (implementationMeasurement.reason ??
+            'The implementation landmark mask is unavailable.')
+          : null,
+      qualification:
+        status === 'blocked'
+          ? 'The shared chroma predicate observes the locked source landmark, but the implementation fails the unchanged source-pixel quality gate; the emitted comparison remains blocker evidence.'
+          : semanticRole === 'silhouette'
+            ? 'The shared chroma predicate isolates the same landmark role in the locked recording and implementation rasters; overlap is eligible for silhouette IoU evaluation.'
+            : 'Sobel selects observable edge support, not a filled semantic silhouette. Its IoU is diagnostic and cannot satisfy silhouette acceptance.',
+    },
+    comparison: createLandmarkMaskComparison(
+      referenceResult.debug.mask,
+      implementationResult.debug.mask,
+    ),
+  };
+}
+
 function createIdentityMaskAudit(pixelCount) {
   return {
     status: 'blocked',
@@ -556,7 +731,7 @@ function evaluatePreliminaryRaster(metrics) {
   };
 }
 
-function evaluateStructuralAccuracy(state, measurement) {
+function evaluateStructuralAccuracy(state, measurement, landmarkMaskEvidence) {
   const blockers = [];
   const checks = [];
   const failures = [];
@@ -677,9 +852,32 @@ function evaluateStructuralAccuracy(state, measurement) {
         sourceHeight * STRUCTURAL_TOLERANCES.landmarkSizeRatio,
       ),
     );
-    blockers.push(
-      'landmark silhouette IoU evidence is not emitted by the current bounds proxy',
-    );
+    if (landmarkMaskEvidence?.status === 'observed') {
+      if (landmarkMaskEvidence.semanticRole === 'silhouette') {
+        checks.push(
+          compareMinimum(
+            'landmark.silhouette.iou',
+            STRUCTURAL_TOLERANCES.landmarkSilhouetteIouMinimum,
+            landmarkMaskEvidence.overlap.iou,
+          ),
+        );
+      } else {
+        checks.push(
+          compareMinimum(
+            'landmark.edgeSupport.iou',
+            STRUCTURAL_TOLERANCES.landmarkEdgeSupportIouDiagnosticMinimum,
+            landmarkMaskEvidence.overlap.iou,
+          ),
+        );
+        blockers.push(
+          'landmark silhouette IoU evidence is not emitted by the current edge-support proxy',
+        );
+      }
+    } else {
+      blockers.push(
+        'landmark mask-overlap evidence is blocked for the observed implementation landmark',
+      );
+    }
   }
 
   if (
@@ -823,6 +1021,7 @@ function evaluateStructuralAccuracy(state, measurement) {
     checks,
     failures,
     blockers,
+    landmarkMaskEvidence,
     tolerances: STRUCTURAL_TOLERANCES,
     note:
       blockers.length > 0
@@ -902,6 +1101,21 @@ function compareScalar(metric, expected, actual, tolerance) {
     absoluteDelta: Math.abs(delta),
     tolerance,
     status: Math.abs(delta) <= tolerance ? 'pass' : 'fail',
+  };
+}
+
+function compareMinimum(metric, minimum, actual) {
+  const delta = actual - minimum;
+
+  return {
+    metric,
+    expected: minimum,
+    actual,
+    delta,
+    absoluteDelta: Math.max(0, -delta),
+    tolerance: 0,
+    comparison: 'gte',
+    status: actual >= minimum ? 'pass' : 'fail',
   };
 }
 
@@ -1303,7 +1517,38 @@ for (const state of manifest.states) {
   await sharp(heatmap, imageOptions).png().toFile(heatmapPath);
 
   const preliminaryRaster = evaluatePreliminaryRaster(metrics);
-  const structuralAccuracy = evaluateStructuralAccuracy(state, measurement);
+  const landmarkMaskResult = measureLandmarkMaskEvidence({
+    state,
+    measurement,
+    referenceImage,
+    implementationImage,
+    dpr: manifest.authority.recordingProfile.devicePixelRatio.value,
+  });
+  let landmarkMaskEvidence = landmarkMaskResult?.evidence ?? null;
+  if (landmarkMaskResult) {
+    const landmarkMaskPath = path.join(
+      comparisonRoot,
+      `${state.key}-landmark-mask.png`,
+    );
+    await sharp(landmarkMaskResult.comparison, imageOptions)
+      .png()
+      .toFile(landmarkMaskPath);
+    landmarkMaskEvidence = {
+      ...landmarkMaskEvidence,
+      comparisonArtifactPath: relative(landmarkMaskPath),
+      comparisonLegend: {
+        referenceOnly: '#ff40c0',
+        implementationOnly: '#00c8ff',
+        intersection: '#f5f5f5',
+        neither: '#0e1014',
+      },
+    };
+  }
+  const structuralAccuracy = evaluateStructuralAccuracy(
+    state,
+    measurement,
+    landmarkMaskEvidence,
+  );
   const domLayout = evaluateDomLayout(state.key, measurement);
   const identityMask = createIdentityMaskAudit(
     referenceImage.info.width * referenceImage.info.height,
@@ -1390,7 +1635,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 9,
+  schemaVersion: 10,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),
