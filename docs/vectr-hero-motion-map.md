@@ -207,11 +207,17 @@ comparison.
   fail 94: global negative-space occupancy passes 14/15, centroid axes pass
   5/30, and fixed-grid occupancy passes 172/240. These failures are current
   calibration evidence, not visual acceptance.
-- The same schema-v3 capture now measures all 11 source-applicable
+- The schema-v4 capture measures all 11 source-applicable
   implementation copy-ink envelopes and the `journey-exit` boundary with the
   source-derived predicates. Copy bounds pass 18/44 checks; the boundary
   passes 4/4. Source-blocked `arrival-travel` and `journey-exit` copy are not
   inferred from neighboring frames.
+- The same capture runs all 12 locked source route configurations against the
+  implementation screenshots. Only `activation-route` and
+  `activation-contact` contain source-qualifying route pixels; their endpoint,
+  equivalent-thickness, and direction proxies pass 5/12 checks. The other ten
+  routes remain explicit quality blocks, and the PCA core-envelope proxy does
+  not satisfy the still-missing centerline Hausdorff measurement.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile; all 13 applicable contracts pass in the same current
   comparison run.

@@ -8,6 +8,8 @@ import {
   JOURNEY_EXIT_BOUNDARY_CONFIG,
   LANDING_COPY_CONFIG,
   PROCESS_COPY_CONFIG,
+  ROUTE_CONFIG_BY_STATE,
+  measureChromaFeature,
   measureCopyInk,
   measureHorizontalBoundary,
 } from './screen-structural-features.mjs';
@@ -63,6 +65,12 @@ const COPY_CONFIG_BY_STATE: Partial<
   'field-pulse-b': PROCESS_COPY_CONFIG,
   'arrival-lockup': PROCESS_COPY_CONFIG,
 };
+
+type RouteConfig =
+  (typeof ROUTE_CONFIG_BY_STATE)[keyof typeof ROUTE_CONFIG_BY_STATE];
+
+const ROUTE_CONFIGS: Partial<Record<ReferenceStateKey, RouteConfig>> =
+  ROUTE_CONFIG_BY_STATE;
 
 const outputRoot = path.resolve(
   process.cwd(),
@@ -190,10 +198,22 @@ async function measureImplementationStructure(
   const sourceArtifact = path.posix.join('implementation', `${stateKey}.png`);
   const withSourceArtifact = (
     measurement:
+      | ReturnType<typeof measureChromaFeature>['measurement']
       | ReturnType<typeof measureCopyInk>['measurement']
       | ReturnType<typeof measureHorizontalBoundary>['measurement'],
   ) => ({ ...measurement, sourceArtifact });
   const copyConfig = COPY_CONFIG_BY_STATE[stateKey];
+  const routeConfig = ROUTE_CONFIGS[stateKey];
+  const route = routeConfig
+    ? withSourceArtifact(
+        measureChromaFeature({
+          data,
+          image: info,
+          dpr: devicePixelRatio,
+          config: routeConfig,
+        }).measurement,
+      )
+    : undefined;
   const copy = copyConfig
     ? withSourceArtifact(
         measureCopyInk({
@@ -217,11 +237,12 @@ async function measureImplementationStructure(
       : undefined;
 
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     screenComposition: {
       ...screenComposition,
       sourceArtifact,
     },
+    ...(route ? { route } : {}),
     ...(copy ? { copy } : {}),
     ...(boundary ? { boundary } : {}),
   };
@@ -513,7 +534,7 @@ test.afterAll(async () => {
     })),
   );
   const manifest = {
-    schemaVersion: 3,
+    schemaVersion: 4,
     status: 'complete',
     runId: captureRunId,
     startedAt: captureRunStartedAt,
@@ -565,7 +586,7 @@ for (const stateKey of REFERENCE_STATES) {
       pageMeasurement.viewport.devicePixelRatio,
     );
     const measurement = {
-      schemaVersion: 3,
+      schemaVersion: 4,
       ...pageMeasurement,
       structuralAccuracy,
     };
