@@ -215,9 +215,14 @@ comparison.
 - The same capture runs all 12 locked source route configurations against the
   implementation screenshots. Only `activation-route` and
   `activation-contact` contain source-qualifying route pixels; their endpoint,
-  equivalent-thickness, and direction proxies pass 5/12 checks. The other ten
-  routes remain explicit quality blocks, and the PCA core-envelope proxy does
-  not satisfy the still-missing centerline Hausdorff measurement.
+  equivalent-thickness, and direction proxies pass 5/12 checks. Deterministic
+  thinning now exposes the visible route-core centerline sets for both states.
+  Their symmetric Hausdorff distances fail the `0.75%` short-edge maximum:
+  `activation-route` is `13.7495%` (`104.63 CSS px`) and
+  `activation-contact` is `11.6302%` (`88.51 CSS px`). Two four-color
+  artifacts show source-only branches in magenta, implementation-only rails in
+  cyan, and overlap in white. The other ten routes remain explicit quality
+  blocks; no implementation centerline is inferred for them.
 - Landmark records now cover all seven source-observed landmark states without
   reusing source masks on implementation pixels. `loader-mark`, `world-reveal`,
   and `arrival-lockup` are observed and pass 8/12 center/size checks;

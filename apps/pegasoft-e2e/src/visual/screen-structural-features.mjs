@@ -681,6 +681,110 @@ function deriveRouteCoreGeometry(mask, width, height, dpr) {
   };
 }
 
+export function deriveRouteCenterlineMask({ mask, width, height, bounds }) {
+  if (
+    !(mask instanceof Uint8Array) ||
+    mask.length !== width * height ||
+    !Number.isSafeInteger(width) ||
+    width <= 0 ||
+    !Number.isSafeInteger(height) ||
+    height <= 0 ||
+    !Number.isSafeInteger(bounds?.x) ||
+    bounds.x < 0 ||
+    !Number.isSafeInteger(bounds?.y) ||
+    bounds.y < 0 ||
+    !Number.isSafeInteger(bounds?.width) ||
+    bounds.width <= 0 ||
+    !Number.isSafeInteger(bounds?.height) ||
+    bounds.height <= 0 ||
+    bounds.x + bounds.width > width ||
+    bounds.y + bounds.height > height
+  ) {
+    throw new Error(
+      'Route centerline extraction requires a valid binary mask and bounds.',
+    );
+  }
+
+  const centerline = new Uint8Array(mask);
+  const removals = new Int32Array(bounds.width * bounds.height);
+  const left = Math.max(bounds.x, 1);
+  const top = Math.max(bounds.y, 1);
+  const right = Math.min(bounds.x + bounds.width, width - 1);
+  const bottom = Math.min(bounds.y + bounds.height, height - 1);
+
+  function collectRemovals(step) {
+    let removalCount = 0;
+
+    for (let y = top; y < bottom; y += 1) {
+      for (let x = left; x < right; x += 1) {
+        const index = y * width + x;
+        if (!centerline[index]) {
+          continue;
+        }
+
+        const north = centerline[index - width];
+        const northEast = centerline[index - width + 1];
+        const east = centerline[index + 1];
+        const southEast = centerline[index + width + 1];
+        const south = centerline[index + width];
+        const southWest = centerline[index + width - 1];
+        const west = centerline[index - 1];
+        const northWest = centerline[index - width - 1];
+        const neighborCount =
+          north +
+          northEast +
+          east +
+          southEast +
+          south +
+          southWest +
+          west +
+          northWest;
+        if (neighborCount < 2 || neighborCount > 6) {
+          continue;
+        }
+
+        const transitions =
+          Number(!north && northEast) +
+          Number(!northEast && east) +
+          Number(!east && southEast) +
+          Number(!southEast && south) +
+          Number(!south && southWest) +
+          Number(!southWest && west) +
+          Number(!west && northWest) +
+          Number(!northWest && north);
+        if (transitions !== 1) {
+          continue;
+        }
+
+        const removesRequiredConnection =
+          step === 0
+            ? (north && east && south) || (east && south && west)
+            : (north && east && west) || (north && south && west);
+        if (!removesRequiredConnection) {
+          removals[removalCount] = index;
+          removalCount += 1;
+        }
+      }
+    }
+
+    return removalCount;
+  }
+
+  let changed;
+  do {
+    changed = false;
+    for (let step = 0; step < 2; step += 1) {
+      const removalCount = collectRemovals(step);
+      changed ||= removalCount > 0;
+      for (let index = 0; index < removalCount; index += 1) {
+        centerline[removals[index]] = 0;
+      }
+    }
+  } while (changed);
+
+  return centerline;
+}
+
 export function measureChromaFeature({ data, image, dpr, config }) {
   validateImageInput(data, image, dpr);
   const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
