@@ -9,6 +9,8 @@ import {
   IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
   LANDMARK_CONFIG_BY_STATE,
   ROUTE_CONFIG_BY_STATE,
+  deriveRouteCenterlineMask,
+  measureChromaFeature,
   measureLandmarkFeature,
 } from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
 
@@ -50,6 +52,7 @@ const STRUCTURAL_TOLERANCES = {
   landmarkCenterNormalized: 0.0075,
   landmarkSilhouetteIouMinimum: 0.9,
   landmarkSizeRatio: 0.02,
+  routeCenterlineHausdorffNormalizedShortEdge: 0.0075,
   routeDirectionDegrees: 1,
   routeEndpointNormalized: 0.005,
   routeThicknessCssPixelsMinimum: 1,
@@ -681,6 +684,381 @@ function measureLandmarkMaskEvidence({
   };
 }
 
+function countSelectedPixels(mask) {
+  let count = 0;
+  for (const selected of mask) {
+    count += Number(selected === 1);
+  }
+  return count;
+}
+
+function unionBounds(left, right) {
+  const x = Math.min(left.x, right.x);
+  const y = Math.min(left.y, right.y);
+  const maximumX = Math.max(left.x + left.width, right.x + right.width);
+  const maximumY = Math.max(left.y + left.height, right.y + right.height);
+  return { x, y, width: maximumX - x, height: maximumY - y };
+}
+
+function distanceTransform1d(input, length, output, locations, boundaries) {
+  let envelopeIndex = 0;
+  locations[0] = 0;
+  boundaries[0] = Number.NEGATIVE_INFINITY;
+  boundaries[1] = Number.POSITIVE_INFINITY;
+
+  for (let coordinate = 1; coordinate < length; coordinate += 1) {
+    let intersection;
+    do {
+      const location = locations[envelopeIndex];
+      intersection =
+        (input[coordinate] +
+          coordinate * coordinate -
+          (input[location] + location * location)) /
+        (2 * coordinate - 2 * location);
+      if (intersection <= boundaries[envelopeIndex]) {
+        envelopeIndex -= 1;
+      } else {
+        break;
+      }
+    } while (envelopeIndex >= 0);
+
+    envelopeIndex += 1;
+    locations[envelopeIndex] = coordinate;
+    boundaries[envelopeIndex] = intersection;
+    boundaries[envelopeIndex + 1] = Number.POSITIVE_INFINITY;
+  }
+
+  envelopeIndex = 0;
+  for (let coordinate = 0; coordinate < length; coordinate += 1) {
+    while (boundaries[envelopeIndex + 1] < coordinate) {
+      envelopeIndex += 1;
+    }
+    const location = locations[envelopeIndex];
+    const delta = coordinate - location;
+    output[coordinate] = delta * delta + input[location];
+  }
+}
+
+function squaredDistanceTransform(mask, imageWidth, bounds) {
+  const { x, y, width, height } = bounds;
+  const area = width * height;
+  const intermediate = new Float64Array(area);
+  const distances = new Float64Array(area);
+  const maximumLength = Math.max(width, height);
+  const input = new Float64Array(maximumLength);
+  const output = new Float64Array(maximumLength);
+  const locations = new Int32Array(maximumLength);
+  const boundaries = new Float64Array(maximumLength + 1);
+  const unreachableDistance = width * width + height * height + 1;
+
+  for (let localY = 0; localY < height; localY += 1) {
+    const imageOffset = (y + localY) * imageWidth + x;
+    const localOffset = localY * width;
+    for (let localX = 0; localX < width; localX += 1) {
+      input[localX] = mask[imageOffset + localX] ? 0 : unreachableDistance;
+    }
+    distanceTransform1d(input, width, output, locations, boundaries);
+    for (let localX = 0; localX < width; localX += 1) {
+      intermediate[localOffset + localX] = output[localX];
+    }
+  }
+
+  for (let localX = 0; localX < width; localX += 1) {
+    for (let localY = 0; localY < height; localY += 1) {
+      input[localY] = intermediate[localY * width + localX];
+    }
+    distanceTransform1d(input, height, output, locations, boundaries);
+    for (let localY = 0; localY < height; localY += 1) {
+      distances[localY * width + localX] = output[localY];
+    }
+  }
+
+  return distances;
+}
+
+function maximumSquaredDistanceToMask(
+  sourceMask,
+  imageWidth,
+  bounds,
+  distances,
+) {
+  let maximumSquaredDistance = 0;
+
+  for (let localY = 0; localY < bounds.height; localY += 1) {
+    const imageOffset = (bounds.y + localY) * imageWidth + bounds.x;
+    const localOffset = localY * bounds.width;
+    for (let localX = 0; localX < bounds.width; localX += 1) {
+      if (sourceMask[imageOffset + localX]) {
+        maximumSquaredDistance = Math.max(
+          maximumSquaredDistance,
+          distances[localOffset + localX],
+        );
+      }
+    }
+  }
+
+  return maximumSquaredDistance;
+}
+
+function measureSymmetricHausdorff({
+  referenceMask,
+  implementationMask,
+  image,
+  bounds,
+  dpr,
+}) {
+  const distanceToImplementation = squaredDistanceTransform(
+    implementationMask,
+    image.width,
+    bounds,
+  );
+  const referenceToImplementation = Math.sqrt(
+    maximumSquaredDistanceToMask(
+      referenceMask,
+      image.width,
+      bounds,
+      distanceToImplementation,
+    ),
+  );
+  const distanceToReference = squaredDistanceTransform(
+    referenceMask,
+    image.width,
+    bounds,
+  );
+  const implementationToReference = Math.sqrt(
+    maximumSquaredDistanceToMask(
+      implementationMask,
+      image.width,
+      bounds,
+      distanceToReference,
+    ),
+  );
+  const symmetric = Math.max(
+    referenceToImplementation,
+    implementationToReference,
+  );
+  const shortEdge = Math.min(image.width, image.height);
+
+  return {
+    rasterPixels: {
+      referenceToImplementation,
+      implementationToReference,
+      symmetric,
+    },
+    cssPixels: {
+      referenceToImplementation: referenceToImplementation / dpr,
+      implementationToReference: implementationToReference / dpr,
+      symmetric: symmetric / dpr,
+    },
+    normalizedShortEdge: {
+      referenceToImplementation: referenceToImplementation / shortEdge,
+      implementationToReference: implementationToReference / shortEdge,
+      symmetric: symmetric / shortEdge,
+    },
+  };
+}
+
+function dilateForComparison(mask, width, height, radius) {
+  const displayMask = new Uint8Array(mask.length);
+  for (let index = 0; index < mask.length; index += 1) {
+    if (!mask[index]) {
+      continue;
+    }
+    const y = Math.floor(index / width);
+    const x = index - y * width;
+    for (
+      let candidateY = Math.max(0, y - radius);
+      candidateY <= Math.min(height - 1, y + radius);
+      candidateY += 1
+    ) {
+      for (
+        let candidateX = Math.max(0, x - radius);
+        candidateX <= Math.min(width - 1, x + radius);
+        candidateX += 1
+      ) {
+        displayMask[candidateY * width + candidateX] = 1;
+      }
+    }
+  }
+  return displayMask;
+}
+
+function createRouteCenterlineComparison(
+  referenceMask,
+  implementationMask,
+  image,
+) {
+  return createLandmarkMaskComparison(
+    dilateForComparison(referenceMask, image.width, image.height, 2),
+    dilateForComparison(implementationMask, image.width, image.height, 2),
+  );
+}
+
+function measureRouteCenterlineEvidence({
+  state,
+  measurement,
+  referenceImage,
+  implementationImage,
+  dpr,
+}) {
+  const config = ROUTE_CONFIG_BY_STATE[state.key];
+  if (!config) {
+    return null;
+  }
+
+  const referenceResult = measureChromaFeature({
+    data: referenceImage.data,
+    image: referenceImage.info,
+    dpr,
+    config,
+  });
+  const implementationResult = measureChromaFeature({
+    data: implementationImage.data,
+    image: implementationImage.info,
+    dpr,
+    config,
+  });
+  const referenceMeasurement = referenceResult.measurement;
+  const implementationMeasurement = implementationResult.measurement;
+  const recordedImplementation = measurement?.structuralAccuracy?.route;
+
+  assert.equal(
+    referenceMeasurement.status,
+    'observed',
+    `${state.key}: route measurement no longer observes the locked recording anchor`,
+  );
+  assert.deepEqual(
+    referenceMeasurement.bounds.cssPixels,
+    state.screenBounds.route,
+    `${state.key}: recomputed recording route bounds drifted from the locked manifest`,
+  );
+  assert.deepEqual(
+    referenceMeasurement.geometry,
+    state.screenBounds.routeGeometry,
+    `${state.key}: recomputed recording route geometry drifted from the locked manifest`,
+  );
+  assert.ok(
+    recordedImplementation,
+    `${state.key}: capture omitted route evidence`,
+  );
+  const recordedImplementationCore = Object.fromEntries(
+    Object.entries(recordedImplementation).filter(
+      ([property]) => property !== 'sourceArtifact',
+    ),
+  );
+  assert.deepEqual(
+    implementationMeasurement,
+    recordedImplementationCore,
+    `${state.key}: recomputed implementation route measurement drifted from the capture record`,
+  );
+
+  if (implementationMeasurement.status !== 'observed') {
+    return {
+      evidence: {
+        status: 'blocked',
+        evidenceClass: 'blocked',
+        semanticRole: 'visible-route-core-centerline-set',
+        label: config.label,
+        method: {
+          maskSelection: config.method,
+          centerline: 'zhang-suen-thinning-8-neighbor-v1',
+          distance: 'symmetric-euclidean-hausdorff',
+          sourceSemanticMask: null,
+        },
+        reference: {
+          artifactPath: state.anchor.capturePath,
+          bounds: referenceMeasurement.bounds,
+          pixelSupport: referenceMeasurement.pixelSupport,
+        },
+        implementation: {
+          artifactPath: relative(
+            path.join(implementationRoot, `${state.key}.png`),
+          ),
+          bounds: null,
+          pixelSupport: 0,
+        },
+        hausdorff: null,
+        reason: implementationMeasurement.reason,
+        qualification:
+          'The implementation fails the unchanged source-pixel route quality gate, so no implementation centerline or Hausdorff distance is inferred.',
+      },
+      comparison: null,
+    };
+  }
+
+  const referenceCenterline = deriveRouteCenterlineMask({
+    mask: referenceResult.debug.mask,
+    width: referenceImage.info.width,
+    height: referenceImage.info.height,
+    bounds: referenceResult.debug.bounds,
+  });
+  const implementationCenterline = deriveRouteCenterlineMask({
+    mask: implementationResult.debug.mask,
+    width: implementationImage.info.width,
+    height: implementationImage.info.height,
+    bounds: implementationResult.debug.bounds,
+  });
+  const referenceCenterlinePixelSupport =
+    countSelectedPixels(referenceCenterline);
+  const implementationCenterlinePixelSupport = countSelectedPixels(
+    implementationCenterline,
+  );
+  assert.ok(
+    referenceCenterlinePixelSupport > 0 &&
+      implementationCenterlinePixelSupport > 0,
+    `${state.key}: observed route masks produced an empty centerline`,
+  );
+  const comparisonBounds = unionBounds(
+    referenceResult.debug.bounds,
+    implementationResult.debug.bounds,
+  );
+  const hausdorff = measureSymmetricHausdorff({
+    referenceMask: referenceCenterline,
+    implementationMask: implementationCenterline,
+    image: referenceImage.info,
+    bounds: comparisonBounds,
+    dpr,
+  });
+
+  return {
+    evidence: {
+      status: 'observed',
+      evidenceClass: 'observed',
+      semanticRole: 'visible-route-core-centerline-set',
+      label: config.label,
+      method: {
+        maskSelection: config.method,
+        centerline: 'zhang-suen-thinning-8-neighbor-v1',
+        distance: 'symmetric-euclidean-hausdorff',
+        sourceSemanticMask: null,
+      },
+      reference: {
+        artifactPath: state.anchor.capturePath,
+        bounds: referenceMeasurement.bounds,
+        pixelSupport: referenceMeasurement.pixelSupport,
+        centerlinePixelSupport: referenceCenterlinePixelSupport,
+      },
+      implementation: {
+        artifactPath: relative(
+          path.join(implementationRoot, `${state.key}.png`),
+        ),
+        bounds: implementationMeasurement.bounds,
+        pixelSupport: implementationMeasurement.pixelSupport,
+        centerlinePixelSupport: implementationCenterlinePixelSupport,
+      },
+      hausdorff,
+      reason: null,
+      qualification:
+        'The deterministic skeleton measures the visible selected route-core centerline set, including parallel rails and branches. It does not infer an unobservable renderer spline or hidden continuation.',
+    },
+    comparison: createRouteCenterlineComparison(
+      referenceCenterline,
+      implementationCenterline,
+      referenceImage.info,
+    ),
+  };
+}
+
 function createIdentityMaskAudit(pixelCount) {
   return {
     status: 'blocked',
@@ -731,7 +1109,12 @@ function evaluatePreliminaryRaster(metrics) {
   };
 }
 
-function evaluateStructuralAccuracy(state, measurement, landmarkMaskEvidence) {
+function evaluateStructuralAccuracy(
+  state,
+  measurement,
+  landmarkMaskEvidence,
+  routeCenterlineEvidence,
+) {
   const blockers = [];
   const checks = [];
   const failures = [];
@@ -930,9 +1313,19 @@ function evaluateStructuralAccuracy(state, measurement, landmarkMaskEvidence) {
         ),
       );
     }
-    blockers.push(
-      'route centerline Hausdorff evidence is not emitted by the current core-envelope proxy',
-    );
+    if (routeCenterlineEvidence?.status === 'observed') {
+      checks.push(
+        compareMaximum(
+          'route.centerline.hausdorff.normalizedShortEdge',
+          STRUCTURAL_TOLERANCES.routeCenterlineHausdorffNormalizedShortEdge,
+          routeCenterlineEvidence.hausdorff.normalizedShortEdge.symmetric,
+        ),
+      );
+    } else {
+      blockers.push(
+        'route centerline Hausdorff evidence is blocked for the observed implementation route',
+      );
+    }
   }
 
   if (
@@ -1022,6 +1415,7 @@ function evaluateStructuralAccuracy(state, measurement, landmarkMaskEvidence) {
     failures,
     blockers,
     landmarkMaskEvidence,
+    routeCenterlineEvidence,
     tolerances: STRUCTURAL_TOLERANCES,
     note:
       blockers.length > 0
@@ -1116,6 +1510,21 @@ function compareMinimum(metric, minimum, actual) {
     tolerance: 0,
     comparison: 'gte',
     status: actual >= minimum ? 'pass' : 'fail',
+  };
+}
+
+function compareMaximum(metric, maximum, actual) {
+  const delta = actual - maximum;
+
+  return {
+    metric,
+    expected: maximum,
+    actual,
+    delta,
+    absoluteDelta: Math.max(0, delta),
+    tolerance: 0,
+    comparison: 'lte',
+    status: actual <= maximum ? 'pass' : 'fail',
   };
 }
 
@@ -1544,10 +1953,39 @@ for (const state of manifest.states) {
       },
     };
   }
+  const routeCenterlineResult = measureRouteCenterlineEvidence({
+    state,
+    measurement,
+    referenceImage,
+    implementationImage,
+    dpr: manifest.authority.recordingProfile.devicePixelRatio.value,
+  });
+  let routeCenterlineEvidence = routeCenterlineResult?.evidence ?? null;
+  if (routeCenterlineResult?.comparison) {
+    const routeCenterlinePath = path.join(
+      comparisonRoot,
+      `${state.key}-route-centerline.png`,
+    );
+    await sharp(routeCenterlineResult.comparison, imageOptions)
+      .png()
+      .toFile(routeCenterlinePath);
+    routeCenterlineEvidence = {
+      ...routeCenterlineEvidence,
+      comparisonArtifactPath: relative(routeCenterlinePath),
+      comparisonLegend: {
+        referenceOnly: '#ff40c0',
+        implementationOnly: '#00c8ff',
+        intersection: '#f5f5f5',
+        neither: '#0e1014',
+        displayDilationRadiusRasterPixels: 2,
+      },
+    };
+  }
   const structuralAccuracy = evaluateStructuralAccuracy(
     state,
     measurement,
     landmarkMaskEvidence,
+    routeCenterlineEvidence,
   );
   const domLayout = evaluateDomLayout(state.key, measurement);
   const identityMask = createIdentityMaskAudit(
@@ -1635,7 +2073,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 10,
+  schemaVersion: 11,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),
