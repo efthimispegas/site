@@ -40,6 +40,21 @@ const DEEP_BLUE = Object.freeze({
   },
 });
 
+const BRIGHT_NEUTRAL_TILE_TOP = Object.freeze({
+  id: 'bright-neutral-field-tile-top',
+  description:
+    'r >= 210, g >= 210, b >= 215, b-r <= 24, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB',
+  test(red, green, blue) {
+    return (
+      red >= 210 &&
+      green >= 210 &&
+      blue >= 215 &&
+      blue - red <= 24 &&
+      Math.max(red, green, blue) - Math.min(red, green, blue) <= 28
+    );
+  },
+});
+
 export const LANDMARK_CONFIG_BY_STATE = Object.freeze({
   'loader-mark': Object.freeze({
     label: 'central blue loader mark',
@@ -118,6 +133,62 @@ export const IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE = Object.freeze(
     }),
   },
 );
+
+const FIELD_TILE_COMPONENT_GATES = Object.freeze({
+  minimumComponentPixels: 5000,
+  maximumComponentPixels: 26000,
+  minimumComponentWidth: 100,
+  maximumComponentWidth: 230,
+  minimumComponentHeight: 70,
+  maximumComponentHeight: 180,
+  minimumComponentFillRatio: 0.5,
+  maximumComponentFillRatio: 0.78,
+});
+
+function fieldTileProfileConfig({ roi, minimumSelectedComponents, rationale }) {
+  return Object.freeze({
+    label: 'visible bright-neutral field tile-top profile',
+    method: 'bright-neutral-tile-component-union',
+    predicate: BRIGHT_NEUTRAL_TILE_TOP,
+    roi: Object.freeze(roi),
+    ...FIELD_TILE_COMPONENT_GATES,
+    minimumSelectedComponents,
+    rationale,
+  });
+}
+
+export const FIELD_TILE_PROFILE_CONFIG_BY_STATE = Object.freeze({
+  'clearance-field-preview': fieldTileProfileConfig({
+    roi: [0.8, 0.02, 0.195, 0.34],
+    minimumSelectedComponents: 5,
+    rationale:
+      'The upper-right ROI follows only the first source-visible field fragment. Full bright-neutral tile tops are counted; viewport-clipped tiles and the header controls are rejected by the component geometry gates.',
+  }),
+  'field-approach': fieldTileProfileConfig({
+    roi: [0.61, 0.02, 0.385, 0.62],
+    minimumSelectedComponents: 20,
+    rationale:
+      'The upper-right ROI isolates the source-visible field from industrial context, process copy, and the incoming route. Only full bright-neutral tile-top components qualify.',
+  }),
+  'field-contact': fieldTileProfileConfig({
+    roi: [0.18, 0.03, 0.815, 0.95],
+    minimumSelectedComponents: 50,
+    rationale:
+      'The broad journey ROI encloses the contact field while excluding most process copy. Component geometry gates reject the route, header controls, and small scene props; the activated center is intentionally absent from the neutral-tile profile.',
+  }),
+  'field-pulse-a': fieldTileProfileConfig({
+    roi: [0.18, 0.03, 0.815, 0.95],
+    minimumSelectedComponents: 35,
+    rationale:
+      'The contact-camera ROI measures neutral tile tops that remain readable during the inner pulse. Tiles recolored or obscured by the pulse are intentionally absent, making selected-component count part of the observed reaction profile.',
+  }),
+  'field-pulse-b': fieldTileProfileConfig({
+    roi: [0.18, 0.03, 0.815, 0.95],
+    minimumSelectedComponents: 15,
+    rationale:
+      'The contact-camera ROI measures neutral tile tops that remain readable during the outer pulse. Recolored outer tiles and the saturated center are intentionally absent, so the surviving component mask records the source pulse profile without inferring hidden tiles.',
+  }),
+});
 
 export const ROUTE_CONFIG_BY_STATE = Object.freeze({
   'world-reveal': Object.freeze({
@@ -888,6 +959,155 @@ export function measureChromaFeature({ data, image, dpr, config }) {
         semanticMask: null,
         rationale: config.rationale,
       },
+    },
+    debug: { mask: selectedMask, bounds: selected.bounds },
+  };
+}
+
+export function measureFieldTileProfile({ data, image, dpr, config }) {
+  validateImageInput(data, image, dpr);
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  const mask = createPredicateMask(data, image, roi, config.predicate);
+  const { components } = connectedComponents(
+    mask,
+    image.width,
+    image.height,
+    roi,
+  );
+  const selectedComponents = components.filter((component) => {
+    const fillRatio =
+      component.pixels /
+      (component.bounds.width * component.bounds.height);
+    return (
+      component.pixels >= config.minimumComponentPixels &&
+      component.pixels <= config.maximumComponentPixels &&
+      component.bounds.width >= config.minimumComponentWidth &&
+      component.bounds.width <= config.maximumComponentWidth &&
+      component.bounds.height >= config.minimumComponentHeight &&
+      component.bounds.height <= config.maximumComponentHeight &&
+      fillRatio >= config.minimumComponentFillRatio &&
+      fillRatio <= config.maximumComponentFillRatio
+    );
+  });
+  const selectedMask = new Uint8Array(mask.length);
+
+  for (const component of selectedComponents) {
+    const componentRight = component.bounds.x + component.bounds.width;
+    const componentBottom = component.bounds.y + component.bounds.height;
+    for (let y = component.bounds.y; y < componentBottom; y += 1) {
+      for (let x = component.bounds.x; x < componentRight; x += 1) {
+        const index = y * image.width + x;
+        if (mask[index]) {
+          selectedMask[index] = 1;
+        }
+      }
+    }
+  }
+
+  const selected = boundsFromMask(selectedMask, image.width, image.height);
+  const method = {
+    id: config.method,
+    roiNormalized: config.roi,
+    roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+    predicate: {
+      id: config.predicate.id,
+      description: config.predicate.description,
+    },
+    connectivity: 8,
+    minimumComponentPixels: config.minimumComponentPixels,
+    maximumComponentPixels: config.maximumComponentPixels,
+    minimumComponentWidth: config.minimumComponentWidth,
+    maximumComponentWidth: config.maximumComponentWidth,
+    minimumComponentHeight: config.minimumComponentHeight,
+    maximumComponentHeight: config.maximumComponentHeight,
+    minimumComponentFillRatio: config.minimumComponentFillRatio,
+    maximumComponentFillRatio: config.maximumComponentFillRatio,
+    minimumSelectedComponents: config.minimumSelectedComponents,
+    totalComponentCount: components.length,
+    selectedComponentCount: selectedComponents.length,
+    semanticMask: null,
+    rationale: config.rationale,
+  };
+
+  if (
+    !selected ||
+    selectedComponents.length < config.minimumSelectedComponents
+  ) {
+    return {
+      measurement: {
+        status: 'blocked',
+        label: config.label,
+        reason: `The deterministic ${config.method} quality gate found ${selectedComponents.length} selected tile-top components; at least ${config.minimumSelectedComponents} are required.`,
+        method,
+      },
+      debug: { mask: selectedMask, bounds: selected?.bounds ?? roi },
+    };
+  }
+
+  const median = (values) => {
+    const sorted = values.slice().sort((left, right) => left - right);
+    const middle = Math.floor(sorted.length / 2);
+    return sorted.length % 2 === 0
+      ? (sorted[middle - 1] + sorted[middle]) / 2
+      : sorted[middle];
+  };
+  const meanCenter = selectedComponents.reduce(
+    (sum, component) => {
+      sum.x += component.bounds.x + (component.bounds.width - 1) / 2;
+      sum.y += component.bounds.y + (component.bounds.height - 1) / 2;
+      return sum;
+    },
+    { x: 0, y: 0 },
+  );
+  meanCenter.x /= selectedComponents.length;
+  meanCenter.y /= selectedComponents.length;
+  const medianWidth = median(
+    selectedComponents.map((component) => component.bounds.width),
+  );
+  const medianHeight = median(
+    selectedComponents.map((component) => component.bounds.height),
+  );
+  const medianPixels = median(
+    selectedComponents.map((component) => component.pixels),
+  );
+
+  return {
+    measurement: {
+      status: 'observed',
+      evidenceClass: 'observed',
+      label: config.label,
+      bounds: serializeBounds(selected.bounds, image, dpr),
+      pixelSupport: selected.pixels,
+      componentProfile: {
+        count: selectedComponents.length,
+        center: {
+          rasterPixels: [round(meanCenter.x), round(meanCenter.y)],
+          cssPixels: [round(meanCenter.x / dpr), round(meanCenter.y / dpr)],
+          normalized: [
+            round(meanCenter.x / image.width, 6),
+            round(meanCenter.y / image.height, 6),
+          ],
+        },
+        medianTileTop: {
+          rasterPixels: {
+            width: round(medianWidth),
+            height: round(medianHeight),
+            selectedPixels: round(medianPixels),
+          },
+          cssPixels: {
+            width: round(medianWidth / dpr),
+            height: round(medianHeight / dpr),
+            selectedPixels: round(medianPixels / (dpr * dpr)),
+          },
+        },
+        selectedPixelOccupancy: round(
+          selected.pixels / (selected.bounds.width * selected.bounds.height),
+          6,
+        ),
+        interpretation:
+          'Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred.',
+      },
+      method,
     },
     debug: { mask: selectedMask, bounds: selected.bounds },
   };
