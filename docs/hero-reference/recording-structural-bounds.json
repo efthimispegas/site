@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 6,
-  "algorithmVersion": "recording-structural-bounds-v10",
+  "schemaVersion": 7,
+  "algorithmVersion": "recording-structural-bounds-v11",
   "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
   "authority": {
     "recordingPath": "docs/vectrfl_recording.mov",
@@ -24,13 +24,14 @@
   },
   "methodPolicy": {
     "noManualBoxes": "No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.",
-    "featureStatus": "Every landmark, route, boundary, and copy feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.",
+    "featureStatus": "Every landmark, route, boundary, copy, and field-profile feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.",
     "chroma": "Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.",
     "edges": "The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.",
     "boundary": "The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.",
     "semanticMasks": "A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.",
     "routeGeometry": "Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.",
     "copyInk": "Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.",
+    "fieldTileProfile": "Applicable field states report a shared bright-neutral predicate, component-shape gates, visible tile-top count, field envelope, component centroid, median tile-top size, and mask support. Clipped, activated, recolored, or bloom-obscured tiles are never inferred; changes in surviving neutral components remain part of the observed reaction profile.",
     "screenComposition": "Every state reports a fixed-grid binary Sobel edge-support distribution, density, and centroid below the header band. These are screen-space composition and negative-space proxies; the 3D camera position/quaternion remain explicitly unknown and are never reconstructed from rendered pixels.",
     "quality": "An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.",
     "reproducibility": "The authoritative MOV SHA, every input PNG SHA, and every referenced semantic SVG SHA are verified before measurement. --check recomputes both generated evidence files and fails on byte drift."
@@ -49,6 +50,9 @@
     "copyMeasured": 11,
     "copyBlocked": 2,
     "copyNotApplicable": 2,
+    "fieldProfileMeasured": 5,
+    "fieldProfileBlocked": 0,
+    "fieldProfileNotApplicable": 10,
     "compositionMeasured": 15,
     "compositionBlocked": 0,
     "primaryStructureMeasured": 11,
@@ -150,6 +154,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "The source state has no applicable hero copy."
+      },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -516,6 +525,11 @@
         "label": null,
         "reason": "The source state has no applicable hero copy."
       },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -785,6 +799,11 @@
           "semanticMask": null,
           "rationale": "The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink."
         }
+      },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -1150,6 +1169,11 @@
           "semanticMask": null,
           "rationale": "The center-only ROI contains the complete landing headline and supporting copy while excluding the fixed header and scroll cue. Dark-neutral glyph components are bounded by glyph-scale size and fill gates so pale world geometry cannot substitute for copy ink."
         }
+      },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -1569,6 +1593,11 @@
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
       },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -1987,6 +2016,11 @@
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
       },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -2351,6 +2385,11 @@
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
+      },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -2717,6 +2756,96 @@
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
       },
+      "fieldProfile": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible bright-neutral field tile-top profile",
+        "bounds": {
+          "rasterPixels": [
+            2474,
+            128,
+            527,
+            293
+          ],
+          "cssPixels": [
+            1237,
+            64,
+            263.5,
+            146.5
+          ],
+          "normalized": [
+            0.820292,
+            0.0841,
+            0.174735,
+            0.19251
+          ]
+        },
+        "pixelSupport": 71189,
+        "componentProfile": {
+          "count": 7,
+          "center": {
+            "rasterPixels": [
+              2773.214,
+              255.357
+            ],
+            "cssPixels": [
+              1386.607,
+              127.679
+            ],
+            "normalized": [
+              0.919501,
+              0.167777
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 163,
+              "height": 110,
+              "selectedPixels": 10222
+            },
+            "cssPixels": {
+              "width": 81.5,
+              "height": 55,
+              "selectedPixels": 2555.5
+            }
+          },
+          "selectedPixelOccupancy": 0.461036,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "method": {
+          "id": "bright-neutral-tile-component-union",
+          "roiNormalized": [
+            0.8,
+            0.02,
+            0.195,
+            0.34
+          ],
+          "roiRasterPixels": [
+            2412,
+            30,
+            589,
+            518
+          ],
+          "predicate": {
+            "id": "bright-neutral-field-tile-top",
+            "description": "r >= 210, g >= 210, b >= 215, b-r <= 24, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+          },
+          "connectivity": 8,
+          "minimumComponentPixels": 5000,
+          "maximumComponentPixels": 26000,
+          "minimumComponentWidth": 100,
+          "maximumComponentWidth": 230,
+          "minimumComponentHeight": 70,
+          "maximumComponentHeight": 180,
+          "minimumComponentFillRatio": 0.5,
+          "maximumComponentFillRatio": 0.78,
+          "minimumSelectedComponents": 5,
+          "totalComponentCount": 27,
+          "selectedComponentCount": 7,
+          "semanticMask": null,
+          "rationale": "The upper-right ROI follows only the first source-visible field fragment. Full bright-neutral tile tops are counted; viewport-clipped tiles and the header controls are rejected by the component geometry gates."
+        }
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -3080,6 +3209,96 @@
           "selectedComponentCount": 268,
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
+      },
+      "fieldProfile": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible bright-neutral field tile-top profile",
+        "bounds": {
+          "rasterPixels": [
+            1888,
+            32,
+            1113,
+            749
+          ],
+          "cssPixels": [
+            944,
+            16,
+            556.5,
+            374.5
+          ],
+          "normalized": [
+            0.625995,
+            0.021025,
+            0.369032,
+            0.492116
+          ]
+        },
+        "pixelSupport": 404875,
+        "componentProfile": {
+          "count": 36,
+          "center": {
+            "rasterPixels": [
+              2464.222,
+              399.819
+            ],
+            "cssPixels": [
+              1232.111,
+              199.91
+            ],
+            "normalized": [
+              0.81705,
+              0.262693
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 166.5,
+              "height": 116,
+              "selectedPixels": 11189.5
+            },
+            "cssPixels": {
+              "width": 83.25,
+              "height": 58,
+              "selectedPixels": 2797.375
+            }
+          },
+          "selectedPixelOccupancy": 0.485673,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "method": {
+          "id": "bright-neutral-tile-component-union",
+          "roiNormalized": [
+            0.61,
+            0.02,
+            0.385,
+            0.62
+          ],
+          "roiRasterPixels": [
+            1839,
+            30,
+            1162,
+            945
+          ],
+          "predicate": {
+            "id": "bright-neutral-field-tile-top",
+            "description": "r >= 210, g >= 210, b >= 215, b-r <= 24, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+          },
+          "connectivity": 8,
+          "minimumComponentPixels": 5000,
+          "maximumComponentPixels": 26000,
+          "minimumComponentWidth": 100,
+          "maximumComponentWidth": 230,
+          "minimumComponentHeight": 70,
+          "maximumComponentHeight": 180,
+          "minimumComponentFillRatio": 0.5,
+          "maximumComponentFillRatio": 0.78,
+          "minimumSelectedComponents": 20,
+          "totalComponentCount": 107,
+          "selectedComponentCount": 36,
+          "semanticMask": null,
+          "rationale": "The upper-right ROI isolates the source-visible field from industrial context, process copy, and the incoming route. Only full bright-neutral tile-top components qualify."
         }
       },
       "composition": {
@@ -3500,6 +3719,96 @@
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
       },
+      "fieldProfile": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible bright-neutral field tile-top profile",
+        "bounds": {
+          "rasterPixels": [
+            702,
+            102,
+            1762,
+            1357
+          ],
+          "cssPixels": [
+            351,
+            51,
+            881,
+            678.5
+          ],
+          "normalized": [
+            0.232759,
+            0.067017,
+            0.584218,
+            0.89159
+          ]
+        },
+        "pixelSupport": 998357,
+        "componentProfile": {
+          "count": 72,
+          "center": {
+            "rasterPixels": [
+              1626.66,
+              722.278
+            ],
+            "cssPixels": [
+              813.33,
+              361.139
+            ],
+            "normalized": [
+              0.539343,
+              0.474558
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 169.5,
+              "height": 128,
+              "selectedPixels": 13452
+            },
+            "cssPixels": {
+              "width": 84.75,
+              "height": 64,
+              "selectedPixels": 3363
+            }
+          },
+          "selectedPixelOccupancy": 0.417542,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "method": {
+          "id": "bright-neutral-tile-component-union",
+          "roiNormalized": [
+            0.18,
+            0.03,
+            0.815,
+            0.95
+          ],
+          "roiRasterPixels": [
+            542,
+            45,
+            2459,
+            1447
+          ],
+          "predicate": {
+            "id": "bright-neutral-field-tile-top",
+            "description": "r >= 210, g >= 210, b >= 215, b-r <= 24, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+          },
+          "connectivity": 8,
+          "minimumComponentPixels": 5000,
+          "maximumComponentPixels": 26000,
+          "minimumComponentWidth": 100,
+          "maximumComponentWidth": 230,
+          "minimumComponentHeight": 70,
+          "maximumComponentHeight": 180,
+          "minimumComponentFillRatio": 0.5,
+          "maximumComponentFillRatio": 0.78,
+          "minimumSelectedComponents": 50,
+          "totalComponentCount": 588,
+          "selectedComponentCount": 72,
+          "semanticMask": null,
+          "rationale": "The broad journey ROI encloses the contact field while excluding most process copy. Component geometry gates reject the route, header controls, and small scene props; the activated center is intentionally absent from the neutral-tile profile."
+        }
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -3863,6 +4172,96 @@
           "selectedComponentCount": 298,
           "semanticMask": null,
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
+        }
+      },
+      "fieldProfile": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible bright-neutral field tile-top profile",
+        "bounds": {
+          "rasterPixels": [
+            562,
+            90,
+            1854,
+            1394
+          ],
+          "cssPixels": [
+            281,
+            45,
+            927,
+            697
+          ],
+          "normalized": [
+            0.18634,
+            0.059133,
+            0.614721,
+            0.9159
+          ]
+        },
+        "pixelSupport": 871567,
+        "componentProfile": {
+          "count": 59,
+          "center": {
+            "rasterPixels": [
+              1530.271,
+              776.398
+            ],
+            "cssPixels": [
+              765.136,
+              388.199
+            ],
+            "normalized": [
+              0.507384,
+              0.510117
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 163,
+              "height": 124,
+              "selectedPixels": 14868
+            },
+            "cssPixels": {
+              "width": 81.5,
+              "height": 62,
+              "selectedPixels": 3717
+            }
+          },
+          "selectedPixelOccupancy": 0.337232,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "method": {
+          "id": "bright-neutral-tile-component-union",
+          "roiNormalized": [
+            0.18,
+            0.03,
+            0.815,
+            0.95
+          ],
+          "roiRasterPixels": [
+            542,
+            45,
+            2459,
+            1447
+          ],
+          "predicate": {
+            "id": "bright-neutral-field-tile-top",
+            "description": "r >= 210, g >= 210, b >= 215, b-r <= 24, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+          },
+          "connectivity": 8,
+          "minimumComponentPixels": 5000,
+          "maximumComponentPixels": 26000,
+          "minimumComponentWidth": 100,
+          "maximumComponentWidth": 230,
+          "minimumComponentHeight": 70,
+          "maximumComponentHeight": 180,
+          "minimumComponentFillRatio": 0.5,
+          "maximumComponentFillRatio": 0.78,
+          "minimumSelectedComponents": 35,
+          "totalComponentCount": 728,
+          "selectedComponentCount": 59,
+          "semanticMask": null,
+          "rationale": "The contact-camera ROI measures neutral tile tops that remain readable during the inner pulse. Tiles recolored or obscured by the pulse are intentionally absent, making selected-component count part of the observed reaction profile."
         }
       },
       "composition": {
@@ -4285,6 +4684,96 @@
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
       },
+      "fieldProfile": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible bright-neutral field tile-top profile",
+        "bounds": {
+          "rasterPixels": [
+            683,
+            172,
+            1597,
+            1266
+          ],
+          "cssPixels": [
+            341.5,
+            86,
+            798.5,
+            633
+          ],
+          "normalized": [
+            0.226459,
+            0.113009,
+            0.529509,
+            0.8318
+          ]
+        },
+        "pixelSupport": 330644,
+        "componentProfile": {
+          "count": 21,
+          "center": {
+            "rasterPixels": [
+              1521.31,
+              855.548
+            ],
+            "cssPixels": [
+              760.655,
+              427.774
+            ],
+            "normalized": [
+              0.504413,
+              0.562121
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 162,
+              "height": 129,
+              "selectedPixels": 15876
+            },
+            "cssPixels": {
+              "width": 81,
+              "height": 64.5,
+              "selectedPixels": 3969
+            }
+          },
+          "selectedPixelOccupancy": 0.163539,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "method": {
+          "id": "bright-neutral-tile-component-union",
+          "roiNormalized": [
+            0.18,
+            0.03,
+            0.815,
+            0.95
+          ],
+          "roiRasterPixels": [
+            542,
+            45,
+            2459,
+            1447
+          ],
+          "predicate": {
+            "id": "bright-neutral-field-tile-top",
+            "description": "r >= 210, g >= 210, b >= 215, b-r <= 24, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+          },
+          "connectivity": 8,
+          "minimumComponentPixels": 5000,
+          "maximumComponentPixels": 26000,
+          "minimumComponentWidth": 100,
+          "maximumComponentWidth": 230,
+          "minimumComponentHeight": 70,
+          "maximumComponentHeight": 180,
+          "minimumComponentFillRatio": 0.5,
+          "maximumComponentFillRatio": 0.78,
+          "minimumSelectedComponents": 15,
+          "totalComponentCount": 617,
+          "selectedComponentCount": 21,
+          "semanticMask": null,
+          "rationale": "The contact-camera ROI measures neutral tile tops that remain readable during the outer pulse. Recolored outer tiles and the saturated center are intentionally absent, so the surviving component mask records the source pulse profile without inferring hidden tiles."
+        }
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -4594,6 +5083,11 @@
         "status": "blocked",
         "label": "transitioning four-row process-ladder copy",
         "reason": "The active arrival body copy is materially faded into similar-valued field tiles and route bloom at this travel anchor. A dark-ink box would report only the headings, while a looser threshold would merge scene structure; bounds from the later lockup are not inferred backward."
+      },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -5012,6 +5506,11 @@
           "rationale": "The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink."
         }
       },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -5284,6 +5783,11 @@
         "status": "blocked",
         "label": "clipped exiting process-ladder copy",
         "reason": "The exiting ladder is vertically clipped and overlaps the fixed left navigation at this exact frame. Visible dark pixels cannot distinguish the two text systems, and a complete pre-exit ladder box is not inferred through the section handoff."
+      },
+      "fieldProfile": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No rounded-tile field profile is applicable to this source state."
       },
       "composition": {
         "status": "observed",

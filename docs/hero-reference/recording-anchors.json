@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "verifiedOn": "2026-07-28",
   "authority": {
     "status": "observed",
@@ -35,7 +35,7 @@
     "selection": "Each anchor is a representative frame for a named visual state, not necessarily the first transition frame.",
     "timing": "Journey timestamps are seek coordinates in this user-scrolled recording, not authored durations or normalized progress.",
     "generatedCapture": "The capture path and capture SHA verify a reproducible derivative; acceptance authority remains the MOV SHA plus frame index and PTS.",
-    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 15 screen-space composition proxies, and 1 section boundary; 4 route/transition-primary states mark landmark bounds not applicable, while 4 genuinely ambiguous landmark states and 2 copy states remain blocked."
+    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 15 screen-space composition proxies, and 1 section boundary; 4 route/transition-primary states mark landmark bounds not applicable, while 4 genuinely ambiguous landmark states, 2 copy states, and 0 field profiles remain blocked."
   },
   "planCorrectionsEstablishedByExactFrames": [
     {
@@ -135,7 +135,12 @@
         "boundaryEvidenceRef": null,
         "copyLabel": null,
         "copyEvidenceRef": null,
-        "routeGeometry": null
+        "routeGeometry": null,
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -450,7 +455,12 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -720,7 +730,12 @@
         "boundaryEvidenceRef": null,
         "copyLabel": "visible centered landing headline and supporting-copy ink envelope",
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/2/copy",
-        "routeGeometry": null
+        "routeGeometry": null,
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1037,7 +1052,12 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1357,7 +1377,12 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1677,7 +1702,12 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1994,7 +2024,12 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -2311,7 +2346,47 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "observed",
+        "fieldProfile": [
+          1237,
+          64,
+          263.5,
+          146.5
+        ],
+        "fieldProfileComponentProfile": {
+          "count": 7,
+          "center": {
+            "rasterPixels": [
+              2773.214,
+              255.357
+            ],
+            "cssPixels": [
+              1386.607,
+              127.679
+            ],
+            "normalized": [
+              0.919501,
+              0.167777
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 163,
+              "height": 110,
+              "selectedPixels": 10222
+            },
+            "cssPixels": {
+              "width": 81.5,
+              "height": 55,
+              "selectedPixels": 2555.5
+            }
+          },
+          "selectedPixelOccupancy": 0.461036,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "fieldProfileLabel": "visible bright-neutral field tile-top profile",
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/7/fieldProfile"
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -2623,7 +2698,47 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "observed",
+        "fieldProfile": [
+          944,
+          16,
+          556.5,
+          374.5
+        ],
+        "fieldProfileComponentProfile": {
+          "count": 36,
+          "center": {
+            "rasterPixels": [
+              2464.222,
+              399.819
+            ],
+            "cssPixels": [
+              1232.111,
+              199.91
+            ],
+            "normalized": [
+              0.81705,
+              0.262693
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 166.5,
+              "height": 116,
+              "selectedPixels": 11189.5
+            },
+            "cssPixels": {
+              "width": 83.25,
+              "height": 58,
+              "selectedPixels": 2797.375
+            }
+          },
+          "selectedPixelOccupancy": 0.485673,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "fieldProfileLabel": "visible bright-neutral field tile-top profile",
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/8/fieldProfile"
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -2944,7 +3059,47 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "observed",
+        "fieldProfile": [
+          351,
+          51,
+          881,
+          678.5
+        ],
+        "fieldProfileComponentProfile": {
+          "count": 72,
+          "center": {
+            "rasterPixels": [
+              1626.66,
+              722.278
+            ],
+            "cssPixels": [
+              813.33,
+              361.139
+            ],
+            "normalized": [
+              0.539343,
+              0.474558
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 169.5,
+              "height": 128,
+              "selectedPixels": 13452
+            },
+            "cssPixels": {
+              "width": 84.75,
+              "height": 64,
+              "selectedPixels": 3363
+            }
+          },
+          "selectedPixelOccupancy": 0.417542,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "fieldProfileLabel": "visible bright-neutral field tile-top profile",
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/fieldProfile"
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -3262,7 +3417,47 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "observed",
+        "fieldProfile": [
+          281,
+          45,
+          927,
+          697
+        ],
+        "fieldProfileComponentProfile": {
+          "count": 59,
+          "center": {
+            "rasterPixels": [
+              1530.271,
+              776.398
+            ],
+            "cssPixels": [
+              765.136,
+              388.199
+            ],
+            "normalized": [
+              0.507384,
+              0.510117
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 163,
+              "height": 124,
+              "selectedPixels": 14868
+            },
+            "cssPixels": {
+              "width": 81.5,
+              "height": 62,
+              "selectedPixels": 3717
+            }
+          },
+          "selectedPixelOccupancy": 0.337232,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "fieldProfileLabel": "visible bright-neutral field tile-top profile",
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/10/fieldProfile"
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -3584,7 +3779,47 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "observed",
+        "fieldProfile": [
+          341.5,
+          86,
+          798.5,
+          633
+        ],
+        "fieldProfileComponentProfile": {
+          "count": 21,
+          "center": {
+            "rasterPixels": [
+              1521.31,
+              855.548
+            ],
+            "cssPixels": [
+              760.655,
+              427.774
+            ],
+            "normalized": [
+              0.504413,
+              0.562121
+            ]
+          },
+          "medianTileTop": {
+            "rasterPixels": {
+              "width": 162,
+              "height": 129,
+              "selectedPixels": 15876
+            },
+            "cssPixels": {
+              "width": 81,
+              "height": 64.5,
+              "selectedPixels": 3969
+            }
+          },
+          "selectedPixelOccupancy": 0.163539,
+          "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
+        },
+        "fieldProfileLabel": "visible bright-neutral field tile-top profile",
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/fieldProfile"
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -3896,7 +4131,12 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -4218,7 +4458,12 @@
             ]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
-        }
+        },
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -4489,7 +4734,12 @@
         "boundaryEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/14/boundary",
         "copyLabel": "clipped exiting process-ladder copy",
         "copyEvidenceRef": null,
-        "routeGeometry": null
+        "routeGeometry": null,
+        "fieldProfileStatus": "not-applicable",
+        "fieldProfile": null,
+        "fieldProfileComponentProfile": null,
+        "fieldProfileLabel": null,
+        "fieldProfileEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -4699,7 +4949,7 @@
     {
       "field": "screen-space bounds",
       "status": "partially-observed",
-      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 15 screen-space composition proxies, and 1 section boundary. 4 route/transition-primary states correctly mark landmark bounds not applicable; 4 landmark-primary states and 2 copy states remain blocked."
+      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 15 screen-space composition proxies, and 1 section boundary. 4 route/transition-primary states correctly mark landmark bounds not applicable; 4 landmark-primary states, 2 copy states, and 0 field profiles remain blocked."
     },
     {
       "field": "pointer versus local-clock versus scroll ownership",
@@ -4716,7 +4966,7 @@
     "status": "partially-observed",
     "verifiedOn": "2026-08-20",
     "artifact": "docs/hero-reference/recording-structural-bounds.json",
-    "algorithmVersion": "recording-structural-bounds-v10",
+    "algorithmVersion": "recording-structural-bounds-v11",
     "landmarkMeasured": 7,
     "landmarkBlocked": 4,
     "landmarkNotApplicable": 4,
@@ -4727,6 +4977,9 @@
     "copyMeasured": 11,
     "copyBlocked": 2,
     "copyNotApplicable": 2,
+    "fieldProfileMeasured": 5,
+    "fieldProfileBlocked": 0,
+    "fieldProfileNotApplicable": 10,
     "compositionMeasured": 15,
     "compositionBlocked": 0,
     "primaryStructureMeasured": 11,

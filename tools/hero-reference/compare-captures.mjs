@@ -6,11 +6,13 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 import {
+  FIELD_TILE_PROFILE_CONFIG_BY_STATE,
   IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
   LANDMARK_CONFIG_BY_STATE,
   ROUTE_CONFIG_BY_STATE,
   deriveRouteCenterlineMask,
   measureChromaFeature,
+  measureFieldTileProfile,
   measureLandmarkFeature,
 } from '../../apps/pegasoft-e2e/src/visual/screen-structural-features.mjs';
 
@@ -48,6 +50,13 @@ const STRUCTURAL_TOLERANCES = {
   compositionCentroidNormalized: 0.0075,
   negativeSpaceOccupancy: 0.03,
   copyBoundsCssPixels: 2,
+  fieldEnvelopeCenterNormalized: 0.0075,
+  fieldEnvelopeSizeRatio: 0.02,
+  fieldMedianTileCssPixelsMinimum: 1,
+  fieldMedianTileSizeRatio: 0.02,
+  fieldSelectedPixelOccupancy: 0.02,
+  fieldTileComponentCountDelta: 0,
+  fieldTileMaskIouMinimum: 0.9,
   landmarkEdgeSupportIouDiagnosticMinimum: 0.9,
   landmarkCenterNormalized: 0.0075,
   landmarkSilhouetteIouMinimum: 0.9,
@@ -64,6 +73,9 @@ const IMPLEMENTATION_LANDMARK_STATES = new Set([
   ...Object.keys(LANDMARK_CONFIG_BY_STATE),
   ...Object.keys(IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE),
 ]);
+const IMPLEMENTATION_FIELD_PROFILE_STATES = new Set(
+  Object.keys(FIELD_TILE_PROFILE_CONFIG_BY_STATE),
+);
 const IMPLEMENTATION_COPY_STATES = new Set([
   'landing',
   'landing-idle',
@@ -271,6 +283,51 @@ function isValidLandmarkFeature(feature, sourceArtifact, stateKey) {
   );
 }
 
+function isValidFieldProfile(feature, sourceArtifact, stateKey) {
+  const config = FIELD_TILE_PROFILE_CONFIG_BY_STATE[stateKey];
+  if (
+    !config ||
+    !isValidStructuralFeature(feature, sourceArtifact, config.method) ||
+    feature.label !== config.label ||
+    !isFiniteTuple(feature.method?.roiNormalized, 4) ||
+    feature.method.roiNormalized.some(
+      (component, index) => component !== config.roi[index],
+    ) ||
+    feature.method.predicate?.id !== config.predicate.id ||
+    feature.method.minimumComponentPixels !== config.minimumComponentPixels ||
+    feature.method.maximumComponentPixels !== config.maximumComponentPixels ||
+    feature.method.minimumComponentWidth !== config.minimumComponentWidth ||
+    feature.method.maximumComponentWidth !== config.maximumComponentWidth ||
+    feature.method.minimumComponentHeight !== config.minimumComponentHeight ||
+    feature.method.maximumComponentHeight !== config.maximumComponentHeight ||
+    feature.method.minimumComponentFillRatio !==
+      config.minimumComponentFillRatio ||
+    feature.method.maximumComponentFillRatio !==
+      config.maximumComponentFillRatio ||
+    feature.method.minimumSelectedComponents !==
+      config.minimumSelectedComponents
+  ) {
+    return false;
+  }
+  if (feature.status === 'blocked') {
+    return true;
+  }
+  return (
+    Number.isSafeInteger(feature.componentProfile?.count) &&
+    feature.componentProfile.count >= config.minimumSelectedComponents &&
+    isFiniteTuple(feature.componentProfile?.center?.rasterPixels, 2) &&
+    isFiniteTuple(feature.componentProfile?.center?.cssPixels, 2) &&
+    isFiniteTuple(feature.componentProfile?.center?.normalized, 2) &&
+    Number.isFinite(
+      feature.componentProfile?.medianTileTop?.cssPixels?.width,
+    ) &&
+    Number.isFinite(
+      feature.componentProfile?.medianTileTop?.cssPixels?.height,
+    ) &&
+    Number.isFinite(feature.componentProfile?.selectedPixelOccupancy)
+  );
+}
+
 function verifyMeasurementSemantics(stateKey, artifact) {
   let measurement;
   try {
@@ -290,6 +347,7 @@ function verifyMeasurementSemantics(stateKey, artifact) {
   const copyFeature = measurement.structuralAccuracy?.copy;
   const landmarkFeature = measurement.structuralAccuracy?.landmark;
   const routeFeature = measurement.structuralAccuracy?.route;
+  const fieldProfileFeature = measurement.structuralAccuracy?.fieldProfile;
   const boundaryFeature = measurement.structuralAccuracy?.boundary;
   const validRouteFeature = IMPLEMENTATION_ROUTE_STATES.has(stateKey)
     ? isValidRouteFeature(routeFeature, expectedSourceArtifact, stateKey)
@@ -304,6 +362,15 @@ function verifyMeasurementSemantics(stateKey, artifact) {
         'predicate-component-union',
       )
     : copyFeature === undefined;
+  const validFieldProfileFeature = IMPLEMENTATION_FIELD_PROFILE_STATES.has(
+    stateKey,
+  )
+    ? isValidFieldProfile(
+        fieldProfileFeature,
+        expectedSourceArtifact,
+        stateKey,
+      )
+    : fieldProfileFeature === undefined;
   const validBoundaryFeature =
     stateKey === 'journey-exit'
       ? isValidStructuralFeature(
@@ -325,13 +392,14 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     Boolean(measurement.bounds?.canvas);
 
   if (
-    measurement.schemaVersion !== 5 ||
-    measurement.structuralAccuracy?.schemaVersion !== 4 ||
+    measurement.schemaVersion !== 6 ||
+    measurement.structuralAccuracy?.schemaVersion !== 5 ||
     !isObservedScreenComposition(screenComposition) ||
     screenComposition.sourceArtifact !== expectedSourceArtifact ||
     !validLandmarkFeature ||
     !validRouteFeature ||
     !validCopyFeature ||
+    !validFieldProfileFeature ||
     !validBoundaryFeature ||
     measurement.stateKey !== stateKey ||
     measurement.viewport?.width !== recordingProfile.cssViewport.width ||
@@ -401,7 +469,7 @@ async function verifyCaptureManifest() {
     captureStartedAt <= captureCompletedAt;
 
   if (
-    captureManifest.schemaVersion !== 5 ||
+    captureManifest.schemaVersion !== 6 ||
     captureManifest.status !== 'complete' ||
     !validRunId ||
     !validRunWindow ||
@@ -676,6 +744,128 @@ function measureLandmarkMaskEvidence({
           : semanticRole === 'silhouette'
             ? 'The shared chroma predicate isolates the same landmark role in the locked recording and implementation rasters; overlap is eligible for silhouette IoU evaluation.'
             : 'Sobel selects observable edge support, not a filled semantic silhouette. Its IoU is diagnostic and cannot satisfy silhouette acceptance.',
+    },
+    comparison: createLandmarkMaskComparison(
+      referenceResult.debug.mask,
+      implementationResult.debug.mask,
+    ),
+  };
+}
+
+function measureFieldTileProfileEvidence({
+  state,
+  measurement,
+  referenceImage,
+  implementationImage,
+  dpr,
+}) {
+  const config = FIELD_TILE_PROFILE_CONFIG_BY_STATE[state.key];
+  if (!config) {
+    return null;
+  }
+
+  const referenceResult = measureFieldTileProfile({
+    data: referenceImage.data,
+    image: referenceImage.info,
+    dpr,
+    config,
+  });
+  const implementationResult = measureFieldTileProfile({
+    data: implementationImage.data,
+    image: implementationImage.info,
+    dpr,
+    config,
+  });
+  const referenceMeasurement = referenceResult.measurement;
+  const implementationMeasurement = implementationResult.measurement;
+  const recordedImplementation =
+    measurement?.structuralAccuracy?.fieldProfile;
+
+  assert.equal(
+    referenceMeasurement.status,
+    'observed',
+    `${state.key}: field tile profile no longer observes the locked recording anchor`,
+  );
+  assert.deepEqual(
+    referenceMeasurement.bounds.cssPixels,
+    state.screenBounds?.fieldProfile,
+    `${state.key}: recomputed recording field envelope drifted from the locked manifest`,
+  );
+  assert.deepEqual(
+    referenceMeasurement.componentProfile,
+    state.screenBounds?.fieldProfileComponentProfile,
+    `${state.key}: recomputed recording field component profile drifted from the locked manifest`,
+  );
+  assert.ok(
+    recordedImplementation,
+    `${state.key}: capture did not record a field tile profile`,
+  );
+  const recordedImplementationCore = Object.fromEntries(
+    Object.entries(recordedImplementation).filter(
+      ([property]) => property !== 'sourceArtifact',
+    ),
+  );
+  assert.deepEqual(
+    implementationMeasurement,
+    recordedImplementationCore,
+    `${state.key}: recomputed implementation field tile profile drifted from the capture record`,
+  );
+
+  const overlap = countMaskOverlap(
+    referenceResult.debug.mask,
+    implementationResult.debug.mask,
+  );
+  const status =
+    implementationMeasurement.status === 'observed' &&
+    Number.isFinite(overlap.iou)
+      ? 'observed'
+      : 'blocked';
+
+  return {
+    evidence: {
+      status,
+      evidenceClass: status === 'observed' ? 'observed' : 'blocked',
+      semanticRole: 'visible-neutral-tile-top-profile',
+      label: config.label,
+      method: {
+        id: config.method,
+        sharedImplementation:
+          'apps/pegasoft-e2e/src/visual/screen-structural-features.mjs#measureFieldTileProfile',
+        sourceSemanticMask: null,
+      },
+      reference: {
+        artifactPath: state.anchor.capturePath,
+        bounds: referenceMeasurement.bounds,
+        pixelSupport: overlap.referencePixelSupport,
+        componentProfile: referenceMeasurement.componentProfile,
+      },
+      implementation: {
+        artifactPath: relative(
+          path.join(implementationRoot, `${state.key}.png`),
+        ),
+        bounds:
+          implementationMeasurement.status === 'observed'
+            ? implementationMeasurement.bounds
+            : null,
+        pixelSupport: overlap.implementationPixelSupport,
+        componentProfile:
+          implementationMeasurement.status === 'observed'
+            ? implementationMeasurement.componentProfile
+            : null,
+      },
+      overlap: {
+        intersectionPixelCount: overlap.intersectionPixelCount,
+        unionPixelCount: overlap.unionPixelCount,
+        iou: overlap.iou,
+      },
+      reason:
+        status === 'blocked'
+          ? implementationMeasurement.reason
+          : null,
+      qualification:
+        status === 'blocked'
+          ? 'The shared predicate and component gates observe the locked source field, but the implementation does not emit enough source-qualifying visible tile tops; the comparison remains blocker evidence.'
+          : 'The same renderer-independent predicate and component-shape gates isolate visible neutral tile tops in both locked rasters. Direct mask overlap, component count, field envelope, and median tile-top size are eligible structural evidence.',
     },
     comparison: createLandmarkMaskComparison(
       referenceResult.debug.mask,
@@ -1114,6 +1304,7 @@ function evaluateStructuralAccuracy(
   measurement,
   landmarkMaskEvidence,
   routeCenterlineEvidence,
+  fieldTileProfileEvidence,
 ) {
   const blockers = [];
   const checks = [];
@@ -1140,6 +1331,14 @@ function evaluateStructuralAccuracy(
   const implementationCompositionMeasured = isObservedScreenComposition(
     implementationComposition,
   );
+  const fieldProfileApplicable = IMPLEMENTATION_FIELD_PROFILE_STATES.has(
+    state.key,
+  );
+  const sourceFieldProfileMeasured =
+    state.screenBounds?.fieldProfileStatus === 'observed' &&
+    Array.isArray(state.screenBounds?.fieldProfile) &&
+    state.screenBounds?.fieldProfileComponentProfile;
+  const implementationFieldProfile = implementationStructural?.fieldProfile;
   const implementationPrimaryMeasured =
     implementationStructural?.[primaryStructure.kind]?.status === 'observed';
   const implementationPrimaryBlocked =
@@ -1194,6 +1393,20 @@ function evaluateStructuralAccuracy(
   if (!implementationCompositionMeasured) {
     blockers.push(
       'implementation screen-space composition proxy is not emitted',
+    );
+  }
+  if (fieldProfileApplicable && !sourceFieldProfileMeasured) {
+    blockers.push('authoritative source field tile profile is unmeasured');
+  }
+  if (
+    fieldProfileApplicable &&
+    sourceFieldProfileMeasured &&
+    implementationFieldProfile?.status !== 'observed'
+  ) {
+    blockers.push(
+      implementationFieldProfile?.status === 'blocked'
+        ? 'implementation field tile profile source-predicate quality gate is blocked'
+        : 'implementation field tile profile is not emitted',
     );
   }
 
@@ -1347,6 +1560,96 @@ function evaluateStructuralAccuracy(
   }
 
   if (
+    fieldProfileApplicable &&
+    sourceFieldProfileMeasured &&
+    implementationFieldProfile?.status === 'observed'
+  ) {
+    const [sourceX, sourceY, sourceWidth, sourceHeight] =
+      state.screenBounds.fieldProfile;
+    const [actualX, actualY, actualWidth, actualHeight] =
+      implementationFieldProfile.bounds.cssPixels;
+    const profileWidth = manifest.authority.recordingProfile.cssViewport.width;
+    const profileHeight =
+      manifest.authority.recordingProfile.cssViewport.height;
+    const sourceProfile = state.screenBounds.fieldProfileComponentProfile;
+    const actualProfile = implementationFieldProfile.componentProfile;
+    const sourceMedian = sourceProfile.medianTileTop.cssPixels;
+    const actualMedian = actualProfile.medianTileTop.cssPixels;
+
+    checks.push(
+      compareScalar(
+        'field.envelope.center.normalized.x',
+        (sourceX + sourceWidth / 2) / profileWidth,
+        (actualX + actualWidth / 2) / profileWidth,
+        STRUCTURAL_TOLERANCES.fieldEnvelopeCenterNormalized,
+      ),
+      compareScalar(
+        'field.envelope.center.normalized.y',
+        (sourceY + sourceHeight / 2) / profileHeight,
+        (actualY + actualHeight / 2) / profileHeight,
+        STRUCTURAL_TOLERANCES.fieldEnvelopeCenterNormalized,
+      ),
+      compareScalar(
+        'field.envelope.size.cssPixels.width',
+        sourceWidth,
+        actualWidth,
+        sourceWidth * STRUCTURAL_TOLERANCES.fieldEnvelopeSizeRatio,
+      ),
+      compareScalar(
+        'field.envelope.size.cssPixels.height',
+        sourceHeight,
+        actualHeight,
+        sourceHeight * STRUCTURAL_TOLERANCES.fieldEnvelopeSizeRatio,
+      ),
+      compareScalar(
+        'field.tileTop.componentCount',
+        sourceProfile.count,
+        actualProfile.count,
+        STRUCTURAL_TOLERANCES.fieldTileComponentCountDelta,
+      ),
+      compareScalar(
+        'field.tileTop.median.cssPixels.width',
+        sourceMedian.width,
+        actualMedian.width,
+        Math.max(
+          STRUCTURAL_TOLERANCES.fieldMedianTileCssPixelsMinimum,
+          sourceMedian.width *
+            STRUCTURAL_TOLERANCES.fieldMedianTileSizeRatio,
+        ),
+      ),
+      compareScalar(
+        'field.tileTop.median.cssPixels.height',
+        sourceMedian.height,
+        actualMedian.height,
+        Math.max(
+          STRUCTURAL_TOLERANCES.fieldMedianTileCssPixelsMinimum,
+          sourceMedian.height *
+            STRUCTURAL_TOLERANCES.fieldMedianTileSizeRatio,
+        ),
+      ),
+      compareScalar(
+        'field.tileTop.selectedPixelOccupancy',
+        sourceProfile.selectedPixelOccupancy,
+        actualProfile.selectedPixelOccupancy,
+        STRUCTURAL_TOLERANCES.fieldSelectedPixelOccupancy,
+      ),
+    );
+    if (fieldTileProfileEvidence?.status === 'observed') {
+      checks.push(
+        compareMinimum(
+          'field.tileTop.mask.iou',
+          STRUCTURAL_TOLERANCES.fieldTileMaskIouMinimum,
+          fieldTileProfileEvidence.overlap.iou,
+        ),
+      );
+    } else {
+      blockers.push(
+        'field tile-profile mask-overlap evidence is blocked for the observed implementation profile',
+      );
+    }
+  }
+
+  if (
     primaryStructure.kind === 'boundary' &&
     sourcePrimaryMeasured &&
     implementationStructural?.boundary?.status === 'observed'
@@ -1416,6 +1719,7 @@ function evaluateStructuralAccuracy(
     blockers,
     landmarkMaskEvidence,
     routeCenterlineEvidence,
+    fieldTileProfileEvidence,
     tolerances: STRUCTURAL_TOLERANCES,
     note:
       blockers.length > 0
@@ -1981,11 +2285,40 @@ for (const state of manifest.states) {
       },
     };
   }
+  const fieldTileProfileResult = measureFieldTileProfileEvidence({
+    state,
+    measurement,
+    referenceImage,
+    implementationImage,
+    dpr: manifest.authority.recordingProfile.devicePixelRatio.value,
+  });
+  let fieldTileProfileEvidence =
+    fieldTileProfileResult?.evidence ?? null;
+  if (fieldTileProfileResult) {
+    const fieldTileProfilePath = path.join(
+      comparisonRoot,
+      `${state.key}-field-tile-profile.png`,
+    );
+    await sharp(fieldTileProfileResult.comparison, imageOptions)
+      .png()
+      .toFile(fieldTileProfilePath);
+    fieldTileProfileEvidence = {
+      ...fieldTileProfileEvidence,
+      comparisonArtifactPath: relative(fieldTileProfilePath),
+      comparisonLegend: {
+        referenceOnly: '#ff40c0',
+        implementationOnly: '#00c8ff',
+        intersection: '#f5f5f5',
+        neither: '#0e1014',
+      },
+    };
+  }
   const structuralAccuracy = evaluateStructuralAccuracy(
     state,
     measurement,
     landmarkMaskEvidence,
     routeCenterlineEvidence,
+    fieldTileProfileEvidence,
   );
   const domLayout = evaluateDomLayout(state.key, measurement);
   const identityMask = createIdentityMaskAudit(
@@ -2039,6 +2372,8 @@ const structuralCheckSummary = states.reduce(
     for (const check of state.structuralAccuracy.checks) {
       const group = check.metric.startsWith('copy.')
         ? 'copy'
+        : check.metric.startsWith('field.')
+          ? 'field'
         : check.metric.startsWith('landmark.')
           ? 'landmark'
           : check.metric.startsWith('route.')
@@ -2053,6 +2388,7 @@ const structuralCheckSummary = states.reduce(
   {
     composition: { pass: 0, fail: 0 },
     copy: { pass: 0, fail: 0 },
+    field: { pass: 0, fail: 0 },
     landmark: { pass: 0, fail: 0 },
     route: { pass: 0, fail: 0 },
     boundary: { pass: 0, fail: 0 },
@@ -2073,7 +2409,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 11,
+  schemaVersion: 12,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),
