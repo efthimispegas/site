@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 3,
+  "schemaVersion": 4,
   "verifiedOn": "2026-07-28",
   "authority": {
     "status": "observed",
@@ -35,7 +35,7 @@
     "selection": "Each anchor is a representative frame for a named visual state, not necessarily the first transition frame.",
     "timing": "Journey timestamps are seek coordinates in this user-scrolled recording, not authored durations or normalized progress.",
     "generatedCapture": "The capture path and capture SHA verify a reproducible derivative; acceptance authority remains the MOV SHA plus frame index and PTS.",
-    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 15 screen-space composition proxies, and 1 section boundary; 4 route/transition-primary states mark landmark bounds not applicable, while 4 genuinely ambiguous landmark states, 2 copy states, and 0 field profiles remain blocked."
+    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary; 4 route/transition-primary states mark landmark bounds not applicable, while 4 genuinely ambiguous landmark states, 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
   },
   "planCorrectionsEstablishedByExactFrames": [
     {
@@ -140,7 +140,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -460,7 +464,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -735,7 +743,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1057,7 +1069,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1382,7 +1398,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -1707,7 +1727,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -2029,7 +2053,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -2386,7 +2414,11 @@
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
         },
         "fieldProfileLabel": "visible bright-neutral field tile-top profile",
-        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/7/fieldProfile"
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/7/fieldProfile",
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -2738,7 +2770,11 @@
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
         },
         "fieldProfileLabel": "visible bright-neutral field tile-top profile",
-        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/8/fieldProfile"
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/8/fieldProfile",
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -3099,7 +3135,16 @@
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
         },
         "fieldProfileLabel": "visible bright-neutral field tile-top profile",
-        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/fieldProfile"
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/fieldProfile",
+        "contactCenterStatus": "observed",
+        "contactCenter": [
+          756,
+          335,
+          86,
+          60
+        ],
+        "contactCenterLabel": "saturated field contact center tile",
+        "contactCenterEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/contactCenter"
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -3457,7 +3502,11 @@
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
         },
         "fieldProfileLabel": "visible bright-neutral field tile-top profile",
-        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/10/fieldProfile"
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/10/fieldProfile",
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -3701,12 +3750,12 @@
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
         "landmark": [
-          682,
+          685,
           326,
-          85,
-          87.5
+          83,
+          88
         ],
-        "landmarkLabel": "elevated blue center tile",
+        "landmarkLabel": "elevated blue-violet center tile",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/landmark",
         "route": [
           1,
@@ -3727,7 +3776,7 @@
         "primaryStructure": {
           "kind": "landmark",
           "status": "observed",
-          "label": "elevated blue center tile",
+          "label": "elevated blue-violet center tile",
           "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/landmark",
           "reason": null
         },
@@ -3819,7 +3868,11 @@
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
         },
         "fieldProfileLabel": "visible bright-neutral field tile-top profile",
-        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/fieldProfile"
+        "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/fieldProfile",
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -4136,7 +4189,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -4463,7 +4520,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -4739,7 +4800,11 @@
         "fieldProfile": null,
         "fieldProfileComponentProfile": null,
         "fieldProfileLabel": null,
-        "fieldProfileEvidenceRef": null
+        "fieldProfileEvidenceRef": null,
+        "contactCenterStatus": "not-applicable",
+        "contactCenter": null,
+        "contactCenterLabel": null,
+        "contactCenterEvidenceRef": null
       },
       "expectedVisibleContext": {
         "status": "observed",
@@ -4949,7 +5014,7 @@
     {
       "field": "screen-space bounds",
       "status": "partially-observed",
-      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 15 screen-space composition proxies, and 1 section boundary. 4 route/transition-primary states correctly mark landmark bounds not applicable; 4 landmark-primary states, 2 copy states, and 0 field profiles remain blocked."
+      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary. 4 route/transition-primary states correctly mark landmark bounds not applicable; 4 landmark-primary states, 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
     },
     {
       "field": "pointer versus local-clock versus scroll ownership",
@@ -4966,7 +5031,7 @@
     "status": "partially-observed",
     "verifiedOn": "2026-08-20",
     "artifact": "docs/hero-reference/recording-structural-bounds.json",
-    "algorithmVersion": "recording-structural-bounds-v11",
+    "algorithmVersion": "recording-structural-bounds-v12",
     "landmarkMeasured": 7,
     "landmarkBlocked": 4,
     "landmarkNotApplicable": 4,
@@ -4980,6 +5045,9 @@
     "fieldProfileMeasured": 5,
     "fieldProfileBlocked": 0,
     "fieldProfileNotApplicable": 10,
+    "contactCenterMeasured": 1,
+    "contactCenterBlocked": 0,
+    "contactCenterNotApplicable": 14,
     "compositionMeasured": 15,
     "compositionBlocked": 0,
     "primaryStructureMeasured": 11,

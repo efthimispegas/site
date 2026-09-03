@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 7,
-  "algorithmVersion": "recording-structural-bounds-v11",
+  "schemaVersion": 8,
+  "algorithmVersion": "recording-structural-bounds-v12",
   "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
   "authority": {
     "recordingPath": "docs/vectrfl_recording.mov",
@@ -24,7 +24,7 @@
   },
   "methodPolicy": {
     "noManualBoxes": "No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.",
-    "featureStatus": "Every landmark, route, boundary, copy, and field-profile feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.",
+    "featureStatus": "Every landmark, route, boundary, copy, field-profile, and contact-center feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.",
     "chroma": "Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.",
     "edges": "The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.",
     "boundary": "The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.",
@@ -32,6 +32,7 @@
     "routeGeometry": "Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.",
     "copyInk": "Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.",
     "fieldTileProfile": "Applicable field states report a shared bright-neutral predicate, component-shape gates, visible tile-top count, field envelope, component centroid, median tile-top size, and mask support. Clipped, activated, recolored, or bloom-obscured tiles are never inferred; changes in surviving neutral components remain part of the observed reaction profile.",
+    "fieldContactCenter": "The field-contact state independently reports the largest saturated blue/violet center-tile component through the same source/implementation predicate. It locates contact without substituting for the source-tied tile-plus-standing-figure semantic landmark union.",
     "screenComposition": "Every state reports a fixed-grid binary Sobel edge-support distribution, density, and centroid below the header band. These are screen-space composition and negative-space proxies; the 3D camera position/quaternion remain explicitly unknown and are never reconstructed from rendered pixels.",
     "quality": "An applicable feature is blocked when selected support misses its fixed gate or semantic isolation would substitute a partial/effect-only feature. Not-applicable is reserved for a feature that is not the state’s source-visible structural role.",
     "reproducibility": "The authoritative MOV SHA, every input PNG SHA, and every referenced semantic SVG SHA are verified before measurement. --check recomputes both generated evidence files and fails on byte drift."
@@ -53,6 +54,9 @@
     "fieldProfileMeasured": 5,
     "fieldProfileBlocked": 0,
     "fieldProfileNotApplicable": 10,
+    "contactCenterMeasured": 1,
+    "contactCenterBlocked": 0,
+    "contactCenterNotApplicable": 14,
     "compositionMeasured": 15,
     "compositionBlocked": 0,
     "primaryStructureMeasured": 11,
@@ -159,6 +163,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -530,6 +539,11 @@
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
       },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -804,6 +818,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -1174,6 +1193,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -1598,6 +1622,11 @@
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
       },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -2021,6 +2050,11 @@
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
       },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -2390,6 +2424,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -2846,6 +2885,11 @@
           "rationale": "The upper-right ROI follows only the first source-visible field fragment. Full bright-neutral tile tops are counted; viewport-clipped tiles and the header controls are rejected by the component geometry gates."
         }
       },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -3300,6 +3344,11 @@
           "semanticMask": null,
           "rationale": "The upper-right ROI isolates the source-visible field from industrial context, process copy, and the incoming route. Only full bright-neutral tile-top components qualify."
         }
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -3809,6 +3858,66 @@
           "rationale": "The broad journey ROI encloses the contact field while excluding most process copy. Component geometry gates reject the route, header controls, and small scene props; the activated center is intentionally absent from the neutral-tile profile."
         }
       },
+      "contactCenter": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "saturated field contact center tile",
+        "bounds": {
+          "rasterPixels": [
+            1512,
+            670,
+            172,
+            120
+          ],
+          "cssPixels": [
+            756,
+            335,
+            86,
+            60
+          ],
+          "normalized": [
+            0.501326,
+            0.44021,
+            0.057029,
+            0.078844
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 6728,
+        "method": {
+          "id": "largest-chroma-component",
+          "roiNormalized": [
+            0.35,
+            0.25,
+            0.3,
+            0.5
+          ],
+          "roiRasterPixels": [
+            1055,
+            380,
+            906,
+            762
+          ],
+          "predicate": {
+            "id": "blue-violet-field-center",
+            "description": "b-r >= 25, b-g >= 35, b >= 150, and g <= 205 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 120,
+          "maximumComponentPixels": null,
+          "maximumComponentWidth": null,
+          "maximumComponentHeight": null,
+          "minimumComponentFillRatio": null,
+          "minimumSelectedPixels": 1200,
+          "totalComponentCount": 6,
+          "eligibleComponentCount": 1,
+          "selectedComponentCount": 1,
+          "semanticMask": null,
+          "rationale": "The saturated center tile is independently measurable in both rasters and records the contact center without borrowing the source semantic mask. This tile-only chroma observable does not replace the authoritative tile-plus-standing-figure landmark union."
+        }
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -4264,6 +4373,11 @@
           "rationale": "The contact-camera ROI measures neutral tile tops that remain readable during the inner pulse. Tiles recolored or obscured by the pulse are intentionally absent, making selected-component count part of the observed reaction profile."
         }
       },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -4455,36 +4569,36 @@
       "primaryStructure": {
         "kind": "landmark",
         "status": "observed",
-        "label": "elevated blue center tile",
+        "label": "elevated blue-violet center tile",
         "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/landmark",
         "reason": null
       },
       "landmark": {
         "status": "observed",
         "evidenceClass": "observed",
-        "label": "elevated blue center tile",
+        "label": "elevated blue-violet center tile",
         "bounds": {
           "rasterPixels": [
-            1364,
+            1370,
             652,
-            170,
-            175
+            166,
+            176
           ],
           "cssPixels": [
-            682,
+            685,
             326,
-            85,
-            87.5
+            83,
+            88
           ],
           "normalized": [
-            0.452255,
+            0.454244,
             0.428384,
-            0.056366,
-            0.11498
+            0.05504,
+            0.115637
           ]
         },
         "geometry": null,
-        "pixelSupport": 22599,
+        "pixelSupport": 21946,
         "method": {
           "id": "largest-chroma-component",
           "roiNormalized": [
@@ -4500,8 +4614,8 @@
             762
           ],
           "predicate": {
-            "id": "deep-blue",
-            "description": "b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB"
+            "id": "blue-violet-field-center",
+            "description": "b-r >= 25, b-g >= 35, b >= 150, and g <= 205 in 8-bit sRGB"
           },
           "sobelThreshold": null,
           "dilationIterations": 0,
@@ -4512,11 +4626,11 @@
           "maximumComponentHeight": null,
           "minimumComponentFillRatio": null,
           "minimumSelectedPixels": 1200,
-          "totalComponentCount": 181,
-          "eligibleComponentCount": 8,
+          "totalComponentCount": 31,
+          "eligibleComponentCount": 1,
           "selectedComponentCount": 1,
           "semanticMask": null,
-          "rationale": "The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box."
+          "rationale": "The elevated saturated blue/violet center tile is the stable primary landmark named by the manifest. The predicate admits the reference blue and implementation violet material while rejecting the cyan pulse band; the later outer pulse remains a separate effect."
         }
       },
       "route": {
@@ -4773,6 +4887,11 @@
           "semanticMask": null,
           "rationale": "The contact-camera ROI measures neutral tile tops that remain readable during the outer pulse. Recolored outer tiles and the saturated center are intentionally absent, so the surviving component mask records the source pulse profile without inferring hidden tiles."
         }
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -5088,6 +5207,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",
@@ -5511,6 +5635,11 @@
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
       },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
+      },
       "composition": {
         "status": "observed",
         "evidenceClass": "observed",
@@ -5788,6 +5917,11 @@
         "status": "not-applicable",
         "label": null,
         "reason": "No rounded-tile field profile is applicable to this source state."
+      },
+      "contactCenter": {
+        "status": "not-applicable",
+        "label": null,
+        "reason": "No independently measurable field contact center is applicable to this source state."
       },
       "composition": {
         "status": "observed",

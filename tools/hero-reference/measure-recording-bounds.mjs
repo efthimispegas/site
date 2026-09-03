@@ -6,6 +6,7 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { measureScreenComposition } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 import {
+  FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
   JOURNEY_EXIT_BOUNDARY_CONFIG,
   LANDMARK_CONFIG_BY_STATE,
@@ -34,7 +35,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v11';
+const algorithmVersion = 'recording-structural-bounds-v12';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -154,6 +155,7 @@ const STATE_MEASUREMENTS = {
     route: ROUTE_CONFIG_BY_STATE['field-contact'],
     copy: PROCESS_COPY_CONFIG,
     fieldProfile: FIELD_TILE_PROFILE_CONFIG_BY_STATE['field-contact'],
+    contactCenter: FIELD_CONTACT_CENTER_CONFIG_BY_STATE['field-contact'],
   },
   'field-pulse-a': {
     primaryStructure: 'landmark',
@@ -618,7 +620,10 @@ async function measureConfiguredFeature({
     return result.measurement;
   }
 
-  if (featureKind === 'landmark' && config.method !== 'source-semantic-mask') {
+  if (
+    (featureKind === 'landmark' || featureKind === 'contactCenter') &&
+    config.method !== 'source-semantic-mask'
+  ) {
     const result = measureLandmarkFeature({ data, image, dpr, config });
     if (result.measurement.status === 'observed') {
       await writeDebugOverlay(
@@ -644,6 +649,8 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
   const copyObserved = stateEvidence.copy?.status === 'observed';
   const fieldProfileObserved =
     stateEvidence.fieldProfile?.status === 'observed';
+  const contactCenterObserved =
+    stateEvidence.contactCenter?.status === 'observed';
   const primaryObserved = stateEvidence.primaryStructure.status === 'observed';
   const landmarkEvidenceRef = landmarkObserved
     ? `${evidenceRef}/states/${stateIndex}/landmark`
@@ -659,6 +666,9 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
     : null;
   const fieldProfileEvidenceRef = fieldProfileObserved
     ? `${evidenceRef}/states/${stateIndex}/fieldProfile`
+    : null;
+  const contactCenterEvidenceRef = contactCenterObserved
+    ? `${evidenceRef}/states/${stateIndex}/contactCenter`
     : null;
   const primaryEvidenceRef =
     stateEvidence.primaryStructure.kind === 'landmark'
@@ -701,6 +711,12 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
       : null,
     fieldProfileLabel: stateEvidence.fieldProfile.label ?? null,
     fieldProfileEvidenceRef,
+    contactCenterStatus: stateEvidence.contactCenter.status,
+    contactCenter: contactCenterObserved
+      ? stateEvidence.contactCenter.bounds.cssPixels
+      : null,
+    contactCenterLabel: stateEvidence.contactCenter.label ?? null,
+    contactCenterEvidenceRef,
     reason: primaryObserved
       ? `Primary ${stateEvidence.primaryStructure.kind} measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.`
       : stateEvidence.primaryStructure.reason,
@@ -905,6 +921,19 @@ for (const anchor of manifest.states) {
     },
     dpr,
   });
+  const contactCenter = await measureConfiguredFeature({
+    sourcePath,
+    data,
+    image,
+    stateKey: anchor.key,
+    featureKind: 'contactCenter',
+    config: config.contactCenter ?? {
+      status: 'not-applicable',
+      reason:
+        'No independently measurable field contact center is applicable to this source state.',
+    },
+    dpr,
+  });
   const { measurement: composition, debug: compositionDebug } =
     measureScreenComposition({ data, image, dpr });
   if (composition.status === 'observed') {
@@ -954,6 +983,7 @@ for (const anchor of manifest.states) {
     boundary,
     copy,
     fieldProfile,
+    contactCenter,
     composition,
   };
 
@@ -997,6 +1027,13 @@ const summary = states.reduce(
     } else {
       counts.fieldProfileNotApplicable += 1;
     }
+    if (state.contactCenter.status === 'observed') {
+      counts.contactCenterMeasured += 1;
+    } else if (state.contactCenter.status === 'blocked') {
+      counts.contactCenterBlocked += 1;
+    } else {
+      counts.contactCenterNotApplicable += 1;
+    }
     if (state.composition.status === 'observed') {
       counts.compositionMeasured += 1;
     } else {
@@ -1026,6 +1063,9 @@ const summary = states.reduce(
     fieldProfileMeasured: 0,
     fieldProfileBlocked: 0,
     fieldProfileNotApplicable: 0,
+    contactCenterMeasured: 0,
+    contactCenterBlocked: 0,
+    contactCenterNotApplicable: 0,
     compositionMeasured: 0,
     compositionBlocked: 0,
     primaryStructureMeasured: 0,
@@ -1034,7 +1074,7 @@ const summary = states.reduce(
 );
 
 const report = {
-  schemaVersion: 7,
+  schemaVersion: 8,
   algorithmVersion,
   generatedBy: 'tools/hero-reference/measure-recording-bounds.mjs',
   authority: {
@@ -1063,7 +1103,7 @@ const report = {
     noManualBoxes:
       'No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.',
     featureStatus:
-      'Every landmark, route, boundary, copy, and field-profile feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.',
+      'Every landmark, route, boundary, copy, field-profile, and contact-center feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.',
     chroma:
       'Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.',
     edges:
@@ -1078,6 +1118,8 @@ const report = {
       'Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.',
     fieldTileProfile:
       'Applicable field states report a shared bright-neutral predicate, component-shape gates, visible tile-top count, field envelope, component centroid, median tile-top size, and mask support. Clipped, activated, recolored, or bloom-obscured tiles are never inferred; changes in surviving neutral components remain part of the observed reaction profile.',
+    fieldContactCenter:
+      'The field-contact state independently reports the largest saturated blue/violet center-tile component through the same source/implementation predicate. It locates contact without substituting for the source-tied tile-plus-standing-figure semantic landmark union.',
     screenComposition:
       'Every state reports a fixed-grid binary Sobel edge-support distribution, density, and centroid below the header band. These are screen-space composition and negative-space proxies; the 3D camera position/quaternion remain explicitly unknown and are never reconstructed from rendered pixels.',
     quality:
@@ -1091,10 +1133,10 @@ const report = {
 
 const updatedManifest = {
   ...manifest,
-  schemaVersion: 3,
+  schemaVersion: 4,
   anchorPolicy: {
     ...manifest.anchorPolicy,
-    unmeasuredFields: `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states, ${summary.copyBlocked} copy states, and ${summary.fieldProfileBlocked} field profiles remain blocked.`,
+    unmeasuredFields: `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.contactCenterMeasured} field contact center, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states, ${summary.copyBlocked} copy states, ${summary.fieldProfileBlocked} field profiles, and ${summary.contactCenterBlocked} contact centers remain blocked.`,
   },
   structuralBoundsEvidence: {
     status:
@@ -1115,6 +1157,9 @@ const updatedManifest = {
     fieldProfileMeasured: summary.fieldProfileMeasured,
     fieldProfileBlocked: summary.fieldProfileBlocked,
     fieldProfileNotApplicable: summary.fieldProfileNotApplicable,
+    contactCenterMeasured: summary.contactCenterMeasured,
+    contactCenterBlocked: summary.contactCenterBlocked,
+    contactCenterNotApplicable: summary.contactCenterNotApplicable,
     compositionMeasured: summary.compositionMeasured,
     compositionBlocked: summary.compositionBlocked,
     primaryStructureMeasured: summary.primaryStructureMeasured,
@@ -1145,7 +1190,7 @@ const updatedManifest = {
         ? {
             ...entry,
             status: 'partially-observed',
-            reason: `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states, ${summary.copyBlocked} copy states, and ${summary.fieldProfileBlocked} field profiles remain blocked.`,
+            reason: `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.contactCenterMeasured} field contact center, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states, ${summary.copyBlocked} copy states, ${summary.fieldProfileBlocked} field profiles, and ${summary.contactCenterBlocked} contact centers remain blocked.`,
           }
         : entry;
     },
@@ -1178,5 +1223,5 @@ if (checkOnly) {
 }
 
 console.log(
-  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.landmarkNotApplicable} landmark not applicable, ${summary.routeMeasured} route measured, ${summary.copyMeasured} copy measured, ${summary.copyBlocked} copy blocked, ${summary.fieldProfileMeasured} field profile measured, ${summary.fieldProfileBlocked} field profile blocked, ${summary.boundaryMeasured} boundary measured, ${summary.compositionMeasured} composition measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
+  `Recording bounds: ${summary.landmarkMeasured} landmark measured, ${summary.landmarkBlocked} landmark blocked, ${summary.landmarkNotApplicable} landmark not applicable, ${summary.routeMeasured} route measured, ${summary.copyMeasured} copy measured, ${summary.copyBlocked} copy blocked, ${summary.fieldProfileMeasured} field profile measured, ${summary.fieldProfileBlocked} field profile blocked, ${summary.contactCenterMeasured} contact center measured, ${summary.contactCenterBlocked} contact center blocked, ${summary.boundaryMeasured} boundary measured, ${summary.compositionMeasured} composition measured${checkOnly ? ' (reproducibility check passed)' : ''}.`,
 );
