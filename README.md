@@ -13,7 +13,13 @@ Nx monorepo for two Next.js apps:
 
 ## Local Development
 
+The workspace is pinned to Node 24.19.0 and pnpm 10.8.1. With nvm and
+Corepack installed, activate the repository toolchain before installing:
+
 ```sh
+nvm install
+nvm use
+corepack enable
 pnpm install
 pnpm dev:pegasoft
 pnpm dev:individual
