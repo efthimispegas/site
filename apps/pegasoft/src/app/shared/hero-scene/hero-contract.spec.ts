@@ -161,12 +161,12 @@ describe('hero reference-state contract', () => {
       },
       {
         key: 'field-pulse-b',
-        landmark: [682, 326, 85, 87.5],
+        landmark: [685, 326, 83, 88],
         landmarkStatus: 'observed',
         primaryStructure: {
           kind: 'landmark',
           status: 'observed',
-          label: 'elevated blue center tile',
+          label: 'elevated blue-violet center tile',
           evidenceRef:
             'docs/hero-reference/recording-structural-bounds.json#/states/11/landmark',
         },

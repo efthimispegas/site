@@ -5,6 +5,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { measureScreenComposition } from './screen-composition.mjs';
 import {
+  FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
   IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
   JOURNEY_EXIT_BOUNDARY_CONFIG,
@@ -89,6 +90,13 @@ type FieldTileProfileConfig =
 const FIELD_TILE_PROFILE_CONFIGS: Partial<
   Record<ReferenceStateKey, FieldTileProfileConfig>
 > = FIELD_TILE_PROFILE_CONFIG_BY_STATE;
+
+type FieldContactCenterConfig =
+  (typeof FIELD_CONTACT_CENTER_CONFIG_BY_STATE)[keyof typeof FIELD_CONTACT_CENTER_CONFIG_BY_STATE];
+
+const FIELD_CONTACT_CENTER_CONFIGS: Partial<
+  Record<ReferenceStateKey, FieldContactCenterConfig>
+> = FIELD_CONTACT_CENTER_CONFIG_BY_STATE;
 
 const outputRoot = path.resolve(
   process.cwd(),
@@ -238,6 +246,7 @@ async function measureImplementationStructure(
   const copyConfig = COPY_CONFIG_BY_STATE[stateKey];
   const routeConfig = ROUTE_CONFIGS[stateKey];
   const fieldTileProfileConfig = FIELD_TILE_PROFILE_CONFIGS[stateKey];
+  const fieldContactCenterConfig = FIELD_CONTACT_CENTER_CONFIGS[stateKey];
   const route = routeConfig
     ? withSourceArtifact(
         measureChromaFeature({
@@ -268,6 +277,16 @@ async function measureImplementationStructure(
         }).measurement,
       )
     : undefined;
+  const contactCenter = fieldContactCenterConfig
+    ? withSourceArtifact(
+        measureLandmarkFeature({
+          data,
+          image: info,
+          dpr: devicePixelRatio,
+          config: fieldContactCenterConfig,
+        }).measurement,
+      )
+    : undefined;
   const boundary =
     stateKey === 'journey-exit'
       ? withSourceArtifact(
@@ -281,7 +300,7 @@ async function measureImplementationStructure(
       : undefined;
 
   return {
-    schemaVersion: 5,
+    schemaVersion: 6,
     screenComposition: {
       ...screenComposition,
       sourceArtifact,
@@ -290,6 +309,7 @@ async function measureImplementationStructure(
     ...(route ? { route } : {}),
     ...(copy ? { copy } : {}),
     ...(fieldProfile ? { fieldProfile } : {}),
+    ...(contactCenter ? { contactCenter } : {}),
     ...(boundary ? { boundary } : {}),
   };
 }
@@ -580,7 +600,7 @@ test.afterAll(async () => {
     })),
   );
   const manifest = {
-    schemaVersion: 6,
+    schemaVersion: 7,
     status: 'complete',
     runId: captureRunId,
     startedAt: captureRunStartedAt,
@@ -632,7 +652,7 @@ for (const stateKey of REFERENCE_STATES) {
       pageMeasurement.viewport.devicePixelRatio,
     );
     const measurement = {
-      schemaVersion: 6,
+      schemaVersion: 7,
       ...pageMeasurement,
       structuralAccuracy,
     };

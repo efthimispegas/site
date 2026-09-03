@@ -711,10 +711,10 @@ export const referenceStates = [
     routeSegment: 'connected cyan route plus outer field pulse',
     interactionMode: 'progress-gated local field clock',
     interactionEvidence: 'inferred',
-    primaryStructureLabel: 'elevated blue center tile',
+    primaryStructureLabel: 'elevated blue-violet center tile',
     primaryStructureEvidenceRef:
       'docs/hero-reference/recording-structural-bounds.json#/states/11/landmark',
-    landmarkBounds: [682, 326, 85, 87.5],
+    landmarkBounds: [685, 326, 83, 88],
     routeStatus: 'observed',
     routeLabel:
       'visible high-chroma core of incoming cyan feed during outer pulse',

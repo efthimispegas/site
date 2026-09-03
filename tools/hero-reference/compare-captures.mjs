@@ -6,6 +6,7 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 import {
+  FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
   IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
   LANDMARK_CONFIG_BY_STATE,
@@ -50,6 +51,9 @@ const STRUCTURAL_TOLERANCES = {
   compositionCentroidNormalized: 0.0075,
   negativeSpaceOccupancy: 0.03,
   copyBoundsCssPixels: 2,
+  contactCenterCenterNormalized: 0.0075,
+  contactCenterSilhouetteIouMinimum: 0.9,
+  contactCenterSizeRatio: 0.02,
   fieldEnvelopeCenterNormalized: 0.0075,
   fieldEnvelopeSizeRatio: 0.02,
   fieldMedianTileCssPixelsMinimum: 1,
@@ -75,6 +79,9 @@ const IMPLEMENTATION_LANDMARK_STATES = new Set([
 ]);
 const IMPLEMENTATION_FIELD_PROFILE_STATES = new Set(
   Object.keys(FIELD_TILE_PROFILE_CONFIG_BY_STATE),
+);
+const IMPLEMENTATION_CONTACT_CENTER_STATES = new Set(
+  Object.keys(FIELD_CONTACT_CENTER_CONFIG_BY_STATE),
 );
 const IMPLEMENTATION_COPY_STATES = new Set([
   'landing',
@@ -328,6 +335,29 @@ function isValidFieldProfile(feature, sourceArtifact, stateKey) {
   );
 }
 
+function isValidContactCenterFeature(feature, sourceArtifact, stateKey) {
+  const config = FIELD_CONTACT_CENTER_CONFIG_BY_STATE[stateKey];
+  if (
+    !config ||
+    !isValidStructuralFeature(feature, sourceArtifact, config.method) ||
+    feature.label !== config.label ||
+    !isFiniteTuple(feature.method?.roiNormalized, 4) ||
+    feature.method.roiNormalized.some(
+      (component, index) => component !== config.roi[index],
+    )
+  ) {
+    return false;
+  }
+  if (feature.status === 'blocked') {
+    return true;
+  }
+  return (
+    feature.method.predicate?.id === config.predicate.id &&
+    feature.method.minimumComponentPixels === config.minimumComponentPixels &&
+    feature.method.minimumSelectedPixels === config.minimumSelectedPixels
+  );
+}
+
 function verifyMeasurementSemantics(stateKey, artifact) {
   let measurement;
   try {
@@ -348,6 +378,7 @@ function verifyMeasurementSemantics(stateKey, artifact) {
   const landmarkFeature = measurement.structuralAccuracy?.landmark;
   const routeFeature = measurement.structuralAccuracy?.route;
   const fieldProfileFeature = measurement.structuralAccuracy?.fieldProfile;
+  const contactCenterFeature = measurement.structuralAccuracy?.contactCenter;
   const boundaryFeature = measurement.structuralAccuracy?.boundary;
   const validRouteFeature = IMPLEMENTATION_ROUTE_STATES.has(stateKey)
     ? isValidRouteFeature(routeFeature, expectedSourceArtifact, stateKey)
@@ -371,6 +402,15 @@ function verifyMeasurementSemantics(stateKey, artifact) {
         stateKey,
       )
     : fieldProfileFeature === undefined;
+  const validContactCenterFeature = IMPLEMENTATION_CONTACT_CENTER_STATES.has(
+    stateKey,
+  )
+    ? isValidContactCenterFeature(
+        contactCenterFeature,
+        expectedSourceArtifact,
+        stateKey,
+      )
+    : contactCenterFeature === undefined;
   const validBoundaryFeature =
     stateKey === 'journey-exit'
       ? isValidStructuralFeature(
@@ -392,14 +432,15 @@ function verifyMeasurementSemantics(stateKey, artifact) {
     Boolean(measurement.bounds?.canvas);
 
   if (
-    measurement.schemaVersion !== 6 ||
-    measurement.structuralAccuracy?.schemaVersion !== 5 ||
+    measurement.schemaVersion !== 7 ||
+    measurement.structuralAccuracy?.schemaVersion !== 6 ||
     !isObservedScreenComposition(screenComposition) ||
     screenComposition.sourceArtifact !== expectedSourceArtifact ||
     !validLandmarkFeature ||
     !validRouteFeature ||
     !validCopyFeature ||
     !validFieldProfileFeature ||
+    !validContactCenterFeature ||
     !validBoundaryFeature ||
     measurement.stateKey !== stateKey ||
     measurement.viewport?.width !== recordingProfile.cssViewport.width ||
@@ -469,7 +510,7 @@ async function verifyCaptureManifest() {
     captureStartedAt <= captureCompletedAt;
 
   if (
-    captureManifest.schemaVersion !== 6 ||
+    captureManifest.schemaVersion !== 7 ||
     captureManifest.status !== 'complete' ||
     !validRunId ||
     !validRunWindow ||
@@ -866,6 +907,116 @@ function measureFieldTileProfileEvidence({
         status === 'blocked'
           ? 'The shared predicate and component gates observe the locked source field, but the implementation does not emit enough source-qualifying visible tile tops; the comparison remains blocker evidence.'
           : 'The same renderer-independent predicate and component-shape gates isolate visible neutral tile tops in both locked rasters. Direct mask overlap, component count, field envelope, and median tile-top size are eligible structural evidence.',
+    },
+    comparison: createLandmarkMaskComparison(
+      referenceResult.debug.mask,
+      implementationResult.debug.mask,
+    ),
+  };
+}
+
+function measureFieldContactCenterEvidence({
+  state,
+  measurement,
+  referenceImage,
+  implementationImage,
+  dpr,
+}) {
+  const config = FIELD_CONTACT_CENTER_CONFIG_BY_STATE[state.key];
+  if (!config) {
+    return null;
+  }
+
+  const referenceResult = measureLandmarkFeature({
+    data: referenceImage.data,
+    image: referenceImage.info,
+    dpr,
+    config,
+  });
+  const implementationResult = measureLandmarkFeature({
+    data: implementationImage.data,
+    image: implementationImage.info,
+    dpr,
+    config,
+  });
+  const referenceMeasurement = referenceResult.measurement;
+  const implementationMeasurement = implementationResult.measurement;
+  const recordedImplementation =
+    measurement?.structuralAccuracy?.contactCenter;
+
+  assert.equal(
+    referenceMeasurement.status,
+    'observed',
+    `${state.key}: contact-center measurement no longer observes the locked recording anchor`,
+  );
+  assert.deepEqual(
+    referenceMeasurement.bounds.cssPixels,
+    state.screenBounds?.contactCenter,
+    `${state.key}: recomputed recording contact-center bounds drifted from the locked manifest`,
+  );
+  assert.ok(
+    recordedImplementation,
+    `${state.key}: capture did not record a contact-center measurement`,
+  );
+  const recordedImplementationCore = Object.fromEntries(
+    Object.entries(recordedImplementation).filter(
+      ([property]) => property !== 'sourceArtifact',
+    ),
+  );
+  assert.deepEqual(
+    implementationMeasurement,
+    recordedImplementationCore,
+    `${state.key}: recomputed implementation contact-center measurement drifted from the capture record`,
+  );
+
+  const overlap = countMaskOverlap(
+    referenceResult.debug.mask,
+    implementationResult.debug.mask,
+  );
+  const status =
+    implementationMeasurement.status === 'observed' &&
+    Number.isFinite(overlap.iou)
+      ? 'observed'
+      : 'blocked';
+
+  return {
+    evidence: {
+      status,
+      evidenceClass: status === 'observed' ? 'observed' : 'blocked',
+      semanticRole: 'contact-center-tile-silhouette',
+      label: config.label,
+      method: {
+        id: config.method,
+        sharedImplementation:
+          'apps/pegasoft-e2e/src/visual/screen-structural-features.mjs#measureLandmarkFeature',
+        sourceSemanticMask: null,
+      },
+      reference: {
+        artifactPath: state.anchor.capturePath,
+        bounds: referenceMeasurement.bounds,
+        pixelSupport: overlap.referencePixelSupport,
+      },
+      implementation: {
+        artifactPath: relative(
+          path.join(implementationRoot, `${state.key}.png`),
+        ),
+        bounds:
+          implementationMeasurement.status === 'observed'
+            ? implementationMeasurement.bounds
+            : null,
+        pixelSupport: overlap.implementationPixelSupport,
+      },
+      overlap: {
+        intersectionPixelCount: overlap.intersectionPixelCount,
+        unionPixelCount: overlap.unionPixelCount,
+        iou: overlap.iou,
+      },
+      reason:
+        status === 'blocked'
+          ? implementationMeasurement.reason
+          : null,
+      qualification:
+        'This shared chroma silhouette locates the saturated contact center only. It is independent evidence and does not substitute for the source-tied tile-plus-standing-figure semantic landmark union.',
     },
     comparison: createLandmarkMaskComparison(
       referenceResult.debug.mask,
@@ -1305,6 +1456,7 @@ function evaluateStructuralAccuracy(
   landmarkMaskEvidence,
   routeCenterlineEvidence,
   fieldTileProfileEvidence,
+  fieldContactCenterEvidence,
 ) {
   const blockers = [];
   const checks = [];
@@ -1339,6 +1491,14 @@ function evaluateStructuralAccuracy(
     Array.isArray(state.screenBounds?.fieldProfile) &&
     state.screenBounds?.fieldProfileComponentProfile;
   const implementationFieldProfile = implementationStructural?.fieldProfile;
+  const contactCenterApplicable = IMPLEMENTATION_CONTACT_CENTER_STATES.has(
+    state.key,
+  );
+  const sourceContactCenterMeasured =
+    state.screenBounds?.contactCenterStatus === 'observed' &&
+    Array.isArray(state.screenBounds?.contactCenter);
+  const implementationContactCenter =
+    implementationStructural?.contactCenter;
   const implementationPrimaryMeasured =
     implementationStructural?.[primaryStructure.kind]?.status === 'observed';
   const implementationPrimaryBlocked =
@@ -1407,6 +1567,20 @@ function evaluateStructuralAccuracy(
       implementationFieldProfile?.status === 'blocked'
         ? 'implementation field tile profile source-predicate quality gate is blocked'
         : 'implementation field tile profile is not emitted',
+    );
+  }
+  if (contactCenterApplicable && !sourceContactCenterMeasured) {
+    blockers.push('authoritative source field contact center is unmeasured');
+  }
+  if (
+    contactCenterApplicable &&
+    sourceContactCenterMeasured &&
+    implementationContactCenter?.status !== 'observed'
+  ) {
+    blockers.push(
+      implementationContactCenter?.status === 'blocked'
+        ? 'implementation field contact-center source-predicate quality gate is blocked'
+        : 'implementation field contact center is not emitted',
     );
   }
 
@@ -1650,6 +1824,60 @@ function evaluateStructuralAccuracy(
   }
 
   if (
+    contactCenterApplicable &&
+    sourceContactCenterMeasured &&
+    implementationContactCenter?.status === 'observed'
+  ) {
+    const [sourceX, sourceY, sourceWidth, sourceHeight] =
+      state.screenBounds.contactCenter;
+    const [actualX, actualY, actualWidth, actualHeight] =
+      implementationContactCenter.bounds.cssPixels;
+    const profileWidth = manifest.authority.recordingProfile.cssViewport.width;
+    const profileHeight =
+      manifest.authority.recordingProfile.cssViewport.height;
+
+    checks.push(
+      compareScalar(
+        'contactCenter.center.normalized.x',
+        (sourceX + sourceWidth / 2) / profileWidth,
+        (actualX + actualWidth / 2) / profileWidth,
+        STRUCTURAL_TOLERANCES.contactCenterCenterNormalized,
+      ),
+      compareScalar(
+        'contactCenter.center.normalized.y',
+        (sourceY + sourceHeight / 2) / profileHeight,
+        (actualY + actualHeight / 2) / profileHeight,
+        STRUCTURAL_TOLERANCES.contactCenterCenterNormalized,
+      ),
+      compareScalar(
+        'contactCenter.size.cssPixels.width',
+        sourceWidth,
+        actualWidth,
+        sourceWidth * STRUCTURAL_TOLERANCES.contactCenterSizeRatio,
+      ),
+      compareScalar(
+        'contactCenter.size.cssPixels.height',
+        sourceHeight,
+        actualHeight,
+        sourceHeight * STRUCTURAL_TOLERANCES.contactCenterSizeRatio,
+      ),
+    );
+    if (fieldContactCenterEvidence?.status === 'observed') {
+      checks.push(
+        compareMinimum(
+          'contactCenter.silhouette.iou',
+          STRUCTURAL_TOLERANCES.contactCenterSilhouetteIouMinimum,
+          fieldContactCenterEvidence.overlap.iou,
+        ),
+      );
+    } else {
+      blockers.push(
+        'field contact-center mask-overlap evidence is blocked for the observed implementation center',
+      );
+    }
+  }
+
+  if (
     primaryStructure.kind === 'boundary' &&
     sourcePrimaryMeasured &&
     implementationStructural?.boundary?.status === 'observed'
@@ -1720,6 +1948,7 @@ function evaluateStructuralAccuracy(
     landmarkMaskEvidence,
     routeCenterlineEvidence,
     fieldTileProfileEvidence,
+    fieldContactCenterEvidence,
     tolerances: STRUCTURAL_TOLERANCES,
     note:
       blockers.length > 0
@@ -2313,12 +2542,41 @@ for (const state of manifest.states) {
       },
     };
   }
+  const fieldContactCenterResult = measureFieldContactCenterEvidence({
+    state,
+    measurement,
+    referenceImage,
+    implementationImage,
+    dpr: manifest.authority.recordingProfile.devicePixelRatio.value,
+  });
+  let fieldContactCenterEvidence =
+    fieldContactCenterResult?.evidence ?? null;
+  if (fieldContactCenterResult) {
+    const fieldContactCenterPath = path.join(
+      comparisonRoot,
+      `${state.key}-contact-center-mask.png`,
+    );
+    await sharp(fieldContactCenterResult.comparison, imageOptions)
+      .png()
+      .toFile(fieldContactCenterPath);
+    fieldContactCenterEvidence = {
+      ...fieldContactCenterEvidence,
+      comparisonArtifactPath: relative(fieldContactCenterPath),
+      comparisonLegend: {
+        referenceOnly: '#ff40c0',
+        implementationOnly: '#00c8ff',
+        intersection: '#f5f5f5',
+        neither: '#0e1014',
+      },
+    };
+  }
   const structuralAccuracy = evaluateStructuralAccuracy(
     state,
     measurement,
     landmarkMaskEvidence,
     routeCenterlineEvidence,
     fieldTileProfileEvidence,
+    fieldContactCenterEvidence,
   );
   const domLayout = evaluateDomLayout(state.key, measurement);
   const identityMask = createIdentityMaskAudit(
@@ -2372,6 +2630,8 @@ const structuralCheckSummary = states.reduce(
     for (const check of state.structuralAccuracy.checks) {
       const group = check.metric.startsWith('copy.')
         ? 'copy'
+        : check.metric.startsWith('contactCenter.')
+          ? 'contactCenter'
         : check.metric.startsWith('field.')
           ? 'field'
         : check.metric.startsWith('landmark.')
@@ -2388,6 +2648,7 @@ const structuralCheckSummary = states.reduce(
   {
     composition: { pass: 0, fail: 0 },
     copy: { pass: 0, fail: 0 },
+    contactCenter: { pass: 0, fail: 0 },
     field: { pass: 0, fail: 0 },
     landmark: { pass: 0, fail: 0 },
     route: { pass: 0, fail: 0 },
@@ -2409,7 +2670,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 12,
+  schemaVersion: 13,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),

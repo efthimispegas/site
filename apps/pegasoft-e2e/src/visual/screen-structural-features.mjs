@@ -40,6 +40,15 @@ const DEEP_BLUE = Object.freeze({
   },
 });
 
+const BLUE_VIOLET_FIELD_CENTER = Object.freeze({
+  id: 'blue-violet-field-center',
+  description:
+    'b-r >= 25, b-g >= 35, b >= 150, and g <= 205 in 8-bit sRGB',
+  test(red, green, blue) {
+    return blue - red >= 25 && blue - green >= 35 && blue >= 150 && green <= 205;
+  },
+});
+
 const BRIGHT_NEUTRAL_TILE_TOP = Object.freeze({
   id: 'bright-neutral-field-tile-top',
   description:
@@ -77,14 +86,14 @@ export const LANDMARK_CONFIG_BY_STATE = Object.freeze({
       'The blue loader mark remains the only saturated-blue central landmark while the pale world emerges. The ROI excludes the red rails and peripheral scene objects.',
   }),
   'field-pulse-b': Object.freeze({
-    label: 'elevated blue center tile',
+    label: 'elevated blue-violet center tile',
     method: 'largest-chroma-component',
-    predicate: DEEP_BLUE,
+    predicate: BLUE_VIOLET_FIELD_CENTER,
     roi: Object.freeze([0.35, 0.25, 0.3, 0.5]),
     minimumComponentPixels: 120,
     minimumSelectedPixels: 1200,
     rationale:
-      'The elevated saturated-blue center tile is the stable primary landmark named by the manifest. The later outer pulse band remains a separate effect and is not included in this silhouette box.',
+      'The elevated saturated blue/violet center tile is the stable primary landmark named by the manifest. The predicate admits the reference blue and implementation violet material while rejecting the cyan pulse band; the later outer pulse remains a separate effect.',
   }),
   'arrival-lockup': Object.freeze({
     label: 'large frontal arrival arrow',
@@ -187,6 +196,19 @@ export const FIELD_TILE_PROFILE_CONFIG_BY_STATE = Object.freeze({
     minimumSelectedComponents: 15,
     rationale:
       'The contact-camera ROI measures neutral tile tops that remain readable during the outer pulse. Recolored outer tiles and the saturated center are intentionally absent, so the surviving component mask records the source pulse profile without inferring hidden tiles.',
+  }),
+});
+
+export const FIELD_CONTACT_CENTER_CONFIG_BY_STATE = Object.freeze({
+  'field-contact': Object.freeze({
+    label: 'saturated field contact center tile',
+    method: 'largest-chroma-component',
+    predicate: BLUE_VIOLET_FIELD_CENTER,
+    roi: Object.freeze([0.35, 0.25, 0.3, 0.5]),
+    minimumComponentPixels: 120,
+    minimumSelectedPixels: 1200,
+    rationale:
+      'The saturated center tile is independently measurable in both rasters and records the contact center without borrowing the source semantic mask. This tile-only chroma observable does not replace the authoritative tile-plus-standing-figure landmark union.',
   }),
 });
 
