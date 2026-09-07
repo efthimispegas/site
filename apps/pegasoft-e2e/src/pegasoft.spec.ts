@@ -315,7 +315,7 @@ function expectEquivalentHeroSignature(
 test('homepage presents Pegasoft CTA and 3D/fallback surface', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/?__heroState=landing-idle');
   const referenceState = await waitForSettledLandingState(page);
 
   await expect(
@@ -395,7 +395,7 @@ test('mobile layout avoids horizontal overflow', async ({ page }) => {
 test('homepage has no serious or critical accessibility violations', async ({
   page,
 }) => {
-  await page.goto('/');
+  await page.goto('/?__heroState=landing-idle');
   await expect(page.getByRole('main')).toBeVisible();
   await waitForSettledLandingState(page);
 
