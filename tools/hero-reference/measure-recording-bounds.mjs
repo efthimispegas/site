@@ -35,7 +35,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v12';
+const algorithmVersion = 'recording-structural-bounds-v13';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -60,7 +60,8 @@ const STATE_MEASUREMENTS = {
     route: ROUTE_CONFIG_BY_STATE['world-reveal'],
   },
   landing: {
-    primaryStructure: 'landmark',
+    primaryStructure: 'composition',
+    primaryStructureLabel: 'resolved landing screen-space composition',
     landmark: {
       status: 'blocked',
       label: 'landing industrial context aggregate',
@@ -76,7 +77,9 @@ const STATE_MEASUREMENTS = {
     copy: LANDING_COPY_CONFIG,
   },
   'landing-idle': {
-    primaryStructure: 'landmark',
+    primaryStructure: 'composition',
+    primaryStructureLabel:
+      'resolved landing screen-space composition during route idle',
     landmark: {
       status: 'blocked',
       label: 'landing industrial context aggregate at route idle',
@@ -133,7 +136,8 @@ const STATE_MEASUREMENTS = {
       FIELD_TILE_PROFILE_CONFIG_BY_STATE['clearance-field-preview'],
   },
   'field-approach': {
-    primaryStructure: 'landmark',
+    primaryStructure: 'fieldProfile',
+    primaryStructureLabel: 'visible bright-neutral field tile-top profile',
     landmark: {
       status: 'blocked',
       label: 'elevated field-center tile and figure',
@@ -158,7 +162,9 @@ const STATE_MEASUREMENTS = {
     contactCenter: FIELD_CONTACT_CENTER_CONFIG_BY_STATE['field-contact'],
   },
   'field-pulse-a': {
-    primaryStructure: 'landmark',
+    primaryStructure: 'fieldProfile',
+    primaryStructureLabel:
+      'visible bright-neutral field tile-top profile during inner pulse',
     landmark: {
       status: 'blocked',
       label: 'field center during inner pulse',
@@ -670,12 +676,7 @@ function updateAnchorScreenBounds(anchor, stateEvidence, stateIndex) {
   const contactCenterEvidenceRef = contactCenterObserved
     ? `${evidenceRef}/states/${stateIndex}/contactCenter`
     : null;
-  const primaryEvidenceRef =
-    stateEvidence.primaryStructure.kind === 'landmark'
-      ? landmarkEvidenceRef
-      : stateEvidence.primaryStructure.kind === 'route'
-        ? routeEvidenceRef
-        : boundaryEvidenceRef;
+  const primaryEvidenceRef = stateEvidence.primaryStructure.evidenceRef;
   const next = {
     ...prior,
     status: primaryObserved ? 'observed' : 'unknown',
@@ -837,7 +838,9 @@ for (const anchor of manifest.states) {
   if (
     config.primaryStructure !== 'landmark' &&
     config.primaryStructure !== 'route' &&
-    config.primaryStructure !== 'boundary'
+    config.primaryStructure !== 'boundary' &&
+    config.primaryStructure !== 'fieldProfile' &&
+    config.primaryStructure !== 'composition'
   ) {
     throw new Error(
       `${anchor.key}: unsupported primary structure ${config.primaryStructure}`,
@@ -951,6 +954,8 @@ for (const anchor of manifest.states) {
     route,
     boundary,
     copy,
+    fieldProfile,
+    composition,
   }[config.primaryStructure];
   const stateIndex = states.length;
   const stateEvidence = {
@@ -970,7 +975,7 @@ for (const anchor of manifest.states) {
     primaryStructure: {
       kind: config.primaryStructure,
       status: primaryFeature.status,
-      label: primaryFeature.label ?? null,
+      label: config.primaryStructureLabel ?? primaryFeature.label ?? null,
       evidenceRef:
         primaryFeature.status === 'observed'
           ? `${evidenceRef}/states/${stateIndex}/${config.primaryStructure}`
@@ -1074,7 +1079,7 @@ const summary = states.reduce(
 );
 
 const report = {
-  schemaVersion: 8,
+  schemaVersion: 9,
   algorithmVersion,
   generatedBy: 'tools/hero-reference/measure-recording-bounds.mjs',
   authority: {
@@ -1103,7 +1108,7 @@ const report = {
     noManualBoxes:
       'No output rectangle is hand-entered. Pixel methods derive boxes from fixed segmentation rules; source-semantic-mask methods derive boxes from hash-locked SVG classifications tied to the exact recording frame.',
     featureStatus:
-      'Every landmark, route, boundary, copy, field-profile, and contact-center feature is explicitly observed, blocked, or not-applicable. Each state names a landmark, route, or boundary as its primary structure so a route-primary or transition-primary frame is not failed for lacking a destination silhouette.',
+      'Every landmark, route, boundary, copy, field-profile, contact-center, and composition feature is explicitly observed, blocked, or not-applicable. Each state names the directly visible landmark, route, boundary, field profile, or composition as its primary structure, so a scene-, field-, route-, or transition-primary frame is not failed for lacking an isolatable destination silhouette.',
     chroma:
       'Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.',
     edges:
@@ -1133,10 +1138,10 @@ const report = {
 
 const updatedManifest = {
   ...manifest,
-  schemaVersion: 4,
+  schemaVersion: 5,
   anchorPolicy: {
     ...manifest.anchorPolicy,
-    unmeasuredFields: `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.contactCenterMeasured} field contact center, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} route/transition-primary states mark landmark bounds not applicable, while ${summary.landmarkBlocked} genuinely ambiguous landmark states, ${summary.copyBlocked} copy states, ${summary.fieldProfileBlocked} field profiles, and ${summary.contactCenterBlocked} contact centers remain blocked.`,
+    unmeasuredFields: `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.contactCenterMeasured} field contact center, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} states mark landmark bounds not applicable and ${summary.landmarkBlocked} non-primary landmarks remain honestly blocked, while ${summary.copyBlocked} copy states, ${summary.fieldProfileBlocked} field profiles, and ${summary.contactCenterBlocked} contact centers remain blocked.`,
   },
   structuralBoundsEvidence: {
     status:
@@ -1190,7 +1195,7 @@ const updatedManifest = {
         ? {
             ...entry,
             status: 'partially-observed',
-            reason: `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.contactCenterMeasured} field contact center, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} route/transition-primary states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} landmark-primary states, ${summary.copyBlocked} copy states, ${summary.fieldProfileBlocked} field profiles, and ${summary.contactCenterBlocked} contact centers remain blocked.`,
+            reason: `The deterministic structural-bounds pipeline measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.contactCenterMeasured} field contact center, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary. ${summary.landmarkNotApplicable} states correctly mark landmark bounds not applicable; ${summary.landmarkBlocked} non-primary landmarks remain honestly blocked without blocking their states, while ${summary.copyBlocked} copy states, ${summary.fieldProfileBlocked} field profiles, and ${summary.contactCenterBlocked} contact centers remain blocked.`,
           }
         : entry;
     },

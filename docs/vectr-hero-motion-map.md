@@ -189,9 +189,13 @@ comparison.
   applicable route state is measured; `loader-mark`, the exact `landing`
   frame, and `journey-exit` correctly mark route bounds not applicable. Four
   route/transition-primary states correctly mark landmark bounds not
-  applicable. Four landmark-primary states remain explicitly blocked because
-  the semantic subject cannot be isolated without a reviewed source-tied mask
-  or because only a partial/effect-only feature is visible.
+  applicable. The two disconnected landing aggregates use screen composition
+  as their primary structure, and the two obscured field states use field
+  profile. All 15 source-primary structures are therefore observed without
+  inventing subjective landmark boxes. The four corresponding landmark fields
+  remain explicitly blocked secondary evidence because the semantic subject
+  cannot be isolated without a reviewed source-tied mask or because only a
+  partial/effect-only feature is visible.
 - Copy ink is measured for both landing anchors and nine fully readable
   process-ladder anchors. `arrival-travel` remains blocked because its body is
   faded into similar-valued field/route pixels; `journey-exit` remains blocked
@@ -207,7 +211,7 @@ comparison.
   fail 94: global negative-space occupancy passes 14/15, centroid axes pass
   5/30, and fixed-grid occupancy passes 172/240. These failures are current
   calibration evidence, not visual acceptance.
-- The schema-v5 capture measures all 11 source-applicable
+- The schema-v7 capture measures all 11 source-applicable
   implementation copy-ink envelopes and the `journey-exit` boundary with the
   source-derived predicates. Copy bounds pass 18/44 checks; the boundary
   passes 4/4. Source-blocked `arrival-travel` and `journey-exit` copy are not
@@ -238,9 +242,9 @@ comparison.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile; all 13 applicable contracts pass in the same current
   comparison run.
-- Remaining screen-space work includes the four blocked landmark-primary
-  states, complete route paths, copy/scene correspondence, field outline, and
-  negative space;
+- Remaining screen-space work includes refinement of the four blocked
+  non-primary landmark annotations, complete route paths, copy/scene
+  correspondence, field outline, and negative space;
 - route thickness and handoff/contact frames at matched viewports;
 - exact field tile boundary/count and pulse band profile;
 - pointer trail radius/falloff and camera displacement on representative

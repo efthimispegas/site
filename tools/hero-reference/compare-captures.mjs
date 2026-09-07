@@ -1466,8 +1466,6 @@ function evaluateStructuralAccuracy(
     status: 'blocked',
   };
   const primaryBounds = state.screenBounds?.[primaryStructure.kind];
-  const sourcePrimaryMeasured =
-    primaryStructure.status === 'observed' && Array.isArray(primaryBounds);
   const sourceRouteMeasured =
     state.screenBounds?.routeStatus === 'observed' ||
     state.screenBounds?.routeStatus === 'not-applicable';
@@ -1478,6 +1476,11 @@ function evaluateStructuralAccuracy(
   const sourceCompositionMeasured =
     isObservedScreenComposition(sourceComposition) &&
     typeof sourceComposition.evidenceRef === 'string';
+  const sourcePrimaryMeasured =
+    primaryStructure.status === 'observed' &&
+    (primaryStructure.kind === 'composition'
+      ? sourceCompositionMeasured
+      : Array.isArray(primaryBounds));
   const implementationStructural = measurement?.structuralAccuracy;
   const implementationComposition = implementationStructural?.screenComposition;
   const implementationCompositionMeasured = isObservedScreenComposition(
@@ -1499,14 +1502,18 @@ function evaluateStructuralAccuracy(
     Array.isArray(state.screenBounds?.contactCenter);
   const implementationContactCenter =
     implementationStructural?.contactCenter;
+  const implementationPrimaryFeature =
+    primaryStructure.kind === 'composition'
+      ? implementationComposition
+      : implementationStructural?.[primaryStructure.kind];
   const implementationPrimaryMeasured =
-    implementationStructural?.[primaryStructure.kind]?.status === 'observed';
+    implementationPrimaryFeature?.status === 'observed';
   const implementationPrimaryBlocked =
-    implementationStructural?.[primaryStructure.kind]?.status === 'blocked';
+    implementationPrimaryFeature?.status === 'blocked';
 
   if (!sourcePrimaryMeasured) {
     blockers.push(
-      `authoritative source ${primaryStructure.kind} primary-structure bounds are unmeasured`,
+      `authoritative source ${primaryStructure.kind} primary-structure evidence is unmeasured`,
     );
   }
   if (!sourceRouteMeasured) {
@@ -1526,6 +1533,10 @@ function evaluateStructuralAccuracy(
         ? implementationPrimaryBlocked
           ? 'implementation route source-predicate quality gate is blocked'
           : 'implementation route bounds are not emitted'
+        : primaryStructure.kind === 'fieldProfile'
+          ? implementationPrimaryBlocked
+            ? 'implementation field tile profile source-predicate quality gate is blocked'
+            : 'implementation field tile profile is not emitted'
         : primaryStructure.kind === 'landmark' && implementationPrimaryBlocked
           ? IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[state.key]
             ? 'implementation landmark semantic isolation is blocked'
@@ -1550,15 +1561,23 @@ function evaluateStructuralAccuracy(
   ) {
     blockers.push('implementation copy bounds are not emitted');
   }
-  if (!implementationCompositionMeasured) {
+  if (
+    primaryStructure.kind !== 'composition' &&
+    !implementationCompositionMeasured
+  ) {
     blockers.push(
       'implementation screen-space composition proxy is not emitted',
     );
   }
-  if (fieldProfileApplicable && !sourceFieldProfileMeasured) {
+  if (
+    primaryStructure.kind !== 'fieldProfile' &&
+    fieldProfileApplicable &&
+    !sourceFieldProfileMeasured
+  ) {
     blockers.push('authoritative source field tile profile is unmeasured');
   }
   if (
+    primaryStructure.kind !== 'fieldProfile' &&
     fieldProfileApplicable &&
     sourceFieldProfileMeasured &&
     implementationFieldProfile?.status !== 'observed'
@@ -2670,7 +2689,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 13,
+  schemaVersion: 14,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),

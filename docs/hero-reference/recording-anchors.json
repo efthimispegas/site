@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 4,
+  "schemaVersion": 5,
   "verifiedOn": "2026-07-28",
   "authority": {
     "status": "observed",
@@ -35,7 +35,7 @@
     "selection": "Each anchor is a representative frame for a named visual state, not necessarily the first transition frame.",
     "timing": "Journey timestamps are seek coordinates in this user-scrolled recording, not authored durations or normalized progress.",
     "generatedCapture": "The capture path and capture SHA verify a reproducible derivative; acceptance authority remains the MOV SHA plus frame index and PTS.",
-    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary; 4 route/transition-primary states mark landmark bounds not applicable, while 4 genuinely ambiguous landmark states, 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
+    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary; 4 states mark landmark bounds not applicable and 4 non-primary landmarks remain honestly blocked, while 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
   },
   "planCorrectionsEstablishedByExactFrames": [
     {
@@ -706,7 +706,7 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
+        "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
         "landmark": null,
@@ -722,13 +722,13 @@
           306
         ],
         "copyStatus": "observed",
-        "reason": "The landing focus is a disconnected industrial-context aggregate with members clipped by the lower viewport. A single enclosure would encode subjective membership and cannot be used as a precise landmark gate.",
+        "reason": "Primary composition measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
-          "kind": "landmark",
-          "status": "blocked",
-          "label": "landing industrial context aggregate",
-          "evidenceRef": null,
-          "reason": "The landing focus is a disconnected industrial-context aggregate with members clipped by the lower viewport. A single enclosure would encode subjective membership and cannot be used as a precise landmark gate."
+          "kind": "composition",
+          "status": "observed",
+          "label": "resolved landing screen-space composition",
+          "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/2/composition",
+          "reason": null
         },
         "landmarkStatus": "blocked",
         "routeStatus": "not-applicable",
@@ -987,7 +987,7 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
+        "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
         "landmark": null,
@@ -1008,13 +1008,13 @@
           303
         ],
         "copyStatus": "observed",
-        "reason": "The landing focus remains a disconnected, lower-viewport-clipped aggregate. The red packet is a route effect, and neither it nor a near-viewport-wide hand enclosure is a defensible landmark substitute.",
+        "reason": "Primary composition measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
-          "kind": "landmark",
-          "status": "blocked",
-          "label": "landing industrial context aggregate at route idle",
-          "evidenceRef": null,
-          "reason": "The landing focus remains a disconnected, lower-viewport-clipped aggregate. The red packet is a route effect, and neither it nor a near-viewport-wide hand enclosure is a defensible landmark substitute."
+          "kind": "composition",
+          "status": "observed",
+          "label": "resolved landing screen-space composition during route idle",
+          "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/3/composition",
+          "reason": null
         },
         "landmarkStatus": "blocked",
         "routeStatus": "observed",
@@ -2653,7 +2653,7 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
+        "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
         "landmark": null,
@@ -2674,13 +2674,13 @@
           280
         ],
         "copyStatus": "observed",
-        "reason": "Only a pale fragment of the elevated center and figure is visible among similar tiles, and the fixed header/viewport occludes its upper extent. Partial censored evidence cannot supply a complete landmark box.",
+        "reason": "Primary fieldProfile measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
-          "kind": "landmark",
-          "status": "blocked",
-          "label": "elevated field-center tile and figure",
-          "evidenceRef": null,
-          "reason": "Only a pale fragment of the elevated center and figure is visible among similar tiles, and the fixed header/viewport occludes its upper extent. Partial censored evidence cannot supply a complete landmark box."
+          "kind": "fieldProfile",
+          "status": "observed",
+          "label": "visible bright-neutral field tile-top profile",
+          "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/8/fieldProfile",
+          "reason": null
         },
         "landmarkStatus": "blocked",
         "routeStatus": "observed",
@@ -3385,7 +3385,7 @@
         }
       },
       "screenBounds": {
-        "status": "unknown",
+        "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
         "landmark": null,
@@ -3406,13 +3406,13 @@
           280
         ],
         "copyStatus": "observed",
-        "reason": "Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark.",
+        "reason": "Primary fieldProfile measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
-          "kind": "landmark",
-          "status": "blocked",
-          "label": "field center during inner pulse",
-          "evidenceRef": null,
-          "reason": "Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark."
+          "kind": "fieldProfile",
+          "status": "observed",
+          "label": "visible bright-neutral field tile-top profile during inner pulse",
+          "evidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/10/fieldProfile",
+          "reason": null
         },
         "landmarkStatus": "blocked",
         "routeStatus": "observed",
@@ -5014,7 +5014,7 @@
     {
       "field": "screen-space bounds",
       "status": "partially-observed",
-      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary. 4 route/transition-primary states correctly mark landmark bounds not applicable; 4 landmark-primary states, 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
+      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary. 4 states correctly mark landmark bounds not applicable; 4 non-primary landmarks remain honestly blocked without blocking their states, while 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
     },
     {
       "field": "pointer versus local-clock versus scroll ownership",
@@ -5028,10 +5028,10 @@
     }
   ],
   "structuralBoundsEvidence": {
-    "status": "partially-observed",
+    "status": "observed",
     "verifiedOn": "2026-08-20",
     "artifact": "docs/hero-reference/recording-structural-bounds.json",
-    "algorithmVersion": "recording-structural-bounds-v12",
+    "algorithmVersion": "recording-structural-bounds-v13",
     "landmarkMeasured": 7,
     "landmarkBlocked": 4,
     "landmarkNotApplicable": 4,
@@ -5050,7 +5050,7 @@
     "contactCenterNotApplicable": 14,
     "compositionMeasured": 15,
     "compositionBlocked": 0,
-    "primaryStructureMeasured": 11,
-    "primaryStructureBlocked": 4
+    "primaryStructureMeasured": 15,
+    "primaryStructureBlocked": 0
   }
 }

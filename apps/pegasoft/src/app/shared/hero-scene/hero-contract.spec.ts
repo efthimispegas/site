@@ -455,25 +455,78 @@ describe('hero reference-state contract', () => {
     });
   });
 
-  it('keeps only unresolved landmark-primary anchors blocked', () => {
-    const blocked = referenceStates
-      .filter(
-        ({ screenBounds }) =>
-          screenBounds.primaryStructure.kind === 'landmark' &&
-          screenBounds.primaryStructure.status === 'blocked',
-      )
+  it('keeps unisolatable landmarks blocked without making them primary', () => {
+    const blockedLandmarks = referenceStates
+      .filter(({ screenBounds }) => screenBounds.landmarkStatus === 'blocked')
       .map(({ key }) => key);
+    const reclassified = (
+      [
+        'landing',
+        'landing-idle',
+        'field-approach',
+        'field-pulse-a',
+      ] as const
+    ).map((key) => {
+      const { screenBounds } = getReferenceState(key);
+      return {
+        key,
+        primaryStructure: screenBounds.primaryStructure,
+      };
+    });
     const notApplicable = referenceStates
       .filter(
         ({ screenBounds }) => screenBounds.landmarkStatus === 'not-applicable',
       )
       .map(({ key }) => key);
 
-    expect(blocked).toEqual([
+    expect(blockedLandmarks).toEqual([
       'landing',
       'landing-idle',
       'field-approach',
       'field-pulse-a',
+    ]);
+    expect(reclassified).toEqual([
+      {
+        key: 'landing',
+        primaryStructure: {
+          kind: 'composition',
+          status: 'observed',
+          label: 'resolved landing screen-space composition',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/2/composition',
+        },
+      },
+      {
+        key: 'landing-idle',
+        primaryStructure: {
+          kind: 'composition',
+          status: 'observed',
+          label: 'resolved landing screen-space composition during route idle',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/3/composition',
+        },
+      },
+      {
+        key: 'field-approach',
+        primaryStructure: {
+          kind: 'fieldProfile',
+          status: 'observed',
+          label: 'visible bright-neutral field tile-top profile',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/8/fieldProfile',
+        },
+      },
+      {
+        key: 'field-pulse-a',
+        primaryStructure: {
+          kind: 'fieldProfile',
+          status: 'observed',
+          label:
+            'visible bright-neutral field tile-top profile during inner pulse',
+          evidenceRef:
+            'docs/hero-reference/recording-structural-bounds.json#/states/10/fieldProfile',
+        },
+      },
     ]);
     expect(notApplicable).toEqual([
       'clearance-travel',
@@ -483,11 +536,9 @@ describe('hero reference-state contract', () => {
     ]);
     expect(
       referenceStates.filter(
-        ({ screenBounds }) =>
-          screenBounds.primaryStructure.kind === 'landmark' &&
-          screenBounds.primaryStructure.status === 'blocked',
+        ({ screenBounds }) => screenBounds.primaryStructure.status === 'blocked',
       ),
-    ).toHaveLength(4);
+    ).toHaveLength(0);
   });
 
   it('keeps same-progress local phases independently addressable', () => {

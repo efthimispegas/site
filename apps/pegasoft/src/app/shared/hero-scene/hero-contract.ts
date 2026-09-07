@@ -72,7 +72,12 @@ export type HeroStructuralFeatureStatus =
   | 'blocked'
   | 'not-applicable';
 
-export type HeroPrimaryStructureKind = 'landmark' | 'route' | 'boundary';
+export type HeroPrimaryStructureKind =
+  | 'landmark'
+  | 'route'
+  | 'boundary'
+  | 'fieldProfile'
+  | 'composition';
 
 export type HeroReferenceState = {
   key: HeroReferenceStateKey;
