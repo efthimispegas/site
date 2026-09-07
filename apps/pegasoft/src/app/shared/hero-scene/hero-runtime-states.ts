@@ -1,7 +1,4 @@
-import type {
-  HeroReferenceStateKey,
-  HeroRuntimeState,
-} from './hero-contract';
+import type { HeroReferenceStateKey, HeroRuntimeState } from './hero-contract';
 
 const SETTLED_PAGE_CLOCKS = {
   loaderMs: 5000,

@@ -12,10 +12,7 @@ import {
   type HeroGateClockState,
 } from './hero-local-clock';
 import { HERO_PALETTE } from './hero-materials';
-import {
-  getHeroRoutePoint,
-  getHeroRouteProgress,
-} from './hero-route';
+import { getHeroRoutePoint, getHeroRouteProgress } from './hero-route';
 import { clampSceneProgress } from './hero-sequence';
 
 const RED_END_SCENE_PROGRESS = 0.17;
@@ -219,8 +216,7 @@ const landingIdleDurations = Array.from(
 
 function sampleLandingRailRange(elapsedSeconds: number, railIndex: number) {
   let phaseSeconds =
-    Math.max(0, elapsedSeconds) -
-    railIndex * LANDING_RAIL_STAGGER_SECONDS;
+    Math.max(0, elapsedSeconds) - railIndex * LANDING_RAIL_STAGGER_SECONDS;
 
   if (phaseSeconds < 0) {
     return null;
@@ -229,10 +225,7 @@ function sampleLandingRailRange(elapsedSeconds: number, railIndex: number) {
   const cycleDurations = landingIdleDurations[railIndex];
   const cadenceDuration = cycleDurations.reduce(
     (total, idleDuration) =>
-      total +
-      LANDING_DRAW_SECONDS +
-      LANDING_RETRACT_SECONDS +
-      idleDuration,
+      total + LANDING_DRAW_SECONDS + LANDING_RETRACT_SECONDS + idleDuration,
     0,
   );
   phaseSeconds %= cadenceDuration;
@@ -263,14 +256,9 @@ function sampleLandingRailRange(elapsedSeconds: number, railIndex: number) {
   return null;
 }
 
-function LandingRailCadence({
-  snapshot,
-}: {
-  snapshot: HeroJourneySnapshot;
-}) {
+function LandingRailCadence({ snapshot }: { snapshot: HeroJourneySnapshot }) {
   const active =
-    snapshot.lifecycle === 'landing' &&
-    snapshot.sceneTargetProgress <= 0.001;
+    snapshot.lifecycle === 'landing' && snapshot.sceneTargetProgress <= 0.001;
   const groupRef = useRef<THREE.Group>(null);
   const clockRef = useRef<HeroGateClockState>(INACTIVE_HERO_GATE_CLOCK);
   const geometries = useMemo(
@@ -341,11 +329,7 @@ function LandingRailCadence({
 
 export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
   const sceneProgress = clampSceneProgress(snapshot.sceneTargetProgress);
-  const redRatio = progressBetween(
-    sceneProgress,
-    0,
-    RED_END_SCENE_PROGRESS,
-  );
+  const redRatio = progressBetween(sceneProgress, 0, RED_END_SCENE_PROGRESS);
   const blueZeroRatio = progressBetween(
     sceneProgress,
     RED_END_SCENE_PROGRESS,
@@ -358,11 +342,7 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
   );
   const routeProgress = getHeroRouteProgress(sceneProgress);
   const tip = getHeroRoutePoint(routeProgress);
-  const tipPosition: [number, number, number] = [
-    tip.x,
-    tip.y + 0.02,
-    tip.z,
-  ];
+  const tipPosition: [number, number, number] = [tip.x, tip.y + 0.02, tip.z];
   const blueIsActive = sceneProgress >= RED_END_SCENE_PROGRESS;
 
   return (

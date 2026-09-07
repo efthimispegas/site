@@ -15,11 +15,7 @@ import { Worker } from './primitives';
 
 const fieldTileRgb = [0xee / 255, 0xf5 / 255, 0xf8 / 255] as const;
 const fieldPulseRgb = [0x57 / 255, 0xcd / 255, 1] as const;
-const fieldPulseEmissiveRgb = [
-  0x57 / 255,
-  0xcd / 255,
-  1,
-] as const;
+const fieldPulseEmissiveRgb = [0x57 / 255, 0xcd / 255, 1] as const;
 const fieldCenterRgb = [0x39 / 255, 0x32 / 255, 0xdc / 255] as const;
 const FIELD_CONTACT_PROGRESS = 0.74;
 const FIELD_PULSE_MAX_RADIUS = 7.07;
@@ -50,9 +46,7 @@ export function FieldMatchStage({
   const materialsRef = useRef<Array<FieldTileMaterial | null>>([]);
   const meshesRef = useRef<Array<THREE.Mesh | null>>([]);
   const contactLightRef = useRef<FieldContactLight | null>(null);
-  const pulseClockRef = useRef<HeroGateClockState>(
-    INACTIVE_HERO_GATE_CLOCK,
-  );
+  const pulseClockRef = useRef<HeroGateClockState>(INACTIVE_HERO_GATE_CLOCK);
   const contactActive =
     snapshot.sceneTargetProgress >= FIELD_CONTACT_PROGRESS &&
     snapshot.sceneTargetProgress < 0.9;
@@ -195,11 +189,7 @@ export function FieldMatchStage({
               height / 2,
               z * FIELD_TILE_SPACING,
             ]}
-            args={[
-              FIELD_TILE_SIZE,
-              height,
-              FIELD_TILE_SIZE,
-            ]}
+            args={[FIELD_TILE_SIZE, height, FIELD_TILE_SIZE]}
             radius={0.08}
             smoothness={3}
             castShadow

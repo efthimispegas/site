@@ -45,8 +45,8 @@ function canCreateWebGlContext() {
     const canvas = document.createElement('canvas');
     return Boolean(
       canvas.getContext('webgl2') ??
-        canvas.getContext('webgl') ??
-        canvas.getContext('experimental-webgl'),
+      canvas.getContext('webgl') ??
+      canvas.getContext('experimental-webgl'),
     );
   } catch {
     return false;
@@ -157,8 +157,7 @@ export function useHeroJourneyController(
           : lifecycleElapsedMs,
         ...capabilities,
         webglAvailable:
-          capabilities.webglAvailable &&
-          !developmentControl.forceFallback,
+          capabilities.webglAvailable && !developmentControl.forceFallback,
         directStateKey: developmentControl.stateKey,
         localTimeOverrideMs: developmentControl.localTimeMs,
       }),

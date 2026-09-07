@@ -22,10 +22,7 @@ export function HeroWorld({
 
   return (
     <group>
-      <mesh
-        position={[-5, -0.05, 0]}
-        rotation={[-Math.PI / 2, 0, 0]}
-      >
+      <mesh position={[-5, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
         <planeGeometry args={[240, 220]} />
         <meshBasicMaterial color={groundColor} toneMapped={false} />
       </mesh>
@@ -39,7 +36,6 @@ export function HeroWorld({
       />
       <HeroBeam snapshot={snapshot} />
       {snapshot.profile.pointerTrail ? <DesktopPointerTrail /> : null}
-
     </group>
   );
 }

@@ -52,8 +52,7 @@ export function getResponsiveHeroFov(aspect: number) {
   const responsiveFov = THREE.MathUtils.radToDeg(
     2 *
       Math.atan(
-        Math.tan(halfFovRadians) *
-          (HERO_CAMERA_SOURCE.baseAspect / safeAspect),
+        Math.tan(halfFovRadians) * (HERO_CAMERA_SOURCE.baseAspect / safeAspect),
       ),
   );
 
@@ -95,8 +94,7 @@ export function sampleHeroCameraPose(
   position.z += 50 * mapClamped(fieldRatio, 0.25, 0.5, 1, 0);
 
   const fieldQuaternion = quaternionLookingAt(position, routePoint);
-  const originalOrientationBlend =
-    1 - mapClamped(fieldRatio, 0.5, 1, 1, 0);
+  const originalOrientationBlend = 1 - mapClamped(fieldRatio, 0.5, 1, 1, 0);
   const quaternion = fieldQuaternion.slerp(
     originalQuaternion,
     originalOrientationBlend,
@@ -116,12 +114,7 @@ export function sampleHeroCameraPose(
   return {
     position: [position.x, position.y, position.z],
     target: [routePoint.x, routePoint.y, routePoint.z],
-    quaternion: [
-      quaternion.x,
-      quaternion.y,
-      quaternion.z,
-      quaternion.w,
-    ],
+    quaternion: [quaternion.x, quaternion.y, quaternion.z, quaternion.w],
     fov: getResponsiveHeroFov(aspect),
   };
 }
@@ -147,8 +140,7 @@ export function dampHeroProgress(
   const temporary = (state.velocity + omega * change) * delta;
   const velocity = (state.velocity - omega * temporary) * exponential;
   const value = safeTarget + (change + temporary) * exponential;
-  const targetWasPassed =
-    (safeTarget - state.value > 0) === (value > safeTarget);
+  const targetWasPassed = safeTarget - state.value > 0 === value > safeTarget;
 
   if (targetWasPassed) {
     return {

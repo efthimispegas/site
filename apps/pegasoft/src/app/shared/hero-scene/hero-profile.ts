@@ -89,7 +89,6 @@ export function selectHeroRuntimeProfile(
     cameraSmoothTimeSeconds: mobileOrTablet ? 0.1 : 0.15,
     maxDpr: getMaximumDpr(id, input.devicePixelRatio, isIosDevice),
     pointerTrail: desktopInteraction,
-    journeyHeightSvh:
-      id === 'mobile' ? 570 : id === 'tablet' ? 500 : 456,
+    journeyHeightSvh: id === 'mobile' ? 570 : id === 'tablet' ? 500 : 456,
   };
 }

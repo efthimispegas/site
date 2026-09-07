@@ -34,17 +34,17 @@ describe('hero reference-state contract', () => {
 
   it('uses observed screen composition without inventing 3D camera transforms', () => {
     expect(
-      referenceStates.map(({ screenComposition }) =>
-        screenComposition.edgeDensity,
+      referenceStates.map(
+        ({ screenComposition }) => screenComposition.edgeDensity,
       ),
     ).toEqual([
-      0.005413, 0.015766, 0.053274, 0.050906, 0.048061, 0.043121,
-      0.058774, 0.051105, 0.060785, 0.072332, 0.059856, 0.061892,
-      0.043544, 0.040068, 0.041301,
+      0.005413, 0.015766, 0.053274, 0.050906, 0.048061, 0.043121, 0.058774,
+      0.051105, 0.060785, 0.072332, 0.059856, 0.061892, 0.043544, 0.040068,
+      0.041301,
     ]);
     expect(
-      referenceStates.map(({ screenComposition }) =>
-        screenComposition.edgeCentroidNormalized,
+      referenceStates.map(
+        ({ screenComposition }) => screenComposition.edgeCentroidNormalized,
       ),
     ).toEqual([
       [0.599798, 0.663796],
@@ -292,8 +292,7 @@ describe('hero reference-state contract', () => {
       {
         key: 'arrival-lockup',
         route: [1, 352, 479, 10],
-        label:
-          'visible high-chroma core of cyan arrival feed before the arrow',
+        label: 'visible high-chroma core of cyan arrival feed before the arrow',
       },
     ] as const;
 
@@ -317,8 +316,7 @@ describe('hero reference-state contract', () => {
     expect(
       referenceStates
         .filter(
-          ({ screenBounds }) =>
-            screenBounds.routeStatus === 'not-applicable',
+          ({ screenBounds }) => screenBounds.routeStatus === 'not-applicable',
         )
         .map(({ key }) => key),
     ).toEqual(['loader-mark', 'landing', 'journey-exit']);
@@ -327,8 +325,7 @@ describe('hero reference-state contract', () => {
   it('retains measured copy ink without inferring faded or clipped states', () => {
     const landingLabel =
       'visible centered landing headline and supporting-copy ink envelope';
-    const processLabel =
-      'visible four-row process-ladder copy ink envelope';
+    const processLabel = 'visible four-row process-ladder copy ink envelope';
     const expected = [
       { key: 'landing', copy: [409, 132.5, 696, 306], label: landingLabel },
       {
@@ -427,8 +424,7 @@ describe('hero reference-state contract', () => {
     expect(
       referenceStates
         .filter(
-          ({ screenBounds }) =>
-            screenBounds.copyStatus === 'not-applicable',
+          ({ screenBounds }) => screenBounds.copyStatus === 'not-applicable',
         )
         .map(({ key }) => key),
     ).toEqual(['loader-mark', 'world-reveal']);
@@ -460,12 +456,7 @@ describe('hero reference-state contract', () => {
       .filter(({ screenBounds }) => screenBounds.landmarkStatus === 'blocked')
       .map(({ key }) => key);
     const reclassified = (
-      [
-        'landing',
-        'landing-idle',
-        'field-approach',
-        'field-pulse-a',
-      ] as const
+      ['landing', 'landing-idle', 'field-approach', 'field-pulse-a'] as const
     ).map((key) => {
       const { screenBounds } = getReferenceState(key);
       return {
@@ -536,7 +527,8 @@ describe('hero reference-state contract', () => {
     ]);
     expect(
       referenceStates.filter(
-        ({ screenBounds }) => screenBounds.primaryStructure.status === 'blocked',
+        ({ screenBounds }) =>
+          screenBounds.primaryStructure.status === 'blocked',
       ),
     ).toHaveLength(0);
   });

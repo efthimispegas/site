@@ -153,8 +153,7 @@ export function getHeroDomPresentation(
       (1 - HERO_LANDING_FADE_START),
   );
   const flowRevealProgress = clampUnitProgress(
-    scrollY /
-      (viewportHeight * HERO_FLOW_REVEAL_END_VIEWPORT_FRACTION),
+    scrollY / (viewportHeight * HERO_FLOW_REVEAL_END_VIEWPORT_FRACTION),
   );
   const fieldFadeStart =
     viewportHeight * HERO_FIELD_FADE_START_VIEWPORT_FRACTION;

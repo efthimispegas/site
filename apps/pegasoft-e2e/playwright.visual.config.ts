@@ -27,8 +27,7 @@ export default defineConfig({
     trace: 'retain-on-failure',
   },
   webServer: {
-    command:
-      'pnpm --filter @site/pegasoft exec next dev -H 127.0.0.1 -p 4200',
+    command: 'pnpm --filter @site/pegasoft exec next dev -H 127.0.0.1 -p 4200',
     url: baseURL,
     reuseExistingServer: true,
     cwd: workspaceRoot,

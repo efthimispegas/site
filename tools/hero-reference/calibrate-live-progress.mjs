@@ -119,15 +119,13 @@ function compare(reference, candidate, phase) {
     }
   }
 
-  const alignedMeanAbsoluteChannelError =
-    alignedAbsoluteError / (pixels * 3);
+  const alignedMeanAbsoluteChannelError = alignedAbsoluteError / (pixels * 3);
   const meanAbsoluteEdgeError = edgeAbsoluteError / pixels;
 
   return {
     alignedMeanAbsoluteChannelError,
     meanAbsoluteEdgeError,
-    score:
-      alignedMeanAbsoluteChannelError + meanAbsoluteEdgeError * 2,
+    score: alignedMeanAbsoluteChannelError + meanAbsoluteEdgeError * 2,
     referenceCornerRgb: referenceCorner,
     candidateCornerRgb: candidateCorner,
   };

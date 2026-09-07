@@ -1,9 +1,4 @@
-import {
-  expect,
-  test,
-  type Locator,
-  type Page,
-} from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 
 const REFERENCE_STATE = 'landing-idle';
 const HERO_URL = `/?__heroState=${REFERENCE_STATE}&__heroTime=2500`;
