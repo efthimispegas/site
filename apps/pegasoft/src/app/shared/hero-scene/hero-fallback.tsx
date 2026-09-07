@@ -124,7 +124,10 @@ function JourneyFallback({ progress }: { progress: number }) {
         <circle cx={packetX} cy={packetY} r="17" />
         <circle cx={packetX} cy={packetY} r="34" />
       </g>
-      <g className={styles.fallbackJourneyLandmarks} data-hero-fallback-shape="">
+      <g
+        className={styles.fallbackJourneyLandmarks}
+        data-hero-fallback-shape=""
+      >
         <path d="M428 431L514 396V629L428 664Z" />
         <path d="M514 396L563 423V656L514 629Z" />
         <path d="M1004 334L1108 292V522L1004 564Z" />
@@ -148,9 +151,7 @@ function FieldFallback({ stateKey }: { stateKey: HeroReferenceStateKey }) {
       </g>
       <g
         className={
-          pulseOuter
-            ? styles.fallbackFieldPulse
-            : styles.fallbackFieldMiddle
+          pulseOuter ? styles.fallbackFieldPulse : styles.fallbackFieldMiddle
         }
         data-hero-fallback-shape=""
       >
@@ -232,11 +233,7 @@ function ExitFallback() {
   );
 }
 
-export function HeroFallback({
-  snapshot,
-}: {
-  snapshot: HeroJourneySnapshot;
-}) {
+export function HeroFallback({ snapshot }: { snapshot: HeroJourneySnapshot }) {
   const stateKey = snapshot.referenceState.key;
   const composition = getFallbackComposition(stateKey);
   const developmentDiagnostics =
@@ -267,9 +264,7 @@ export function HeroFallback({
         {composition === 'journey' ? (
           <JourneyFallback progress={snapshot.sceneTargetProgress} />
         ) : null}
-        {composition === 'field' ? (
-          <FieldFallback stateKey={stateKey} />
-        ) : null}
+        {composition === 'field' ? <FieldFallback stateKey={stateKey} /> : null}
         {composition === 'arrival' ? (
           <ArrivalFallback locked={stateKey === 'arrival-lockup'} />
         ) : null}

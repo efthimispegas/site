@@ -91,10 +91,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "region",
-          "reason"
-        ],
+        "required": ["region", "reason"],
         "properties": {
           "region": {
             "type": "string"
@@ -111,17 +108,10 @@
     "result": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "status",
-        "unexplainedVisibleDifferences"
-      ],
+      "required": ["status", "unexplainedVisibleDifferences"],
       "properties": {
         "status": {
-          "enum": [
-            "pass",
-            "fail",
-            "blocked"
-          ]
+          "enum": ["pass", "fail", "blocked"]
         },
         "unexplainedVisibleDifferences": {
           "type": "integer",
@@ -140,17 +130,10 @@
     "reference": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "authority",
-        "source",
-        "evidenceClass"
-      ],
+      "required": ["authority", "source", "evidenceClass"],
       "properties": {
         "authority": {
-          "enum": [
-            "live-site",
-            "recording"
-          ]
+          "enum": ["live-site", "recording"]
         },
         "source": {
           "type": "string"
@@ -172,12 +155,7 @@
           "format": "date-time"
         },
         "evidenceClass": {
-          "enum": [
-            "observed",
-            "source-confirmed",
-            "inferred",
-            "unknown"
-          ]
+          "enum": ["observed", "source-confirmed", "inferred", "unknown"]
         }
       }
     },
@@ -218,10 +196,7 @@
           "exclusiveMinimum": 0
         },
         "fontState": {
-          "enum": [
-            "loaded",
-            "fallback"
-          ]
+          "enum": ["loaded", "fallback"]
         },
         "progress": {
           "type": "number",
@@ -236,35 +211,17 @@
           "type": "integer"
         },
         "entryMode": {
-          "enum": [
-            "forward",
-            "reverse",
-            "direct",
-            "resize",
-            "restored-reload"
-          ]
+          "enum": ["forward", "reverse", "direct", "resize", "restored-reload"]
         },
         "inputClass": {
-          "enum": [
-            "fine-pointer",
-            "coarse-pointer",
-            "keyboard",
-            "none"
-          ]
+          "enum": ["fine-pointer", "coarse-pointer", "keyboard", "none"]
         }
       }
     },
     "measurement": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "metric",
-        "actual",
-        "threshold",
-        "unit",
-        "status"
-      ],
+      "required": ["id", "metric", "actual", "threshold", "unit", "status"],
       "properties": {
         "id": {
           "type": "string"
@@ -301,21 +258,14 @@
           "type": "number"
         },
         "comparison": {
-          "enum": [
-            "lte",
-            "gte"
-          ],
+          "enum": ["lte", "gte"],
           "default": "lte"
         },
         "unit": {
           "type": "string"
         },
         "status": {
-          "enum": [
-            "pass",
-            "fail",
-            "blocked"
-          ]
+          "enum": ["pass", "fail", "blocked"]
         },
         "notes": {
           "type": "string"
@@ -325,20 +275,13 @@
     "behaviorCheck": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "status"
-      ],
+      "required": ["id", "status"],
       "properties": {
         "id": {
           "type": "string"
         },
         "status": {
-          "enum": [
-            "pass",
-            "fail",
-            "blocked"
-          ]
+          "enum": ["pass", "fail", "blocked"]
         },
         "evidence": {
           "type": "string"
@@ -351,10 +294,7 @@
     "size": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "width",
-        "height"
-      ],
+      "required": ["width", "height"],
       "properties": {
         "width": {
           "type": "integer",

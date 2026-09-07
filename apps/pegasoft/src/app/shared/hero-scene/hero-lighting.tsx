@@ -12,11 +12,7 @@ import {
  * screen-space hierarchy without importing or depending on those protected
  * shaders. All stage geometry remains declarative and light-agnostic.
  */
-export function HeroLighting({
-  profile,
-}: {
-  profile: HeroRuntimeProfile;
-}) {
+export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
   const mobile = profile.id === 'mobile';
   const shadowMapSize = mobile
     ? 1024
@@ -27,17 +23,13 @@ export function HeroLighting({
       <hemisphereLight
         color="#ffffff"
         groundColor={HERO_PALETTE.ground}
-        intensity={
-          HERO_STANDARD_MATERIAL_COMPATIBILITY.hemisphereIntensity
-        }
+        intensity={HERO_STANDARD_MATERIAL_COMPATIBILITY.hemisphereIntensity}
       />
       <directionalLight
         castShadow
         color="#ffffff"
         intensity={HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightIntensity}
-        position={[
-          ...HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightPosition,
-        ]}
+        position={[...HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightPosition]}
         shadow-mapSize={[shadowMapSize, shadowMapSize]}
         shadow-bias={-0.00025}
         shadow-normalBias={0.025}

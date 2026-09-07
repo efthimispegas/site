@@ -132,8 +132,7 @@ const STATE_MEASUREMENTS = {
     },
     route: ROUTE_CONFIG_BY_STATE['clearance-field-preview'],
     copy: PROCESS_COPY_CONFIG,
-    fieldProfile:
-      FIELD_TILE_PROFILE_CONFIG_BY_STATE['clearance-field-preview'],
+    fieldProfile: FIELD_TILE_PROFILE_CONFIG_BY_STATE['clearance-field-preview'],
   },
   'field-approach': {
     primaryStructure: 'fieldProfile',

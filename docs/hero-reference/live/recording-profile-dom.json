@@ -23,10 +23,7 @@
     "hover": true
   },
   "acceptance": {
-    "applicableStates": [
-      "landing",
-      "landing-idle"
-    ],
+    "applicableStates": ["landing", "landing-idle"],
     "boundsToleranceCssPx": 2,
     "policy": "Every authoritative x, y, width, and height component must be within the tolerance. Missing implementation elements fail. This DOM gate is independent of raster and WebGL structural gates and cannot make either one pass.",
     "applicabilityQualification": "Only the two zero-progress settled landing states share the exact measured live scroll and layout state. No later journey state inherits these bounds."

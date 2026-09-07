@@ -98,10 +98,7 @@ describe('hero route, camera, and local clocks', () => {
       new THREE.Vector3(...arrival.position),
     );
 
-    expect(retreat.length()).toBeCloseTo(
-      HERO_CAMERA_SOURCE.retreatDistance,
-      9,
-    );
+    expect(retreat.length()).toBeCloseTo(HERO_CAMERA_SOURCE.retreatDistance, 9);
     expect(exit.position[1]).toBeGreaterThan(110.9);
   });
 
@@ -166,11 +163,7 @@ describe('hero route, camera, and local clocks', () => {
   );
 
   it('resets and deterministically injects progress-gated local clocks', () => {
-    const entered = updateHeroGateClock(
-      INACTIVE_HERO_GATE_CLOCK,
-      true,
-      1000,
-    );
+    const entered = updateHeroGateClock(INACTIVE_HERO_GATE_CLOCK, true, 1000);
     const running = updateHeroGateClock(entered, true, 1400);
     const reset = updateHeroGateClock(running, false, 1500);
     const injected = updateHeroGateClock(reset, true, 2000, 2800);

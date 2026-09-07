@@ -70,10 +70,7 @@ export function DesktopPointerTrail() {
       const hit = raycaster.ray.intersectPlane(groundPlane, intersection);
       const last = trailRef.current.at(-1);
 
-      if (
-        hit &&
-        (!last || last.position.distanceToSquared(hit) >= 0.12)
-      ) {
+      if (hit && (!last || last.position.distanceToSquared(hit) >= 0.12)) {
         trailRef.current.push({
           position: hit.clone().setY(0.13),
           ageSeconds: 0,

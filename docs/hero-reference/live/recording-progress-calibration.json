@@ -19,18 +19,8 @@
     "refinementCandidateStepCssPx": 5,
     "analysisScale": 0.25,
     "backgroundColorAlignment": "40x40 analysis-pixel top-left mean RGB shift",
-    "landingCropCssPx": [
-      0,
-      80,
-      1508,
-      761
-    ],
-    "journeyCropCssPx": [
-      600,
-      80,
-      1508,
-      761
-    ],
+    "landingCropCssPx": [0, 80, 1508, 761],
+    "journeyCropCssPx": [600, 80, 1508, 761],
     "rankingScore": "aligned mean absolute RGB-channel error + 2 × mean absolute luma-edge error",
     "observedLiveTargetPerScrollCssPx": 0.00029866613689781856,
     "targetResolutionAtRefinementStep": 0.0014933306844890928,

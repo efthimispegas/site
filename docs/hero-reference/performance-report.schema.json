@@ -63,13 +63,7 @@
         "evidenceCompleteness": {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "assetTiming",
-            "canvas",
-            "hardwareGpu",
-            "heap",
-            "webgl"
-          ],
+          "required": ["assetTiming", "canvas", "hardwareGpu", "heap", "webgl"],
           "properties": {
             "assetTiming": {
               "type": "boolean"
@@ -112,10 +106,7 @@
           "type": "boolean"
         },
         "navigationStatus": {
-          "type": [
-            "integer",
-            "null"
-          ]
+          "type": ["integer", "null"]
         },
         "pageUrl": {
           "type": "string",
@@ -125,11 +116,7 @@
           "type": "string"
         },
         "serverMode": {
-          "enum": [
-            "production",
-            "development",
-            "unverified"
-          ]
+          "enum": ["production", "development", "unverified"]
         }
       }
     },
@@ -157,16 +144,10 @@
           "minimum": 1
         },
         "hardwareProfile": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": ["string", "null"]
         },
         "profile": {
-          "enum": [
-            "desktop",
-            "mobile"
-          ]
+          "enum": ["desktop", "mobile"]
         },
         "userAgent": {
           "type": "string"
@@ -256,10 +237,7 @@
           "type": "object"
         },
         "lcp": {
-          "type": [
-            "object",
-            "null"
-          ]
+          "type": ["object", "null"]
         },
         "longTasks": {
           "type": "object"
@@ -285,11 +263,7 @@
             },
             "resources": {
               "type": "object",
-              "required": [
-                "geometry",
-                "materials",
-                "textures"
-              ],
+              "required": ["geometry", "materials", "textures"],
               "properties": {
                 "geometry": {
                   "$ref": "#/$defs/rendererResource"
@@ -318,11 +292,7 @@
     "budgets": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "checks",
-        "note",
-        "passed"
-      ],
+      "required": ["checks", "note", "passed"],
       "properties": {
         "checks": {
           "type": "array",
@@ -345,10 +315,7 @@
     "size": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "height",
-        "width"
-      ],
+      "required": ["height", "width"],
       "properties": {
         "height": {
           "type": "number",
@@ -372,16 +339,10 @@
       ],
       "properties": {
         "endRawProgress": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": ["number", "null"]
         },
         "endSceneProgress": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": ["number", "null"]
         },
         "endScrollY": {
           "type": "number"
@@ -400,9 +361,7 @@
     },
     "rendererResource": {
       "type": "object",
-      "required": [
-        "proxy"
-      ],
+      "required": ["proxy"],
       "properties": {
         "exactThreeGeometryCount": {
           "type": "null"
@@ -415,13 +374,7 @@
         },
         "proxy": {
           "type": "object",
-          "required": [
-            "label",
-            "created",
-            "deleted",
-            "live",
-            "peakLive"
-          ],
+          "required": ["label", "created", "deleted", "live", "peakLive"],
           "properties": {
             "label": {
               "type": "string"
@@ -460,12 +413,7 @@
       ],
       "properties": {
         "id": {
-          "enum": [
-            "lcp",
-            "cls",
-            "frame-interval-p95",
-            "long-task"
-          ]
+          "enum": ["lcp", "cls", "frame-interval-p95", "long-task"]
         },
         "limit": {
           "type": "number"
@@ -474,25 +422,16 @@
           "type": "boolean"
         },
         "operator": {
-          "enum": [
-            "<",
-            "<="
-          ]
+          "enum": ["<", "<="]
         },
         "passed": {
           "type": "boolean"
         },
         "unit": {
-          "enum": [
-            "ms",
-            "score"
-          ]
+          "enum": ["ms", "score"]
         },
         "value": {
-          "type": [
-            "number",
-            "null"
-          ]
+          "type": ["number", "null"]
         }
       }
     }

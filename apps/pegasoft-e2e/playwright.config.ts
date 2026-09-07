@@ -32,8 +32,7 @@ export default defineConfig({
   },
   /* Run your local dev server before starting the tests */
   webServer: {
-    command:
-      'pnpm --filter @site/pegasoft exec next dev -H 127.0.0.1 -p 4200',
+    command: 'pnpm --filter @site/pegasoft exec next dev -H 127.0.0.1 -p 4200',
     url: baseURL,
     reuseExistingServer: true,
     cwd: workspaceRoot,

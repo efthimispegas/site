@@ -11,8 +11,7 @@ const PERFORMANCE_ENABLED = process.env['HERO_PERFORMANCE'] === '1';
 const BASE_URL_EXPLICIT =
   typeof process.env['BASE_URL'] === 'string' &&
   /^https?:\/\//u.test(process.env['BASE_URL']);
-const ACCEPTANCE_REQUESTED =
-  process.env['HERO_PERFORMANCE_ACCEPTANCE'] === '1';
+const ACCEPTANCE_REQUESTED = process.env['HERO_PERFORMANCE_ACCEPTANCE'] === '1';
 const SERVER_MODE =
   process.env['HERO_PERFORMANCE_SERVER_MODE'] === 'production'
     ? 'production'
@@ -30,11 +29,8 @@ const ACCEPTANCE_ELIGIBILITY_FAILURES = [
     ? ['HERO_PERFORMANCE_HARDWARE does not identify locked hardware.']
     : []),
 ];
-const ACCEPTANCE_ELIGIBLE =
-  ACCEPTANCE_ELIGIBILITY_FAILURES.length === 0;
-const ACCEPTANCE_ENABLED =
-  ACCEPTANCE_REQUESTED &&
-  ACCEPTANCE_ELIGIBLE;
+const ACCEPTANCE_ELIGIBLE = ACCEPTANCE_ELIGIBILITY_FAILURES.length === 0;
+const ACCEPTANCE_ENABLED = ACCEPTANCE_REQUESTED && ACCEPTANCE_ELIGIBLE;
 const SCRUB_DURATION_PER_DIRECTION_MS = 4_000;
 
 type NumericBudgetCheck = {
@@ -100,10 +96,7 @@ function summarizeFrameIntervals(
   const p95 = percentile(values, 0.95);
   const p99 = percentile(values, 0.99);
   const maximum = values.length > 0 ? Math.max(...values) : null;
-  const totalDurationMs = values.reduce(
-    (total, value) => total + value,
-    0,
-  );
+  const totalDurationMs = values.reduce((total, value) => total + value, 0);
 
   return {
     method: 'requestAnimationFrame-nearest-rank' as const,
@@ -114,16 +107,12 @@ function summarizeFrameIntervals(
     p95Ms: p95 === null ? null : round(p95),
     p99Ms: p99 === null ? null : round(p99),
     maxMs: maximum === null ? null : round(maximum),
-    meanMs:
-      values.length === 0
-        ? null
-        : round(totalDurationMs / values.length),
+    meanMs: values.length === 0 ? null : round(totalDurationMs / values.length),
     effectiveFps:
       totalDurationMs <= 0
         ? null
         : round((values.length * 1_000) / totalDurationMs),
-    overBudgetCount: values.filter((value) => value > frameBudgetMs)
-      .length,
+    overBudgetCount: values.filter((value) => value > frameBudgetMs).length,
     estimatedDroppedFrameCount: values.reduce(
       (count, value) =>
         count + Math.max(0, Math.ceil(value / frameBudgetMs) - 1),
@@ -138,9 +127,7 @@ function metricValue(
 ) {
   const value = metrics.find((metric) => metric.name === name)?.value;
 
-  return typeof value === 'number' && Number.isFinite(value)
-    ? value
-    : null;
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
 }
 
 async function readCdpDiagnostics(
@@ -174,16 +161,13 @@ async function readCdpDiagnostics(
         jsHeapTotalBytes: metricValue(metrics, 'JSHeapTotalSize'),
         jsHeapUsedBytes: metricValue(metrics, 'JSHeapUsedSize'),
         layoutCount: metricValue(metrics, 'LayoutCount'),
-        layoutDurationMs:
-          (metricValue(metrics, 'LayoutDuration') ?? 0) * 1_000,
+        layoutDurationMs: (metricValue(metrics, 'LayoutDuration') ?? 0) * 1_000,
         nodes: metricValue(metrics, 'Nodes'),
         recalcStyleCount: metricValue(metrics, 'RecalcStyleCount'),
         recalcStyleDurationMs:
           (metricValue(metrics, 'RecalcStyleDuration') ?? 0) * 1_000,
-        scriptDurationMs:
-          (metricValue(metrics, 'ScriptDuration') ?? 0) * 1_000,
-        taskDurationMs:
-          (metricValue(metrics, 'TaskDuration') ?? 0) * 1_000,
+        scriptDurationMs: (metricValue(metrics, 'ScriptDuration') ?? 0) * 1_000,
+        taskDurationMs: (metricValue(metrics, 'TaskDuration') ?? 0) * 1_000,
       },
     };
   } catch (error) {
@@ -196,10 +180,7 @@ async function readCdpDiagnostics(
   }
 }
 
-function cdpDelta(
-  before: CdpDiagnostics,
-  after: CdpDiagnostics,
-) {
+function cdpDelta(before: CdpDiagnostics, after: CdpDiagnostics) {
   const subtract = (
     afterValue: number | null | undefined,
     beforeValue: number | null | undefined,
@@ -312,8 +293,7 @@ test.describe('Phase 19 hero performance probe', () => {
       };
       type ResourceKind = 'buffers' | 'programs' | 'textures';
 
-      const supportedEntryTypes =
-        PerformanceObserver.supportedEntryTypes ?? [];
+      const supportedEntryTypes = PerformanceObserver.supportedEntryTypes ?? [];
       const webgl: WebGlProbe = {
         contextsCreated: 0,
         drawCalls: {
@@ -357,8 +337,7 @@ test.describe('Phase 19 hero performance probe', () => {
           cls: supportedEntryTypes.includes('layout-shift'),
           lcp: supportedEntryTypes.includes('largest-contentful-paint'),
           longTask: supportedEntryTypes.includes('longtask'),
-          performanceMemory:
-            'memory' in performance,
+          performanceMemory: 'memory' in performance,
           resourceTiming:
             supportedEntryTypes.includes('resource') ||
             typeof PerformanceResourceTiming !== 'undefined',
@@ -388,15 +367,14 @@ test.describe('Phase 19 hero performance probe', () => {
 
       if (probe.supported.lcp) {
         new PerformanceObserver((list) => {
-          const entry = list
-            .getEntries()
-            .at(-1) as LargestContentfulPaintEntry | undefined;
+          const entry = list.getEntries().at(-1) as
+            | LargestContentfulPaintEntry
+            | undefined;
 
           if (entry) {
             probe.lcp = {
               element: describeElement(entry.element),
-              sizeCssPixels:
-                typeof entry.size === 'number' ? entry.size : null,
+              sizeCssPixels: typeof entry.size === 'number' ? entry.size : null,
               startTimeMs: entry.startTime,
               url: entry.url || null,
             };
@@ -443,10 +421,7 @@ test.describe('Phase 19 hero performance probe', () => {
         });
       }
 
-      const trackedResources: Record<
-        ResourceKind,
-        WeakSet<object>
-      > = {
+      const trackedResources: Record<ResourceKind, WeakSet<object>> = {
         buffers: new WeakSet(),
         programs: new WeakSet(),
         textures: new WeakSet(),
@@ -504,17 +479,11 @@ test.describe('Phase 19 hero performance probe', () => {
         const methodOwner = prototype as Record<string, unknown>;
         const original = methodOwner[methodName];
 
-        if (
-          typeof original !== 'function' ||
-          wrappedFunctions.has(original)
-        ) {
+        if (typeof original !== 'function' || wrappedFunctions.has(original)) {
           return;
         }
 
-        const wrapped = function (
-          this: unknown,
-          ...args: unknown[]
-        ) {
+        const wrapped = function (this: unknown, ...args: unknown[]) {
           return replacement(
             original as (...args: unknown[]) => unknown,
             this,
@@ -565,39 +534,23 @@ test.describe('Phase 19 hero performance probe', () => {
       };
 
       for (const prototype of contextPrototypes) {
-        for (const [
-          createMethod,
-          deleteMethod,
-          resourceKind,
-        ] of [
+        for (const [createMethod, deleteMethod, resourceKind] of [
           ['createBuffer', 'deleteBuffer', 'buffers'],
           ['createProgram', 'deleteProgram', 'programs'],
           ['createTexture', 'deleteTexture', 'textures'],
         ] as const) {
-          replaceMethod(
-            prototype,
-            createMethod,
-            (original, receiver, args) => {
-              const resource = Reflect.apply(
-                original,
-                receiver,
-                args,
-              );
+          replaceMethod(prototype, createMethod, (original, receiver, args) => {
+            const resource = Reflect.apply(original, receiver, args);
 
-              mutateResource(resourceKind, 'create', resource);
+            mutateResource(resourceKind, 'create', resource);
 
-              return resource;
-            },
-          );
-          replaceMethod(
-            prototype,
-            deleteMethod,
-            (original, receiver, args) => {
-              mutateResource(resourceKind, 'delete', args[0]);
+            return resource;
+          });
+          replaceMethod(prototype, deleteMethod, (original, receiver, args) => {
+            mutateResource(resourceKind, 'delete', args[0]);
 
-              return Reflect.apply(original, receiver, args);
-            },
-          );
+            return Reflect.apply(original, receiver, args);
+          });
         }
 
         for (const methodName of [
@@ -606,43 +559,38 @@ test.describe('Phase 19 hero performance probe', () => {
           'drawArraysInstanced',
           'drawElementsInstanced',
         ]) {
-          replaceMethod(
-            prototype,
-            methodName,
-            (original, receiver, args) => {
-              const mode = Number(args[0] ?? -1);
-              const count =
-                methodName === 'drawArrays' ||
-                methodName === 'drawArraysInstanced'
-                  ? Number(args[2] ?? 0)
-                  : Number(args[1] ?? 0);
-              const instances =
-                methodName === 'drawArraysInstanced'
-                  ? Number(args[3] ?? 1)
-                  : methodName === 'drawElementsInstanced'
-                    ? Number(args[4] ?? 1)
-                    : 1;
+          replaceMethod(prototype, methodName, (original, receiver, args) => {
+            const mode = Number(args[0] ?? -1);
+            const count =
+              methodName === 'drawArrays' ||
+              methodName === 'drawArraysInstanced'
+                ? Number(args[2] ?? 0)
+                : Number(args[1] ?? 0);
+            const instances =
+              methodName === 'drawArraysInstanced'
+                ? Number(args[3] ?? 1)
+                : methodName === 'drawElementsInstanced'
+                  ? Number(args[4] ?? 1)
+                  : 1;
 
-              webgl.drawCalls.total += 1;
-              webgl.drawCalls.byMethod[methodName] =
-                (webgl.drawCalls.byMethod[methodName] ?? 0) + 1;
-              webgl.drawCalls.estimatedPrimitives += primitiveCount(
-                mode,
-                count,
-                instances,
-              );
+            webgl.drawCalls.total += 1;
+            webgl.drawCalls.byMethod[methodName] =
+              (webgl.drawCalls.byMethod[methodName] ?? 0) + 1;
+            webgl.drawCalls.estimatedPrimitives += primitiveCount(
+              mode,
+              count,
+              instances,
+            );
 
-              return Reflect.apply(original, receiver, args);
-            },
-          );
+            return Reflect.apply(original, receiver, args);
+          });
         }
       }
 
-      const canvasPrototype =
-        HTMLCanvasElement.prototype as unknown as Record<
-          string,
-          unknown
-        >;
+      const canvasPrototype = HTMLCanvasElement.prototype as unknown as Record<
+        string,
+        unknown
+      >;
       const originalGetContext = canvasPrototype['getContext'];
 
       if (typeof originalGetContext === 'function') {
@@ -796,12 +744,8 @@ test.describe('Phase 19 hero performance probe', () => {
           return Number.isFinite(parsed) ? parsed : null;
         };
         const readSignature = (): HeroSignature => ({
-          rawProgress: parseProgress(
-            shellElement.dataset.heroRawProgress,
-          ),
-          sceneProgress: parseProgress(
-            shellElement.dataset.heroSceneProgress,
-          ),
+          rawProgress: parseProgress(shellElement.dataset.heroRawProgress),
+          sceneProgress: parseProgress(shellElement.dataset.heroSceneProgress),
           scrollY: window.scrollY,
         });
         const readHeap = () => {
@@ -897,9 +841,7 @@ test.describe('Phase 19 hero performance probe', () => {
           maximumScrollY,
           window.innerHeight * 0.4 + heroScrollRange,
         );
-        const lcpAtScrubStart = probe.lcp
-          ? { ...probe.lcp }
-          : null;
+        const lcpAtScrubStart = probe.lcp ? { ...probe.lcp } : null;
         const heapBefore = readHeap();
         const webglBefore = cloneWebGl();
         const scrubStartedAtMs = performance.now();
@@ -947,22 +889,17 @@ test.describe('Phase 19 hero performance probe', () => {
               },
               effectiveDpr: {
                 x: bounds.width > 0 ? canvas.width / bounds.width : null,
-                y:
-                  bounds.height > 0
-                    ? canvas.height / bounds.height
-                    : null,
+                y: bounds.height > 0 ? canvas.height / bounds.height : null,
               },
             };
           }
 
           const debugRendererInfo = gl.getExtension(
             'WEBGL_debug_renderer_info',
-          ) as
-            | {
-                UNMASKED_RENDERER_WEBGL: number;
-                UNMASKED_VENDOR_WEBGL: number;
-              }
-            | null;
+          ) as {
+            UNMASKED_RENDERER_WEBGL: number;
+            UNMASKED_VENDOR_WEBGL: number;
+          } | null;
 
           return {
             backingPixels: {
@@ -970,8 +907,7 @@ test.describe('Phase 19 hero performance probe', () => {
               width: canvas.width,
             },
             context: {
-              api:
-                gl instanceof WebGL2RenderingContext ? 'webgl2' : 'webgl',
+              api: gl instanceof WebGL2RenderingContext ? 'webgl2' : 'webgl',
               attributes: gl.getContextAttributes(),
               caps: {
                 maxCombinedTextureImageUnits: gl.getParameter(
@@ -980,9 +916,7 @@ test.describe('Phase 19 hero performance probe', () => {
                 maxRenderbufferSize: gl.getParameter(
                   gl.MAX_RENDERBUFFER_SIZE,
                 ) as number,
-                maxTextureSize: gl.getParameter(
-                  gl.MAX_TEXTURE_SIZE,
-                ) as number,
+                maxTextureSize: gl.getParameter(gl.MAX_TEXTURE_SIZE) as number,
                 maxVertexAttribs: gl.getParameter(
                   gl.MAX_VERTEX_ATTRIBS,
                 ) as number,
@@ -1010,22 +944,17 @@ test.describe('Phase 19 hero performance probe', () => {
             },
             effectiveDpr: {
               x: bounds.width > 0 ? canvas.width / bounds.width : null,
-              y:
-                bounds.height > 0
-                  ? canvas.height / bounds.height
-                  : null,
+              y: bounds.height > 0 ? canvas.height / bounds.height : null,
             },
           };
         });
-        const navigation = performance
-          .getEntriesByType('navigation')
-          .at(-1) as PerformanceNavigationTiming | undefined;
+        const navigation = performance.getEntriesByType('navigation').at(-1) as
+          | PerformanceNavigationTiming
+          | undefined;
         const resourceEntries = performance.getEntriesByType(
           'resource',
         ) as PerformanceResourceTiming[];
-        const resourceBucket = (
-          entry: PerformanceResourceTiming,
-        ) => {
+        const resourceBucket = (entry: PerformanceResourceTiming) => {
           if (
             entry.initiatorType === 'script' ||
             /\.m?js(?:$|\?)/u.test(entry.name)
@@ -1042,16 +971,12 @@ test.describe('Phase 19 hero performance probe', () => {
 
           if (
             entry.initiatorType === 'img' ||
-            /\.(?:avif|gif|jpe?g|png|svg|webp)(?:$|\?)/u.test(
-              entry.name,
-            )
+            /\.(?:avif|gif|jpe?g|png|svg|webp)(?:$|\?)/u.test(entry.name)
           ) {
             return 'image';
           }
 
-          if (
-            /\.(?:otf|ttf|woff2?)(?:$|\?)/u.test(entry.name)
-          ) {
+          if (/\.(?:otf|ttf|woff2?)(?:$|\?)/u.test(entry.name)) {
             return 'font';
           }
 
@@ -1092,12 +1017,9 @@ test.describe('Phase 19 hero performance probe', () => {
         const resourceTotals = Object.values(resourceGroups).reduce(
           (totals, group) => ({
             count: totals.count + group.count,
-            decodedBodyBytes:
-              totals.decodedBodyBytes + group.decodedBodyBytes,
-            encodedBodyBytes:
-              totals.encodedBodyBytes + group.encodedBodyBytes,
-            transferBytes:
-              totals.transferBytes + group.transferBytes,
+            decodedBodyBytes: totals.decodedBodyBytes + group.decodedBodyBytes,
+            encodedBodyBytes: totals.encodedBodyBytes + group.encodedBodyBytes,
+            transferBytes: totals.transferBytes + group.transferBytes,
           }),
           {
             count: 0,
@@ -1132,18 +1054,14 @@ test.describe('Phase 19 hero performance probe', () => {
             intervalCount: forward.intervalsMs.length,
             toY: forward.toY,
           },
-          frameIntervalsMs: [
-            ...forward.intervalsMs,
-            ...reverse.intervalsMs,
-          ],
+          frameIntervalsMs: [...forward.intervalsMs, ...reverse.intervalsMs],
           heap: {
             after: heapAfter,
             before: heapBefore,
             deltaUsedBytes:
               heapBefore.usedJsHeapSizeBytes !== null &&
               heapAfter.usedJsHeapSizeBytes !== null
-                ? heapAfter.usedJsHeapSizeBytes -
-                  heapBefore.usedJsHeapSizeBytes
+                ? heapAfter.usedJsHeapSizeBytes - heapBefore.usedJsHeapSizeBytes
                 : null,
           },
           lcp: {
@@ -1181,10 +1099,7 @@ test.describe('Phase 19 hero performance probe', () => {
                   transferBytes: entry.transferSize,
                 };
               })
-              .sort(
-                (left, right) =>
-                  right.transferBytes - left.transferBytes,
-              )
+              .sort((left, right) => right.transferBytes - left.transferBytes)
               .slice(0, 20),
             totals: resourceTotals,
           },
@@ -1201,8 +1116,7 @@ test.describe('Phase 19 hero performance probe', () => {
             before: webglBefore,
             scrubDelta: {
               drawCalls:
-                webglAfter.drawCalls.total -
-                webglBefore.drawCalls.total,
+                webglAfter.drawCalls.total - webglBefore.drawCalls.total,
               estimatedPrimitives:
                 webglAfter.drawCalls.estimatedPrimitives -
                 webglBefore.drawCalls.estimatedPrimitives,
@@ -1247,17 +1161,13 @@ test.describe('Phase 19 hero performance probe', () => {
     }));
     const maximumLongTaskMs =
       scrubLongTasks.length > 0
-        ? Math.max(
-            ...scrubLongTasks.map((entry) => entry.durationMs),
-          )
+        ? Math.max(...scrubLongTasks.map((entry) => entry.durationMs))
         : 0;
     const lcpMs =
       scrub.supported.lcp && scrub.lcp.navigation !== null
         ? round(scrub.lcp.navigation.startTimeMs)
         : null;
-    const cls = scrub.supported.cls
-      ? round(scrub.cls.cumulative, 6)
-      : null;
+    const cls = scrub.supported.cls ? round(scrub.cls.cumulative, 6) : null;
     const budgetChecks: NumericBudgetCheck[] = [
       {
         id: 'lcp',
@@ -1293,8 +1203,7 @@ test.describe('Phase 19 hero performance probe', () => {
         limit: 50,
         measured: scrub.supported.longTask,
         operator: '<=',
-        passed:
-          scrub.supported.longTask && maximumLongTaskMs <= 50,
+        passed: scrub.supported.longTask && maximumLongTaskMs <= 50,
         unit: 'ms',
         value: scrub.supported.longTask ? maximumLongTaskMs : null,
       },
@@ -1321,16 +1230,12 @@ test.describe('Phase 19 hero performance probe', () => {
       assetTiming: scrub.supported.resourceTiming,
       canvas: scrub.canvas.count > 0,
       hardwareGpu: !softwareRenderer,
-      heap:
-        scrub.heap.after.available ||
-        cdpAfter.available,
+      heap: scrub.heap.after.available || cdpAfter.available,
       webgl:
         scrub.supported.webglInterception &&
         scrub.webgl.scrubDelta.drawCalls > 0,
     };
-    const evidenceComplete = Object.values(evidenceCompleteness).every(
-      Boolean,
-    );
+    const evidenceComplete = Object.values(evidenceCompleteness).every(Boolean);
     const acceptanceGatePass =
       ACCEPTANCE_ENABLED &&
       fullForward &&
@@ -1412,9 +1317,7 @@ test.describe('Phase 19 hero performance probe', () => {
         canvas: scrub.canvas,
         cls: {
           cumulative: cls,
-          entryCount: scrub.supported.cls
-            ? scrub.cls.entryCount
-            : null,
+          entryCount: scrub.supported.cls ? scrub.cls.entryCount : null,
           maxSingleShift: scrub.supported.cls
             ? round(scrub.cls.maxSingleShift, 6)
             : null,
@@ -1436,26 +1339,20 @@ test.describe('Phase 19 hero performance probe', () => {
                 sizeCssPixels:
                   scrub.lcp.finalObserved.sizeCssPixels === null
                     ? null
-                    : round(
-                        scrub.lcp.finalObserved.sizeCssPixels,
-                      ),
-                startTimeMs: round(
-                  scrub.lcp.finalObserved.startTimeMs,
-                ),
+                    : round(scrub.lcp.finalObserved.sizeCssPixels),
+                startTimeMs: round(scrub.lcp.finalObserved.startTimeMs),
               }
             : null,
           navigation: scrub.lcp.navigation
             ? {
                 ...scrub.lcp.navigation,
-              sizeCssPixels:
+                sizeCssPixels:
                   scrub.lcp.navigation.sizeCssPixels === null
-                  ? null
-                    : round(
-                        scrub.lcp.navigation.sizeCssPixels,
-                      ),
-              startTimeMs: lcpMs,
-            }
-          : null,
+                    ? null
+                    : round(scrub.lcp.navigation.sizeCssPixels),
+                startTimeMs: lcpMs,
+              }
+            : null,
           note: 'The navigation value is frozen before the scripted scrub so later programmatic visibility changes cannot redefine the LCP budget.',
         },
         longTasks: {
@@ -1464,18 +1361,14 @@ test.describe('Phase 19 hero performance probe', () => {
             maxDurationMs:
               lifecycleLongTasks.length > 0
                 ? Math.max(
-                    ...lifecycleLongTasks.map(
-                      (entry) => entry.durationMs,
-                    ),
+                    ...lifecycleLongTasks.map((entry) => entry.durationMs),
                   )
                 : 0,
             samples: lifecycleLongTasks,
           },
           scrub: {
             count: scrubLongTasks.length,
-            maxDurationMs: scrub.supported.longTask
-              ? maximumLongTaskMs
-              : null,
+            maxDurationMs: scrub.supported.longTask ? maximumLongTaskMs : null,
             overBudgetCount: scrubLongTasks.filter(
               (entry) => entry.durationMs > 50,
             ).length,

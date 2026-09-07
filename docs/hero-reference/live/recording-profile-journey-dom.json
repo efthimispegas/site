@@ -30,67 +30,38 @@
       "id": "activeStep",
       "probeField": "activeStep",
       "implementationField": "bounds",
-      "components": [
-        "x",
-        "y",
-        "width",
-        "height"
-      ]
+      "components": ["x", "y", "width", "height"]
     },
     {
       "id": "activeHeader",
       "probeField": "activeHeader",
       "implementationField": "header",
-      "components": [
-        "x",
-        "y",
-        "width",
-        "height"
-      ]
+      "components": ["x", "y", "width", "height"]
     },
     {
       "id": "activeNumber",
       "probeField": "activeNumber",
       "implementationField": "number",
-      "components": [
-        "x",
-        "y",
-        "width",
-        "height"
-      ]
+      "components": ["x", "y", "width", "height"]
     },
     {
       "id": "activeTitle",
       "probeField": "activeTitle",
       "implementationField": "title",
-      "components": [
-        "x",
-        "y",
-        "height"
-      ],
+      "components": ["x", "y", "height"],
       "identityExclusion": "Width is determined by the state-title glyph sequence; title position and line-box height remain gated."
     },
     {
       "id": "activeBody",
       "probeField": "activeBody",
       "implementationField": "body",
-      "components": [
-        "x",
-        "y",
-        "width",
-        "height"
-      ]
+      "components": ["x", "y", "width", "height"]
     },
     {
       "id": "activeDescription",
       "probeField": "activeDescription",
       "implementationField": "description",
-      "components": [
-        "x",
-        "y",
-        "width",
-        "height"
-      ]
+      "components": ["x", "y", "width", "height"]
     }
   ],
   "states": [

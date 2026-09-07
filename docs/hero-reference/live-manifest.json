@@ -113,10 +113,7 @@
       ],
       "value": {
         "artifact": "docs/hero-reference/live/recording-profile-dom.json",
-        "applicableStates": [
-          "landing",
-          "landing-idle"
-        ],
+        "applicableStates": ["landing", "landing-idle"],
         "boundsToleranceCssPx": 2,
         "qualification": "The live CSS-pixel boxes are an independent DOM gate. They do not resolve or waive raster failures or unknown WebGL structural landmarks."
       }
@@ -124,9 +121,7 @@
     {
       "id": "recording-profile-journey-dom-geometry",
       "evidenceClass": "observed",
-      "sourceRefs": [
-        "live-trace-desktop-1508-2026-07-30"
-      ],
+      "sourceRefs": ["live-trace-desktop-1508-2026-07-30"],
       "value": {
         "profileArtifact": "docs/hero-reference/live/recording-profile-journey-dom.json",
         "rawProbeArtifact": "docs/hero-reference/live/journey-dom-probe.json",
@@ -151,9 +146,7 @@
     {
       "id": "identity-only-raster-mask",
       "evidenceClass": "observed",
-      "sourceRefs": [
-        "recording-landing-frame"
-      ],
+      "sourceRefs": ["recording-landing-frame"],
       "value": {
         "status": "blocked",
         "appliedMaskedPixelCount": 0,
@@ -225,25 +218,11 @@
       ],
       "value": {
         "precisionCssPx": 1,
-        "desktop1440ScrollY": [
-          972,
-          2594,
-          3167
-        ],
-        "desktop1920ScrollY": [
-          1167,
-          3112,
-          3801
-        ],
-        "mobile390ScrollY": [
-          1096,
-          3103,
-          3813
-        ],
+        "desktop1440ScrollY": [972, 2594, 3167],
+        "desktop1920ScrollY": [1167, 3112, 3801],
+        "mobile390ScrollY": [1096, 3103, 3813],
         "normalizedDomThresholdsAreSourceConfirmedSeparately": [
-          0.191,
-          0.697,
-          0.876
+          0.191, 0.697, 0.876
         ]
       }
     },
@@ -266,9 +245,7 @@
     {
       "id": "camera-and-scene-construction",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-app-js-2026-07-28"
-      ],
+      "sourceRefs": ["live-app-js-2026-07-28"],
       "value": {
         "glbCamera": "The scene traversal selects the camera embedded in the GLB and copies its FOV when available.",
         "baseAspect": 1.5,
@@ -417,9 +394,7 @@
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "Four red idle-route states are initialized with a 0.45-second stagger while target progress is zero."
       },
       "visualBounds": {
@@ -431,16 +406,11 @@
       "id": "activation-route",
       "progress": {
         "evidenceClass": "source-confirmed",
-        "value": [
-          0,
-          0.17
-        ]
+        "value": [0, 0.17]
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "Red route reveal is mapped across this camera-progress range."
       },
       "visualBounds": {
@@ -467,16 +437,11 @@
       "id": "clearance-travel",
       "progress": {
         "evidenceClass": "source-confirmed",
-        "value": [
-          0.17,
-          0.74
-        ]
+        "value": [0.17, 0.74]
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "The first blue route is mapped across this camera-progress range."
       },
       "visualBounds": {
@@ -488,16 +453,11 @@
       "id": "clearance-field-preview",
       "progress": {
         "evidenceClass": "source-confirmed",
-        "value": [
-          0.72,
-          0.75
-        ]
+        "value": [0.72, 0.75]
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "The field-grid reveal ratio maps across this camera-progress range."
       },
       "visualBounds": {
@@ -509,16 +469,11 @@
       "id": "field-approach",
       "progress": {
         "evidenceClass": "source-confirmed",
-        "value": [
-          0.72,
-          0.85
-        ]
+        "value": [0.72, 0.85]
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "The field-oriented camera composition variable maps across this range."
       },
       "visualBounds": {
@@ -575,16 +530,11 @@
       "id": "arrival-travel",
       "progress": {
         "evidenceClass": "source-confirmed",
-        "value": [
-          0.74,
-          0.9
-        ]
+        "value": [0.74, 0.9]
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "The second blue route is mapped across this camera-progress range."
       },
       "visualBounds": {
@@ -602,9 +552,7 @@
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "The second blue route reaches completion and the logo ratio begins accumulating after this point."
       },
       "visualBounds": {
@@ -616,16 +564,11 @@
       "id": "journey-exit",
       "progress": {
         "evidenceClass": "source-confirmed",
-        "value": [
-          0.9,
-          1.25
-        ]
+        "value": [0.9, 1.25]
       },
       "known": {
         "evidenceClass": "source-confirmed",
-        "sourceRefs": [
-          "live-app-js-2026-07-28"
-        ],
+        "sourceRefs": ["live-app-js-2026-07-28"],
         "value": "The source maps a camera translate-Z retreat across this range."
       },
       "visualBounds": {
@@ -648,17 +591,13 @@
     {
       "id": "mobile-asset-rule",
       "evidenceClass": "observed",
-      "sourceRefs": [
-        "live-trace-mobile-390-2026-07-28"
-      ],
+      "sourceRefs": ["live-trace-mobile-390-2026-07-28"],
       "value": "Treat browser/OS/UA and actual loaded resource as part of the capture profile. Viewport width and coarse input alone do not identify the live asset branch."
     },
     {
       "id": "stable-state-contract",
       "evidenceClass": "source-confirmed",
-      "sourceRefs": [
-        "live-app-js-2026-07-28"
-      ],
+      "sourceRefs": ["live-app-js-2026-07-28"],
       "value": "Refactor acceptance states must be externally settable as target progress plus local time/seed and must expose or await camera settlement; hidden scroll-only control is insufficient."
     },
     {

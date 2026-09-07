@@ -396,11 +396,7 @@ function verifyMeasurementSemantics(stateKey, artifact) {
   const validFieldProfileFeature = IMPLEMENTATION_FIELD_PROFILE_STATES.has(
     stateKey,
   )
-    ? isValidFieldProfile(
-        fieldProfileFeature,
-        expectedSourceArtifact,
-        stateKey,
-      )
+    ? isValidFieldProfile(fieldProfileFeature, expectedSourceArtifact, stateKey)
     : fieldProfileFeature === undefined;
   const validContactCenterFeature = IMPLEMENTATION_CONTACT_CENTER_STATES.has(
     stateKey,
@@ -819,8 +815,7 @@ function measureFieldTileProfileEvidence({
   });
   const referenceMeasurement = referenceResult.measurement;
   const implementationMeasurement = implementationResult.measurement;
-  const recordedImplementation =
-    measurement?.structuralAccuracy?.fieldProfile;
+  const recordedImplementation = measurement?.structuralAccuracy?.fieldProfile;
 
   assert.equal(
     referenceMeasurement.status,
@@ -899,10 +894,7 @@ function measureFieldTileProfileEvidence({
         unionPixelCount: overlap.unionPixelCount,
         iou: overlap.iou,
       },
-      reason:
-        status === 'blocked'
-          ? implementationMeasurement.reason
-          : null,
+      reason: status === 'blocked' ? implementationMeasurement.reason : null,
       qualification:
         status === 'blocked'
           ? 'The shared predicate and component gates observe the locked source field, but the implementation does not emit enough source-qualifying visible tile tops; the comparison remains blocker evidence.'
@@ -941,8 +933,7 @@ function measureFieldContactCenterEvidence({
   });
   const referenceMeasurement = referenceResult.measurement;
   const implementationMeasurement = implementationResult.measurement;
-  const recordedImplementation =
-    measurement?.structuralAccuracy?.contactCenter;
+  const recordedImplementation = measurement?.structuralAccuracy?.contactCenter;
 
   assert.equal(
     referenceMeasurement.status,
@@ -1011,10 +1002,7 @@ function measureFieldContactCenterEvidence({
         unionPixelCount: overlap.unionPixelCount,
         iou: overlap.iou,
       },
-      reason:
-        status === 'blocked'
-          ? implementationMeasurement.reason
-          : null,
+      reason: status === 'blocked' ? implementationMeasurement.reason : null,
       qualification:
         'This shared chroma silhouette locates the saturated contact center only. It is independent evidence and does not substitute for the source-tied tile-plus-standing-figure semantic landmark union.',
     },
@@ -1500,8 +1488,7 @@ function evaluateStructuralAccuracy(
   const sourceContactCenterMeasured =
     state.screenBounds?.contactCenterStatus === 'observed' &&
     Array.isArray(state.screenBounds?.contactCenter);
-  const implementationContactCenter =
-    implementationStructural?.contactCenter;
+  const implementationContactCenter = implementationStructural?.contactCenter;
   const implementationPrimaryFeature =
     primaryStructure.kind === 'composition'
       ? implementationComposition
@@ -1537,11 +1524,11 @@ function evaluateStructuralAccuracy(
           ? implementationPrimaryBlocked
             ? 'implementation field tile profile source-predicate quality gate is blocked'
             : 'implementation field tile profile is not emitted'
-        : primaryStructure.kind === 'landmark' && implementationPrimaryBlocked
-          ? IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[state.key]
-            ? 'implementation landmark semantic isolation is blocked'
-            : 'implementation landmark source-pixel quality gate is blocked'
-          : `implementation ${primaryStructure.kind} primary-structure bounds are not emitted`,
+          : primaryStructure.kind === 'landmark' && implementationPrimaryBlocked
+            ? IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[state.key]
+              ? 'implementation landmark semantic isolation is blocked'
+              : 'implementation landmark source-pixel quality gate is blocked'
+            : `implementation ${primaryStructure.kind} primary-structure bounds are not emitted`,
     );
   }
   if (
@@ -1806,8 +1793,7 @@ function evaluateStructuralAccuracy(
         actualMedian.width,
         Math.max(
           STRUCTURAL_TOLERANCES.fieldMedianTileCssPixelsMinimum,
-          sourceMedian.width *
-            STRUCTURAL_TOLERANCES.fieldMedianTileSizeRatio,
+          sourceMedian.width * STRUCTURAL_TOLERANCES.fieldMedianTileSizeRatio,
         ),
       ),
       compareScalar(
@@ -1816,8 +1802,7 @@ function evaluateStructuralAccuracy(
         actualMedian.height,
         Math.max(
           STRUCTURAL_TOLERANCES.fieldMedianTileCssPixelsMinimum,
-          sourceMedian.height *
-            STRUCTURAL_TOLERANCES.fieldMedianTileSizeRatio,
+          sourceMedian.height * STRUCTURAL_TOLERANCES.fieldMedianTileSizeRatio,
         ),
       ),
       compareScalar(
@@ -2540,8 +2525,7 @@ for (const state of manifest.states) {
     implementationImage,
     dpr: manifest.authority.recordingProfile.devicePixelRatio.value,
   });
-  let fieldTileProfileEvidence =
-    fieldTileProfileResult?.evidence ?? null;
+  let fieldTileProfileEvidence = fieldTileProfileResult?.evidence ?? null;
   if (fieldTileProfileResult) {
     const fieldTileProfilePath = path.join(
       comparisonRoot,
@@ -2568,8 +2552,7 @@ for (const state of manifest.states) {
     implementationImage,
     dpr: manifest.authority.recordingProfile.devicePixelRatio.value,
   });
-  let fieldContactCenterEvidence =
-    fieldContactCenterResult?.evidence ?? null;
+  let fieldContactCenterEvidence = fieldContactCenterResult?.evidence ?? null;
   if (fieldContactCenterResult) {
     const fieldContactCenterPath = path.join(
       comparisonRoot,
@@ -2651,15 +2634,15 @@ const structuralCheckSummary = states.reduce(
         ? 'copy'
         : check.metric.startsWith('contactCenter.')
           ? 'contactCenter'
-        : check.metric.startsWith('field.')
-          ? 'field'
-        : check.metric.startsWith('landmark.')
-          ? 'landmark'
-          : check.metric.startsWith('route.')
-            ? 'route'
-            : check.metric.startsWith('boundary.')
-              ? 'boundary'
-              : 'composition';
+          : check.metric.startsWith('field.')
+            ? 'field'
+            : check.metric.startsWith('landmark.')
+              ? 'landmark'
+              : check.metric.startsWith('route.')
+                ? 'route'
+                : check.metric.startsWith('boundary.')
+                  ? 'boundary'
+                  : 'composition';
       summary[group][check.status] += 1;
     }
     return summary;

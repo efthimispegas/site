@@ -65,7 +65,11 @@ export const HERO_ROUTE_CONTACTS = {
  * lockup is centered 3.5 world units farther along the same axis so the route
  * meets the arrow without shifting the five surrounding marks off-center.
  */
-export const HERO_ARRIVAL_CENTER = [59, ROUTE_Y, 25] as const satisfies HeroTuple3;
+export const HERO_ARRIVAL_CENTER = [
+  59,
+  ROUTE_Y,
+  25,
+] as const satisfies HeroTuple3;
 
 export const HERO_ROUTE_SCENE_STOPS = [
   [0, 0],
@@ -210,8 +214,7 @@ function selectRouteCurve(progress: number) {
     return {
       curve: blueRouteZeroCurve,
       localProgress:
-        (routeProgress - RED_ROUTE_END) /
-        (BLUE_ROUTE_ZERO_END - RED_ROUTE_END),
+        (routeProgress - RED_ROUTE_END) / (BLUE_ROUTE_ZERO_END - RED_ROUTE_END),
     };
   }
 

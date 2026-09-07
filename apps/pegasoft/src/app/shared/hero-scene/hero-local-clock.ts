@@ -44,11 +44,17 @@ export function updateHeroGateClock(
 }
 
 export function sampleLoopPhase(elapsedMs: number, periodMs: number) {
-  if (!Number.isFinite(elapsedMs) || !Number.isFinite(periodMs) || periodMs <= 0) {
+  if (
+    !Number.isFinite(elapsedMs) ||
+    !Number.isFinite(periodMs) ||
+    periodMs <= 0
+  ) {
     return 0;
   }
 
-  return ((Math.max(0, elapsedMs) % periodMs) + periodMs) % periodMs / periodMs;
+  return (
+    (((Math.max(0, elapsedMs) % periodMs) + periodMs) % periodMs) / periodMs
+  );
 }
 
 export function approachHeroGateRatio(

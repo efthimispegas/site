@@ -106,12 +106,7 @@
         "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
-        "landmark": [
-          714,
-          340,
-          85,
-          85.5
-        ],
+        "landmark": [714, 340, 85, 85.5],
         "landmarkLabel": "central blue loader mark",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/0/landmark",
         "route": null,
@@ -166,18 +161,9 @@
         "edgePixelSupport": 21202,
         "edgeDensity": 0.005413,
         "edgeCentroid": {
-          "rasterPixels": [
-            1808.991,
-            1010.298
-          ],
-          "cssPixels": [
-            904.495,
-            505.149
-          ],
-          "normalized": [
-            0.599798,
-            0.663796
-          ]
+          "rasterPixels": [1808.991, 1010.298],
+          "cssPixels": [904.495, 505.149],
+          "normalized": [0.599798, 0.663796]
         },
         "grid": {
           "columns": 4,
@@ -315,18 +301,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -385,20 +361,10 @@
         "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
-        "landmark": [
-          714,
-          341,
-          84.5,
-          84
-        ],
+        "landmark": [714, 341, 84.5, 84],
         "landmarkLabel": "central blue loader mark during world reveal",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/1/landmark",
-        "route": [
-          660,
-          556,
-          224,
-          204.5
-        ],
+        "route": [660, 556, 224, 204.5],
         "routeLabel": "visible high-chroma core of emerging red landing rails",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/1/route",
         "copy": null,
@@ -421,42 +387,21 @@
         "copyEvidenceRef": null,
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              1322,
-              1252
-            ],
-            "end": [
-              1685,
-              1520
-            ],
-            "direction": [
-              0.629562,
-              0.77695
-            ],
+            "start": [1322, 1252],
+            "end": [1685, 1520],
+            "direction": [0.629562, 0.77695],
             "principalSpan": 436.754,
             "equivalentSelectedCoreThickness": 8.185
           },
           "cssPixels": {
-            "start": [
-              661,
-              626
-            ],
-            "end": [
-              842.5,
-              760
-            ],
+            "start": [661, 626],
+            "end": [842.5, 760],
             "principalSpan": 218.377,
             "equivalentSelectedCoreThickness": 4.093
           },
           "normalized": {
-            "start": [
-              0.438329,
-              0.822602
-            ],
-            "end": [
-              0.558687,
-              0.998686
-            ]
+            "start": [0.438329, 0.822602],
+            "end": [0.558687, 0.998686]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
@@ -490,18 +435,9 @@
         "edgePixelSupport": 61750,
         "edgeDensity": 0.015766,
         "edgeCentroid": {
-          "rasterPixels": [
-            1567.87,
-            1036.362
-          ],
-          "cssPixels": [
-            783.935,
-            518.181
-          ],
-          "normalized": [
-            0.519851,
-            0.680921
-          ]
+          "rasterPixels": [1567.87, 1036.362],
+          "cssPixels": [783.935, 518.181],
+          "normalized": [0.519851, 0.680921]
         },
         "grid": {
           "columns": 4,
@@ -639,18 +575,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -715,12 +641,7 @@
         "route": null,
         "routeLabel": null,
         "routeEvidenceRef": null,
-        "copy": [
-          409,
-          132.5,
-          696,
-          306
-        ],
+        "copy": [409, 132.5, 696, 306],
         "copyStatus": "observed",
         "reason": "Primary composition measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -771,18 +692,9 @@
         "edgePixelSupport": 208659,
         "edgeDensity": 0.053274,
         "edgeCentroid": {
-          "rasterPixels": [
-            1586.402,
-            892.977
-          ],
-          "cssPixels": [
-            793.201,
-            446.489
-          ],
-          "normalized": [
-            0.525995,
-            0.586713
-          ]
+          "rasterPixels": [1586.402, 892.977],
+          "cssPixels": [793.201, 446.489],
+          "normalized": [0.525995, 0.586713]
         },
         "grid": {
           "columns": 4,
@@ -920,18 +832,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -993,20 +895,10 @@
         "landmark": null,
         "landmarkLabel": "landing industrial context aggregate at route idle",
         "landmarkEvidenceRef": null,
-        "route": [
-          610,
-          599,
-          208,
-          162
-        ],
+        "route": [610, 599, 208, 162],
         "routeLabel": "visible high-chroma core of landing-idle red route",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/3/route",
-        "copy": [
-          409,
-          132,
-          696,
-          303
-        ],
+        "copy": [409, 132, 696, 303],
         "copyStatus": "observed",
         "reason": "Primary composition measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -1026,42 +918,21 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/3/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              1220,
-              1387
-            ],
-            "end": [
-              1635,
-              1230
-            ],
-            "direction": [
-              0.927901,
-              -0.372826
-            ],
+            "start": [1220, 1387],
+            "end": [1635, 1230],
+            "direction": [0.927901, -0.372826],
             "principalSpan": 443.613,
             "equivalentSelectedCoreThickness": 9.934
           },
           "cssPixels": {
-            "start": [
-              610,
-              693.5
-            ],
-            "end": [
-              817.5,
-              615
-            ],
+            "start": [610, 693.5],
+            "end": [817.5, 615],
             "principalSpan": 221.806,
             "equivalentSelectedCoreThickness": 4.967
           },
           "normalized": {
-            "start": [
-              0.404509,
-              0.911301
-            ],
-            "end": [
-              0.542109,
-              0.808147
-            ]
+            "start": [0.404509, 0.911301],
+            "end": [0.542109, 0.808147]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
@@ -1096,18 +967,9 @@
         "edgePixelSupport": 199384,
         "edgeDensity": 0.050906,
         "edgeCentroid": {
-          "rasterPixels": [
-            1589.954,
-            924.635
-          ],
-          "cssPixels": [
-            794.977,
-            462.317
-          ],
-          "normalized": [
-            0.527173,
-            0.607513
-          ]
+          "rasterPixels": [1589.954, 924.635],
+          "cssPixels": [794.977, 462.317],
+          "normalized": [0.527173, 0.607513]
         },
         "grid": {
           "columns": 4,
@@ -1245,18 +1107,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -1314,28 +1166,13 @@
         "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
-        "landmark": [
-          815.5,
-          501,
-          247.5,
-          230.5
-        ],
+        "landmark": [815.5, 501, 247.5, 230.5],
         "landmarkLabel": "first-destination building before route contact",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/4/landmark",
-        "route": [
-          430,
-          4,
-          374,
-          471
-        ],
+        "route": [430, 4, 374, 471],
         "routeLabel": "visible high-chroma core of parallel red activation rails",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/4/route",
-        "copy": [
-          64.5,
-          419.5,
-          545.5,
-          284
-        ],
+        "copy": [64.5, 419.5, 545.5, 284],
         "copyStatus": "observed",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -1355,42 +1192,21 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/4/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              908,
-              48
-            ],
-            "end": [
-              1605,
-              927
-            ],
-            "direction": [
-              0.619074,
-              0.785332
-            ],
+            "start": [908, 48],
+            "end": [1605, 927],
+            "direction": [0.619074, 0.785332],
             "principalSpan": 1121.802,
             "equivalentSelectedCoreThickness": 31.852
           },
           "cssPixels": {
-            "start": [
-              454,
-              24
-            ],
-            "end": [
-              802.5,
-              463.5
-            ],
+            "start": [454, 24],
+            "end": [802.5, 463.5],
             "principalSpan": 560.901,
             "equivalentSelectedCoreThickness": 15.926
           },
           "normalized": {
-            "start": [
-              0.301061,
-              0.031537
-            ],
-            "end": [
-              0.532162,
-              0.609067
-            ]
+            "start": [0.301061, 0.031537],
+            "end": [0.532162, 0.609067]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
@@ -1425,18 +1241,9 @@
         "edgePixelSupport": 188239,
         "edgeDensity": 0.048061,
         "edgeCentroid": {
-          "rasterPixels": [
-            1215.211,
-            869.337
-          ],
-          "cssPixels": [
-            607.606,
-            434.668
-          ],
-          "normalized": [
-            0.402921,
-            0.571181
-          ]
+          "rasterPixels": [1215.211, 869.337],
+          "cssPixels": [607.606, 434.668],
+          "normalized": [0.402921, 0.571181]
         },
         "grid": {
           "columns": 4,
@@ -1574,18 +1381,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -1643,28 +1440,13 @@
         "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
-        "landmark": [
-          682.5,
-          301,
-          234,
-          211
-        ],
+        "landmark": [682.5, 301, 234, 211],
         "landmarkLabel": "logo-bearing first-destination building at route contact",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/5/landmark",
-        "route": [
-          342,
-          1,
-          399,
-          377
-        ],
+        "route": [342, 1, 399, 377],
         "routeLabel": "visible high-chroma core of red activation contact rails",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/5/route",
-        "copy": [
-          64.5,
-          413,
-          545.5,
-          284
-        ],
+        "copy": [64.5, 413, 545.5, 284],
         "copyStatus": "observed",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -1684,42 +1466,21 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/5/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              684,
-              2
-            ],
-            "end": [
-              1481,
-              755
-            ],
-            "direction": [
-              0.654649,
-              0.755933
-            ],
+            "start": [684, 2],
+            "end": [1481, 755],
+            "direction": [0.654649, 0.755933],
             "principalSpan": 1090.973,
             "equivalentSelectedCoreThickness": 29.807
           },
           "cssPixels": {
-            "start": [
-              342,
-              1
-            ],
-            "end": [
-              740.5,
-              377.5
-            ],
+            "start": [342, 1],
+            "end": [740.5, 377.5],
             "principalSpan": 545.486,
             "equivalentSelectedCoreThickness": 14.904
           },
           "normalized": {
-            "start": [
-              0.22679,
-              0.001314
-            ],
-            "end": [
-              0.491048,
-              0.496058
-            ]
+            "start": [0.22679, 0.001314],
+            "end": [0.491048, 0.496058]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
@@ -1755,18 +1516,9 @@
         "edgePixelSupport": 168893,
         "edgeDensity": 0.043121,
         "edgeCentroid": {
-          "rasterPixels": [
-            1175.747,
-            822
-          ],
-          "cssPixels": [
-            587.873,
-            411
-          ],
-          "normalized": [
-            0.389836,
-            0.540079
-          ]
+          "rasterPixels": [1175.747, 822],
+          "cssPixels": [587.873, 411],
+          "normalized": [0.389836, 0.540079]
         },
         "grid": {
           "columns": 4,
@@ -1904,18 +1656,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -1977,20 +1719,10 @@
         "landmark": null,
         "landmarkLabel": null,
         "landmarkEvidenceRef": null,
-        "route": [
-          88,
-          123,
-          474,
-          264
-        ],
+        "route": [88, 123, 474, 264],
         "routeLabel": "high-chroma core of connected cyan clearance route",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/6/route",
-        "copy": [
-          64.5,
-          417,
-          541,
-          280
-        ],
+        "copy": [64.5, 417, 541, 280],
         "copyStatus": "observed",
         "reason": "Primary route measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -2010,42 +1742,21 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/6/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              176,
-              250
-            ],
-            "end": [
-              1123,
-              773
-            ],
-            "direction": [
-              0.866865,
-              0.498543
-            ],
+            "start": [176, 250],
+            "end": [1123, 773],
+            "direction": [0.866865, 0.498543],
             "principalSpan": 1081.659,
             "equivalentSelectedCoreThickness": 16.012
           },
           "cssPixels": {
-            "start": [
-              88,
-              125
-            ],
-            "end": [
-              561.5,
-              386.5
-            ],
+            "start": [88, 125],
+            "end": [561.5, 386.5],
             "principalSpan": 540.83,
             "equivalentSelectedCoreThickness": 8.006
           },
           "normalized": {
-            "start": [
-              0.058355,
-              0.164258
-            ],
-            "end": [
-              0.372347,
-              0.507884
-            ]
+            "start": [0.058355, 0.164258],
+            "end": [0.372347, 0.507884]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
@@ -2081,18 +1792,9 @@
         "edgePixelSupport": 230202,
         "edgeDensity": 0.058774,
         "edgeCentroid": {
-          "rasterPixels": [
-            1213.608,
-            735.422
-          ],
-          "cssPixels": [
-            606.804,
-            367.711
-          ],
-          "normalized": [
-            0.40239,
-            0.483194
-          ]
+          "rasterPixels": [1213.608, 735.422],
+          "cssPixels": [606.804, 367.711],
+          "normalized": [0.40239, 0.483194]
         },
         "grid": {
           "columns": 4,
@@ -2230,18 +1932,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -2303,20 +1995,10 @@
         "landmark": null,
         "landmarkLabel": null,
         "landmarkEvidenceRef": null,
-        "route": [
-          217,
-          429,
-          441,
-          193
-        ],
+        "route": [217, 429, 441, 193],
         "routeLabel": "high-chroma core of cyan route approaching the field preview",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/7/route",
-        "copy": [
-          64.5,
-          417,
-          541.5,
-          280
-        ],
+        "copy": [64.5, 417, 541.5, 280],
         "copyStatus": "observed",
         "reason": "Primary route measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -2336,67 +2018,32 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/7/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              434,
-              1233
-            ],
-            "end": [
-              1315,
-              860
-            ],
-            "direction": [
-              0.921898,
-              -0.387433
-            ],
+            "start": [434, 1233],
+            "end": [1315, 860],
+            "direction": [0.921898, -0.387433],
             "principalSpan": 956.705,
             "equivalentSelectedCoreThickness": 6.838
           },
           "cssPixels": {
-            "start": [
-              217,
-              616.5
-            ],
-            "end": [
-              657.5,
-              430
-            ],
+            "start": [217, 616.5],
+            "end": [657.5, 430],
             "principalSpan": 478.352,
             "equivalentSelectedCoreThickness": 3.419
           },
           "normalized": {
-            "start": [
-              0.143899,
-              0.810118
-            ],
-            "end": [
-              0.436008,
-              0.565046
-            ]
+            "start": [0.143899, 0.810118],
+            "end": [0.436008, 0.565046]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
         "fieldProfileStatus": "observed",
-        "fieldProfile": [
-          1237,
-          64,
-          263.5,
-          146.5
-        ],
+        "fieldProfile": [1237, 64, 263.5, 146.5],
         "fieldProfileComponentProfile": {
           "count": 7,
           "center": {
-            "rasterPixels": [
-              2773.214,
-              255.357
-            ],
-            "cssPixels": [
-              1386.607,
-              127.679
-            ],
-            "normalized": [
-              0.919501,
-              0.167777
-            ]
+            "rasterPixels": [2773.214, 255.357],
+            "cssPixels": [1386.607, 127.679],
+            "normalized": [0.919501, 0.167777]
           },
           "medianTileTop": {
             "rasterPixels": {
@@ -2438,18 +2085,9 @@
         "edgePixelSupport": 200163,
         "edgeDensity": 0.051105,
         "edgeCentroid": {
-          "rasterPixels": [
-            979.37,
-            861.19
-          ],
-          "cssPixels": [
-            489.685,
-            430.595
-          ],
-          "normalized": [
-            0.324725,
-            0.565828
-          ]
+          "rasterPixels": [979.37, 861.19],
+          "cssPixels": [489.685, 430.595],
+          "normalized": [0.324725, 0.565828]
         },
         "grid": {
           "columns": 4,
@@ -2587,18 +2225,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -2659,20 +2287,10 @@
         "landmark": null,
         "landmarkLabel": "elevated field-center tile and figure",
         "landmarkEvidenceRef": null,
-        "route": [
-          53,
-          387,
-          697,
-          298
-        ],
+        "route": [53, 387, 697, 298],
         "routeLabel": "visible high-chroma core of cyan field-approach feed",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/8/route",
-        "copy": [
-          64.5,
-          417,
-          541,
-          280
-        ],
+        "copy": [64.5, 417, 541, 280],
         "copyStatus": "observed",
         "reason": "Primary fieldProfile measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -2692,67 +2310,32 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/8/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              106,
-              1369
-            ],
-            "end": [
-              1499,
-              776
-            ],
-            "direction": [
-              0.918962,
-              -0.394346
-            ],
+            "start": [106, 1369],
+            "end": [1499, 776],
+            "direction": [0.918962, -0.394346],
             "principalSpan": 1513.961,
             "equivalentSelectedCoreThickness": 10.243
           },
           "cssPixels": {
-            "start": [
-              53,
-              684.5
-            ],
-            "end": [
-              749.5,
-              388
-            ],
+            "start": [53, 684.5],
+            "end": [749.5, 388],
             "principalSpan": 756.981,
             "equivalentSelectedCoreThickness": 5.121
           },
           "normalized": {
-            "start": [
-              0.035146,
-              0.899474
-            ],
-            "end": [
-              0.497016,
-              0.509855
-            ]
+            "start": [0.035146, 0.899474],
+            "end": [0.497016, 0.509855]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
         "fieldProfileStatus": "observed",
-        "fieldProfile": [
-          944,
-          16,
-          556.5,
-          374.5
-        ],
+        "fieldProfile": [944, 16, 556.5, 374.5],
         "fieldProfileComponentProfile": {
           "count": 36,
           "center": {
-            "rasterPixels": [
-              2464.222,
-              399.819
-            ],
-            "cssPixels": [
-              1232.111,
-              199.91
-            ],
-            "normalized": [
-              0.81705,
-              0.262693
-            ]
+            "rasterPixels": [2464.222, 399.819],
+            "cssPixels": [1232.111, 199.91],
+            "normalized": [0.81705, 0.262693]
           },
           "medianTileTop": {
             "rasterPixels": {
@@ -2797,18 +2380,9 @@
         "edgePixelSupport": 238076,
         "edgeDensity": 0.060785,
         "edgeCentroid": {
-          "rasterPixels": [
-            1325.464,
-            825.08
-          ],
-          "cssPixels": [
-            662.732,
-            412.54
-          ],
-          "normalized": [
-            0.439477,
-            0.542102
-          ]
+          "rasterPixels": [1325.464, 825.08],
+          "cssPixels": [662.732, 412.54],
+          "normalized": [0.439477, 0.542102]
         },
         "grid": {
           "columns": 4,
@@ -2946,18 +2520,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -3016,28 +2580,13 @@
         "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
-        "landmark": [
-          754.5,
-          291,
-          90,
-          104.5
-        ],
+        "landmark": [754.5, 291, 90, 104.5],
         "landmarkLabel": "elevated center tile and standing figure at first contact",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/landmark",
-        "route": [
-          0,
-          345,
-          724,
-          298
-        ],
+        "route": [0, 345, 724, 298],
         "routeLabel": "visible high-chroma core of cyan route before field contact",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/route",
-        "copy": [
-          64.5,
-          417,
-          541,
-          280
-        ],
+        "copy": [64.5, 417, 541, 280],
         "copyStatus": "observed",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -3057,67 +2606,32 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              0,
-              1285
-            ],
-            "end": [
-              1447,
-              690
-            ],
-            "direction": [
-              0.934141,
-              -0.356904
-            ],
+            "start": [0, 1285],
+            "end": [1447, 690],
+            "direction": [0.934141, -0.356904],
             "principalSpan": 1564.06,
             "equivalentSelectedCoreThickness": 7.032
           },
           "cssPixels": {
-            "start": [
-              0,
-              642.5
-            ],
-            "end": [
-              723.5,
-              345
-            ],
+            "start": [0, 642.5],
+            "end": [723.5, 345],
             "principalSpan": 782.03,
             "equivalentSelectedCoreThickness": 3.516
           },
           "normalized": {
-            "start": [
-              0,
-              0.844284
-            ],
-            "end": [
-              0.479775,
-              0.453351
-            ]
+            "start": [0, 0.844284],
+            "end": [0.479775, 0.453351]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
         "fieldProfileStatus": "observed",
-        "fieldProfile": [
-          351,
-          51,
-          881,
-          678.5
-        ],
+        "fieldProfile": [351, 51, 881, 678.5],
         "fieldProfileComponentProfile": {
           "count": 72,
           "center": {
-            "rasterPixels": [
-              1626.66,
-              722.278
-            ],
-            "cssPixels": [
-              813.33,
-              361.139
-            ],
-            "normalized": [
-              0.539343,
-              0.474558
-            ]
+            "rasterPixels": [1626.66, 722.278],
+            "cssPixels": [813.33, 361.139],
+            "normalized": [0.539343, 0.474558]
           },
           "medianTileTop": {
             "rasterPixels": {
@@ -3137,12 +2651,7 @@
         "fieldProfileLabel": "visible bright-neutral field tile-top profile",
         "fieldProfileEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/fieldProfile",
         "contactCenterStatus": "observed",
-        "contactCenter": [
-          756,
-          335,
-          86,
-          60
-        ],
+        "contactCenter": [756, 335, 86, 60],
         "contactCenterLabel": "saturated field contact center tile",
         "contactCenterEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/9/contactCenter"
       },
@@ -3169,18 +2678,9 @@
         "edgePixelSupport": 283304,
         "edgeDensity": 0.072332,
         "edgeCentroid": {
-          "rasterPixels": [
-            1298.048,
-            900.627
-          ],
-          "cssPixels": [
-            649.024,
-            450.314
-          ],
-          "normalized": [
-            0.430387,
-            0.591739
-          ]
+          "rasterPixels": [1298.048, 900.627],
+          "cssPixels": [649.024, 450.314],
+          "normalized": [0.430387, 0.591739]
         },
         "grid": {
           "columns": 4,
@@ -3318,18 +2818,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -3391,20 +2881,10 @@
         "landmark": null,
         "landmarkLabel": "field center during inner pulse",
         "landmarkEvidenceRef": null,
-        "route": [
-          1,
-          361,
-          622,
-          155
-        ],
+        "route": [1, 361, 622, 155],
         "routeLabel": "visible high-chroma core of incoming cyan feed during inner pulse",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/10/route",
-        "copy": [
-          64.5,
-          417,
-          541,
-          280
-        ],
+        "copy": [64.5, 417, 541, 280],
         "copyStatus": "observed",
         "reason": "Primary fieldProfile measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -3424,67 +2904,32 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/10/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              2,
-              1031
-            ],
-            "end": [
-              1245,
-              850
-            ],
-            "direction": [
-              0.983304,
-              -0.181968
-            ],
+            "start": [2, 1031],
+            "end": [1245, 850],
+            "direction": [0.983304, -0.181968],
             "principalSpan": 1255.184,
             "equivalentSelectedCoreThickness": 6.259
           },
           "cssPixels": {
-            "start": [
-              1,
-              515.5
-            ],
-            "end": [
-              622.5,
-              425
-            ],
+            "start": [1, 515.5],
+            "end": [622.5, 425],
             "principalSpan": 627.592,
             "equivalentSelectedCoreThickness": 3.129
           },
           "normalized": {
-            "start": [
-              0.000663,
-              0.677398
-            ],
-            "end": [
-              0.412798,
-              0.558476
-            ]
+            "start": [0.000663, 0.677398],
+            "end": [0.412798, 0.558476]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
         "fieldProfileStatus": "observed",
-        "fieldProfile": [
-          281,
-          45,
-          927,
-          697
-        ],
+        "fieldProfile": [281, 45, 927, 697],
         "fieldProfileComponentProfile": {
           "count": 59,
           "center": {
-            "rasterPixels": [
-              1530.271,
-              776.398
-            ],
-            "cssPixels": [
-              765.136,
-              388.199
-            ],
-            "normalized": [
-              0.507384,
-              0.510117
-            ]
+            "rasterPixels": [1530.271, 776.398],
+            "cssPixels": [765.136, 388.199],
+            "normalized": [0.507384, 0.510117]
           },
           "medianTileTop": {
             "rasterPixels": {
@@ -3530,18 +2975,9 @@
         "edgePixelSupport": 234437,
         "edgeDensity": 0.059856,
         "edgeCentroid": {
-          "rasterPixels": [
-            1200.924,
-            940.237
-          ],
-          "cssPixels": [
-            600.462,
-            470.118
-          ],
-          "normalized": [
-            0.398184,
-            0.617764
-          ]
+          "rasterPixels": [1200.924, 940.237],
+          "cssPixels": [600.462, 470.118],
+          "normalized": [0.398184, 0.617764]
         },
         "grid": {
           "columns": 4,
@@ -3679,18 +3115,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -3749,28 +3175,13 @@
         "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
-        "landmark": [
-          685,
-          326,
-          83,
-          88
-        ],
+        "landmark": [685, 326, 83, 88],
         "landmarkLabel": "elevated blue-violet center tile",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/landmark",
-        "route": [
-          1,
-          394,
-          605,
-          80
-        ],
+        "route": [1, 394, 605, 80],
         "routeLabel": "visible high-chroma core of incoming cyan feed during outer pulse",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/route",
-        "copy": [
-          64.5,
-          417,
-          541,
-          280
-        ],
+        "copy": [64.5, 417, 541, 280],
         "copyStatus": "observed",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -3790,67 +3201,32 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/11/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              2,
-              943
-            ],
-            "end": [
-              1211,
-              788
-            ],
-            "direction": [
-              0.99375,
-              -0.111628
-            ],
+            "start": [2, 943],
+            "end": [1211, 788],
+            "direction": [0.99375, -0.111628],
             "principalSpan": 1218.746,
             "equivalentSelectedCoreThickness": 6.464
           },
           "cssPixels": {
-            "start": [
-              1,
-              471.5
-            ],
-            "end": [
-              605.5,
-              394
-            ],
+            "start": [1, 471.5],
+            "end": [605.5, 394],
             "principalSpan": 609.373,
             "equivalentSelectedCoreThickness": 3.232
           },
           "normalized": {
-            "start": [
-              0.000663,
-              0.61958
-            ],
-            "end": [
-              0.401525,
-              0.51774
-            ]
+            "start": [0.000663, 0.61958],
+            "end": [0.401525, 0.51774]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
         "fieldProfileStatus": "observed",
-        "fieldProfile": [
-          341.5,
-          86,
-          798.5,
-          633
-        ],
+        "fieldProfile": [341.5, 86, 798.5, 633],
         "fieldProfileComponentProfile": {
           "count": 21,
           "center": {
-            "rasterPixels": [
-              1521.31,
-              855.548
-            ],
-            "cssPixels": [
-              760.655,
-              427.774
-            ],
-            "normalized": [
-              0.504413,
-              0.562121
-            ]
+            "rasterPixels": [1521.31, 855.548],
+            "cssPixels": [760.655, 427.774],
+            "normalized": [0.504413, 0.562121]
           },
           "medianTileTop": {
             "rasterPixels": {
@@ -3896,18 +3272,9 @@
         "edgePixelSupport": 242414,
         "edgeDensity": 0.061892,
         "edgeCentroid": {
-          "rasterPixels": [
-            1186.984,
-            926.431
-          ],
-          "cssPixels": [
-            593.492,
-            463.215
-          ],
-          "normalized": [
-            0.393562,
-            0.608693
-          ]
+          "rasterPixels": [1186.984, 926.431],
+          "cssPixels": [593.492, 463.215],
+          "normalized": [0.393562, 0.608693]
         },
         "grid": {
           "columns": 4,
@@ -4045,18 +3412,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -4118,12 +3475,7 @@
         "landmark": null,
         "landmarkLabel": null,
         "landmarkEvidenceRef": null,
-        "route": [
-          714,
-          352,
-          118,
-          9
-        ],
+        "route": [714, 352, 118, 9],
         "routeLabel": "high-chroma core of second horizontal cyan route",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/12/route",
         "copy": null,
@@ -4146,42 +3498,21 @@
         "copyEvidenceRef": null,
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              1428,
-              717
-            ],
-            "end": [
-              1663,
-              721
-            ],
-            "direction": [
-              0.999879,
-              0.015587
-            ],
+            "start": [1428, 717],
+            "end": [1663, 721],
+            "direction": [0.999879, 0.015587],
             "principalSpan": 235.034,
             "equivalentSelectedCoreThickness": 4.638
           },
           "cssPixels": {
-            "start": [
-              714,
-              358.5
-            ],
-            "end": [
-              831.5,
-              360.5
-            ],
+            "start": [714, 358.5],
+            "end": [831.5, 360.5],
             "principalSpan": 117.517,
             "equivalentSelectedCoreThickness": 2.319
           },
           "normalized": {
-            "start": [
-              0.473475,
-              0.471091
-            ],
-            "end": [
-              0.551393,
-              0.473719
-            ]
+            "start": [0.473475, 0.471091],
+            "end": [0.551393, 0.473719]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
@@ -4217,18 +3548,9 @@
         "edgePixelSupport": 170548,
         "edgeDensity": 0.043544,
         "edgeCentroid": {
-          "rasterPixels": [
-            713.846,
-            955.037
-          ],
-          "cssPixels": [
-            356.923,
-            477.519
-          ],
-          "normalized": [
-            0.236686,
-            0.627488
-          ]
+          "rasterPixels": [713.846, 955.037],
+          "cssPixels": [356.923, 477.519],
+          "normalized": [0.236686, 0.627488]
         },
         "grid": {
           "columns": 4,
@@ -4366,18 +3688,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -4436,28 +3748,13 @@
         "status": "observed",
         "coordinateSpace": "css-pixels",
         "profileId": "recording-desktop",
-        "landmark": [
-          597,
-          235.5,
-          179,
-          262.5
-        ],
+        "landmark": [597, 235.5, 179, 262.5],
         "landmarkLabel": "large frontal arrival arrow",
         "landmarkEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/13/landmark",
-        "route": [
-          1,
-          352,
-          479,
-          10
-        ],
+        "route": [1, 352, 479, 10],
         "routeLabel": "visible high-chroma core of cyan arrival feed before the arrow",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/13/route",
-        "copy": [
-          64.5,
-          405,
-          549,
-          294.5
-        ],
+        "copy": [64.5, 405, 549, 294.5],
         "copyStatus": "observed",
         "reason": "Primary landmark measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
@@ -4477,42 +3774,21 @@
         "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/13/copy",
         "routeGeometry": {
           "rasterPixels": {
-            "start": [
-              2,
-              723
-            ],
-            "end": [
-              959,
-              712
-            ],
-            "direction": [
-              0.999928,
-              -0.011959
-            ],
+            "start": [2, 723],
+            "end": [959, 712],
+            "direction": [0.999928, -0.011959],
             "principalSpan": 957.063,
             "equivalentSelectedCoreThickness": 7.198
           },
           "cssPixels": {
-            "start": [
-              1,
-              361.5
-            ],
-            "end": [
-              479.5,
-              356
-            ],
+            "start": [1, 361.5],
+            "end": [479.5, 356],
             "principalSpan": 478.532,
             "equivalentSelectedCoreThickness": 3.599
           },
           "normalized": {
-            "start": [
-              0.000663,
-              0.475033
-            ],
-            "end": [
-              0.317971,
-              0.467806
-            ]
+            "start": [0.000663, 0.475033],
+            "end": [0.317971, 0.467806]
           },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
@@ -4548,18 +3824,9 @@
         "edgePixelSupport": 156936,
         "edgeDensity": 0.040068,
         "edgeCentroid": {
-          "rasterPixels": [
-            1035.453,
-            989.306
-          ],
-          "cssPixels": [
-            517.727,
-            494.653
-          ],
-          "normalized": [
-            0.34332,
-            0.650004
-          ]
+          "rasterPixels": [1035.453, 989.306],
+          "cssPixels": [517.727, 494.653],
+          "normalized": [0.34332, 0.650004]
         },
         "grid": {
           "columns": 4,
@@ -4697,18 +3964,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."
@@ -4785,12 +4042,7 @@
         "landmarkStatus": "not-applicable",
         "routeStatus": "not-applicable",
         "boundaryStatus": "observed",
-        "boundary": [
-          0,
-          367.5,
-          1508,
-          1
-        ],
+        "boundary": [0, 367.5, 1508, 1],
         "boundaryLabel": "hero-to-following-section boundary at journey exit",
         "boundaryEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/14/boundary",
         "copyLabel": "clipped exiting process-ladder copy",
@@ -4826,18 +4078,9 @@
         "edgePixelSupport": 161762,
         "edgeDensity": 0.041301,
         "edgeCentroid": {
-          "rasterPixels": [
-            905.552,
-            760.158
-          ],
-          "cssPixels": [
-            452.776,
-            380.079
-          ],
-          "normalized": [
-            0.300249,
-            0.499447
-          ]
+          "rasterPixels": [905.552, 760.158],
+          "cssPixels": [452.776, 380.079],
+          "normalized": [0.300249, 0.499447]
         },
         "grid": {
           "columns": 4,
@@ -4975,18 +4218,8 @@
         },
         "method": {
           "id": "screen-space-sobel-grid",
-          "roiNormalized": [
-            0.01,
-            0.12,
-            0.98,
-            0.87
-          ],
-          "roiRasterPixels": [
-            30,
-            182,
-            2956,
-            1325
-          ],
+          "roiNormalized": [0.01, 0.12, 0.98, 0.87],
+          "roiRasterPixels": [30, 182, 2956, 1325],
           "sobelThreshold": 36,
           "minimumEdgePixels": 1000,
           "interpretation": "Binary Sobel support is summarized in a fixed 4x4 screen grid after excluding the fixed-header band and outer raster border. Edge density and centroid are rendered composition proxies only; negativeSpaceProxy means absence of thresholded edges, not proof of empty 3D space or a recovered camera transform."

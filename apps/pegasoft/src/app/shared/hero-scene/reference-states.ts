@@ -139,10 +139,12 @@ function state(input: ReferenceStateInput): HeroReferenceState {
     landmarkStatus,
     landmarkBounds = null,
     routeStatus,
-    routeLabel =
-      primaryStructureKind === 'route' ? primaryStructureLabel : null,
-    routeEvidenceRef =
-      primaryStructureKind === 'route' ? primaryStructureEvidenceRef : null,
+    routeLabel = primaryStructureKind === 'route'
+      ? primaryStructureLabel
+      : null,
+    routeEvidenceRef = primaryStructureKind === 'route'
+      ? primaryStructureEvidenceRef
+      : null,
     routeBounds = null,
     boundaryStatus,
     boundaryBounds = null,

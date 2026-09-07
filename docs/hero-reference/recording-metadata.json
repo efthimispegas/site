@@ -17,14 +17,7 @@
   "container": {
     "status": "observed",
     "format": "QuickTime / MOV",
-    "formatNames": [
-      "mov",
-      "mp4",
-      "m4a",
-      "3gp",
-      "3g2",
-      "mj2"
-    ],
+    "formatNames": ["mov", "mp4", "m4a", "3gp", "3g2", "mj2"],
     "sizeBytes": 190835536,
     "startTimeSeconds": 0,
     "durationSeconds": 32.927833,
@@ -67,10 +60,7 @@
   },
   "frameIndexing": {
     "status": "observed",
-    "canonicalAnchorPair": [
-      "decodedFrameIndex",
-      "bestEffortTimestampPts"
-    ],
+    "canonicalAnchorPair": ["decodedFrameIndex", "bestEffortTimestampPts"],
     "decodedFrameIndexDefinition": "Zero-based presentation-order index in ffprobe .frames; this is the n used by ffmpeg select=eq(n,index).",
     "ptsDefinition": "best_effort_timestamp in the video time base 1/6000.",
     "declaredVersusDecodedDiscrepancy": {
@@ -128,9 +118,7 @@
     },
     "responsiveEvidence": {
       "status": "observed",
-      "profilesPresent": [
-        "desktop"
-      ],
+      "profilesPresent": ["desktop"],
       "profilesAbsent": [
         "tablet",
         "mobile",

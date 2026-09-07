@@ -147,9 +147,7 @@ export function ArrivalStage({
   settledCameraProgressRef: HeroCameraProgressRef;
 }) {
   const activationRef = useRef(0);
-  const baseMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>(
-    [],
-  );
+  const baseMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
   const topMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
   const [arrivalX, , arrivalZ] = HERO_ARRIVAL_CENTER;
 
@@ -159,11 +157,7 @@ export function ArrivalStage({
       arrivalActiveBaseRgb,
       activation,
     );
-    const topColor = mixRgb(
-      arrivalRestTopRgb,
-      arrivalActiveTopRgb,
-      activation,
-    );
+    const topColor = mixRgb(arrivalRestTopRgb, arrivalActiveTopRgb, activation);
     const emissiveIntensity = activation * 0.32;
 
     baseMaterialsRef.current.forEach((material) => {

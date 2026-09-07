@@ -42,10 +42,11 @@ const DEEP_BLUE = Object.freeze({
 
 const BLUE_VIOLET_FIELD_CENTER = Object.freeze({
   id: 'blue-violet-field-center',
-  description:
-    'b-r >= 25, b-g >= 35, b >= 150, and g <= 205 in 8-bit sRGB',
+  description: 'b-r >= 25, b-g >= 35, b >= 150, and g <= 205 in 8-bit sRGB',
   test(red, green, blue) {
-    return blue - red >= 25 && blue - green >= 35 && blue >= 150 && green <= 205;
+    return (
+      blue - red >= 25 && blue - green >= 35 && blue >= 150 && green <= 205
+    );
   },
 });
 
@@ -998,8 +999,7 @@ export function measureFieldTileProfile({ data, image, dpr, config }) {
   );
   const selectedComponents = components.filter((component) => {
     const fillRatio =
-      component.pixels /
-      (component.bounds.width * component.bounds.height);
+      component.pixels / (component.bounds.width * component.bounds.height);
     return (
       component.pixels >= config.minimumComponentPixels &&
       component.pixels <= config.maximumComponentPixels &&
