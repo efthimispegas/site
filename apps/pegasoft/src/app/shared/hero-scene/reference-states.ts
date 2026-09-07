@@ -165,11 +165,17 @@ function state(input: ReferenceStateInput): HeroReferenceState {
         : 'blocked');
   const resolvedBoundaryStatus =
     boundaryStatus ?? (boundaryBounds === null ? 'not-applicable' : 'observed');
-  const primaryStatus = {
+  const primaryStatusByKind: Record<
+    HeroPrimaryStructureKind,
+    HeroStructuralFeatureStatus
+  > = {
     landmark: resolvedLandmarkStatus,
     route: resolvedRouteStatus,
     boundary: resolvedBoundaryStatus,
-  }[primaryStructureKind];
+    fieldProfile: primaryStructureEvidenceRef ? 'observed' : 'blocked',
+    composition: 'observed',
+  };
+  const primaryStatus = primaryStatusByKind[primaryStructureKind];
   const screenComposition = SCREEN_COMPOSITION_SUMMARIES[contract.key];
   const stateIndex = HERO_REFERENCE_STATE_KEYS.indexOf(contract.key);
 
@@ -358,7 +364,10 @@ export const referenceStates = [
     interactionMode: null,
     interactionEvidence: 'observed',
     routeStatus: 'not-applicable',
-    primaryStructureLabel: 'landing industrial context aggregate',
+    primaryStructureKind: 'composition',
+    primaryStructureLabel: 'resolved landing screen-space composition',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/2/composition',
     copyLabel: LANDING_COPY_LABEL,
     copyEvidenceRef: structuralCopyEvidenceRef(2),
     copyBounds: [409, 132.5, 696, 306],
@@ -400,7 +409,11 @@ export const referenceStates = [
     routeSegment: 'active red landing packet',
     interactionMode: 'local landing clock',
     interactionEvidence: 'source-confirmed',
-    primaryStructureLabel: 'landing industrial context aggregate at route idle',
+    primaryStructureKind: 'composition',
+    primaryStructureLabel:
+      'resolved landing screen-space composition during route idle',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/3/composition',
     routeStatus: 'observed',
     routeLabel: 'visible high-chroma core of landing-idle red route',
     routeEvidenceRef:
@@ -599,7 +612,10 @@ export const referenceStates = [
       'rounded-tile field dominates the upper/right frame as the camera becomes strongly top-down',
     focus: 'elevated field center',
     routeSegment: 'cyan field-approach route',
-    primaryStructureLabel: 'elevated field-center tile and figure',
+    primaryStructureKind: 'fieldProfile',
+    primaryStructureLabel: 'visible bright-neutral field tile-top profile',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/8/fieldProfile',
     routeStatus: 'observed',
     routeLabel: 'visible high-chroma core of cyan field-approach feed',
     routeEvidenceRef:
@@ -675,7 +691,11 @@ export const referenceStates = [
     routeSegment: 'connected cyan route plus inner field pulse',
     interactionMode: 'progress-gated local field clock',
     interactionEvidence: 'inferred',
-    primaryStructureLabel: 'field center during inner pulse',
+    primaryStructureKind: 'fieldProfile',
+    primaryStructureLabel:
+      'visible bright-neutral field tile-top profile during inner pulse',
+    primaryStructureEvidenceRef:
+      'docs/hero-reference/recording-structural-bounds.json#/states/10/fieldProfile',
     routeStatus: 'observed',
     routeLabel:
       'visible high-chroma core of incoming cyan feed during inner pulse',
