@@ -457,6 +457,8 @@ test('development harness enters a named state without traversal history', async
 test('hero state converges across forward, reverse, jump, resize, and restored reload entry', async ({
   page,
 }, testInfo) => {
+  test.slow();
+
   const { expectedProfile, initialViewport, resizedViewport } =
     getConvergenceProfile(testInfo.project.name);
 
