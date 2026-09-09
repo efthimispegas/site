@@ -500,6 +500,12 @@ test('hero state converges across forward, reverse, jump, resize, and restored r
 test('same named state produces a stable capture', async ({
   page,
 }, testInfo) => {
+  // eslint-disable-next-line playwright/no-skipped-test -- fixed-viewport coverage belongs to one browser profile
+  test.skip(
+    testInfo.project.name !== 'chromium',
+    'Fixed-viewport byte stability is covered by desktop Chromium.',
+  );
+
   await page.setViewportSize({ width: 1508, height: 761 });
   await page.goto('/?__heroState=field-pulse-a&__heroTime=300');
   const state = page.locator('[data-hero-reference-state="field-pulse-a"]');
