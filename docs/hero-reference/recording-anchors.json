@@ -1,25 +1,18 @@
 {
-  "schemaVersion": 5,
+  "schemaVersion": 6,
   "verifiedOn": "2026-07-28",
   "authority": {
     "status": "observed",
     "sourcePath": "docs/vectrfl_recording.mov",
     "sourceSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
     "recordingProfile": {
-      "rasterPixels": {
-        "status": "observed",
-        "width": 3016,
-        "height": 1522
-      },
+      "rasterPixels": { "status": "observed", "width": 3016, "height": 1522 },
       "cssViewport": {
         "status": "source-confirmed",
         "width": 1508,
         "height": 761
       },
-      "devicePixelRatio": {
-        "status": "source-confirmed",
-        "value": 2
-      },
+      "devicePixelRatio": { "status": "source-confirmed", "value": 2 },
       "caveat": "The CSS viewport and DPR are resolved by exact 2x raster scaling, Apple Retina capture metadata, and a current-site layout cross-check; they are not dedicated MOV metadata fields."
     },
     "derivedCapturesAreAuthoritative": false
@@ -80,20 +73,14 @@
         "applicability": "not-applicable",
         "reason": "Pre-journey loader state."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "none"
-      },
+      "activeCopyState": { "status": "observed", "value": "none" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
         "quaternion": null,
         "visualComposition": "flat pale field centered on the resolved blue loader mark"
       },
-      "focusTarget": {
-        "status": "inferred",
-        "value": "central loader mark"
-      },
+      "focusTarget": { "status": "inferred", "value": "central loader mark" },
       "route": {
         "status": "observed",
         "segment": "none",
@@ -335,10 +322,7 @@
         "applicability": "not-applicable",
         "reason": "Pre-journey reveal state."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "none"
-      },
+      "activeCopyState": { "status": "observed", "value": "none" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
@@ -608,10 +592,7 @@
         "value": 0,
         "reason": "The recording landing frame and current live zero-scroll composition agree; see live/recording-progress-calibration.json."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "landing"
-      },
+      "activeCopyState": { "status": "observed", "value": "landing" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
@@ -865,20 +846,14 @@
         "value": 0,
         "reason": "The camera remains at zero progress while the landing-local route clock advances; see live/recording-progress-calibration.json."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "landing"
-      },
+      "activeCopyState": { "status": "observed", "value": "landing" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
         "quaternion": null,
         "visualComposition": "same resolved landing composition with a materially different red-packet phase"
       },
-      "focusTarget": {
-        "status": "inferred",
-        "value": "landing city cluster"
-      },
+      "focusTarget": { "status": "inferred", "value": "landing city cluster" },
       "route": {
         "status": "observed",
         "segment": "active red landing packet",
@@ -1689,10 +1664,7 @@
         "value": 0.32704,
         "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "step-02-clearance"
-      },
+      "activeCopyState": { "status": "observed", "value": "step-02-clearance" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
@@ -1965,10 +1937,7 @@
         "value": 0.54059,
         "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "step-02-clearance"
-      },
+      "activeCopyState": { "status": "observed", "value": "step-02-clearance" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
@@ -2258,20 +2227,14 @@
         "value": 0.60928,
         "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "step-02-clearance"
-      },
+      "activeCopyState": { "status": "observed", "value": "step-02-clearance" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
         "quaternion": null,
         "visualComposition": "rounded-tile field dominates the upper/right frame as the camera becomes strongly top-down"
       },
-      "focusTarget": {
-        "status": "inferred",
-        "value": "elevated field center"
-      },
+      "focusTarget": { "status": "inferred", "value": "elevated field center" },
       "route": {
         "status": "observed",
         "segment": "cyan field-approach route",
@@ -2618,10 +2581,7 @@
             "principalSpan": 782.03,
             "equivalentSelectedCoreThickness": 3.516
           },
-          "normalized": {
-            "start": [0, 0.844284],
-            "end": [0.479775, 0.453351]
-          },
+          "normalized": { "start": [0, 0.844284], "end": [0.479775, 0.453351] },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
         "fieldProfileStatus": "observed",
@@ -2937,11 +2897,7 @@
               "height": 124,
               "selectedPixels": 14868
             },
-            "cssPixels": {
-              "width": 81.5,
-              "height": 62,
-              "selectedPixels": 3717
-            }
+            "cssPixels": { "width": 81.5, "height": 62, "selectedPixels": 3717 }
           },
           "selectedPixelOccupancy": 0.337232,
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
@@ -3234,11 +3190,7 @@
               "height": 129,
               "selectedPixels": 15876
             },
-            "cssPixels": {
-              "width": 81,
-              "height": 64.5,
-              "selectedPixels": 3969
-            }
+            "cssPixels": { "width": 81, "height": 64.5, "selectedPixels": 3969 }
           },
           "selectedPixelOccupancy": 0.163539,
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
@@ -3445,10 +3397,7 @@
         "value": 0.89301,
         "reason": "Selected by current-live trace candidate ranking at the locked recording viewport; target resolution is 0.0014934."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "step-04-arrival"
-      },
+      "activeCopyState": { "status": "observed", "value": "step-04-arrival" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
@@ -3721,10 +3670,7 @@
         "value": 0.9,
         "reason": "The live arrival activation threshold is cross-checked against the corrected readable recording lockup."
       },
-      "activeCopyState": {
-        "status": "observed",
-        "value": "step-04-arrival"
-      },
+      "activeCopyState": { "status": "observed", "value": "step-04-arrival" },
       "cameraPose": {
         "status": "unknown",
         "position": null,
@@ -4264,7 +4210,7 @@
     "status": "observed",
     "verifiedOn": "2026-08-20",
     "artifact": "docs/hero-reference/recording-structural-bounds.json",
-    "algorithmVersion": "recording-structural-bounds-v13",
+    "algorithmVersion": "recording-structural-bounds-v14",
     "landmarkMeasured": 7,
     "landmarkBlocked": 4,
     "landmarkNotApplicable": 4,

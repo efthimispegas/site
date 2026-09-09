@@ -3,6 +3,7 @@ import { createReadStream } from 'node:fs';
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+import { format as formatWithPrettier, resolveConfig } from 'prettier';
 import sharp from 'sharp';
 import { measureScreenComposition } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 import {
@@ -35,7 +36,9 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v13';
+const algorithmVersion = 'recording-structural-bounds-v14';
+const semanticMaskReviewStatus = 'accepted-for-reference-refinement';
+const semanticMaskReviewScope = 'source-reference-goal-only';
 
 const argumentsSet = new Set(process.argv.slice(2));
 const checkOnly = argumentsSet.has('--check');
@@ -445,6 +448,9 @@ async function selectSemanticMask(sourcePath, image, stateKey, featureKind) {
       exclusion: entry.exclusion,
       uncertainty: entry.uncertainty,
       reviewStatus: entry.reviewStatus,
+      reviewScope: entry.reviewScope,
+      visualAcceptance: entry.visualAcceptance,
+      implementationPixelClassifier: entry.implementationPixelClassifier,
     },
   };
 }
@@ -741,16 +747,22 @@ const [manifest, semanticMaskManifest] = await Promise.all([
   readFile(semanticMasksPath, 'utf8').then((contents) => JSON.parse(contents)),
 ]);
 if (
-  semanticMaskManifest.schemaVersion !== 1 ||
+  semanticMaskManifest.schemaVersion !== 2 ||
   semanticMaskManifest.authority.recordingSha256 !==
     manifest.authority.sourceSha256 ||
   semanticMaskManifest.authority.rasterPixels.width !==
     manifest.authority.recordingProfile.rasterPixels.width ||
   semanticMaskManifest.authority.rasterPixels.height !==
-    manifest.authority.recordingProfile.rasterPixels.height
+    manifest.authority.recordingProfile.rasterPixels.height ||
+  semanticMaskManifest.reviewContract?.status !== semanticMaskReviewStatus ||
+  semanticMaskManifest.reviewContract?.scope !== semanticMaskReviewScope ||
+  semanticMaskManifest.reviewContract?.implementationPixelClassification !==
+    false ||
+  semanticMaskManifest.reviewContract?.structuralAcceptance !== false ||
+  semanticMaskManifest.reviewContract?.visualAcceptance !== false
 ) {
   throw new Error(
-    `${semanticMasksRef}: authority must match the locked recording manifest`,
+    `${semanticMasksRef}: authority and refinement-only review contract must match the locked recording manifest`,
   );
 }
 const semanticMasksByKey = new Map();
@@ -758,6 +770,16 @@ for (const entry of semanticMaskManifest.masks) {
   const key = `${entry.stateKey}:${entry.featureKind}`;
   if (semanticMasksByKey.has(key)) {
     throw new Error(`${semanticMasksRef}: duplicate semantic mask ${key}`);
+  }
+  if (
+    entry.reviewStatus !== semanticMaskReviewStatus ||
+    entry.reviewScope !== semanticMaskReviewScope ||
+    entry.visualAcceptance !== false ||
+    entry.implementationPixelClassifier !== false
+  ) {
+    throw new Error(
+      `${semanticMasksRef}: ${key} review permits source-reference refinement only`,
+    );
   }
   if (
     path.isAbsolute(entry.maskPath) ||
@@ -1078,7 +1100,7 @@ const summary = states.reduce(
 );
 
 const report = {
-  schemaVersion: 9,
+  schemaVersion: 10,
   algorithmVersion,
   generatedBy: 'tools/hero-reference/measure-recording-bounds.mjs',
   authority: {
@@ -1115,7 +1137,7 @@ const report = {
     boundary:
       'The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.',
     semanticMasks:
-      'A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.',
+      'A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Review permits reference-goal refinement only: a source mask cannot classify implementation pixels or confer structural or final visual acceptance. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.',
     routeGeometry:
       'Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.',
     copyInk:
@@ -1137,7 +1159,7 @@ const report = {
 
 const updatedManifest = {
   ...manifest,
-  schemaVersion: 5,
+  schemaVersion: 6,
   anchorPolicy: {
     ...manifest.anchorPolicy,
     unmeasuredFields: `Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures ${summary.landmarkMeasured} landmarks, ${summary.routeMeasured} route cores, ${summary.copyMeasured} copy-ink envelopes, ${summary.fieldProfileMeasured} field tile profiles, ${summary.contactCenterMeasured} field contact center, ${summary.compositionMeasured} screen-space composition proxies, and ${summary.boundaryMeasured} section boundary; ${summary.landmarkNotApplicable} states mark landmark bounds not applicable and ${summary.landmarkBlocked} non-primary landmarks remain honestly blocked, while ${summary.copyBlocked} copy states, ${summary.fieldProfileBlocked} field profiles, and ${summary.contactCenterBlocked} contact centers remain blocked.`,
@@ -1201,8 +1223,17 @@ const updatedManifest = {
   ),
 };
 
-const reportText = `${JSON.stringify(report, null, 2)}\n`;
-const manifestText = `${JSON.stringify(updatedManifest, null, 2)}\n`;
+const prettierConfig = (await resolveConfig(outputPath)) ?? {};
+const [reportText, manifestText] = await Promise.all([
+  formatWithPrettier(JSON.stringify(report), {
+    ...prettierConfig,
+    filepath: outputPath,
+  }),
+  formatWithPrettier(JSON.stringify(updatedManifest), {
+    ...prettierConfig,
+    filepath: anchorsPath,
+  }),
+]);
 
 if (checkOnly) {
   const [existingReport, existingManifest] = await Promise.all([

@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 9,
-  "algorithmVersion": "recording-structural-bounds-v13",
+  "schemaVersion": 10,
+  "algorithmVersion": "recording-structural-bounds-v14",
   "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
   "authority": {
     "recordingPath": "docs/vectrfl_recording.mov",
@@ -10,14 +10,8 @@
     "derivativePolicy": "Locked PNG frames are reproducible derivatives. The MOV SHA plus decoded frame index and PTS remain authoritative."
   },
   "coordinateSpaces": {
-    "rasterPixels": {
-      "width": 3016,
-      "height": 1522
-    },
-    "cssPixels": {
-      "width": 1508,
-      "height": 761
-    },
+    "rasterPixels": { "width": 3016, "height": 1522 },
+    "cssPixels": { "width": 1508, "height": 761 },
     "devicePixelRatio": 2,
     "boundsFormat": "[x, y, width, height]",
     "pixelConvention": "Half-open rectangle enclosing every selected source pixel; width and height include the final selected raster coordinate."
@@ -28,7 +22,7 @@
     "chroma": "Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.",
     "edges": "The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.",
     "boundary": "The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.",
-    "semanticMasks": "A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.",
+    "semanticMasks": "A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Review permits reference-goal refinement only: a source mask cannot classify implementation pixels or confer structural or final visual acceptance. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.",
     "routeGeometry": "Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.",
     "copyInk": "Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.",
     "fieldTileProfile": "Applicable field states report a shared bright-neutral predicate, component-shape gates, visible tile-top count, field envelope, component centroid, median tile-top size, and mask support. Clipped, activated, recolored, or bloom-obscured tiles are never inferred; changes in surviving neutral components remain part of the observed reaction profile.",
@@ -71,10 +65,7 @@
         "timestampSeconds": 2,
         "capturePath": "docs/hero-reference/recording/frame-000118-loader-mark.png",
         "captureSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -307,10 +298,7 @@
         "timestampSeconds": 3.5,
         "capturePath": "docs/hero-reference/recording/frame-000208-world-reveal.png",
         "captureSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -592,10 +580,7 @@
         "timestampSeconds": 5,
         "capturePath": "docs/hero-reference/recording/frame-000298-landing.png",
         "captureSha256": "6ff1d23779f76059f7ba4ba437cfb712886a78516bc9e2f317964949e7a565d5",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -828,10 +813,7 @@
         "timestampSeconds": 7.5,
         "capturePath": "docs/hero-reference/recording/frame-000448-landing-idle.png",
         "captureSha256": "0718c8673e4099495397b9a3e3e19737a2013a59d288b9d3acd29bfd4f69fd1b",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -1113,10 +1095,7 @@
         "timestampSeconds": 10,
         "capturePath": "docs/hero-reference/recording/frame-000598-activation-route.png",
         "captureSha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -1164,7 +1143,10 @@
             "inclusion": "All visible projected surfaces of the complete first-destination building before route contact, including its connected left annex, center logo-bearing tower, and right volume.",
             "exclusion": "Parallel red rails, blue logo-only support outside the building union, ground shadows, trees, workers, and all surrounding world context.",
             "uncertainty": "The pale object/background boundary is reviewed at the exact locked frame; anti-aliased edge pixels below the fixed alpha threshold are excluded.",
-            "reviewStatus": "awaiting-personal-visual-review"
+            "reviewStatus": "accepted-for-reference-refinement",
+            "reviewScope": "source-reference-goal-only",
+            "visualAcceptance": false,
+            "implementationPixelClassifier": false
           },
           "rationale": "The complete destination building is fully visible. A hash-locked, source-frame-tied semantic silhouette includes its connected volumes while excluding rails, shadows, figures, vegetation, and surrounding context."
         }
@@ -1436,10 +1418,7 @@
         "timestampSeconds": 12.5,
         "capturePath": "docs/hero-reference/recording/frame-000748-activation-contact.png",
         "captureSha256": "8975a69102da5583678abd435df6244ffba93008406420a0ac768e9d5a226ce6",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -1487,7 +1466,10 @@
             "inclusion": "All visible projected surfaces of the complete logo-bearing first-destination building at route contact, including its connected left annex, center tower, and right volume.",
             "exclusion": "Red contact rails, logo-only support outside the building union, ground shadows, workers, trees, and all surrounding world context.",
             "uncertainty": "The pale object/background boundary is reviewed at the exact locked frame; anti-aliased edge pixels below the fixed alpha threshold are excluded.",
-            "reviewStatus": "awaiting-personal-visual-review"
+            "reviewStatus": "accepted-for-reference-refinement",
+            "reviewScope": "source-reference-goal-only",
+            "visualAcceptance": false,
+            "implementationPixelClassifier": false
           },
           "rationale": "The complete logo-bearing destination is visible. A hash-locked semantic silhouette prevents the separable blue logo or red contact rails from substituting for the full landmark."
         }
@@ -1759,10 +1741,7 @@
         "timestampSeconds": 18,
         "capturePath": "docs/hero-reference/recording/frame-001078-clearance-travel.png",
         "captureSha256": "621c0d2d39a3ddc4f8cc8e7fd1a3a3053122c7b20b0dd46a211066698e8556c9",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -2044,10 +2023,7 @@
         "timestampSeconds": 20.5,
         "capturePath": "docs/hero-reference/recording/frame-001228-clearance-field-preview.png",
         "captureSha256": "42a8b8da9bed387e5aab1e767a0e6290aff44189d11b8e7653d7180936866268",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -2380,10 +2356,7 @@
         "timestampSeconds": 21.5,
         "capturePath": "docs/hero-reference/recording/frame-001288-field-approach.png",
         "captureSha256": "df0381011892710f879b805b2f149adfb95dbe8e95c2a7097d7d716a181faf35",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -2716,10 +2689,7 @@
         "timestampSeconds": 23.2,
         "capturePath": "docs/hero-reference/recording/frame-001390-field-contact.png",
         "captureSha256": "f14b7ffe780fcdb2ee6a9a90211efd592267291017974340c0228a822832cfdc",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -2767,7 +2737,10 @@
             "inclusion": "The complete elevated center tile at first contact plus the standing figure rooted on that tile, treated as one landmark union.",
             "exclusion": "The connected cyan route, adjacent reacting tiles, bloom, contact glow outside the tile silhouette, and every other field figure.",
             "uncertainty": "The standing figure overlaps the tile in projection; their union is intentional. Anti-aliased edge pixels below the fixed alpha threshold are excluded.",
-            "reviewStatus": "awaiting-personal-visual-review"
+            "reviewStatus": "accepted-for-reference-refinement",
+            "reviewScope": "source-reference-goal-only",
+            "visualAcceptance": false,
+            "implementationPixelClassifier": false
           },
           "rationale": "The complete center tile and its standing figure are visible. Their hash-locked semantic union excludes the incoming route, adjacent reacting tiles, and contact glow."
         }
@@ -2795,10 +2768,7 @@
             "principalSpan": 782.03,
             "equivalentSelectedCoreThickness": 3.516
           },
-          "normalized": {
-            "start": [0, 0.844284],
-            "end": [0.479775, 0.453351]
-          },
+          "normalized": { "start": [0, 0.844284], "end": [0.479775, 0.453351] },
           "interpretation": "PCA of selected high-chroma route-core pixels. Direction is oriented left-to-right for predominantly horizontal cores or top-to-bottom for predominantly vertical cores. Equivalent thickness is selected pixel area divided by principal span; for parallel or branched unions it is an aggregate core measure, not a single-rail or glow-envelope width."
         },
         "pixelSupport": 10999,
@@ -3120,10 +3090,7 @@
         "timestampSeconds": 23.5,
         "capturePath": "docs/hero-reference/recording/frame-001408-field-pulse-a.png",
         "captureSha256": "156123978b207b9a46c266d35aaec5627567cf8055750baa6a3e3bb0ed793404",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -3255,11 +3222,7 @@
               "height": 124,
               "selectedPixels": 14868
             },
-            "cssPixels": {
-              "width": 81.5,
-              "height": 62,
-              "selectedPixels": 3717
-            }
+            "cssPixels": { "width": 81.5, "height": 62, "selectedPixels": 3717 }
           },
           "selectedPixelOccupancy": 0.337232,
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
@@ -3456,10 +3419,7 @@
         "timestampSeconds": 26,
         "capturePath": "docs/hero-reference/recording/frame-001558-field-pulse-b.png",
         "captureSha256": "e5a6fc292809185e8a83be83db0e94fc2db2a2cfffbd9f72a933b2e1168160a4",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -3621,11 +3581,7 @@
               "height": 129,
               "selectedPixels": 15876
             },
-            "cssPixels": {
-              "width": 81,
-              "height": 64.5,
-              "selectedPixels": 3969
-            }
+            "cssPixels": { "width": 81, "height": 64.5, "selectedPixels": 3969 }
           },
           "selectedPixelOccupancy": 0.163539,
           "interpretation": "Count and geometry describe only full bright-neutral tile-top components surviving the fixed predicate and shape gates. Viewport-clipped, activated, pulse-recolored, or bloom-obscured tiles are not inferred."
@@ -3822,10 +3778,7 @@
         "timestampSeconds": 29.8,
         "capturePath": "docs/hero-reference/recording/frame-001786-arrival-travel.png",
         "captureSha256": "45c268491236fdd992f9184e4657b4a315527a654d36a34dac3dab72415f310f",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -4077,10 +4030,7 @@
         "timestampSeconds": 31,
         "capturePath": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
         "captureSha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {
@@ -4389,10 +4339,7 @@
         "timestampSeconds": 32,
         "capturePath": "docs/hero-reference/recording/frame-001918-journey-exit.png",
         "captureSha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b",
-        "rasterPixels": {
-          "width": 3016,
-          "height": 1522
-        },
+        "rasterPixels": { "width": 3016, "height": 1522 },
         "devicePixelRatio": 2
       },
       "primaryStructure": {

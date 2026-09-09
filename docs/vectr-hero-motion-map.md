@@ -1,7 +1,7 @@
 # Vectr Hero Motion Map
 
 Status: working observation notebook; not a source of truth
-Last reviewed: 2026-07-30
+Last reviewed: 2026-09-09
 
 ## Authority
 
@@ -194,8 +194,10 @@ comparison.
   profile. All 15 source-primary structures are therefore observed without
   inventing subjective landmark boxes. The four corresponding landmark fields
   remain explicitly blocked secondary evidence because the semantic subject
-  cannot be isolated without a reviewed source-tied mask or because only a
-  partial/effect-only feature is visible.
+  cannot be isolated without a defensible source-tied mask or because only a
+  partial/effect-only feature is visible. The three complete-subject source
+  masks are accepted for reference refinement only; they cannot classify
+  implementation pixels or confer visual acceptance.
 - Copy ink is measured for both landing anchors and nine fully readable
   process-ladder anchors. `arrival-travel` remains blocked because its body is
   faded into similar-valued field/route pixels; `journey-exit` remains blocked

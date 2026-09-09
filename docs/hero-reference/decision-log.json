@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "authorityOrder": [
     {
       "scope": "current geometry, responsive behavior, interaction causality, and scroll mappings",
@@ -40,6 +40,13 @@
       "evidenceClass": "source-confirmed",
       "decision": "Pegasoft wording and identity glyphs may differ, but their layout containers, hierarchy, timing, and screen occupancy may not.",
       "implementationConsequence": "Visual reports may mask only differing glyph/logo pixels, never layout, geometry, route, lighting, or motion."
+    },
+    {
+      "id": "source-semantic-masks-refinement-only",
+      "status": "accepted-for-reference-refinement",
+      "evidenceClass": "source-confirmed",
+      "decision": "The three repository-owned semantic masks depict the vectrfl.com reference goal and are accepted as refinement inputs only.",
+      "implementationConsequence": "The masks may derive measurements from their exact hash-locked source frames. They may not classify localhost implementation pixels, prove overlap, or confer structural or final visual acceptance."
     },
     {
       "id": "camera-owns-field-approach-turn",
