@@ -132,90 +132,97 @@ async function scrollToRawHeroProgress(page: Page, rawProgress: number) {
       }),
   );
 
-  await expect
-    .poll(
-      async () =>
-        page.evaluate(async (targetProgress) => {
-          const flow = document.querySelector<HTMLElement>(
-            '[data-hero-process]',
-          );
-          const shell =
-            document.querySelector<HTMLElement>('[data-hero-shell]');
+  const convergence = await page.evaluate(async (targetProgress) => {
+    const expectedProgress = Math.round(targetProgress * 1000);
+    const deadline = performance.now() + 10_000;
+    let matchingFrameCount = 0;
+    let lastProbe: Record<string, number | string | null> | null = null;
 
-          if (!flow || !shell) {
-            throw new Error('Hero process flow or shell is unavailable');
-          }
+    while (performance.now() < deadline) {
+      const flow = document.querySelector<HTMLElement>('[data-hero-process]');
+      const shell = document.querySelector<HTMLElement>('[data-hero-shell]');
 
-          const viewportHeight = window.innerHeight;
-          const flowDocumentTop =
-            flow.getBoundingClientRect().top + window.scrollY;
-          const scrollRange = Math.max(0, flow.offsetHeight - viewportHeight);
-          const progressLead = Math.max(
-            0,
-            flowDocumentTop - viewportHeight * 0.4,
-          );
-          const targetScrollY = Math.max(
-            0,
-            flowDocumentTop -
-              progressLead +
-              Math.min(1.25, Math.max(0, targetProgress)) * scrollRange,
-          );
+      if (!flow || !shell) {
+        throw new Error('Hero process flow or shell is unavailable');
+      }
 
-          document.documentElement.style.scrollBehavior = 'auto';
-          window.scrollTo(0, targetScrollY);
-          await new Promise<void>((resolve) =>
-            requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
-          );
+      const viewportHeight = window.innerHeight;
+      const flowDocumentTop = flow.getBoundingClientRect().top + window.scrollY;
+      const scrollRange = Math.max(0, flow.offsetHeight - viewportHeight);
+      const progressLead = Math.max(0, flowDocumentTop - viewportHeight * 0.4);
+      const targetScrollY = Math.max(
+        0,
+        flowDocumentTop -
+          progressLead +
+          Math.min(1.25, Math.max(0, targetProgress)) * scrollRange,
+      );
 
-          const settledFlowDocumentTop =
-            flow.getBoundingClientRect().top + window.scrollY;
-          const settledScrollRange = Math.max(
-            0,
-            flow.offsetHeight - window.innerHeight,
-          );
-          const settledProgressLead = Math.max(
-            0,
-            settledFlowDocumentTop - window.innerHeight * 0.4,
-          );
-          const geometryProgress =
-            settledScrollRange <= 0
-              ? 0
-              : Math.min(
-                  1.25,
-                  Math.max(
-                    0,
-                    (settledProgressLead - flow.getBoundingClientRect().top) /
-                      settledScrollRange,
-                  ),
-                );
-          const diagnosticValue = shell.getAttribute('data-hero-raw-progress');
-          const diagnosticProgress =
-            diagnosticValue === null ? Number.NaN : Number(diagnosticValue);
-          const rounded = (value: number) =>
-            Number.isFinite(value) ? Math.round(value * 1000) : null;
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, targetScrollY);
+      await new Promise<void>((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+      );
 
-          return {
-            diagnostic: rounded(diagnosticProgress),
-            geometry: rounded(geometryProgress),
-            flowHeight: flow.offsetHeight,
-            profile:
-              document
-                .querySelector<HTMLElement>('[data-hero-reference-state]')
-                ?.getAttribute('data-hero-profile') ?? null,
-            scrollY: Math.round(window.scrollY),
-            targetScrollY: Math.round(targetScrollY),
-            viewportHeight: window.innerHeight,
-          };
-        }, rawProgress),
-      {
-        message: `hero should converge to raw progress ${rawProgress}`,
-        timeout: 10_000,
-      },
-    )
-    .toMatchObject({
-      diagnostic: Math.round(rawProgress * 1000),
-      geometry: Math.round(rawProgress * 1000),
-    });
+      const settledFlowDocumentTop =
+        flow.getBoundingClientRect().top + window.scrollY;
+      const settledScrollRange = Math.max(
+        0,
+        flow.offsetHeight - window.innerHeight,
+      );
+      const settledProgressLead = Math.max(
+        0,
+        settledFlowDocumentTop - window.innerHeight * 0.4,
+      );
+      const geometryProgress =
+        settledScrollRange <= 0
+          ? 0
+          : Math.min(
+              1.25,
+              Math.max(
+                0,
+                (settledProgressLead - flow.getBoundingClientRect().top) /
+                  settledScrollRange,
+              ),
+            );
+      const diagnosticValue = shell.getAttribute('data-hero-raw-progress');
+      const diagnosticProgress =
+        diagnosticValue === null ? Number.NaN : Number(diagnosticValue);
+      const rounded = (value: number) =>
+        Number.isFinite(value) ? Math.round(value * 1000) : null;
+
+      lastProbe = {
+        diagnostic: rounded(diagnosticProgress),
+        geometry: rounded(geometryProgress),
+        flowHeight: flow.offsetHeight,
+        profile:
+          document
+            .querySelector<HTMLElement>('[data-hero-reference-state]')
+            ?.getAttribute('data-hero-profile') ?? null,
+        scrollY: Math.round(window.scrollY),
+        targetScrollY: Math.round(targetScrollY),
+        viewportHeight: window.innerHeight,
+      };
+
+      matchingFrameCount =
+        lastProbe.diagnostic === expectedProgress &&
+        lastProbe.geometry === expectedProgress
+          ? matchingFrameCount + 1
+          : 0;
+
+      if (matchingFrameCount >= 2) {
+        return lastProbe;
+      }
+    }
+
+    throw new Error(
+      `Hero did not converge to raw progress ${targetProgress}; last probe was ${JSON.stringify(lastProbe)}`,
+    );
+  }, rawProgress);
+
+  expect(convergence).toMatchObject({
+    diagnostic: Math.round(rawProgress * 1000),
+    geometry: Math.round(rawProgress * 1000),
+  });
 }
 
 async function readHeroProgressProbe(page: Page) {
