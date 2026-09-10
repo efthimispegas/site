@@ -8,7 +8,7 @@ import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/sc
 import {
   FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
-  IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
+  IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE,
   LANDMARK_CONFIG_BY_STATE,
   ROUTE_CONFIG_BY_STATE,
   deriveRouteCenterlineMask,
@@ -21,6 +21,10 @@ const workspaceRoot = process.cwd();
 const manifestPath = path.join(
   workspaceRoot,
   'docs/hero-reference/recording-anchors.json',
+);
+const semanticMaskManifestPath = path.join(
+  workspaceRoot,
+  'docs/hero-reference/recording-semantic-masks.json',
 );
 const landingDomReferencePath = path.join(
   workspaceRoot,
@@ -75,7 +79,7 @@ const STRUCTURAL_TOLERANCES = {
 const IMPLEMENTATION_ROUTE_STATES = new Set(Object.keys(ROUTE_CONFIG_BY_STATE));
 const IMPLEMENTATION_LANDMARK_STATES = new Set([
   ...Object.keys(LANDMARK_CONFIG_BY_STATE),
-  ...Object.keys(IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE),
+  ...Object.keys(IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE),
 ]);
 const IMPLEMENTATION_FIELD_PROFILE_STATES = new Set(
   Object.keys(FIELD_TILE_PROFILE_CONFIG_BY_STATE),
@@ -98,6 +102,9 @@ const IMPLEMENTATION_COPY_STATES = new Set([
 ]);
 
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+const semanticMaskManifest = JSON.parse(
+  await readFile(semanticMaskManifestPath, 'utf8'),
+);
 const captureManifest = JSON.parse(await readFile(captureManifestPath, 'utf8'));
 const landingDomReference = JSON.parse(
   await readFile(landingDomReferencePath, 'utf8'),
@@ -111,6 +118,32 @@ const journeyProfileStateByKey = new Map(
 );
 const journeyProbeStateByKey = new Map(
   journeyDomProbe.states.map((state) => [state.key, state]),
+);
+if (
+  semanticMaskManifest.schemaVersion !== 2 ||
+  !Array.isArray(semanticMaskManifest.masks) ||
+  semanticMaskManifest.reviewContract?.scope !== 'source-reference-goal-only' ||
+  semanticMaskManifest.reviewContract?.implementationPixelClassification !==
+    false ||
+  semanticMaskManifest.reviewContract?.structuralAcceptance !== false ||
+  semanticMaskManifest.reviewContract?.visualAcceptance !== false
+) {
+  throw new Error(
+    'Semantic-mask manifest does not preserve the accepted source-reference-only review contract',
+  );
+}
+const semanticMaskByStateKey = new Map(
+  semanticMaskManifest.masks.map((entry) => [entry.stateKey, entry]),
+);
+assert.equal(
+  semanticMaskByStateKey.size,
+  semanticMaskManifest.masks.length,
+  'Semantic source-mask state keys must be unique',
+);
+assert.deepEqual(
+  [...semanticMaskByStateKey.keys()].sort(),
+  Object.keys(IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE).sort(),
+  'Semantic source masks and implementation-only classifiers must cover the same states',
 );
 
 function isObservedScreenComposition(composition) {
@@ -233,20 +266,70 @@ function isValidRouteFeature(feature, sourceArtifact, stateKey) {
 
 function isValidLandmarkFeature(feature, sourceArtifact, stateKey) {
   const transferableConfig = LANDMARK_CONFIG_BY_STATE[stateKey];
-  const semanticBlocker =
-    IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[stateKey];
+  const semanticConfig =
+    IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE[stateKey];
 
-  if (semanticBlocker) {
-    return (
-      isValidStructuralFeature(
+  if (semanticConfig) {
+    if (
+      !isValidStructuralFeature(
         feature,
         sourceArtifact,
-        semanticBlocker.method.id,
-      ) &&
-      feature.status === 'blocked' &&
-      feature.label === semanticBlocker.label &&
-      feature.reason === semanticBlocker.reason &&
-      feature.method.sourceMethod === semanticBlocker.method.sourceMethod
+        semanticConfig.method,
+      ) ||
+      feature.label !== semanticConfig.label ||
+      feature.method.sourceMethod !== semanticConfig.sourceMethod ||
+      !isFiniteTuple(feature.method?.roiNormalized, 4) ||
+      feature.method.roiNormalized.some(
+        (component, index) => component !== semanticConfig.roi[index],
+      )
+    ) {
+      return false;
+    }
+    if (feature.status === 'blocked') {
+      return true;
+    }
+    if (semanticConfig.method === 'seeded-contact-subject-union') {
+      return (
+        feature.method.predicate?.id === semanticConfig.predicate.id &&
+        feature.method.figurePredicate?.id ===
+          semanticConfig.figurePredicate.id &&
+        feature.method.minimumComponentPixels ===
+          semanticConfig.minimumComponentPixels &&
+        feature.method.minimumSelectedPixels ===
+          semanticConfig.minimumSelectedPixels &&
+        feature.method.minimumFigureComponentPixels ===
+          semanticConfig.minimumFigureComponentPixels &&
+        feature.method.maximumFigureComponentPixels ===
+          semanticConfig.maximumFigureComponentPixels &&
+        feature.method.maximumFigureWidthRatio ===
+          semanticConfig.maximumFigureWidthRatio &&
+        feature.method.maximumFigureHeightRatio ===
+          semanticConfig.maximumFigureHeightRatio &&
+        feature.method.maximumFigureCenterDeltaRatio ===
+          semanticConfig.maximumFigureCenterDeltaRatio &&
+        feature.method.maximumFigureRootGapPixels ===
+          semanticConfig.maximumFigureRootGapPixels &&
+        feature.method.minimumFigureSelectedPixels ===
+          semanticConfig.minimumFigureSelectedPixels &&
+        Object.entries(semanticConfig.figureRoi).every(
+          ([key, value]) => feature.method.figureRoi?.[key] === value,
+        )
+      );
+    }
+    return (
+      feature.method.predicate?.id === semanticConfig.predicate.id &&
+      feature.method.minimumComponentPixels ===
+        semanticConfig.minimumComponentPixels &&
+      feature.method.maximumComponentPixels ===
+        semanticConfig.maximumComponentPixels &&
+      feature.method.maximumComponentWidth ===
+        semanticConfig.maximumComponentWidth &&
+      feature.method.maximumComponentHeight ===
+        semanticConfig.maximumComponentHeight &&
+      feature.method.minimumComponentFillRatio ===
+        semanticConfig.minimumComponentFillRatio &&
+      feature.method.minimumSelectedPixels ===
+        semanticConfig.minimumSelectedPixels
     );
   }
 
@@ -671,13 +754,205 @@ function countMaskOverlap(referenceMask, implementationMask) {
   };
 }
 
-function measureLandmarkMaskEvidence({
+function boundsFromBinaryMask(mask, width, height, dpr) {
+  let minimumX = width;
+  let minimumY = height;
+  let maximumX = -1;
+  let maximumY = -1;
+  let pixelSupport = 0;
+
+  for (let index = 0; index < mask.length; index += 1) {
+    if (!mask[index]) {
+      continue;
+    }
+    const y = Math.floor(index / width);
+    const x = index - y * width;
+    minimumX = Math.min(minimumX, x);
+    minimumY = Math.min(minimumY, y);
+    maximumX = Math.max(maximumX, x);
+    maximumY = Math.max(maximumY, y);
+    pixelSupport += 1;
+  }
+
+  assert.ok(pixelSupport > 0, 'Semantic source mask is empty');
+  const rasterPixels = [
+    minimumX,
+    minimumY,
+    maximumX - minimumX + 1,
+    maximumY - minimumY + 1,
+  ];
+  return {
+    pixelSupport,
+    bounds: {
+      rasterPixels,
+      cssPixels: rasterPixels.map((component) => component / dpr),
+      normalized: [
+        Number((rasterPixels[0] / width).toFixed(6)),
+        Number((rasterPixels[1] / height).toFixed(6)),
+        Number((rasterPixels[2] / width).toFixed(6)),
+        Number((rasterPixels[3] / height).toFixed(6)),
+      ],
+    },
+  };
+}
+
+async function loadSourceSemanticLandmarkMask({ state, referenceImage, dpr }) {
+  const manifestEntry = semanticMaskByStateKey.get(state.key);
+  assert.ok(
+    manifestEntry,
+    `${state.key}: source semantic mask is not declared`,
+  );
+  assert.equal(manifestEntry.featureKind, 'landmark');
+  assert.equal(manifestEntry.sourceCapturePath, state.anchor.capturePath);
+  assert.equal(manifestEntry.sourceCaptureSha256, state.anchor.captureSha256);
+  assert.equal(manifestEntry.reviewScope, 'source-reference-goal-only');
+  assert.equal(manifestEntry.visualAcceptance, false);
+  assert.equal(manifestEntry.implementationPixelClassifier, false);
+  assert.ok(Number.isSafeInteger(manifestEntry.alphaThreshold));
+
+  const maskPath = path.join(workspaceRoot, manifestEntry.maskPath);
+  const maskArtifact = await readFile(maskPath);
+  const maskSha256 = createHash('sha256').update(maskArtifact).digest('hex');
+  assert.equal(
+    maskSha256,
+    manifestEntry.maskSha256,
+    `${state.key}: source semantic mask hash drifted from its manifest`,
+  );
+  const maskImage = await sharp(maskArtifact)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  assert.equal(maskImage.info.width, referenceImage.info.width);
+  assert.equal(maskImage.info.height, referenceImage.info.height);
+
+  const mask = new Uint8Array(maskImage.info.width * maskImage.info.height);
+  const alphaChannel = maskImage.info.channels - 1;
+  for (let index = 0; index < mask.length; index += 1) {
+    mask[index] = Number(
+      maskImage.data[index * maskImage.info.channels + alphaChannel] >=
+        manifestEntry.alphaThreshold,
+    );
+  }
+  const measured = boundsFromBinaryMask(
+    mask,
+    maskImage.info.width,
+    maskImage.info.height,
+    dpr,
+  );
+  assert.ok(measured.pixelSupport >= manifestEntry.minimumSelectedPixels);
+  assert.deepEqual(
+    measured.bounds.cssPixels,
+    state.screenBounds?.landmark,
+    `${state.key}: source semantic mask bounds drifted from the locked manifest`,
+  );
+
+  return { manifestEntry, mask, ...measured };
+}
+
+async function measureLandmarkMaskEvidence({
   state,
   measurement,
   referenceImage,
   implementationImage,
   dpr,
 }) {
+  const semanticConfig =
+    IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE[state.key];
+  if (semanticConfig) {
+    const sourceMask = await loadSourceSemanticLandmarkMask({
+      state,
+      referenceImage,
+      dpr,
+    });
+    const implementationResult = measureLandmarkFeature({
+      data: implementationImage.data,
+      image: implementationImage.info,
+      dpr,
+      config: semanticConfig,
+    });
+    const implementationMeasurement = implementationResult.measurement;
+    const recordedImplementation = measurement?.structuralAccuracy?.landmark;
+    assert.ok(
+      recordedImplementation,
+      `${state.key}: capture did not record a landmark measurement`,
+    );
+    const recordedImplementationCore = Object.fromEntries(
+      Object.entries(recordedImplementation).filter(
+        ([property]) => property !== 'sourceArtifact',
+      ),
+    );
+    assert.deepEqual(
+      implementationMeasurement,
+      recordedImplementationCore,
+      `${state.key}: recomputed implementation semantic landmark drifted from the capture record`,
+    );
+
+    const overlap = countMaskOverlap(
+      sourceMask.mask,
+      implementationResult.debug.mask,
+    );
+    const status =
+      implementationMeasurement.status === 'observed' &&
+      Number.isFinite(overlap.iou)
+        ? 'observed'
+        : 'blocked';
+
+    return {
+      evidence: {
+        status,
+        evidenceClass: status === 'observed' ? 'observed' : 'blocked',
+        semanticRole: 'silhouette',
+        label: semanticConfig.label,
+        method: {
+          id: 'source-semantic-mask-vs-renderer-independent-implementation-mask',
+          sourceMethod: 'source-semantic-mask',
+          implementationMethod: semanticConfig.method,
+          implementationSharedImplementation:
+            'apps/pegasoft-e2e/src/visual/screen-structural-features.mjs#measureLandmarkFeature',
+          sourceSemanticMask: {
+            manifestPath: relative(semanticMaskManifestPath),
+            artifactPath: sourceMask.manifestEntry.maskPath,
+            sha256: sourceMask.manifestEntry.maskSha256,
+            alphaThreshold: sourceMask.manifestEntry.alphaThreshold,
+            reviewScope: sourceMask.manifestEntry.reviewScope,
+            implementationPixelClassifier: false,
+          },
+        },
+        reference: {
+          artifactPath: state.anchor.capturePath,
+          bounds: sourceMask.bounds,
+          pixelSupport: overlap.referencePixelSupport,
+        },
+        implementation: {
+          artifactPath: relative(
+            path.join(implementationRoot, `${state.key}.png`),
+          ),
+          bounds:
+            implementationMeasurement.status === 'observed'
+              ? implementationMeasurement.bounds
+              : null,
+          pixelSupport: overlap.implementationPixelSupport,
+        },
+        overlap: {
+          intersectionPixelCount: overlap.intersectionPixelCount,
+          unionPixelCount: overlap.unionPixelCount,
+          iou: overlap.iou,
+        },
+        reason:
+          status === 'blocked'
+            ? (implementationMeasurement.reason ??
+              'The renderer-independent implementation landmark mask is unavailable.')
+            : null,
+        qualification:
+          'The accepted SVG classifies only the locked vectrfl.com source silhouette. Localhost pixels are classified independently from rendered RGB and component geometry; overlap is eligible for silhouette IoU evaluation but does not itself confer structural or visual acceptance.',
+      },
+      comparison: createLandmarkMaskComparison(
+        sourceMask.mask,
+        implementationResult.debug.mask,
+      ),
+    };
+  }
+
   const config = LANDMARK_CONFIG_BY_STATE[state.key];
   if (!config) {
     return null;
@@ -1525,8 +1800,8 @@ function evaluateStructuralAccuracy(
             ? 'implementation field tile profile source-predicate quality gate is blocked'
             : 'implementation field tile profile is not emitted'
           : primaryStructure.kind === 'landmark' && implementationPrimaryBlocked
-            ? IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[state.key]
-              ? 'implementation landmark semantic isolation is blocked'
+            ? IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE[state.key]
+              ? 'implementation landmark renderer-independent quality gate is blocked'
               : 'implementation landmark source-pixel quality gate is blocked'
             : `implementation ${primaryStructure.kind} primary-structure bounds are not emitted`,
     );
@@ -2463,7 +2738,7 @@ for (const state of manifest.states) {
   await sharp(heatmap, imageOptions).png().toFile(heatmapPath);
 
   const preliminaryRaster = evaluatePreliminaryRaster(metrics);
-  const landmarkMaskResult = measureLandmarkMaskEvidence({
+  const landmarkMaskResult = await measureLandmarkMaskEvidence({
     state,
     measurement,
     referenceImage,
@@ -2672,7 +2947,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 14,
+  schemaVersion: 15,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),
