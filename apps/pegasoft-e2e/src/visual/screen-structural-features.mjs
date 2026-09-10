@@ -65,6 +65,38 @@ const BRIGHT_NEUTRAL_TILE_TOP = Object.freeze({
   },
 });
 
+const PALE_NEUTRAL_STRUCTURE = Object.freeze({
+  id: 'pale-neutral-structure',
+  description:
+    'r,g,b >= 125, b-r <= 28, b-g <= 14, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB',
+  test(red, green, blue) {
+    return (
+      red >= 125 &&
+      green >= 125 &&
+      blue >= 125 &&
+      blue - red <= 28 &&
+      blue - green <= 14 &&
+      Math.max(red, green, blue) - Math.min(red, green, blue) <= 28
+    );
+  },
+});
+
+const PALE_NEUTRAL_FIGURE = Object.freeze({
+  id: 'pale-neutral-contact-figure',
+  description:
+    '100 <= r <= 245, g >= r-4, b >= g-4, and 4 <= b-r <= 38 in 8-bit sRGB',
+  test(red, green, blue) {
+    return (
+      red >= 100 &&
+      red <= 245 &&
+      green >= red - 4 &&
+      blue >= green - 4 &&
+      blue - red >= 4 &&
+      blue - red <= 38
+    );
+  },
+});
+
 export const LANDMARK_CONFIG_BY_STATE = Object.freeze({
   'loader-mark': Object.freeze({
     label: 'central blue loader mark',
@@ -109,40 +141,63 @@ export const LANDMARK_CONFIG_BY_STATE = Object.freeze({
   }),
 });
 
-export const IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE = Object.freeze(
-  {
-    'activation-route': Object.freeze({
-      status: 'blocked',
-      label: 'first-destination building before route contact',
-      reason:
-        'The authoritative semantic mask is hash-tied to the recording frame and cannot classify implementation pixels. A renderer-independent implementation silhouette measurement is required.',
-      method: Object.freeze({
-        id: 'implementation-semantic-isolation-required',
-        sourceMethod: 'source-semantic-mask',
-      }),
+export const IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE = Object.freeze({
+  'activation-route': Object.freeze({
+    label: 'first-destination building before route contact',
+    method: 'largest-neutral-structure-component',
+    predicate: PALE_NEUTRAL_STRUCTURE,
+    roi: Object.freeze([0.525, 0.55, 0.225, 0.445]),
+    minimumComponentPixels: 500,
+    maximumComponentPixels: 260000,
+    maximumComponentWidth: 700,
+    maximumComponentHeight: 650,
+    minimumComponentFillRatio: 0.08,
+    minimumSelectedPixels: 70000,
+    sourceMethod: 'source-semantic-mask',
+    rationale:
+      'The implementation-only ROI contains the complete destination building in the locked localhost composition while excluding process copy and most surrounding world context. A neutral RGB predicate rejects the pale-blue ground, red route, and blue logo; component support and size gates retain only filled implementation building surfaces. The independently measured result is compared with the source mask without transferring source geometry into this classifier.',
+  }),
+  'activation-contact': Object.freeze({
+    label: 'logo-bearing first-destination building at route contact',
+    method: 'largest-neutral-structure-component',
+    predicate: PALE_NEUTRAL_STRUCTURE,
+    roi: Object.freeze([0.42, 0.25, 0.25, 0.47]),
+    minimumComponentPixels: 500,
+    maximumComponentPixels: 180000,
+    maximumComponentWidth: 700,
+    maximumComponentHeight: 650,
+    minimumComponentFillRatio: 0.08,
+    minimumSelectedPixels: 70000,
+    sourceMethod: 'source-semantic-mask',
+    rationale:
+      'The implementation-only contact ROI follows the complete destination building in the locked localhost composition. The renderer-independent neutral predicate and component gates exclude the red route, blue logo, pale-blue ground, and small workers without reusing source mask geometry.',
+  }),
+  'field-contact': Object.freeze({
+    label: 'elevated center tile and standing figure at first contact',
+    method: 'seeded-contact-subject-union',
+    predicate: BLUE_VIOLET_FIELD_CENTER,
+    figurePredicate: PALE_NEUTRAL_FIGURE,
+    roi: Object.freeze([0.4, 0.25, 0.22, 0.45]),
+    minimumComponentPixels: 120,
+    minimumSelectedPixels: 1200,
+    figureRoi: Object.freeze({
+      xInsetRatio: 0.25,
+      widthRatio: 0.5,
+      topExtensionRatio: 0.75,
+      bottomRatio: 0.75,
     }),
-    'activation-contact': Object.freeze({
-      status: 'blocked',
-      label: 'logo-bearing first-destination building at route contact',
-      reason:
-        'The authoritative semantic mask is hash-tied to the recording frame and cannot classify implementation pixels. A renderer-independent implementation silhouette measurement is required.',
-      method: Object.freeze({
-        id: 'implementation-semantic-isolation-required',
-        sourceMethod: 'source-semantic-mask',
-      }),
-    }),
-    'field-contact': Object.freeze({
-      status: 'blocked',
-      label: 'elevated center tile and standing figure at first contact',
-      reason:
-        'The authoritative semantic mask is hash-tied to the recording frame and cannot classify implementation pixels. A renderer-independent implementation silhouette measurement is required.',
-      method: Object.freeze({
-        id: 'implementation-semantic-isolation-required',
-        sourceMethod: 'source-semantic-mask',
-      }),
-    }),
-  },
-);
+    minimumFigureComponentPixels: 40,
+    maximumFigureComponentPixels: 3000,
+    maximumFigureWidthRatio: 0.4,
+    maximumFigureHeightRatio: 0.9,
+    maximumFigureCenterDeltaRatio: 0.2,
+    maximumFigureRootGapPixels: 8,
+    minimumFigureSelectedPixels: 80,
+    sourceMethod: 'source-semantic-mask',
+    rationale:
+      'The saturated tile is selected first with the shared blue/violet predicate. A second neutral predicate is evaluated only in a tile-relative center strip; component size, width, height, center, and root-contact gates isolate the standing figure while rejecting adjacent field tiles and glow. The resulting implementation-only union never applies the source mask to localhost pixels.',
+  }),
+});
 
 const FIELD_TILE_COMPONENT_GATES = Object.freeze({
   minimumComponentPixels: 5000,
@@ -902,7 +957,8 @@ export function measureChromaFeature({ data, image, dpr, config }) {
         (config.minimumComponentFillRatio ?? 0),
   );
   const selectedComponents =
-    config.method === 'largest-chroma-component'
+    config.method === 'largest-chroma-component' ||
+    config.method === 'largest-neutral-structure-component'
       ? eligibleComponents
           .slice()
           .sort(
@@ -1135,19 +1191,178 @@ export function measureFieldTileProfile({ data, image, dpr, config }) {
   };
 }
 
+function measureSeededContactSubject({ data, image, dpr, config }) {
+  validateImageInput(data, image, dpr);
+  const tileResult = measureChromaFeature({
+    data,
+    image,
+    dpr,
+    config: {
+      ...config,
+      method: 'largest-chroma-component',
+    },
+  });
+  const tileMeasurement = tileResult.measurement;
+  const tileBounds = tileResult.debug.bounds;
+  const figureX = Math.max(
+    0,
+    Math.floor(tileBounds.x + tileBounds.width * config.figureRoi.xInsetRatio),
+  );
+  const figureY = Math.max(
+    0,
+    Math.floor(
+      tileBounds.y - tileBounds.height * config.figureRoi.topExtensionRatio,
+    ),
+  );
+  const figureRoi = {
+    x: figureX,
+    y: figureY,
+    width: Math.min(
+      image.width - figureX,
+      Math.ceil(tileBounds.width * config.figureRoi.widthRatio),
+    ),
+    height: 0,
+  };
+  figureRoi.height =
+    Math.min(
+      image.height,
+      Math.ceil(
+        tileBounds.y + tileBounds.height * config.figureRoi.bottomRatio,
+      ),
+    ) - figureY;
+  const figureMask = createPredicateMask(
+    data,
+    image,
+    figureRoi,
+    config.figurePredicate,
+  );
+  const { components: figureComponents, labels: figureLabels } =
+    connectedComponents(figureMask, image.width, image.height, figureRoi);
+  const tileCenterX = tileBounds.x + tileBounds.width / 2;
+  const maximumFigureCenterDelta =
+    tileBounds.width * config.maximumFigureCenterDeltaRatio;
+  const eligibleFigureComponents = figureComponents.filter((component) => {
+    const centerX = component.bounds.x + component.bounds.width / 2;
+    const bottom = component.bounds.y + component.bounds.height;
+    return (
+      component.pixels >= config.minimumFigureComponentPixels &&
+      component.pixels <= config.maximumFigureComponentPixels &&
+      component.bounds.width <=
+        tileBounds.width * config.maximumFigureWidthRatio &&
+      component.bounds.height <=
+        tileBounds.height * config.maximumFigureHeightRatio &&
+      Math.abs(centerX - tileCenterX) <= maximumFigureCenterDelta &&
+      bottom >= tileBounds.y - config.maximumFigureRootGapPixels
+    );
+  });
+  const selectedMask = tileResult.debug.mask.slice();
+  const eligibleFigureLabels = new Set(
+    eligibleFigureComponents.map((component) => component.label),
+  );
+
+  for (let index = 0; index < figureMask.length; index += 1) {
+    if (figureMask[index] && eligibleFigureLabels.has(figureLabels[index])) {
+      selectedMask[index] = 1;
+    }
+  }
+
+  const selected = boundsFromMask(selectedMask, image.width, image.height);
+  const figurePixelSupport = eligibleFigureComponents.reduce(
+    (total, component) => total + component.pixels,
+    0,
+  );
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  const method = {
+    id: config.method,
+    roiNormalized: config.roi,
+    roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
+    predicate: {
+      id: config.predicate.id,
+      description: config.predicate.description,
+    },
+    figurePredicate: {
+      id: config.figurePredicate.id,
+      description: config.figurePredicate.description,
+    },
+    figureRoi: config.figureRoi,
+    figureRoiRasterPixels: [
+      figureRoi.x,
+      figureRoi.y,
+      figureRoi.width,
+      figureRoi.height,
+    ],
+    connectivity: 8,
+    minimumComponentPixels: config.minimumComponentPixels,
+    minimumSelectedPixels: config.minimumSelectedPixels,
+    minimumFigureComponentPixels: config.minimumFigureComponentPixels,
+    maximumFigureComponentPixels: config.maximumFigureComponentPixels,
+    maximumFigureWidthRatio: config.maximumFigureWidthRatio,
+    maximumFigureHeightRatio: config.maximumFigureHeightRatio,
+    maximumFigureCenterDeltaRatio: config.maximumFigureCenterDeltaRatio,
+    maximumFigureRootGapPixels: config.maximumFigureRootGapPixels,
+    minimumFigureSelectedPixels: config.minimumFigureSelectedPixels,
+    totalFigureComponentCount: figureComponents.length,
+    selectedFigureComponentCount: eligibleFigureComponents.length,
+    semanticMask: null,
+    sourceMethod: config.sourceMethod,
+    rationale: config.rationale,
+  };
+
+  if (
+    tileMeasurement.status !== 'observed' ||
+    !selected ||
+    figurePixelSupport < config.minimumFigureSelectedPixels
+  ) {
+    return {
+      measurement: {
+        status: 'blocked',
+        label: config.label,
+        reason:
+          tileMeasurement.status !== 'observed'
+            ? `The deterministic ${config.method} tile seed is blocked: ${tileMeasurement.reason}`
+            : `The deterministic ${config.method} figure gate found ${figurePixelSupport} selected pixels; at least ${config.minimumFigureSelectedPixels} are required.`,
+        method,
+      },
+      debug: { mask: selectedMask, bounds: selected?.bounds ?? roi },
+    };
+  }
+
+  return {
+    measurement: {
+      status: 'observed',
+      evidenceClass: 'observed',
+      label: config.label,
+      bounds: serializeBounds(selected.bounds, image, dpr),
+      geometry: null,
+      pixelSupport: selected.pixels,
+      method,
+    },
+    debug: { mask: selectedMask, bounds: selected.bounds },
+  };
+}
+
 export function measureLandmarkFeature({ data, image, dpr, config }) {
   if (
     config.method === 'chroma-component-union' ||
-    config.method === 'largest-chroma-component'
+    config.method === 'largest-chroma-component' ||
+    config.method === 'largest-neutral-structure-component'
   ) {
     const result = measureChromaFeature({ data, image, dpr, config });
     return {
       ...result,
-      measurement:
-        result.measurement.status === 'observed'
-          ? { ...result.measurement, geometry: null }
-          : result.measurement,
+      measurement: {
+        ...result.measurement,
+        ...(result.measurement.status === 'observed' ? { geometry: null } : {}),
+        method: {
+          ...result.measurement.method,
+          ...(config.sourceMethod ? { sourceMethod: config.sourceMethod } : {}),
+        },
+      },
     };
+  }
+
+  if (config.method === 'seeded-contact-subject-union') {
+    return measureSeededContactSubject({ data, image, dpr, config });
   }
 
   if (config.method !== 'largest-dilated-sobel-component') {

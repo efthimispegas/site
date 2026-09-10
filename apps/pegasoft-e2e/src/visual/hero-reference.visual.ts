@@ -7,7 +7,7 @@ import { measureScreenComposition } from './screen-composition.mjs';
 import {
   FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
-  IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE,
+  IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE,
   JOURNEY_EXIT_BOUNDARY_CONFIG,
   LANDMARK_CONFIG_BY_STATE,
   LANDING_COPY_CONFIG,
@@ -227,22 +227,21 @@ async function measureImplementationStructure(
     sourceArtifact,
   });
   const landmarkConfig = LANDMARK_CONFIGS[stateKey];
-  const semanticLandmarkBlocker =
-    IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE[
-      stateKey as keyof typeof IMPLEMENTATION_SEMANTIC_LANDMARK_BLOCKERS_BY_STATE
+  const semanticLandmarkConfig =
+    IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE[
+      stateKey as keyof typeof IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE
     ];
-  const landmark = landmarkConfig
+  const resolvedLandmarkConfig = landmarkConfig ?? semanticLandmarkConfig;
+  const landmark = resolvedLandmarkConfig
     ? withSourceArtifact(
         measureLandmarkFeature({
           data,
           image: info,
           dpr: devicePixelRatio,
-          config: landmarkConfig,
+          config: resolvedLandmarkConfig,
         }).measurement,
       )
-    : semanticLandmarkBlocker
-      ? withSourceArtifact(semanticLandmarkBlocker)
-      : undefined;
+    : undefined;
   const copyConfig = COPY_CONFIG_BY_STATE[stateKey];
   const routeConfig = ROUTE_CONFIGS[stateKey];
   const fieldTileProfileConfig = FIELD_TILE_PROFILE_CONFIGS[stateKey];
