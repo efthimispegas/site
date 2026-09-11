@@ -8,6 +8,7 @@ import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/sc
 import {
   FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
+  IMPLEMENTATION_ROUTE_CONFIG_BY_STATE,
   IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE,
   LANDMARK_CONFIG_BY_STATE,
   ROUTE_CONFIG_BY_STATE,
@@ -231,7 +232,8 @@ function isValidStructuralFeature(feature, sourceArtifact, methodId) {
 }
 
 function isValidRouteFeature(feature, sourceArtifact, stateKey) {
-  const config = ROUTE_CONFIG_BY_STATE[stateKey];
+  const sourceConfig = ROUTE_CONFIG_BY_STATE[stateKey];
+  const config = IMPLEMENTATION_ROUTE_CONFIG_BY_STATE[stateKey] ?? sourceConfig;
   if (
     !config ||
     !isValidStructuralFeature(feature, sourceArtifact, config.method) ||
@@ -239,7 +241,8 @@ function isValidRouteFeature(feature, sourceArtifact, stateKey) {
     !isFiniteTuple(feature.method?.roiNormalized, 4) ||
     feature.method.roiNormalized.some(
       (component, index) => component !== config.roi[index],
-    )
+    ) ||
+    feature.method.sourcePredicate !== config.sourcePredicate
   ) {
     return false;
   }
@@ -1505,22 +1508,24 @@ function measureRouteCenterlineEvidence({
   implementationImage,
   dpr,
 }) {
-  const config = ROUTE_CONFIG_BY_STATE[state.key];
-  if (!config) {
+  const sourceConfig = ROUTE_CONFIG_BY_STATE[state.key];
+  if (!sourceConfig) {
     return null;
   }
+  const implementationConfig =
+    IMPLEMENTATION_ROUTE_CONFIG_BY_STATE[state.key] ?? sourceConfig;
 
   const referenceResult = measureChromaFeature({
     data: referenceImage.data,
     image: referenceImage.info,
     dpr,
-    config,
+    config: sourceConfig,
   });
   const implementationResult = measureChromaFeature({
     data: implementationImage.data,
     image: implementationImage.info,
     dpr,
-    config,
+    config: implementationConfig,
   });
   const referenceMeasurement = referenceResult.measurement;
   const implementationMeasurement = implementationResult.measurement;
@@ -1562,9 +1567,12 @@ function measureRouteCenterlineEvidence({
         status: 'blocked',
         evidenceClass: 'blocked',
         semanticRole: 'visible-route-core-centerline-set',
-        label: config.label,
+        label: sourceConfig.label,
         method: {
-          maskSelection: config.method,
+          sourceMaskSelection: sourceConfig.method,
+          sourcePredicate: sourceConfig.predicate.id,
+          implementationMaskSelection: implementationConfig.method,
+          implementationPredicate: implementationConfig.predicate.id,
           centerline: 'zhang-suen-thinning-8-neighbor-v1',
           distance: 'symmetric-euclidean-hausdorff',
           sourceSemanticMask: null,
@@ -1584,7 +1592,9 @@ function measureRouteCenterlineEvidence({
         hausdorff: null,
         reason: implementationMeasurement.reason,
         qualification:
-          'The implementation fails the unchanged source-pixel route quality gate, so no implementation centerline or Hausdorff distance is inferred.',
+          implementationConfig === sourceConfig
+            ? 'The implementation fails the unchanged source-pixel route quality gate, so no implementation centerline or Hausdorff distance is inferred.'
+            : 'The implementation fails its renderer-independent visible-route quality gate, so no implementation centerline or Hausdorff distance is inferred.',
       },
       comparison: null,
     };
@@ -1629,9 +1639,12 @@ function measureRouteCenterlineEvidence({
       status: 'observed',
       evidenceClass: 'observed',
       semanticRole: 'visible-route-core-centerline-set',
-      label: config.label,
+      label: sourceConfig.label,
       method: {
-        maskSelection: config.method,
+        sourceMaskSelection: sourceConfig.method,
+        sourcePredicate: sourceConfig.predicate.id,
+        implementationMaskSelection: implementationConfig.method,
+        implementationPredicate: implementationConfig.predicate.id,
         centerline: 'zhang-suen-thinning-8-neighbor-v1',
         distance: 'symmetric-euclidean-hausdorff',
         sourceSemanticMask: null,
@@ -1653,7 +1666,9 @@ function measureRouteCenterlineEvidence({
       hausdorff,
       reason: null,
       qualification:
-        'The deterministic skeleton measures the visible selected route-core centerline set, including parallel rails and branches. It does not infer an unobservable renderer spline or hidden continuation.',
+        implementationConfig === sourceConfig
+          ? 'The deterministic skeleton measures the visible route-core centerline set selected by the same renderer-independent predicate in both rasters. It does not infer an unobservable renderer spline or hidden continuation.'
+          : 'The deterministic skeleton compares independently selected visible route-core centerline sets: saturated cyan in the source and bright near-white cyan in localhost. Neither mask borrows pixels from the other or infers an unobservable renderer spline or hidden continuation.',
     },
     comparison: createRouteCenterlineComparison(
       referenceCenterline,
@@ -2947,7 +2962,7 @@ const structuralAccuracyGateSatisfied =
 const domLayoutGateSatisfied =
   domSummary.fail === 0 && domSummary.blocked === 0;
 const report = {
-  schemaVersion: 15,
+  schemaVersion: 16,
   generatedFrom: {
     manifestPath: relative(manifestPath),
     captureManifestPath: relative(captureManifestPath),

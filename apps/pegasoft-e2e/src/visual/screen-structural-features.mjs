@@ -32,6 +32,15 @@ const RED_ROUTE = Object.freeze({
   },
 });
 
+const BRIGHT_CYAN_IMPLEMENTATION_ROUTE = Object.freeze({
+  id: 'bright-cyan-implementation-route',
+  description:
+    'g >= 230, b >= 230, and either g-r >= 5 or b-r >= 5 in 8-bit sRGB',
+  test(red, green, blue) {
+    return green >= 230 && blue >= 230 && (green - red >= 5 || blue - red >= 5);
+  },
+});
+
 const DEEP_BLUE = Object.freeze({
   id: 'deep-blue',
   description: 'b-r >= 55, b-g >= 25, b >= 120, and r <= 150 in 8-bit sRGB',
@@ -389,6 +398,30 @@ export const ROUTE_CONFIG_BY_STATE = Object.freeze({
     rationale:
       'The left horizontal band isolates the saturated arrival feed before it reaches the layered arrow. Arrow edges, surrounding marks, copy, and the glow field lie outside the selected core.',
   }),
+});
+
+function implementationRouteConfig(stateKey) {
+  const sourceConfig = ROUTE_CONFIG_BY_STATE[stateKey];
+  return Object.freeze({
+    ...sourceConfig,
+    predicate: BRIGHT_CYAN_IMPLEMENTATION_ROUTE,
+    sourcePredicate: sourceConfig.predicate.id,
+    rationale:
+      'The locked localhost route renders as a bright near-white cyan core rather than the source saturated cyan. The authoritative state ROI and component-selection mode identify the visible route role, while this renderer-independent RGB predicate classifies localhost pixels without borrowing source-selected pixels or inferred renderer splines.',
+  });
+}
+
+export const IMPLEMENTATION_ROUTE_CONFIG_BY_STATE = Object.freeze({
+  'clearance-travel': implementationRouteConfig('clearance-travel'),
+  'clearance-field-preview': implementationRouteConfig(
+    'clearance-field-preview',
+  ),
+  'field-approach': implementationRouteConfig('field-approach'),
+  'field-contact': implementationRouteConfig('field-contact'),
+  'field-pulse-a': implementationRouteConfig('field-pulse-a'),
+  'field-pulse-b': implementationRouteConfig('field-pulse-b'),
+  'arrival-travel': implementationRouteConfig('arrival-travel'),
+  'arrival-lockup': implementationRouteConfig('arrival-lockup'),
 });
 
 export const LANDING_COPY_CONFIG = Object.freeze({
@@ -996,6 +1029,9 @@ export function measureChromaFeature({ data, image, dpr, config }) {
           roiNormalized: config.roi,
           roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
           semanticMask: null,
+          ...(config.sourcePredicate
+            ? { sourcePredicate: config.sourcePredicate }
+            : {}),
         },
       },
       debug: { mask: selectedMask, bounds: selected?.bounds ?? roi },
@@ -1036,6 +1072,9 @@ export function measureChromaFeature({ data, image, dpr, config }) {
         eligibleComponentCount: eligibleComponents.length,
         selectedComponentCount: selectedComponents.length,
         semanticMask: null,
+        ...(config.sourcePredicate
+          ? { sourcePredicate: config.sourcePredicate }
+          : {}),
         rationale: config.rationale,
       },
     },
