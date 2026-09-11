@@ -7,6 +7,7 @@ import { measureScreenComposition } from './screen-composition.mjs';
 import {
   FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
+  IMPLEMENTATION_ROUTE_CONFIG_BY_STATE,
   IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE,
   JOURNEY_EXIT_BOUNDARY_CONFIG,
   LANDMARK_CONFIG_BY_STATE,
@@ -243,7 +244,11 @@ async function measureImplementationStructure(
       )
     : undefined;
   const copyConfig = COPY_CONFIG_BY_STATE[stateKey];
-  const routeConfig = ROUTE_CONFIGS[stateKey];
+  const implementationRouteConfig =
+    IMPLEMENTATION_ROUTE_CONFIG_BY_STATE[
+      stateKey as keyof typeof IMPLEMENTATION_ROUTE_CONFIG_BY_STATE
+    ];
+  const routeConfig = implementationRouteConfig ?? ROUTE_CONFIGS[stateKey];
   const fieldTileProfileConfig = FIELD_TILE_PROFILE_CONFIGS[stateKey];
   const fieldContactCenterConfig = FIELD_CONTACT_CENTER_CONFIGS[stateKey];
   const route = routeConfig
