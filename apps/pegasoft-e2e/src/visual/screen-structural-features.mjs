@@ -454,6 +454,41 @@ export const PROCESS_COPY_CONFIG = Object.freeze({
     'The state-specific left-column ROI contains the complete readable four-row process ladder and excludes the fixed header. Dark-neutral components must satisfy glyph-scale area, dimensions, and fill gates; large scene structures and decorative geometry are not admitted as copy ink.',
 });
 
+export const ARRIVAL_TRAVEL_COPY_CONFIG = Object.freeze({
+  ...PROCESS_COPY_CONFIG,
+  label:
+    'visible dark process-ladder ink envelope during faded-body arrival travel',
+  roi: Object.freeze([0.042, 0.52, 0.39, 0.31]),
+  minimumSelectedPixels: 1500,
+  rationale:
+    'The arrival-travel source frame deliberately fades the active body copy while retaining dark step labels and headings. The fixed left-column ROI measures only dark-neutral ink that is actually visible at this frame; it neither lowers the predicate into similarly valued field geometry nor borrows the later arrival-lockup envelope.',
+});
+
+export const JOURNEY_EXIT_COPY_CONFIG = Object.freeze({
+  ...PROCESS_COPY_CONFIG,
+  label: 'visible lower process-ladder ink below the fixed-header band',
+  roi: Object.freeze([0.042, 0.08, 0.39, 0.42]),
+  minimumSelectedPixels: 1500,
+  rationale:
+    'The exiting ladder crosses the fixed header, so the top 8% of the raster is censored from copy classification. The remaining ROI measures only the directly visible lower ladder and body above the section handoff; it does not infer the overlapped upper rows or admit the following-section headline.',
+});
+
+export const COPY_CONFIG_BY_STATE = Object.freeze({
+  landing: LANDING_COPY_CONFIG,
+  'landing-idle': LANDING_COPY_CONFIG,
+  'activation-route': PROCESS_COPY_CONFIG,
+  'activation-contact': PROCESS_COPY_CONFIG,
+  'clearance-travel': PROCESS_COPY_CONFIG,
+  'clearance-field-preview': PROCESS_COPY_CONFIG,
+  'field-approach': PROCESS_COPY_CONFIG,
+  'field-contact': PROCESS_COPY_CONFIG,
+  'field-pulse-a': PROCESS_COPY_CONFIG,
+  'field-pulse-b': PROCESS_COPY_CONFIG,
+  'arrival-travel': ARRIVAL_TRAVEL_COPY_CONFIG,
+  'arrival-lockup': PROCESS_COPY_CONFIG,
+  'journey-exit': JOURNEY_EXIT_COPY_CONFIG,
+});
+
 export const JOURNEY_EXIT_BOUNDARY_CONFIG = Object.freeze({
   label: 'hero-to-following-section boundary at journey exit',
   method: 'dominant-horizontal-boundary',

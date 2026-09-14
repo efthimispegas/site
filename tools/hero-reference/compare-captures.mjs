@@ -6,6 +6,7 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { SCREEN_COMPOSITION_CONFIG } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 import {
+  COPY_CONFIG_BY_STATE,
   FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
   IMPLEMENTATION_ROUTE_CONFIG_BY_STATE,
@@ -88,19 +89,7 @@ const IMPLEMENTATION_FIELD_PROFILE_STATES = new Set(
 const IMPLEMENTATION_CONTACT_CENTER_STATES = new Set(
   Object.keys(FIELD_CONTACT_CENTER_CONFIG_BY_STATE),
 );
-const IMPLEMENTATION_COPY_STATES = new Set([
-  'landing',
-  'landing-idle',
-  'activation-route',
-  'activation-contact',
-  'clearance-travel',
-  'clearance-field-preview',
-  'field-approach',
-  'field-contact',
-  'field-pulse-a',
-  'field-pulse-b',
-  'arrival-lockup',
-]);
+const IMPLEMENTATION_COPY_STATES = new Set(Object.keys(COPY_CONFIG_BY_STATE));
 
 const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
 const semanticMaskManifest = JSON.parse(

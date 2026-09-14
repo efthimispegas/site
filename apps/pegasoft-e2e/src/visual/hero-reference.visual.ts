@@ -5,14 +5,13 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { measureScreenComposition } from './screen-composition.mjs';
 import {
+  COPY_CONFIG_BY_STATE,
   FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
   IMPLEMENTATION_ROUTE_CONFIG_BY_STATE,
   IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE,
   JOURNEY_EXIT_BOUNDARY_CONFIG,
   LANDMARK_CONFIG_BY_STATE,
-  LANDING_COPY_CONFIG,
-  PROCESS_COPY_CONFIG,
   ROUTE_CONFIG_BY_STATE,
   measureChromaFeature,
   measureCopyInk,
@@ -52,25 +51,6 @@ const LOCAL_TIME_MS: Partial<Record<ReferenceStateKey, number>> = {
   'arrival-travel': 300,
   'arrival-lockup': 0,
   'journey-exit': 1000,
-};
-
-const COPY_CONFIG_BY_STATE: Partial<
-  Record<
-    ReferenceStateKey,
-    typeof LANDING_COPY_CONFIG | typeof PROCESS_COPY_CONFIG
-  >
-> = {
-  landing: LANDING_COPY_CONFIG,
-  'landing-idle': LANDING_COPY_CONFIG,
-  'activation-route': PROCESS_COPY_CONFIG,
-  'activation-contact': PROCESS_COPY_CONFIG,
-  'clearance-travel': PROCESS_COPY_CONFIG,
-  'clearance-field-preview': PROCESS_COPY_CONFIG,
-  'field-approach': PROCESS_COPY_CONFIG,
-  'field-contact': PROCESS_COPY_CONFIG,
-  'field-pulse-a': PROCESS_COPY_CONFIG,
-  'field-pulse-b': PROCESS_COPY_CONFIG,
-  'arrival-lockup': PROCESS_COPY_CONFIG,
 };
 
 type RouteConfig =
@@ -243,7 +223,8 @@ async function measureImplementationStructure(
         }).measurement,
       )
     : undefined;
-  const copyConfig = COPY_CONFIG_BY_STATE[stateKey];
+  const copyConfig =
+    COPY_CONFIG_BY_STATE[stateKey as keyof typeof COPY_CONFIG_BY_STATE];
   const implementationRouteConfig =
     IMPLEMENTATION_ROUTE_CONFIG_BY_STATE[
       stateKey as keyof typeof IMPLEMENTATION_ROUTE_CONFIG_BY_STATE

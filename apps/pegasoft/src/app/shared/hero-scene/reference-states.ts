@@ -20,6 +20,10 @@ const SETTLED_PAGE_CLOCKS: HeroLocalClocks = {
 const LANDING_COPY_LABEL =
   'visible centered landing headline and supporting-copy ink envelope';
 const PROCESS_COPY_LABEL = 'visible four-row process-ladder copy ink envelope';
+const ARRIVAL_TRAVEL_COPY_LABEL =
+  'visible dark process-ladder ink envelope during faded-body arrival travel';
+const JOURNEY_EXIT_COPY_LABEL =
+  'visible lower process-ladder ink below the fixed-header band';
 
 const SCREEN_COMPOSITION_SUMMARIES = {
   'loader-mark': { edgeDensity: 0.005413, centroid: [0.599798, 0.663796] },
@@ -782,8 +786,9 @@ export const referenceStates = [
     landmarkStatus: 'not-applicable',
     routeStatus: 'observed',
     routeBounds: [714, 352, 118, 9],
-    copyStatus: 'blocked',
-    copyLabel: 'transitioning four-row process-ladder copy',
+    copyLabel: ARRIVAL_TRAVEL_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(12),
+    copyBounds: [64.5, 417, 221.5, 215],
     context: [
       'Step 04 process copy',
       'field receding left',
@@ -866,8 +871,9 @@ export const referenceStates = [
     routeStatus: 'not-applicable',
     boundaryStatus: 'observed',
     boundaryBounds: [0, 367.5, 1508, 1],
-    copyStatus: 'blocked',
-    copyLabel: 'clipped exiting process-ladder copy',
+    copyLabel: JOURNEY_EXIT_COPY_LABEL,
+    copyEvidenceRef: structuralCopyEvidenceRef(14),
+    copyBounds: [64.5, 68.5, 549, 246.5],
     context: [
       'receding arrival composition',
       'pale world coverage',

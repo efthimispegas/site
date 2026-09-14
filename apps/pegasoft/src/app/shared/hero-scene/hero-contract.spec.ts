@@ -322,7 +322,7 @@ describe('hero reference-state contract', () => {
     ).toEqual(['loader-mark', 'landing', 'journey-exit']);
   });
 
-  it('retains measured copy ink without inferring faded or clipped states', () => {
+  it('retains measured visible copy ink without inferring censored pixels', () => {
     const landingLabel =
       'visible centered landing headline and supporting-copy ink envelope';
     const processLabel = 'visible four-row process-ladder copy ink envelope';
@@ -374,9 +374,20 @@ describe('hero reference-state contract', () => {
         label: processLabel,
       },
       {
+        key: 'arrival-travel',
+        copy: [64.5, 417, 221.5, 215],
+        label:
+          'visible dark process-ladder ink envelope during faded-body arrival travel',
+      },
+      {
         key: 'arrival-lockup',
         copy: [64.5, 405, 549, 294.5],
         label: processLabel,
+      },
+      {
+        key: 'journey-exit',
+        copy: [64.5, 68.5, 549, 246.5],
+        label: 'visible lower process-ladder ink below the fixed-header band',
       },
     ] as const;
 
@@ -400,26 +411,8 @@ describe('hero reference-state contract', () => {
     expect(
       referenceStates
         .filter(({ screenBounds }) => screenBounds.copyStatus === 'blocked')
-        .map(({ key, screenBounds }) => ({
-          key,
-          label: screenBounds.copyLabel,
-          copy: screenBounds.copy,
-          evidenceRef: screenBounds.copyEvidenceRef,
-        })),
-    ).toEqual([
-      {
-        key: 'arrival-travel',
-        label: 'transitioning four-row process-ladder copy',
-        copy: null,
-        evidenceRef: null,
-      },
-      {
-        key: 'journey-exit',
-        label: 'clipped exiting process-ladder copy',
-        copy: null,
-        evidenceRef: null,
-      },
-    ]);
+        .map(({ key }) => key),
+    ).toEqual([]);
 
     expect(
       referenceStates
