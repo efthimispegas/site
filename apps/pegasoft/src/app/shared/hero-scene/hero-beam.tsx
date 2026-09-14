@@ -1,16 +1,7 @@
-import { useFrame } from '@react-three/fiber';
-import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import { useEffect, useLayoutEffect, useMemo } from 'react';
 import * as THREE from 'three';
-import {
-  HERO_CAPTURE_SEED,
-  type HeroJourneySnapshot,
-  type HeroTuple3,
-} from './hero-contract';
-import {
-  INACTIVE_HERO_GATE_CLOCK,
-  updateHeroGateClock,
-  type HeroGateClockState,
-} from './hero-local-clock';
+import type { HeroJourneySnapshot, HeroTuple3 } from './hero-contract';
+import { HeroLandingRails } from './hero-landing-rails';
 import { HERO_PALETTE } from './hero-materials';
 import { getHeroRoutePoint, getHeroRouteProgress } from './hero-route';
 import { clampSceneProgress } from './hero-sequence';
@@ -23,12 +14,6 @@ const BLUE_ZERO_ROUTE_END = 0.75;
 const RED_RADIUS = 0.075;
 const BLUE_RADIUS = 0.125;
 const TUBE_RADIAL_SEGMENTS = 8;
-const LANDING_DRAW_SECONDS = 1;
-const LANDING_RETRACT_SECONDS = 0.8;
-const LANDING_RAIL_STAGGER_SECONDS = 0.45;
-const LANDING_IDLE_MIN_SECONDS = 1.4;
-const LANDING_IDLE_MAX_SECONDS = 3;
-const SEEDED_CADENCE_CYCLES = 64;
 
 /**
  * Source-confirmed feeder controls. Each rail has its own authored approach
@@ -188,145 +173,6 @@ function SourceTube({
   );
 }
 
-function seededUnit(railIndex: number, cycleIndex: number) {
-  let state =
-    (HERO_CAPTURE_SEED ^
-      Math.imul(railIndex + 1, 0x9e3779b1) ^
-      Math.imul(cycleIndex + 1, 0x85ebca6b)) >>>
-    0;
-  state ^= state >>> 16;
-  state = Math.imul(state, 0x7feb352d);
-  state ^= state >>> 15;
-  state = Math.imul(state, 0x846ca68b);
-  state ^= state >>> 16;
-  return (state >>> 0) / 0xffffffff;
-}
-
-const landingIdleDurations = Array.from(
-  { length: redFeederCurves.length },
-  (_, railIndex) =>
-    Array.from({ length: SEEDED_CADENCE_CYCLES }, (_, cycleIndex) =>
-      THREE.MathUtils.lerp(
-        LANDING_IDLE_MIN_SECONDS,
-        LANDING_IDLE_MAX_SECONDS,
-        seededUnit(railIndex, cycleIndex),
-      ),
-    ),
-);
-
-function sampleLandingRailRange(elapsedSeconds: number, railIndex: number) {
-  let phaseSeconds =
-    Math.max(0, elapsedSeconds) - railIndex * LANDING_RAIL_STAGGER_SECONDS;
-
-  if (phaseSeconds < 0) {
-    return null;
-  }
-
-  const cycleDurations = landingIdleDurations[railIndex];
-  const cadenceDuration = cycleDurations.reduce(
-    (total, idleDuration) =>
-      total + LANDING_DRAW_SECONDS + LANDING_RETRACT_SECONDS + idleDuration,
-    0,
-  );
-  phaseSeconds %= cadenceDuration;
-
-  for (const idleDuration of cycleDurations) {
-    if (phaseSeconds <= LANDING_DRAW_SECONDS) {
-      return {
-        start: 0,
-        end: phaseSeconds / LANDING_DRAW_SECONDS,
-      };
-    }
-
-    phaseSeconds -= LANDING_DRAW_SECONDS;
-    if (phaseSeconds <= LANDING_RETRACT_SECONDS) {
-      return {
-        start: phaseSeconds / LANDING_RETRACT_SECONDS,
-        end: 1,
-      };
-    }
-
-    phaseSeconds -= LANDING_RETRACT_SECONDS;
-    if (phaseSeconds < idleDuration) {
-      return null;
-    }
-    phaseSeconds -= idleDuration;
-  }
-
-  return null;
-}
-
-function LandingRailCadence({ snapshot }: { snapshot: HeroJourneySnapshot }) {
-  const active =
-    snapshot.lifecycle === 'landing' && snapshot.sceneTargetProgress <= 0.001;
-  const groupRef = useRef<THREE.Group>(null);
-  const clockRef = useRef<HeroGateClockState>(INACTIVE_HERO_GATE_CLOCK);
-  const geometries = useMemo(
-    () =>
-      redFeederCurves.map((curve) => {
-        const geometry = new THREE.TubeGeometry(
-          curve,
-          150,
-          RED_RADIUS,
-          TUBE_RADIAL_SEGMENTS,
-          false,
-        );
-        geometry.setDrawRange(0, 0);
-        return geometry;
-      }),
-    [],
-  );
-
-  useEffect(
-    () => () => geometries.forEach((geometry) => geometry.dispose()),
-    [geometries],
-  );
-
-  useFrame(({ clock }) => {
-    if (groupRef.current) {
-      groupRef.current.visible = active;
-    }
-
-    if (snapshot.motion !== 'full') {
-      geometries.forEach((geometry) => {
-        setTubeRange(geometry, 0, active ? 1 : 0);
-      });
-      return;
-    }
-
-    clockRef.current = updateHeroGateClock(
-      clockRef.current,
-      active,
-      clock.getElapsedTime() * 1000,
-      snapshot.directEntry ? snapshot.localClocks.landingIdleMs : null,
-    );
-
-    if (!active) {
-      return;
-    }
-
-    const elapsedSeconds = clockRef.current.elapsedMs / 1000;
-    geometries.forEach((geometry, railIndex) => {
-      const range = sampleLandingRailRange(elapsedSeconds, railIndex);
-      setTubeRange(geometry, range?.start ?? 0, range?.end ?? 0);
-    });
-  });
-
-  return (
-    <group ref={groupRef} visible={active}>
-      {geometries.map((geometry, index) => (
-        <mesh key={index} geometry={geometry} renderOrder={3}>
-          <meshBasicMaterial
-            color={HERO_PALETTE.redRoute}
-            toneMapped={false}
-            side={THREE.DoubleSide}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
 export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
   const sceneProgress = clampSceneProgress(snapshot.sceneTargetProgress);
   const redRatio = progressBetween(sceneProgress, 0, RED_END_SCENE_PROGRESS);
@@ -347,7 +193,7 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
 
   return (
     <group>
-      <LandingRailCadence snapshot={snapshot} />
+      <HeroLandingRails snapshot={snapshot} />
 
       {redFeederCurves.map((curve, index) => (
         <SourceTube

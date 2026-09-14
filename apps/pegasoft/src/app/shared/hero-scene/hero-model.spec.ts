@@ -13,6 +13,11 @@ import {
   updateHeroGateClock,
 } from './hero-local-clock';
 import {
+  HERO_LANDING_RAIL_PATHS,
+  sampleLandingRailRange,
+  sampleWorldRevealRailRange,
+} from './hero-landing-rail-model';
+import {
   getHeroRoutePoint,
   getHeroRouteProgress,
   HERO_ARRIVAL_CENTER,
@@ -48,6 +53,23 @@ describe('hero route, camera, and local clocks', () => {
     expect(HERO_ARRIVAL_CENTER[0] - HERO_ROUTE_CONTACTS.arrival.point[0]).toBe(
       3.5,
     );
+  });
+
+  it('keeps the landing packet independent and deterministic at locked clocks', () => {
+    expect(HERO_LANDING_RAIL_PATHS).toHaveLength(4);
+    expect(HERO_LANDING_RAIL_PATHS[0][0]).toEqual([-59.225, 0.15, -24.943]);
+    expect(HERO_LANDING_RAIL_PATHS[0].at(-1)).toEqual([-57.538, 0.15, -30.127]);
+
+    expect(sampleWorldRevealRailRange(0.3, 0)).toEqual({
+      start: 0,
+      end: 0.9375,
+    });
+    expect(sampleWorldRevealRailRange(0.3, 3)?.end).toBeCloseTo(0.375, 9);
+    expect(sampleLandingRailRange(2.5, 0)).toBeNull();
+    expect(sampleLandingRailRange(2.5, 2)?.start).toBeCloseTo(0.75, 9);
+    expect(sampleLandingRailRange(2.5, 2)?.end).toBe(1);
+    expect(sampleLandingRailRange(2.5, 3)?.start).toBeCloseTo(0.1875, 9);
+    expect(sampleLandingRailRange(2.5, 3)?.end).toBe(1);
   });
 
   it('keeps the provisional field composition and arrival adjustment stable', () => {
