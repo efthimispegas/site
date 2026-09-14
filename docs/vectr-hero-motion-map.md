@@ -184,7 +184,7 @@ comparison.
 - Deterministic recording analysis now measures seven landmarks
   (`loader-mark`, `world-reveal`, `activation-route`, `activation-contact`,
   `field-contact`, `field-pulse-b`, and `arrival-lockup`) and
-  12 visible route cores, 11 visible copy-ink envelopes, plus the
+  12 visible route cores, 13 visible copy-ink envelopes, plus the
   `journey-exit` section boundary. Every
   applicable route state is measured; `loader-mark`, the exact `landing`
   frame, and `journey-exit` correctly mark route bounds not applicable. Four
@@ -198,11 +198,12 @@ comparison.
   partial/effect-only feature is visible. The three complete-subject source
   masks are accepted for reference refinement only; they cannot classify
   implementation pixels or confer visual acceptance.
-- Copy ink is measured for both landing anchors and nine fully readable
-  process-ladder anchors. `arrival-travel` remains blocked because its body is
-  faded into similar-valued field/route pixels; `journey-exit` remains blocked
-  because the clipped ladder overlaps the fixed header. Neither box is copied
-  from a cleaner neighboring frame.
+- Copy ink is measured for both landing anchors and all 11 journey anchors.
+  `arrival-travel` measures only the dark ladder ink that survives its faded-
+  body transition. `journey-exit` excludes the fixed-header overlap band and
+  measures the directly visible lower ladder above the section handoff.
+  Neither envelope is copied from a cleaner neighboring frame or extended
+  through censored pixels.
 - All 15 states now carry an observed 4x4 edge-support distribution, global
   edge density, and screen-space centroid below the fixed-header band. These
   are reproducible composition/negative-space proxies, not reconstructed 3D
@@ -213,11 +214,11 @@ comparison.
   fail 94: global negative-space occupancy passes 14/15, centroid axes pass
   5/30, and fixed-grid occupancy passes 172/240. These failures are current
   calibration evidence, not visual acceptance.
-- The schema-v7 capture measures all 11 source-applicable
+- The schema-v7 capture measures all 13 source-applicable
   implementation copy-ink envelopes and the `journey-exit` boundary with the
-  source-derived predicates. Copy bounds pass 18/44 checks; the boundary
-  passes 4/4. Source-blocked `arrival-travel` and `journey-exit` copy are not
-  inferred from neighboring frames.
+  source-derived predicates. Copy bounds pass 21/52 checks; the boundary
+  passes 4/4. The two transition states are now measured failures rather than
+  missing-source-evidence blocks.
 - The same capture runs all 12 locked source route configurations against the
   implementation screenshots. Only `activation-route` and
   `activation-contact` contain source-qualifying route pixels; their endpoint,

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 10,
-  "algorithmVersion": "recording-structural-bounds-v14",
+  "algorithmVersion": "recording-structural-bounds-v15",
   "generatedBy": "tools/hero-reference/measure-recording-bounds.mjs",
   "authority": {
     "recordingPath": "docs/vectrfl_recording.mov",
@@ -24,7 +24,7 @@
     "boundary": "The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.",
     "semanticMasks": "A semantic mask is permitted only for a complete visible subject that deterministic chroma/edge isolation under-reports. Its manifest locks the recording SHA, frame PNG SHA, SVG SHA, raster, alpha threshold, support gate, inclusion/exclusion rules, uncertainty, and review status. Review permits reference-goal refinement only: a source mask cannot classify implementation pixels or confer structural or final visual acceptance. Partial, clipped, effect-only, or disconnected aggregate subjects remain blocked.",
     "routeGeometry": "Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.",
-    "copyInk": "Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.",
+    "copyInk": "Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs and a dark-neutral predicate with glyph-scale component gates reject large scene geometry. Arrival travel records only its surviving dark ink while the body fades; journey exit censors the header-overlap band and records the visible lower ladder. Neither state borrows a box from another frame.",
     "fieldTileProfile": "Applicable field states report a shared bright-neutral predicate, component-shape gates, visible tile-top count, field envelope, component centroid, median tile-top size, and mask support. Clipped, activated, recolored, or bloom-obscured tiles are never inferred; changes in surviving neutral components remain part of the observed reaction profile.",
     "fieldContactCenter": "The field-contact state independently reports the largest saturated blue/violet center-tile component through the same source/implementation predicate. It locates contact without substituting for the source-tied tile-plus-standing-figure semantic landmark union.",
     "screenComposition": "Every state reports a fixed-grid binary Sobel edge-support distribution, density, and centroid below the header band. These are screen-space composition and negative-space proxies; the 3D camera position/quaternion remain explicitly unknown and are never reconstructed from rendered pixels.",
@@ -42,8 +42,8 @@
     "boundaryMeasured": 1,
     "boundaryBlocked": 0,
     "boundaryNotApplicable": 14,
-    "copyMeasured": 11,
-    "copyBlocked": 2,
+    "copyMeasured": 13,
+    "copyBlocked": 0,
     "copyNotApplicable": 2,
     "fieldProfileMeasured": 5,
     "fieldProfileBlocked": 0,
@@ -3853,9 +3853,39 @@
         "reason": "No section-transition boundary is applicable to this source state."
       },
       "copy": {
-        "status": "blocked",
-        "label": "transitioning four-row process-ladder copy",
-        "reason": "The active arrival body copy is materially faded into similar-valued field tiles and route bloom at this travel anchor. A dark-ink box would report only the headings, while a looser threshold would merge scene structure; bounds from the later lockup are not inferred backward."
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible dark process-ladder ink envelope during faded-body arrival travel",
+        "bounds": {
+          "rasterPixels": [129, 834, 443, 430],
+          "cssPixels": [64.5, 417, 221.5, 215],
+          "normalized": [0.042772, 0.547963, 0.146883, 0.282523]
+        },
+        "geometry": null,
+        "pixelSupport": 11396,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [0.042, 0.52, 0.39, 0.31],
+          "roiRasterPixels": [126, 791, 1177, 473],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 1500,
+          "totalComponentCount": 82,
+          "eligibleComponentCount": 81,
+          "selectedComponentCount": 81,
+          "semanticMask": null,
+          "rationale": "The arrival-travel source frame deliberately fades the active body copy while retaining dark step labels and headings. The fixed left-column ROI measures only dark-neutral ink that is actually visible at this frame; it neither lowers the predicate into similarly valued field geometry nor borrows the later arrival-lockup envelope."
+        }
       },
       "fieldProfile": {
         "status": "not-applicable",
@@ -4398,9 +4428,39 @@
         }
       },
       "copy": {
-        "status": "blocked",
-        "label": "clipped exiting process-ladder copy",
-        "reason": "The exiting ladder is vertically clipped and overlaps the fixed left navigation at this exact frame. Visible dark pixels cannot distinguish the two text systems, and a complete pre-exit ladder box is not inferred through the section handoff."
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "visible lower process-ladder ink below the fixed-header band",
+        "bounds": {
+          "rasterPixels": [129, 137, 1098, 493],
+          "cssPixels": [64.5, 68.5, 549, 246.5],
+          "normalized": [0.042772, 0.090013, 0.364058, 0.323916]
+        },
+        "geometry": null,
+        "pixelSupport": 33883,
+        "method": {
+          "id": "predicate-component-union",
+          "roiNormalized": [0.042, 0.08, 0.39, 0.42],
+          "roiRasterPixels": [126, 121, 1177, 640],
+          "predicate": {
+            "id": "dark-neutral-copy-ink",
+            "description": "max(r,g,b) <= 150 and max(r,g,b)-min(r,g,b) <= 40 in 8-bit sRGB"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 8,
+          "maximumComponentPixels": 8000,
+          "maximumComponentWidth": 150,
+          "maximumComponentHeight": 110,
+          "minimumComponentFillRatio": 0.1,
+          "minimumSelectedPixels": 1500,
+          "totalComponentCount": 281,
+          "eligibleComponentCount": 280,
+          "selectedComponentCount": 280,
+          "semanticMask": null,
+          "rationale": "The exiting ladder crosses the fixed header, so the top 8% of the raster is censored from copy classification. The remaining ROI measures only the directly visible lower ladder and body above the section handoff; it does not infer the overlapped upper rows or admit the following-section headline."
+        }
       },
       "fieldProfile": {
         "status": "not-applicable",

@@ -7,12 +7,11 @@ import { format as formatWithPrettier, resolveConfig } from 'prettier';
 import sharp from 'sharp';
 import { measureScreenComposition } from '../../apps/pegasoft-e2e/src/visual/screen-composition.mjs';
 import {
+  COPY_CONFIG_BY_STATE,
   FIELD_CONTACT_CENTER_CONFIG_BY_STATE,
   FIELD_TILE_PROFILE_CONFIG_BY_STATE,
   JOURNEY_EXIT_BOUNDARY_CONFIG,
   LANDMARK_CONFIG_BY_STATE,
-  LANDING_COPY_CONFIG,
-  PROCESS_COPY_CONFIG,
   ROUTE_CONFIG_BY_STATE,
   measureChromaFeature,
   measureCopyInk,
@@ -36,7 +35,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v14';
+const algorithmVersion = 'recording-structural-bounds-v15';
 const semanticMaskReviewStatus = 'accepted-for-reference-refinement';
 const semanticMaskReviewScope = 'source-reference-goal-only';
 
@@ -77,7 +76,7 @@ const STATE_MEASUREMENTS = {
       reason:
         'The locked resolved-landing frame contains no source-visible route pixels. Red rails appear in the earlier reveal and later landing-idle anchors; an off-screen or future continuation is not inferred here.',
     },
-    copy: LANDING_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE.landing,
   },
   'landing-idle': {
     primaryStructure: 'composition',
@@ -90,7 +89,7 @@ const STATE_MEASUREMENTS = {
         'The landing focus remains a disconnected, lower-viewport-clipped aggregate. The red packet is a route effect, and neither it nor a near-viewport-wide hand enclosure is a defensible landmark substitute.',
     },
     route: ROUTE_CONFIG_BY_STATE['landing-idle'],
-    copy: LANDING_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['landing-idle'],
   },
   'activation-route': {
     primaryStructure: 'landmark',
@@ -101,7 +100,7 @@ const STATE_MEASUREMENTS = {
         'The complete destination building is fully visible. A hash-locked, source-frame-tied semantic silhouette includes its connected volumes while excluding rails, shadows, figures, vegetation, and surrounding context.',
     },
     route: ROUTE_CONFIG_BY_STATE['activation-route'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['activation-route'],
   },
   'activation-contact': {
     primaryStructure: 'landmark',
@@ -112,7 +111,7 @@ const STATE_MEASUREMENTS = {
         'The complete logo-bearing destination is visible. A hash-locked semantic silhouette prevents the separable blue logo or red contact rails from substituting for the full landmark.',
     },
     route: ROUTE_CONFIG_BY_STATE['activation-contact'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['activation-contact'],
   },
   'clearance-travel': {
     primaryStructure: 'route',
@@ -123,7 +122,7 @@ const STATE_MEASUREMENTS = {
         'This is a route-primary transit anchor with no single destination landmark in frame.',
     },
     route: ROUTE_CONFIG_BY_STATE['clearance-travel'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['clearance-travel'],
   },
   'clearance-field-preview': {
     primaryStructure: 'route',
@@ -134,7 +133,7 @@ const STATE_MEASUREMENTS = {
         'The approaching route is the primary structure. The field is only a secondary preview clipped by the top and right viewport edges.',
     },
     route: ROUTE_CONFIG_BY_STATE['clearance-field-preview'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['clearance-field-preview'],
     fieldProfile: FIELD_TILE_PROFILE_CONFIG_BY_STATE['clearance-field-preview'],
   },
   'field-approach': {
@@ -147,7 +146,7 @@ const STATE_MEASUREMENTS = {
         'Only a pale fragment of the elevated center and figure is visible among similar tiles, and the fixed header/viewport occludes its upper extent. Partial censored evidence cannot supply a complete landmark box.',
     },
     route: ROUTE_CONFIG_BY_STATE['field-approach'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['field-approach'],
     fieldProfile: FIELD_TILE_PROFILE_CONFIG_BY_STATE['field-approach'],
   },
   'field-contact': {
@@ -159,7 +158,7 @@ const STATE_MEASUREMENTS = {
         'The complete center tile and its standing figure are visible. Their hash-locked semantic union excludes the incoming route, adjacent reacting tiles, and contact glow.',
     },
     route: ROUTE_CONFIG_BY_STATE['field-contact'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['field-contact'],
     fieldProfile: FIELD_TILE_PROFILE_CONFIG_BY_STATE['field-contact'],
     contactCenter: FIELD_CONTACT_CENTER_CONFIG_BY_STATE['field-contact'],
   },
@@ -174,14 +173,14 @@ const STATE_MEASUREMENTS = {
         'Bloom occludes the center tile and figure and joins the route with neighboring tiles. The luminous envelope is an effect observable, not a substitute for the hidden structural landmark.',
     },
     route: ROUTE_CONFIG_BY_STATE['field-pulse-a'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['field-pulse-a'],
     fieldProfile: FIELD_TILE_PROFILE_CONFIG_BY_STATE['field-pulse-a'],
   },
   'field-pulse-b': {
     primaryStructure: 'landmark',
     landmark: LANDMARK_CONFIG_BY_STATE['field-pulse-b'],
     route: ROUTE_CONFIG_BY_STATE['field-pulse-b'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['field-pulse-b'],
     fieldProfile: FIELD_TILE_PROFILE_CONFIG_BY_STATE['field-pulse-b'],
   },
   'arrival-travel': {
@@ -193,18 +192,13 @@ const STATE_MEASUREMENTS = {
         'This is a route-primary travel anchor; the arrival-arrow destination remains outside the right viewport edge.',
     },
     route: ROUTE_CONFIG_BY_STATE['arrival-travel'],
-    copy: {
-      status: 'blocked',
-      label: 'transitioning four-row process-ladder copy',
-      reason:
-        'The active arrival body copy is materially faded into similar-valued field tiles and route bloom at this travel anchor. A dark-ink box would report only the headings, while a looser threshold would merge scene structure; bounds from the later lockup are not inferred backward.',
-    },
+    copy: COPY_CONFIG_BY_STATE['arrival-travel'],
   },
   'arrival-lockup': {
     primaryStructure: 'landmark',
     landmark: LANDMARK_CONFIG_BY_STATE['arrival-lockup'],
     route: ROUTE_CONFIG_BY_STATE['arrival-lockup'],
-    copy: PROCESS_COPY_CONFIG,
+    copy: COPY_CONFIG_BY_STATE['arrival-lockup'],
   },
   'journey-exit': {
     primaryStructure: 'boundary',
@@ -221,12 +215,7 @@ const STATE_MEASUREMENTS = {
         'The route is no longer a separately readable primary structure at the section-handoff anchor.',
     },
     boundary: JOURNEY_EXIT_BOUNDARY_CONFIG,
-    copy: {
-      status: 'blocked',
-      label: 'clipped exiting process-ladder copy',
-      reason:
-        'The exiting ladder is vertically clipped and overlaps the fixed left navigation at this exact frame. Visible dark pixels cannot distinguish the two text systems, and a complete pre-exit ladder box is not inferred through the section handoff.',
-    },
+    copy: COPY_CONFIG_BY_STATE['journey-exit'],
   },
 };
 
@@ -1141,7 +1130,7 @@ const report = {
     routeGeometry:
       'Every observed route core reports deterministic PCA direction, selected-core endpoints, principal span, and equivalent selected-core thickness. These describe thresholded visible route pixels only; they never infer clipped continuation, a glow envelope, or a single-rail width from a parallel/branched union.',
     copyInk:
-      'Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs exclude the header; a dark-neutral predicate and glyph-scale component area, dimensions, and fill gates reject large scene geometry. Faded or header-overlapped copy remains blocked rather than borrowing a box from another frame.',
+      'Observed copy bounds enclose selected visible ink, not an inferred DOM container. Fixed source-state ROIs and a dark-neutral predicate with glyph-scale component gates reject large scene geometry. Arrival travel records only its surviving dark ink while the body fades; journey exit censors the header-overlap band and records the visible lower ladder. Neither state borrows a box from another frame.',
     fieldTileProfile:
       'Applicable field states report a shared bright-neutral predicate, component-shape gates, visible tile-top count, field envelope, component centroid, median tile-top size, and mask support. Clipped, activated, recolored, or bloom-obscured tiles are never inferred; changes in surviving neutral components remain part of the observed reaction profile.',
     fieldContactCenter:
@@ -1167,7 +1156,7 @@ const updatedManifest = {
   structuralBoundsEvidence: {
     status:
       summary.primaryStructureBlocked === 0 ? 'observed' : 'partially-observed',
-    verifiedOn: '2026-08-20',
+    verifiedOn: '2026-09-14',
     artifact: 'docs/hero-reference/recording-structural-bounds.json',
     algorithmVersion,
     landmarkMeasured: summary.landmarkMeasured,

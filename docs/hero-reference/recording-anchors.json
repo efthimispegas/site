@@ -28,7 +28,7 @@
     "selection": "Each anchor is a representative frame for a named visual state, not necessarily the first transition frame.",
     "timing": "Journey timestamps are seek coordinates in this user-scrolled recording, not authored durations or normalized progress.",
     "generatedCapture": "The capture path and capture SHA verify a reproducible derivative; acceptance authority remains the MOV SHA plus frame index and PTS.",
-    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary; 4 states mark landmark bounds not applicable and 4 non-primary landmarks remain honestly blocked, while 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
+    "unmeasuredFields": "Rendered pixels do not expose camera transforms. Live trace calibration supplies progress targets independently. Structural evidence measures 7 landmarks, 12 route cores, 13 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary; 4 states mark landmark bounds not applicable and 4 non-primary landmarks remain honestly blocked, while 0 copy states, 0 field profiles, and 0 contact centers remain blocked."
   },
   "planCorrectionsEstablishedByExactFrames": [
     {
@@ -3427,8 +3427,8 @@
         "route": [714, 352, 118, 9],
         "routeLabel": "high-chroma core of second horizontal cyan route",
         "routeEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/12/route",
-        "copy": null,
-        "copyStatus": "blocked",
+        "copy": [64.5, 417, 221.5, 215],
+        "copyStatus": "observed",
         "reason": "Primary route measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
           "kind": "route",
@@ -3443,8 +3443,8 @@
         "boundary": null,
         "boundaryLabel": null,
         "boundaryEvidenceRef": null,
-        "copyLabel": "transitioning four-row process-ladder copy",
-        "copyEvidenceRef": null,
+        "copyLabel": "visible dark process-ladder ink envelope during faded-body arrival travel",
+        "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/12/copy",
         "routeGeometry": {
           "rasterPixels": {
             "start": [1428, 717],
@@ -3975,8 +3975,8 @@
         "route": null,
         "routeLabel": null,
         "routeEvidenceRef": null,
-        "copy": null,
-        "copyStatus": "blocked",
+        "copy": [64.5, 68.5, 549, 246.5],
+        "copyStatus": "observed",
         "reason": "Primary boundary measured by the reproducible recording structural-bounds pipeline; copy evidence is classified independently.",
         "primaryStructure": {
           "kind": "boundary",
@@ -3991,8 +3991,8 @@
         "boundary": [0, 367.5, 1508, 1],
         "boundaryLabel": "hero-to-following-section boundary at journey exit",
         "boundaryEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/14/boundary",
-        "copyLabel": "clipped exiting process-ladder copy",
-        "copyEvidenceRef": null,
+        "copyLabel": "visible lower process-ladder ink below the fixed-header band",
+        "copyEvidenceRef": "docs/hero-reference/recording-structural-bounds.json#/states/14/copy",
         "routeGeometry": null,
         "fieldProfileStatus": "not-applicable",
         "fieldProfile": null,
@@ -4193,7 +4193,7 @@
     {
       "field": "screen-space bounds",
       "status": "partially-observed",
-      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 11 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary. 4 states correctly mark landmark bounds not applicable; 4 non-primary landmarks remain honestly blocked without blocking their states, while 2 copy states, 0 field profiles, and 0 contact centers remain blocked."
+      "reason": "The deterministic structural-bounds pipeline measures 7 landmarks, 12 route cores, 13 copy-ink envelopes, 5 field tile profiles, 1 field contact center, 15 screen-space composition proxies, and 1 section boundary. 4 states correctly mark landmark bounds not applicable; 4 non-primary landmarks remain honestly blocked without blocking their states, while 0 copy states, 0 field profiles, and 0 contact centers remain blocked."
     },
     {
       "field": "pointer versus local-clock versus scroll ownership",
@@ -4208,9 +4208,9 @@
   ],
   "structuralBoundsEvidence": {
     "status": "observed",
-    "verifiedOn": "2026-08-20",
+    "verifiedOn": "2026-09-14",
     "artifact": "docs/hero-reference/recording-structural-bounds.json",
-    "algorithmVersion": "recording-structural-bounds-v14",
+    "algorithmVersion": "recording-structural-bounds-v15",
     "landmarkMeasured": 7,
     "landmarkBlocked": 4,
     "landmarkNotApplicable": 4,
@@ -4218,8 +4218,8 @@
     "routeBlocked": 0,
     "routeNotApplicable": 3,
     "boundaryMeasured": 1,
-    "copyMeasured": 11,
-    "copyBlocked": 2,
+    "copyMeasured": 13,
+    "copyBlocked": 0,
     "copyNotApplicable": 2,
     "fieldProfileMeasured": 5,
     "fieldProfileBlocked": 0,
