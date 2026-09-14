@@ -71,6 +71,23 @@
       "reviewScope": "source-reference-goal-only",
       "visualAcceptance": false,
       "implementationPixelClassifier": false
+    },
+    {
+      "stateKey": "arrival-lockup",
+      "featureKind": "landmark",
+      "sourceCapturePath": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+      "sourceCaptureSha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96",
+      "maskPath": "docs/hero-reference/annotations/arrival-lockup-landmark-mask.svg",
+      "maskSha256": "090981afb5c5b0f10fc64d29c99d162865db0b6952a730497a6b3c6e6a9b75ae",
+      "alphaThreshold": 128,
+      "minimumSelectedPixels": 60000,
+      "inclusion": "The complete visible projected silhouette of the layered frontal arrival arrow, including its horizontal shaft, rounded tip, and both diagonal arms.",
+      "exclusion": "The incoming cyan feed, cyan bloom and dotted wake, surrounding square/diamond marks, process copy, and every background pixel enclosed by the arrow's open negative spaces.",
+      "uncertainty": "The mask follows the outermost readable arrow contour at the exact locked frame. Layer seams are included inside the silhouette; bloom and anti-aliased pixels below the fixed alpha threshold are excluded.",
+      "reviewStatus": "accepted-for-reference-refinement",
+      "reviewScope": "source-reference-goal-only",
+      "visualAcceptance": false,
+      "implementationPixelClassifier": false
     }
   ]
 }

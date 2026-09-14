@@ -183,21 +183,17 @@ comparison.
 - Exact recording frame numbers are now locked for all 15 states.
 - Deterministic recording analysis now measures seven landmarks
   (`loader-mark`, `world-reveal`, `activation-route`, `activation-contact`,
-  `field-contact`, `field-pulse-b`, and `arrival-lockup`) and
-  12 visible route cores, 13 visible copy-ink envelopes, plus the
-  `journey-exit` section boundary. Every
-  applicable route state is measured; `loader-mark`, the exact `landing`
-  frame, and `journey-exit` correctly mark route bounds not applicable. Four
-  route/transition-primary states correctly mark landmark bounds not
-  applicable. The two disconnected landing aggregates use screen composition
-  as their primary structure, and the two obscured field states use field
-  profile. All 15 source-primary structures are therefore observed without
-  inventing subjective landmark boxes. The four corresponding landmark fields
-  remain explicitly blocked secondary evidence because the semantic subject
-  cannot be isolated without a defensible source-tied mask or because only a
-  partial/effect-only feature is visible. The three complete-subject source
-  masks are accepted for reference refinement only; they cannot classify
-  implementation pixels or confer visual acceptance.
+  `field-contact`, `field-pulse-b`, and `arrival-lockup`), 12 visible route
+  cores, 13 visible copy-ink envelopes, five field tile profiles, 15
+  composition proxies, and the `journey-exit` section boundary. All 15 source-
+  primary structures are observed. Four secondary landmark fields remain
+  deliberately blocked where composition or field profile is the primary
+  state evidence.
+- Four complete-subject source masks are accepted for reference refinement
+  only. They are hash-locked to the recording frames, cannot classify localhost
+  pixels, and cannot confer visual acceptance. Separate renderer-independent
+  localhost classifiers cover `activation-route`, `activation-contact`,
+  `field-contact`, and the complete `arrival-lockup` arrow.
 - Copy ink is measured for both landing anchors and all 11 journey anchors.
   `arrival-travel` measures only the dark ladder ink that survives its faded-
   body transition. `journey-exit` excludes the fixed-header overlap band and
@@ -210,8 +206,8 @@ comparison.
   camera positions or quaternions. The actual camera transform remains
   unknown from the recording and is not used as a source acceptance gate.
 - The current atomic implementation capture uses that same renderer-independent
-  algorithm for all 15 screenshots. Its 285 composition checks pass 191 and
-  fail 94: global negative-space occupancy passes 14/15, centroid axes pass
+  algorithm for all 15 screenshots. Its 285 composition checks pass 190 and
+  fail 95: global negative-space occupancy passes 14/15, centroid axes pass
   5/30, and fixed-grid occupancy passes 172/240. These failures are current
   calibration evidence, not visual acceptance.
 - The schema-v7 capture measures all 13 source-applicable
@@ -220,33 +216,29 @@ comparison.
   passes 4/4. The two transition states are now measured failures rather than
   missing-source-evidence blocks.
 - The same capture runs all 12 locked source route configurations against the
-  implementation screenshots. Only `activation-route` and
-  `activation-contact` contain source-qualifying route pixels; their endpoint,
-  equivalent-thickness, and direction proxies pass 5/12 checks. Deterministic
-  thinning now exposes the visible route-core centerline sets for both states.
-  Their symmetric Hausdorff distances fail the `0.75%` short-edge maximum:
-  `activation-route` is `13.7495%` (`104.63 CSS px`) and
-  `activation-contact` is `11.6302%` (`88.51 CSS px`). Two four-color
-  artifacts show source-only branches in magenta, implementation-only rails in
-  cyan, and overlap in white. The other ten routes remain explicit quality
-  blocks; no implementation centerline is inferred for them.
+  implementation screenshots. Four red and eight bright-cyan route cores are
+  observed through independent classifiers. Their proxy and centerline checks
+  pass 16/84; every symmetric Hausdorff distance fails the `0.75%` short-edge
+  maximum, ranging from `9.7675%` to `93.9334%`. Twelve four-color artifacts
+  expose source-only, implementation-only, and overlapping route pixels.
 - Landmark records now cover all seven source-observed landmark states without
-  reusing source masks on implementation pixels. `loader-mark`, `world-reveal`,
-  and `arrival-lockup` are observed and pass 8/12 center/size checks;
-  `field-pulse-b` is source-pixel quality-blocked. The three hash-locked
-  source-mask states are explicit semantic-isolation blocks. The comparator
-  now recomputes shared masks from both integrity-bound rasters: true
-  chroma-silhouette IoU is `0.3987` for `loader-mark` and `0.6460` for
-  `world-reveal`, both below the locked `0.90` minimum. The
-  `arrival-lockup` value of `0.0261` is explicitly a Sobel edge-support proxy,
-  not a filled silhouette. Full-frame four-color mask comparisons are emitted
-  for all four transferable configurations, including the quality-blocked
-  field state.
+  reusing source masks on implementation pixels. Center/size checks pass 14/28,
+  while all seven silhouette IoUs fail the `0.90` minimum: `0.3987`, `0.6460`,
+  `0.7009`, `0.6498`, `0.1878`, `0.3548`, and `0.3642` in landmark order. The
+  last value is the complete arrival arrow silhouette; the obsolete Sobel/
+  dilation edge proxy has been removed. Seven four-color comparison artifacts
+  are emitted.
+- Structural accuracy is `0 pass / 13 fail / 2 blocked`. The only blocked
+  implementation evidence is the field tile profile at
+  `clearance-field-preview` and `field-approach`; all other declared roles are
+  measured mismatches rather than missing evidence.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile; all 13 applicable contracts pass in the same current
   comparison run.
-- Remaining screen-space work includes refinement of the four blocked
-  non-primary landmark annotations, complete route paths, copy/scene
+- The next Phase 1 priority is resolving the two implementation field-profile
+  classifier blocks, followed by deciding whether pointer and route-envelope
+  observables add necessary source authority.
+- Remaining visual refinement includes complete route paths, copy/scene
   correspondence, field outline, and negative space;
 - route thickness and handoff/contact frames at matched viewports;
 - exact field tile boundary/count and pulse band profile;

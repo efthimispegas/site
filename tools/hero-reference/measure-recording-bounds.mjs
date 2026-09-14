@@ -35,7 +35,7 @@ const semanticMasksPath = path.join(
 );
 const evidenceRef = 'docs/hero-reference/recording-structural-bounds.json#';
 const semanticMasksRef = 'docs/hero-reference/recording-semantic-masks.json';
-const algorithmVersion = 'recording-structural-bounds-v15';
+const algorithmVersion = 'recording-structural-bounds-v16';
 const semanticMaskReviewStatus = 'accepted-for-reference-refinement';
 const semanticMaskReviewScope = 'source-reference-goal-only';
 
@@ -196,7 +196,12 @@ const STATE_MEASUREMENTS = {
   },
   'arrival-lockup': {
     primaryStructure: 'landmark',
-    landmark: LANDMARK_CONFIG_BY_STATE['arrival-lockup'],
+    landmark: {
+      label: 'large frontal arrival arrow',
+      method: 'source-semantic-mask',
+      rationale:
+        'The complete layered arrow is fully visible, but its pale material overlaps the surrounding bloom and background palette. A hash-locked, source-frame-tied semantic silhouette includes the filled shaft, tip, and diagonal arms while excluding the cyan feed, bloom, wake, and surrounding marks.',
+    },
     route: ROUTE_CONFIG_BY_STATE['arrival-lockup'],
     copy: COPY_CONFIG_BY_STATE['arrival-lockup'],
   },
@@ -1121,8 +1126,6 @@ const report = {
       'Every landmark, route, boundary, copy, field-profile, contact-center, and composition feature is explicitly observed, blocked, or not-applicable. Each state names the directly visible landmark, route, boundary, field profile, or composition as its primary structure, so a scene-, field-, route-, or transition-primary frame is not failed for lacking an isolatable destination silhouette.',
     chroma:
       'Color methods threshold raw 8-bit sRGB pixels, find 8-connected components, and either union every qualifying component or select the largest qualifying component.',
-    edges:
-      'The arrow method computes luma with Rec. 709 coefficients, applies a 3x3 Sobel L1 magnitude threshold, dilates only for component association, and reports the bounds of original (non-dilated) edge pixels.',
     boundary:
       'The journey-exit boundary is the dominant horizontal row discontinuity. It must satisfy minimum color delta, row support, peak dominance, local column support, and vertical-variance gates.',
     semanticMasks:

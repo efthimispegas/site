@@ -137,17 +137,6 @@ export const LANDMARK_CONFIG_BY_STATE = Object.freeze({
     rationale:
       'The elevated saturated blue/violet center tile is the stable primary landmark named by the manifest. The predicate admits the reference blue and implementation violet material while rejecting the cyan pulse band; the later outer pulse remains a separate effect.',
   }),
-  'arrival-lockup': Object.freeze({
-    label: 'large frontal arrival arrow',
-    method: 'largest-dilated-sobel-component',
-    roi: Object.freeze([0.385, 0.24, 0.17, 0.48]),
-    sobelThreshold: 72,
-    dilationIterations: 4,
-    minimumComponentPixels: 1200,
-    minimumSelectedPixels: 900,
-    rationale:
-      'The manifest identifies the frontal arrow as the primary landmark. A narrow semantic ROI excludes process copy, header, most of the incoming feed, and surrounding marks; the layered arrow is the largest connected edge structure inside it.',
-  }),
 });
 
 export const IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE = Object.freeze({
@@ -205,6 +194,21 @@ export const IMPLEMENTATION_SEMANTIC_LANDMARK_CONFIG_BY_STATE = Object.freeze({
     sourceMethod: 'source-semantic-mask',
     rationale:
       'The saturated tile is selected first with the shared blue/violet predicate. A second neutral predicate is evaluated only in a tile-relative center strip; component size, width, height, center, and root-contact gates isolate the standing figure while rejecting adjacent field tiles and glow. The resulting implementation-only union never applies the source mask to localhost pixels.',
+  }),
+  'arrival-lockup': Object.freeze({
+    label: 'large frontal arrival arrow',
+    method: 'largest-neutral-structure-component',
+    predicate: PALE_NEUTRAL_STRUCTURE,
+    roi: Object.freeze([0.396, 0.24, 0.16, 0.48]),
+    minimumComponentPixels: 500,
+    maximumComponentPixels: 180000,
+    maximumComponentWidth: 600,
+    maximumComponentHeight: 700,
+    minimumComponentFillRatio: 0.08,
+    minimumSelectedPixels: 20000,
+    sourceMethod: 'source-semantic-mask',
+    rationale:
+      'The implementation-only ROI contains the complete localhost arrival arrow while excluding the incoming feed and surrounding square/diamond marks. A renderer-independent neutral predicate rejects the pale-blue background and cyan bloom; component support and geometry gates retain the filled arrow without applying the source silhouette to localhost pixels.',
   }),
 });
 
@@ -565,105 +569,6 @@ function createPredicateMask(data, image, roi, predicate) {
   }
 
   return mask;
-}
-
-function createSobelMask(data, image, roi, threshold) {
-  const grayscale = new Uint8Array(image.width * image.height);
-  const mask = new Uint8Array(image.width * image.height);
-  const expandedX = Math.max(0, roi.x - 1);
-  const expandedY = Math.max(0, roi.y - 1);
-  const expandedRight = Math.min(image.width, roi.x + roi.width + 1);
-  const expandedBottom = Math.min(image.height, roi.y + roi.height + 1);
-
-  for (let y = expandedY; y < expandedBottom; y += 1) {
-    for (let x = expandedX; x < expandedRight; x += 1) {
-      const pixelIndex = y * image.width + x;
-      const channelIndex = pixelIndex * image.channels;
-      grayscale[pixelIndex] = Math.round(
-        data[channelIndex] * 0.2126 +
-          data[channelIndex + 1] * 0.7152 +
-          data[channelIndex + 2] * 0.0722,
-      );
-    }
-  }
-
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-  for (
-    let y = Math.max(roi.y, 1);
-    y < Math.min(bottom, image.height - 1);
-    y += 1
-  ) {
-    for (
-      let x = Math.max(roi.x, 1);
-      x < Math.min(right, image.width - 1);
-      x += 1
-    ) {
-      const topLeft = grayscale[(y - 1) * image.width + x - 1];
-      const top = grayscale[(y - 1) * image.width + x];
-      const topRight = grayscale[(y - 1) * image.width + x + 1];
-      const left = grayscale[y * image.width + x - 1];
-      const rightPixel = grayscale[y * image.width + x + 1];
-      const bottomLeft = grayscale[(y + 1) * image.width + x - 1];
-      const bottomPixel = grayscale[(y + 1) * image.width + x];
-      const bottomRight = grayscale[(y + 1) * image.width + x + 1];
-      const gradientX =
-        -topLeft +
-        topRight -
-        2 * left +
-        2 * rightPixel -
-        bottomLeft +
-        bottomRight;
-      const gradientY =
-        -topLeft -
-        2 * top -
-        topRight +
-        bottomLeft +
-        2 * bottomPixel +
-        bottomRight;
-
-      if (Math.abs(gradientX) + Math.abs(gradientY) >= threshold) {
-        mask[y * image.width + x] = 1;
-      }
-    }
-  }
-
-  return mask;
-}
-
-function dilate(mask, width, roi, iterations) {
-  let current = mask;
-  const right = roi.x + roi.width;
-  const bottom = roi.y + roi.height;
-
-  for (let iteration = 0; iteration < iterations; iteration += 1) {
-    const next = new Uint8Array(current);
-    for (let y = roi.y; y < bottom; y += 1) {
-      for (let x = roi.x; x < right; x += 1) {
-        const pixelIndex = y * width + x;
-        if (!current[pixelIndex]) {
-          continue;
-        }
-
-        for (let offsetY = -1; offsetY <= 1; offsetY += 1) {
-          const candidateY = y + offsetY;
-          if (candidateY < roi.y || candidateY >= bottom) {
-            continue;
-          }
-          for (let offsetX = -1; offsetX <= 1; offsetX += 1) {
-            const candidateX = x + offsetX;
-            if (candidateX < roi.x || candidateX >= right) {
-              continue;
-            }
-            next[candidateY * width + candidateX] = 1;
-          }
-        }
-      }
-    }
-    current = next;
-  }
-
-  return current;
 }
 
 function connectedComponents(mask, width, height, roi) {
@@ -1439,95 +1344,7 @@ export function measureLandmarkFeature({ data, image, dpr, config }) {
     return measureSeededContactSubject({ data, image, dpr, config });
   }
 
-  if (config.method !== 'largest-dilated-sobel-component') {
-    throw new Error(
-      `Unsupported landmark measurement method: ${config.method}`,
-    );
-  }
-
-  validateImageInput(data, image, dpr);
-  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
-  const originalMask = createSobelMask(data, image, roi, config.sobelThreshold);
-  const dilatedMask = dilate(
-    originalMask,
-    image.width,
-    roi,
-    config.dilationIterations,
-  );
-  const { components, labels } = connectedComponents(
-    dilatedMask,
-    image.width,
-    image.height,
-    roi,
-  );
-  const eligibleComponents = components
-    .filter((component) => component.pixels >= config.minimumComponentPixels)
-    .sort(
-      (left, right) =>
-        right.pixels - left.pixels ||
-        left.bounds.y - right.bounds.y ||
-        left.bounds.x - right.bounds.x,
-    );
-  const selectedComponent = eligibleComponents[0] ?? null;
-  const selectedMask = new Uint8Array(originalMask.length);
-
-  if (selectedComponent) {
-    for (let index = 0; index < originalMask.length; index += 1) {
-      if (originalMask[index] && labels[index] === selectedComponent.label) {
-        selectedMask[index] = 1;
-      }
-    }
-  }
-
-  const selected = boundsFromMask(selectedMask, image.width, image.height);
-  if (!selected || selected.pixels < config.minimumSelectedPixels) {
-    return {
-      measurement: {
-        status: 'blocked',
-        label: config.label,
-        reason: `The deterministic ${config.method} quality gate found ${selected?.pixels ?? 0} selected pixels; at least ${config.minimumSelectedPixels} are required.`,
-        method: {
-          id: config.method,
-          roiNormalized: config.roi,
-          roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
-          semanticMask: null,
-        },
-      },
-      debug: { mask: selectedMask, bounds: selected?.bounds ?? roi },
-    };
-  }
-
-  return {
-    measurement: {
-      status: 'observed',
-      evidenceClass: 'observed',
-      label: config.label,
-      bounds: serializeBounds(selected.bounds, image, dpr),
-      geometry: null,
-      pixelSupport: selected.pixels,
-      method: {
-        id: config.method,
-        roiNormalized: config.roi,
-        roiRasterPixels: [roi.x, roi.y, roi.width, roi.height],
-        predicate: null,
-        sobelThreshold: config.sobelThreshold,
-        dilationIterations: config.dilationIterations,
-        connectivity: 8,
-        minimumComponentPixels: config.minimumComponentPixels,
-        maximumComponentPixels: null,
-        maximumComponentWidth: null,
-        maximumComponentHeight: null,
-        minimumComponentFillRatio: null,
-        minimumSelectedPixels: config.minimumSelectedPixels,
-        totalComponentCount: components.length,
-        eligibleComponentCount: eligibleComponents.length,
-        selectedComponentCount: selectedComponent ? 1 : 0,
-        semanticMask: null,
-        rationale: config.rationale,
-      },
-    },
-    debug: { mask: selectedMask, bounds: selected.bounds },
-  };
+  throw new Error(`Unsupported landmark measurement method: ${config.method}`);
 }
 
 export function measureCopyInk({ data, image, dpr, config }) {

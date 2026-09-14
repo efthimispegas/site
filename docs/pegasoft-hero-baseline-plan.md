@@ -23,13 +23,13 @@ evidence.
   than accepting partial, clipped, effect-only, or disconnected boxes, but
   they are no longer primary: `landing` and `landing-idle` use observed
   composition, while `field-approach` and `field-pulse-a` use observed field
-  profiles. All 15 source primary structures are now measured. The three
+  profiles. All 15 source primary structures are now measured. The four
   source-tied semantic masks remain reproducible reference inputs. Their manifest now
   records the user's conditional decision as
   `accepted-for-reference-refinement`: they depict the reference goal and may
   guide refinement, but may not classify implementation pixels or independently
   confer structural or final visual acceptance. Renderer-independent RGB and
-  component-geometry classifiers now isolate the corresponding three localhost
+  component-geometry classifiers now isolate the corresponding four localhost
   subjects, allowing source-mask-versus-implementation-mask comparisons without
   transferring source geometry into implementation classification. The evidence generator now applies
   the workspace's canonical Prettier formatting before both write and
@@ -57,24 +57,24 @@ evidence.
   placement, extent, direction, and thickness mismatches.
   The same capture emits landmark records for all seven source-observed
   landmark states. Transferable pixel methods observe `loader-mark`,
-  `world-reveal`, `field-pulse-b`, and `arrival-lockup`; their center/size
-  bounds pass 10/16 checks. The three hash-locked source-mask landmarks are now
+  `world-reveal`, and `field-pulse-b`; their center/size bounds pass 10/12
+  checks. The four hash-locked source-mask landmarks are now
   paired with independently derived localhost masks rather than semantic-
   isolation blocks. Schema 16 recomputes transferable shared masks and the
   implementation-only classifiers from the locked source and manifest-verified
   implementation rasters. `loader-mark` and `world-reveal`
   emit true chroma-silhouette IoU evidence at `0.3987` and `0.6460`; both fail
-  the locked `0.90` minimum. `arrival-lockup` emits a `0.0261` Sobel
-  edge-support IoU for diagnosis only and remains blocked because edges are not
-  a filled semantic silhouette. `field-pulse-b` now emits a transferable
+  the locked `0.90` minimum. `field-pulse-b` emits a transferable
   blue-violet silhouette IoU of `0.3548`; its center/size checks pass 2/4 and
-  the silhouette fails the locked `0.90` minimum. Four transferable full-frame
+  the silhouette fails the locked `0.90` minimum. Three transferable full-frame
   mask-difference artifacts remain reviewable without reusing any source-tied
-  semantic mask. Three additional full-frame artifacts compare the accepted
+  semantic mask. Four additional full-frame artifacts compare the accepted
   source-only masks with independently classified localhost subjects.
-  `activation-route`, `activation-contact`, and `field-contact` fail the `0.90`
-  silhouette minimum at `0.7009`, `0.6498`, and `0.1878`; their landmark
-  center/size/silhouette checks add 3 passes and 12 failures.
+  `activation-route`, `activation-contact`, `field-contact`, and
+  `arrival-lockup` fail the `0.90` silhouette minimum at `0.7009`, `0.6498`,
+  `0.1878`, and `0.3642`; their landmark center/size/silhouette checks add 4
+  passes and 16 failures. Arrival is now a true filled-silhouette comparison;
+  the obsolete Sobel/dilation edge proxy has been removed.
   The same shared raster algorithm now observes source field envelopes and
   visible bright-neutral tile-top profiles at all five applicable anchors.
   Implementation preview and approach are explicit quality blocks because no
@@ -89,7 +89,7 @@ evidence.
   fail, including an IoU of `0.1277`; the full semantic union is now independently
   measured and fails its own `0.1878` silhouette comparison.
   The preliminary unmasked raster diagnostic passes only 1 of 15 states, while
-  structural accuracy has 12 failed and 3 blocked states. The two transition-
+  structural accuracy has 13 failed and 2 blocked states. The two transition-
   copy states are now honest measured failures rather than missing-source-
   evidence blocks.
 - Phase 2 now passes its own current-checkpoint safety gate: all 22 configured
@@ -107,7 +107,7 @@ evidence.
   blocked checks, and 2 states not applicable across the entire four-row
   ladder. Phase 7 and every later visual-construction phase remain not
   accepted. Comparator schema 16 reports preliminary raster at 1 pass and 14
-  failures, with structural accuracy at 0 passes, 12 failures, and 3 blocked
+  failures, with structural accuracy at 0 passes, 13 failures, and 2 blocked
   states.
 
 The ordered visual release therefore remains held at Phase 1. Passing a later
@@ -235,13 +235,13 @@ emits four observed red-route cores and eight renderer-independently classified
 bright-cyan cores. Its route proxies pass 16/72 endpoint/thickness/direction
 checks; full centerline Hausdorff evidence exists for all 12 observed routes
 and all 12 fail the
-`0.75%` short-edge maximum, ranging from `9.7675%` to `93.9334%`. Four implementation
-landmarks are observed and pass 10/16 center/size checks. The three
-chroma-isolated landmarks now emit silhouette IoU evidence and fail the `0.90`
-minimum at `0.3987`, `0.6460`, and `0.3548`; the arrival
-arrow's `0.0261` Sobel overlap remains an edge-support proxy, not silhouette
-acceptance. Three source-mask landmarks now have independently classified
-localhost silhouettes; their IoUs fail at `0.7009`, `0.6498`, and `0.1878`.
+`0.75%` short-edge maximum, ranging from `9.7675%` to `93.9334%`. All seven
+implementation landmarks are observed and pass 14/28 center/size checks. The
+three transferable chroma-isolated landmarks emit silhouette IoU evidence and
+fail the `0.90` minimum at `0.3987`, `0.6460`, and `0.3548`. Four source-mask
+landmarks now have independently classified localhost silhouettes; their IoUs
+fail at `0.7009`, `0.6498`, `0.1878`, and `0.3642`. The last value is the
+complete arrival arrow silhouette, not the retired Sobel edge proxy.
 Field preview and approach
 now have explicit implementation field-profile quality blocks. Field contact
 and both pulse states are observed, pass 8/27 profile checks in aggregate, and
@@ -376,14 +376,14 @@ The detailed evidence is in
   E2E typechecks pass. It publishes an atomic manifest whose byte counts and
   SHA-256 values are required by the comparator for all 15 images and 15
   measurement records. Run
-  `e0ff4356-d567-4b34-bdd2-3f85dee7035a` completed at
-  `2026-09-14T10:03:46.399Z`; every capture required a visible real WebGL
+  `587da492-9f08-45f6-8b70-a2461826b419` completed at
+  `2026-09-14T10:22:34.355Z`; every capture required a visible real WebGL
   canvas, full motion, the `recording-desktop` profile, seed `43117`, render
   readiness, and no observed context loss.
 
 Phase 5 passes its own current-checkpoint gate. Its architecture remains
-provisional in the ordered program because Phase 1 source evidence is
-incomplete; passing the harness gate does not freeze visual constants.
+provisional in the ordered program because Phase 1 acceptance is still open;
+passing the harness gate does not freeze visual constants.
 
 ### Accuracy blockers
 
@@ -400,29 +400,29 @@ incomplete; passing the harness gate does not freeze visual constants.
   mark landmark bounds not applicable. Four non-primary landmark features
   remain explicitly blocked, while composition or field-profile evidence now
   supplies the directly visible primary structure for those states. The
-  `activation-route`, `activation-contact`, and
-  `field-contact` semantic-mask overlays remain reproducible. Their manifest
+  `activation-route`, `activation-contact`, `field-contact`, and
+  `arrival-lockup` semantic-mask overlays remain reproducible. Their manifest
   records `accepted-for-reference-refinement` with a machine-enforced
   `source-reference-goal-only` scope. Comparator schema 16 uses them only on
   the source side and compares them with independently classified localhost
   pixels; no visual acceptance is inferred.
 - The 15-state comparator is operational and intentionally returns a non-zero
   result. Schema 16 keeps three independent verdicts: preliminary unmasked
-  raster has 1 pass and 14 failures; structural accuracy has 0 passes, 12
-  failures, and 3 blocked states; and whole four-row ladder DOM has 13 passes,
+  raster has 1 pass and 14 failures; structural accuracy has 0 passes, 13
+  failures, and 2 blocked states; and whole four-row ladder DOM has 13 passes,
   no failures or blocked checks, and 2 states not applicable. Preliminary
   raster is a diagnostic, not structural or final visual acceptance. Within
   the blocked structural verdict, composition has 190 passing and 95 failing
   checks: global negative-space occupancy passes 14/15, normalized centroid
   axes pass 5/30, and fixed-grid occupancy passes 172/240. Copy-ink bounds pass
   21/52 checks, field evidence passes 8/27 checks, contact-center evidence
-  passes 0/5 checks, landmark evidence passes 13/35 checks, the 12
+  passes 0/5 checks, landmark evidence passes 14/35 checks, the 12
   observable route cores pass 16/84 checks, and the journey-exit
   boundary passes 4/4. No source-mask landmark remains implementation-
   isolation blocked, no transferable landmark remains source-pixel quality-
-  blocked, and the six emitted silhouette IoUs fail at `0.3987`, `0.6460`,
-  `0.7009`, `0.6498`, `0.1878`, and `0.3548`; the emitted
-  arrival `0.0261` edge-support IoU remains diagnostic only. All 12 emitted
+  blocked, and the seven emitted silhouette IoUs fail at `0.3987`, `0.6460`,
+  `0.7009`, `0.6498`, `0.1878`, `0.3548`, and `0.3642`; the last value is the
+  complete arrival arrow rather than edge-support evidence. All 12 emitted
   centerline Hausdorff checks fail, ranging from
   `9.7675%` to `93.9334%` of the short edge.
   Field preview and approach are explicit implementation quality blocks. The
@@ -477,7 +477,7 @@ Locked live DOM contracts cover the two landing and 11 journey states, and the
 current implementation passes all 13 applicable DOM checks. Those checks cover
 the entire four-row process ladder, not only the active row. Generated
 implementation captures may not fill the remaining source-evidence gaps.
-Structural accuracy now reports 12 measured failures and 3 blocked states,
+Structural accuracy now reports 13 measured failures and 2 blocked states,
 while the preliminary unmasked raster diagnostic remains red in 14 of 15
 states.
 
@@ -873,22 +873,23 @@ tuning; decorative work cannot begin before Phase 16.
 The status below reports each phase's own evidence without pretending that
 provisional downstream implementation waived the ordered release gate.
 
-| Phase | Gate status                                             | Evidence or blocker                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ----- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 0     | **Accepted**                                            | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| 1     | **Not accepted**                                        | Exact frames, profiles, target calibration, classifications, schemas, seven source landmark boxes, 12 source route cores, 13 source and implementation copy-ink envelopes, five source field tile profiles, one source and implementation contact-center tile silhouette, 15 source and implementation screen-composition proxies, source and implementation journey-exit boundaries, and 13-state DOM authority exist. All 15 source primary structures and all 13 applicable copy states are measured; the two transition-copy contracts measure only source-visible ink and never infer censored pixels. The two disconnected landing aggregates use composition and the two obscured field landmarks use field profiles, while their four non-primary landmark fields remain honestly blocked. Composition passes 190/285 checks, copy bounds pass 21/52, field evidence passes 8/27, contact-center evidence passes 0/5, landmark evidence passes 13/35, all 12 observed route cores pass 16/84, and the boundary passes 4/4. Field preview and approach are implementation quality blocks; the observed field mask IoUs fail at 0.4268, 0.3845, and 0.1771, and the contact center fails at 0.1277. All 12 route centerline Hausdorff checks fail, ranging from 9.7675% to 93.9334%. Loader, world-reveal, and field-pulse-b silhouette IoUs fail at 0.3987, 0.6460, and 0.3548; arrival's 0.0261 overlap is edge support only. The remaining arrival silhouette and additional observables remain blocked. The source-tied masks are `accepted-for-reference-refinement` under a reference-only contract; three renderer-independent localhost classifiers now expose IoUs of 0.7009, 0.6498, and 0.1878 without using those masks to classify implementation pixels or confer visual acceptance. |
-| 2     | **Own gate passed; ordered acceptance held at Phase 1** | All 22 configured current-page Chromium and Mobile Chrome executions pass against the current renderer/layout checkpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| 3     | **Own gate passed; ordered acceptance held at Phase 1** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans, lint/unit/build, and current browser smoke pass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 4     | **Own gate passed; ordered acceptance held at Phase 1** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, motion-system validation passes, and current shared-route browser smoke passes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| 5     | **Own gate passed; ordered acceptance held at Phase 1** | The architecture, 39 unit tests, direct-state control, repeat-capture stability, genuine desktop/mobile forward/reverse/jump/resize/restored convergence, and atomic 15-state size/SHA-256 artifact manifest pass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| 6     | **Own gate passed; ordered acceptance held at Phase 1** | The current manifest-verified capture passes all 13 applicable landing/journey DOM contracts across the entire four-row ladder; two states are correctly not applicable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| 7–17  | **Not accepted**                                        | Comparator schema 16 reports preliminary raster at `1 pass / 14 fail`, composition at `190 pass / 95 fail`, copy bounds at `21 pass / 31 fail`, field evidence at `8 pass / 19 fail`, contact-center evidence at `0 pass / 5 fail`, landmark evidence at `13 pass / 22 fail`, route evidence at `16 pass / 68 fail`, boundary bounds at `4 pass / 0 fail`, and structural accuracy at `0 pass / 12 fail / 3 blocked`; it cannot accept route, geometry, motion, art, or responsive scene states.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| 18    | **Not accepted**                                        | All eight current reduced-motion, fallback, mobile-navigation, and deterministic static-composition executions pass, but the phase depends on accepted full-motion and responsive compositions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| 19    | **Not accepted**                                        | Production executable assets are clean. Source maps retain two development dynamic-import module path strings but no control contract. The two opt-in performance probes and locked-hardware budgets remain unrun, and upstream visual gates have not passed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Phase | Gate status                                             | Evidence or blocker                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| ----- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 0     | **Accepted**                                            | Recoverable source/document commits, Git LFS recording, independent SHA, inventory, and recovery commands are committed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 1     | **Not accepted**                                        | All 15 source-primary structures, 13 applicable copy states, 12 routes, seven landmarks, five field profiles, the independent contact center, and the exit boundary have source evidence. The current comparison passes composition 190/285, copy 21/52, field 8/27, contact center 0/5, landmark 14/35, route 16/84, and boundary 4/4. All seven landmark silhouettes are measured failures, including the complete arrival arrow at 0.3642 IoU. Four source masks are `accepted-for-reference-refinement` and are compared only with separate renderer-independent localhost classifiers. Preview and approach field profiles are the only two structurally blocked states. |
+| 2     | **Own gate passed; ordered acceptance held at Phase 1** | All 22 configured current-page Chromium and Mobile Chrome executions pass against the current renderer/layout checkpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| 3     | **Own gate passed; ordered acceptance held at Phase 1** | Legacy source is deleted; one Canvas/fallback boundary ships; fresh source and production executable scans, lint/unit/build, and current browser smoke pass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 4     | **Own gate passed; ordered acceptance held at Phase 1** | Selector residue is zero, hero CSS is scoped, app dependencies are explicit, motion-system validation passes, and current shared-route browser smoke passes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 5     | **Own gate passed; ordered acceptance held at Phase 1** | The architecture, 39 unit tests, direct-state control, repeat-capture stability, genuine desktop/mobile forward/reverse/jump/resize/restored convergence, and atomic 15-state size/SHA-256 artifact manifest pass.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| 6     | **Own gate passed; ordered acceptance held at Phase 1** | The current manifest-verified capture passes all 13 applicable landing/journey DOM contracts across the entire four-row ladder; two states are correctly not applicable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| 7–17  | **Not accepted**                                        | Comparator schema 16 reports preliminary raster at `1 pass / 14 fail`, composition at `190 pass / 95 fail`, copy bounds at `21 pass / 31 fail`, field evidence at `8 pass / 19 fail`, contact-center evidence at `0 pass / 5 fail`, landmark evidence at `14 pass / 21 fail`, route evidence at `16 pass / 68 fail`, boundary bounds at `4 pass / 0 fail`, and structural accuracy at `0 pass / 13 fail / 2 blocked`; it cannot accept route, geometry, motion, art, or responsive scene states.                                                                                                                                                                              |
+| 18    | **Not accepted**                                        | All eight current reduced-motion, fallback, mobile-navigation, and deterministic static-composition executions pass, but the phase depends on accepted full-motion and responsive compositions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| 19    | **Not accepted**                                        | Production executable assets are clean. Source maps retain two development dynamic-import module path strings but no control contract. The two opt-in performance probes and locked-hardware budgets remain unrun, and upstream visual gates have not passed.                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 The next legal acceptance work is to continue Phase 1 with the remaining
-arrival-silhouette and additional-observable gaps. All 13 applicable copy
-roles, all 12 route roles, and the three source-mask
+preview and approach implementation field-profile quality blocks, then assess
+additional pointer and route-envelope observables. All 13 applicable copy
+roles, all 12 route roles, and the four source-mask
 landmark roles are no longer missing
 implementation evidence; they are measured mismatches to correct during their
 later construction phases. Phases 2–6 have current own-gate
@@ -962,20 +963,21 @@ landing-camera packet model instead of borrowing the activation feeder paths.
 Endpoint/thickness/direction proxies pass 16/72 checks. All 12 observed routes
 have deterministic visible-core centerline sets; every
 symmetric Hausdorff check fails the `0.75%` short-edge maximum, ranging from
-`9.7675%` to `93.9334%`. The four transferable landmark
-methods also run against implementation screenshots: all four are observed.
-The three source semantic masks remain explicitly non-transferable, while
+`9.7675%` to `93.9334%`. The three transferable landmark
+methods also run against implementation screenshots: all three are observed.
+The four source semantic masks remain explicitly non-transferable, while
 separate neutral-structure and seeded-contact classifiers now isolate the
 corresponding localhost subjects. Their source-only versus implementation-only
-silhouette comparisons fail at `0.7009`, `0.6498`, and `0.1878`. The shared
+silhouette comparisons fail at `0.7009`, `0.6498`, `0.1878`, and `0.3642`. The shared
 selected-pixel masks also compare directly: the loader, world-reveal, and
-field-pulse-b silhouette IoUs fail at `0.3987`, `0.6460`, and `0.3548`, while
-the arrival `0.0261` Sobel overlap is retained only as an edge-support
-diagnostic. Landmark checks now pass 13/35. The independently measured
+field-pulse-b silhouette IoUs fail at `0.3987`, `0.6460`, and `0.3548`. The
+arrival value is a true filled-silhouette comparison; the old Sobel/dilation
+path is removed. Landmark checks now pass 14/35. The independently measured
 `field-contact` center tile fails all five checks with `0.1277` IoU and remains
 separate from the now-measured full tile-plus-standing-figure landmark.
-Pointer, route-envelope, the remaining arrival silhouette, and additional
-observables still block the gate.
+Preview and approach implementation field-profile classification are the only
+remaining structural blockers. Pointer, route-envelope, and additional
+observables remain Phase 1 follow-up candidates.
 
 Steps:
 

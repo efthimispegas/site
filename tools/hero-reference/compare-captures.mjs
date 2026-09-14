@@ -67,7 +67,6 @@ const STRUCTURAL_TOLERANCES = {
   fieldSelectedPixelOccupancy: 0.02,
   fieldTileComponentCountDelta: 0,
   fieldTileMaskIouMinimum: 0.9,
-  landmarkEdgeSupportIouDiagnosticMinimum: 0.9,
   landmarkCenterNormalized: 0.0075,
   landmarkSilhouetteIouMinimum: 0.9,
   landmarkSizeRatio: 0.02,
@@ -342,18 +341,6 @@ function isValidLandmarkFeature(feature, sourceArtifact, stateKey) {
   }
   if (feature.status === 'blocked') {
     return true;
-  }
-
-  if (transferableConfig.method === 'largest-dilated-sobel-component') {
-    return (
-      feature.method.sobelThreshold === transferableConfig.sobelThreshold &&
-      feature.method.dilationIterations ===
-        transferableConfig.dilationIterations &&
-      feature.method.minimumComponentPixels ===
-        transferableConfig.minimumComponentPixels &&
-      feature.method.minimumSelectedPixels ===
-        transferableConfig.minimumSelectedPixels
-    );
   }
 
   return (
