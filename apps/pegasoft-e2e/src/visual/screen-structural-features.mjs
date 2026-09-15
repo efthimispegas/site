@@ -510,7 +510,8 @@ export const JOURNEY_EXIT_BOUNDARY_CONFIG = Object.freeze({
 
 function round(value, digits = 3) {
   const scale = 10 ** digits;
-  return Math.round(value * scale) / scale;
+  const rounded = Math.round(value * scale) / scale;
+  return Object.is(rounded, -0) ? 0 : rounded;
 }
 
 function normalizedRoiToPixels(roi, width, height) {

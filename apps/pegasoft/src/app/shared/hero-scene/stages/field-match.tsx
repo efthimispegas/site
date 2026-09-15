@@ -11,7 +11,7 @@ import {
   type HeroGateClockState,
 } from '../hero-local-clock';
 import { HERO_PALETTE } from '../hero-materials';
-import { HERO_ROUTE_CONTACTS } from '../hero-route';
+import { HERO_DESTINATION_TOPOLOGY } from '../hero-route';
 import { Worker } from './primitives';
 
 const fieldTileRgb = [0xee / 255, 0xf5 / 255, 0xf8 / 255] as const;
@@ -52,7 +52,7 @@ export function FieldMatchStage({
     snapshot.sceneTargetProgress >= FIELD_CONTACT_PROGRESS &&
     snapshot.sceneTargetProgress < 0.9;
   const fieldReveal = sampleHeroFieldReveal(snapshot.sceneTargetProgress);
-  const [fieldX, , fieldZ] = HERO_ROUTE_CONTACTS.field.point;
+  const [fieldX, , fieldZ] = HERO_DESTINATION_TOPOLOGY.field.proxyCenter;
   const tiles = useMemo(() => {
     const rowSpans = [
       [-1, 1],

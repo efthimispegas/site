@@ -1,16 +1,21 @@
 import * as THREE from 'three';
 import { HERO_WORLD_LAYOUT } from '../hero-world-layout';
 import { HERO_PALETTE, HERO_SURFACES } from '../hero-materials';
-import { HERO_ROUTE_CONTACTS } from '../hero-route';
+import { HERO_DESTINATION_TOPOLOGY, HERO_ROUTE_CONTACTS } from '../hero-route';
 import { ProceduralWorldItem } from './primitives';
 
 function ActivationDestination({ sceneProgress }: { sceneProgress: number }) {
   const activation = THREE.MathUtils.smoothstep(sceneProgress, 0.13, 0.17);
   const [contactX, , contactZ] = HERO_ROUTE_CONTACTS.activation.point;
+  const [centerX, , centerZ] = HERO_DESTINATION_TOPOLOGY.activation.proxyCenter;
 
   return (
     <group>
-      <mesh position={[-56, 2.55, 4.405]} rotation={[0, 0, 0]} renderOrder={3}>
+      <mesh
+        position={[centerX, 2.55, centerZ + 1.405]}
+        rotation={[0, 0, 0]}
+        renderOrder={3}
+      >
         <circleGeometry args={[0.56, 32]} />
         <meshStandardMaterial
           color={HERO_PALETTE.indigo}

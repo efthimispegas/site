@@ -1,71 +1,26 @@
 import { useEffect, useLayoutEffect, useMemo } from 'react';
 import * as THREE from 'three';
-import type { HeroJourneySnapshot, HeroTuple3 } from './hero-contract';
+import type { HeroJourneySnapshot } from './hero-contract';
 import { HeroLandingRails } from './hero-landing-rails';
 import { HERO_PALETTE } from './hero-materials';
-import { getHeroRoutePoint, getHeroRouteProgress } from './hero-route';
+import {
+  getHeroRoutePoint,
+  getHeroRouteProgress,
+  HERO_ACTIVATION_FEEDER_PATHS,
+  HERO_ROUTE_RENDERING,
+  HERO_ROUTE_SCENE_PROGRESS,
+  HERO_ROUTE_SEGMENT_PROGRESS,
+} from './hero-route';
 import { clampSceneProgress } from './hero-sequence';
 
-const RED_END_SCENE_PROGRESS = 0.17;
-const BLUE_ZERO_END_SCENE_PROGRESS = 0.74;
-const BLUE_ONE_END_SCENE_PROGRESS = 0.9;
-const RED_ROUTE_END = 0.25;
-const BLUE_ZERO_ROUTE_END = 0.75;
-const RED_RADIUS = 0.075;
-const BLUE_RADIUS = 0.125;
-const TUBE_RADIAL_SEGMENTS = 8;
+const RED_END_SCENE_PROGRESS = HERO_ROUTE_SCENE_PROGRESS.activation[1];
+const BLUE_ZERO_END_SCENE_PROGRESS = HERO_ROUTE_SCENE_PROGRESS.clearance[1];
+const BLUE_ONE_END_SCENE_PROGRESS = HERO_ROUTE_SCENE_PROGRESS.arrival[1];
+const RED_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.activation[1];
+const BLUE_ZERO_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.clearance[1];
+const TUBE_RADIAL_SEGMENTS = HERO_ROUTE_RENDERING.radialSegments;
 
-/**
- * Source-confirmed feeder controls. Each rail has its own authored approach
- * and converges on the first handoff instead of being an offset copy of a
- * camera curve.
- */
-export const HERO_RED_FEEDER_PATHS = [
-  [
-    [-53, 0.15, -21],
-    [-53, 0.15, -20.3],
-    [-53.09, 0.15, -20.09],
-    [-53.3, 0.15, -20],
-    [-55.45, 0.15, -20],
-    [-55.57, 0.15, -19.98],
-    [-55.66, 0.15, -19.91],
-    [-55.73, 0.15, -19.81],
-    [-55.75, 0.15, -19.7],
-    [-55.75, 0.15, 3],
-  ],
-  [
-    [-53, 0.15, -27.5],
-    [-53, 0.15, -26.3],
-    [-53.09, 0.15, -26.09],
-    [-53.3, 0.15, -26],
-    [-55.7, 0.15, -26],
-    [-55.91, 0.15, -25.91],
-    [-56, 0.15, -25.7],
-    [-56, 0.15, 3],
-  ],
-  [
-    [-59, 0.15, -27.5],
-    [-59, 0.15, -26.3],
-    [-58.91, 0.15, -26.09],
-    [-58.7, 0.15, -26],
-    [-56.55, 0.15, -26],
-    [-56.34, 0.15, -25.91],
-    [-56.25, 0.15, -25.7],
-    [-56.25, 0.15, 3],
-  ],
-  [
-    [-59, 0.15, -21.2],
-    [-59, 0.15, -19.3],
-    [-58.91, 0.15, -19.09],
-    [-58.7, 0.15, -19],
-    [-56.8, 0.15, -19],
-    [-56.59, 0.15, -18.91],
-    [-56.5, 0.15, -18.7],
-    [-56.5, 0.15, 3],
-  ],
-] as const satisfies readonly (readonly HeroTuple3[])[];
-
-const redFeederCurves = HERO_RED_FEEDER_PATHS.map(
+const redFeederCurves = HERO_ACTIVATION_FEEDER_PATHS.map(
   (points) =>
     new THREE.CatmullRomCurve3(
       points.map(([x, y, z]) => new THREE.Vector3(x, y, z)),
@@ -200,7 +155,7 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
           key={`red-feeder-${index}`}
           curve={curve}
           tubularSegments={150}
-          radius={RED_RADIUS}
+          radius={HERO_ROUTE_RENDERING.redCoreRadius}
           color={HERO_PALETTE.redRoute}
           rangeEnd={redRatio}
         />
@@ -209,32 +164,38 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
       <SourceTube
         curve={blueZeroCurve}
         tubularSegments={100}
-        radius={BLUE_RADIUS * 2.15}
+        radius={
+          HERO_ROUTE_RENDERING.blueCoreRadius *
+          HERO_ROUTE_RENDERING.blueGlowRadiusScale
+        }
         color={HERO_PALETTE.blueGlow}
         rangeEnd={blueZeroRatio}
-        opacity={0.2}
+        opacity={HERO_ROUTE_RENDERING.blueGlowOpacity}
         glow
       />
       <SourceTube
         curve={blueZeroCurve}
         tubularSegments={100}
-        radius={BLUE_RADIUS}
+        radius={HERO_ROUTE_RENDERING.blueCoreRadius}
         color={HERO_PALETTE.blueCore}
         rangeEnd={blueZeroRatio}
       />
       <SourceTube
         curve={blueOneCurve}
         tubularSegments={100}
-        radius={BLUE_RADIUS * 2.15}
+        radius={
+          HERO_ROUTE_RENDERING.blueCoreRadius *
+          HERO_ROUTE_RENDERING.blueGlowRadiusScale
+        }
         color={HERO_PALETTE.blueGlow}
         rangeEnd={blueOneRatio}
-        opacity={0.2}
+        opacity={HERO_ROUTE_RENDERING.blueGlowOpacity}
         glow
       />
       <SourceTube
         curve={blueOneCurve}
         tubularSegments={100}
-        radius={BLUE_RADIUS}
+        radius={HERO_ROUTE_RENDERING.blueCoreRadius}
         color={HERO_PALETTE.blueCore}
         rangeEnd={blueOneRatio}
       />
