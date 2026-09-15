@@ -3,6 +3,7 @@ import type { HeroCameraProgressRef } from './hero-camera';
 import { HeroBeam } from './hero-beam';
 import { HERO_PALETTE } from './hero-materials';
 import { DesktopPointerTrail } from './hero-pointer-trail';
+import { HERO_PROXY_GROUND_SIZE } from './hero-world-layout';
 import { ActivationStage } from './stages/activation';
 import { ArrivalStage } from './stages/arrival';
 import { ClearanceStage } from './stages/clearance';
@@ -23,7 +24,9 @@ export function HeroWorld({
   return (
     <group>
       <mesh position={[-5, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[240, 220]} />
+        <planeGeometry
+          args={[HERO_PROXY_GROUND_SIZE, HERO_PROXY_GROUND_SIZE]}
+        />
         <meshBasicMaterial color={groundColor} toneMapped={false} />
       </mesh>
 

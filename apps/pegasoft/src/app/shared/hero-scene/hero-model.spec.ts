@@ -17,17 +17,26 @@ import {
   updateHeroGateClock,
 } from './hero-local-clock';
 import {
-  HERO_LANDING_RAIL_PATHS,
   sampleLandingRailRange,
   sampleWorldRevealRailRange,
 } from './hero-landing-rail-model';
 import {
   getHeroRoutePoint,
   getHeroRouteProgress,
+  getHeroRouteTangent,
+  HERO_ACTIVATION_FEEDER_PATHS,
   HERO_ARRIVAL_CENTER,
   HERO_BLUE_ROUTE_ZERO_POINTS,
+  HERO_DESTINATION_TOPOLOGY,
+  HERO_LANDING_RAIL_PATHS,
   HERO_ROUTE_CONTACTS,
+  HERO_ROUTE_EVIDENCE,
   HERO_ROUTE_POINTS,
+  HERO_ROUTE_RENDERING,
+  HERO_ROUTE_SCENE_PROGRESS,
+  HERO_ROUTE_SEGMENT_PROGRESS,
+  HERO_ROUTE_Y,
+  sampleHeroRouteSegment,
 } from './hero-route';
 
 describe('hero route, camera, and local clocks', () => {
@@ -36,6 +45,23 @@ describe('hero route, camera, and local clocks', () => {
       HERO_ROUTE_POINTS,
     );
     expect(HERO_BLUE_ROUTE_ZERO_POINTS).toHaveLength(40);
+    expect(HERO_ACTIVATION_FEEDER_PATHS).toHaveLength(4);
+    expect(HERO_ROUTE_SEGMENT_PROGRESS).toEqual({
+      activation: [0, 0.25],
+      clearance: [0.25, 0.75],
+      arrival: [0.75, 1],
+    });
+    expect(HERO_ROUTE_SCENE_PROGRESS).toEqual({
+      activation: [0, 0.17],
+      clearance: [0.17, 0.74],
+      arrival: [0.74, 0.9],
+      retreat: [0.9, 1.25],
+    });
+    expect(HERO_ROUTE_RENDERING).toMatchObject({
+      redCoreRadius: 0.075,
+      landingCoreRadius: 0.05,
+      blueCoreRadius: 0.035,
+    });
     expect(getHeroRouteProgress(0.17)).toBe(0.25);
     expect(getHeroRouteProgress(0.74)).toBe(0.75);
     expect(getHeroRouteProgress(0.9)).toBe(1);
@@ -43,20 +69,60 @@ describe('hero route, camera, and local clocks', () => {
     for (const contact of Object.values(HERO_ROUTE_CONTACTS)) {
       const point = getHeroRoutePoint(contact.routeProgress);
       expect([point.x, point.y, point.z]).toEqual(contact.point);
-      expect(contact.pointEvidence).toBe('implementation-candidate');
+      expect(contact.pointEvidence).toBe('source-confirmed');
     }
     expect(HERO_ROUTE_CONTACTS.activation.progressEvidence).toBe(
       'source-confirmed',
     );
-    expect(HERO_ROUTE_CONTACTS.field.progressEvidence).toBe('inferred');
+    expect(HERO_ROUTE_CONTACTS.field.progressEvidence).toBe('source-confirmed');
     expect(HERO_ROUTE_CONTACTS.arrival.progressEvidence).toBe(
       'source-confirmed',
     );
+    expect(HERO_ROUTE_EVIDENCE).toMatchObject({
+      status: 'source-confirmed',
+      sourceEvidenceId: 'canonical-route-topology',
+      renderingCalibration: 'implementation-candidate',
+    });
 
     expect(HERO_ARRIVAL_CENTER).toEqual([59, 0.15, 25]);
     expect(HERO_ARRIVAL_CENTER[0] - HERO_ROUTE_CONTACTS.arrival.point[0]).toBe(
       3.5,
     );
+    expect(HERO_DESTINATION_TOPOLOGY).toMatchObject({
+      activation: {
+        contact: HERO_ROUTE_CONTACTS.activation.point,
+        proxyCenter: [-56, 0, 3],
+      },
+      field: {
+        contact: HERO_ROUTE_CONTACTS.field.point,
+        proxyCenter: [24, 0, 25],
+        centerEvidence: 'source-confirmed',
+      },
+      arrival: {
+        contact: HERO_ROUTE_CONTACTS.arrival.point,
+        proxyCenter: HERO_ARRIVAL_CENTER,
+      },
+    });
+  });
+
+  it('keeps the journey trunk continuous through both destination contacts', () => {
+    const samples = sampleHeroRouteSegment(0, 1, 257);
+    expect(samples[0].toArray()).toEqual(HERO_ROUTE_POINTS[0]);
+    expect(samples.at(-1)?.toArray()).toEqual(
+      HERO_ROUTE_CONTACTS.arrival.point,
+    );
+    expect(
+      samples.every(({ y }) => Math.abs(y - HERO_ROUTE_Y) < 0.000001),
+    ).toBe(true);
+
+    for (const boundary of [
+      HERO_ROUTE_SEGMENT_PROGRESS.activation[1],
+      HERO_ROUTE_SEGMENT_PROGRESS.clearance[1],
+    ]) {
+      const before = getHeroRouteTangent(boundary - 0.000001).normalize();
+      const after = getHeroRouteTangent(boundary + 0.000001).normalize();
+      expect(before.angleTo(after)).toBeLessThan(0.001);
+    }
   });
 
   it('keeps the landing packet independent and deterministic at locked clocks', () => {

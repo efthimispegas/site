@@ -218,27 +218,28 @@ comparison.
 - The same capture runs all 12 locked source route configurations against the
   implementation screenshots. Four red and eight bright-cyan route cores are
   observed through independent classifiers. Their proxy and centerline checks
-  pass 16/84; every symmetric Hausdorff distance fails the `0.75%` short-edge
+  pass 14/84; every symmetric Hausdorff distance fails the `0.75%` short-edge
   maximum, ranging from `9.7675%` to `93.9334%`. Twelve four-color artifacts
   expose source-only, implementation-only, and overlapping route pixels.
 - Landmark records now cover all seven source-observed landmark states without
   reusing source masks on implementation pixels. Center/size checks pass 14/28,
   while all seven silhouette IoUs fail the `0.90` minimum: `0.3987`, `0.6460`,
-  `0.7009`, `0.6498`, `0.1881`, `0.3568`, and `0.3642` in landmark order. The
+  `0.7009`, `0.6498`, `0.1879`, `0.3585`, and `0.3642` in landmark order. The
   last value is the complete arrival arrow silhouette; the obsolete Sobel/
   dilation edge proxy has been removed. Seven four-color comparison artifacts
   are emitted.
 - Structural accuracy is `0 pass / 15 fail / 0 blocked`. All five field tile
   profiles are observed in the implementation; their mask IoUs are `0.5228`,
-  `0.6179`, `0.4266`, `0.3799`, and `0.1756`. Every declared structural role is
+  `0.6179`, `0.4299`, `0.3847`, and `0.1787`. Every declared structural role is
   now a measured mismatch rather than missing evidence.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile; all 13 applicable contracts pass in the same current
   comparison run.
-- Phase 1 evidence is complete. Route masks already cover entry, exit,
-  equivalent thickness, and centerlines, while live-source evidence records
-  desktop pointer allocation and radius/falloff constants. The next ordered
-  priority is Phase 7 proxy topology and canonical-route construction.
+- Phase 1 evidence is complete. The Phase 7 world-space topology subgate is
+  also complete: the current live bundle source-confirms the canonical route
+  controls and resampling, every consumer shares that owner, and the ground is
+  effectively unbounded. The next ordered priority is Phase 8 static-camera
+  fitting while preserving that route.
 - Remaining visual refinement includes complete route paths, copy/scene
   correspondence, field outline, and negative space;
 - route thickness and handoff/contact frames at matched viewports;

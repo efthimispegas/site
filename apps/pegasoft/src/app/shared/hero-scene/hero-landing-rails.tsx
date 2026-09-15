@@ -3,7 +3,6 @@ import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import type { HeroJourneySnapshot } from './hero-contract';
 import {
-  HERO_LANDING_RAIL_PATHS,
   HERO_WORLD_REVEAL_START_MS,
   sampleLandingRailRange,
   sampleWorldRevealRailRange,
@@ -14,9 +13,9 @@ import {
   type HeroGateClockState,
 } from './hero-local-clock';
 import { HERO_PALETTE } from './hero-materials';
+import { HERO_LANDING_RAIL_PATHS, HERO_ROUTE_RENDERING } from './hero-route';
 
-const RED_RADIUS = 0.075;
-const TUBE_RADIAL_SEGMENTS = 8;
+const TUBE_RADIAL_SEGMENTS = HERO_ROUTE_RENDERING.radialSegments;
 
 const landingRailCurves = HERO_LANDING_RAIL_PATHS.map(
   (points) =>
@@ -66,7 +65,7 @@ export function HeroLandingRails({
         const geometry = new THREE.TubeGeometry(
           curve,
           90,
-          RED_RADIUS,
+          HERO_ROUTE_RENDERING.landingCoreRadius,
           TUBE_RADIAL_SEGMENTS,
           false,
         );

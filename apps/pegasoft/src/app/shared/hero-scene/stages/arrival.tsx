@@ -6,7 +6,7 @@ import type { HeroCameraProgressRef } from '../hero-camera';
 import type { HeroJourneySnapshot } from '../hero-contract';
 import { approachHeroGateRatio } from '../hero-local-clock';
 import { HERO_PALETTE, HERO_SURFACES } from '../hero-materials';
-import { HERO_ARRIVAL_CENTER } from '../hero-route';
+import { HERO_DESTINATION_TOPOLOGY } from '../hero-route';
 
 const arrivalRestBaseRgb = [0xd5, 0xe2, 0xe8] as const;
 const arrivalRestTopRgb = [0xf1, 0xf6, 0xf8] as const;
@@ -149,7 +149,7 @@ export function ArrivalStage({
   const activationRef = useRef(0);
   const baseMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
   const topMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
-  const [arrivalX, , arrivalZ] = HERO_ARRIVAL_CENTER;
+  const [arrivalX, , arrivalZ] = HERO_DESTINATION_TOPOLOGY.arrival.proxyCenter;
 
   const applyMaterialState = (activation: number) => {
     const baseColor = mixRgb(

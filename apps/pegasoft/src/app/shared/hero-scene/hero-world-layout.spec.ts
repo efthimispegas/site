@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  HERO_PROXY_GROUND_SIZE,
   HERO_WORLD_LAYOUT,
   type HeroWorldLayoutItem,
 } from './hero-world-layout';
@@ -70,5 +71,9 @@ describe('hero world layout', () => {
     expect(
       Math.max(...sizedStructures.map((item) => item.size[2])),
     ).toBeLessThanOrEqual(3.8);
+  });
+
+  it('keeps the proxy ground beyond every locked route and retreat pose', () => {
+    expect(HERO_PROXY_GROUND_SIZE).toBeGreaterThanOrEqual(1000);
   });
 });
