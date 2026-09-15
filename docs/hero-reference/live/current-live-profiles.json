@@ -2,7 +2,7 @@
   "schemaId": "vectr-live-profile-probe/v1",
   "schemaVersion": 1,
   "artifactType": "vectr-live-profile-probe",
-  "generatedAtUtc": "2026-07-30T12:27:02.718Z",
+  "generatedAtUtc": "2026-09-14T14:29:41.330Z",
   "runStatus": "passed",
   "authority": {
     "requestedUrl": "https://www.vectrfl.com/?trace=1",
@@ -17,7 +17,7 @@
     "generatedBy": "tools/hero-reference/probe-live-profiles.mjs",
     "note": "Repository-owned current-live readiness, profile, geometry, and diagnostic observation. This is a distinct artifact schema, not the legacy dom-profiles trace, timing, boundary, or resource-hash schema. Values are run-specific and reruns may expose upstream changes.",
     "execution": {
-      "runStartedAtUtc": "2026-07-30T12:26:17.306Z",
+      "runStartedAtUtc": "2026-09-14T14:28:53.315Z",
       "requestedOutput": "docs/hero-reference/live/current-live-profiles.json",
       "failureOutput": "docs/hero-reference/live/current-live-profiles.failure.json",
       "headless": true,
@@ -30,7 +30,7 @@
       "forcedColorsOverride": null,
       "timeoutMs": 45000,
       "boundedSettleMs": 5000,
-      "nodeVersion": "v24.14.0",
+      "nodeVersion": "v24.19.0",
       "platform": "darwin",
       "architecture": "arm64",
       "writtenOutput": "docs/hero-reference/live/current-live-profiles.json"
@@ -40,14 +40,14 @@
   "browser": {
     "name": "chromium",
     "channel": "chrome",
-    "version": "150.0.7871.188"
+    "version": "152.0.7977.84"
   },
   "profileOrder": ["recording-desktop", "desktop", "tablet", "mobile"],
   "profiles": [
     {
       "id": "recording-desktop",
       "status": "passed",
-      "startedAtUtc": "2026-07-30T12:26:17.696Z",
+      "startedAtUtc": "2026-09-14T14:28:54.259Z",
       "requestedContext": {
         "viewportCss": {
           "width": 1508,
@@ -73,9 +73,9 @@
         "finalUrl": "https://www.vectrfl.com/?trace=1",
         "httpStatus": 200,
         "statusText": "",
-        "startedAtUtc": "2026-07-30T12:26:17.879Z",
-        "readyAtUtc": "2026-07-30T12:26:20.566Z",
-        "measuredAtUtc": "2026-07-30T12:26:25.587Z",
+        "startedAtUtc": "2026-09-14T14:28:55.206Z",
+        "readyAtUtc": "2026-09-14T14:28:59.147Z",
+        "measuredAtUtc": "2026-09-14T14:29:04.186Z",
         "documentReadyState": "complete",
         "fonts": {
           "supported": true,
@@ -95,25 +95,25 @@
         },
         "boundedSettleMs": 5000
       },
-      "capturedAtUtc": "2026-07-30T12:26:25.587Z",
+      "capturedAtUtc": "2026-09-14T14:29:04.186Z",
       "userAgent": {
-        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36",
+        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
         "platform": "MacIntel",
         "language": "en-US",
         "languages": ["en-US"],
         "userAgentData": {
           "brands": [
             {
-              "brand": "Not;A=Brand",
-              "version": "8"
+              "brand": "Chromium",
+              "version": "152"
             },
             {
-              "brand": "Chromium",
-              "version": "150"
+              "brand": "Not?A_Brand",
+              "version": "24"
             },
             {
               "brand": "Google Chrome",
-              "version": "150"
+              "version": "152"
             }
           ],
           "mobile": false,
@@ -1408,56 +1408,6 @@
           },
           {
             "sequence": 7,
-            "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 8,
-            "url": "https://www.vectrfl.com/glb/workers.glb",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 9,
-            "url": "https://www.vectrfl.com/img/smoke.webp",
-            "method": "GET",
-            "resourceType": "image",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 10,
-            "url": "https://www.vectrfl.com/draco/draco_wasm_wrapper.js",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 11,
-            "url": "https://www.vectrfl.com/draco/draco_decoder.wasm",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 12,
             "url": "https://www.vectrfl.com/favicon.svg",
             "method": "GET",
             "resourceType": "other",
@@ -1467,8 +1417,58 @@
             "failureTexts": []
           },
           {
+            "sequence": 8,
+            "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 9,
+            "url": "https://www.vectrfl.com/glb/workers.glb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 10,
+            "url": "https://www.vectrfl.com/img/smoke.webp",
+            "method": "GET",
+            "resourceType": "image",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 11,
+            "url": "https://www.vectrfl.com/draco/draco_wasm_wrapper.js",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 12,
+            "url": "https://www.vectrfl.com/draco/draco_decoder.wasm",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
             "sequence": 13,
-            "url": "blob:https://www.vectrfl.com/4253d3f4-1053-4de2-8a41-d85ac4a52dc5",
+            "url": "blob:https://www.vectrfl.com/3cc1c603-c74d-4b5f-90c8-e79c8b980dc0",
             "method": "GET",
             "resourceType": "fetch",
             "requestCount": 1,
@@ -1478,7 +1478,7 @@
           },
           {
             "sequence": 14,
-            "url": "blob:https://www.vectrfl.com/dee4acf9-eb50-4f0c-a4d7-38ab8750954e",
+            "url": "blob:https://www.vectrfl.com/f977cabf-3e97-4c7d-902d-62c1324fba4e",
             "method": "GET",
             "resourceType": "fetch",
             "requestCount": 1,
@@ -1488,7 +1488,7 @@
           },
           {
             "sequence": 15,
-            "url": "blob:https://www.vectrfl.com/9ec4b105-517a-4255-b2be-84efde6c99a2",
+            "url": "blob:https://www.vectrfl.com/08d644a6-ad53-4596-af26-14c4acc6cf8a",
             "method": "GET",
             "resourceType": "script",
             "requestCount": 4,
@@ -1503,7 +1503,7 @@
     {
       "id": "desktop",
       "status": "passed",
-      "startedAtUtc": "2026-07-30T12:26:25.609Z",
+      "startedAtUtc": "2026-09-14T14:29:04.212Z",
       "requestedContext": {
         "viewportCss": {
           "width": 1440,
@@ -1529,9 +1529,9 @@
         "finalUrl": "https://www.vectrfl.com/?trace=1",
         "httpStatus": 200,
         "statusText": "",
-        "startedAtUtc": "2026-07-30T12:26:25.824Z",
-        "readyAtUtc": "2026-07-30T12:26:28.482Z",
-        "measuredAtUtc": "2026-07-30T12:26:33.514Z",
+        "startedAtUtc": "2026-09-14T14:29:04.381Z",
+        "readyAtUtc": "2026-09-14T14:29:07.121Z",
+        "measuredAtUtc": "2026-09-14T14:29:12.161Z",
         "documentReadyState": "complete",
         "fonts": {
           "supported": true,
@@ -1551,25 +1551,25 @@
         },
         "boundedSettleMs": 5000
       },
-      "capturedAtUtc": "2026-07-30T12:26:33.514Z",
+      "capturedAtUtc": "2026-09-14T14:29:12.161Z",
       "userAgent": {
-        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/150.0.0.0 Safari/537.36",
+        "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/152.0.0.0 Safari/537.36",
         "platform": "MacIntel",
         "language": "en-US",
         "languages": ["en-US"],
         "userAgentData": {
           "brands": [
             {
-              "brand": "Not;A=Brand",
-              "version": "8"
+              "brand": "Chromium",
+              "version": "152"
             },
             {
-              "brand": "Chromium",
-              "version": "150"
+              "brand": "Not?A_Brand",
+              "version": "24"
             },
             {
               "brand": "Google Chrome",
-              "version": "150"
+              "version": "152"
             }
           ],
           "mobile": false,
@@ -2824,9 +2824,9 @@
           },
           {
             "sequence": 3,
-            "url": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap",
+            "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
             "method": "GET",
-            "resourceType": "stylesheet",
+            "resourceType": "script",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -2834,9 +2834,9 @@
           },
           {
             "sequence": 4,
-            "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
+            "url": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap",
             "method": "GET",
-            "resourceType": "script",
+            "resourceType": "stylesheet",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -2864,6 +2864,16 @@
           },
           {
             "sequence": 7,
+            "url": "https://www.vectrfl.com/favicon.svg",
+            "method": "GET",
+            "resourceType": "other",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 8,
             "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
             "method": "GET",
             "resourceType": "fetch",
@@ -2873,7 +2883,7 @@
             "failureTexts": []
           },
           {
-            "sequence": 8,
+            "sequence": 9,
             "url": "https://www.vectrfl.com/glb/workers.glb",
             "method": "GET",
             "resourceType": "fetch",
@@ -2883,20 +2893,10 @@
             "failureTexts": []
           },
           {
-            "sequence": 9,
+            "sequence": 10,
             "url": "https://www.vectrfl.com/img/smoke.webp",
             "method": "GET",
             "resourceType": "image",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 10,
-            "url": "https://www.vectrfl.com/favicon.svg",
-            "method": "GET",
-            "resourceType": "other",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -2924,7 +2924,7 @@
           },
           {
             "sequence": 13,
-            "url": "blob:https://www.vectrfl.com/359c7aad-3ab9-4db4-9d88-abaa6530a167",
+            "url": "blob:https://www.vectrfl.com/98a7beff-253b-4784-a0bf-f4cb9fcb41e8",
             "method": "GET",
             "resourceType": "fetch",
             "requestCount": 1,
@@ -2934,7 +2934,7 @@
           },
           {
             "sequence": 14,
-            "url": "blob:https://www.vectrfl.com/163d9d21-98c5-4b25-b81c-c80f166594ad",
+            "url": "blob:https://www.vectrfl.com/607b8217-9202-4133-846c-8b3a4eaa2f7b",
             "method": "GET",
             "resourceType": "fetch",
             "requestCount": 1,
@@ -2944,7 +2944,7 @@
           },
           {
             "sequence": 15,
-            "url": "blob:https://www.vectrfl.com/4ddc804f-78c5-43a3-b7cb-f51170f020b8",
+            "url": "blob:https://www.vectrfl.com/b6446f18-d9c7-4652-baf4-d7ce7b6449ee",
             "method": "GET",
             "resourceType": "script",
             "requestCount": 4,
@@ -2959,7 +2959,7 @@
     {
       "id": "tablet",
       "status": "passed",
-      "startedAtUtc": "2026-07-30T12:26:33.550Z",
+      "startedAtUtc": "2026-09-14T14:29:12.177Z",
       "requestedContext": {
         "viewportCss": {
           "width": 1024,
@@ -2978,16 +2978,16 @@
           "touch": true
         },
         "userAgentKind": "android-tablet",
-        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 13; Pixel Tablet) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.7871.188 Safari/537.36"
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 13; Pixel Tablet) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.7977.84 Safari/537.36"
       },
       "navigation": {
         "requestedUrl": "https://www.vectrfl.com/?trace=1",
         "finalUrl": "https://www.vectrfl.com/?trace=1",
         "httpStatus": 200,
         "statusText": "",
-        "startedAtUtc": "2026-07-30T12:26:33.761Z",
-        "readyAtUtc": "2026-07-30T12:26:36.417Z",
-        "measuredAtUtc": "2026-07-30T12:26:41.438Z",
+        "startedAtUtc": "2026-09-14T14:29:12.346Z",
+        "readyAtUtc": "2026-09-14T14:29:15.006Z",
+        "measuredAtUtc": "2026-09-14T14:29:20.043Z",
         "documentReadyState": "complete",
         "fonts": {
           "supported": true,
@@ -3007,25 +3007,25 @@
         },
         "boundedSettleMs": 5000
       },
-      "capturedAtUtc": "2026-07-30T12:26:41.438Z",
+      "capturedAtUtc": "2026-09-14T14:29:20.043Z",
       "userAgent": {
-        "value": "Mozilla/5.0 (Linux; Android 13; Pixel Tablet) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.7871.188 Safari/537.36",
+        "value": "Mozilla/5.0 (Linux; Android 13; Pixel Tablet) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.7977.84 Safari/537.36",
         "platform": "MacIntel",
         "language": "en-US",
         "languages": ["en-US"],
         "userAgentData": {
           "brands": [
             {
-              "brand": "Not;A=Brand",
-              "version": "8"
+              "brand": "Chromium",
+              "version": "152"
             },
             {
-              "brand": "Chromium",
-              "version": "150"
+              "brand": "Not?A_Brand",
+              "version": "24"
             },
             {
               "brand": "Google Chrome",
-              "version": "150"
+              "version": "152"
             }
           ],
           "mobile": true,
@@ -4270,9 +4270,9 @@
           },
           {
             "sequence": 3,
-            "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
+            "url": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap",
             "method": "GET",
-            "resourceType": "script",
+            "resourceType": "stylesheet",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -4280,9 +4280,9 @@
           },
           {
             "sequence": 4,
-            "url": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap",
+            "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
             "method": "GET",
-            "resourceType": "stylesheet",
+            "resourceType": "script",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -4310,76 +4310,6 @@
           },
           {
             "sequence": 7,
-            "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 8,
-            "url": "https://www.vectrfl.com/glb/workers.glb",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 9,
-            "url": "https://www.vectrfl.com/img/smoke.webp",
-            "method": "GET",
-            "resourceType": "image",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 10,
-            "url": "https://www.vectrfl.com/draco/draco_wasm_wrapper.js",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 11,
-            "url": "https://www.vectrfl.com/draco/draco_decoder.wasm",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 12,
-            "url": "blob:https://www.vectrfl.com/a1b5c07e-4ffe-4647-999d-d164c96d48e4",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 13,
-            "url": "blob:https://www.vectrfl.com/bb91c130-b308-4718-b4af-0f5640424a04",
-            "method": "GET",
-            "resourceType": "fetch",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 14,
             "url": "https://www.vectrfl.com/favicon.svg",
             "method": "GET",
             "resourceType": "other",
@@ -4389,8 +4319,78 @@
             "failureTexts": []
           },
           {
+            "sequence": 8,
+            "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 9,
+            "url": "https://www.vectrfl.com/glb/workers.glb",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 10,
+            "url": "https://www.vectrfl.com/img/smoke.webp",
+            "method": "GET",
+            "resourceType": "image",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 11,
+            "url": "https://www.vectrfl.com/draco/draco_wasm_wrapper.js",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 12,
+            "url": "https://www.vectrfl.com/draco/draco_decoder.wasm",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 13,
+            "url": "blob:https://www.vectrfl.com/7087cdaf-6312-4292-ab9b-2388e0bd2197",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 14,
+            "url": "blob:https://www.vectrfl.com/09b6b3f9-932c-4443-8e91-28ead6768e4f",
+            "method": "GET",
+            "resourceType": "fetch",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
             "sequence": 15,
-            "url": "blob:https://www.vectrfl.com/1b77f616-6b27-4090-9dcd-fa7b15a0acb8",
+            "url": "blob:https://www.vectrfl.com/b669743e-8cdb-4708-bb40-53b06c7225d8",
             "method": "GET",
             "resourceType": "script",
             "requestCount": 4,
@@ -4405,7 +4405,7 @@
     {
       "id": "mobile",
       "status": "passed",
-      "startedAtUtc": "2026-07-30T12:26:41.452Z",
+      "startedAtUtc": "2026-09-14T14:29:20.061Z",
       "requestedContext": {
         "viewportCss": {
           "width": 390,
@@ -4424,16 +4424,16 @@
           "touch": true
         },
         "userAgentKind": "android-mobile",
-        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.7871.188 Mobile Safari/537.36"
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.7977.84 Mobile Safari/537.36"
       },
       "navigation": {
         "requestedUrl": "https://www.vectrfl.com/?trace=1",
         "finalUrl": "https://www.vectrfl.com/?trace=1",
         "httpStatus": 200,
         "statusText": "",
-        "startedAtUtc": "2026-07-30T12:26:41.594Z",
-        "readyAtUtc": "2026-07-30T12:26:44.201Z",
-        "measuredAtUtc": "2026-07-30T12:26:49.222Z",
+        "startedAtUtc": "2026-09-14T14:29:20.229Z",
+        "readyAtUtc": "2026-09-14T14:29:22.925Z",
+        "measuredAtUtc": "2026-09-14T14:29:27.960Z",
         "documentReadyState": "complete",
         "fonts": {
           "supported": true,
@@ -4453,25 +4453,25 @@
         },
         "boundedSettleMs": 5000
       },
-      "capturedAtUtc": "2026-07-30T12:26:49.222Z",
+      "capturedAtUtc": "2026-09-14T14:29:27.960Z",
       "userAgent": {
-        "value": "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.7871.188 Mobile Safari/537.36",
+        "value": "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.7977.84 Mobile Safari/537.36",
         "platform": "MacIntel",
         "language": "en-US",
         "languages": ["en-US"],
         "userAgentData": {
           "brands": [
             {
-              "brand": "Not;A=Brand",
-              "version": "8"
+              "brand": "Chromium",
+              "version": "152"
             },
             {
-              "brand": "Chromium",
-              "version": "150"
+              "brand": "Not?A_Brand",
+              "version": "24"
             },
             {
               "brand": "Google Chrome",
-              "version": "150"
+              "version": "152"
             }
           ],
           "mobile": true,
@@ -5717,9 +5717,9 @@
           },
           {
             "sequence": 3,
-            "url": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap",
+            "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
             "method": "GET",
-            "resourceType": "stylesheet",
+            "resourceType": "script",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -5727,9 +5727,9 @@
           },
           {
             "sequence": 4,
-            "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
+            "url": "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap",
             "method": "GET",
-            "resourceType": "script",
+            "resourceType": "stylesheet",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -5757,6 +5757,16 @@
           },
           {
             "sequence": 7,
+            "url": "https://www.vectrfl.com/favicon.svg",
+            "method": "GET",
+            "resourceType": "other",
+            "requestCount": 1,
+            "responseStatuses": [200],
+            "fromServiceWorker": false,
+            "failureTexts": []
+          },
+          {
+            "sequence": 8,
             "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
             "method": "GET",
             "resourceType": "fetch",
@@ -5766,7 +5776,7 @@
             "failureTexts": []
           },
           {
-            "sequence": 8,
+            "sequence": 9,
             "url": "https://www.vectrfl.com/glb/workers.glb",
             "method": "GET",
             "resourceType": "fetch",
@@ -5776,20 +5786,10 @@
             "failureTexts": []
           },
           {
-            "sequence": 9,
+            "sequence": 10,
             "url": "https://www.vectrfl.com/img/smoke.webp",
             "method": "GET",
             "resourceType": "image",
-            "requestCount": 1,
-            "responseStatuses": [200],
-            "fromServiceWorker": false,
-            "failureTexts": []
-          },
-          {
-            "sequence": 10,
-            "url": "https://www.vectrfl.com/favicon.svg",
-            "method": "GET",
-            "resourceType": "other",
             "requestCount": 1,
             "responseStatuses": [200],
             "fromServiceWorker": false,
@@ -5817,7 +5817,7 @@
           },
           {
             "sequence": 13,
-            "url": "blob:https://www.vectrfl.com/9d5a1388-c2a7-474b-a7d2-d3e0b8d2ee4b",
+            "url": "blob:https://www.vectrfl.com/1ea3ac6a-5d11-416d-a8d5-715b0f31db25",
             "method": "GET",
             "resourceType": "fetch",
             "requestCount": 1,
@@ -5827,7 +5827,7 @@
           },
           {
             "sequence": 14,
-            "url": "blob:https://www.vectrfl.com/ab5182f7-12c9-44c1-ac52-1ef351b6c43b",
+            "url": "blob:https://www.vectrfl.com/5a7628dd-c92b-430a-9dbe-a7a1b5d55119",
             "method": "GET",
             "resourceType": "fetch",
             "requestCount": 1,
@@ -5837,7 +5837,7 @@
           },
           {
             "sequence": 15,
-            "url": "blob:https://www.vectrfl.com/6b7df5f3-ed9f-40d5-af20-3770dbfe99ba",
+            "url": "blob:https://www.vectrfl.com/4629b446-fadb-42a7-90c5-46c83f01c51b",
             "method": "GET",
             "resourceType": "script",
             "requestCount": 4,

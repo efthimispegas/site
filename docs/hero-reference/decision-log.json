@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "authorityOrder": [
     {
       "scope": "current geometry, responsive behavior, interaction causality, and scroll mappings",
@@ -45,7 +45,7 @@
       "id": "source-semantic-masks-refinement-only",
       "status": "accepted-for-reference-refinement",
       "evidenceClass": "source-confirmed",
-      "decision": "The three repository-owned semantic masks depict the vectrfl.com reference goal and are accepted as refinement inputs only.",
+      "decision": "The four repository-owned semantic masks depict the vectrfl.com reference goal and are accepted as refinement inputs only.",
       "implementationConsequence": "The masks may derive measurements from their exact hash-locked source frames. They may not classify localhost implementation pixels, prove overlap, or confer structural or final visual acceptance."
     },
     {
@@ -68,6 +68,20 @@
       "evidenceClass": "source-confirmed",
       "decision": "No camera, route, progress, timing, color, or geometry constant is retained merely because it exists in the old Pegasoft renderer.",
       "implementationConsequence": "Replacement values require live/recording evidence and deterministic tests."
+    },
+    {
+      "id": "recording-field-preview-precedes-live-activation-range",
+      "status": "accepted",
+      "evidenceClass": "observed",
+      "decision": "The recording shows static field tiles at the clearance preview and approach anchors before the live renderer's field activation interval. The live interval remains authoritative for activation and pulse causality, while recording composition is authoritative for when static geometry first enters the camera frame.",
+      "implementationConsequence": "Static field geometry becomes fully renderable over recording-profile scene progress 0.50–0.54 so camera framing owns its entrance. Contact activation and pulse clocks remain separately controlled and are not pulled earlier."
+    },
+    {
+      "id": "phase-1-observable-boundary",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "The route masks already measure entry, exit, equivalent core thickness, and visible centerlines; the live-source evidence already records the desktop pointer-trail allocation and radius/falloff constants. Separate bloom-envelope and surrounding-mark classifiers would duplicate full-frame composition or promote later art-direction effects into primary structural gates.",
+      "implementationConsequence": "Phase 1 evidence may close when every declared structural state is observed with no blocked comparison. Bloom nuance and individual arrival-mark styling remain explicit Phase 14/16 visual work and must pass full-frame comparison there."
     }
   ]
 }

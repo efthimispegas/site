@@ -206,9 +206,9 @@ comparison.
   camera positions or quaternions. The actual camera transform remains
   unknown from the recording and is not used as a source acceptance gate.
 - The current atomic implementation capture uses that same renderer-independent
-  algorithm for all 15 screenshots. Its 285 composition checks pass 190 and
-  fail 95: global negative-space occupancy passes 14/15, centroid axes pass
-  5/30, and fixed-grid occupancy passes 172/240. These failures are current
+  algorithm for all 15 screenshots. Its 285 composition checks pass 204 and
+  fail 81 across global negative-space occupancy, centroid axes, and fixed-grid
+  occupancy. These failures are current
   calibration evidence, not visual acceptance.
 - The schema-v7 capture measures all 13 source-applicable
   implementation copy-ink envelopes and the `journey-exit` boundary with the
@@ -224,20 +224,21 @@ comparison.
 - Landmark records now cover all seven source-observed landmark states without
   reusing source masks on implementation pixels. Center/size checks pass 14/28,
   while all seven silhouette IoUs fail the `0.90` minimum: `0.3987`, `0.6460`,
-  `0.7009`, `0.6498`, `0.1878`, `0.3548`, and `0.3642` in landmark order. The
+  `0.7009`, `0.6498`, `0.1881`, `0.3568`, and `0.3642` in landmark order. The
   last value is the complete arrival arrow silhouette; the obsolete Sobel/
   dilation edge proxy has been removed. Seven four-color comparison artifacts
   are emitted.
-- Structural accuracy is `0 pass / 13 fail / 2 blocked`. The only blocked
-  implementation evidence is the field tile profile at
-  `clearance-field-preview` and `field-approach`; all other declared roles are
-  measured mismatches rather than missing evidence.
+- Structural accuracy is `0 pass / 15 fail / 0 blocked`. All five field tile
+  profiles are observed in the implementation; their mask IoUs are `0.5228`,
+  `0.6179`, `0.4266`, `0.3799`, and `0.1756`. Every declared structural role is
+  now a measured mismatch rather than missing evidence.
 - Live DOM contracts now cover the two landing and 11 journey states at the
   recording CSS profile; all 13 applicable contracts pass in the same current
   comparison run.
-- The next Phase 1 priority is resolving the two implementation field-profile
-  classifier blocks, followed by deciding whether pointer and route-envelope
-  observables add necessary source authority.
+- Phase 1 evidence is complete. Route masks already cover entry, exit,
+  equivalent thickness, and centerlines, while live-source evidence records
+  desktop pointer allocation and radius/falloff constants. The next ordered
+  priority is Phase 7 proxy topology and canonical-route construction.
 - Remaining visual refinement includes complete route paths, copy/scene
   correspondence, field outline, and negative space;
 - route thickness and handoff/contact frames at matched viewports;

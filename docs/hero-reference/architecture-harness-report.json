@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 16,
-  "generatedAtUtc": "2026-09-14T10:23:00Z",
+  "schemaVersion": 17,
+  "generatedAtUtc": "2026-09-14T14:31:00Z",
   "phaseScope": [1, 5],
   "workingTree": {
     "branch": "codex/hero-reference-rebaseline",
@@ -157,6 +157,7 @@
       "lineCountAtInspection": 45,
       "stagePaths": [
         "apps/pegasoft/src/app/shared/hero-scene/hero-world-layout.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-field-model.ts",
         "apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx",
         "apps/pegasoft/src/app/shared/hero-scene/stages/clearance.tsx",
         "apps/pegasoft/src/app/shared/hero-scene/stages/field-match.tsx",
@@ -243,9 +244,9 @@
         "artifactRoot": "apps/pegasoft-e2e/test-output/hero-reference/recording",
         "captureManifest": "apps/pegasoft-e2e/test-output/hero-reference/recording/capture-manifest.json",
         "captureManifestSchemaVersion": 7,
-        "captureRunId": "587da492-9f08-45f6-8b70-a2461826b419",
-        "captureStartedAt": "2026-09-14T10:20:56.561Z",
-        "captureCompletedAt": "2026-09-14T10:22:34.355Z",
+        "captureRunId": "df47fcf9-7fc7-47f1-96a5-e689ad7b6d8a",
+        "captureStartedAt": "2026-09-14T14:22:42.700Z",
+        "captureCompletedAt": "2026-09-14T14:24:26.280Z",
         "artifactIntegrity": "all 15 implementation images and 15 measurement records matched manifest byte counts and SHA-256 values",
         "requiredRendererSemantics": {
           "motion": "full",
@@ -254,7 +255,7 @@
           "surface": "visible WebGL canvas",
           "contextLoss": "none observed"
         },
-        "note": "The Nx capture target ran both the app and E2E typecheck prerequisites before completing all 15 states. Every state required a real recording-desktop full-motion WebGL canvas, seed 43117, render readiness, no observed context loss, and an observed screen-composition measurement. All 13 source-applicable copy states, all 12 source-applicable route states, all 7 source-observed landmark states, all 5 source-applicable field states, the independent field-contact center, and journey-exit additionally carry structural evidence records. The two transition-copy states use state-specific visible-ink regions and never infer censored pixels. The source contract uses composition as the primary structure for landing and landing-idle, and field profile as the primary structure for field-approach and field-pulse-a; all 15 source-primary structures are observed. The four corresponding landmark fields remain honestly blocked secondary annotations. Three implementation field profiles are observed while preview and approach fail the unchanged source-pixel quality gate. Three transferable landmarks and all 12 applicable routes are observed; the reveal and landing-idle packet is now decoupled from activation feeder geometry, and eight cyan-family states use renderer-independent localhost classifiers. Four source-mask landmarks, including the complete arrival arrow, are compared with renderer-independent implementation masks; source masks remain reference-only and never classify implementation pixels. Runtime errors, context loss, invalid structural records, and missing composition evidence are hard failures, and the complete size/SHA-256 manifest is published atomically."
+        "note": "The Nx capture target ran both the app and E2E typecheck prerequisites before completing all 15 states. Every state required a real recording-desktop full-motion WebGL canvas, seed 43117, render readiness, no observed context loss, and an observed screen-composition measurement. All 13 source-applicable copy states, all 12 source-applicable route states, all 7 source-observed landmark states, all 5 source-applicable field states, the independent field-contact center, and journey-exit additionally carry structural evidence records. The two transition-copy states use state-specific visible-ink regions and never infer censored pixels. The source contract uses composition as the primary structure for landing and landing-idle, and field profile as the primary structure for field-approach and field-pulse-a; all 15 source-primary structures are observed. All five implementation field profiles now pass the unchanged source-pixel quality gate and remain measured visual mismatches. Three transferable landmarks and all 12 applicable routes are observed; the reveal and landing-idle packet is decoupled from activation feeder geometry, and eight cyan-family states use renderer-independent localhost classifiers. Four source-mask landmarks, including the complete arrival arrow, are compared with renderer-independent implementation masks; source masks remain reference-only and never classify implementation pixels. Runtime errors, context loss, invalid structural records, and missing composition evidence are hard failures, and the complete size/SHA-256 manifest is published atomically."
       },
       "convergenceMatrix": {
         "coverage": [
@@ -274,8 +275,8 @@
       "currentLiveProfileProbe": {
         "artifact": "docs/hero-reference/live/current-live-profiles.json",
         "schemaId": "vectr-live-profile-probe/v1",
-        "generatedAtUtc": "2026-07-30T12:27:02.718Z",
-        "browser": "Chrome 150.0.7871.188",
+        "generatedAtUtc": "2026-09-14T14:29:41.330Z",
+        "browser": "Chrome 152.0.7977.84",
         "profiles": {
           "pass": 4,
           "fail": 0,
@@ -294,17 +295,14 @@
       },
       "structuralAccuracySummary": {
         "pass": 0,
-        "fail": 13,
-        "blocked": 2
+        "fail": 15,
+        "blocked": 0
       },
       "structuralChecks": {
         "composition": {
           "checks": 285,
-          "pass": 190,
-          "fail": 95,
-          "globalNegativeSpaceOccupancy": { "pass": 14, "fail": 1 },
-          "normalizedCentroidAxes": { "pass": 5, "fail": 25 },
-          "fixedGridNegativeSpaceOccupancy": { "pass": 172, "fail": 68 }
+          "pass": 204,
+          "fail": 81
         },
         "copyBounds": {
           "statesMeasured": 13,
@@ -315,19 +313,21 @@
         "fieldTileProfileEvidence": {
           "statesApplicable": 5,
           "sourceStatesObserved": 5,
-          "implementationStatesObserved": 3,
-          "implementationStatesQualityBlocked": 2,
-          "checks": 27,
-          "pass": 8,
-          "fail": 19,
+          "implementationStatesObserved": 5,
+          "implementationStatesQualityBlocked": 0,
+          "checks": 45,
+          "pass": 13,
+          "fail": 32,
           "maskIou": {
             "minimum": 0.9,
             "pass": 0,
-            "fail": 3,
+            "fail": 5,
             "values": {
-              "field-contact": 0.4267689932052616,
-              "field-pulse-a": 0.3844801775511752,
-              "field-pulse-b": 0.17706431984304766
+              "clearance-field-preview": 0.5227891475779196,
+              "field-approach": 0.6179114785147446,
+              "field-contact": 0.42661835075118043,
+              "field-pulse-a": 0.37994701367232614,
+              "field-pulse-b": 0.1756483527895965
             }
           },
           "sourceVisibleComponentCounts": {
@@ -338,14 +338,14 @@
             "field-pulse-b": 21
           },
           "implementationVisibleComponentCounts": {
-            "clearance-field-preview": null,
-            "field-approach": null,
-            "field-contact": 79,
-            "field-pulse-a": 73,
-            "field-pulse-b": 80
+            "clearance-field-preview": 6,
+            "field-approach": 35,
+            "field-contact": 82,
+            "field-pulse-a": 76,
+            "field-pulse-b": 82
           },
           "comparisonArtifacts": 5,
-          "qualification": "The same bright-neutral predicate and component-shape gates measure full visible tile tops in both rasters. Clipped, activated, pulse-recolored, and bloom-obscured tiles are not inferred. Preview and approach are blocked because the implementation has no qualifying field components in the source-defined ROIs."
+          "qualification": "The same bright-neutral predicate and component-shape gates measure full visible tile tops in both rasters. Clipped, activated, pulse-recolored, and bloom-obscured tiles are not inferred. All five implementation profiles are observed; each remains a measured visual mismatch."
         },
         "fieldContactCenterEvidence": {
           "statesApplicable": 1,
@@ -359,7 +359,7 @@
             "pass": 0,
             "fail": 1,
             "values": {
-              "field-contact": 0.12771187763383798
+              "field-contact": 0.12757201646090535
             }
           },
           "comparisonArtifacts": 1,
@@ -380,14 +380,14 @@
               "world-reveal": 0.6459859827970691,
               "activation-route": 0.7008768014447472,
               "activation-contact": 0.6497848866365772,
-              "field-contact": 0.1877803696393325,
-              "field-pulse-b": 0.3547803141875307,
+              "field-contact": 0.1881113,
+              "field-pulse-b": 0.3568171,
               "arrival-lockup": 0.36421413538864655
             }
           },
           "checks": 35,
-          "pass": 14,
-          "fail": 21,
+          "pass": 13,
+          "fail": 22,
           "comparisonArtifacts": 7,
           "qualification": "Loader, world-reveal, and field-pulse-b use shared transferable chroma masks. Activation-route, activation-contact, field-contact, and arrival-lockup use hash-locked source semantic masks paired with separate renderer-independent localhost classifiers. All seven comparisons are true filled-silhouette evidence and fail the locked minimum."
         },
@@ -461,7 +461,7 @@
         "evaluatedPixelCount": 68855280
       },
       "currency": "current-checkpoint-complete-and-manifest-verified",
-      "reason": "The whole four-row landing/journey DOM ladder passes all 13 applicable state contracts; loader-mark and world-reveal have no applicable DOM profile. The unmasked full-frame raster is only a preliminary diagnostic and passes 1 of 15 states. Shared source/implementation algorithms measure all 15 composition records, all 13 source-applicable copy envelopes, all 12 source-applicable route states, three transferable landmark states, all five source-applicable field tile profiles, the independent field-contact center tile, and the journey-exit boundary; four source-mask landmarks carry separate renderer-independent implementation-mask comparisons. The source masks remain reference-only. Composition passes 190/285 checks, copy bounds pass 21/52, field evidence passes 8/27, contact-center evidence passes 0/5, landmark evidence passes 14/35, all 12 observed route cores pass 16/84, and the boundary passes 4/4. Preview and approach field profiles are the only implementation quality blocks. All seven landmark silhouettes are measured failures: loader 0.3987, world reveal 0.6460, activation route 0.7009, activation contact 0.6498, field contact 0.1878, field pulse B 0.3548, and arrival lockup 0.3642. The arrival value is true filled-silhouette evidence, not the retired Sobel edge proxy. Structural accuracy is 0 pass / 13 fail / 2 blocked. Neither preliminary raster, partial geometry success, nor DOM success confers final visual acceptance."
+      "reason": "The whole four-row landing/journey DOM ladder passes all 13 applicable state contracts; loader-mark and world-reveal have no applicable DOM profile. The unmasked full-frame raster is only a preliminary diagnostic and passes 1 of 15 states. Shared source/implementation algorithms measure all 15 composition records, all 13 source-applicable copy envelopes, all 12 source-applicable route states, three transferable landmark states, all five source-applicable field tile profiles, the independent field-contact center tile, and the journey-exit boundary; four source-mask landmarks carry separate renderer-independent implementation-mask comparisons. The source masks remain reference-only. Composition passes 204/285 checks, copy bounds pass 21/52, field evidence passes 13/45, contact-center evidence passes 0/5, landmark evidence passes 13/35, all 12 observed route cores pass 16/84, and the boundary passes 4/4. All seven landmark silhouettes and all five field profiles are measured failures. Structural accuracy is 0 pass / 15 fail / 0 blocked. Phase 1 is evidence-complete; neither that evidence gate, preliminary raster, partial geometry success, nor DOM success confers final visual acceptance."
     }
   },
   "validationSnapshot": [
@@ -478,7 +478,7 @@
     {
       "command": "pnpm nx run @site/pegasoft:test -- --run",
       "result": "passed",
-      "details": "The Pegasoft app passed all 5 Vitest files and 39 tests, including the dedicated landing-packet geometry and locked-clock assertions."
+      "details": "The Pegasoft app passed all 5 Vitest files and 40 tests, including the dedicated landing-packet geometry, field-reveal, and locked-clock assertions."
     },
     {
       "command": "NODE_ENV=production pnpm nx run @site/pegasoft:build --skipNxCache",
@@ -512,12 +512,12 @@
     {
       "command": "pnpm nx run @site/pegasoft-e2e:hero-capture --skipNxCache",
       "result": "passed",
-      "details": "The app typecheck and E2E typecheck prerequisites passed before all 15 recording-profile states were captured. Run 587da492-9f08-45f6-8b70-a2461826b419 completed at 2026-09-14T10:22:34.355Z and published a complete schema-v7 atomic size/SHA-256 manifest with composition evidence for every state, copy evidence for all 13 source-applicable states, route records for all 12 source-applicable states, landmark records for all 7 source-observed states, field-profile records for all 5 applicable states, the independent field-contact center record, and journey-exit boundary evidence. Three implementation field states are observed; preview and approach are source-pixel quality-blocked. Seven landmarks and all 12 routes were observed; the four source-mask landmarks use independent localhost classifiers."
+      "details": "The app typecheck and E2E typecheck prerequisites passed before all 15 recording-profile states were captured. Run df47fcf9-7fc7-47f1-96a5-e689ad7b6d8a completed at 2026-09-14T14:24:26.280Z and published a complete schema-v7 atomic size/SHA-256 manifest with composition evidence for every state, copy evidence for all 13 source-applicable states, route records for all 12 source-applicable states, landmark records for all 7 source-observed states, field-profile records for all 5 applicable states, the independent field-contact center record, and journey-exit boundary evidence. All five implementation field states are observed. Seven landmarks and all 12 routes were observed; the four source-mask landmarks use independent localhost classifiers."
     },
     {
       "command": "node tools/hero-reference/compare-captures.mjs",
       "result": "failed-acceptance-current-input",
-      "details": "Schema 16 reports preliminary raster at 1 pass / 14 fail, composition at 190 pass / 95 fail, copy bounds at 21 pass / 31 fail, field evidence at 8 pass / 19 fail, contact-center evidence at 0 pass / 5 fail, landmark evidence at 14 pass / 21 fail, route evidence at 16 pass / 68 fail, boundary bounds at 4 pass / 0 fail, structural accuracy at 0 pass / 13 fail / 2 blocked, and whole-ladder DOM at 13 pass / 0 fail / 0 blocked / 2 not applicable. Preview and approach have no qualifying implementation field and are the only blocked states. All seven landmark states now carry true silhouette evidence. Arrival lockup uses the fourth hash-locked reference-only semantic mask and a separate neutral-structure localhost classifier; its 0.3642 IoU is a measured mismatch, not a block. The non-zero exit is required while structural and final visual acceptance remain blocked."
+      "details": "Schema 16 reports preliminary raster at 1 pass / 14 fail, composition at 204 pass / 81 fail, copy bounds at 21 pass / 31 fail, field evidence at 13 pass / 32 fail, contact-center evidence at 0 pass / 5 fail, landmark evidence at 13 pass / 22 fail, route evidence at 16 pass / 68 fail, boundary bounds at 4 pass / 0 fail, structural accuracy at 0 pass / 15 fail / 0 blocked, and whole-ladder DOM at 13 pass / 0 fail / 0 blocked / 2 not applicable. All five implementation field profiles and all seven landmark states carry true measured evidence. The non-zero exit is required while structural and final visual acceptance remain red."
     },
     {
       "command": "node tools/hero-reference/probe-live-profiles.mjs --output docs/hero-reference/live/current-live-profiles.json",
@@ -539,12 +539,8 @@
   ],
   "blockingEvidence": [
     {
-      "severity": "blocks-phase-1-and-visual-acceptance",
-      "issue": "Deterministic recording measurement resolves 7 landmarks, 12 visible route cores, 13 copy-ink envelopes, 5 field tile profiles, 1 independent saturated field-contact center tile, 15 fixed-grid screen-space composition proxies, and 1 section boundary. All 15 source-primary structures and all 13 applicable copy states are observed. Shared renderer-independent algorithms measure all implementation composition, copy, route, field, contact-center, and boundary roles; three transferable landmark states use shared predicates, while four source-mask landmarks use separate renderer-independent localhost classifiers. The source masks remain hash-locked, reference-only refinement evidence and cannot classify implementation pixels or confer acceptance. Composition passes 190/285 checks, copy bounds 21/52, field evidence 8/27, contact center 0/5, landmarks 14/35, routes 16/84, and boundary bounds 4/4. Preview and approach field profiles are the only implementation quality blocks. All seven landmark silhouette IoUs are measured failures: loader 0.3987, world reveal 0.6460, activation route 0.7009, activation contact 0.6498, field contact 0.1878, field pulse B 0.3548, and arrival lockup 0.3642. Arrival is no longer blocked, and the obsolete Sobel edge-support proxy has been removed. All 12 visible-core route centerline Hausdorff distances fail the 0.75% short-edge maximum, ranging from 9.7675% to 93.9334%. Structural accuracy is 0 pass / 13 fail / 2 blocked. Pointer and route-envelope observables remain potential Phase 1 additions, but no currently declared source-primary role is missing. The current implementation passes all 13 applicable live DOM contracts; DOM success does not substitute for structural or final visual acceptance."
-    },
-    {
       "severity": "blocks-phases-7-through-16",
-      "issue": "The procedural world, route projection, static cameras, materials, lighting, effects, and geometry have not passed state-specific structural and visual tolerances."
+      "issue": "Phase 1 is evidence-complete with 0 pass / 15 fail / 0 blocked structural states. Composition passes 204/285 checks, copy bounds 21/52, field evidence 13/45, contact center 0/5, landmarks 13/35, routes 16/84, and boundary bounds 4/4. All five field profiles and all seven landmark silhouettes are observed failures. The procedural world, route projection, static cameras, materials, lighting, effects, and geometry have not passed state-specific structural and visual tolerances."
     },
     {
       "severity": "blocks-phases-10-through-14",
@@ -573,7 +569,8 @@
     "preliminaryRasterComparisonPassed": false,
     "structuralAccuracyComparisonPassed": false,
     "visualComparisonPassed": false,
-    "phase5Status": "own-gate-passed-ordered-acceptance-blocked-by-phase-1",
-    "reason": "The current architecture, deterministic controls, repeat capture, genuine desktop/mobile convergence matrix, and manifest integrity pass their local Phase 5 gate. Ordered acceptance remains held at Phase 1. All 15 source-primary structures and all 13 applicable copy states are observed. Shared algorithms measure all 15 composition records, all 13 copy envelopes, all 12 routes, three transferable landmarks, all five field profiles, the independent field-contact center tile, and both journey-exit boundaries; four hash-locked source semantic masks are paired only with separate renderer-independent localhost classifiers. Landmark evidence now passes 14/35 checks, and arrival lockup is a measured 0.3642 silhouette mismatch rather than an edge-only block. Preview and approach field profiles are the only two structurally blocked states. The comparator reports 1/15 preliminary raster states passing and structural accuracy at 0 pass / 13 fail / 2 blocked, despite a 13/13 applicable whole-ladder DOM pass; final hero acceptance is therefore blocked."
+    "phase1Status": "evidence-gate-passed-visual-acceptance-red",
+    "phase5Status": "accepted-current-checkpoint",
+    "reason": "Phases 1–6 pass their current ordered gates. All 15 source-primary structures and all 13 applicable copy states are observed, and shared or deliberately separate renderer-independent algorithms measure every declared implementation role. All five field profiles are now observed, closing the final two evidence blocks without weakening source thresholds. The comparator reports 1/15 preliminary raster states passing and structural accuracy at 0 pass / 15 fail / 0 blocked, despite a 13/13 applicable whole-ladder DOM pass. The next ordered work is Phase 7 proxy topology and canonical-route construction; final hero acceptance remains red."
   }
 }

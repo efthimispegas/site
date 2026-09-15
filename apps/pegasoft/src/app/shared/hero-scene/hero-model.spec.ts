@@ -7,6 +7,10 @@ import {
   sampleHeroCameraPose,
 } from './hero-camera-model';
 import {
+  HERO_FIELD_REVEAL_RANGE,
+  sampleHeroFieldReveal,
+} from './hero-field-model';
+import {
   approachHeroGateRatio,
   INACTIVE_HERO_GATE_CLOCK,
   sampleLoopPhase,
@@ -111,6 +115,13 @@ describe('hero route, camera, and local clocks', () => {
       0.0002,
     );
     expect(sampleHeroCameraPose(0.74)).toEqual(sampleHeroCameraPose(0.74));
+  });
+
+  it('reveals the field before its first upper-right preview frame', () => {
+    expect(HERO_FIELD_REVEAL_RANGE).toEqual([0.5, 0.54]);
+    expect(sampleHeroFieldReveal(0.49)).toBe(0);
+    expect(sampleHeroFieldReveal(0.54059)).toBe(1);
+    expect(sampleHeroFieldReveal(0.60928)).toBe(1);
   });
 
   it('retreats 45 world units on the final local camera axis', () => {
