@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
 import * as THREE from 'three';
 import type { HeroJourneySnapshot } from '../hero-contract';
+import { sampleHeroFieldReveal } from '../hero-field-model';
 import {
   INACTIVE_HERO_GATE_CLOCK,
   sampleLoopPhase,
@@ -50,11 +51,7 @@ export function FieldMatchStage({
   const contactActive =
     snapshot.sceneTargetProgress >= FIELD_CONTACT_PROGRESS &&
     snapshot.sceneTargetProgress < 0.9;
-  const fieldReveal = THREE.MathUtils.smoothstep(
-    snapshot.sceneTargetProgress,
-    0.72,
-    0.75,
-  );
+  const fieldReveal = sampleHeroFieldReveal(snapshot.sceneTargetProgress);
   const [fieldX, , fieldZ] = HERO_ROUTE_CONTACTS.field.point;
   const tiles = useMemo(() => {
     const rowSpans = [
