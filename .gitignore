@@ -49,8 +49,12 @@ Thumbs.db
 .playwright-mcp
 
 # Local Pegasoft research, evidence, usage ledgers, and working instructions.
-# Keep these artifacts available in the workspace without publishing them.
-/docs/
+**/docs/
+
+# Local-only ledger and measurement helpers.
+tools/hero-reference/**
+tools/docs/**
+
 
 
 # Next.js
