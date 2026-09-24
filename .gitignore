@@ -48,9 +48,14 @@ Thumbs.db
 .claude/settings.local.json
 .playwright-mcp
 
+# Local Pegasoft research, evidence, usage ledgers, and working instructions.
+# Keep these artifacts available in the workspace without publishing them.
+/docs/
+
 
 # Next.js
 .next
+apps/pegasoft/.next-s7-diagnostics
 out
 
 test-output
