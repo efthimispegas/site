@@ -1,5 +1,6 @@
 import type { HeroReferenceStateKey } from './hero-contract';
 import { HERO_REFERENCE_STATE_KEYS } from './hero-contract';
+import { HERO_TEST_DIAGNOSTICS } from './hero-test-diagnostics';
 
 export type HeroDevelopmentControl = {
   stateKey: HeroReferenceStateKey | null;
@@ -11,7 +12,7 @@ export function parseHeroDevelopmentControl(
   search: string,
   environment = process.env.NODE_ENV,
 ): HeroDevelopmentControl {
-  if (environment === 'production') {
+  if (environment === 'production' && !HERO_TEST_DIAGNOSTICS) {
     return {
       stateKey: null,
       localTimeMs: null,

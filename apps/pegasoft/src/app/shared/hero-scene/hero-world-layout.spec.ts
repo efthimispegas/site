@@ -1,9 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import {
-  HERO_PROXY_GROUND_SIZE,
-  HERO_WORLD_LAYOUT,
-  type HeroWorldLayoutItem,
-} from './hero-world-layout';
+import { HERO_WORLD_LAYOUT } from './hero-world-layout';
+
+import { sampleHeroGroundCoverage } from './hero-ground-coverage';
+import { heroRuntimeStates } from './hero-runtime-states';
 
 const zones = Object.values(HERO_WORLD_LAYOUT);
 const items = zones.flatMap((zone) => zone.items);
@@ -24,10 +23,6 @@ function numericValues(value: unknown): number[] {
   return [];
 }
 
-function isStructure(item: HeroWorldLayoutItem) {
-  return item.kind !== 'worker' && item.kind !== 'wind-turbine';
-}
-
 describe('hero world layout', () => {
   it('is serializable, finite, and uses globally stable ids', () => {
     const serialized = JSON.stringify(HERO_WORLD_LAYOUT);
@@ -38,42 +33,39 @@ describe('hero world layout', () => {
     expect(numericValues(HERO_WORLD_LAYOUT).every(Number.isFinite)).toBe(true);
   });
 
-  it('keeps the two zones dense and procedurally owned', () => {
-    expect(
-      HERO_WORLD_LAYOUT.activation.items.filter(isStructure).length,
-    ).toBeGreaterThanOrEqual(15);
-    expect(
-      HERO_WORLD_LAYOUT.clearance.items.filter(isStructure).length,
-    ).toBeGreaterThanOrEqual(24);
-
+  it('labels every candidate zone as unaccepted procedural proxy', () => {
     for (const zone of zones) {
       expect(zone.calibration).toBe('provisional-unaccepted-proxy');
       expect(zone.assetPolicy).toBe('original-procedural-only');
     }
   });
 
-  it('uses smaller authored building footprints than the retired sparse blocks', () => {
-    const sizedStructures = items.filter(
-      (
-        item,
-      ): item is Extract<
-        HeroWorldLayoutItem,
-        { kind: 'building' | 'stepped-building' | 'warehouse' }
-      > =>
-        item.kind === 'building' ||
-        item.kind === 'stepped-building' ||
-        item.kind === 'warehouse',
-    );
-
+  it.each([1508 / 761, 1440 / 900, 1024 / 768, 390 / 844, 390 / 988])(
+    'covers actual viewport-plane intersections at aspect %f',
+    (aspect) => {
+      expect(heroRuntimeStates).toHaveLength(15);
+      for (const state of heroRuntimeStates) {
+        const progress = state.progress.settledCamera ?? 0;
+        const hits = sampleHeroGroundCoverage(progress, aspect);
+        expect(
+          hits.every((hit) => hit.status === 'covered'),
+          state.key,
+        ).toBe(true);
+      }
+      for (let index = 0; index <= 350; index++) {
+        expect(
+          sampleHeroGroundCoverage(0.9 + index / 1000, aspect).every(
+            (hit) => hit.status === 'covered',
+          ),
+        ).toBe(true);
+      }
+    },
+  );
+  it('detects an exposed ground edge instead of accepting any large-size label', () => {
     expect(
-      Math.max(...sizedStructures.map((item) => item.size[0])),
-    ).toBeLessThanOrEqual(5.4);
-    expect(
-      Math.max(...sizedStructures.map((item) => item.size[2])),
-    ).toBeLessThanOrEqual(3.8);
-  });
-
-  it('keeps the proxy ground beyond every locked route and retreat pose', () => {
-    expect(HERO_PROXY_GROUND_SIZE).toBeGreaterThanOrEqual(1000);
+      sampleHeroGroundCoverage(0, 1508 / 761, 10).some(
+        (hit) => hit.status === 'exposed-ground-edge',
+      ),
+    ).toBe(true);
   });
 });

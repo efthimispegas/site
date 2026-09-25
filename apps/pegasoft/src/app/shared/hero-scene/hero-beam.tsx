@@ -1,6 +1,13 @@
-import { useEffect, useLayoutEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import type { HeroJourneySnapshot } from './hero-contract';
+import { acknowledgeHeroFrame, type HeroFrameRef } from './hero-frame-state';
+import {
+  createHeroFeederCurve,
+  createHeroRouteMesh,
+  disposeHeroRouteMesh,
+  setHeroTubeRange,
+} from './hero-route-rendering';
 import { HeroLandingRails } from './hero-landing-rails';
 import { HERO_PALETTE } from './hero-materials';
 import {
@@ -8,26 +15,15 @@ import {
   getHeroRouteProgress,
   HERO_ACTIVATION_FEEDER_PATHS,
   HERO_ROUTE_RENDERING,
-  HERO_ROUTE_SCENE_PROGRESS,
   HERO_ROUTE_SEGMENT_PROGRESS,
 } from './hero-route';
-import { clampSceneProgress } from './hero-sequence';
 
-const RED_END_SCENE_PROGRESS = HERO_ROUTE_SCENE_PROGRESS.activation[1];
-const BLUE_ZERO_END_SCENE_PROGRESS = HERO_ROUTE_SCENE_PROGRESS.clearance[1];
-const BLUE_ONE_END_SCENE_PROGRESS = HERO_ROUTE_SCENE_PROGRESS.arrival[1];
 const RED_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.activation[1];
 const BLUE_ZERO_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.clearance[1];
 const TUBE_RADIAL_SEGMENTS = HERO_ROUTE_RENDERING.radialSegments;
 
-const redFeederCurves = HERO_ACTIVATION_FEEDER_PATHS.map(
-  (points) =>
-    new THREE.CatmullRomCurve3(
-      points.map(([x, y, z]) => new THREE.Vector3(x, y, z)),
-      false,
-      'catmullrom',
-      0,
-    ),
+const redFeederCurves = HERO_ACTIVATION_FEEDER_PATHS.map((_, index) =>
+  createHeroFeederCurve(index),
 );
 
 class HeroRouteSegmentCurve extends THREE.Curve<THREE.Vector3> {
@@ -57,34 +53,14 @@ const blueZeroCurve = new HeroRouteSegmentCurve(
 );
 const blueOneCurve = new HeroRouteSegmentCurve(BLUE_ZERO_ROUTE_END, 1);
 
-function progressBetween(value: number, start: number, end: number) {
-  return THREE.MathUtils.clamp((value - start) / (end - start), 0, 1);
-}
-
-function setTubeRange(
-  geometry: THREE.TubeGeometry,
-  start: number,
-  end: number,
-) {
-  const clampedStart = THREE.MathUtils.clamp(start, 0, 1);
-  const clampedEnd = THREE.MathUtils.clamp(end, clampedStart, 1);
-  const tubularSegments = geometry.parameters.tubularSegments;
-  const indicesPerSegment = TUBE_RADIAL_SEGMENTS * 6;
-  const startSegment = Math.floor(clampedStart * tubularSegments);
-  const endSegment = Math.ceil(clampedEnd * tubularSegments);
-
-  geometry.setDrawRange(
-    startSegment * indicesPerSegment,
-    Math.max(0, endSegment - startSegment) * indicesPerSegment,
-  );
-}
-
 function SourceTube({
   curve,
   tubularSegments,
   radius,
   color,
-  rangeEnd,
+  frameRef,
+  ratioKey,
+  consumerId,
   opacity = 1,
   glow = false,
 }: {
@@ -92,63 +68,77 @@ function SourceTube({
   tubularSegments: number;
   radius: number;
   color: string;
-  rangeEnd: number;
+  frameRef: HeroFrameRef;
+  ratioKey: 'red' | 'blueZero' | 'blueOne';
+  consumerId: string;
   opacity?: number;
   glow?: boolean;
 }) {
-  const geometry = useMemo(
+  const mesh = useMemo(
     () =>
-      new THREE.TubeGeometry(
-        curve,
-        tubularSegments,
-        radius,
-        TUBE_RADIAL_SEGMENTS,
-        false,
-      ),
-    [curve, radius, tubularSegments],
+      createHeroRouteMesh(curve, tubularSegments, radius, {
+        color,
+        opacity,
+        glow,
+      }),
+    [curve, tubularSegments, radius, color, opacity, glow],
   );
+  const geometry = mesh.geometry;
 
-  useLayoutEffect(() => {
-    setTubeRange(geometry, 0, rangeEnd);
-  }, [geometry, rangeEnd]);
-  useEffect(() => () => geometry.dispose(), [geometry]);
-
-  return (
-    <mesh geometry={geometry} renderOrder={glow ? 2 : 3}>
-      <meshBasicMaterial
-        color={color}
-        transparent={opacity < 1}
-        opacity={opacity}
-        depthWrite={!glow}
-        toneMapped={false}
-        side={THREE.DoubleSide}
-        blending={glow ? THREE.AdditiveBlending : THREE.NormalBlending}
-      />
-    </mesh>
-  );
+  useFrame(() => {
+    const end = frameRef.current.ratios[ratioKey];
+    setHeroTubeRange(geometry, 0, end);
+    mesh.visible = end > 0;
+    const indicesPerSegment = TUBE_RADIAL_SEGMENTS * 6;
+    const endRing =
+      (geometry.drawRange.start + geometry.drawRange.count) / indicesPerSegment;
+    const positions = geometry.getAttribute('position');
+    const head = [0, 0, 0];
+    for (let index = 0; index < TUBE_RADIAL_SEGMENTS; index++) {
+      const vertex = endRing * (TUBE_RADIAL_SEGMENTS + 1) + index;
+      head[0] += positions.getX(vertex) / TUBE_RADIAL_SEGMENTS;
+      head[1] += positions.getY(vertex) / TUBE_RADIAL_SEGMENTS;
+      head[2] += positions.getZ(vertex) / TUBE_RADIAL_SEGMENTS;
+    }
+    acknowledgeHeroFrame(frameRef, consumerId, {
+      drawStart: geometry.drawRange.start,
+      drawCount: geometry.drawRange.count,
+      visibleRange: [
+        geometry.drawRange.start / indicesPerSegment / tubularSegments,
+        endRing / tubularSegments,
+      ],
+      visible: mesh.visible,
+      headWorld: head,
+      physicalRadius: geometry.parameters.radius,
+    });
+  }, -30);
+  useEffect(() => () => disposeHeroRouteMesh(mesh), [mesh]);
+  return <primitive object={mesh} />;
 }
 
-export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
-  const sceneProgress = clampSceneProgress(snapshot.sceneTargetProgress);
-  const redRatio = progressBetween(sceneProgress, 0, RED_END_SCENE_PROGRESS);
-  const blueZeroRatio = progressBetween(
-    sceneProgress,
-    RED_END_SCENE_PROGRESS,
-    BLUE_ZERO_END_SCENE_PROGRESS,
-  );
-  const blueOneRatio = progressBetween(
-    sceneProgress,
-    BLUE_ZERO_END_SCENE_PROGRESS,
-    BLUE_ONE_END_SCENE_PROGRESS,
-  );
-  const routeProgress = getHeroRouteProgress(sceneProgress);
-  const tip = getHeroRoutePoint(routeProgress);
-  const tipPosition: [number, number, number] = [tip.x, tip.y + 0.02, tip.z];
-  const blueIsActive = sceneProgress >= RED_END_SCENE_PROGRESS;
-
+export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
+  const tipRef = useRef<THREE.Mesh>(null);
+  const lightRef = useRef<THREE.PointLight>(null);
+  useFrame(() => {
+    const frame = frameRef.current;
+    const tip = getHeroRoutePoint(getHeroRouteProgress(frame.rendered.value));
+    if (tipRef.current) {
+      tipRef.current.position.set(tip.x, tip.y + 0.02, tip.z);
+      tipRef.current.visible = frame.ratios.blueZero > 0;
+    }
+    if (lightRef.current) {
+      lightRef.current.position.set(tip.x, tip.y + 0.02, tip.z);
+      lightRef.current.visible = frame.ratios.blueZero > 0;
+    }
+    acknowledgeHeroFrame(frameRef, 'beam', {
+      tipPosition: tipRef.current?.position.toArray() ?? [],
+      tipVisible: tipRef.current?.visible ?? false,
+      lightPosition: lightRef.current?.position.toArray() ?? [],
+    });
+  }, -30);
   return (
     <group>
-      <HeroLandingRails snapshot={snapshot} />
+      <HeroLandingRails frameRef={frameRef} />
 
       {redFeederCurves.map((curve, index) => (
         <SourceTube
@@ -157,7 +147,9 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
           tubularSegments={150}
           radius={HERO_ROUTE_RENDERING.redCoreRadius}
           color={HERO_PALETTE.redRoute}
-          rangeEnd={redRatio}
+          frameRef={frameRef}
+          ratioKey="red"
+          consumerId={`red-feeder-${index}`}
         />
       ))}
 
@@ -169,7 +161,9 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
           HERO_ROUTE_RENDERING.blueGlowRadiusScale
         }
         color={HERO_PALETTE.blueGlow}
-        rangeEnd={blueZeroRatio}
+        frameRef={frameRef}
+        ratioKey="blueZero"
+        consumerId="blue-zero-glow"
         opacity={HERO_ROUTE_RENDERING.blueGlowOpacity}
         glow
       />
@@ -178,7 +172,9 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
         tubularSegments={100}
         radius={HERO_ROUTE_RENDERING.blueCoreRadius}
         color={HERO_PALETTE.blueCore}
-        rangeEnd={blueZeroRatio}
+        frameRef={frameRef}
+        ratioKey="blueZero"
+        consumerId="blue-zero-core"
       />
       <SourceTube
         curve={blueOneCurve}
@@ -188,7 +184,9 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
           HERO_ROUTE_RENDERING.blueGlowRadiusScale
         }
         color={HERO_PALETTE.blueGlow}
-        rangeEnd={blueOneRatio}
+        frameRef={frameRef}
+        ratioKey="blueOne"
+        consumerId="blue-one-glow"
         opacity={HERO_ROUTE_RENDERING.blueGlowOpacity}
         glow
       />
@@ -197,26 +195,24 @@ export function HeroBeam({ snapshot }: { snapshot: HeroJourneySnapshot }) {
         tubularSegments={100}
         radius={HERO_ROUTE_RENDERING.blueCoreRadius}
         color={HERO_PALETTE.blueCore}
-        rangeEnd={blueOneRatio}
+        frameRef={frameRef}
+        ratioKey="blueOne"
+        consumerId="blue-one-core"
       />
 
-      {blueIsActive ? (
-        <>
-          <mesh position={tipPosition} renderOrder={4}>
-            <sphereGeometry args={[0.2, 14, 14]} />
-            <meshBasicMaterial
-              color={HERO_PALETTE.blueCore}
-              toneMapped={false}
-            />
-          </mesh>
-          <pointLight
-            color={HERO_PALETTE.blueGlow}
-            intensity={2.4}
-            distance={5}
-            position={tipPosition}
-          />
-        </>
-      ) : null}
+      <>
+        <mesh ref={tipRef} visible={false} renderOrder={4}>
+          <sphereGeometry args={[0.2, 14, 14]} />
+          <meshBasicMaterial color={HERO_PALETTE.blueCore} toneMapped={false} />
+        </mesh>
+        <pointLight
+          color={HERO_PALETTE.blueGlow}
+          intensity={2.4}
+          distance={5}
+          ref={lightRef}
+          visible={false}
+        />
+      </>
     </group>
   );
 }

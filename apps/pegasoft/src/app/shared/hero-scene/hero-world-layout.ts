@@ -51,10 +51,10 @@ export type HeroWorldZoneLayout = {
   readonly items: readonly HeroWorldLayoutItem[];
 };
 
-// Effectively unbounded for every locked camera pose, including journey exit.
-// Keeping this in the topology model prevents the renderer from reintroducing
-// a platform edge while camera work continues in Phase 8.
+// Coverage is verified by viewport/plane intersections, not this size alone.
 export const HERO_PROXY_GROUND_SIZE = 1000;
+export const HERO_PROXY_GROUND_POSITION: HeroWorldVec3 = [-5, -0.05, 0];
+export const HERO_PROXY_GROUND_ROTATION: HeroWorldVec3 = [-Math.PI / 2, 0, 0];
 
 /**
  * Pure-data proxy layout kept outside the rendering components so every

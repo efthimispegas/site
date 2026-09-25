@@ -2,9 +2,7 @@ import { RoundedBox } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import type { HeroCameraProgressRef } from '../hero-camera';
-import type { HeroJourneySnapshot } from '../hero-contract';
-import { approachHeroGateRatio } from '../hero-local-clock';
+import { acknowledgeHeroFrame, type HeroFrameRef } from '../hero-frame-state';
 import { HERO_PALETTE, HERO_SURFACES } from '../hero-materials';
 import { HERO_DESTINATION_TOPOLOGY } from '../hero-route';
 
@@ -89,7 +87,8 @@ const arrivalMarks = [
   { x: -0.0005, z: 3.1251, rotation: 0 },
 ] as const;
 
-function ArrivalRouteWake({ sceneProgress }: { sceneProgress: number }) {
+function ArrivalRouteWake({ frameRef }: { frameRef: HeroFrameRef }) {
+  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
   const meshRef = useRef<THREE.InstancedMesh>(null);
   const positions = useMemo(() => {
     const points: THREE.Vector3[] = [];
@@ -117,11 +116,19 @@ function ArrivalRouteWake({ sceneProgress }: { sceneProgress: number }) {
     meshRef.current.instanceMatrix.needsUpdate = true;
   }, [positions]);
 
-  const opacity = THREE.MathUtils.smoothstep(sceneProgress, 0.74, 0.9) * 0.44;
-
-  if (sceneProgress < 0.74) {
-    return null;
-  }
+  useFrame(() => {
+    const mesh = meshRef.current;
+    const material = materialRef.current;
+    if (!mesh || !material) return;
+    mesh.visible = frameRef.current.rendered.value >= 0.74;
+    material.opacity =
+      THREE.MathUtils.smoothstep(frameRef.current.rendered.value, 0.74, 0.9) *
+      0.44;
+    acknowledgeHeroFrame(frameRef, 'arrival-wake', {
+      visible: mesh.visible,
+      opacity: material.opacity,
+    });
+  }, -30);
 
   return (
     <instancedMesh
@@ -132,21 +139,16 @@ function ArrivalRouteWake({ sceneProgress }: { sceneProgress: number }) {
       <meshBasicMaterial
         color={HERO_PALETTE.blueDot}
         transparent
-        opacity={opacity}
+        ref={materialRef}
+        opacity={0}
         depthWrite={false}
       />
     </instancedMesh>
   );
 }
 
-export function ArrivalStage({
-  snapshot,
-  settledCameraProgressRef,
-}: {
-  snapshot: HeroJourneySnapshot;
-  settledCameraProgressRef: HeroCameraProgressRef;
-}) {
-  const activationRef = useRef(0);
+export function ArrivalStage({ frameRef }: { frameRef: HeroFrameRef }) {
+  const groupRef = useRef<THREE.Group>(null);
   const baseMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
   const topMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
   const [arrivalX, , arrivalZ] = HERO_DESTINATION_TOPOLOGY.arrival.proxyCenter;
@@ -179,138 +181,143 @@ export function ArrivalStage({
     });
   };
 
-  useFrame((_, deltaSeconds) => {
-    const cameraHasArrived = settledCameraProgressRef.current >= 0.9;
-    activationRef.current =
-      snapshot.motion !== 'full'
-        ? cameraHasArrived
-          ? 1
-          : 0
-        : snapshot.directEntry
-          ? Math.min(1, Math.max(0, snapshot.localClocks.arrivalMs / 500))
-          : approachHeroGateRatio(
-              activationRef.current,
-              cameraHasArrived,
-              deltaSeconds,
-              2,
-            );
-    applyMaterialState(activationRef.current);
-  });
+  useFrame(() => {
+    applyMaterialState(frameRef.current.arrivalRatio);
+    if (groupRef.current)
+      groupRef.current.visible = frameRef.current.rendered.value >= 0.74;
+    acknowledgeHeroFrame(frameRef, 'arrival', {
+      activationRatio:
+        (baseMaterialsRef.current[0]?.emissiveIntensity ?? 0) / (0.32 * 0.45),
+      clockElapsedMs: frameRef.current.arrivalElapsedMs,
+      resetSequence: frameRef.current.arrivalResetSequence,
+      visible: groupRef.current?.visible ?? false,
+      baseEmissiveIntensities: baseMaterialsRef.current.map(
+        (material) => material?.emissiveIntensity ?? -1,
+      ),
+      topEmissiveIntensities: topMaterialsRef.current.map(
+        (material) => material?.emissiveIntensity ?? -1,
+      ),
+      baseColors: baseMaterialsRef.current.flatMap(
+        (material) => material?.color.toArray() ?? [-1, -1, -1],
+      ),
+      topColors: topMaterialsRef.current.flatMap(
+        (material) => material?.color.toArray() ?? [-1, -1, -1],
+      ),
+    });
+  }, -30);
 
   return (
     <>
-      <ArrivalRouteWake sceneProgress={snapshot.sceneTargetProgress} />
-      {snapshot.sceneTargetProgress >= 0.74 ? (
-        <group position={[arrivalX, 0, arrivalZ]}>
-          <ArrowLayer
-            height={0.4}
-            materialRef={(material) => {
-              baseMaterialsRef.current[0] = material;
-            }}
-            positionY={0.5}
-          />
-          <ArrowLayer
-            height={0.15}
-            materialRef={(material) => {
-              topMaterialsRef.current[0] = material;
-            }}
-            positionY={0.9}
-            scale={0.78}
-          />
-          <ArrowLayer
-            height={0.15}
-            materialRef={(material) => {
-              topMaterialsRef.current[1] = material;
-            }}
-            positionY={1.05}
-            scale={0.56}
-          />
-          <ArrowLayer
-            height={0.15}
-            materialRef={(material) => {
-              topMaterialsRef.current[2] = material;
-            }}
-            positionY={1.2}
-            scale={0.335}
-          />
-          {arrivalMarks.map(({ x, z, rotation }, markIndex) => (
-            <group
-              key={`${x}-${z}`}
-              position={[x, 0, z]}
-              rotation={[0, rotation, 0]}
+      <ArrivalRouteWake frameRef={frameRef} />
+      <group ref={groupRef} visible={false} position={[arrivalX, 0, arrivalZ]}>
+        <ArrowLayer
+          height={0.4}
+          materialRef={(material) => {
+            baseMaterialsRef.current[0] = material;
+          }}
+          positionY={0.5}
+        />
+        <ArrowLayer
+          height={0.15}
+          materialRef={(material) => {
+            topMaterialsRef.current[0] = material;
+          }}
+          positionY={0.9}
+          scale={0.78}
+        />
+        <ArrowLayer
+          height={0.15}
+          materialRef={(material) => {
+            topMaterialsRef.current[1] = material;
+          }}
+          positionY={1.05}
+          scale={0.56}
+        />
+        <ArrowLayer
+          height={0.15}
+          materialRef={(material) => {
+            topMaterialsRef.current[2] = material;
+          }}
+          positionY={1.2}
+          scale={0.335}
+        />
+        {arrivalMarks.map(({ x, z, rotation }, markIndex) => (
+          <group
+            key={`${x}-${z}`}
+            position={[x, 0, z]}
+            rotation={[0, rotation, 0]}
+          >
+            <RoundedBox
+              position={[0, 0.7, 0]}
+              args={[1.25, 0.4, 1.25]}
+              radius={0.04}
+              smoothness={3}
+              castShadow
             >
-              <RoundedBox
-                position={[0, 0.7, 0]}
-                args={[1.25, 0.4, 1.25]}
-                radius={0.04}
-                smoothness={3}
-                castShadow
-              >
-                <meshStandardMaterial
-                  ref={(material) => {
-                    baseMaterialsRef.current[markIndex + 1] = material;
-                  }}
-                  color={HERO_PALETTE.surface}
-                  emissive={HERO_PALETTE.surface}
-                  emissiveIntensity={0}
-                  roughness={0.44}
-                />
-              </RoundedBox>
-              <RoundedBox
-                position={[0, 0.975, 0]}
-                args={[0.973, 0.15, 0.973]}
-                radius={0.035}
-                smoothness={3}
-                castShadow
-              >
-                <meshStandardMaterial
-                  ref={(material) => {
-                    topMaterialsRef.current[3 + markIndex * 3] = material;
-                  }}
-                  color={HERO_PALETTE.surfaceTop}
-                  emissive={HERO_PALETTE.surfaceTop}
-                  emissiveIntensity={0}
-                  roughness={0.4}
-                />
-              </RoundedBox>
-              <RoundedBox
-                position={[0, 1.125, 0]}
-                args={[0.696, 0.15, 0.696]}
-                radius={0.03}
-                smoothness={3}
-                castShadow
-              >
-                <meshStandardMaterial
-                  ref={(material) => {
-                    topMaterialsRef.current[4 + markIndex * 3] = material;
-                  }}
-                  color={HERO_PALETTE.surfaceTop}
-                  emissive={HERO_PALETTE.surfaceTop}
-                  emissiveIntensity={0}
-                  roughness={0.4}
-                />
-              </RoundedBox>
-              <RoundedBox
-                position={[0, 1.275, 0]}
-                args={[0.419, 0.15, 0.419]}
-                radius={0.025}
-                smoothness={3}
-                castShadow
-              >
-                <meshStandardMaterial
-                  ref={(material) => {
-                    topMaterialsRef.current[5 + markIndex * 3] = material;
-                  }}
-                  color={HERO_PALETTE.surfaceTop}
-                  emissive={HERO_PALETTE.surfaceTop}
-                  emissiveIntensity={0}
-                  roughness={0.4}
-                />
-              </RoundedBox>
-            </group>
-          ))}
-        </group>
-      ) : null}
+              <meshStandardMaterial
+                ref={(material) => {
+                  baseMaterialsRef.current[markIndex + 1] = material;
+                }}
+                color={HERO_PALETTE.surface}
+                emissive={HERO_PALETTE.surface}
+                emissiveIntensity={0}
+                roughness={0.44}
+              />
+            </RoundedBox>
+            <RoundedBox
+              position={[0, 0.975, 0]}
+              args={[0.973, 0.15, 0.973]}
+              radius={0.035}
+              smoothness={3}
+              castShadow
+            >
+              <meshStandardMaterial
+                ref={(material) => {
+                  topMaterialsRef.current[3 + markIndex * 3] = material;
+                }}
+                color={HERO_PALETTE.surfaceTop}
+                emissive={HERO_PALETTE.surfaceTop}
+                emissiveIntensity={0}
+                roughness={0.4}
+              />
+            </RoundedBox>
+            <RoundedBox
+              position={[0, 1.125, 0]}
+              args={[0.696, 0.15, 0.696]}
+              radius={0.03}
+              smoothness={3}
+              castShadow
+            >
+              <meshStandardMaterial
+                ref={(material) => {
+                  topMaterialsRef.current[4 + markIndex * 3] = material;
+                }}
+                color={HERO_PALETTE.surfaceTop}
+                emissive={HERO_PALETTE.surfaceTop}
+                emissiveIntensity={0}
+                roughness={0.4}
+              />
+            </RoundedBox>
+            <RoundedBox
+              position={[0, 1.275, 0]}
+              args={[0.419, 0.15, 0.419]}
+              radius={0.025}
+              smoothness={3}
+              castShadow
+            >
+              <meshStandardMaterial
+                ref={(material) => {
+                  topMaterialsRef.current[5 + markIndex * 3] = material;
+                }}
+                color={HERO_PALETTE.surfaceTop}
+                emissive={HERO_PALETTE.surfaceTop}
+                emissiveIntensity={0}
+                roughness={0.4}
+              />
+            </RoundedBox>
+          </group>
+        ))}
+      </group>
     </>
   );
 }

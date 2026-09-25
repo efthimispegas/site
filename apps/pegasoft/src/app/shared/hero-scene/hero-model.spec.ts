@@ -1,25 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
 import {
-  dampHeroProgress,
   getResponsiveHeroFov,
   HERO_CAMERA_SOURCE,
   sampleHeroCameraPose,
 } from './hero-camera-model';
 import {
-  HERO_FIELD_REVEAL_RANGE,
-  sampleHeroFieldReveal,
+  HERO_FIELD_STATIC_VISIBILITY,
+  sampleHeroFieldPulse,
 } from './hero-field-model';
-import {
-  approachHeroGateRatio,
-  INACTIVE_HERO_GATE_CLOCK,
-  sampleLoopPhase,
-  updateHeroGateClock,
-} from './hero-local-clock';
-import {
-  sampleLandingRailRange,
-  sampleWorldRevealRailRange,
-} from './hero-landing-rail-model';
+import { approachHeroGateRatio, sampleLoopPhase } from './hero-local-clock';
 import {
   getHeroRoutePoint,
   getHeroRouteProgress,
@@ -28,11 +18,9 @@ import {
   HERO_ARRIVAL_CENTER,
   HERO_BLUE_ROUTE_ZERO_POINTS,
   HERO_DESTINATION_TOPOLOGY,
-  HERO_LANDING_RAIL_PATHS,
   HERO_ROUTE_CONTACTS,
   HERO_ROUTE_EVIDENCE,
   HERO_ROUTE_POINTS,
-  HERO_ROUTE_RENDERING,
   HERO_ROUTE_SCENE_PROGRESS,
   HERO_ROUTE_SEGMENT_PROGRESS,
   HERO_ROUTE_Y,
@@ -56,11 +44,6 @@ describe('hero route, camera, and local clocks', () => {
       clearance: [0.17, 0.74],
       arrival: [0.74, 0.9],
       retreat: [0.9, 1.25],
-    });
-    expect(HERO_ROUTE_RENDERING).toMatchObject({
-      redCoreRadius: 0.075,
-      landingCoreRadius: 0.05,
-      blueCoreRadius: 0.035,
     });
     expect(getHeroRouteProgress(0.17)).toBe(0.25);
     expect(getHeroRouteProgress(0.74)).toBe(0.75);
@@ -125,23 +108,6 @@ describe('hero route, camera, and local clocks', () => {
     }
   });
 
-  it('keeps the landing packet independent and deterministic at locked clocks', () => {
-    expect(HERO_LANDING_RAIL_PATHS).toHaveLength(4);
-    expect(HERO_LANDING_RAIL_PATHS[0][0]).toEqual([-59.225, 0.15, -24.943]);
-    expect(HERO_LANDING_RAIL_PATHS[0].at(-1)).toEqual([-57.538, 0.15, -30.127]);
-
-    expect(sampleWorldRevealRailRange(0.3, 0)).toEqual({
-      start: 0,
-      end: 0.9375,
-    });
-    expect(sampleWorldRevealRailRange(0.3, 3)?.end).toBeCloseTo(0.375, 9);
-    expect(sampleLandingRailRange(2.5, 0)).toBeNull();
-    expect(sampleLandingRailRange(2.5, 2)?.start).toBeCloseTo(0.75, 9);
-    expect(sampleLandingRailRange(2.5, 2)?.end).toBe(1);
-    expect(sampleLandingRailRange(2.5, 3)?.start).toBeCloseTo(0.1875, 9);
-    expect(sampleLandingRailRange(2.5, 3)?.end).toBe(1);
-  });
-
   it('keeps the provisional field composition and arrival adjustment stable', () => {
     const landing = sampleHeroCameraPose(0);
     expect(landing.position).toEqual([-80, 66, 15]);
@@ -183,11 +149,11 @@ describe('hero route, camera, and local clocks', () => {
     expect(sampleHeroCameraPose(0.74)).toEqual(sampleHeroCameraPose(0.74));
   });
 
-  it('reveals the field before its first upper-right preview frame', () => {
-    expect(HERO_FIELD_REVEAL_RANGE).toEqual([0.5, 0.54]);
-    expect(sampleHeroFieldReveal(0.49)).toBe(0);
-    expect(sampleHeroFieldReveal(0.54059)).toBe(1);
-    expect(sampleHeroFieldReveal(0.60928)).toBe(1);
+  it('keeps static field visibility independent from pulse activation', () => {
+    expect(HERO_FIELD_STATIC_VISIBILITY).toBe(1);
+    expect(sampleHeroFieldPulse(1, false, 0, 500)).toBe(0);
+    expect(sampleHeroFieldPulse(1, false, 1, 500)).toBeCloseTo(1, 9);
+    expect(sampleHeroFieldPulse(1, true, 1, 500)).toBe(0);
   });
 
   it('retreats 45 world units on the final local camera axis', () => {
@@ -244,32 +210,7 @@ describe('hero route, camera, and local clocks', () => {
     });
   });
 
-  it.each([
-    { smoothTime: 0.15, settleSeconds: 0.45 },
-    { smoothTime: 0.1, settleSeconds: 0.3 },
-  ])(
-    'settles $smoothTime second damping within the profile budget',
-    ({ smoothTime, settleSeconds }) => {
-      let state = { value: 0, velocity: 0 };
-      const frames = Math.ceil(settleSeconds * 60);
-
-      for (let frame = 0; frame < frames; frame += 1) {
-        state = dampHeroProgress(state, 1, smoothTime, 1 / 60);
-      }
-
-      expect(Math.abs(1 - state.value)).toBeLessThan(0.01);
-    },
-  );
-
-  it('resets and deterministically injects progress-gated local clocks', () => {
-    const entered = updateHeroGateClock(INACTIVE_HERO_GATE_CLOCK, true, 1000);
-    const running = updateHeroGateClock(entered, true, 1400);
-    const reset = updateHeroGateClock(running, false, 1500);
-    const injected = updateHeroGateClock(reset, true, 2000, 2800);
-
-    expect(running.elapsedMs).toBe(400);
-    expect(reset).toBe(INACTIVE_HERO_GATE_CLOCK);
-    expect(injected.elapsedMs).toBe(2800);
+  it('retains finite loop and gate primitives without output injection', () => {
     expect(sampleLoopPhase(800, 3200)).toBe(0.25);
     expect(approachHeroGateRatio(0, true, 0.25)).toBe(0.5);
     expect(approachHeroGateRatio(0.5, true, 0.25)).toBe(1);

@@ -174,13 +174,15 @@ export type HeroLocalClocks = {
 };
 
 export type HeroRuntimeProfile = {
+  /** Layout/capture metadata only; no rendering policy may branch on this label. */
   id: HeroViewportProfileId;
   inputClass: HeroInputClass;
   motion: HeroMotionProfile;
+  sourceMobileDevice: boolean;
+  sourceIosDevice: boolean;
   cameraSmoothTimeSeconds: number;
   maxDpr: number;
   pointerTrail: boolean;
-  journeyHeightSvh: number;
 };
 
 /**
@@ -189,11 +191,24 @@ export type HeroRuntimeProfile = {
  * hero progress and presentation values.
  */
 export type HeroPageScrollMeasurement = {
+  measurementSequence: number;
+  measuredAtMs: number;
   scrollY: number;
+  viewportWidth: number;
   viewportHeight: number;
-  flowViewportTop: number;
+  effectiveHeroHeight: number;
+  wrapperHeight: number;
+  flowDocumentTop: number;
   flowHeight: number;
   fieldSectionViewportTop: number | null;
+};
+
+export type HeroProgressSnapshot = {
+  measurementSequence: number;
+  valid: boolean;
+  invalidReason: string | null;
+  domProgress: number;
+  sceneTargetProgress: number;
 };
 
 export type HeroDomPresentation = {
@@ -205,8 +220,18 @@ export type HeroDomPresentation = {
 };
 
 export type HeroJourneySnapshot = {
+  capabilitiesReady?: boolean;
+  /** Compatibility alias for DOM progress only; never scene/rendered progress. */
   rawProgress: number;
+  domProgress: number;
   sceneTargetProgress: number;
+  progress: HeroProgressSnapshot;
+  physicalInput: HeroPageScrollMeasurement | null;
+  /** A capture input recipe, never an expected renderer/DOM output. */
+  captureRequest: {
+    stateKey: HeroReferenceStateKey;
+    sceneTargetSelection: number;
+  } | null;
   lifecycle: HeroLifecycle;
   motion: HeroMotionProfile;
   profile: HeroRuntimeProfile;
@@ -221,6 +246,10 @@ export type HeroJourneySnapshot = {
 };
 
 export type HeroControllerInput = {
+  userAgent?: string;
+  touchEndAvailable?: boolean;
+  msStreamAvailable?: boolean;
+  /** Deprecated compatibility input; cannot replace a physical measurement. */
   rawProgress?: number;
   pageMeasurement?: HeroPageScrollMeasurement;
   lifecycleElapsedMs: number;
@@ -231,6 +260,8 @@ export type HeroControllerInput = {
   reducedMotion: boolean;
   webglAvailable: boolean;
   directStateKey?: HeroReferenceStateKey | null;
+  /** Deprecated and ignored: S2 test controls must replay a lawful clock history. */
   localTimeOverrideMs?: number | null;
+  /** Deprecated and ignored: coupled clocks belong to the S2 frame owner. */
   localClocks?: Partial<HeroLocalClocks>;
 };

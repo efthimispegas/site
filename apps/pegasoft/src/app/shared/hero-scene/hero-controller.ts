@@ -5,17 +5,12 @@ import {
   type HeroJourneySnapshot,
   type HeroLifecycle,
   type HeroLocalClocks,
-  type HeroRuntimeState,
 } from './hero-contract';
 import { selectHeroRuntimeProfile } from './hero-profile';
 import {
-  clampRawProgress,
-  clampSceneProgress,
+  deriveHeroProgress,
   getDomStepSnapshot,
   getHeroDomPresentation,
-  getRawJourneyProgress,
-  mapRawProgressToScene,
-  mapSceneProgressToRaw,
 } from './hero-sequence';
 import { getHeroRuntimeState } from './hero-runtime-states';
 
@@ -24,31 +19,13 @@ const WORLD_REVEAL_END_MS = 4800;
 const LANDING_IDLE_START_MS = 6500;
 
 function lifecycleFor(
-  directState: HeroRuntimeState | null,
-  rawProgress: number,
+  scrollY: number,
   sceneProgress: number,
   lifecycleElapsedMs: number,
 ): HeroLifecycle {
-  if (directState) {
-    if (directState.phase === 'loader' || directState.phase === 'reveal') {
-      return 'loading';
-    }
-
-    if (directState.phase === 'landing') {
-      return 'landing';
-    }
-
-    return directState.phase === 'exit' ? 'exit' : 'journey';
-  }
-
-  if (rawProgress <= 0 && lifecycleElapsedMs < WORLD_REVEAL_END_MS) {
+  if (scrollY <= 0 && lifecycleElapsedMs < WORLD_REVEAL_END_MS)
     return 'loading';
-  }
-
-  if (rawProgress <= 0) {
-    return 'landing';
-  }
-
+  if (scrollY <= 0) return 'landing';
   return sceneProgress >= 1 ? 'exit' : 'journey';
 }
 
@@ -137,53 +114,18 @@ function automatedReferenceState(
   return getHeroRuntimeState('journey-exit');
 }
 
-function resolveLocalClocks(
-  input: HeroControllerInput,
-  directState: HeroRuntimeState | null,
-): HeroLocalClocks {
-  const clocks = directState
-    ? { ...directState.captureClocks }
-    : {
-        loaderMs: Math.max(0, input.lifecycleElapsedMs),
-        landingIdleMs: Math.max(
-          0,
-          input.lifecycleElapsedMs - WORLD_REVEAL_END_MS,
-        ),
-        fieldPulseMs: 0,
-        arrivalMs: 0,
-      };
-
-  Object.assign(clocks, input.localClocks);
-
-  if (
-    input.localTimeOverrideMs !== undefined &&
-    input.localTimeOverrideMs !== null
-  ) {
-    const localTime = Math.max(0, input.localTimeOverrideMs);
-
-    if (
-      directState?.key === 'field-contact' ||
-      directState?.key === 'field-pulse-a' ||
-      directState?.key === 'field-pulse-b'
-    ) {
-      clocks.fieldPulseMs = localTime;
-    } else if (
-      directState?.key === 'arrival-travel' ||
-      directState?.key === 'arrival-lockup' ||
-      directState?.key === 'journey-exit'
-    ) {
-      clocks.arrivalMs = localTime;
-    } else if (
-      directState?.key === 'landing' ||
-      directState?.key === 'landing-idle'
-    ) {
-      clocks.landingIdleMs = localTime;
-    } else {
-      clocks.loaderMs = localTime;
-    }
-  }
-
-  return clocks;
+function resolveLocalClocks(input: HeroControllerInput): HeroLocalClocks {
+  const elapsedMs = Number.isFinite(input.lifecycleElapsedMs)
+    ? Math.max(0, input.lifecycleElapsedMs)
+    : 0;
+  // S2 replaces coupled local clocks with the shared applied-frame owner.
+  // Capture labels/times do not set elapsed effect outputs here.
+  return {
+    loaderMs: elapsedMs,
+    landingIdleMs: Math.max(0, elapsedMs - WORLD_REVEAL_END_MS),
+    fieldPulseMs: 0,
+    arrivalMs: 0,
+  };
 }
 
 export function createHeroJourneySnapshot(
@@ -193,50 +135,42 @@ export function createHeroJourneySnapshot(
   const directState = input.directStateKey
     ? getHeroRuntimeState(input.directStateKey)
     : null;
-  const measuredRawProgress = input.pageMeasurement
-    ? getRawJourneyProgress(input.pageMeasurement)
-    : clampRawProgress(input.rawProgress ?? 0);
-  const rawProgress = directState
-    ? directState.progress.target === null
-      ? 0
-      : mapSceneProgressToRaw(directState.progress.target, profile.id)
-    : measuredRawProgress;
-  const mappedSceneProgress = mapRawProgressToScene(rawProgress, profile.id);
-  const sceneTargetProgress = clampSceneProgress(
-    directState?.progress.target ?? mappedSceneProgress,
-  );
+  const progress = deriveHeroProgress(input.pageMeasurement);
+  const rawProgress = progress.domProgress;
+  const sceneTargetProgress = progress.sceneTargetProgress;
   const lifecycle = lifecycleFor(
-    directState,
-    rawProgress,
+    progress.valid && input.pageMeasurement ? input.pageMeasurement.scrollY : 0,
     sceneTargetProgress,
     input.lifecycleElapsedMs,
   );
-  const { stepIndex: mappedStepIndex, stepProgress } =
-    getDomStepSnapshot(sceneTargetProgress);
-  const stepIndex = directState?.processStepIndex ?? mappedStepIndex;
-  const localClocks = resolveLocalClocks(input, directState);
-  const referenceState =
-    directState ??
-    automatedReferenceState(
-      lifecycle,
-      input.lifecycleElapsedMs,
-      sceneTargetProgress,
-      localClocks.fieldPulseMs,
-    );
-  const dom = getHeroDomPresentation(
-    rawProgress,
-    directState ? undefined : input.pageMeasurement,
+  const { stepIndex, stepProgress } = getDomStepSnapshot(progress.domProgress);
+  const localClocks = resolveLocalClocks(input);
+  const referenceState = automatedReferenceState(
+    lifecycle,
+    input.lifecycleElapsedMs,
+    sceneTargetProgress,
+    localClocks.fieldPulseMs,
   );
+  const dom = getHeroDomPresentation(rawProgress, input.pageMeasurement);
 
   return {
     rawProgress,
+    domProgress: progress.domProgress,
     sceneTargetProgress,
+    progress,
+    physicalInput: input.pageMeasurement ?? null,
+    captureRequest: directState
+      ? {
+          stateKey: directState.key,
+          sceneTargetSelection: directState.progress.target ?? 0,
+        }
+      : null,
     lifecycle,
     motion: profile.motion,
     profile,
     stepIndex,
-    stepProgress: directState ? 1 : stepProgress,
-    copyState: directState?.copyState ?? copyStateFor(lifecycle, stepIndex),
+    stepProgress,
+    copyState: copyStateFor(lifecycle, stepIndex),
     referenceState,
     localClocks,
     deterministicSeed: HERO_CAPTURE_SEED,

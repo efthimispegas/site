@@ -11,8 +11,9 @@
 
 .field canvas {
   display: block;
-  width: 100% !important;
-  height: 100% !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100lvh !important;
   opacity: 0;
   transition: opacity 0.7s ease-out;
 }

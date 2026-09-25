@@ -7,8 +7,13 @@ import type {
   HeroReferenceStateKey,
 } from './hero-contract';
 import { createHeroJourneySnapshot } from './hero-controller';
+import { HERO_TEST_DIAGNOSTICS } from './hero-test-diagnostics';
 
 type HeroCapabilities = {
+  resolved: boolean;
+  userAgent: string;
+  touchEndAvailable: boolean;
+  msStreamAvailable: boolean;
   viewportWidth: number;
   viewportHeight: number;
   devicePixelRatio: number;
@@ -18,6 +23,10 @@ type HeroCapabilities = {
 };
 
 const SERVER_CAPABILITIES: HeroCapabilities = {
+  resolved: false,
+  userAgent: '',
+  touchEndAvailable: false,
+  msStreamAvailable: false,
   viewportWidth: 1440,
   viewportHeight: 900,
   devicePixelRatio: 1,
@@ -97,7 +106,7 @@ export function useHeroJourneyController(
   }, []);
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' && !HERO_TEST_DIAGNOSTICS) {
       return;
     }
 
@@ -126,6 +135,12 @@ export function useHeroJourneyController(
 
     const updateCapabilities = () => {
       setCapabilities({
+        resolved: true,
+        userAgent: navigator.userAgent,
+        touchEndAvailable: 'ontouchend' in document,
+        msStreamAvailable: Boolean(
+          (window as Window & { MSStream?: unknown }).MSStream,
+        ),
         viewportWidth: window.innerWidth,
         viewportHeight: window.innerHeight,
         devicePixelRatio: window.devicePixelRatio || 1,
@@ -149,8 +164,8 @@ export function useHeroJourneyController(
   }, [developmentControl.forceFallback]);
 
   return useMemo(
-    () =>
-      createHeroJourneySnapshot({
+    () => ({
+      ...createHeroJourneySnapshot({
         pageMeasurement,
         lifecycleElapsedMs: capabilities.reducedMotion
           ? Math.max(lifecycleElapsedMs, 8000)
@@ -161,6 +176,8 @@ export function useHeroJourneyController(
         directStateKey: developmentControl.stateKey,
         localTimeOverrideMs: developmentControl.localTimeMs,
       }),
+      capabilitiesReady: capabilities.resolved,
+    }),
     [capabilities, developmentControl, lifecycleElapsedMs, pageMeasurement],
   );
 }

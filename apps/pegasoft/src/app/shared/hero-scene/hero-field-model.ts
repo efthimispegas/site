@@ -1,17 +1,18 @@
-import * as THREE from 'three';
-import { clampSceneProgress } from './hero-sequence';
+import { HERO_FIELD_PULSE_PERIOD_MS } from './hero-frame-state';
+import { sampleLoopPhase } from './hero-local-clock';
 
-export const HERO_FIELD_REVEAL_RANGE = [0.5, 0.54] as const;
+export const HERO_FIELD_STATIC_VISIBILITY = 1;
 
-/**
- * The field is already materially present when the reference first clips it at
- * the upper-right edge. Camera framing owns that entrance; opacity only avoids
- * exposing the field earlier in the clearance travel.
- */
-export function sampleHeroFieldReveal(progress: number) {
-  return THREE.MathUtils.smoothstep(
-    clampSceneProgress(progress),
-    HERO_FIELD_REVEAL_RANGE[0],
-    HERO_FIELD_REVEAL_RANGE[1],
+/** Static tile visibility is independent of the source grid activation ratio. */
+export function sampleHeroFieldPulse(
+  distance: number,
+  center: boolean,
+  ratio: number,
+  elapsedMs: number,
+) {
+  if (center) return 0;
+  const radius = sampleLoopPhase(elapsedMs, HERO_FIELD_PULSE_PERIOD_MS) * 7.07;
+  return (
+    Math.min(1, Math.max(0, 1 - Math.abs(distance - radius) / 1.2)) * ratio
   );
 }

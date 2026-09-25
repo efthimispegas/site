@@ -10,10 +10,16 @@ import type {
   HeroPageScrollMeasurement,
 } from './hero-scene/hero-contract';
 import type { HeroDevelopmentDiagnostics } from './hero-scene/hero-development-diagnostics';
+import type { HeroAttemptState } from './hero-scene/hero-attempt';
 import { HeroScene } from './hero-scene/hero-scene';
+import { HERO_TEST_DIAGNOSTICS } from './hero-scene/hero-test-diagnostics';
 import {
   getScrollYForRawJourneyProgress,
+  getScrollYForSceneProgress,
+  getEffectiveHeroHeight,
+  isHeroMobileDevice,
   HERO_STEP_STARTS,
+  HERO_STEP_NAVIGATION_OFFSETS,
 } from './hero-scene/hero-sequence';
 import heroStyles from './hero-scene/hero-shell.module.css';
 import { useHeroJourneyController } from './hero-scene/use-hero-controller';
@@ -85,9 +91,14 @@ const faqItems = [
 ];
 
 const INITIAL_PAGE_MEASUREMENT: HeroPageScrollMeasurement = {
+  measurementSequence: 0,
+  measuredAtMs: 0,
+  viewportWidth: 1440,
+  effectiveHeroHeight: 900,
+  wrapperHeight: 900,
   scrollY: 0,
   viewportHeight: 900,
-  flowViewportTop: 0,
+  flowDocumentTop: 0,
   flowHeight: 900,
   fieldSectionViewportTop: null,
 };
@@ -110,7 +121,10 @@ function pageMeasurementsMatch(
   return (
     Math.abs(current.scrollY - next.scrollY) < 0.01 &&
     Math.abs(current.viewportHeight - next.viewportHeight) < 0.01 &&
-    Math.abs(current.flowViewportTop - next.flowViewportTop) < 0.01 &&
+    Math.abs(current.flowDocumentTop - next.flowDocumentTop) < 0.01 &&
+    current.viewportWidth === next.viewportWidth &&
+    current.effectiveHeroHeight === next.effectiveHeroHeight &&
+    current.wrapperHeight === next.wrapperHeight &&
     Math.abs(current.flowHeight - next.flowHeight) < 0.01 &&
     fieldTopMatches
   );
@@ -199,6 +213,7 @@ export function PegasoftHome() {
     process.env['NEXT_PUBLIC_BOOKING_URL'] ?? 'mailto:hello@pegasoft.studio';
 
   const flowRef = useRef<HTMLElement>(null);
+  const flowWrapperRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLElement>(null);
   const standardsRef = useRef<HTMLElement>(null);
   const faqRef = useRef<HTMLElement>(null);
@@ -211,6 +226,8 @@ export function PegasoftHome() {
   const initializedDirectStateRef = useRef<string | null>(null);
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [heroAttemptState, setHeroAttemptState] =
+    useState<HeroAttemptState>('initializing');
   const [pageMeasurement, setPageMeasurement] =
     useState<HeroPageScrollMeasurement>(INITIAL_PAGE_MEASUREMENT);
   const [activeFaqIndex, setActiveFaqIndex] = useState(0);
@@ -220,16 +237,18 @@ export function PegasoftHome() {
   const heroJourney = useHeroJourneyController(pageMeasurement);
   const developmentHeroDiagnostics =
     getDevelopmentHeroDiagnostics?.(heroJourney) ?? {};
-  const sceneReady =
-    heroJourney.motion === 'reduced' ||
-    heroJourney.localClocks.loaderMs >= 2100;
+  const usableFallback = heroAttemptState === 'fallback';
+  const sceneReady = heroAttemptState === 'ready';
   const loaderRevealing =
+    usableFallback ||
     heroJourney.motion === 'reduced' ||
     heroJourney.localClocks.loaderMs >= 3200;
   const loaderHidden =
+    usableFallback ||
     heroJourney.motion === 'reduced' ||
     heroJourney.localClocks.loaderMs >= 4800;
   const pageReady =
+    usableFallback ||
     heroJourney.motion === 'reduced' ||
     heroJourney.localClocks.loaderMs >= 3595;
   const fieldClipBottom = Math.min(
@@ -243,7 +262,7 @@ export function PegasoftHome() {
   );
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' && !HERO_TEST_DIAGNOSTICS) {
       return;
     }
 
@@ -274,52 +293,34 @@ export function PegasoftHome() {
   }, [loaderHidden, mobileMenuOpen]);
 
   useLayoutEffect(() => {
-    if (process.env.NODE_ENV === 'production' || !heroJourney.directEntry) {
+    const request = heroJourney.captureRequest;
+    if (
+      (process.env.NODE_ENV === 'production' && !HERO_TEST_DIAGNOSTICS) ||
+      !request ||
+      !heroJourney.progress.valid ||
+      !loaderHidden
+    )
       return;
-    }
+    if (initializedDirectStateRef.current === request.stateKey) return;
 
+    // Recipe selection becomes a physical scroll event. The next normal page
+    // measurement determines copy, lifecycle, and DOM progress without overrides.
     const documentRoot = document.documentElement;
     const previousScrollBehavior = documentRoot.style.scrollBehavior;
     documentRoot.style.scrollBehavior = 'auto';
-    const directStateKey = heroJourney.referenceState.key;
-
-    if (initializedDirectStateRef.current === directStateKey) {
-      documentRoot.style.scrollBehavior = previousScrollBehavior;
-      return;
-    }
-
-    if (
-      heroJourney.lifecycle === 'loading' ||
-      heroJourney.lifecycle === 'landing'
-    ) {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-      initializedDirectStateRef.current = directStateKey;
-      return () => {
-        documentRoot.style.scrollBehavior = previousScrollBehavior;
-      };
-    }
-
-    if (pageMeasurement.flowHeight <= pageMeasurement.viewportHeight) {
-      documentRoot.style.scrollBehavior = previousScrollBehavior;
-      return;
-    }
-
     window.scrollTo({
-      top: getScrollYForRawJourneyProgress(
-        heroJourney.rawProgress,
+      top: getScrollYForSceneProgress(
+        request.sceneTargetSelection,
         pageMeasurement,
       ),
       behavior: 'auto',
     });
-    initializedDirectStateRef.current = directStateKey;
-
-    return () => {
-      documentRoot.style.scrollBehavior = previousScrollBehavior;
-    };
+    initializedDirectStateRef.current = request.stateKey;
+    documentRoot.style.scrollBehavior = previousScrollBehavior;
   }, [
-    heroJourney.directEntry,
-    heroJourney.lifecycle,
-    heroJourney.rawProgress,
+    heroJourney.captureRequest,
+    heroJourney.progress.valid,
+    loaderHidden,
     pageMeasurement,
   ]);
 
@@ -418,16 +419,36 @@ export function PegasoftHome() {
       );
     };
 
+    let measurementSequence = 0;
+    let effectiveHeroHeight = 0;
+    let orientationReset = false;
+    const sourceMobileDevice = isHeroMobileDevice(
+      navigator.userAgent,
+      'ontouchend' in document,
+      Boolean((window as Window & { MSStream?: unknown }).MSStream),
+    );
     const update = () => {
       frame = 0;
       const flowSection = flowRef.current;
       const featureSection = featuresRef.current;
       const flowRect = flowSection?.getBoundingClientRect();
       const featureRect = featureSection?.getBoundingClientRect();
+      effectiveHeroHeight = getEffectiveHeroHeight(
+        window.innerHeight,
+        effectiveHeroHeight,
+        sourceMobileDevice,
+        orientationReset,
+      );
+      orientationReset = false;
       const nextMeasurement: HeroPageScrollMeasurement = {
+        measurementSequence: ++measurementSequence,
+        measuredAtMs: performance.now(),
+        viewportWidth: window.innerWidth,
+        effectiveHeroHeight,
+        wrapperHeight: flowWrapperRef.current?.offsetHeight ?? 0,
         scrollY: window.scrollY,
         viewportHeight: window.innerHeight,
-        flowViewportTop: flowRect?.top ?? 0,
+        flowDocumentTop: (flowRect?.top ?? 0) + window.scrollY,
         flowHeight: flowSection?.offsetHeight ?? window.innerHeight,
         fieldSectionViewportTop: featureRect?.top ?? null,
       };
@@ -455,6 +476,10 @@ export function PegasoftHome() {
       frame = window.requestAnimationFrame(update);
     };
 
+    const scheduleOrientationUpdate = () => {
+      orientationReset = true;
+      scheduleUpdate();
+    };
     update();
     const geometryObserver = new ResizeObserver(scheduleUpdate);
     const flowSection = flowRef.current;
@@ -467,6 +492,9 @@ export function PegasoftHome() {
       geometryObserver.observe(featureSection);
     }
 
+    if (flowWrapperRef.current)
+      geometryObserver.observe(flowWrapperRef.current);
+    window.addEventListener('orientationchange', scheduleOrientationUpdate);
     window.addEventListener('scroll', scheduleUpdate, { passive: true });
     window.addEventListener('resize', scheduleUpdate);
     window.visualViewport?.addEventListener('resize', scheduleUpdate);
@@ -477,6 +505,10 @@ export function PegasoftHome() {
       }
 
       geometryObserver.disconnect();
+      window.removeEventListener(
+        'orientationchange',
+        scheduleOrientationUpdate,
+      );
       window.removeEventListener('scroll', scheduleUpdate);
       window.removeEventListener('resize', scheduleUpdate);
       window.visualViewport?.removeEventListener('resize', scheduleUpdate);
@@ -485,7 +517,7 @@ export function PegasoftHome() {
 
   const scrollToProcess = () => {
     window.scrollTo({
-      top: pageMeasurement.scrollY + pageMeasurement.flowViewportTop,
+      top: pageMeasurement.flowDocumentTop,
       behavior: 'smooth',
     });
   };
@@ -493,7 +525,7 @@ export function PegasoftHome() {
   const jumpToFlowStep = (index: number) => {
     window.scrollTo({
       top: getScrollYForRawJourneyProgress(
-        HERO_STEP_STARTS[index],
+        HERO_STEP_STARTS[index] + HERO_STEP_NAVIGATION_OFFSETS[index],
         pageMeasurement,
       ),
       behavior: 'smooth',
@@ -504,10 +536,7 @@ export function PegasoftHome() {
       className={clsx(styles.root, 'pegasoft-vectr-page')}
       style={
         {
-          '--color-bg':
-            heroJourney.profile.id === 'recording-desktop'
-              ? '#c8dae5'
-              : '#d0e1eb',
+          '--color-bg': '#d0e1eb',
         } as CSSProperties
       }
     >
@@ -668,6 +697,7 @@ export function PegasoftHome() {
         data-scene-live={sceneReady}
         data-copy-live={pageReady}
         data-loader-cleared={loaderHidden}
+        data-hero-attempt-state={heroAttemptState}
         {...developmentHeroDiagnostics}
         style={
           {
@@ -679,11 +709,14 @@ export function PegasoftHome() {
               heroJourney.dom.flowRevealProgress.toFixed(4),
             '--field-visibility': heroJourney.dom.fieldVisibility.toFixed(4),
             '--field-clip-bottom': `${fieldClipBottom}px`,
-            '--hero-journey-height': `${heroJourney.profile.journeyHeightSvh}svh`,
           } as CSSProperties
         }
       >
-        <HeroScene snapshot={heroJourney} />
+        <HeroScene
+          snapshot={heroJourney}
+          localEffectsActive={loaderHidden}
+          onAttemptStateChange={setHeroAttemptState}
+        />
 
         <section
           className={clsx(heroStyles.hero, {
@@ -721,7 +754,7 @@ export function PegasoftHome() {
         <div className={heroStyles.heroSpacer} />
 
         <section ref={flowRef} className={heroStyles.flow} data-hero-process="">
-          <div className={heroStyles.flowWrapper}>
+          <div ref={flowWrapperRef} className={heroStyles.flowWrapper}>
             <div className={heroStyles.flowSteps}>
               {flowSteps.map((step, index) => (
                 <div

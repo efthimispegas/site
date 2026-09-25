@@ -2,14 +2,16 @@ import { RoundedBox } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import type { HeroJourneySnapshot } from '../hero-contract';
-import { sampleHeroFieldReveal } from '../hero-field-model';
 import {
-  INACTIVE_HERO_GATE_CLOCK,
-  sampleLoopPhase,
-  updateHeroGateClock,
-  type HeroGateClockState,
-} from '../hero-local-clock';
+  acknowledgeHeroFrame,
+  HERO_FIELD_PULSE_PERIOD_MS,
+  type HeroFrameRef,
+} from '../hero-frame-state';
+import {
+  HERO_FIELD_STATIC_VISIBILITY,
+  sampleHeroFieldPulse,
+} from '../hero-field-model';
+import { sampleLoopPhase } from '../hero-local-clock';
 import { HERO_PALETTE } from '../hero-materials';
 import { HERO_DESTINATION_TOPOLOGY } from '../hero-route';
 import { Worker } from './primitives';
@@ -18,7 +20,6 @@ const fieldTileRgb = [0xee / 255, 0xf5 / 255, 0xf8 / 255] as const;
 const fieldPulseRgb = [0x57 / 255, 0xcd / 255, 1] as const;
 const fieldPulseEmissiveRgb = [0x57 / 255, 0xcd / 255, 1] as const;
 const fieldCenterRgb = [0x39 / 255, 0x32 / 255, 0xdc / 255] as const;
-const FIELD_CONTACT_PROGRESS = 0.74;
 const FIELD_PULSE_MAX_RADIUS = 7.07;
 const FIELD_TILE_SPACING = 2.3;
 const FIELD_TILE_SIZE = 2;
@@ -26,7 +27,7 @@ const FIELD_TILE_HEIGHT = 0.15;
 
 // Current Vectr source advances the radial grid clock by two cells per second
 // and wraps it at 7.07 cells.
-export const FIELD_PULSE_PERIOD_MS = 3535;
+export const FIELD_PULSE_PERIOD_MS = HERO_FIELD_PULSE_PERIOD_MS;
 
 type FieldTileMaterial = {
   color: { setRGB: (red: number, green: number, blue: number) => unknown };
@@ -39,19 +40,10 @@ type FieldContactLight = {
   intensity: number;
 };
 
-export function FieldMatchStage({
-  snapshot,
-}: {
-  snapshot: HeroJourneySnapshot;
-}) {
+export function FieldMatchStage({ frameRef }: { frameRef: HeroFrameRef }) {
   const materialsRef = useRef<Array<FieldTileMaterial | null>>([]);
   const meshesRef = useRef<Array<THREE.Mesh | null>>([]);
   const contactLightRef = useRef<FieldContactLight | null>(null);
-  const pulseClockRef = useRef<HeroGateClockState>(INACTIVE_HERO_GATE_CLOCK);
-  const contactActive =
-    snapshot.sceneTargetProgress >= FIELD_CONTACT_PROGRESS &&
-    snapshot.sceneTargetProgress < 0.9;
-  const fieldReveal = sampleHeroFieldReveal(snapshot.sceneTargetProgress);
   const [fieldX, , fieldZ] = HERO_DESTINATION_TOPOLOGY.field.proxyCenter;
   const tiles = useMemo(() => {
     const rowSpans = [
@@ -88,29 +80,20 @@ export function FieldMatchStage({
     });
   }, []);
 
-  useFrame(({ clock }) => {
-    const nowMs = clock.getElapsedTime() * 1000;
-    const frozenReducedPulseMs =
-      snapshot.motion === 'reduced'
-        ? Math.max(300, snapshot.localClocks.fieldPulseMs)
-        : null;
-    pulseClockRef.current = updateHeroGateClock(
-      pulseClockRef.current,
-      contactActive,
-      nowMs,
-      frozenReducedPulseMs ??
-        (snapshot.directEntry ? snapshot.localClocks.fieldPulseMs : null),
-    );
-    const pulseProgress = sampleLoopPhase(
-      pulseClockRef.current.elapsedMs,
-      FIELD_PULSE_PERIOD_MS,
-    );
-    const pulseRadius = pulseProgress * FIELD_PULSE_MAX_RADIUS;
+  useFrame(() => {
+    const frame = frameRef.current;
+    const gridRatio = frame.ratios.field;
+    const pulseRadius =
+      sampleLoopPhase(frame.fieldElapsedMs, FIELD_PULSE_PERIOD_MS) *
+      FIELD_PULSE_MAX_RADIUS;
 
     if (contactLightRef.current) {
-      contactLightRef.current.intensity = contactActive
-        ? (1 - THREE.MathUtils.smoothstep(pulseRadius, 0.8, 2.4)) * 1.8
-        : 0;
+      contactLightRef.current.intensity =
+        gridRatio > 0
+          ? (1 - THREE.MathUtils.smoothstep(pulseRadius, 0.8, 2.4)) *
+            1.8 *
+            gridRatio
+          : 0;
     }
 
     tiles.forEach(({ x, z, distance, height }, index) => {
@@ -121,12 +104,12 @@ export function FieldMatchStage({
       }
 
       const center = x === 0 && z === 0;
-      const distanceFromPulse = Math.abs(distance - pulseRadius);
-      const pulseStrength = contactActive
-        ? center
-          ? 0
-          : THREE.MathUtils.clamp(1 - distanceFromPulse / 1.2, 0, 1)
-        : 0;
+      const pulseStrength = sampleHeroFieldPulse(
+        distance,
+        center,
+        gridRatio,
+        frame.fieldElapsedMs,
+      );
       const pulseDisplacement = pulseStrength * pulseStrength;
 
       if (mesh) {
@@ -135,11 +118,21 @@ export function FieldMatchStage({
         mesh.position.y = (height * heightScale) / 2;
       }
 
-      material.opacity = fieldReveal;
-      if (center && contactActive) {
-        material.color.setRGB(...fieldCenterRgb);
-        material.emissive.setRGB(...fieldCenterRgb);
-        material.emissiveIntensity = 0.65;
+      material.opacity = HERO_FIELD_STATIC_VISIBILITY;
+      if (center) {
+        material.color.setRGB(
+          ...(fieldTileRgb.map((value, channel) =>
+            THREE.MathUtils.lerp(value, fieldCenterRgb[channel], gridRatio),
+          ) as [number, number, number]),
+        );
+        material.emissive.setRGB(
+          ...(fieldCenterRgb.map((value) => value * gridRatio) as [
+            number,
+            number,
+            number,
+          ]),
+        );
+        material.emissiveIntensity = 0.65 * gridRatio;
       } else {
         material.color.setRGB(
           THREE.MathUtils.lerp(
@@ -166,11 +159,23 @@ export function FieldMatchStage({
         material.emissiveIntensity = pulseStrength * 1.45;
       }
     });
-  });
-
-  if (fieldReveal <= 0) {
-    return null;
-  }
+    acknowledgeHeroFrame(frameRef, 'field', {
+      gridRatio:
+        (materialsRef.current[
+          tiles.findIndex((tile) => tile.x === 0 && tile.z === 0)
+        ]?.emissiveIntensity ?? 0) / 0.65,
+      clockElapsedMs: frame.fieldElapsedMs,
+      resetSequence: frame.fieldResetSequence,
+      opacities: materialsRef.current.map(
+        (material) => material?.opacity ?? -1,
+      ),
+      emissiveIntensities: materialsRef.current.map(
+        (material) => material?.emissiveIntensity ?? -1,
+      ),
+      scalesY: meshesRef.current.map((mesh) => mesh?.scale.y ?? -1),
+      contactLightIntensity: contactLightRef.current?.intensity ?? -1,
+    });
+  }, -30);
 
   return (
     <group position={[fieldX, 0, fieldZ]}>
@@ -200,7 +205,7 @@ export function FieldMatchStage({
               emissive="#000000"
               emissiveIntensity={0}
               transparent
-              opacity={fieldReveal}
+              opacity={HERO_FIELD_STATIC_VISIBILITY}
               roughness={0.64}
             />
           </RoundedBox>
