@@ -28,8 +28,8 @@ export const HERO_ROUTE_SCENE_PROGRESS = {
 
 export const HERO_ROUTE_RENDERING = {
   redCoreRadius: 0.075,
-  landingCoreRadius: 0.05,
-  blueCoreRadius: 0.035,
+  landingCoreRadius: 0.075,
+  blueCoreRadius: 0.125,
   blueGlowRadiusScale: 2.15,
   blueGlowOpacity: 0.2,
   radialSegments: 8,
@@ -103,37 +103,15 @@ export const HERO_ACTIVATION_FEEDER_PATHS = [
   ],
 ] as const satisfies readonly (readonly HeroTuple3[])[];
 
-export const HERO_LANDING_RAIL_PATHS = [
-  [
-    [-59.225, HERO_ROUTE_Y, -24.943],
-    [-58.9, HERO_ROUTE_Y, -25.7],
-    [-58.6, HERO_ROUTE_Y, -26.2],
-    [-58.6, HERO_ROUTE_Y, -27.2],
-    [-57.8, HERO_ROUTE_Y, -28.4],
-    [-57.538, HERO_ROUTE_Y, -30.127],
-  ],
-  [
-    [-58.097, HERO_ROUTE_Y, -24.266],
-    [-57.8, HERO_ROUTE_Y, -25.25],
-    [-57.45, HERO_ROUTE_Y, -26.15],
-    [-56.9, HERO_ROUTE_Y, -27],
-    [-56.701, HERO_ROUTE_Y, -28.825],
-  ],
-  [
-    [-56.969, HERO_ROUTE_Y, -23.589],
-    [-56.7, HERO_ROUTE_Y, -24.8],
-    [-55.75, HERO_ROUTE_Y, -25.65],
-    [-55.1, HERO_ROUTE_Y, -26.7],
-    [-54.946, HERO_ROUTE_Y, -28.572],
-  ],
-  [
-    [-55.841, HERO_ROUTE_Y, -22.912],
-    [-55.55, HERO_ROUTE_Y, -24],
-    [-54.65, HERO_ROUTE_Y, -24.8],
-    [-53.9, HERO_ROUTE_Y, -25.65],
-    [-53.654, HERO_ROUTE_Y, -26.997],
-  ],
-] as const satisfies readonly (readonly HeroTuple3[])[];
+/** Idle is a UV-range consumer of the same canonical feeder geometry. */
+export const HERO_LANDING_RAIL_PATHS = HERO_ACTIVATION_FEEDER_PATHS;
+
+export const HERO_ROUTE_SOURCE_CONTROLS = {
+  redCameraLookAt: RED_CAMERA_PATH_SOURCE,
+  activationFeeders: HERO_ACTIVATION_FEEDER_PATHS,
+  blueZero: BLUE_ROUTE_ZERO_SOURCE,
+  blueOne: BLUE_ROUTE_ONE_SOURCE,
+} as const;
 
 /**
  * Serializable source controls for the canonical route. Runtime sampling is
@@ -218,7 +196,7 @@ function toVector([x, y, z]: HeroTuple3) {
  * sample the authored Catmull-Rom curve 31 times, then resample that polyline
  * into 40 points with equal path-length spacing. The implementation's
  * world-space control points and resampling construction are source-confirmed.
- * Render radii remain independently calibrated implementation values.
+ * Physical radii are source-backed; visible core/glow shading remains provisional.
  */
 function resampleBlueRouteSource() {
   const authoredCurve = new THREE.CatmullRomCurve3(

@@ -1,9 +1,13 @@
 import type { HeroJourneySnapshot } from './hero-contract';
-import type { HeroCameraProgressRef } from './hero-camera';
+import type { HeroFrameRef } from './hero-frame-state';
 import { HeroBeam } from './hero-beam';
 import { HERO_PALETTE } from './hero-materials';
 import { DesktopPointerTrail } from './hero-pointer-trail';
-import { HERO_PROXY_GROUND_SIZE } from './hero-world-layout';
+import {
+  HERO_PROXY_GROUND_SIZE,
+  HERO_PROXY_GROUND_POSITION,
+  HERO_PROXY_GROUND_ROTATION,
+} from './hero-world-layout';
 import { ActivationStage } from './stages/activation';
 import { ArrivalStage } from './stages/arrival';
 import { ClearanceStage } from './stages/clearance';
@@ -11,33 +15,28 @@ import { FieldMatchStage } from './stages/field-match';
 
 export function HeroWorld({
   snapshot,
-  settledCameraProgressRef,
+  frameRef,
 }: {
   snapshot: HeroJourneySnapshot;
-  settledCameraProgressRef: HeroCameraProgressRef;
+  frameRef: HeroFrameRef;
 }) {
-  const groundColor =
-    snapshot.profile.id === 'recording-desktop'
-      ? HERO_PALETTE.recordingBackground
-      : HERO_PALETTE.background;
-
   return (
     <group>
-      <mesh position={[-5, -0.05, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+      <mesh
+        position={HERO_PROXY_GROUND_POSITION}
+        rotation={HERO_PROXY_GROUND_ROTATION}
+      >
         <planeGeometry
           args={[HERO_PROXY_GROUND_SIZE, HERO_PROXY_GROUND_SIZE]}
         />
-        <meshBasicMaterial color={groundColor} toneMapped={false} />
+        <meshBasicMaterial color={HERO_PALETTE.background} toneMapped={false} />
       </mesh>
 
-      <ActivationStage sceneProgress={snapshot.sceneTargetProgress} />
+      <ActivationStage frameRef={frameRef} />
       <ClearanceStage />
-      <FieldMatchStage snapshot={snapshot} />
-      <ArrivalStage
-        snapshot={snapshot}
-        settledCameraProgressRef={settledCameraProgressRef}
-      />
-      <HeroBeam snapshot={snapshot} />
+      <FieldMatchStage frameRef={frameRef} />
+      <ArrivalStage frameRef={frameRef} />
+      <HeroBeam frameRef={frameRef} />
       {snapshot.profile.pointerTrail ? <DesktopPointerTrail /> : null}
     </group>
   );

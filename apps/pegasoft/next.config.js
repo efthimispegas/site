@@ -7,6 +7,9 @@ const { composePlugins, withNx } = require('@nx/next');
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
+  // S7 uses an isolated production artifact for diagnostics. Public builds use
+  // the normal `.next` directory and compile the diagnostics switch false.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   // Use this to set Nx-specific options
   // See: https://nx.dev/recipes/next/next-config-setup
   nx: {},

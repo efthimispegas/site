@@ -912,7 +912,7 @@ export function measureChromaFeature({ data, image, dpr, config }) {
   validateImageInput(data, image, dpr);
   const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
   const mask = createPredicateMask(data, image, roi, config.predicate);
-  const { components } = connectedComponents(
+  const { components, labels } = connectedComponents(
     mask,
     image.width,
     image.height,
@@ -951,7 +951,7 @@ export function measureChromaFeature({ data, image, dpr, config }) {
     for (let y = component.bounds.y; y < componentBottom; y += 1) {
       for (let x = component.bounds.x; x < componentRight; x += 1) {
         const index = y * image.width + x;
-        if (mask[index]) {
+        if (labels[index] === component.label) {
           selectedMask[index] = 1;
         }
       }
@@ -1019,7 +1019,134 @@ export function measureChromaFeature({ data, image, dpr, config }) {
         rationale: config.rationale,
       },
     },
-    debug: { mask: selectedMask, bounds: selected.bounds },
+    debug: {
+      mask: selectedMask,
+      bounds: selected.bounds,
+      quality: assessChromaSelection({
+        data,
+        image,
+        config,
+        mask: selectedMask,
+        bounds: selected.bounds,
+      }),
+    },
+  };
+}
+
+/** Quality concerns do not erase measurements: they prevent uncertain masks accepting a subject. */
+export function assessChromaSelection({ data, image, config, mask, bounds }) {
+  const reasons = [];
+  if (!bounds || !mask?.some(Boolean)) {
+    return {
+      status: 'blocked',
+      reasons: ['Missing selected subject.'],
+      quantity: 'selected-color-support',
+    };
+  }
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  let selected = 0;
+  let lowChroma = 0;
+  let touchesBoundary = false;
+  const horizontal = bounds.width >= bounds.height;
+  const crossSections = new Map();
+  for (let y = bounds.y; y < bounds.y + bounds.height; y += 1) {
+    for (let x = bounds.x; x < bounds.x + bounds.width; x += 1) {
+      const index = y * image.width + x;
+      if (!mask[index]) continue;
+      selected += 1;
+      const offset = index * image.channels;
+      const channels = [data[offset], data[offset + 1], data[offset + 2]];
+      if (Math.max(...channels) - Math.min(...channels) < 40) lowChroma += 1;
+      if (
+        x <= roi.x ||
+        y <= roi.y ||
+        x >= roi.x + roi.width - 1 ||
+        y >= roi.y + roi.height - 1
+      )
+        touchesBoundary = true;
+      const axis = horizontal ? x : y;
+      const cross = horizontal ? y : x;
+      const previous = crossSections.get(axis);
+      crossSections.set(
+        axis,
+        previous
+          ? [Math.min(previous[0], cross), Math.max(previous[1], cross)]
+          : [cross, cross],
+      );
+    }
+  }
+  if (touchesBoundary)
+    reasons.push(
+      'Selected subject reaches the ROI/image boundary; full-subject extent is not established.',
+    );
+  const widths = [...crossSections.values()]
+    .map(([min, max]) => max - min + 1)
+    .sort((a, b) => a - b);
+  const low = widths[Math.floor(widths.length * 0.1)] ?? 0;
+  const high =
+    widths[Math.min(widths.length - 1, Math.floor(widths.length * 0.9))] ?? 0;
+  const routePredicate = /route/.test(config.predicate.id);
+  if (routePredicate && lowChroma / Math.max(selected, 1) > 0.2)
+    reasons.push(
+      'Near-neutral selected pixels cannot distinguish route core from bright tiles/glow.',
+    );
+  if (routePredicate && high > Math.max(low * 2.5, low + 4))
+    reasons.push(
+      'Cross-section variation admits a branch/contact/pulse union; equivalent core thickness is ambiguous.',
+    );
+  return {
+    status: reasons.length ? 'blocked' : 'qualified',
+    reasons,
+    quantity: 'selected-color-support',
+    lowChromaFraction: lowChroma / Math.max(selected, 1),
+    crossSectionP10: low,
+    crossSectionP90: high,
+    touchesBoundary,
+    physicalRadiusMeasured: false,
+    glowEnvelopeMeasured: false,
+  };
+}
+
+/** Core/glow challenge diagnostic. Hue-band ambiguity must not be accepted as a physical-width measurement. */
+export function measureRouteAppearanceBands({ data, image, config }) {
+  const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
+  let corePixels = 0;
+  let glowPixels = 0;
+  let boundarySupport = 0;
+  let neutralCore = 0;
+  const redRoute = config.predicate.id.includes('red');
+  for (let y = roi.y; y < roi.y + roi.height; y += 1)
+    for (let x = roi.x; x < roi.x + roi.width; x += 1) {
+      const offset = (y * image.width + x) * image.channels;
+      const [r, g, b] = [data[offset], data[offset + 1], data[offset + 2]];
+      const core = config.predicate.test(r, g, b);
+      const hue = redRoute
+        ? r - g >= 10 && r - b >= 10
+        : b - r >= 10 && g - r >= 5;
+      if (core) {
+        corePixels += 1;
+        if (Math.max(r, g, b) - Math.min(r, g, b) < 40) neutralCore += 1;
+      } else if (hue) glowPixels += 1;
+      if (
+        (core || hue) &&
+        (x === roi.x ||
+          y === roi.y ||
+          x === roi.x + roi.width - 1 ||
+          y === roi.y + roi.height - 1)
+      )
+        boundarySupport += 1;
+    }
+  return {
+    status:
+      corePixels > 0 && boundarySupport === 0 && neutralCore / corePixels <= 0.2
+        ? 'qualified'
+        : 'blocked',
+    corePixels,
+    glowPixels,
+    boundarySupport,
+    neutralCore,
+    interpretation:
+      'Independent hue support outside the strict core; background/pulse/contact overlap can make it ambiguous. Neither quantity is world-space radius.',
   };
 }
 
@@ -1027,7 +1154,7 @@ export function measureFieldTileProfile({ data, image, dpr, config }) {
   validateImageInput(data, image, dpr);
   const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
   const mask = createPredicateMask(data, image, roi, config.predicate);
-  const { components } = connectedComponents(
+  const { components, labels } = connectedComponents(
     mask,
     image.width,
     image.height,
@@ -1055,7 +1182,7 @@ export function measureFieldTileProfile({ data, image, dpr, config }) {
     for (let y = component.bounds.y; y < componentBottom; y += 1) {
       for (let x = component.bounds.x; x < componentRight; x += 1) {
         const index = y * image.width + x;
-        if (mask[index]) {
+        if (labels[index] === component.label) {
           selectedMask[index] = 1;
         }
       }
@@ -1352,7 +1479,7 @@ export function measureCopyInk({ data, image, dpr, config }) {
   validateImageInput(data, image, dpr);
   const roi = normalizedRoiToPixels(config.roi, image.width, image.height);
   const mask = createPredicateMask(data, image, roi, config.predicate);
-  const { components } = connectedComponents(
+  const { components, labels } = connectedComponents(
     mask,
     image.width,
     image.height,
@@ -1375,7 +1502,7 @@ export function measureCopyInk({ data, image, dpr, config }) {
     for (let y = component.bounds.y; y < componentBottom; y += 1) {
       for (let x = component.bounds.x; x < componentRight; x += 1) {
         const index = y * image.width + x;
-        if (mask[index]) {
+        if (labels[index] === component.label) {
           selectedMask[index] = 1;
         }
       }

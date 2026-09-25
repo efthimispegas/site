@@ -130,10 +130,19 @@ export function dampHeroProgress(
   smoothTimeSeconds: number,
   deltaSeconds: number,
 ): HeroDampedProgress {
-  const safeTarget = clampSceneProgress(target);
-  const smoothTime = Math.max(0.0001, smoothTimeSeconds);
+  const safeTarget = Number.isFinite(target) ? Math.max(0, target) : 0;
+  if (
+    !Number.isFinite(state.value) ||
+    !Number.isFinite(state.velocity) ||
+    !Number.isFinite(deltaSeconds)
+  ) {
+    return { value: safeTarget, velocity: 0 };
+  }
+  const smoothTime = Number.isFinite(smoothTimeSeconds)
+    ? Math.max(0.0001, smoothTimeSeconds)
+    : 0.15;
   const delta = Math.max(0, Math.min(0.1, deltaSeconds));
-  const omega = 2.4 / smoothTime;
+  const omega = 2 / smoothTime;
   const x = omega * delta;
   const exponential = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
   const change = state.value - safeTarget;
@@ -150,7 +159,7 @@ export function dampHeroProgress(
   }
 
   return {
-    value: clampSceneProgress(value),
+    value,
     velocity,
   };
 }

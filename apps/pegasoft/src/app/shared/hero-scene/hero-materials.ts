@@ -1,6 +1,5 @@
 export const HERO_PALETTE = {
   background: '#d0e1eb',
-  recordingBackground: '#c8dae5',
   ground: '#b6cdda',
   surface: '#e3edf2',
   surfaceTop: '#f5f8fa',

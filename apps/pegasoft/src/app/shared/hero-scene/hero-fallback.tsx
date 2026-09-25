@@ -2,6 +2,7 @@ import type {
   HeroJourneySnapshot,
   HeroReferenceStateKey,
 } from './hero-contract';
+import { HERO_TEST_DIAGNOSTICS } from './hero-test-diagnostics';
 import styles from './hero-scene.module.css';
 
 type HeroFallbackComposition =
@@ -237,7 +238,7 @@ export function HeroFallback({ snapshot }: { snapshot: HeroJourneySnapshot }) {
   const stateKey = snapshot.referenceState.key;
   const composition = getFallbackComposition(stateKey);
   const developmentDiagnostics =
-    process.env.NODE_ENV !== 'production'
+    process.env.NODE_ENV !== 'production' || HERO_TEST_DIAGNOSTICS
       ? {
           'data-hero-fallback-state': stateKey,
           'data-hero-fallback-composition': composition,

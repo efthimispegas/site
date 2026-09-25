@@ -13,7 +13,9 @@ import {
  * shaders. All stage geometry remains declarative and light-agnostic.
  */
 export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
-  const mobile = profile.id === 'mobile';
+  // Provisional compatibility shadows, NOT reference-equivalent values.
+  // Qt selects device policy; source bloom/shader matching remains R3+ work.
+  const mobile = profile.sourceMobileDevice;
   const shadowMapSize = mobile
     ? 1024
     : HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightShadowMapSize;
