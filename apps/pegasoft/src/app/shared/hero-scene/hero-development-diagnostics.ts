@@ -25,6 +25,7 @@ export type HeroAppliedFrameRecord = {
 };
 declare global {
   interface Window {
+    __pegasoftHeroLifecycleStartedAtMs?: number;
     __pegasoftHeroFrame?: HeroAppliedFrameRecord;
     __pegasoftHeroFrames?: HeroAppliedFrameRecord[];
     __pegasoftHeroFrameDriver?: {

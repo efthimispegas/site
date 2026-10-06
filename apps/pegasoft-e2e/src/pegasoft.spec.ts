@@ -225,6 +225,149 @@ async function scrollToRawHeroProgress(page: Page, rawProgress: number) {
   });
 }
 
+type AppliedFieldFrame = {
+  fieldElapsedMs: number;
+  frameId: number;
+  renderedProgress: number;
+  targetProgress: number;
+};
+
+async function enterAppliedFieldPhase(
+  page: Page,
+  minimumFieldElapsedMs: number,
+): Promise<AppliedFieldFrame> {
+  const sceneProgress = 0.74;
+  await page.goto('/');
+  await waitForAnyHeroState(page);
+  const shell = page.locator('[data-hero-shell]');
+  await expect(shell).toHaveAttribute('data-loader-cleared', 'true', {
+    timeout: 10_000,
+  });
+  await expect(page.locator('body')).not.toHaveClass(/pegasoft-locked/u, {
+    timeout: 10_000,
+  });
+
+  const targetScrollY = await page.evaluate((target) => {
+    const flow = document.querySelector<HTMLElement>('[data-hero-process]');
+    const wrapper = flow?.querySelector<HTMLElement>('div');
+    if (!flow || !wrapper) {
+      throw new Error('Hero flow geometry is unavailable');
+    }
+
+    const range = Math.max(flow.scrollHeight - wrapper.clientHeight, 1);
+    const denominator = window.innerHeight * 0.4 + (range * 400) / 356;
+    return Math.round(target * denominator);
+  }, sceneProgress);
+
+  await page.mouse.wheel(0, targetScrollY);
+  try {
+    await page.waitForFunction(
+      ({ expectedTarget, minimumFieldMs }) => {
+        const record = (
+          window as Window & {
+            __pegasoftHeroFrame?: {
+              renderedAtMs?: number;
+              frame?: {
+                fieldElapsedMs?: number;
+                frameId?: number;
+                rendered?: { value?: number; velocity?: number };
+                target?: number;
+              };
+              appliedConsumers?: Record<string, { frameId?: number }>;
+            };
+          }
+        ).__pegasoftHeroFrame;
+        const frame = record?.frame;
+        const consumers = Object.values(record?.appliedConsumers ?? {});
+
+        return Boolean(
+          record?.renderedAtMs &&
+            frame?.frameId &&
+            Math.abs((frame.target ?? Number.NaN) - expectedTarget) <= 0.002 &&
+            Math.abs(
+              (frame.rendered?.value ?? Number.NaN) - expectedTarget,
+            ) <= 0.002 &&
+            Math.abs(frame.rendered?.velocity ?? Number.NaN) <= 0.03 &&
+            (frame.fieldElapsedMs ?? 0) >= minimumFieldMs &&
+            consumers.length > 0 &&
+            consumers.every((consumer) => consumer.frameId === frame.frameId),
+        );
+      },
+      {
+        expectedTarget: sceneProgress,
+        minimumFieldMs: minimumFieldElapsedMs,
+      },
+      { timeout: 10_000 },
+    );
+  } catch (error) {
+    const probe = await page.evaluate(() => {
+      const record = (
+        window as Window & {
+          __pegasoftHeroFrame?: {
+            appliedConsumers?: Record<string, { frameId?: number }>;
+            frame?: {
+              fieldElapsedMs?: number;
+              frameId?: number;
+              rendered?: { value?: number; velocity?: number };
+              target?: number;
+            };
+          };
+        }
+      ).__pegasoftHeroFrame;
+      const frame = record?.frame;
+      return {
+        appliedConsumers: Object.fromEntries(
+          Object.entries(record?.appliedConsumers ?? {}).map(
+            ([key, value]) => [key, value.frameId],
+          ),
+        ),
+        frame: frame
+          ? {
+              fieldElapsedMs: frame.fieldElapsedMs,
+              frameId: frame.frameId,
+              rendered: frame.rendered,
+              target: frame.target,
+            }
+          : null,
+        maxScrollY:
+          document.documentElement.scrollHeight - window.innerHeight,
+        sceneProgress: document
+          .querySelector('[data-hero-shell]')
+          ?.getAttribute('data-hero-scene-progress'),
+        scrollY: window.scrollY,
+      };
+    });
+    throw new Error(
+      `Applied field phase did not converge: ${JSON.stringify(probe)}`,
+      { cause: error },
+    );
+  }
+
+  return page.evaluate(() => {
+    const record = (
+      window as Window & {
+        __pegasoftHeroFrame?: {
+          frame?: {
+            fieldElapsedMs?: number;
+            frameId?: number;
+            rendered?: { value?: number };
+            target?: number;
+          };
+        };
+      }
+    ).__pegasoftHeroFrame;
+    const frame = record?.frame;
+    if (!frame?.frameId) throw new Error('Applied hero frame is unavailable');
+
+    return {
+      fieldElapsedMs: frame.fieldElapsedMs ?? 0,
+      frameId: frame.frameId,
+      renderedProgress: frame.rendered?.value ?? Number.NaN,
+      targetProgress: frame.target ?? Number.NaN,
+    };
+  });
+}
+
 async function readHeroProgressProbe(page: Page) {
   return page.evaluate(() => {
     const flow = document.querySelector<HTMLElement>('[data-hero-process]');
@@ -440,18 +583,24 @@ test('homepage hydrates without runtime errors and mounts WebGL or fallback', as
   expect(consoleErrors, 'console and hydration errors').toEqual([]);
 });
 
-test('development harness enters a named state without traversal history', async ({
+test('development harness observes field-pulse-b from physical input and applied time', async ({
   page,
 }) => {
-  await page.goto('/?__heroState=field-pulse-b&__heroTime=2800');
+  const frame = await enterAppliedFieldPhase(page, 2_800);
 
-  const state = page.locator('[data-hero-reference-state="field-pulse-b"]');
-  await expect(state).toHaveAttribute('data-hero-direct-entry', 'true');
-  await expect(state).toHaveAttribute('data-hero-scene-progress', '0.740000');
+  const state = page.locator('[data-hero-reference-state]');
+  await expect(state).toHaveAttribute('data-hero-direct-entry', 'false');
+  const diagnosticProgress = Number(
+    await state.getAttribute('data-hero-scene-progress'),
+  );
   await expect(state).toHaveAttribute('data-hero-seed', '43117');
   await expect(
     page.locator('[data-hero-process-step="3"][data-active="true"]'),
   ).toHaveCount(1);
+  expect(frame.targetProgress).toBeCloseTo(0.74, 3);
+  expect(frame.renderedProgress).toBeCloseTo(0.74, 3);
+  expect(diagnosticProgress).toBeCloseTo(frame.targetProgress, 3);
+  expect(frame.fieldElapsedMs).toBeGreaterThanOrEqual(2_800);
 });
 
 test('hero state converges across forward, reverse, jump, resize, and restored reload entry', async ({
@@ -506,7 +655,166 @@ test('hero state converges across forward, reverse, jump, resize, and restored r
   expectEquivalentHeroSignature(await readHeroBrowserSignature(page), forward);
 });
 
-test('same named state produces a stable capture', async ({
+/* eslint-disable playwright/no-conditional-expect, playwright/no-conditional-in-test -- direction-specific journey invariants share one bounded desktop gate */
+test('desktop journeys complete at normal, slow, fast, and reverse rates', async ({
+  page,
+}, testInfo) => {
+  // eslint-disable-next-line playwright/no-skipped-test -- Phase 15 is the desktop integration gate
+  test.skip(
+    testInfo.project.name !== 'chromium',
+    'Phase 15 rate coverage runs in the desktop Chromium profile.',
+  );
+  test.setTimeout(60_000);
+
+  await page.goto('/');
+  await waitForAnyHeroState(page);
+  const shell = page.locator('[data-hero-shell]');
+  await expect(shell).toHaveAttribute('data-loader-cleared', 'true', {
+    timeout: 10_000,
+  });
+
+  const runLeg = async (
+    direction: 'forward' | 'reverse',
+    durationMs: number,
+  ) => {
+    const result = await page.evaluate(
+      async ({ duration, journeyDirection }) => {
+        const flow = document.querySelector<HTMLElement>(
+          '[data-hero-process]',
+        );
+        const shellElement = document.querySelector<HTMLElement>(
+          '[data-hero-shell]',
+        );
+        if (!flow || !shellElement) {
+          throw new Error('Hero journey geometry is unavailable');
+        }
+
+        const flowTop = flow.getBoundingClientRect().top + window.scrollY;
+        const range = Math.max(0, flow.offsetHeight - window.innerHeight);
+        const lead = Math.max(0, flowTop - window.innerHeight * 0.4);
+        const startY =
+          journeyDirection === 'forward' ? 0 : flowTop - lead + range;
+        const endY =
+          journeyDirection === 'forward' ? flowTop - lead + range : 0;
+        const samples: Array<{
+          rawProgress: number;
+          sceneProgress: number;
+          scrollY: number;
+        }> = [];
+        const startedAt = performance.now();
+        document.documentElement.style.scrollBehavior = 'auto';
+        window.scrollTo(0, startY);
+
+        await new Promise<void>((resolve) => {
+          const step = (timestamp: number) => {
+            const ratio = Math.min(1, (timestamp - startedAt) / duration);
+            const eased = ratio * ratio * (3 - 2 * ratio);
+            window.scrollTo(0, startY + (endY - startY) * eased);
+            samples.push({
+              rawProgress: Number(shellElement.dataset.heroRawProgress),
+              sceneProgress: Number(shellElement.dataset.heroSceneProgress),
+              scrollY: window.scrollY,
+            });
+            if (ratio < 1) requestAnimationFrame(step);
+            else resolve();
+          };
+          requestAnimationFrame(step);
+        });
+
+        await new Promise<void>((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+        );
+        return {
+          endY,
+          finalRawProgress: Number(shellElement.dataset.heroRawProgress),
+          finalSceneProgress: Number(shellElement.dataset.heroSceneProgress),
+          finalScrollY: window.scrollY,
+          samples,
+        };
+      },
+      { duration: durationMs, journeyDirection: direction },
+    );
+
+    const expectedRawProgress = direction === 'forward' ? 1 : 0;
+    await page.waitForFunction(
+      () => {
+        const record = (
+          window as Window & {
+            __pegasoftHeroFrame?: {
+              appliedConsumers?: Record<string, { frameId?: number }>;
+              frame?: {
+                frameId?: number;
+                rendered: { value: number; velocity: number };
+                target: number;
+              };
+              renderedAtMs?: number;
+            };
+          }
+        ).__pegasoftHeroFrame;
+        const frame = record?.frame;
+        const consumers = Object.values(record?.appliedConsumers ?? {});
+        const diagnosticTarget = Number(
+          document
+            .querySelector<HTMLElement>('[data-hero-shell]')
+            ?.dataset.heroSceneProgress,
+        );
+        return Boolean(
+          record?.renderedAtMs &&
+            frame?.frameId &&
+            Math.abs(frame.target - diagnosticTarget) <= 0.002 &&
+            Math.abs(frame.rendered.value - frame.target) <= 0.002 &&
+            Math.abs(frame.rendered.velocity) <= 0.03 &&
+            consumers.length > 0 &&
+            consumers.every((consumer) => consumer.frameId === frame.frameId),
+        );
+      },
+      undefined,
+      { timeout: 10_000 },
+    );
+
+    expect(Math.abs(result.finalScrollY - result.endY)).toBeLessThanOrEqual(1);
+    expect(result.finalRawProgress).toBeCloseTo(expectedRawProgress, 3);
+    if (direction === 'forward') {
+      expect(result.finalSceneProgress).toBeGreaterThan(0.8);
+    } else {
+      expect(result.finalSceneProgress).toBeCloseTo(0, 3);
+    }
+    const orderedSamples = result.samples.filter(
+      (sample) =>
+        Number.isFinite(sample.rawProgress) &&
+        Number.isFinite(sample.sceneProgress),
+    );
+    expect(orderedSamples.length).toBeGreaterThan(2);
+    for (let index = 1; index < orderedSamples.length; index += 1) {
+      const previous = orderedSamples[index - 1];
+      const current = orderedSamples[index];
+      if (direction === 'forward') {
+        expect(current.scrollY).toBeGreaterThanOrEqual(previous.scrollY);
+        expect(current.rawProgress + 0.002).toBeGreaterThanOrEqual(
+          previous.rawProgress,
+        );
+      } else {
+        expect(current.scrollY).toBeLessThanOrEqual(previous.scrollY);
+        expect(current.rawProgress - 0.002).toBeLessThanOrEqual(
+          previous.rawProgress,
+        );
+      }
+    }
+  };
+
+  await runLeg('forward', 3_600);
+  await runLeg('reverse', 600);
+  await runLeg('forward', 7_200);
+  await runLeg('reverse', 600);
+  await runLeg('forward', 900);
+  await runLeg('reverse', 3_600);
+
+  await expect(shell).toHaveAttribute('data-hero-attempt-state', 'ready');
+  await expect(shell).toHaveAttribute('data-loader-cleared', 'true');
+});
+/* eslint-enable playwright/no-conditional-expect, playwright/no-conditional-in-test */
+
+test('the same physically reached applied field frame produces a stable capture', async ({
   page,
 }, testInfo) => {
   // eslint-disable-next-line playwright/no-skipped-test -- fixed-viewport coverage belongs to one browser profile
@@ -516,12 +824,22 @@ test('same named state produces a stable capture', async ({
   );
 
   await page.setViewportSize({ width: 1508, height: 761 });
-  await page.goto('/?__heroState=field-pulse-a&__heroTime=300');
-  const state = page.locator('[data-hero-reference-state="field-pulse-a"]');
+  const appliedFrame = await enterAppliedFieldPhase(page, 300);
+  expect(appliedFrame.fieldElapsedMs).toBeLessThan(1_600);
+  const state = page.locator('[data-hero-reference-state]');
   await expect(state).toHaveCount(1);
   await expect(state.locator('[data-hero-surface]')).toBeVisible();
   await expect(state).toHaveAttribute('data-hero-render-ready', 'true');
   await page.evaluate(() => document.fonts.ready);
+  await page.evaluate(() => {
+    const driver = (
+      window as Window & {
+        __pegasoftHeroFrameDriver?: { pause: () => void };
+      }
+    ).__pegasoftHeroFrameDriver;
+    if (!driver) throw new Error('Hero frame driver is unavailable');
+    driver.pause();
+  });
   await page.evaluate(
     () =>
       new Promise<void>((resolve) =>
@@ -546,7 +864,7 @@ test('same named state produces a stable capture', async ({
 
   expect(
     first.equals(second),
-    'direct state should not inherit an elapsed scene clock',
+    'a paused applied frame should remain byte-stable',
   ).toBe(true);
 });
 

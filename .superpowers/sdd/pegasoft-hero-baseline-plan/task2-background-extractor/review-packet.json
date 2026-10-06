@@ -1,0 +1,247 @@
+{
+  "date": "2026-10-02",
+  "status": "complete candidate packet; independent qualification pending",
+  "scope": "Implementation-only landmark extractor, activation-route/contact and arrival-lockup; no runtime geometry, loader reconstruction, source-mask substitution or new capture batch",
+  "checks": {
+    "measurementContracts": {
+      "status": "pass",
+      "count": 67,
+      "redGreen": "5 new API cases, 1 palette case and 1 enclosed-hole case observed failing before their implementations; exterior-notch regression remains green"
+    },
+    "captureContractFixtures": {
+      "command": "pnpm nx run @site/pegasoft-e2e:hero-capture-contract-test",
+      "status": "pass",
+      "count": 28,
+      "exitCode": 0,
+      "kind": "isolated browser fixtures; not a reference capture batch"
+    },
+    "typechecks": "both pass; Nx cache 0/2 hits",
+    "lint": "pass: 0 errors/39 existing warnings",
+    "whitespace": "git diff --check pass",
+    "savedImages": "3/3 manifest pins match",
+    "negativeSamples": "11/11 excluded",
+    "roiAndSupportGates": "unchanged",
+    "activeComparator": "candidate not integrated",
+    "independentQualification": "not granted",
+    "arrivalBoundary": "blocked"
+  },
+  "candidateDesign": {
+    "background": "Dominant 4-level border seed with adjacent-code cluster; measured interval and explicit 4-unit RGB uncertainty band",
+    "foreground": "Subset of unchanged pale-neutral predicate; unchanged ROIs and component/support gates",
+    "interior": "8-neighbor enclosed-hole fill; exterior openings preserved; maximum support gate rechecked",
+    "role": "Several eligible subjects block selection; candidate support never self-qualifies semantic role",
+    "integration": "New exported helper only; active capture/comparator do not use it"
+  },
+  "results": [
+    {
+      "state": "activation-route",
+      "selectedPixels": 188869,
+      "quality": "qualified",
+      "qualification": "blocked",
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 6995,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 3878
+      }
+    },
+    {
+      "state": "activation-contact",
+      "selectedPixels": 171906,
+      "quality": "qualified",
+      "qualification": "blocked",
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 8976,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 3943
+      }
+    },
+    {
+      "state": "arrival-lockup",
+      "selectedPixels": 33392,
+      "quality": "blocked",
+      "qualification": "blocked",
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 605,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 0
+      }
+    }
+  ],
+  "knownLimits": [
+    "Only bounded pale-blue background frames are supported; neutral or foreground-dominated borders block.",
+    "Arrival support reaches the unchanged left ROI edge; full arrow extent is not established.",
+    "RGB uncertainty band is candidate policy, not independently accepted boundary error.",
+    "Historical screenshots are diagnostic inputs, not current capture-provenance acceptance.",
+    "No source/local mask IoU or structural acceptance is granted by this packet."
+  ],
+  "reviewQuestions": [
+    "Does independent inspection confirm the two activation masks select complete intended building silhouettes without ground/shadow/neighbor support?",
+    "Are background calibration, hole fill, uncertainty treatment and ambiguity tests causally justified and sufficiently conservative?",
+    "Does arrival remain correctly blocked, and what bounded additional evidence is required without widening gates?"
+  ],
+  "reviewerScope": "One read-only review of this complete packet; no source/capture edits, captures, phase acceptance or unrelated audits. Qualification findings only.",
+  "inputs": [
+    {
+      "path": "apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+      "bytes": 71162,
+      "sha256": "24fafcdb362dd631e809646168740f10e98a40ab901543620092d4726147092d"
+    },
+    {
+      "path": "tools/hero-reference/measurement-contract.test.mjs",
+      "bytes": 41823,
+      "sha256": "f4637f060f9b7ab4a27419602bdfb30dacaaf4d188ab9f9674a183ced8ce33af"
+    },
+    {
+      "path": "docs/hero-reference/recording-semantic-masks.json",
+      "bytes": 6266,
+      "sha256": "d3ca8620506f90b37c8f93c1c0ab608272978a5e5bd72699cf47b61c5deafb37"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-route.png",
+      "bytes": 421050,
+      "sha256": "5265413af2294199cf639bf447a655064670d3c696aceea22aee0a39838ea74d"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-000598-activation-route.png",
+      "bytes": 1625039,
+      "sha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180"
+    },
+    {
+      "path": "docs/hero-reference/annotations/activation-route-landmark-mask.svg",
+      "bytes": 518,
+      "sha256": "513b676dff75928f7bd371e40d4937f1a73e0a6adc978f765dfce8d6cf69b55c"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-contact.png",
+      "bytes": 388415,
+      "sha256": "1d2135173ddc983a14d4ddc2e78a7a06f302d909eab24b394b3fc9961c0961fa"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-000748-activation-contact.png",
+      "bytes": 1270550,
+      "sha256": "8975a69102da5583678abd435df6244ffba93008406420a0ac768e9d5a226ce6"
+    },
+    {
+      "path": "docs/hero-reference/annotations/activation-contact-landmark-mask.svg",
+      "bytes": 508,
+      "sha256": "0d80ac8a014574c56763a1ffce5611d596415c0ef378ce46098d9f84df1f2f95"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+      "bytes": 1131505,
+      "sha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96"
+    },
+    {
+      "path": "docs/hero-reference/annotations/arrival-lockup-landmark-mask.svg",
+      "bytes": 313,
+      "sha256": "090981afb5c5b0f10fc64d29c99d162865db0b6952a730497a6b3c6e6a9b75ae"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-contact-candidate-support.png",
+      "bytes": 16695,
+      "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-route-candidate-support.png",
+      "bytes": 16768,
+      "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/arrival-lockup-candidate-support.png",
+      "bytes": 15469,
+      "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/candidate-evaluation.json",
+      "bytes": 16868,
+      "sha256": "d6e4b7ddc6a4858a5718b5eb2e946fd53e2817e67fd7701bea8ae64557e6d848"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/candidate.patch",
+      "bytes": 12046,
+      "sha256": "f9bb0a5134ba246de2f90e749eb3ff50b749409a9b03e98d2f52f58511dcb2d8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/checks.json",
+      "bytes": 863,
+      "sha256": "33144bd2e3c6507aa39af436757c0320423ef1946faa4b7b3b7505ea8c3d89c7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/evaluate-candidate.mjs",
+      "bytes": 3028,
+      "sha256": "8b9335aabfc3dce3db3accbf6fc979c7aa7c92fabfda3b035e0ba2331ccaf0c2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/evaluation.log",
+      "bytes": 665,
+      "sha256": "b06d155222f8a465e41999d009a28092fe5348385e7ce6744bde2f0c7f1615b5"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/extractor-before.mjs",
+      "bytes": 63855,
+      "sha256": "1a186aef346255395307ee81ee908ded95a15a677876a277eb7ec2152ec8a69b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/holes-green.log",
+      "bytes": 7934,
+      "sha256": "fc417555e1e2b68c5c11f18c16b0224965c290fb21f93dc52841f9c976feccbb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/holes-red.log",
+      "bytes": 9228,
+      "sha256": "4f4991cc17562b0033f2817d24b4caea701d0629b7c3e4f6e586d7729c22bf86"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/lint-final.log",
+      "bytes": 5541,
+      "sha256": "391cbe9d195df394c661135ff0e9d3faf8fb02549457ba1c82ce83be056be772"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/lint.log",
+      "bytes": 5541,
+      "sha256": "0960e1fc36830379b480eac45777778c6a7fd21e91d4ee8795f7ba4c5b8d089d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/measurement-tests-before.mjs",
+      "bytes": 37942,
+      "sha256": "73a884b1ceb7235017fd7e7feeb290c169a3370abee5b52d8722a396f6189cb1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/palette-green.log",
+      "bytes": 7734,
+      "sha256": "c2bbd98f6f680c1c26b8d7a6f3615c750eef35f7f0badd72ef8936aebf36b18e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/palette-red.log",
+      "bytes": 9216,
+      "sha256": "95dc706a2596da0ae69faaf09b255f007efb4bdc6227864a030f7f48b2e96369"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/typecheck-final.log",
+      "bytes": 543,
+      "sha256": "4ba90b86fbfe23825475996e2f559e6614771c0bb5910cf63ecc0bde20612de8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/typecheck.log",
+      "bytes": 543,
+      "sha256": "1e69a7980ce3b7c658e45e19bb7e4aa9e6d7ea2eb345f202a050c9381269f2fb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor-red.log",
+      "bytes": 14962,
+      "sha256": "14c1f916cfaa6b6e5b7487c7c0b653fd49fddd4346908abfcca75c141ed3a2ec"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor-green.log",
+      "bytes": 7640,
+      "sha256": "e44baf3ed41c8c9263c67583c222d3973e553833cf834af7dc1a47ef01244552"
+    }
+  ]
+}

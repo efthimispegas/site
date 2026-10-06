@@ -1,0 +1,37 @@
+
+> nx run @site/pegasoft-e2e:hero-capture-clock-test
+
+> playwright test --config=playwright.capture-clock.config.ts
+
+(node:25281) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:25281) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2mRunning [22m6[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:25289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:25289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/6] src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering
+[1A[2K[2/6] src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs
+[1A[2K[3/6] src/visual/hero-capture-clock.spec.ts:68:5 › css_document_timeline_progresses_while_javascript_clock_is_paused
+[1A[2K[4/6] src/visual/hero-capture-clock.spec.ts:85:5 › css_transport_advances_input_delta_and_stays_stable_across_screenshot
+[1A[2K[5/6] src/visual/hero-capture-clock.spec.ts:108:5 › css_transition_created_in_timer_uses_remaining_interval
+[1A[2K[6/6] src/visual/hero-capture-clock.spec.ts:139:5 › css_transport_installed_before_navigation_preserves_timer_creation_time
+[1A[2K[32m  6 passed[39m[2m (2.8s)[22m
+
+
+
+ NX   Successfully ran target hero-capture-clock-test for project @site/pegasoft-e2e
+
+
+  Run duration:      3.2s
+  Cache:             0/1 hit (0%)
+  Critical path:     3.2s (1 task)
+  Recoverable time:  <1ms

@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "status": "P2 corrected and checked; targeted independent review pending",
+  "qualification": "blocked",
+  "scope": "Same-browser-task completed-frame record and conservative DOM presentation readback; screenshot brackets retain initial/before/after and expose only stable supported DOM quantities. No source/production capture or runtime geometry change.",
+  "pins": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/capture-integration.json",
+      "bytes": 1398,
+      "sha256": "bdbf7afccc415541f56113e7e266955420851ab5248a78f171252fbd63d95b61"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/frame-mismatch.json",
+      "bytes": 3074,
+      "sha256": "e5ad22110026d13b7eba1e595a55051e394d779c3ac38e79250516ccdbbff0a3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/opacity-product-zero.json",
+      "bytes": 3114,
+      "sha256": "1596d773a3f4a3a8f54f196b613afb3b4e045c1cc46571535c16ad90b239ec57"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/bracket-initial-clip-mismatch.json",
+      "bytes": 4771,
+      "sha256": "22f8e6192e8e817983afc09c8c8481f519481111a6586be14e397956ee0a9a2e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/bracket-opacity-mismatch.json",
+      "bytes": 4711,
+      "sha256": "d32a75f0c7b70fcfabf69fc49cad13ee1bb3c8496580a4d5c9d7fbd6462ee702"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/unsupported-opacity-filter.json",
+      "bytes": 1431,
+      "sha256": "1a6685d7840163fc372eb7318f26566978d4024625f497ab9ca2d20d0c9ee58d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/unsupported-rounded.json",
+      "bytes": 1359,
+      "sha256": "65851b2c00229a162fb318e9315405b5b6dcd7a519ccadf2602770b1d9b5bc39"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/unsupported-rotation.json",
+      "bytes": 1365,
+      "sha256": "7a4e7a0b25a038b775cd255677877d78ea1baebeb2ae8a0fc5ac5434587736d3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/containment-content.json",
+      "bytes": 1587,
+      "sha256": "402ce5816342eb43cd7d7355d8c1bf4a23331a7647bb7a34e0cdbfb6d2a56dc7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/unsupported-shape.json",
+      "bytes": 1375,
+      "sha256": "a43a7a077afcba8deb426cd752d4b96366e5a220aa99cc55162346783a585173"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/bracket-supported-animation-control.json",
+      "bytes": 3438,
+      "sha256": "0ae62cbf05cef95dd53d77dc00b200c26b36679698e59b5368b8753f2c9b74d2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/pending-ambiguous.json",
+      "bytes": 2975,
+      "sha256": "4f2444fe185f523840b2cbbc9b4d0f8e984da6966e5c67c3d42949e2f52e36dd"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/containment-strict.json",
+      "bytes": 1587,
+      "sha256": "f836bf027b70008c87bee1565895f416efaaceca46b5fdf6f9162399d02995e7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/unsupported-opacity-boxless.json",
+      "bytes": 1355,
+      "sha256": "b98ed4fc4a9e02bfb5cb16e1499490d2a587784ec1e2f15e7efc7944bf6ea655"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/unsupported-overflow-radius.json",
+      "bytes": 1339,
+      "sha256": "467f4b5ddd390f204f356a0c140d2f33436c4b8a7ad9671ec1621e0e1117837e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/fixed-overflow-barrier.json",
+      "bytes": 1356,
+      "sha256": "2085bb08d352b55319b99529fb9745b68ba1bb141d183c33fe4a651db3a88e97"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/nested-clips.json",
+      "bytes": 1409,
+      "sha256": "b2d37512bd2936ac492c7f7bf170a5a4581c91c1d6775628ebb610e989697a26"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/missing-frame.json",
+      "bytes": 936,
+      "sha256": "78a7465aae59e989b30c6834f1fc5484af811b2aeb858597856f28680d3d251f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/fixtures/real-animation-timing.json",
+      "bytes": 1381,
+      "sha256": "8b79c3f63651ba4711c7dc95906aa9bc7499ab787a553f29e60288ac237ed837"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-capture-contract.ts",
+      "bytes": 10996,
+      "sha256": "08db98f72db817708ee784bfa5365a5b81cd00f92b7b278426fc659e0783478e"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-reference.visual.ts",
+      "bytes": 21780,
+      "sha256": "c257ba9da8e1f44ec1daac597257621d5431472ba797483d75740663b9911387"
+    },
+    {
+      "path": "apps/pegasoft-e2e/playwright.capture-contract.config.ts",
+      "bytes": 443,
+      "sha256": "6694cfc50759e29440d343151961dd20800de095a5792feb02604f2a51a86947"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/before/hero-capture-contract.spec.ts",
+      "bytes": 5295,
+      "sha256": "48d3f1373d7338f939c733ac42b23fe2da3caf8eece31da1533f23875c24267e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/before/hero-capture-contract.ts",
+      "bytes": 11885,
+      "sha256": "a68724f0ca7509660cfd7d50ba15cef43201288111acf8e6533b445b1b7bb4f3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/before/hero-reference.visual.ts",
+      "bytes": 21309,
+      "sha256": "9a9cd2b74278e707e3a619327808829871470091543935f8a3952489fd608458"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/before/module-state.json",
+      "bytes": 55,
+      "sha256": "7c3f740d218a2db3b00b5d360cfbc62c48590e619c8e56a20b21dbaa2cbd36b5"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/before/playwright.capture-contract.config.ts",
+      "bytes": 405,
+      "sha256": "2ae49ce092275aac559c18c64e8a3a7882604331a327ac51cbb2ef8862ee1c1a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/after/hero-capture-contract.ts",
+      "bytes": 10996,
+      "sha256": "08db98f72db817708ee784bfa5365a5b81cd00f92b7b278426fc659e0783478e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/after/hero-presentation-readback.spec.ts",
+      "bytes": 12688,
+      "sha256": "4cab74d550c67b54b05b25c792a7158a3fd601c6ab096f90b113ddd282186cfa"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/after/hero-presentation-readback.ts",
+      "bytes": 9243,
+      "sha256": "69e843f3b29025e9c9843379d7f30498ca7f030ec9633cc0229578315a40d12d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/after/hero-reference.visual.ts",
+      "bytes": 21780,
+      "sha256": "c257ba9da8e1f44ec1daac597257621d5431472ba797483d75740663b9911387"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/after/playwright.capture-contract.config.ts",
+      "bytes": 443,
+      "sha256": "6694cfc50759e29440d343151961dd20800de095a5792feb02604f2a51a86947"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/before-pins.json",
+      "bytes": 1487,
+      "sha256": "e574b7ce93f69c6b2fa89611a1da3357b391e42faeb2d0ed1baece77aaa0610d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/bracket-before-pins.json",
+      "bytes": 295,
+      "sha256": "28245f618f6f3b195f98e6d1b18ec80939a6525fa0e0c47265a712e9a7b461f7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/contracts-red-owner.log",
+      "bytes": 28884,
+      "sha256": "f7beacb40eadb841eb68b34e7417b35e02d749edcda1ff2dc46c6d7cd8e4216e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/contracts-green-owner.log",
+      "bytes": 9816,
+      "sha256": "dcaefdd0ae2a8076542fc730c2e94193648a6fa69f0e39830fd6f8b6d6b9d8d1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/contracts-green-owner-2.log",
+      "bytes": 6197,
+      "sha256": "3636be6ff9e5f4301fa8790d38e9821033f05fd1161d2fb8490b854d8cfab4cb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/contracts-final.log",
+      "bytes": 6197,
+      "sha256": "e290e2c860a45a69534bb57d5834b56d0ddbea77e36ed909633340785839fe76"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/typecheck-final.log",
+      "bytes": 543,
+      "sha256": "d866988da33f2d3d8d580021fb7fdbd15abacd26bb022123597cdfa54b3e6b8b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/lint-final.log",
+      "bytes": 5541,
+      "sha256": "13b545b165d8901f3ea63eaf8118d3a001746c3b5066ac3ee2e24972da700fdf"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/measurement-final.log",
+      "bytes": 9821,
+      "sha256": "0fd08b8ef9cb86b6da5acbc7c9b701a7282395a73b015bd34809fea3beb43530"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/resolved-project.json",
+      "bytes": 22772,
+      "sha256": "99a7998312d781e743322a704b1c28bd0ec2a3cac8f819675cc79726173541ba"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-presentation-readback.ts",
+      "bytes": 9300,
+      "sha256": "3f6b494f06913ceed480dd4b57da5982f8d9a389bc4275d1b0e106d8e6c58e8e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/source/hero-presentation-readback.ts",
+      "bytes": 9300,
+      "sha256": "3f6b494f06913ceed480dd4b57da5982f8d9a389bc4275d1b0e106d8e6c58e8e"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts",
+      "bytes": 13416,
+      "sha256": "3a7f0ea23cd694d6f115861d0def622943b520db83a588c41b8c3f1c762540c6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-revision/source/hero-presentation-readback.spec.ts",
+      "bytes": 13416,
+      "sha256": "3a7f0ea23cd694d6f115861d0def622943b520db83a588c41b8c3f1c762540c6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-red.log",
+      "bytes": 9584,
+      "sha256": "73104427e2c36d3bc47c397e94f76af294a7ad49fedda0849eb847dc05a7c086"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-green.log",
+      "bytes": 6468,
+      "sha256": "d3909cbc71d6820566eea66bf191f1c2b02410fb2e23937a6fe7e54f62cf4126"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-typecheck.log",
+      "bytes": 543,
+      "sha256": "1be26ca9a2ba678a9041652c64300d64fd65e354a790519650854f246b60ee0c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/containment-lint.log",
+      "bytes": 5541,
+      "sha256": "9c2776f179000095d477a2894224b3143017e56b688d063bdd2b481d44f01109"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/review-packet-initial.json",
+      "bytes": 11963,
+      "sha256": "1eff977a1919725ee99e281a691b4ab5c846e47bf7f1a7ceb30a9d79144d58f2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/independent-review-initial.json",
+      "bytes": 746,
+      "sha256": "cf8262e5b7679a26f14564e70d61c174b3f6cb64f141ee0d817dd2d44ddf74fd"
+    }
+  ],
+  "checks": {
+    "captureContracts": "43/43 PASS: 28 existing +15 browser fixtures",
+    "red": "28 existing pass / 13 new fail before implementation: missing API/integration",
+    "typecheck": "Both PASS after correction",
+    "lint": "0 errors /39 existing warnings after correction",
+    "measurementContracts": "85/85 PASS",
+    "reviewRegressionRed": "41 pass /2 shorthand-containment fail before correction"
+  },
+  "limits": [
+    "CSS ancestor group opacity product is not scene material or composited/world opacity.",
+    "Clipping intersection is a viewport-coordinate rectangle, never an inferred horizontal world crop plane.",
+    "Unsupported transformed/nonrectangular/masked/containing-block/animated presentation blocks quantities.",
+    "Record binding means co-observation of the existing completed-frame record and consumers, not retrospective proof of CSS presentation at render time.",
+    "Equal brackets cannot prove presentation throughout screenshot exposure or continuous forward/reverse exit.",
+    "No current hero packet was captured. All Task 2 gates and personal visual acceptance remain open."
+  ],
+  "commands": [
+    "pnpm nx run @site/pegasoft-e2e:hero-capture-contract-test",
+    "pnpm nx run @site/pegasoft-e2e:typecheck",
+    "pnpm nx run @site/pegasoft-e2e:lint",
+    "pnpm nx run @site/pegasoft-e2e:hero-measurement-test"
+  ],
+  "reviewFocus": [
+    "One-task sampling and conservative clipping/compositing barriers",
+    "initial/before/after parity and preserved existing capture checks",
+    "Raw RED/GREEN outcomes and live input pins",
+    "No promotion to visual, continuous-motion or Task 2 qualification"
+  ],
+  "historicalReview": "Initial review verified its 42 pins at review time; source/module snapshots and logs are retained. Working fixture outputs were regenerated by regression runs, so initial fixture hashes are historical and not currently reproducible from that working directory. Revised fixture outputs are now immutable snapshots, pinned here.",
+  "findingResolution": "P2: Reject contain strict/content alongside paint. Both new regressions fail before correction and pass afterward; each also asserts blocked bracket readback."
+}

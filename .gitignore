@@ -60,9 +60,13 @@ tools/docs/**
 # Next.js
 .next
 apps/pegasoft/.next-s7-diagnostics
+apps/pegasoft/.next-lifecycle-review
 out
 
 test-output
 vitest.config.*.timestamp*
 
 .nx/migrate-runs
+
+# Local credentials
+/.env

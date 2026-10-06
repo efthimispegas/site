@@ -1,0 +1,3394 @@
+{
+  "schemaVersion": 1,
+  "status": "review-ready-producer-challenges; qualification blocked",
+  "rawImagePins": 6,
+  "labelledSections": 27,
+  "labelStatus": "Producer-proposed independent per-image locations. Root commissions independent review.",
+  "diagnosticObserved": 5,
+  "diagnosticBlocked": 22,
+  "declaredSensitivityOnly": {
+    "peakFractions": [
+      0.5,
+      0.8,
+      0.9
+    ],
+    "residualThresholds": [
+      3,
+      5,
+      10
+    ],
+    "maximumSidebandNoise": 3,
+    "minimumPeakExcess": 5,
+    "qualification": "These inherited helper settings are not independently calibrated appearance/edge thresholds."
+  },
+  "backgroundChecks": [
+    {
+      "id": "activation-route-source-background",
+      "status": "blocked",
+      "sidebandNoise": 0,
+      "maximumAbsoluteResidual": 0
+    },
+    {
+      "id": "activation-route-local-background",
+      "status": "blocked",
+      "sidebandNoise": 0,
+      "maximumAbsoluteResidual": 0
+    },
+    {
+      "id": "clearance-field-preview-source-background",
+      "status": "blocked",
+      "sidebandNoise": 0,
+      "maximumAbsoluteResidual": 0
+    },
+    {
+      "id": "clearance-field-preview-local-background",
+      "status": "blocked",
+      "sidebandNoise": 0,
+      "maximumAbsoluteResidual": 0
+    },
+    {
+      "id": "arrival-lockup-source-background",
+      "status": "blocked",
+      "sidebandNoise": 0,
+      "maximumAbsoluteResidual": 0
+    },
+    {
+      "id": "arrival-lockup-local-background",
+      "status": "blocked",
+      "sidebandNoise": 0,
+      "maximumAbsoluteResidual": 0
+    }
+  ],
+  "empiricalNegativeMaximum": 0,
+  "negativeMaximumLimit": "Finite, producer-labelled sections only. This is not a distribution-wide noise calibration or halo edge error bound.",
+  "challenges": [
+    {
+      "id": "activation-route-source-network",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "parallel-route-bundle",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 1.9793103448275815,
+      "redSample": {
+        "coordinate": 1346,
+        "rgb": [
+          243,
+          94,
+          112
+        ],
+        "redMinusGreen": 149,
+        "meanRgbExcess": -65.21379310344828
+      },
+      "peak": {
+        "coordinate": 1353,
+        "rgb": [
+          219,
+          211,
+          223
+        ],
+        "brightExcess": 2.8183908045976978
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                1265,
+                1277
+              ],
+              "maximumResidual": 21.34482758620689,
+              "maximumMeanRgbExcess": -1.5862068965517153,
+              "minimumMeanRgbExcess": -16.229885057471268
+            },
+            {
+              "rasterBounds": [
+                1280,
+                1296
+              ],
+              "maximumResidual": 121.62068965517241,
+              "maximumMeanRgbExcess": -1.850574712643682,
+              "minimumMeanRgbExcess": -66.48965517241379
+            },
+            {
+              "rasterBounds": [
+                1298,
+                1298
+              ],
+              "maximumResidual": 3.8482758620689594,
+              "maximumMeanRgbExcess": -0.43448275862068425,
+              "minimumMeanRgbExcess": -0.43448275862068425
+            },
+            {
+              "rasterBounds": [
+                1300,
+                1336
+              ],
+              "maximumResidual": 122.55172413793105,
+              "maximumMeanRgbExcess": 1.657471264367814,
+              "minimumMeanRgbExcess": -67.30574712643677
+            },
+            {
+              "rasterBounds": [
+                1338,
+                1355
+              ],
+              "maximumResidual": 123.41724137931035,
+              "maximumMeanRgbExcess": 2.8183908045976978,
+              "minimumMeanRgbExcess": -66.8896551724138
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                1267,
+                1277
+              ],
+              "maximumResidual": 21.34482758620689,
+              "maximumMeanRgbExcess": -3.1977011494252943,
+              "minimumMeanRgbExcess": -16.229885057471268
+            },
+            {
+              "rasterBounds": [
+                1280,
+                1296
+              ],
+              "maximumResidual": 121.62068965517241,
+              "maximumMeanRgbExcess": -1.850574712643682,
+              "minimumMeanRgbExcess": -66.48965517241379
+            },
+            {
+              "rasterBounds": [
+                1300,
+                1316
+              ],
+              "maximumResidual": 122.55172413793105,
+              "maximumMeanRgbExcess": -2.3517241379310385,
+              "minimumMeanRgbExcess": -66.73103448275863
+            },
+            {
+              "rasterBounds": [
+                1318,
+                1336
+              ],
+              "maximumResidual": 122.48620689655172,
+              "maximumMeanRgbExcess": 1.657471264367814,
+              "minimumMeanRgbExcess": -67.30574712643677
+            },
+            {
+              "rasterBounds": [
+                1338,
+                1353
+              ],
+              "maximumResidual": 123.41724137931035,
+              "maximumMeanRgbExcess": 2.8183908045976978,
+              "minimumMeanRgbExcess": -66.8896551724138
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                1268,
+                1275
+              ],
+              "maximumResidual": 21.34482758620689,
+              "maximumMeanRgbExcess": -8.54022988505748,
+              "minimumMeanRgbExcess": -16.229885057471268
+            },
+            {
+              "rasterBounds": [
+                1280,
+                1294
+              ],
+              "maximumResidual": 121.62068965517241,
+              "maximumMeanRgbExcess": -1.850574712643682,
+              "minimumMeanRgbExcess": -66.48965517241379
+            },
+            {
+              "rasterBounds": [
+                1300,
+                1314
+              ],
+              "maximumResidual": 122.55172413793105,
+              "maximumMeanRgbExcess": -6.365517241379318,
+              "minimumMeanRgbExcess": -66.73103448275863
+            },
+            {
+              "rasterBounds": [
+                1320,
+                1333
+              ],
+              "maximumResidual": 122.48620689655172,
+              "maximumMeanRgbExcess": -7.940229885057467,
+              "minimumMeanRgbExcess": -67.30574712643677
+            },
+            {
+              "rasterBounds": [
+                1339,
+                1353
+              ],
+              "maximumResidual": 123.41724137931035,
+              "maximumMeanRgbExcess": 2.8183908045976978,
+              "minimumMeanRgbExcess": -66.8896551724138
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "activation-route-source-branch",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "branch-contact",
+      "status": "blocked",
+      "reasons": [
+        "Sideband noise exceeds the declared limit; background calibration is contaminated."
+      ],
+      "sidebandNoise": 5.764150943396231,
+      "redSample": {
+        "coordinate": 1037,
+        "rgb": [
+          243,
+          84,
+          102
+        ],
+        "redMinusGreen": 159,
+        "meanRgbExcess": -59.71069182389937
+      },
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                760,
+                768
+              ],
+              "maximumResidual": 4.764150943396231,
+              "maximumMeanRgbExcess": 3.613207547169812,
+              "minimumMeanRgbExcess": 2.2861635220125813
+            },
+            {
+              "rasterBounds": [
+                876,
+                1130
+              ],
+              "maximumResidual": 120.3698113207547,
+              "maximumMeanRgbExcess": 10.13207547169811,
+              "minimumMeanRgbExcess": -59.839622641509436
+            },
+            {
+              "rasterBounds": [
+                1132,
+                1229
+              ],
+              "maximumResidual": 109.27358490566039,
+              "maximumMeanRgbExcess": 4.540880503144659,
+              "minimumMeanRgbExcess": -56.79874213836478
+            },
+            {
+              "rasterBounds": [
+                1240,
+                1245
+              ],
+              "maximumResidual": 3.3113207547169736,
+              "maximumMeanRgbExcess": 2.6572327044025124,
+              "minimumMeanRgbExcess": 1.7861635220125816
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                877,
+                885
+              ],
+              "maximumResidual": 12.400000000000006,
+              "maximumMeanRgbExcess": -5.163522012578625,
+              "minimumMeanRgbExcess": -9.666666666666666
+            },
+            {
+              "rasterBounds": [
+                888,
+                903
+              ],
+              "maximumResidual": 101.3679245283019,
+              "maximumMeanRgbExcess": 7.5157232704402475,
+              "minimumMeanRgbExcess": -44.49056603773585
+            },
+            {
+              "rasterBounds": [
+                905,
+                1089
+              ],
+              "maximumResidual": 120.3698113207547,
+              "maximumMeanRgbExcess": 10.13207547169811,
+              "minimumMeanRgbExcess": -59.839622641509436
+            },
+            {
+              "rasterBounds": [
+                1091,
+                1091
+              ],
+              "maximumResidual": 8.901886792452842,
+              "maximumMeanRgbExcess": 3.0817610062893075,
+              "minimumMeanRgbExcess": 3.0817610062893075
+            },
+            {
+              "rasterBounds": [
+                1094,
+                1109
+              ],
+              "maximumResidual": 108.19811320754718,
+              "maximumMeanRgbExcess": 4.292452830188684,
+              "minimumMeanRgbExcess": -53.70125786163521
+            },
+            {
+              "rasterBounds": [
+                1111,
+                1128
+              ],
+              "maximumResidual": 109.92830188679244,
+              "maximumMeanRgbExcess": 3.223270440251573,
+              "minimumMeanRgbExcess": -56.062893081761
+            },
+            {
+              "rasterBounds": [
+                1132,
+                1147
+              ],
+              "maximumResidual": 109.27358490566039,
+              "maximumMeanRgbExcess": 4.540880503144659,
+              "minimumMeanRgbExcess": -56.79874213836478
+            },
+            {
+              "rasterBounds": [
+                1156,
+                1157
+              ],
+              "maximumResidual": 5.59056603773584,
+              "maximumMeanRgbExcess": 3.757861635220119,
+              "minimumMeanRgbExcess": 3.7169811320754698
+            },
+            {
+              "rasterBounds": [
+                1160,
+                1163
+              ],
+              "maximumResidual": 5.3867924528301785,
+              "maximumMeanRgbExcess": 3.594339622641504,
+              "minimumMeanRgbExcess": 2.512578616352196
+            },
+            {
+              "rasterBounds": [
+                1166,
+                1167
+              ],
+              "maximumResidual": 5.081132075471714,
+              "maximumMeanRgbExcess": 3.3490566037735903,
+              "minimumMeanRgbExcess": 3.308176100628922
+            },
+            {
+              "rasterBounds": [
+                1187,
+                1187
+              ],
+              "maximumResidual": 5.011320754716991,
+              "maximumMeanRgbExcess": 3.8238993710691886,
+              "minimumMeanRgbExcess": 3.8238993710691886
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                880,
+                883
+              ],
+              "maximumResidual": 12.400000000000006,
+              "maximumMeanRgbExcess": -8.415094339622641,
+              "minimumMeanRgbExcess": -9.666666666666666
+            },
+            {
+              "rasterBounds": [
+                888,
+                903
+              ],
+              "maximumResidual": 101.3679245283019,
+              "maximumMeanRgbExcess": 7.5157232704402475,
+              "minimumMeanRgbExcess": -44.49056603773585
+            },
+            {
+              "rasterBounds": [
+                922,
+                944
+              ],
+              "maximumResidual": 13.256603773584914,
+              "maximumMeanRgbExcess": 9.78616352201258,
+              "minimumMeanRgbExcess": 7.792452830188675
+            },
+            {
+              "rasterBounds": [
+                946,
+                947
+              ],
+              "maximumResidual": 11.28867924528302,
+              "maximumMeanRgbExcess": 8.67610062893082,
+              "minimumMeanRgbExcess": 7.968553459119495
+            },
+            {
+              "rasterBounds": [
+                950,
+                971
+              ],
+              "maximumResidual": 13.371698113207543,
+              "maximumMeanRgbExcess": 9.308176100628932,
+              "minimumMeanRgbExcess": 7.484276729559743
+            },
+            {
+              "rasterBounds": [
+                984,
+                986
+              ],
+              "maximumResidual": 12.352830188679235,
+              "maximumMeanRgbExcess": 8.789308176100624,
+              "minimumMeanRgbExcess": 8.374213836477983
+            },
+            {
+              "rasterBounds": [
+                988,
+                990
+              ],
+              "maximumResidual": 12.149056603773573,
+              "maximumMeanRgbExcess": 8.625786163522008,
+              "minimumMeanRgbExcess": 8.210691823899367
+            },
+            {
+              "rasterBounds": [
+                992,
+                992
+              ],
+              "maximumResidual": 11.945283018867912,
+              "maximumMeanRgbExcess": 8.795597484276726,
+              "minimumMeanRgbExcess": 8.795597484276726
+            },
+            {
+              "rasterBounds": [
+                1012,
+                1017
+              ],
+              "maximumResidual": 11.8245283018868,
+              "maximumMeanRgbExcess": 8.229559748427675,
+              "minimumMeanRgbExcess": 7.440251572327043
+            },
+            {
+              "rasterBounds": [
+                1022,
+                1056
+              ],
+              "maximumResidual": 120.3698113207547,
+              "maximumMeanRgbExcess": 10.13207547169811,
+              "minimumMeanRgbExcess": -59.839622641509436
+            },
+            {
+              "rasterBounds": [
+                1058,
+                1058
+              ],
+              "maximumResidual": 10.583018867924523,
+              "maximumMeanRgbExcess": 7.7641509433962215,
+              "minimumMeanRgbExcess": 7.7641509433962215
+            },
+            {
+              "rasterBounds": [
+                1060,
+                1061
+              ],
+              "maximumResidual": 10.481132075471692,
+              "maximumMeanRgbExcess": 7.682389937106914,
+              "minimumMeanRgbExcess": 7.641509433962265
+            },
+            {
+              "rasterBounds": [
+                1068,
+                1069
+              ],
+              "maximumResidual": 11.022641509433953,
+              "maximumMeanRgbExcess": 6.6477987421383675,
+              "minimumMeanRgbExcess": 6.355345911949684
+            },
+            {
+              "rasterBounds": [
+                1074,
+                1089
+              ],
+              "maximumResidual": 107.68867924528303,
+              "maximumMeanRgbExcess": 2.776729559748427,
+              "minimumMeanRgbExcess": -53.50943396226415
+            },
+            {
+              "rasterBounds": [
+                1094,
+                1108
+              ],
+              "maximumResidual": 108.19811320754718,
+              "maximumMeanRgbExcess": 4.292452830188684,
+              "minimumMeanRgbExcess": -53.70125786163521
+            },
+            {
+              "rasterBounds": [
+                1114,
+                1127
+              ],
+              "maximumResidual": 109.92830188679244,
+              "maximumMeanRgbExcess": -3.723270440251563,
+              "minimumMeanRgbExcess": -56.062893081761
+            },
+            {
+              "rasterBounds": [
+                1132,
+                1147
+              ],
+              "maximumResidual": 109.27358490566039,
+              "maximumMeanRgbExcess": 4.540880503144659,
+              "minimumMeanRgbExcess": -56.79874213836478
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "activation-route-source-background",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "background-negative",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 400,
+        "rgb": [
+          200,
+          218,
+          229
+        ],
+        "redMinusGreen": -18,
+        "meanRgbExcess": 0
+      },
+      "peak": {
+        "coordinate": 431,
+        "rgb": [
+          200,
+          218,
+          229
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "activation-route-source-clipped",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "unavailable-outside-raster",
+      "status": "blocked",
+      "reasons": [
+        "Section or sidebands are clipped, overlapping, unavailable or invalid."
+      ],
+      "sidebandNoise": null,
+      "redSample": null,
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "activation-route-local-network",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "parallel-route-bundle",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 1299,
+        "rgb": [
+          255,
+          77,
+          103
+        ],
+        "redMinusGreen": 178,
+        "meanRgbExcess": -77.66666666666667
+      },
+      "peak": {
+        "coordinate": 1211,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                1297,
+                1310
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -4.333333333333333,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1316,
+                1330
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -1.6666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1335,
+                1349
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -3,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1355,
+                1368
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                1297,
+                1310
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -4.333333333333333,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1316,
+                1329
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -12.666666666666666,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1335,
+                1349
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -3,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1355,
+                1368
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                1297,
+                1309
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -32,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1316,
+                1329
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -12.666666666666666,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1336,
+                1348
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -27,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1355,
+                1368
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "activation-route-local-branch",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "branch-contact",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 900,
+        "rgb": [
+          255,
+          77,
+          103
+        ],
+        "redMinusGreen": 178,
+        "meanRgbExcess": -77.66666666666667
+      },
+      "peak": {
+        "coordinate": 811,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                897,
+                909
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -27.333333333333332,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1006,
+                1034
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -8.333333333333334,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1084,
+                1097
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1102,
+                1115
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.333333333333333,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1122,
+                1133
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -53,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1140,
+                1153
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                897,
+                909
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -27.333333333333332,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1006,
+                1034
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -8.333333333333334,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1084,
+                1097
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1102,
+                1115
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.333333333333333,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1122,
+                1133
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -53,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1140,
+                1153
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                897,
+                909
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -27.333333333333332,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1006,
+                1034
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -8.333333333333334,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1084,
+                1097
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1102,
+                1115
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.333333333333333,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1122,
+                1133
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -53,
+              "minimumMeanRgbExcess": -77.66666666666667
+            },
+            {
+              "rasterBounds": [
+                1140,
+                1153
+              ],
+              "maximumResidual": 148,
+              "maximumMeanRgbExcess": -7.666666666666667,
+              "minimumMeanRgbExcess": -77.66666666666667
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "activation-route-local-background",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "background-negative",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 410,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "redMinusGreen": -17,
+        "meanRgbExcess": 0
+      },
+      "peak": {
+        "coordinate": 441,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "activation-route-local-clipped",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "unavailable-outside-raster",
+      "status": "blocked",
+      "reasons": [
+        "Section or sidebands are clipped, overlapping, unavailable or invalid."
+      ],
+      "sidebandNoise": null,
+      "redSample": null,
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-source-body",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "route-plus-field-marks",
+      "status": "blocked",
+      "reasons": [
+        "Sideband noise exceeds the declared limit; background calibration is contaminated."
+      ],
+      "sidebandNoise": 31,
+      "redSample": {
+        "coordinate": 988,
+        "rgb": [
+          200,
+          210,
+          222
+        ],
+        "redMinusGreen": -10,
+        "meanRgbExcess": 13.272839506172838
+      },
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                750,
+                757
+              ],
+              "maximumResidual": 16.111111111111114,
+              "maximumMeanRgbExcess": -6.4641975308641975,
+              "minimumMeanRgbExcess": -9.52222222222222
+            },
+            {
+              "rasterBounds": [
+                763,
+                772
+              ],
+              "maximumResidual": 6.1851851851851904,
+              "maximumMeanRgbExcess": 4.449382716049381,
+              "minimumMeanRgbExcess": 0.07283950617284063
+            },
+            {
+              "rasterBounds": [
+                776,
+                1030
+              ],
+              "maximumResidual": 33,
+              "maximumMeanRgbExcess": 30.137037037037032,
+              "minimumMeanRgbExcess": -9.303703703703698
+            },
+            {
+              "rasterBounds": [
+                1036,
+                1050
+              ],
+              "maximumResidual": 12,
+              "maximumMeanRgbExcess": -1.2753086419753004,
+              "minimumMeanRgbExcess": -8.419753086419755
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                750,
+                757
+              ],
+              "maximumResidual": 16.111111111111114,
+              "maximumMeanRgbExcess": -6.4641975308641975,
+              "minimumMeanRgbExcess": -9.52222222222222
+            },
+            {
+              "rasterBounds": [
+                765,
+                770
+              ],
+              "maximumResidual": 6.1851851851851904,
+              "maximumMeanRgbExcess": 4.449382716049381,
+              "minimumMeanRgbExcess": 1.9567901234567937
+            },
+            {
+              "rasterBounds": [
+                776,
+                971
+              ],
+              "maximumResidual": 33,
+              "maximumMeanRgbExcess": 30.137037037037032,
+              "minimumMeanRgbExcess": -9.303703703703698
+            },
+            {
+              "rasterBounds": [
+                974,
+                1029
+              ],
+              "maximumResidual": 21,
+              "maximumMeanRgbExcess": 13.446913580246909,
+              "minimumMeanRgbExcess": -5.148148148148143
+            },
+            {
+              "rasterBounds": [
+                1038,
+                1050
+              ],
+              "maximumResidual": 12,
+              "maximumMeanRgbExcess": -2.492592592592596,
+              "minimumMeanRgbExcess": -8.419753086419755
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                750,
+                756
+              ],
+              "maximumResidual": 16.111111111111114,
+              "maximumMeanRgbExcess": -6.479012345679014,
+              "minimumMeanRgbExcess": -9.52222222222222
+            },
+            {
+              "rasterBounds": [
+                777,
+                777
+              ],
+              "maximumResidual": 10,
+              "maximumMeanRgbExcess": -9.303703703703698,
+              "minimumMeanRgbExcess": -9.303703703703698
+            },
+            {
+              "rasterBounds": [
+                779,
+                808
+              ],
+              "maximumResidual": 13.240740740740733,
+              "maximumMeanRgbExcess": -5.925925925925924,
+              "minimumMeanRgbExcess": -8.520987654320985
+            },
+            {
+              "rasterBounds": [
+                844,
+                957
+              ],
+              "maximumResidual": 33,
+              "maximumMeanRgbExcess": 30.137037037037032,
+              "minimumMeanRgbExcess": -2.1074074074074076
+            },
+            {
+              "rasterBounds": [
+                975,
+                975
+              ],
+              "maximumResidual": 11,
+              "maximumMeanRgbExcess": -5.148148148148143,
+              "minimumMeanRgbExcess": -5.148148148148143
+            },
+            {
+              "rasterBounds": [
+                977,
+                1023
+              ],
+              "maximumResidual": 21,
+              "maximumMeanRgbExcess": 13.446913580246909,
+              "minimumMeanRgbExcess": 7.854320987654319
+            },
+            {
+              "rasterBounds": [
+                1040,
+                1050
+              ],
+              "maximumResidual": 12,
+              "maximumMeanRgbExcess": -6.129629629629629,
+              "minimumMeanRgbExcess": -8.419753086419755
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-source-copy",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "copy-occlusion",
+      "status": "blocked",
+      "reasons": [
+        "Sideband noise exceeds the declared limit; background calibration is contaminated."
+      ],
+      "sidebandNoise": 12.763636363636351,
+      "redSample": {
+        "coordinate": 1106,
+        "rgb": [
+          87,
+          82,
+          100
+        ],
+        "redMinusGreen": 5,
+        "meanRgbExcess": -120.61313131313132
+      },
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                900,
+                909
+              ],
+              "maximumResidual": 9.781818181818181,
+              "maximumMeanRgbExcess": -2.529292929292931,
+              "minimumMeanRgbExcess": -5.127272727272725
+            },
+            {
+              "rasterBounds": [
+                952,
+                952
+              ],
+              "maximumResidual": 3.5515151515151615,
+              "maximumMeanRgbExcess": 2.0313131313131314,
+              "minimumMeanRgbExcess": 2.0313131313131314
+            },
+            {
+              "rasterBounds": [
+                977,
+                1001
+              ],
+              "maximumResidual": 10.418181818181807,
+              "maximumMeanRgbExcess": -0.8171717171717129,
+              "minimumMeanRgbExcess": -5.074747474747483
+            },
+            {
+              "rasterBounds": [
+                1003,
+                1006
+              ],
+              "maximumResidual": 4.599999999999994,
+              "maximumMeanRgbExcess": -1.1949494949494976,
+              "minimumMeanRgbExcess": -2.177777777777777
+            },
+            {
+              "rasterBounds": [
+                1008,
+                1012
+              ],
+              "maximumResidual": 3.7636363636363512,
+              "maximumMeanRgbExcess": -1.2808080808080813,
+              "minimumMeanRgbExcess": -2.3323232323232332
+            },
+            {
+              "rasterBounds": [
+                1017,
+                1039
+              ],
+              "maximumResidual": 5.145454545454555,
+              "maximumMeanRgbExcess": -0.7959595959595921,
+              "minimumMeanRgbExcess": -3.521212121212121
+            },
+            {
+              "rasterBounds": [
+                1052,
+                1231
+              ],
+              "maximumResidual": 139.15454545454546,
+              "maximumMeanRgbExcess": 5.301010101010102,
+              "minimumMeanRgbExcess": -133.48888888888888
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                900,
+                906
+              ],
+              "maximumResidual": 9.781818181818181,
+              "maximumMeanRgbExcess": -3.8454545454545532,
+              "minimumMeanRgbExcess": -5.127272727272725
+            },
+            {
+              "rasterBounds": [
+                908,
+                908
+              ],
+              "maximumResidual": 5.872727272727275,
+              "maximumMeanRgbExcess": -4.213131313131309,
+              "minimumMeanRgbExcess": -4.213131313131309
+            },
+            {
+              "rasterBounds": [
+                983,
+                999
+              ],
+              "maximumResidual": 10.418181818181807,
+              "maximumMeanRgbExcess": -2.4424242424242473,
+              "minimumMeanRgbExcess": -5.074747474747483
+            },
+            {
+              "rasterBounds": [
+                1025,
+                1028
+              ],
+              "maximumResidual": 5.054545454545462,
+              "maximumMeanRgbExcess": -2.888888888888895,
+              "minimumMeanRgbExcess": -2.9404040404040472
+            },
+            {
+              "rasterBounds": [
+                1030,
+                1033
+              ],
+              "maximumResidual": 5.145454545454555,
+              "maximumMeanRgbExcess": -2.6414141414141454,
+              "minimumMeanRgbExcess": -2.6929292929292976
+            },
+            {
+              "rasterBounds": [
+                1056,
+                1175
+              ],
+              "maximumResidual": 139.15454545454546,
+              "maximumMeanRgbExcess": 5.301010101010102,
+              "minimumMeanRgbExcess": -133.48888888888888
+            },
+            {
+              "rasterBounds": [
+                1206,
+                1221
+              ],
+              "maximumResidual": 138.6,
+              "maximumMeanRgbExcess": -2.9969696969696997,
+              "minimumMeanRgbExcess": -130.04848484848486
+            },
+            {
+              "rasterBounds": [
+                1230,
+                1230
+              ],
+              "maximumResidual": 5.7272727272727195,
+              "maximumMeanRgbExcess": -3.075757575757573,
+              "minimumMeanRgbExcess": -3.075757575757573
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                993,
+                993
+              ],
+              "maximumResidual": 10.418181818181807,
+              "maximumMeanRgbExcess": -5.0060606060606005,
+              "minimumMeanRgbExcess": -5.0060606060606005
+            },
+            {
+              "rasterBounds": [
+                1056,
+                1074
+              ],
+              "maximumResidual": 136.92727272727274,
+              "maximumMeanRgbExcess": -69.0878787878788,
+              "minimumMeanRgbExcess": -131.7131313131313
+            },
+            {
+              "rasterBounds": [
+                1076,
+                1143
+              ],
+              "maximumResidual": 136.0939393939394,
+              "maximumMeanRgbExcess": 5.301010101010102,
+              "minimumMeanRgbExcess": -130.96363636363637
+            },
+            {
+              "rasterBounds": [
+                1150,
+                1175
+              ],
+              "maximumResidual": 139.15454545454546,
+              "maximumMeanRgbExcess": -8.368686868686874,
+              "minimumMeanRgbExcess": -133.48888888888888
+            },
+            {
+              "rasterBounds": [
+                1207,
+                1218
+              ],
+              "maximumResidual": 138.6,
+              "maximumMeanRgbExcess": -15.53636363636364,
+              "minimumMeanRgbExcess": -130.04848484848486
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-source-marks",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "surrounding-grid-pulse-causality-unavailable",
+      "status": "blocked",
+      "reasons": [
+        "Sideband noise exceeds the declared limit; background calibration is contaminated."
+      ],
+      "sidebandNoise": 12.074999999999989,
+      "redSample": {
+        "coordinate": 603,
+        "rgb": [
+          189,
+          210,
+          226
+        ],
+        "redMinusGreen": -21,
+        "meanRgbExcess": -2.1895833333333408
+      },
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                590,
+                595
+              ],
+              "maximumResidual": 4.9375,
+              "maximumMeanRgbExcess": 3.7604166666666665,
+              "minimumMeanRgbExcess": 2.902083333333328
+            },
+            {
+              "rasterBounds": [
+                597,
+                603
+              ],
+              "maximumResidual": 9.212500000000006,
+              "maximumMeanRgbExcess": -0.47708333333332575,
+              "minimumMeanRgbExcess": -7.429166666666674
+            },
+            {
+              "rasterBounds": [
+                610,
+                614
+              ],
+              "maximumResidual": 3.4875000000000114,
+              "maximumMeanRgbExcess": 0.670833333333339,
+              "minimumMeanRgbExcess": 0.4791666666666667
+            },
+            {
+              "rasterBounds": [
+                620,
+                620
+              ],
+              "maximumResidual": 3.75,
+              "maximumMeanRgbExcess": -1.7083333333333333,
+              "minimumMeanRgbExcess": -1.7083333333333333
+            },
+            {
+              "rasterBounds": [
+                629,
+                639
+              ],
+              "maximumResidual": 4.537499999999994,
+              "maximumMeanRgbExcess": -0.18125000000000568,
+              "minimumMeanRgbExcess": -1.8937499999999925
+            },
+            {
+              "rasterBounds": [
+                641,
+                647
+              ],
+              "maximumResidual": 4.462500000000006,
+              "maximumMeanRgbExcess": -1.3208333333333258,
+              "minimumMeanRgbExcess": -1.6062500000000075
+            },
+            {
+              "rasterBounds": [
+                650,
+                670
+              ],
+              "maximumResidual": 7.324999999999989,
+              "maximumMeanRgbExcess": -0.5541666666666742,
+              "minimumMeanRgbExcess": -4.456249999999993
+            },
+            {
+              "rasterBounds": [
+                672,
+                679
+              ],
+              "maximumResidual": 5.949999999999989,
+              "maximumMeanRgbExcess": 3.6895833333333408,
+              "minimumMeanRgbExcess": 2.1645833333333258
+            },
+            {
+              "rasterBounds": [
+                681,
+                733
+              ],
+              "maximumResidual": 11.199999999999989,
+              "maximumMeanRgbExcess": 7.799999999999993,
+              "minimumMeanRgbExcess": -5.022916666666674
+            },
+            {
+              "rasterBounds": [
+                735,
+                737
+              ],
+              "maximumResidual": 4.443749999999994,
+              "maximumMeanRgbExcess": -0.53125,
+              "minimumMeanRgbExcess": -2.4354166666666592
+            },
+            {
+              "rasterBounds": [
+                740,
+                749
+              ],
+              "maximumResidual": 5.5,
+              "maximumMeanRgbExcess": -0.9562499999999924,
+              "minimumMeanRgbExcess": -2.625
+            },
+            {
+              "rasterBounds": [
+                758,
+                762
+              ],
+              "maximumResidual": 6,
+              "maximumMeanRgbExcess": 5,
+              "minimumMeanRgbExcess": 2.9041666666666592
+            },
+            {
+              "rasterBounds": [
+                767,
+                767
+              ],
+              "maximumResidual": 3.2562499999999943,
+              "maximumMeanRgbExcess": -1.6645833333333258,
+              "minimumMeanRgbExcess": -1.6645833333333258
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                598,
+                600
+              ],
+              "maximumResidual": 9.212500000000006,
+              "maximumMeanRgbExcess": -4.333333333333333,
+              "minimumMeanRgbExcess": -7.429166666666674
+            },
+            {
+              "rasterBounds": [
+                654,
+                655
+              ],
+              "maximumResidual": 6.324999999999989,
+              "maximumMeanRgbExcess": -1.6979166666666667,
+              "minimumMeanRgbExcess": -1.7458333333333276
+            },
+            {
+              "rasterBounds": [
+                665,
+                669
+              ],
+              "maximumResidual": 7.324999999999989,
+              "maximumMeanRgbExcess": -3.360416666666661,
+              "minimumMeanRgbExcess": -4.456249999999993
+            },
+            {
+              "rasterBounds": [
+                677,
+                678
+              ],
+              "maximumResidual": 5.949999999999989,
+              "maximumMeanRgbExcess": 3.6895833333333408,
+              "minimumMeanRgbExcess": 3.4041666666666592
+            },
+            {
+              "rasterBounds": [
+                681,
+                684
+              ],
+              "maximumResidual": 6.181250000000006,
+              "maximumMeanRgbExcess": -3.785416666666672,
+              "minimumMeanRgbExcess": -5.022916666666674
+            },
+            {
+              "rasterBounds": [
+                686,
+                686
+              ],
+              "maximumResidual": 6.849999999999994,
+              "maximumMeanRgbExcess": -3.879166666666672,
+              "minimumMeanRgbExcess": -3.879166666666672
+            },
+            {
+              "rasterBounds": [
+                695,
+                695
+              ],
+              "maximumResidual": 6.09375,
+              "maximumMeanRgbExcess": 0.21875,
+              "minimumMeanRgbExcess": 0.21875
+            },
+            {
+              "rasterBounds": [
+                698,
+                699
+              ],
+              "maximumResidual": 6.412499999999994,
+              "maximumMeanRgbExcess": 0.36249999999999244,
+              "minimumMeanRgbExcess": -0.5895833333333277
+            },
+            {
+              "rasterBounds": [
+                702,
+                703
+              ],
+              "maximumResidual": 5.943749999999994,
+              "maximumMeanRgbExcess": -0.39791666666667425,
+              "minimumMeanRgbExcess": -0.44583333333332575
+            },
+            {
+              "rasterBounds": [
+                710,
+                711
+              ],
+              "maximumResidual": 6.25,
+              "maximumMeanRgbExcess": -2.6812500000000057,
+              "minimumMeanRgbExcess": -2.7291666666666665
+            },
+            {
+              "rasterBounds": [
+                718,
+                718
+              ],
+              "maximumResidual": 6.462500000000006,
+              "maximumMeanRgbExcess": -3.3458333333333408,
+              "minimumMeanRgbExcess": -3.3458333333333408
+            },
+            {
+              "rasterBounds": [
+                720,
+                733
+              ],
+              "maximumResidual": 11.199999999999989,
+              "maximumMeanRgbExcess": 7.799999999999993,
+              "minimumMeanRgbExcess": 2.4166666666666665
+            },
+            {
+              "rasterBounds": [
+                740,
+                743
+              ],
+              "maximumResidual": 5.5,
+              "maximumMeanRgbExcess": -2.4812500000000077,
+              "minimumMeanRgbExcess": -2.625
+            },
+            {
+              "rasterBounds": [
+                759,
+                761
+              ],
+              "maximumResidual": 6,
+              "maximumMeanRgbExcess": 5,
+              "minimumMeanRgbExcess": 4.047916666666661
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                723,
+                730
+              ],
+              "maximumResidual": 11.199999999999989,
+              "maximumMeanRgbExcess": 7.799999999999993,
+              "minimumMeanRgbExcess": 5.941666666666673
+            },
+            {
+              "rasterBounds": [
+                732,
+                732
+              ],
+              "maximumResidual": 10.300000000000011,
+              "maximumMeanRgbExcess": 6.325000000000007,
+              "minimumMeanRgbExcess": 6.325000000000007
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-source-background",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "background-negative",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 500,
+        "rgb": [
+          200,
+          218,
+          229
+        ],
+        "redMinusGreen": -18,
+        "meanRgbExcess": 0
+      },
+      "peak": {
+        "coordinate": 531,
+        "rgb": [
+          200,
+          218,
+          229
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-local-body",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "visible-route-section",
+      "status": "observed-diagnostic",
+      "reasons": [],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 891,
+        "rgb": [
+          247,
+          255,
+          255
+        ],
+        "redMinusGreen": -8,
+        "meanRgbExcess": 29.666666666666668
+      },
+      "peak": {
+        "coordinate": 891,
+        "rgb": [
+          247,
+          255,
+          255
+        ],
+        "brightExcess": 29.666666666666668
+      },
+      "peakWidths": [
+        {
+          "fraction": 0.5,
+          "rasterBounds": [
+            879,
+            918
+          ],
+          "cssSpan": 20,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.8,
+          "rasterBounds": [
+            890,
+            908
+          ],
+          "cssSpan": 9.5,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.9,
+          "rasterBounds": [
+            890,
+            907
+          ],
+          "cssSpan": 9,
+          "quantity": "apparent-composited-bright-profile"
+        }
+      ],
+      "residualEnvelopes": [
+        {
+          "threshold": 3,
+          "rasterBounds": [
+            878,
+            919
+          ],
+          "cssSpan": 21,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 5,
+          "rasterBounds": [
+            878,
+            919
+          ],
+          "cssSpan": 21,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 10,
+          "rasterBounds": [
+            878,
+            919
+          ],
+          "cssSpan": 21,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        }
+      ],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                878,
+                919
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 6.666666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                878,
+                919
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 6.666666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                878,
+                919
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 6.666666666666667
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-local-copy",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "copy-occlusion",
+      "status": "observed-diagnostic",
+      "reasons": [],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 1048,
+        "rgb": [
+          62,
+          66,
+          83
+        ],
+        "redMinusGreen": -4,
+        "meanRgbExcess": -152.33333333333334
+      },
+      "peak": {
+        "coordinate": 1141,
+        "rgb": [
+          247,
+          255,
+          255
+        ],
+        "brightExcess": 29.666666666666668
+      },
+      "peakWidths": [
+        {
+          "fraction": 0.5,
+          "rasterBounds": [
+            1129,
+            1170
+          ],
+          "cssSpan": 21,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.8,
+          "rasterBounds": [
+            1140,
+            1159
+          ],
+          "cssSpan": 10,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.9,
+          "rasterBounds": [
+            1140,
+            1158
+          ],
+          "cssSpan": 9.5,
+          "quantity": "apparent-composited-bright-profile"
+        }
+      ],
+      "residualEnvelopes": [
+        {
+          "threshold": 3,
+          "rasterBounds": [
+            1047,
+            1171
+          ],
+          "cssSpan": 62.5,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 5,
+          "rasterBounds": [
+            1047,
+            1171
+          ],
+          "cssSpan": 62.5,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 10,
+          "rasterBounds": [
+            1047,
+            1170
+          ],
+          "cssSpan": 62,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        }
+      ],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                1047,
+                1050
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -11.666666666666666,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1063,
+                1066
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -22.333333333333332,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1097,
+                1104
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -12.666666666666666,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1108,
+                1112
+              ],
+              "maximumResidual": 158,
+              "maximumMeanRgbExcess": -72.33333333333333,
+              "minimumMeanRgbExcess": -151.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1127,
+                1171
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 3
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                1047,
+                1050
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -11.666666666666666,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1063,
+                1066
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -22.333333333333332,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1097,
+                1104
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -12.666666666666666,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1108,
+                1112
+              ],
+              "maximumResidual": 158,
+              "maximumMeanRgbExcess": -72.33333333333333,
+              "minimumMeanRgbExcess": -151.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1127,
+                1171
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 3
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                1047,
+                1050
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -11.666666666666666,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1063,
+                1066
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -22.333333333333332,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1097,
+                1104
+              ],
+              "maximumResidual": 159,
+              "maximumMeanRgbExcess": -12.666666666666666,
+              "minimumMeanRgbExcess": -152.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1108,
+                1112
+              ],
+              "maximumResidual": 158,
+              "maximumMeanRgbExcess": -72.33333333333333,
+              "minimumMeanRgbExcess": -151.33333333333334
+            },
+            {
+              "rasterBounds": [
+                1128,
+                1170
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 10
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-local-marks",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "surrounding-grid-pulse-causality-unavailable",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 580,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "redMinusGreen": -17,
+        "meanRgbExcess": 0
+      },
+      "peak": {
+        "coordinate": 601,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-local-object",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "non-route-pale-object-negative",
+      "status": "blocked",
+      "reasons": [
+        "Competing bright peaks make beam assignment ambiguous."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 683,
+        "rgb": [
+          229,
+          230,
+          231
+        ],
+        "redMinusGreen": -1,
+        "meanRgbExcess": 7.333333333333333
+      },
+      "peak": {
+        "coordinate": 683,
+        "rgb": [
+          229,
+          230,
+          231
+        ],
+        "brightExcess": 7.333333333333333
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                681,
+                772
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 7.333333333333333,
+              "minimumMeanRgbExcess": -32.333333333333336
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                681,
+                772
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 7.333333333333333,
+              "minimumMeanRgbExcess": -32.333333333333336
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                682,
+                772
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 7.333333333333333,
+              "minimumMeanRgbExcess": -32.333333333333336
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "clearance-field-preview-local-background",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "background-negative",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 540,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "redMinusGreen": -17,
+        "meanRgbExcess": 0
+      },
+      "peak": {
+        "coordinate": 571,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-source-feed",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "isolated-visible-route-section",
+      "status": "observed-diagnostic",
+      "reasons": [],
+      "sidebandNoise": 2,
+      "redSample": {
+        "coordinate": 622,
+        "rgb": [
+          197,
+          216,
+          229
+        ],
+        "redMinusGreen": -19,
+        "meanRgbExcess": 0.3333333333333333
+      },
+      "peak": {
+        "coordinate": 738,
+        "rgb": [
+          225,
+          245,
+          252
+        ],
+        "brightExcess": 27
+      },
+      "peakWidths": [
+        {
+          "fraction": 0.5,
+          "rasterBounds": [
+            727,
+            750
+          ],
+          "cssSpan": 12,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.8,
+          "rasterBounds": [
+            730,
+            746
+          ],
+          "cssSpan": 8.5,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.9,
+          "rasterBounds": [
+            733,
+            744
+          ],
+          "cssSpan": 6,
+          "quantity": "apparent-composited-bright-profile"
+        }
+      ],
+      "residualEnvelopes": [
+        {
+          "threshold": 3,
+          "rasterBounds": [
+            656,
+            823
+          ],
+          "cssSpan": 84,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 5,
+          "rasterBounds": [
+            680,
+            800
+          ],
+          "cssSpan": 60.5,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 10,
+          "rasterBounds": [
+            698,
+            779
+          ],
+          "cssSpan": 41,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        }
+      ],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                656,
+                823
+              ],
+              "maximumResidual": 32,
+              "maximumMeanRgbExcess": 27,
+              "minimumMeanRgbExcess": -11
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                680,
+                800
+              ],
+              "maximumResidual": 32,
+              "maximumMeanRgbExcess": 27,
+              "minimumMeanRgbExcess": -11
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                698,
+                779
+              ],
+              "maximumResidual": 32,
+              "maximumMeanRgbExcess": 27,
+              "minimumMeanRgbExcess": -11
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-source-marks",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "route-plus-field-marks",
+      "status": "blocked",
+      "reasons": [
+        "Sideband noise exceeds the declared limit; background calibration is contaminated."
+      ],
+      "sidebandNoise": 4.113879003558708,
+      "redSample": {
+        "coordinate": 736,
+        "rgb": [
+          230,
+          245,
+          251
+        ],
+        "redMinusGreen": -15,
+        "meanRgbExcess": 33.50771055753262
+      },
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                678,
+                795
+              ],
+              "maximumResidual": 43.08896797153025,
+              "maximumMeanRgbExcess": 34.51482799525504,
+              "minimumMeanRgbExcess": -5.421115065243176
+            },
+            {
+              "rasterBounds": [
+                806,
+                807
+              ],
+              "maximumResidual": 3.056939501779368,
+              "maximumMeanRgbExcess": -0.990510083036772,
+              "minimumMeanRgbExcess": -0.9928825622775813
+            },
+            {
+              "rasterBounds": [
+                810,
+                811
+              ],
+              "maximumResidual": 3.113879003558708,
+              "maximumMeanRgbExcess": -0.9810201660735439,
+              "minimumMeanRgbExcess": -0.9833926453143533
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                679,
+                786
+              ],
+              "maximumResidual": 43.08896797153025,
+              "maximumMeanRgbExcess": 34.51482799525504,
+              "minimumMeanRgbExcess": -5.421115065243176
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                700,
+                777
+              ],
+              "maximumResidual": 43.08896797153025,
+              "maximumMeanRgbExcess": 34.51482799525504,
+              "minimumMeanRgbExcess": -5.421115065243176
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-source-contact",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "shaft-contact",
+      "status": "blocked",
+      "reasons": [
+        "Sideband noise exceeds the declared limit; background calibration is contaminated."
+      ],
+      "sidebandNoise": 7.133333333333326,
+      "redSample": {
+        "coordinate": 709,
+        "rgb": [
+          179,
+          197,
+          222
+        ],
+        "redMinusGreen": -18,
+        "meanRgbExcess": 2.9851851851851827
+      },
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                600,
+                608
+              ],
+              "maximumResidual": 6.133333333333326,
+              "maximumMeanRgbExcess": 3.3740740740740782,
+              "minimumMeanRgbExcess": 0.35925925925926094
+            },
+            {
+              "rasterBounds": [
+                613,
+                613
+              ],
+              "maximumResidual": 3.0222222222222115,
+              "maximumMeanRgbExcess": 1.0074074074074038,
+              "minimumMeanRgbExcess": 1.0074074074074038
+            },
+            {
+              "rasterBounds": [
+                630,
+                630
+              ],
+              "maximumResidual": 3.166666666666657,
+              "maximumMeanRgbExcess": -2.722222222222219,
+              "minimumMeanRgbExcess": -2.722222222222219
+            },
+            {
+              "rasterBounds": [
+                633,
+                633
+              ],
+              "maximumResidual": 3,
+              "maximumMeanRgbExcess": -2.066666666666663,
+              "minimumMeanRgbExcess": -2.066666666666663
+            },
+            {
+              "rasterBounds": [
+                635,
+                839
+              ],
+              "maximumResidual": 28.866666666666674,
+              "maximumMeanRgbExcess": 2.9851851851851827,
+              "minimumMeanRgbExcess": -22.28888888888889
+            },
+            {
+              "rasterBounds": [
+                841,
+                846
+              ],
+              "maximumResidual": 4,
+              "maximumMeanRgbExcess": -1.514814814814817,
+              "minimumMeanRgbExcess": -3.170370370370373
+            },
+            {
+              "rasterBounds": [
+                894,
+                894
+              ],
+              "maximumResidual": 3.9000000000000057,
+              "maximumMeanRgbExcess": 1.9666666666666686,
+              "minimumMeanRgbExcess": 1.9666666666666686
+            },
+            {
+              "rasterBounds": [
+                896,
+                896
+              ],
+              "maximumResidual": 3.8777777777777658,
+              "maximumMeanRgbExcess": 1.625925925925922,
+              "minimumMeanRgbExcess": 1.625925925925922
+            },
+            {
+              "rasterBounds": [
+                899,
+                900
+              ],
+              "maximumResidual": 4.833333333333343,
+              "maximumMeanRgbExcess": 2.6148148148148116,
+              "minimumMeanRgbExcess": 1.9444444444444475
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                602,
+                605
+              ],
+              "maximumResidual": 6.133333333333326,
+              "maximumMeanRgbExcess": 3.3740740740740782,
+              "minimumMeanRgbExcess": 1.381481481481482
+            },
+            {
+              "rasterBounds": [
+                648,
+                649
+              ],
+              "maximumResidual": 6,
+              "maximumMeanRgbExcess": -3.122222222222225,
+              "minimumMeanRgbExcess": -4.125925925925922
+            },
+            {
+              "rasterBounds": [
+                653,
+                656
+              ],
+              "maximumResidual": 7.444444444444457,
+              "maximumMeanRgbExcess": -4.474074074074072,
+              "minimumMeanRgbExcess": -5.148148148148152
+            },
+            {
+              "rasterBounds": [
+                658,
+                839
+              ],
+              "maximumResidual": 28.866666666666674,
+              "maximumMeanRgbExcess": 2.9851851851851827,
+              "minimumMeanRgbExcess": -22.28888888888889
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                668,
+                683
+              ],
+              "maximumResidual": 22.71111111111111,
+              "maximumMeanRgbExcess": -6.8777777777777755,
+              "minimumMeanRgbExcess": -14.57037037037037
+            },
+            {
+              "rasterBounds": [
+                685,
+                695
+              ],
+              "maximumResidual": 25.866666666666674,
+              "maximumMeanRgbExcess": -6.259259259259257,
+              "minimumMeanRgbExcess": -20.622222222222224
+            },
+            {
+              "rasterBounds": [
+                700,
+                707
+              ],
+              "maximumResidual": 22,
+              "maximumMeanRgbExcess": -4.981481481481485,
+              "minimumMeanRgbExcess": -15.670370370370373
+            },
+            {
+              "rasterBounds": [
+                723,
+                753
+              ],
+              "maximumResidual": 13,
+              "maximumMeanRgbExcess": -4.066666666666663,
+              "minimumMeanRgbExcess": -7.140740740740739
+            },
+            {
+              "rasterBounds": [
+                769,
+                774
+              ],
+              "maximumResidual": 20,
+              "maximumMeanRgbExcess": -6.588888888888893,
+              "minimumMeanRgbExcess": -14.90740740740741
+            },
+            {
+              "rasterBounds": [
+                781,
+                822
+              ],
+              "maximumResidual": 28.866666666666674,
+              "maximumMeanRgbExcess": -4.76666666666667,
+              "minimumMeanRgbExcess": -22.28888888888889
+            },
+            {
+              "rasterBounds": [
+                824,
+                828
+              ],
+              "maximumResidual": 11.344444444444434,
+              "maximumMeanRgbExcess": -4.774074074074075,
+              "minimumMeanRgbExcess": -6.114814814814811
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-source-background",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "background-negative",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 600,
+        "rgb": [
+          200,
+          218,
+          229
+        ],
+        "redMinusGreen": -18,
+        "meanRgbExcess": 0
+      },
+      "peak": {
+        "coordinate": 631,
+        "rgb": [
+          200,
+          218,
+          229
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-source-clipped",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "strip-outside-raster",
+      "status": "blocked",
+      "reasons": [
+        "Section or sidebands are clipped, overlapping, unavailable or invalid."
+      ],
+      "sidebandNoise": null,
+      "redSample": null,
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-local-feed",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "isolated-visible-route-section",
+      "status": "observed-diagnostic",
+      "reasons": [],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 751,
+        "rgb": [
+          247,
+          255,
+          255
+        ],
+        "redMinusGreen": -8,
+        "meanRgbExcess": 29.666666666666668
+      },
+      "peak": {
+        "coordinate": 751,
+        "rgb": [
+          247,
+          255,
+          255
+        ],
+        "brightExcess": 29.666666666666668
+      },
+      "peakWidths": [
+        {
+          "fraction": 0.5,
+          "rasterBounds": [
+            738,
+            785
+          ],
+          "cssSpan": 24,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.8,
+          "rasterBounds": [
+            750,
+            772
+          ],
+          "cssSpan": 11.5,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.9,
+          "rasterBounds": [
+            750,
+            772
+          ],
+          "cssSpan": 11.5,
+          "quantity": "apparent-composited-bright-profile"
+        }
+      ],
+      "residualEnvelopes": [
+        {
+          "threshold": 3,
+          "rasterBounds": [
+            736,
+            786
+          ],
+          "cssSpan": 25.5,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 5,
+          "rasterBounds": [
+            736,
+            786
+          ],
+          "cssSpan": 25.5,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 10,
+          "rasterBounds": [
+            737,
+            786
+          ],
+          "cssSpan": 25,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        }
+      ],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                736,
+                786
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 5.666666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                736,
+                786
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 5.666666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                737,
+                786
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 6.333333333333333
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-local-marks",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "detached-grid-residual-near-route",
+      "status": "observed-diagnostic",
+      "reasons": [],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 751,
+        "rgb": [
+          247,
+          255,
+          255
+        ],
+        "redMinusGreen": -8,
+        "meanRgbExcess": 29.666666666666668
+      },
+      "peak": {
+        "coordinate": 751,
+        "rgb": [
+          247,
+          255,
+          255
+        ],
+        "brightExcess": 29.666666666666668
+      },
+      "peakWidths": [
+        {
+          "fraction": 0.5,
+          "rasterBounds": [
+            738,
+            785
+          ],
+          "cssSpan": 24,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.8,
+          "rasterBounds": [
+            750,
+            772
+          ],
+          "cssSpan": 11.5,
+          "quantity": "apparent-composited-bright-profile"
+        },
+        {
+          "fraction": 0.9,
+          "rasterBounds": [
+            750,
+            772
+          ],
+          "cssSpan": 11.5,
+          "quantity": "apparent-composited-bright-profile"
+        }
+      ],
+      "residualEnvelopes": [
+        {
+          "threshold": 3,
+          "rasterBounds": [
+            684,
+            786
+          ],
+          "cssSpan": 51.5,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 5,
+          "rasterBounds": [
+            685,
+            786
+          ],
+          "cssSpan": 51,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        },
+        {
+          "threshold": 10,
+          "rasterBounds": [
+            685,
+            786
+          ],
+          "cssSpan": 51,
+          "endpointsClosed": true,
+          "thresholdAboveMeasuredNoise": true,
+          "quantity": "diagnostic-residual-visibility-envelope"
+        }
+      ],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                684,
+                702
+              ],
+              "maximumResidual": 30,
+              "maximumMeanRgbExcess": -1.3333333333333333,
+              "minimumMeanRgbExcess": -14
+            },
+            {
+              "rasterBounds": [
+                736,
+                786
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 5.666666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                685,
+                701
+              ],
+              "maximumResidual": 30,
+              "maximumMeanRgbExcess": -7.333333333333333,
+              "minimumMeanRgbExcess": -14
+            },
+            {
+              "rasterBounds": [
+                736,
+                786
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 5.666666666666667
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                685,
+                701
+              ],
+              "maximumResidual": 30,
+              "maximumMeanRgbExcess": -7.333333333333333,
+              "minimumMeanRgbExcess": -14
+            },
+            {
+              "rasterBounds": [
+                737,
+                786
+              ],
+              "maximumResidual": 39,
+              "maximumMeanRgbExcess": 29.666666666666668,
+              "minimumMeanRgbExcess": 6.333333333333333
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-local-contact",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "shaft-contact",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 743,
+        "rgb": [
+          219,
+          224,
+          226
+        ],
+        "redMinusGreen": -5,
+        "meanRgbExcess": 0.3333333333333333
+      },
+      "peak": {
+        "coordinate": 742,
+        "rgb": [
+          217,
+          224,
+          228
+        ],
+        "brightExcess": 0.3333333333333333
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": [
+            {
+              "rasterBounds": [
+                742,
+                780
+              ],
+              "maximumResidual": 11,
+              "maximumMeanRgbExcess": 0.3333333333333333,
+              "minimumMeanRgbExcess": 0
+            }
+          ]
+        },
+        {
+          "threshold": 5,
+          "components": [
+            {
+              "rasterBounds": [
+                742,
+                780
+              ],
+              "maximumResidual": 11,
+              "maximumMeanRgbExcess": 0.3333333333333333,
+              "minimumMeanRgbExcess": 0
+            }
+          ]
+        },
+        {
+          "threshold": 10,
+          "components": [
+            {
+              "rasterBounds": [
+                743,
+                780
+              ],
+              "maximumResidual": 11,
+              "maximumMeanRgbExcess": 0.3333333333333333,
+              "minimumMeanRgbExcess": 0
+            }
+          ]
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-local-background",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "background-negative",
+      "status": "blocked",
+      "reasons": [
+        "No bright beam peak above the declared background/noise limit."
+      ],
+      "sidebandNoise": 0,
+      "redSample": {
+        "coordinate": 610,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "redMinusGreen": -17,
+        "meanRgbExcess": 0
+      },
+      "peak": {
+        "coordinate": 641,
+        "rgb": [
+          208,
+          225,
+          235
+        ],
+        "brightExcess": 0
+      },
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    },
+    {
+      "id": "arrival-lockup-local-clipped",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "strip-outside-raster",
+      "status": "blocked",
+      "reasons": [
+        "Section or sidebands are clipped, overlapping, unavailable or invalid."
+      ],
+      "sidebandNoise": null,
+      "redSample": null,
+      "peak": null,
+      "peakWidths": [],
+      "residualEnvelopes": [],
+      "residualComponents": [
+        {
+          "threshold": 3,
+          "components": []
+        },
+        {
+          "threshold": 5,
+          "components": []
+        },
+        {
+          "threshold": 10,
+          "components": []
+        }
+      ],
+      "qualification": "blocked"
+    }
+  ]
+}

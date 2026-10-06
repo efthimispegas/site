@@ -1,0 +1,212 @@
+
+> nx run @site/pegasoft-e2e:hero-measurement-test
+
+> node --test tools/hero-reference/measurement-contract.test.mjs
+
+(node:42749) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:42750) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ a claimed local loader age must contain the captured native animation time [90m(0.843083ms)[39m[39m
+[32m✔ claimed native name and target must match the captured effect binding [90m(0.138209ms)[39m[39m
+[32m✔ source and local ages of different semantic effects cannot qualify a match [90m(0.1ms)[39m[39m
+[32m✔ local loader phase requires an independently identified captured animation [90m(0.085458ms)[39m[39m
+[32m✔ missing or ambiguous native clock readings cannot qualify local loader age [90m(0.077583ms)[39m[39m
+[32m✔ loader recording seek alone cannot qualify animation phase [90m(0.067333ms)[39m[39m
+[32m✔ independently pinned overlapping loader ages qualify correspondence [90m(0.042208ms)[39m[39m
+[32m✔ unknown, stale, self-reviewed or imprecise loader phase stays blocked [90m(0.095708ms)[39m[39m
+[32m✔ different loader ages block graphics comparison without becoming a geometry failure [90m(0.046083ms)[39m[39m
+[32m✔ complete coherent fifteen-state packet passes independent pins [90m(0.979417ms)[39m[39m
+[32m✔ mixed measurement or outcome run IDs block the packet [90m(0.256791ms)[39m[39m
+[32m✔ missing or duplicate states block comparison despite a complete label [90m(0.325125ms)[39m[39m
+[32m✔ wrong viewport or self-consistent wrong backing dimensions block correspondence [90m(0.241041ms)[39m[39m
+[32m✔ stale input hashes or build IDs block a otherwise complete packet [90m(0.261667ms)[39m[39m
+[32m✔ pulse DOM labels cannot replace the actual applied pulse clock [90m(0.756917ms)[39m[39m
+[32m✔ stale consumer or CSS animation clocks block the packet [90m(0.265208ms)[39m[39m
+[32m✔ lawful rendered field history establishes applied pulse age regardless of DOM label [90m(0.239834ms)[39m[39m
+[32m✔ physical measurement sequence and effect age cannot be substituted [90m(0.120584ms)[39m[39m
+[32m✔ screenshot brackets must retain the observed frame and CSS clock [90m(0.220042ms)[39m[39m
+[32m✔ identity exclusions permit agreed copy and glyph differences only [90m(0.056208ms)[39m[39m
+[32m✔ comparison requires an explicit capture selection and rejects conflicting selections [90m(0.237208ms)[39m[39m
+[32m✔ positive actual color selection and unchanged core/glow pass [90m(2.280791ms)[39m[39m
+[32m✔ missing route is blocked, never not-applicable/pass [90m(0.470042ms)[39m[39m
+[32m✔ moved route is a failure [90m(0.455584ms)[39m[39m
+[32m✔ route moved wholly outside ROI is blocked [90m(0.484709ms)[39m[39m
+[32m✔ core width changes fail [90m(0.806792ms)[39m[39m
+[32m✔ glow-only change cannot hide behind unchanged core support [90m(0.933708ms)[39m[39m
+[32m✔ narrowed core with compensating larger glow fails appearance [90m(0.580417ms)[39m[39m
+[32m✔ bright neutral tile/recolored route cannot be accepted by white-cyan support [90m(1.597583ms)[39m[39m
+[32m✔ contact/pulse overlap blocks ambiguous aggregate width [90m(0.861792ms)[39m[39m
+[32m✔ clipped subject cannot be qualified even when a narrow ROI keeps its centroid [90m(0.681125ms)[39m[39m
+[32m✔ component bounding box does not reintroduce rejected disconnected pixels [90m(0.940042ms)[39m[39m
+[32m✔ visible glyph positive control passes, overflow and wrap fail [90m(0.177959ms)[39m[39m
+[32m✔ approved identity differences remain diagnostic; all mandatory gates remain independent [90m(0.133125ms)[39m[39m
+[32m✔ complete provenance with independently supplied bytes and expected pins passes [90m(0.728208ms)[39m[39m
+[32m✔ stale or mixed runId is rejected against independent pins [90m(0.122167ms)[39m[39m
+[32m✔ stale or mixed gitRevision is rejected against independent pins [90m(0.095666ms)[39m[39m
+[32m✔ stale or mixed trackedDiffSha256 is rejected against independent pins [90m(0.09825ms)[39m[39m
+[32m✔ stale or mixed bundleSha256 is rejected against independent pins [90m(0.094916ms)[39m[39m
+[32m✔ stale or mixed recordingSha256 is rejected against independent pins [90m(0.073959ms)[39m[39m
+[32m✔ stale or mixed captureLabel is rejected against independent pins [90m(0.080125ms)[39m[39m
+[32m✔ missing expected authority cannot validate a self-consistent capture [90m(0.0695ms)[39m[39m
+[32m✔ wrong bytes and missing artifact hash fail [90m(0.139958ms)[39m[39m
+[32m✔ duplicate/escaping paths and mixed frame/profile artifact fail [90m(0.148333ms)[39m[39m
+[32m✔ stale applied frame, missing readiness or consumer acknowledgment block [90m(0.247959ms)[39m[39m
+[32m✔ legacy capture stays historical/blocked, not silently qualified [90m(0.024917ms)[39m[39m
+[32m✔ actual source evidence resolver reads sources and rejects conflicting bundle pins [90m(6.39775ms)[39m[39m
+[32m✔ unrelated current-frame artifact cannot replace compared PNG or measurement inputs [90m(0.146333ms)[39m[39m
+[32m✔ independent text coverage cannot omit CTA or bless a changed expected line count [90m(0.084834ms)[39m[39m
+[32m✔ self-consistent wrong backing/device dimensions fail independent profile pins [90m(0.0505ms)[39m[39m
+[32m✔ untracked source bytes cannot be omitted or modified [90m(0.136333ms)[39m[39m
+[32m✔ rendering assets and fonts are capture inputs, not just source code [90m(0.51025ms)[39m[39m
+[32m✔ missing route/contact clock payload and mismatched measurement sequence block [90m(0.089792ms)[39m[39m
+[32m✔ supplemental review is explicit and bound; absent or stale review cannot produce final acceptance [90m(0.072375ms)[39m[39m
+[32m✔ production comparator consumes shared gates and keeps diagnostic raster out of CLI exit gate [90m(1.075542ms)[39m[39m
+[32m✔ actual report assembly passes positive pixel/text/provenance controls and rejects core/glow corruption [90m(1.392333ms)[39m[39m
+[32m✔ reviewed source overlay updates only effective measurement, preserving historical manifest [90m(0.377542ms)[39m[39m
+[32m✔ source overlay rejects hash/approval/state/before-value tampering [90m(0.299167ms)[39m[39m
+[32m✔ source overlay rejects local/camera/control coordinates and conflicting duplicates [90m(0.29725ms)[39m[39m
+[31m✖ background-separated landmark rejects every saved pale-background sample [90m(0.839042ms)[39m[39m
+[31m✖ background separation retains complete neutral support without a source mask [90m(0.345ms)[39m[39m
+[31m✖ several eligible neutral subjects cannot silently assign a landmark role [90m(0.324292ms)[39m[39m
+[31m✖ boundary-reaching foreground remains blocked after background removal [90m(0.3215ms)[39m[39m
+[31m✖ unestablished background cannot be replaced with the foreground color [90m(0.263042ms)[39m[39m
+[34mℹ tests 64[39m
+[34mℹ suites 0[39m
+[34mℹ pass 59[39m
+[34mℹ fail 5[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 81.382584[39m
+
+[31m✖ failing tests:[39m
+
+test at tools/hero-reference/measurement-contract.test.mjs:961:1
+[31m✖ background-separated landmark rejects every saved pale-background sample [90m(0.839042ms)[39m[39m
+  AssertionError [ERR_ASSERTION]: background-separated extractor is missing
+  [32mactual[39m [31mexpected[39m
+  
+  [39m'[39m[31mf[39m[39mu[39m[39mn[39m[32md[39m[32me[39m[32mf[39m[31mc[39m[31mt[39m[39mi[39m[31mo[39m[39mn[39m[32me[39m[32md[39m[39m'[39m
+  
+      at separateNeutral [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:958:10[90m)[39m
+      at TestContext.<anonymous> [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:963:13[90m)[39m
+  [90m    at Test.runInAsyncScope (node:async_hooks:227:14)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1382:25)[39m
+  [90m    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)[39m
+  [90m    at Test.postRun (node:internal/test_runner/test:1522:19)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1447:12)[39m
+  [90m    at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)[39m {
+    generatedMessage: [33mfalse[39m,
+    code: [32m'ERR_ASSERTION'[39m,
+    actual: [32m'undefined'[39m,
+    expected: [32m'function'[39m,
+    operator: [32m'strictEqual'[39m,
+    diff: [32m'simple'[39m
+  }
+
+test at tools/hero-reference/measurement-contract.test.mjs:968:1
+[31m✖ background separation retains complete neutral support without a source mask [90m(0.345ms)[39m[39m
+  AssertionError [ERR_ASSERTION]: background-separated extractor is missing
+  [32mactual[39m [31mexpected[39m
+  
+  [39m'[39m[31mf[39m[39mu[39m[39mn[39m[32md[39m[32me[39m[32mf[39m[31mc[39m[31mt[39m[39mi[39m[31mo[39m[39mn[39m[32me[39m[32md[39m[39m'[39m
+  
+      at separateNeutral [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:958:10[90m)[39m
+      at TestContext.<anonymous> [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:969:11[90m)[39m
+  [90m    at Test.runInAsyncScope (node:async_hooks:227:14)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1382:25)[39m
+  [90m    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)[39m
+  [90m    at Test.postRun (node:internal/test_runner/test:1522:19)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1447:12)[39m
+  [90m    at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)[39m {
+    generatedMessage: [33mfalse[39m,
+    code: [32m'ERR_ASSERTION'[39m,
+    actual: [32m'undefined'[39m,
+    expected: [32m'function'[39m,
+    operator: [32m'strictEqual'[39m,
+    diff: [32m'simple'[39m
+  }
+
+test at tools/hero-reference/measurement-contract.test.mjs:976:1
+[31m✖ several eligible neutral subjects cannot silently assign a landmark role [90m(0.324292ms)[39m[39m
+  AssertionError [ERR_ASSERTION]: background-separated extractor is missing
+  [32mactual[39m [31mexpected[39m
+  
+  [39m'[39m[31mf[39m[39mu[39m[39mn[39m[32md[39m[32me[39m[32mf[39m[31mc[39m[31mt[39m[39mi[39m[31mo[39m[39mn[39m[32me[39m[32md[39m[39m'[39m
+  
+      at separateNeutral [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:958:10[90m)[39m
+      at TestContext.<anonymous> [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:977:11[90m)[39m
+  [90m    at Test.runInAsyncScope (node:async_hooks:227:14)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1382:25)[39m
+  [90m    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)[39m
+  [90m    at Test.postRun (node:internal/test_runner/test:1522:19)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1447:12)[39m
+  [90m    at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)[39m {
+    generatedMessage: [33mfalse[39m,
+    code: [32m'ERR_ASSERTION'[39m,
+    actual: [32m'undefined'[39m,
+    expected: [32m'function'[39m,
+    operator: [32m'strictEqual'[39m,
+    diff: [32m'simple'[39m
+  }
+
+test at tools/hero-reference/measurement-contract.test.mjs:981:1
+[31m✖ boundary-reaching foreground remains blocked after background removal [90m(0.3215ms)[39m[39m
+  AssertionError [ERR_ASSERTION]: background-separated extractor is missing
+  [32mactual[39m [31mexpected[39m
+  
+  [39m'[39m[31mf[39m[39mu[39m[39mn[39m[32md[39m[32me[39m[32mf[39m[31mc[39m[31mt[39m[39mi[39m[31mo[39m[39mn[39m[32me[39m[32md[39m[39m'[39m
+  
+      at separateNeutral [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:958:10[90m)[39m
+      at TestContext.<anonymous> [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:982:11[90m)[39m
+  [90m    at Test.runInAsyncScope (node:async_hooks:227:14)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1382:25)[39m
+  [90m    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)[39m
+  [90m    at Test.postRun (node:internal/test_runner/test:1522:19)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1447:12)[39m
+  [90m    at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)[39m {
+    generatedMessage: [33mfalse[39m,
+    code: [32m'ERR_ASSERTION'[39m,
+    actual: [32m'undefined'[39m,
+    expected: [32m'function'[39m,
+    operator: [32m'strictEqual'[39m,
+    diff: [32m'simple'[39m
+  }
+
+test at tools/hero-reference/measurement-contract.test.mjs:986:1
+[31m✖ unestablished background cannot be replaced with the foreground color [90m(0.263042ms)[39m[39m
+  AssertionError [ERR_ASSERTION]: background-separated extractor is missing
+  [32mactual[39m [31mexpected[39m
+  
+  [39m'[39m[31mf[39m[39mu[39m[39mn[39m[32md[39m[32me[39m[32mf[39m[31mc[39m[31mt[39m[39mi[39m[31mo[39m[39mn[39m[32me[39m[32md[39m[39m'[39m
+  
+      at separateNeutral [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:958:10[90m)[39m
+      at TestContext.<anonymous> [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:987:11[90m)[39m
+  [90m    at Test.runInAsyncScope (node:async_hooks:227:14)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1382:25)[39m
+  [90m    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)[39m
+  [90m    at Test.postRun (node:internal/test_runner/test:1522:19)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1447:12)[39m
+  [90m    at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)[39m {
+    generatedMessage: [33mfalse[39m,
+    code: [32m'ERR_ASSERTION'[39m,
+    actual: [32m'undefined'[39m,
+    expected: [32m'function'[39m,
+    operator: [32m'strictEqual'[39m,
+    diff: [32m'simple'[39m
+  }
+Warning: command "node --test tools/hero-reference/measurement-contract.test.mjs" exited with non-zero status code
+
+
+ NX   Running target hero-measurement-test for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-measurement-test
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      122ms
+  Critical path:     115ms (1 task)
+  Recoverable time:  <1ms

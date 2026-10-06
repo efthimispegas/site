@@ -1,0 +1,399 @@
+{
+  "date": "2026-10-01",
+  "status": "blocked; owner diagnostic only; no independent qualification",
+  "effectCandidate": "logo-rotate inferred from first isolated cube raster",
+  "extraction": {
+    "decodedFrameIndices": [
+      58,
+      100
+    ],
+    "crop": [
+      400,
+      400,
+      "center"
+    ],
+    "command": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf 'select=between(n\\,58\\,100),crop=400:400:(iw-400)/2:(ih-400)/2' -fps_mode passthrough .superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-%03d.png",
+    "browserCaptures": 0
+  },
+  "inputs": [
+    {
+      "path": "docs/vectrfl_recording.mov",
+      "bytes": 190835536,
+      "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+    },
+    {
+      "path": "docs/hero-reference/live/locked-reference-loader.css",
+      "bytes": 75910,
+      "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-frames.json",
+      "bytes": 235608,
+      "sha256": "87245987ca4ceda9a58d135e713d24fc2c6c6a96a8d31788fcb6fbf520ffe7eb"
+    }
+  ],
+  "result": {
+    "observations": 52,
+    "conditionalOnsetRangeMs": [
+      919.7225151054718,
+      1026.6534598258156
+    ],
+    "rangeWidthMs": 106.93094472034386,
+    "perFrame": [
+      {
+        "n": 60,
+        "range": [
+          979.5544896416558,
+          992.4278458697275
+        ]
+      },
+      {
+        "n": 61,
+        "range": [
+          945.6018098774255,
+          979.7467780568212
+        ]
+      },
+      {
+        "n": 62,
+        "range": [
+          955.8718872839794,
+          997.0120049777679
+        ]
+      },
+      {
+        "n": 63,
+        "range": [
+          919.7225151054718,
+          975.4474177261292
+        ]
+      },
+      {
+        "n": 64,
+        "range": [
+          931.370705209755,
+          990.7513874638921
+        ]
+      },
+      {
+        "n": 65,
+        "range": [
+          962.5673409915503,
+          996.310734958118
+        ]
+      },
+      {
+        "n": 66,
+        "range": [
+          957.923482950232,
+          999.5042836900484
+        ]
+      },
+      {
+        "n": 67,
+        "range": [
+          967.8467159842817,
+          994.0615490884225
+        ]
+      },
+      {
+        "n": 68,
+        "range": [
+          958.993138390757,
+          997.4424322511131
+        ]
+      },
+      {
+        "n": 69,
+        "range": [
+          953.0610385080784,
+          1000.0483939814967
+        ]
+      },
+      {
+        "n": 70,
+        "range": [
+          925.2146572428944,
+          969.0501989334375
+        ]
+      },
+      {
+        "n": 71,
+        "range": [
+          978.1146510814833,
+          998.5158971121743
+        ]
+      },
+      {
+        "n": 72,
+        "range": [
+          963.5406735117141,
+          999.2483765723748
+        ]
+      },
+      {
+        "n": 73,
+        "range": [
+          986.9052132438296,
+          998.9044834588772
+        ]
+      },
+      {
+        "n": 74,
+        "range": [
+          971.2607977271775,
+          1026.6534598258156
+        ]
+      },
+      {
+        "n": 75,
+        "range": [
+          959.4345954040263,
+          985.8750365118885
+        ]
+      }
+    ]
+  },
+  "requiredMaximumIntervalWidthMs": 16.666666666666668,
+  "ruling": "Observed threshold sensitivity spans 106.93ms. This is not a certified onset uncertainty interval; geometry, component identity, raster error, and recording/CSS equivalence remain unproven. Do not intersect per-frame ranges, average away uncertainty, fill onset contracts, or choose capture offsets.",
+  "nextAction": "Pin recording-matched cube geometry/effect identity (or select another effect with pinned geometry) and validate a raster estimator error bound before independent qualification and capture-input selection.",
+  "checks": {
+    "pinnedInputHashes": "3/3 pass",
+    "extractedCrops": "43/43 retained",
+    "diagnosticRowsAndHashes": "52/52 pass",
+    "analysisRerun": "exit 0",
+    "qualification": "blocked"
+  },
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/analyze.py",
+      "bytes": 3291,
+      "sha256": "b25bb9832dc58b1a30bfd3db1eed0ebc6d6f3c972a0832d0224cb6dd0921516f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/check.log",
+      "bytes": 1097,
+      "sha256": "e105abb803acd8a600fcc93e3e041a91381778a988e2db815eeb324a275760d7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-001.png",
+      "bytes": 2253,
+      "sha256": "f828155d0d597ef3f4b2fdffbe5aa61f0e1b18a0834eb65003435340f0aac9e6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-002.png",
+      "bytes": 2670,
+      "sha256": "72161a20f1e9728a88d417b0a10425c8df1b1c879a77dd065f3a7de07938b44a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-003.png",
+      "bytes": 3286,
+      "sha256": "443e8ab870a7fa50220269bbdcf52cafca40ca401c47a99e20d0281088a8d5d2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-004.png",
+      "bytes": 3671,
+      "sha256": "6c22bdf939112169b905a41db0c73d9da5418a866959c00042c8187341b03e0f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-005.png",
+      "bytes": 4166,
+      "sha256": "7fc9c366d4abd62dddc8685b76f8d1c0895bde876f51946dcd7fc13df4a3660e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-006.png",
+      "bytes": 5075,
+      "sha256": "4352043b0a76c22023224a5605da6e8bc44d4f17119fa90c44bb5f247b492dea"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-007.png",
+      "bytes": 5104,
+      "sha256": "f6a5d311c2aecfbaca288d020f424f6383a5fc4633397791dbcebc990baee89f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-008.png",
+      "bytes": 5489,
+      "sha256": "491b846a12e85f1eff63e7183c8dcbcc12be0e9203993ac08c079a740b7101aa"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-009.png",
+      "bytes": 5322,
+      "sha256": "bace4595e392fdf434101dcb58579ea230a10f292deb4db931adde4d4376dac7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-010.png",
+      "bytes": 5880,
+      "sha256": "7c664e3cb4cf9970b320d24c22ff540c054b583f26560785fed09830ff6f4264"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-011.png",
+      "bytes": 7014,
+      "sha256": "abfc26cc4294e5a519271c5e80219a0ee35e66020797bd005964b508321c7025"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-012.png",
+      "bytes": 7425,
+      "sha256": "07d25a9540d2900e7d5203fcd448b9abfaa1760204f66c6ea5b84d7672b08eb3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-013.png",
+      "bytes": 7286,
+      "sha256": "fb8411c658411b773503c5856a1b38cc1811b5edb563e72af973ea20a309c40d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-014.png",
+      "bytes": 7379,
+      "sha256": "290d4c6c7516ef9dcc72c67d07d4f502a11f5671a607dcfbf3c3f141eacdbf30"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-015.png",
+      "bytes": 7977,
+      "sha256": "418d3d5293d11ae4390cef8b6577ad7a4cd6a7b3219bc55ce018a550e8f4e5c9"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-016.png",
+      "bytes": 8884,
+      "sha256": "10d9839170e055405ad9f344b08beeee35d8acc4168cb6000f0ff6d26f6865ca"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-017.png",
+      "bytes": 8726,
+      "sha256": "df909d1b43c24de8c2acca6792ce077088c30b33cba96f6e4b9422b98962eea7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-018.png",
+      "bytes": 9942,
+      "sha256": "523f6ff9720730fdb6b47e9ae562456306ddc4ddb865703c13a9d85cbbdca534"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-019.png",
+      "bytes": 10086,
+      "sha256": "cc7866ab66d6f2071030ae6ae4530b4c80709dc2fcaa46dc407d278c14edf4cd"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-020.png",
+      "bytes": 11258,
+      "sha256": "a417849134ae7704b1d5c5decccbf158cb1c39873bf865773d3b2cee0a3277a3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-021.png",
+      "bytes": 11696,
+      "sha256": "3696d288a8dbd4172203ec7daeb96d9d058d676ae3afe3ce6a0617d77cc1cd86"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-022.png",
+      "bytes": 12387,
+      "sha256": "ca4b78504f5cd49d1c1c943a803aa59694d8be70837acaa015f181a1b84d2033"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-023.png",
+      "bytes": 12570,
+      "sha256": "a3788509ceeecda4be4998adfb7f0fa14d10c2001d65d358f7697cbe13d2a4a4"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-024.png",
+      "bytes": 12630,
+      "sha256": "ddbd0b46394e8fea93e24161763c30e476a4113ab5e8ddc202c587d076b265b4"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-025.png",
+      "bytes": 13129,
+      "sha256": "a03a76679e78120c8ef1a1fea810ca752483c64c9deb46d0e0d8d431588a72c7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-026.png",
+      "bytes": 13745,
+      "sha256": "02e0aee44432015c25bce0fd5787ca2e034af99b573f3f03b9d18c0258bd60c9"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-027.png",
+      "bytes": 13922,
+      "sha256": "3113358c03a560b89fe6fa8391da0f74c6b8d8da4fc68ddc2ee636bc32359c80"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-028.png",
+      "bytes": 14272,
+      "sha256": "f5f1fadf4a847e833f73d47841a97c8147c5255b2b415bba2660fd424819d7ee"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-029.png",
+      "bytes": 14466,
+      "sha256": "74fca887555d154bf5339b54fef943614c03a369b97730fa5b41c43f4df062d6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-030.png",
+      "bytes": 15409,
+      "sha256": "f119a1053a94b77bfc8d509f9dc85107e7e59cf826a3caa4276324b9142d484c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-031.png",
+      "bytes": 15841,
+      "sha256": "81e2033e2261825aea51cba1026d947d4390f72fad242004657902db35616c2a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-032.png",
+      "bytes": 16120,
+      "sha256": "128fd35f48bc922e7ce3a12ff2d3753c2cc808a7fe0d0296fec6120bef09d070"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-033.png",
+      "bytes": 16385,
+      "sha256": "86e816ac89445a2892c188ab2b9a7efad24f6439cc3fa1b907d5454a94632a5b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-034.png",
+      "bytes": 17269,
+      "sha256": "7b6e5eff2e9506576376dbd70ec4568ee11d85fbf54358eb720d20446f84cff0"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-035.png",
+      "bytes": 17200,
+      "sha256": "329512ec63ce3138bb89ffab76ce971facf7cff4656cb8e7b7c799d4b48537db"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-036.png",
+      "bytes": 19273,
+      "sha256": "61f011cf8200b27cc0a3543778614a1f1c8f7d75343c7e93b30875949f037b47"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-037.png",
+      "bytes": 18742,
+      "sha256": "1a9ef52d554e9c3051849ea3d7d20dd74b67a325cfc2200535881d4d16fa1590"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-038.png",
+      "bytes": 19159,
+      "sha256": "ea4e30f4714a48c4f020c0531f95c58b44fc978b39ff15aa706fdab1e364419d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-039.png",
+      "bytes": 19004,
+      "sha256": "e749c5e6f42c1b4624234cad63114bec4994bdc7a172e40eddf77102fc4dca0e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-040.png",
+      "bytes": 19438,
+      "sha256": "971b5b4696d9b2b957864be5889a2d3ff03beba88df0ebc1d9120dc02b1c9191"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-041.png",
+      "bytes": 19151,
+      "sha256": "e6e30c073083b9f48e24c42c60d2ef404b8cca0b186fe9d38524066a30aaabbe"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-042.png",
+      "bytes": 19522,
+      "sha256": "991d7bfe017e71da15de7b5c44f71c12b31bc7bda7386eb91a117a1d60be3576"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/frame-043.png",
+      "bytes": 19145,
+      "sha256": "d49e4a4987c5493b841e517c71d1766707b1b6e0d4b7b2d7e6709ccdd932c1ef"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/rotation-diagnostics.json",
+      "bytes": 23353,
+      "sha256": "5383a0a093a77b3fb68dcb804dc262d2d848b0786044d03c1e334feab3881b2c"
+    }
+  ]
+}

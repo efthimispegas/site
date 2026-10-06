@@ -1,0 +1,79 @@
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+src/visual/hero-presentation-readback.spec.ts(42,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(43,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(44,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(45,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(45,52): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(53,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(54,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(55,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(56,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(59,10): error TS18046: 'zero' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(73,12): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(74,12): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(75,12): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(86,12): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(87,12): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(88,12): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(97,10): error TS18046: 'mismatch' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(98,10): error TS18046: 'mismatch' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(100,21): error TS2352: Conversion of type 'Window & typeof globalThis' to type 'Window & { __pegasoftHeroFrame: { appliedConsumers: { camera: { frameId: number; }; }; }; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property '__pegasoftHeroFrame' is missing in type 'Window & typeof globalThis' but required in type '{ __pegasoftHeroFrame: { appliedConsumers: { camera: { frameId: number; }; }; }; }'.
+src/visual/hero-presentation-readback.spec.ts(104,10): error TS18046: 'stale' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(112,21): error TS2352: Conversion of type 'Window & typeof globalThis' to type 'Window & { __pegasoftHeroFrame: { renderedAtMs?: number | undefined; }; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property '__pegasoftHeroFrame' is missing in type 'Window & typeof globalThis' but required in type '{ __pegasoftHeroFrame: { renderedAtMs?: number | undefined; }; }'.
+src/visual/hero-presentation-readback.spec.ts(116,10): error TS18046: 'pending' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(119,10): error TS18046: 'ambiguous' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(120,10): error TS18046: 'ambiguous' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(129,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(130,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(131,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(132,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(132,79): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(133,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(133,77): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(134,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(135,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(144,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(145,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(154,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(155,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(156,10): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(175,31): error TS18046: 'initial' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(175,53): error TS18046: 'before' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(175,74): error TS18046: 'after' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(187,31): error TS18046: 'initial' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(187,53): error TS18046: 'before' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(187,74): error TS18046: 'after' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(198,31): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(198,52): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(198,73): error TS18046: 'sample' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(204,32): error TS18046: 'animated' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(204,55): error TS18046: 'animated' is of type 'unknown'.
+src/visual/hero-presentation-readback.spec.ts(204,78): error TS18046: 'animated' is of type 'unknown'.
+Warning: command "tsc --build tsconfig.json --emitDeclarationOnly" exited with non-zero status code
+
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:typecheck
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      2.2s
+  Cache:             0/1 hit (0%)
+  Critical path:     2.2s (2 tasks)
+  Recoverable time:  <1ms

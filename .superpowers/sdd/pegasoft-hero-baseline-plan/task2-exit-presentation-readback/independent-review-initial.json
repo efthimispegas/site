@@ -1,0 +1,18 @@
+{
+  "reviewer": "/root/task2_beam_correspondence",
+  "verdict": "CHANGES_REQUESTED",
+  "packetSha256": "1eff977a1919725ee99e281a691b4ab5c846e47bf7f1a7ceb30a9d79144d58f2",
+  "pinsVerified": 42,
+  "findings": [
+    {
+      "priority": "P2",
+      "file": "apps/pegasoft-e2e/src/visual/hero-presentation-readback.ts",
+      "line": 48,
+      "title": "Reject paint-containment shorthand values",
+      "body": "CSS contain strict/content also impose paint containment; checking explicit paint alone can expose an incorrect supported rectangle.",
+      "action": "Reject strict/content and add oversized canvas browser regressions; assert null intersection and blocked parity."
+    }
+  ],
+  "qualification": "BLOCKED",
+  "reviewEditsOrCaptures": 0
+}

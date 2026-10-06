@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "inputs": 13,
+  "artifacts": 18,
+  "verifiedBeforeRefinement": true,
+  "expectedChangedLiveInputs": [
+    "apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs",
+    "tools/hero-reference/measurement-contract.test.mjs"
+  ],
+  "historicalArtifactsRemainImmutable": true
+}

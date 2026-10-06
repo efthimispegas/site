@@ -1,0 +1,177 @@
+{
+  "schemaVersion": 5,
+  "authorityOrder": [
+    {
+      "scope": "current geometry, responsive behavior, interaction causality, and scroll mappings",
+      "authority": "https://vectrfl.com/",
+      "reason": "The current live implementation is the single source of truth for observable runtime behavior."
+    },
+    {
+      "scope": "the captured hero chronology, exact recorded frames, and appearance when live state cannot be held reproducibly",
+      "authority": "docs/vectrfl_recording.mov#sha256=de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "reason": "The repository-backed recording is the authoritative immutable capture supplied for this rebaseline."
+    }
+  ],
+  "decisions": [
+    {
+      "id": "authority-no-scratch-assets",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "No external scratch path or opaque legacy capture alias is valid acceptance evidence.",
+      "implementationConsequence": "Acceptance metadata may resolve only to the live URL or the repository recording SHA plus exact frame."
+    },
+    {
+      "id": "recording-seconds-are-seek-anchors",
+      "status": "accepted",
+      "evidenceClass": "observed",
+      "decision": "Recording timestamps after journey scroll begins are seek anchors, not animation durations.",
+      "implementationConsequence": "Physical scroll drives separate DOM and scene mappings. Loader, idle packets, field pulses, arrival marks, and source-observed ambient motion may use explicit local clocks with verified reset rules; recording seek times are not universal durations."
+    },
+    {
+      "id": "live-over-recording-for-current-causality",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "When recording chronology cannot prove whether an effect is scroll-, time-, or pointer-driven, the current live site determines causality.",
+      "implementationConsequence": "Unproven effects remain isolated/configurable until a live probe establishes their input."
+    },
+    {
+      "id": "identity-difference-mask",
+      "status": "accepted-product-policy-s4-comparator-repair-accepted",
+      "evidenceClass": "product-policy",
+      "decision": "Pegasoft wording and identity glyphs may differ, but their layout containers, hierarchy, timing, and screen occupancy may not.",
+      "implementationConsequence": "Retain raw images. Exclude only approved differing glyph/logo pixels, never whole text boxes or scene errors. S4 now reports the identity-sensitive raster as diagnostic with separate scene, visible-text, motion, provenance and user-review gates. No glyph mask or final visual acceptance was introduced; fresh runtime qualification remains S7."
+    },
+    {
+      "id": "source-semantic-masks-refinement-only",
+      "status": "accepted-for-reference-refinement",
+      "evidenceClass": "source-confirmed",
+      "decision": "The four repository-owned semantic masks depict the vectrfl.com reference goal and are accepted as refinement inputs only.",
+      "implementationConsequence": "The masks may derive measurements from their exact hash-locked source frames. They may not classify localhost implementation pixels, prove overlap, or confer structural or final visual acceptance."
+    },
+    {
+      "id": "camera-owns-field-approach-turn",
+      "status": "accepted",
+      "evidenceClass": "observed",
+      "decision": "The replacement keeps the world root fixed and assigns the field-approach composition change to the camera.",
+      "implementationConsequence": "No stage or world-root transform may compound the camera turn unless later live evidence explicitly disproves this model."
+    },
+    {
+      "id": "coarse-pointer-has-no-trail",
+      "status": "superseded-by-s0-source-predicates-s5-repair-pending",
+      "evidenceClass": "source-confirmed",
+      "decision": "The earlier coarse-pointer/profile rule conflated distinct source predicates. S0 verifies that the source Qt iOS/iPadOS/Android branch controls pointer omission and damping; viewport width and capture labels are not substitutes.",
+      "implementationConsequence": "S2/S5 use the exact source predicate documented in repairs/s0/source/source-contract.md. No invented touch substitute; test UA, pointer capability, width, and capture identity independently. Responsive composition and physical-device qualification remain open."
+    },
+    {
+      "id": "legacy-runtime-values-are-not-evidence",
+      "status": "accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "No camera, route, progress, timing, color, or geometry constant is retained merely because it exists in the old Pegasoft renderer.",
+      "implementationConsequence": "Replacement values require live/recording evidence and deterministic tests."
+    },
+    {
+      "id": "recording-field-preview-precedes-live-activation-range",
+      "status": "source-semantics-resolved-s2-repair-accepted",
+      "evidenceClass": "source-confirmed",
+      "decision": "S0 source shader and fresh matched-state observations prove static field tiles remain present independent of grid activation. The 0.72\u20130.75 ratio gates pulse/center effects, not whole-field visibility.",
+      "implementationConsequence": "S2 removed the unsupported 0.50\u20130.54 field-opacity compensation and qualified shared rendered gates/clocks. Source camera is preserved; newly exposed local geometry mismatch remains R3+ visual debt. See repairs/s0/source/source-contract.md and repairs/s2/review.md."
+    },
+    {
+      "id": "phase-1-observable-boundary",
+      "status": "superseded-by-foundation-audit",
+      "evidenceClass": "source-confirmed",
+      "decision": "Measuring all 15 declared coarse primary structures does not establish complete evidence for a 100% visual and motion match. Core/glow equivalence, contextual silhouettes, surrounding marks, and intermediate motion still need validation.",
+      "implementationConsequence": "Retain useful measurements and refine evidence per upcoming scene slice. Validate displayed source/local classifier overlays and add missing quality/motion checks; do not defer their feasibility to final polish or use coarse composition alone to accept city geometry. See audit A06/A08."
+    },
+    {
+      "id": "phase-7-source-route-before-camera-fit",
+      "status": "source-coordinates-user-accepted-consumer-gates-reopened",
+      "evidenceClass": "source-confirmed",
+      "decision": "The source-confirmed coordinates accepted by the user remain canonical. The red camera look-at path is distinct from four visible activation feeders, which also drive landing idle packets. The 31-to-40 construction applies specifically to blue route zero; local 0.25/0.75 fractions are not source timing.",
+      "implementationConsequence": "Correct role-specific consumers, remove invented landing paths and disabled-depth rendering, and validate sampling/core/glow separately. At settled landing the current source camera formula already matches localhost; inspect geometry/material/depth before compensating with camera changes. Screen mismatch does not revoke verified coordinates or prove camera error. See audit A03/A04/A08."
+    },
+    {
+      "id": "physical-dom-and-scene-progress-are-distinct",
+      "status": "s1-repair-accepted-browser-qualification-pending",
+      "evidenceClass": "source-confirmed",
+      "decision": "Source DOM progress is clamp((scrollY - 0.4H) / R, 0, 1), where R=max(flowHeight-wrapperHeight,1); scene target is max(0, scrollY / max(0.4H + R \u00d7 400/356,1)). DOM thresholds belong to DOM progress, not scene target.",
+      "implementationConsequence": "S1 removed fitted capture mapping and forced controller/DOM outputs. Independent review accepted 245 formula samples, four before/after regressions, and focused physical-input browser checks. Full rendered/profile/production qualification remains S2/S7. See repairs/s1/review.md."
+    },
+    {
+      "id": "rendered-frame-state-owns-coupled-motion",
+      "status": "s2-repair-accepted-production-qualification-pending",
+      "evidenceClass": "source-confirmed",
+      "decision": "Source camera and coupled route/field/arrival effects use damped cameraProgress; target-zero idle spawning is an explicit exception.",
+      "implementationConsequence": "S2 installed one source-damped frame/clock owner and post-mutation readbacks; 11,562 controlled/ordinary development frames were validated with independent sampled-record review. Detached diagnostics cannot mutate outputs. S7 still owns full normal/direct and shipping-production qualification. See repairs/s2/review.md."
+    },
+    {
+      "id": "direct-state-is-not-normal-experience-acceptance",
+      "status": "accepted-audit-correction",
+      "evidenceClass": "observed",
+      "decision": "Forced DOM/copy state and label-only convergence do not prove normal scroll behavior, rendered settlement, or native restoration.",
+      "implementationConsequence": "Retain deterministic captures as a diagnostic tool; add normal-entry equivalence, interval playback, real rendered-state evidence, and explicit production smoke. Audit A05."
+    },
+    {
+      "id": "early-representative-graphics-slice",
+      "status": "proposed-plan-revision-awaiting-user-confirmation",
+      "evidenceClass": "audit-inference",
+      "decision": "Final visual anchor gates depend on geometry, materials, typography, and motion. Freezing them before those layers exist creates circular gates.",
+      "implementationConsequence": "Qualify the foundation through repair sprints S0\u2013S8 (R1/R2/R4), then pause for phase authorization. R3 remains the first visual implementation checkpoint: source-constrained camera, accurate layout, depth, materials, shadow/reflection, normal motion, and early performance measurement before expanding scene art. Audit A06."
+    },
+    {
+      "id": "repair-sprints-before-visual-phase-implementation",
+      "status": "authorized-s0-through-s6-completed-s7-through-s8-planned",
+      "evidenceClass": "product-policy",
+      "decision": "The user requested measurable subagent repair sprints before proceeding to the revised plan's phase implementation.",
+      "implementationConsequence": "S0-S6 accepted within bounded repair scope with independent review. S6 acceptance binds the 2026-09-19-final evidence manifest and 2026-09-20 review. Proceed S7, then S8; pause for the user's decision before R3. R3 and visual phases remain excluded until that decision."
+    },
+    {
+      "id": "classifier-source-measurement-amendment",
+      "status": "source-only-amendment-independently-reviewed",
+      "evidenceClass": "observed",
+      "decision": "Correcting connected-component membership changes 12 source measurement records /42 numeric leaves from unchanged reference pixels. This does not change accepted source world coordinates or visual targets.",
+      "implementationConsequence": "Explicitly select recording-measurement-amendments-v1.json after verifying original manifest, source image and classifier hashes. Original anchors and 12 affected historical local records remain unchanged; S7 produces fresh local measurements. See repairs/s4/review.md."
+    },
+    {
+      "id": "source-backed-render-resolution-caps",
+      "status": "source-verified-s5-predicate-repair-pending",
+      "evidenceClass": "source-confirmed",
+      "decision": "Fresh source backing matches audited localhost at recording desktop DPR2:2639\u00d71331. Default1.75, narrow non-iOS mobile/tablet-UA1.5, iOS1.25 are source-backed caps, each limited by device DPR.",
+      "implementationConsequence": "Do not raise DPR as an A09 repair merely to equal screenshot DPR. S5 repairs independent profile predicates/style/height rules and verifies actual backing. Any later quality deviation needs separate evidence/approval."
+    },
+    {
+      "id": "s6-status-reconciliation-2026-09-20",
+      "status": "accepted-bounded-s6-scope-only",
+      "evidenceClass": "reviewed-record",
+      "decision": "The signed S6 review and acceptance record supersede the earlier blocked/no-packet summary for current status, without rewriting historical failed runs or broadening the acceptance scope.",
+      "implementationConsequence": "Treat S6 as accepted only for its lifecycle and visible-DOM scope: 16/16 browser cases, 5 lifecycle tests, and both typechecks passed. Preserve the development-Chrome and emulated-resume limitations; proceed S7 → S8, then pause for the user's decision before R3. See repairs/s6/status.md, review.md, and acceptance.json."
+    },
+    {
+      "id": "s7-status-reconciliation-2026-09-22",
+      "status": "blocked-0-of-336-qualified-three-full-pass-stop",
+      "evidenceClass": "reviewed-record",
+      "decision": "S0-S6 are accepted within bounded repair scope. S7 remains blocked with 0/336 qualified cells after three failed full-matrix passes. Corrected restoration and reverse-contact focused proofs pass 4/4, but the monolithic runner can catch its 12-minute test timeout and continue emitting closed-page fallout.",
+      "implementationConsequence": "Do not rerun the monolithic matrix unchanged or increase its timeout. Independently review a fail-fast, same-build sharded runner and strict 360/336/24 merge contract before further execution. S8 is planned and unstarted, R3 remains unauthorized, and visual-fidelity acceptance must not be inferred."
+    },
+    {
+      "id": "s7-sharded-restoration-stop-2026-09-23",
+      "status": "blocked-0-of-336-qualified-mobile-restoration-layout-shift",
+      "evidenceClass": "independently-reviewed-harness-and-retained-failed-run",
+      "decision": "The fail-fast same-build sharded runner is implemented and independently reviewed. Its first executable pass retained 71 applicable mobile pass observations and stopped without fallout at arrival-travel/mobile/native-restored. Back navigation initially restored 4282px, then loader/layout reinitialization shifted to 5244px and selected journey-exit at sceneProgress 1.093661, so no lawful first-eligible arrival frame existed.",
+      "implementationConsequence": "Do not inject or repair scroll after back, widen the target, change clocks, add N/A rows, or merge partial observations. The harness now bounds cell predicates explicitly and passes 28/28 focused controls, but runtime repair was outside the harness-only authorization. Keep S7 at 0/336 until separately authorized runtime work, fresh independent review, one new build/plan, a complete 336-pass packet, refreshed production checks, and final review. S8 and R3 remain unauthorized."
+    }
+  ],
+  "foundationAudit": {
+    "date": "2026-09-15",
+    "artifact": "docs/hero-reference/foundation-audit-2026-09-15.md",
+    "scope": "Acceptance corrections only; runtime repairs remain open.",
+    "executionHold": "Repair sprints S0\u2013S8 authorized by the user's request to start with parallel subagents. R3/visual phase implementation remains unauthorized."
+  },
+  "s6LatestCheckpoint": {
+    "date": "2026-09-20",
+    "status": "accepted-bounded-s6-scope-only",
+    "review": "docs/hero-reference/repairs/s6/review.md",
+    "acceptance": "docs/hero-reference/repairs/s6/acceptance.json",
+    "s7Started": false
+  }
+}

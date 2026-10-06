@@ -1,8 +1,15 @@
 import { expect, test, type Page } from '@playwright/test';
-import { createHash, randomUUID } from 'node:crypto';
-import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { buildCaptureProvenance } from './hero-capture-provenance';
+import { readCaptureIdentities, readPaintedFonts } from './hero-capture-identity';
+import { readCaptureSample } from './hero-capture-contract';
+import { compareHeroPresentationBrackets } from './hero-presentation-readback';
+import { readCaptureCssClock } from './hero-capture-clock';
 import sharp from 'sharp';
+import { installCaptureInputClock, waitForCaptureObservation, CAPTURE_EXPECTATIONS } from './hero-capture-contract';
+import { readCaptureRun, recordCaptureOutcome, type CaptureRunContext } from './hero-capture-run';
 import { measureScreenComposition } from './screen-composition.mjs';
 import {
   COPY_CONFIG_BY_STATE,
@@ -40,18 +47,6 @@ const REFERENCE_STATES = [
 
 type ReferenceStateKey = (typeof REFERENCE_STATES)[number];
 
-const LOCAL_TIME_MS: Partial<Record<ReferenceStateKey, number>> = {
-  'loader-mark': 2000,
-  'world-reveal': 3500,
-  landing: 0,
-  'landing-idle': 2500,
-  'field-contact': 0,
-  'field-pulse-a': 300,
-  'field-pulse-b': 2800,
-  'arrival-travel': 300,
-  'arrival-lockup': 0,
-  'journey-exit': 1000,
-};
 
 type RouteConfig =
   (typeof ROUTE_CONFIG_BY_STATE)[keyof typeof ROUTE_CONFIG_BY_STATE];
@@ -79,37 +74,18 @@ const FIELD_CONTACT_CENTER_CONFIGS: Partial<
   Record<ReferenceStateKey, FieldContactCenterConfig>
 > = FIELD_CONTACT_CENTER_CONFIG_BY_STATE;
 
-const outputRoot = path.resolve(
-  process.cwd(),
-  'test-output/hero-reference/recording',
-);
-const implementationRoot = path.join(outputRoot, 'implementation');
-const measurementRoot = path.join(outputRoot, 'measurements');
-const comparisonRoot = path.join(outputRoot, 'comparisons');
-const comparisonReportPath = path.join(outputRoot, 'comparison-report.json');
-const captureManifestPath = path.join(outputRoot, 'capture-manifest.json');
-const captureManifestTemporaryPath = path.join(
-  outputRoot,
-  '.capture-manifest.json.tmp',
-);
-const generatedOutputPaths = [
-  implementationRoot,
-  measurementRoot,
-  comparisonRoot,
-  comparisonReportPath,
-  captureManifestPath,
-  captureManifestTemporaryPath,
-] as const;
+let captureRun: CaptureRunContext;
+let outputRoot: string;
+let implementationRoot: string;
+let measurementRoot: string;
+let identities: ReturnType<typeof readCaptureIdentities>;
+const sha256 = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
 
 type RuntimeErrors = {
   console: string[];
   first: Promise<string>;
   page: string[];
 };
-
-let captureRunId = '';
-let captureRunStartedAt = '';
-const capturedStates = new Set<ReferenceStateKey>();
 
 function captureRuntimeErrors(page: Page): RuntimeErrors {
   let reportFirstError: (message: string) => void = () => undefined;
@@ -171,16 +147,6 @@ function expectNoRuntimeErrors(
     console: [],
     page: [],
   });
-}
-
-async function createArtifactEvidence(relativePath: string) {
-  const artifact = await readFile(path.join(outputRoot, relativePath));
-
-  return {
-    path: relativePath,
-    bytes: artifact.byteLength,
-    sha256: createHash('sha256').update(artifact).digest('hex'),
-  };
 }
 
 async function measureImplementationStructure(
@@ -299,77 +265,13 @@ async function measureImplementationStructure(
   };
 }
 
-function createStateQuery(stateKey: ReferenceStateKey) {
-  const query = new URLSearchParams({
-    __heroState: stateKey,
-  });
-  const localTime = LOCAL_TIME_MS[stateKey];
-  if (localTime !== undefined) {
-    query.set('__heroTime', String(localTime));
-  }
-
-  return query.toString();
-}
-
-async function waitForSettledDirectState(
-  page: Page,
-  stateKey: ReferenceStateKey,
-) {
-  const root = page.locator(
-    `[data-hero-reference-state="${stateKey}"][data-hero-direct-entry="true"]`,
-  );
-
-  await expect(root).toHaveCount(1);
-  await expect(root).toHaveAttribute('data-hero-render-ready', 'true');
-  await expect(root).toHaveAttribute('data-hero-motion', 'full');
-  await expect(root).toHaveAttribute('data-hero-profile', 'recording-desktop');
-  await expect(root).toHaveAttribute('data-hero-seed', '43117');
-  await expect(
-    root.locator('[data-hero-surface="canvas"] canvas'),
-  ).toBeVisible();
-  await page.evaluate(() => document.fonts.ready);
-  if (stateKey === 'journey-exit') {
-    await page.evaluate(() =>
-      window.scrollTo({
-        top: 3520,
-        behavior: 'auto',
-      }),
-    );
-  }
-  await page.locator('nextjs-portal').evaluateAll((portals) => {
-    portals.forEach((portal) => portal.remove());
-  });
-  await page.evaluate(
-    () =>
-      new Promise<void>((resolve) =>
-        requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
-      ),
-  );
-
-  return root;
-}
-
-async function waitForSettledStateOrRuntimeError(
-  page: Page,
-  stateKey: ReferenceStateKey,
-  runtimeErrors: RuntimeErrors,
-) {
+async function waitForSettledStateOrRuntimeError(page: Page, stateKey: ReferenceStateKey, runtimeErrors: RuntimeErrors) {
   const outcome = await Promise.race([
-    waitForSettledDirectState(page, stateKey).then((root) => ({
-      root,
-    })),
-    runtimeErrors.first.then((runtimeError) => ({
-      runtimeError,
-    })),
+    waitForCaptureObservation(page, CAPTURE_EXPECTATIONS[stateKey]).then((observation) => ({ observation })),
+    runtimeErrors.first.then((runtimeError) => ({ runtimeError })),
   ]);
-
-  if ('runtimeError' in outcome) {
-    throw new Error(
-      `${stateKey}: hero failed before render readiness: ${outcome.runtimeError}`,
-    );
-  }
-
-  return outcome.root;
+  if ('runtimeError' in outcome) throw new Error(`${stateKey}: hero failed before capture: ${outcome.runtimeError}`);
+  return outcome.observation;
 }
 
 async function measurePage(page: Page, stateKey: ReferenceStateKey) {
@@ -395,7 +297,7 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
       return serializeBounds(element.getBoundingClientRect());
     };
     const root = document.querySelector<HTMLElement>(
-      `[data-hero-reference-state="${key}"]`,
+      '[data-hero-render-ready]',
     );
     const shell = document.querySelector<HTMLElement>('[data-hero-shell]');
     const surface = root?.querySelector<HTMLElement>('[data-hero-surface]');
@@ -553,54 +455,19 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
 }
 
 test.beforeAll(async () => {
-  captureRunId = randomUUID();
-  captureRunStartedAt = new Date().toISOString();
-  capturedStates.clear();
-
-  await Promise.all(
-    generatedOutputPaths.map((generatedPath) =>
-      rm(generatedPath, { force: true, recursive: true }),
-    ),
-  );
-  await Promise.all([
-    mkdir(implementationRoot, { recursive: true }),
-    mkdir(measurementRoot, { recursive: true }),
-  ]);
+  captureRun = await readCaptureRun();
+  identities = readCaptureIdentities();
+  await mkdir(path.join(captureRun.outputRoot, 'observations'), { recursive: true });
+  outputRoot = captureRun.outputRoot;
+  implementationRoot = path.join(outputRoot, 'implementation');
+  measurementRoot = path.join(outputRoot, 'measurements');
 });
 
-test.afterAll(async () => {
-  if (REFERENCE_STATES.some((stateKey) => !capturedStates.has(stateKey))) {
-    return;
+test.afterEach(async ({ page }, testInfo) => {
+  if (testInfo.status !== 'passed') {
+    const state = REFERENCE_STATES.find((key) => testInfo.title === `capture ${key} at the recording profile`);
+    if (state) await recordCaptureOutcome(captureRun, { state, status: 'failed', error: `${page.url()}\n${testInfo.errors.map((error) => error.message).join('\n') || String(testInfo.status)}` });
   }
-
-  const states = await Promise.all(
-    REFERENCE_STATES.map(async (stateKey) => ({
-      key: stateKey,
-      implementation: await createArtifactEvidence(
-        path.posix.join('implementation', `${stateKey}.png`),
-      ),
-      measurement: await createArtifactEvidence(
-        path.posix.join('measurements', `${stateKey}.json`),
-      ),
-    })),
-  );
-  const manifest = {
-    schemaVersion: 7,
-    status: 'complete',
-    runId: captureRunId,
-    startedAt: captureRunStartedAt,
-    completedAt: new Date().toISOString(),
-    expectedStateCount: REFERENCE_STATES.length,
-    capturedStateCount: capturedStates.size,
-    states,
-  };
-
-  await writeFile(
-    captureManifestTemporaryPath,
-    `${JSON.stringify(manifest, null, 2)}\n`,
-    'utf8',
-  );
-  await rename(captureManifestTemporaryPath, captureManifestPath);
 });
 
 for (const stateKey of REFERENCE_STATES) {
@@ -608,28 +475,38 @@ for (const stateKey of REFERENCE_STATES) {
     const runtimeErrors = captureRuntimeErrors(page);
     await installWebGlContextLossMonitor(page);
 
-    await page.goto(`/?${createStateQuery(stateKey)}`, {
+    await installCaptureInputClock(page);
+    await page.goto('/', {
       waitUntil: 'domcontentloaded',
     });
-    const stateRoot = await waitForSettledStateOrRuntimeError(
+    const captureObservation = await waitForSettledStateOrRuntimeError(
       page,
       stateKey,
       runtimeErrors,
-    );
-    await expect(stateRoot).toHaveAttribute(
-      'data-hero-reference-state',
-      stateKey,
     );
     expectNoRuntimeErrors(runtimeErrors, stateKey);
 
     const imagePath = path.join(implementationRoot, `${stateKey}.png`);
     const measurementPath = path.join(measurementRoot, `${stateKey}.json`);
 
+    const inputProfile = await page.evaluate(() => ({ pointerClass: matchMedia('(pointer: fine)').matches ? 'fine' : 'coarse', isIos: /iPad|iPhone|iPod/u.test(navigator.userAgent), reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches }));
+    expect(inputProfile).toEqual({ pointerClass: 'fine', isIos: false, reducedMotion: false });
+    const fontEvidence = await readPaintedFonts(page);
+    const beforeSample = await readCaptureSample(page);
+    const before = { record: beforeSample.record, presentation: beforeSample.presentation, cssClock: await readCaptureCssClock(page) };
     await page.screenshot({
       path: imagePath,
-      animations: 'disabled',
+      animations: 'allow',
       scale: 'device',
     });
+    const afterSample = await readCaptureSample(page);
+    const after = { record: afterSample.record, presentation: afterSample.presentation, cssClock: await readCaptureCssClock(page) };
+    const presentationParity = compareHeroPresentationBrackets(captureObservation.presentation, before.presentation, after.presentation);
+    expect(after.record?.frame.frameId).toBe(before.record?.frame.frameId);
+    expect(after.cssClock.nowMs).toBe(before.cssClock.nowMs);
+    const observationPath = path.posix.join('observations', `${stateKey}.json`);
+    const observationBytes = Buffer.from(`${JSON.stringify({ schemaVersion: 1, runId: captureRun.runId, stateId: stateKey, initialPresentation: captureObservation.presentation, before, after, presentationParity }, null, 2)}\n`);
+    await writeFile(path.join(outputRoot, observationPath), observationBytes);
     const pageMeasurement = await measurePage(page, stateKey);
     const structuralAccuracy = await measureImplementationStructure(
       imagePath,
@@ -638,14 +515,24 @@ for (const stateKey of REFERENCE_STATES) {
     );
     const measurement = {
       schemaVersion: 7,
+      runId: captureRun.runId,
+      buildId: captureRun.buildId,
+      inputTreeSha256: captureRun.inputTreeSha256,
+      captureObservation,
+      presentationParity,
       ...pageMeasurement,
       structuralAccuracy,
     };
     expect(measurement.state).toMatchObject({
       'data-hero-motion': 'full',
-      'data-hero-profile': 'recording-desktop',
+      'data-hero-profile': 'desktop',
       'data-hero-render-ready': 'true',
       'data-hero-seed': '43117',
+    });
+    expect(measurement.viewport).toEqual({
+      width: 1508,
+      height: 761,
+      devicePixelRatio: 2,
     });
     expect(measurement.renderSurface).toMatchObject({
       kind: 'canvas',
@@ -664,6 +551,28 @@ for (const stateKey of REFERENCE_STATES) {
       'utf8',
     );
     expectNoRuntimeErrors(runtimeErrors, stateKey);
-    capturedStates.add(stateKey);
+    const artifacts = await Promise.all([imagePath, measurementPath].map(async (file) => {
+      const bytes = await readFile(file);
+      return { path: path.relative(outputRoot, file).split(path.sep).join('/'), bytes: bytes.length, sha256: sha256(bytes) };
+    }));
+    const browser = page.context().browser();
+    if (!browser || !captureObservation.record) throw new Error('Missing actual browser/frame identity');
+    const captureProvenance = buildCaptureProvenance({ context: captureRun, state: stateKey, measurement, artifacts,
+      ...identities, environment: { node: process.version, browserName: browser.browserType().name(), browserVersion: browser.version() },
+      fontEvidence, profile: { captureLabel: 'recording-desktop', ...inputProfile },
+      physical: captureObservation.physical,
+      build: { mode: 'test-enabled-production', startupCommand: 'NEXT_DIST_DIR=.next-s7-diagnostics pnpm --filter @site/pegasoft exec next start -H 127.0.0.1 -p 4317' },
+    });
+    const canvas = captureObservation.record.canvas;
+    const profile = { viewportWidth: captureObservation.viewport.width, viewportHeight: captureObservation.viewport.height, screenshotDpr: captureObservation.viewport.devicePixelRatio,
+      canvasCssWidth: canvas.cssWidth, canvasCssHeight: canvas.cssHeight, canvasBackingWidth: canvas.backingWidth, canvasBackingHeight: canvas.backingHeight,
+      canvasDprX: canvas.backingWidth / canvas.cssWidth, canvasDprY: canvas.backingHeight / canvas.cssHeight, ...inputProfile };
+    const qualificationPath = path.join(outputRoot, 'qualification-contract.json');
+    const previousQualification = await readFile(qualificationPath, 'utf8').then((text) => JSON.parse(text)).catch((error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return { states: {} }; });
+    const qualificationStates = previousQualification.states;
+    qualificationStates[stateKey] = { captureFrameId: before.record?.frame.frameId, observation: { relativePath: observationPath, sha256: sha256(observationBytes), bytes: observationBytes.length } };
+    await writeFile(`${qualificationPath}.tmp`, `${JSON.stringify({ schemaVersion: 1, runId: captureRun.runId, profiles: { 'recording-desktop': profile }, states: qualificationStates }, null, 2)}\n`);
+    await rename(`${qualificationPath}.tmp`, qualificationPath);
+    await recordCaptureOutcome(captureRun, { state: stateKey, status: 'complete', captureProvenance });
   });
 }

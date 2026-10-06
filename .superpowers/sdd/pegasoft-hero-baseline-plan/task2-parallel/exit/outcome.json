@@ -1,0 +1,31 @@
+{
+  "status": "blocked",
+  "state": "journey-exit",
+  "scope": "Historical saved-raster exit diagnostics only; no runtime changes or new captures.",
+  "checks": {
+    "historicalPinsVerified": 4,
+    "sourceClassifierReproduction": "pass",
+    "implementationClassifierReproduction": "pass",
+    "unchangedGates": true,
+    "newCaptures": 0,
+    "sharedEdits": 0
+  },
+  "observed": {
+    "sourceBoundaryCss": [
+      0,
+      367.5,
+      1508,
+      1
+    ],
+    "localDiagnosticBoundaryCssY": 370.49917108753317,
+    "diagnosticDeltaCss": 2.9323607427056118
+  },
+  "blockers": [
+    "Local boundary classifier fails unchanged contrast/dominance requirements; no qualified local boundary bounds.",
+    "Rendered arrow crop and color strength differ despite matching exit labels and DOM envelope.",
+    "One flattened frame cannot establish continuous retreat/opacity or forward/reverse handoff.",
+    "Historical evidence cannot qualify current capture provenance or visual acceptance."
+  ],
+  "smallestNextImplementation": "Add an implementation-only boundary/crop diagnostic to the owning measurement path that exposes the existing candidate row scores and applied crop-plane/effective world-opacity readback. Preserve the current boundary gates and blocked result; verify on the two pinned rasters before any runtime geometry change.",
+  "capturePrerequisite": "Any verification of current runtime or continuous forward/reverse exit needs separately authorized capture inputs."
+}

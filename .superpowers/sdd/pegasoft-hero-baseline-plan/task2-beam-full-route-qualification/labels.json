@@ -1,0 +1,764 @@
+{
+  "schemaVersion": 1,
+  "status": "producer proposed labels for independent review; no qualification",
+  "fieldClearanceState": "clearance-field-preview",
+  "noMasksUsed": true,
+  "labels": [
+    {
+      "id": "activation-route-source-network",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "parallel-route-bundle",
+      "section": {
+        "axis": "horizontal",
+        "fixedCoordinate": 600,
+        "stripWidth": 5,
+        "range": [
+          1160,
+          1480
+        ],
+        "sidebands": [
+          [
+            1160,
+            1190
+          ],
+          [
+            1450,
+            1480
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Visible diagonal red feeder bundle; multiple parallel rail crossings are not one core."
+    },
+    {
+      "id": "activation-route-source-branch",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "branch-contact",
+      "section": {
+        "axis": "horizontal",
+        "fixedCoordinate": 340,
+        "stripWidth": 5,
+        "range": [
+          760,
+          1320
+        ],
+        "sidebands": [
+          [
+            760,
+            790
+          ],
+          [
+            1290,
+            1320
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Upper red branch joins parallel network beside industrial objects; source image label only."
+    },
+    {
+      "id": "activation-route-source-background",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "background-negative",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 200,
+        "stripWidth": 5,
+        "range": [
+          400,
+          650
+        ],
+        "sidebands": [
+          [
+            400,
+            430
+          ],
+          [
+            620,
+            650
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Far-left pale ground away from the visible red network."
+    },
+    {
+      "id": "activation-route-source-clipped",
+      "state": "activation-route",
+      "role": "source",
+      "challenge": "unavailable-outside-raster",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1000,
+        "stripWidth": 5,
+        "range": [
+          -20,
+          120
+        ],
+        "sidebands": [
+          [
+            -20,
+            0
+          ],
+          [
+            100,
+            120
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Requested continuation above image top is not available; no whole-route extent inferred."
+    },
+    {
+      "id": "activation-route-local-network",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "parallel-route-bundle",
+      "section": {
+        "axis": "horizontal",
+        "fixedCoordinate": 620,
+        "stripWidth": 5,
+        "range": [
+          1180,
+          1510
+        ],
+        "sidebands": [
+          [
+            1180,
+            1210
+          ],
+          [
+            1480,
+            1510
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Local diagonal red feeder bundle labelled from local frame."
+    },
+    {
+      "id": "activation-route-local-branch",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "branch-contact",
+      "section": {
+        "axis": "horizontal",
+        "fixedCoordinate": 350,
+        "stripWidth": 5,
+        "range": [
+          780,
+          1350
+        ],
+        "sidebands": [
+          [
+            780,
+            810
+          ],
+          [
+            1320,
+            1350
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Local upper red branch intersection and scene support; independently placed row."
+    },
+    {
+      "id": "activation-route-local-background",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "background-negative",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 220,
+        "stripWidth": 5,
+        "range": [
+          410,
+          660
+        ],
+        "sidebands": [
+          [
+            410,
+            440
+          ],
+          [
+            630,
+            660
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Local far-left pale ground away from red network."
+    },
+    {
+      "id": "activation-route-local-clipped",
+      "state": "activation-route",
+      "role": "local",
+      "challenge": "unavailable-outside-raster",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1020,
+        "stripWidth": 5,
+        "range": [
+          -20,
+          130
+        ],
+        "sidebands": [
+          [
+            -20,
+            0
+          ],
+          [
+            110,
+            130
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Missing image-top continuation cannot be completed from saved pixels."
+    },
+    {
+      "id": "clearance-field-preview-source-body",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "route-plus-field-marks",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1200,
+        "stripWidth": 5,
+        "range": [
+          750,
+          1050
+        ],
+        "sidebands": [
+          [
+            750,
+            780
+          ],
+          [
+            1020,
+            1050
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Visible white feed crosses surrounding luminous grid, with nearby industrial geometry."
+    },
+    {
+      "id": "clearance-field-preview-source-copy",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "copy-occlusion",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 700,
+        "stripWidth": 5,
+        "range": [
+          900,
+          1260
+        ],
+        "sidebands": [
+          [
+            900,
+            930
+          ],
+          [
+            1230,
+            1260
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Feed and supporting-copy band overlap; intended hidden core pixels are not independently available."
+    },
+    {
+      "id": "clearance-field-preview-source-marks",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "surrounding-grid-pulse-causality-unavailable",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1300,
+        "stripWidth": 5,
+        "range": [
+          590,
+          770
+        ],
+        "sidebands": [
+          [
+            590,
+            610
+          ],
+          [
+            750,
+            770
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Visible surrounding field marks above feed; a single static raster does not establish pulse phase or causality."
+    },
+    {
+      "id": "clearance-field-preview-source-background",
+      "state": "clearance-field-preview",
+      "role": "source",
+      "challenge": "background-negative",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 2600,
+        "stripWidth": 5,
+        "range": [
+          500,
+          850
+        ],
+        "sidebands": [
+          [
+            500,
+            530
+          ],
+          [
+            820,
+            850
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Open far-right ground away from feed and field marks."
+    },
+    {
+      "id": "clearance-field-preview-local-body",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "visible-route-section",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1200,
+        "stripWidth": 5,
+        "range": [
+          750,
+          1050
+        ],
+        "sidebands": [
+          [
+            750,
+            780
+          ],
+          [
+            1020,
+            1050
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Local bright diagonal feed before nearby chimney block; individually inspected local selection."
+    },
+    {
+      "id": "clearance-field-preview-local-copy",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "copy-occlusion",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 650,
+        "stripWidth": 5,
+        "range": [
+          940,
+          1300
+        ],
+        "sidebands": [
+          [
+            940,
+            970
+          ],
+          [
+            1270,
+            1300
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Local feed passes through supporting-copy region."
+    },
+    {
+      "id": "clearance-field-preview-local-marks",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "surrounding-grid-pulse-causality-unavailable",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1350,
+        "stripWidth": 5,
+        "range": [
+          580,
+          740
+        ],
+        "sidebands": [
+          [
+            580,
+            600
+          ],
+          [
+            720,
+            740
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Same-state local upper approach vicinity lacks the source luminous grid; no fabricated pulse assignment."
+    },
+    {
+      "id": "clearance-field-preview-local-object",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "non-route-pale-object-negative",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 2640,
+        "stripWidth": 5,
+        "range": [
+          520,
+          870
+        ],
+        "sidebands": [
+          [
+            520,
+            550
+          ],
+          [
+            840,
+            870
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Initial proposed background label corrected after raw profile showed a pale object at y681-772. Keep this non-route object challenge; do not use it for background calibration."
+    },
+    {
+      "id": "arrival-lockup-source-feed",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "isolated-visible-route-section",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 80,
+        "stripWidth": 5,
+        "range": [
+          600,
+          900
+        ],
+        "sidebands": [
+          [
+            600,
+            630
+          ],
+          [
+            870,
+            900
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Isolated left horizontal white feed with graded cyan shoulders; previously diagnostic raw section reused."
+    },
+    {
+      "id": "arrival-lockup-source-marks",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "route-plus-field-marks",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 600,
+        "stripWidth": 5,
+        "range": [
+          655,
+          811
+        ],
+        "sidebands": [
+          [
+            655,
+            670
+          ],
+          [
+            795,
+            811
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Source feed in wider surrounding field; independently inspect sideband/bloom ambiguity."
+    },
+    {
+      "id": "arrival-lockup-source-contact",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "shaft-contact",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1200,
+        "stripWidth": 5,
+        "range": [
+          600,
+          900
+        ],
+        "sidebands": [
+          [
+            600,
+            630
+          ],
+          [
+            870,
+            900
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Feed enters arrow shaft/contact over luminous dots; composite cannot independently separate subject layers."
+    },
+    {
+      "id": "arrival-lockup-source-background",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "background-negative",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 2800,
+        "stripWidth": 5,
+        "range": [
+          600,
+          900
+        ],
+        "sidebands": [
+          [
+            600,
+            630
+          ],
+          [
+            870,
+            900
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Far-right background away from arrow/grid/beam."
+    },
+    {
+      "id": "arrival-lockup-source-clipped",
+      "state": "arrival-lockup",
+      "role": "source",
+      "challenge": "strip-outside-raster",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 0,
+        "stripWidth": 5,
+        "range": [
+          600,
+          900
+        ],
+        "sidebands": [
+          [
+            600,
+            630
+          ],
+          [
+            870,
+            900
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Five-column strip centered at first column extends outside raster; no synthetic padding."
+    },
+    {
+      "id": "arrival-lockup-local-feed",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "isolated-visible-route-section",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 24,
+        "stripWidth": 5,
+        "range": [
+          600,
+          900
+        ],
+        "sidebands": [
+          [
+            600,
+            630
+          ],
+          [
+            870,
+            900
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Independently checked clean local left feed; bright profile and hard luminous outer band."
+    },
+    {
+      "id": "arrival-lockup-local-marks",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "detached-grid-residual-near-route",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 600,
+        "stripWidth": 5,
+        "range": [
+          655,
+          811
+        ],
+        "sidebands": [
+          [
+            655,
+            670
+          ],
+          [
+            795,
+            811
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "A local darker cyan dot near y690 is detached from the bright feed near y760; absolute residual envelope may include it."
+    },
+    {
+      "id": "arrival-lockup-local-contact",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "shaft-contact",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 1240,
+        "stripWidth": 5,
+        "range": [
+          620,
+          920
+        ],
+        "sidebands": [
+          [
+            620,
+            650
+          ],
+          [
+            890,
+            920
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Local luminous feed joins pale arrow shaft and grid; no separate layer claim."
+    },
+    {
+      "id": "arrival-lockup-local-background",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "background-negative",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 2780,
+        "stripWidth": 5,
+        "range": [
+          610,
+          910
+        ],
+        "sidebands": [
+          [
+            610,
+            640
+          ],
+          [
+            880,
+            910
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Local far-right background away from visible route/arrow/grid."
+    },
+    {
+      "id": "arrival-lockup-local-clipped",
+      "state": "arrival-lockup",
+      "role": "local",
+      "challenge": "strip-outside-raster",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 0,
+        "stripWidth": 5,
+        "range": [
+          620,
+          920
+        ],
+        "sidebands": [
+          [
+            620,
+            650
+          ],
+          [
+            890,
+            920
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Visual inspection of this image; no reference/local mask borrowing",
+      "note": "Five-column strip centered on left image boundary is unavailable in part."
+    },
+    {
+      "id": "clearance-field-preview-local-background",
+      "state": "clearance-field-preview",
+      "role": "local",
+      "challenge": "background-negative",
+      "section": {
+        "axis": "vertical",
+        "fixedCoordinate": 2850,
+        "stripWidth": 5,
+        "range": [
+          540,
+          890
+        ],
+        "sidebands": [
+          [
+            540,
+            570
+          ],
+          [
+            860,
+            890
+          ]
+        ]
+      },
+      "labelStatus": "producer-proposed-pending-independent-review",
+      "selection": "Independent local unmasked-raster inspection; no source mask borrowing",
+      "note": "Far-right local ground beyond pale object, retained as a separate negative control."
+    }
+  ]
+}

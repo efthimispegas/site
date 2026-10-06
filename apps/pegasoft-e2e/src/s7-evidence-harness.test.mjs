@@ -108,7 +108,7 @@ test('resource cleanup has a short independent deadline', async () => {
   const started = Date.now();
   await assert.rejects(
     closeShardResources({
-      page: { isClosed: () => false, close: () => new Promise(() => {}) },
+      page: { isClosed: () => false, close: () => new Promise(() => undefined) },
       context: { close: async () => undefined },
       timeoutMs: 10,
     }),

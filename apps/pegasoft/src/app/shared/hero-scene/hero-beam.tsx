@@ -21,6 +21,7 @@ import {
 const RED_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.activation[1];
 const BLUE_ZERO_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.clearance[1];
 const TUBE_RADIAL_SEGMENTS = HERO_ROUTE_RENDERING.radialSegments;
+const BLUE_TUBE_TUBULAR_SEGMENTS = 180;
 
 const redFeederCurves = HERO_ACTIVATION_FEEDER_PATHS.map((_, index) =>
   createHeroFeederCurve(index),
@@ -121,7 +122,28 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
   const lightRef = useRef<THREE.PointLight>(null);
   useFrame(() => {
     const frame = frameRef.current;
-    const tip = getHeroRoutePoint(getHeroRouteProgress(frame.rendered.value));
+    const blueZeroRatio = frame.ratios.blueZero;
+    const blueOneRatio = frame.ratios.blueOne;
+    const quantize = (ratio: number) =>
+      Math.ceil(THREE.MathUtils.clamp(ratio, 0, 1) * BLUE_TUBE_TUBULAR_SEGMENTS) /
+      BLUE_TUBE_TUBULAR_SEGMENTS;
+    const routeProgress =
+      blueZeroRatio < 1
+        ? THREE.MathUtils.lerp(
+            RED_ROUTE_END,
+            BLUE_ZERO_ROUTE_END,
+            quantize(blueZeroRatio),
+          )
+        : THREE.MathUtils.lerp(
+            BLUE_ZERO_ROUTE_END,
+            1,
+            quantize(blueOneRatio),
+          );
+    const tip = getHeroRoutePoint(
+      blueZeroRatio > 0
+        ? routeProgress
+        : getHeroRouteProgress(frame.rendered.value),
+    );
     if (tipRef.current) {
       tipRef.current.position.set(tip.x, tip.y + 0.02, tip.z);
       tipRef.current.visible = frame.ratios.blueZero > 0;
@@ -155,7 +177,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
 
       <SourceTube
         curve={blueZeroCurve}
-        tubularSegments={100}
+        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
         radius={
           HERO_ROUTE_RENDERING.blueCoreRadius *
           HERO_ROUTE_RENDERING.blueGlowRadiusScale
@@ -169,7 +191,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
       />
       <SourceTube
         curve={blueZeroCurve}
-        tubularSegments={100}
+        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
         radius={HERO_ROUTE_RENDERING.blueCoreRadius}
         color={HERO_PALETTE.blueCore}
         frameRef={frameRef}
@@ -178,7 +200,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
       />
       <SourceTube
         curve={blueOneCurve}
-        tubularSegments={100}
+        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
         radius={
           HERO_ROUTE_RENDERING.blueCoreRadius *
           HERO_ROUTE_RENDERING.blueGlowRadiusScale
@@ -192,7 +214,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
       />
       <SourceTube
         curve={blueOneCurve}
-        tubularSegments={100}
+        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
         radius={HERO_ROUTE_RENDERING.blueCoreRadius}
         color={HERO_PALETTE.blueCore}
         frameRef={frameRef}

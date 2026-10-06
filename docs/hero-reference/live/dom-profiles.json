@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-07-28T12:19:04.901Z",
+  "canonicalUrl": "https://www.vectrfl.com/",
+  "diagnosticUrl": "https://www.vectrfl.com/?trace=1",
+  "units": {
+    "boxes": "CSS pixels in [x, y, width, height] order",
+    "progress": "unit interval unless a source-confirmed range extends beyond 1"
+  },
+  "profiles": [
+    {
+      "id": "live-desktop-1440",
+      "capturedAtUtc": "2026-07-28T12:18:17.966Z",
+      "sourceRef": "live-trace-desktop-1440-2026-07-28",
+      "navigation": {
+        "evidenceClass": "observed",
+        "value": {
+          "httpStatus": 200,
+          "documentReadyState": "complete",
+          "pageErrors": [],
+          "failedRequests": [],
+          "consoleMessages": [
+            {
+              "level": "warning",
+              "text": "THREE.QuadMesh: \"renderAsync()\" has been deprecated. Use \"render()\" and \"await renderer.init();\" when creating the renderer."
+            }
+          ]
+        }
+      },
+      "viewport": {
+        "evidenceClass": "observed",
+        "value": {
+          "css": {
+            "width": 1440,
+            "height": 900
+          },
+          "devicePixelRatio": 1,
+          "visualViewport": {
+            "width": 1440,
+            "height": 900,
+            "scale": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0
+          },
+          "screen": {
+            "width": 1440,
+            "height": 900
+          }
+        }
+      },
+      "input": {
+        "evidenceClass": "observed",
+        "value": {
+          "pointerFine": true,
+          "pointerCoarse": false,
+          "hover": true,
+          "maxTouchPoints": 0
+        }
+      },
+      "document": {
+        "evidenceClass": "observed",
+        "value": {
+          "scrollWidth": 1440,
+          "scrollHeight": 10896,
+          "backgroundColor": "#d0e1eb",
+          "textColor": "#050419"
+        }
+      },
+      "canvas": {
+        "evidenceClass": "observed",
+        "value": {
+          "box": [0, 0, 1440, 900],
+          "backingStore": {
+            "width": 1440,
+            "height": 900
+          },
+          "position": "fixed",
+          "zIndex": -1,
+          "pointerEvents": "none",
+          "touchAction": "none"
+        }
+      },
+      "flow": {
+        "evidenceClass": "observed",
+        "value": {
+          "documentTop": 420,
+          "height": 4104,
+          "wrapperHeight": 900,
+          "scrollRange": 3204
+        }
+      },
+      "landingDom": {
+        "evidenceClass": "observed",
+        "value": {
+          "header": {
+            "box": [0, 0, 1440, 80]
+          },
+          "logoSvg": {
+            "box": [673.5, 30.41, 93, 16]
+          },
+          "leftNavigation": {
+            "box": [2, 18, 249.27, 44]
+          },
+          "rightNavigation": {
+            "box": [1022, 16, 400, 48]
+          },
+          "heroContent": {
+            "box": [371.05, 0, 697.91, 435.17]
+          },
+          "title": {
+            "box": [371.05, 128, 697.91, 172.78],
+            "font": {
+              "family": "Roboto, sans-serif",
+              "size": 96,
+              "lineHeight": 86.4,
+              "weight": 500,
+              "letterSpacing": -5.76
+            }
+          },
+          "subtitle": {
+            "box": [410, 348.78, 620, 86.39],
+            "font": {
+              "family": "Roboto, sans-serif",
+              "size": 24,
+              "lineHeight": 28.8,
+              "weight": 400
+            }
+          },
+          "scrollCue": {
+            "box": [577.95, 812, 284.11, 40],
+            "textBox": [597.95, 820, 244.11, 16],
+            "fontSize": 14,
+            "letterSpacing": 0.28
+          },
+          "processSteps": {
+            "box": [0, 907.25, 664, 412.75],
+            "activeStep": {
+              "index": 0,
+              "box": [48, 955.25, 568, 172.75],
+              "headerBox": [48, 955.25, 568, 48],
+              "numberBox": [48, 955.25, 48, 48],
+              "titleBox": [116, 964.84, 225.16, 28.8],
+              "descriptionBox": [116, 1027.25, 500, 100.75]
+            }
+          }
+        }
+      },
+      "activeStepBoundaries": {
+        "evidenceClass": "observed",
+        "precisionCssPx": 1,
+        "value": [
+          {
+            "fromStep": 1,
+            "toStep": 2,
+            "lastBeforeScrollY": 971,
+            "firstAtScrollY": 972,
+            "domProgressAt": 0.191011235955,
+            "traceTargetAt": 0.245454545455
+          },
+          {
+            "fromStep": 2,
+            "toStep": 3,
+            "lastBeforeScrollY": 2593,
+            "firstAtScrollY": 2594,
+            "domProgressAt": 0.697253433208,
+            "traceTargetAt": 0.655050505051
+          },
+          {
+            "fromStep": 3,
+            "toStep": 4,
+            "lastBeforeScrollY": 3166,
+            "firstAtScrollY": 3167,
+            "domProgressAt": 0.876092384519,
+            "traceTargetAt": 0.799747474747
+          }
+        ]
+      },
+      "loadRevealTimeline": {
+        "evidenceClass": "observed",
+        "runSpecific": true,
+        "timeOrigin": "performance.now() from navigation start",
+        "units": "milliseconds",
+        "value": {
+          "firstLoaderVisibleSample": 435.7,
+          "loaderHideClassAndCanvasReady": 2895.6,
+          "headerAndHeroShowClass": 3595.6,
+          "titleOpacityStartsIncreasing": 3611.8,
+          "titleOpacityAtLeastPoint99": 4536.7,
+          "subtitleOpacityStartsIncreasing": 3903.3,
+          "subtitleOpacityAtLeastPoint99": 4836.7,
+          "loaderDisplayNone": 5395.3
+        }
+      }
+    },
+    {
+      "id": "live-desktop-1920",
+      "capturedAtUtc": "2026-07-28T12:18:36.338Z",
+      "sourceRef": "live-trace-desktop-1920-2026-07-28",
+      "navigation": {
+        "evidenceClass": "observed",
+        "value": {
+          "httpStatus": 200,
+          "documentReadyState": "complete",
+          "pageErrors": [],
+          "failedRequests": [],
+          "consoleMessages": [
+            {
+              "level": "warning",
+              "text": "THREE.QuadMesh: \"renderAsync()\" has been deprecated. Use \"render()\" and \"await renderer.init();\" when creating the renderer."
+            }
+          ]
+        }
+      },
+      "viewport": {
+        "evidenceClass": "observed",
+        "value": {
+          "css": {
+            "width": 1920,
+            "height": 1080
+          },
+          "devicePixelRatio": 1,
+          "visualViewport": {
+            "width": 1920,
+            "height": 1080,
+            "scale": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          }
+        }
+      },
+      "input": {
+        "evidenceClass": "observed",
+        "value": {
+          "pointerFine": true,
+          "pointerCoarse": false,
+          "hover": true,
+          "maxTouchPoints": 0
+        }
+      },
+      "document": {
+        "evidenceClass": "observed",
+        "value": {
+          "scrollWidth": 1920,
+          "scrollHeight": 12504,
+          "backgroundColor": "#d0e1eb",
+          "textColor": "#050419"
+        }
+      },
+      "canvas": {
+        "evidenceClass": "observed",
+        "value": {
+          "box": [0, 0, 1920, 1080],
+          "backingStore": {
+            "width": 1920,
+            "height": 1080
+          },
+          "position": "fixed",
+          "zIndex": -1,
+          "pointerEvents": "none",
+          "touchAction": "none"
+        }
+      },
+      "flow": {
+        "evidenceClass": "observed",
+        "value": {
+          "documentTop": 432,
+          "height": 4924.8,
+          "wrapperHeight": 1080,
+          "scrollRange": 3844.8
+        }
+      },
+      "landingDom": {
+        "evidenceClass": "observed",
+        "value": {
+          "header": {
+            "box": [0, 0, 1920, 80]
+          },
+          "logoSvg": {
+            "box": [913.5, 30.41, 93, 16]
+          },
+          "leftNavigation": {
+            "box": [2, 18, 249.27, 44]
+          },
+          "rightNavigation": {
+            "box": [1502, 16, 400, 48]
+          },
+          "heroContent": {
+            "box": [611.05, 0, 697.91, 435.17]
+          },
+          "title": {
+            "box": [611.05, 128, 697.91, 172.78],
+            "font": {
+              "family": "Roboto, sans-serif",
+              "size": 96,
+              "lineHeight": 86.4,
+              "weight": 500,
+              "letterSpacing": -5.76
+            }
+          },
+          "subtitle": {
+            "box": [650, 348.78, 620, 86.39],
+            "font": {
+              "family": "Roboto, sans-serif",
+              "size": 24,
+              "lineHeight": 28.8,
+              "weight": 400
+            }
+          },
+          "scrollCue": {
+            "box": [817.95, 992, 284.11, 40],
+            "textBox": [837.95, 1000, 244.11, 16],
+            "fontSize": 14,
+            "letterSpacing": 0.28
+          },
+          "processSteps": {
+            "box": [0, 1099.25, 664, 412.75],
+            "activeStep": {
+              "index": 0,
+              "box": [48, 1147.25, 568, 172.75],
+              "headerBox": [48, 1147.25, 568, 48],
+              "numberBox": [48, 1147.25, 48, 48],
+              "titleBox": [116, 1156.84, 225.16, 28.8],
+              "descriptionBox": [116, 1219.25, 500, 100.75]
+            }
+          }
+        }
+      },
+      "activeStepBoundaries": {
+        "evidenceClass": "observed",
+        "precisionCssPx": 1,
+        "value": [
+          {
+            "fromStep": 1,
+            "toStep": 2,
+            "lastBeforeScrollY": 1166,
+            "firstAtScrollY": 1167,
+            "domProgressAt": 0.191167290886,
+            "traceTargetAt": 0.245569195268
+          },
+          {
+            "fromStep": 2,
+            "toStep": 3,
+            "lastBeforeScrollY": 3111,
+            "firstAtScrollY": 3112,
+            "domProgressAt": 0.697045359967,
+            "traceTargetAt": 0.65485118738
+          },
+          {
+            "fromStep": 3,
+            "toStep": 4,
+            "lastBeforeScrollY": 3800,
+            "firstAtScrollY": 3801,
+            "domProgressAt": 0.876248439451,
+            "traceTargetAt": 0.799835913635
+          }
+        ]
+      },
+      "loadRevealTimeline": {
+        "evidenceClass": "observed",
+        "runSpecific": true,
+        "timeOrigin": "performance.now() from navigation start",
+        "units": "milliseconds",
+        "value": {
+          "firstLoaderVisibleSample": 437.6,
+          "loaderHideClassAndCanvasReady": 2590.6,
+          "headerAndHeroShowClass": 3290.8,
+          "titleOpacityStartsIncreasing": 3307.1,
+          "titleOpacityAtLeastPoint99": 4232.2,
+          "subtitleOpacityStartsIncreasing": 3607.1,
+          "subtitleOpacityAtLeastPoint99": 4532,
+          "loaderDisplayNone": 5090.5
+        }
+      }
+    },
+    {
+      "id": "live-mobile-390",
+      "capturedAtUtc": "2026-07-28T12:18:54.660Z",
+      "sourceRef": "live-trace-mobile-390-2026-07-28",
+      "navigation": {
+        "evidenceClass": "observed",
+        "value": {
+          "httpStatus": 200,
+          "documentReadyState": "complete",
+          "pageErrors": [],
+          "failedRequests": [],
+          "consoleMessages": []
+        }
+      },
+      "viewport": {
+        "evidenceClass": "observed",
+        "value": {
+          "css": {
+            "width": 390,
+            "height": 844
+          },
+          "devicePixelRatio": 1,
+          "visualViewport": {
+            "width": 390,
+            "height": 844,
+            "scale": 1,
+            "offsetLeft": 0,
+            "offsetTop": 0
+          },
+          "screen": {
+            "width": 390,
+            "height": 844
+          }
+        }
+      },
+      "input": {
+        "evidenceClass": "observed",
+        "value": {
+          "pointerFine": false,
+          "pointerCoarse": true,
+          "hover": false,
+          "maxTouchPoints": 1
+        }
+      },
+      "document": {
+        "evidenceClass": "observed",
+        "value": {
+          "scrollWidth": 390,
+          "scrollHeight": 9357,
+          "backgroundColor": "#d0e1eb",
+          "textColor": "#050419"
+        }
+      },
+      "canvas": {
+        "evidenceClass": "observed",
+        "value": {
+          "box": [0, 0, 390, 844],
+          "backingStore": {
+            "width": 390,
+            "height": 844
+          },
+          "position": "fixed",
+          "zIndex": -1,
+          "pointerEvents": "none",
+          "touchAction": "none"
+        }
+      },
+      "flow": {
+        "evidenceClass": "observed",
+        "value": {
+          "documentTop": 420,
+          "height": 4810.8,
+          "wrapperHeight": 844,
+          "scrollRange": 3966.8
+        }
+      },
+      "landingDom": {
+        "evidenceClass": "observed",
+        "value": {
+          "header": {
+            "box": [0, 0, 390, 64]
+          },
+          "logoSvg": {
+            "box": [18, 26.41, 69, 12]
+          },
+          "leftNavigation": {
+            "box": [0, 0, 0, 0],
+            "display": "none"
+          },
+          "menuButton": {
+            "box": [324, 0, 66, 64]
+          },
+          "heroContent": {
+            "box": [0, 0, 390, 399.53]
+          },
+          "title": {
+            "box": [20, 126, 350, 172.78],
+            "visualLineCount": 3,
+            "font": {
+              "family": "Roboto, sans-serif",
+              "size": 64,
+              "lineHeight": 57.6,
+              "weight": 500,
+              "letterSpacing": -2
+            }
+          },
+          "subtitle": {
+            "box": [55, 322.78, 280, 76.75],
+            "font": {
+              "family": "Roboto, sans-serif",
+              "size": 16,
+              "lineHeight": 19.2,
+              "weight": 400
+            }
+          },
+          "scrollCue": {
+            "box": [78.2, 772, 233.59, 40],
+            "textBox": [98.2, 781.5, 193.59, 13],
+            "fontSize": 11
+          },
+          "processSteps": {
+            "box": [0, 920.05, 388, 343.95],
+            "activeStep": {
+              "index": 0,
+              "box": [24, 944.05, 340, 175.95],
+              "headerBox": [24, 944.05, 340, 40],
+              "numberBox": [24, 944.05, 40, 40],
+              "titleBox": [84, 952.05, 187.64, 24],
+              "descriptionBox": [84, 1008.05, 280, 111.95]
+            }
+          }
+        }
+      },
+      "activeStepBoundaries": {
+        "evidenceClass": "observed",
+        "precisionCssPx": 1,
+        "value": [
+          {
+            "fromStep": 1,
+            "toStep": 2,
+            "lastBeforeScrollY": 1095,
+            "firstAtScrollY": 1096,
+            "domProgressAt": 0.191186850862,
+            "traceTargetAt": 0.228576034853
+          },
+          {
+            "fromStep": 2,
+            "toStep": 3,
+            "lastBeforeScrollY": 3102,
+            "firstAtScrollY": 3103,
+            "domProgressAt": 0.697136230715,
+            "traceTargetAt": 0.64714547094
+          },
+          {
+            "fromStep": 3,
+            "toStep": 4,
+            "lastBeforeScrollY": 3812,
+            "firstAtScrollY": 3813,
+            "domProgressAt": 0.876121811032,
+            "traceTargetAt": 0.795219362132
+          }
+        ]
+      },
+      "loadRevealTimeline": {
+        "evidenceClass": "observed",
+        "runSpecific": true,
+        "timeOrigin": "performance.now() from navigation start",
+        "units": "milliseconds",
+        "value": {
+          "firstLoaderVisibleSample": 397.2,
+          "loaderHideClassAndCanvasReady": 2553.7,
+          "headerAndHeroShowClass": 3253.6,
+          "titleOpacityStartsIncreasing": 3270.4,
+          "titleOpacityAtLeastPoint99": 4195.3,
+          "subtitleOpacityStartsIncreasing": 3561.9,
+          "subtitleOpacityAtLeastPoint99": 4495.2,
+          "loaderDisplayNone": 5054
+        }
+      }
+    }
+  ]
+}

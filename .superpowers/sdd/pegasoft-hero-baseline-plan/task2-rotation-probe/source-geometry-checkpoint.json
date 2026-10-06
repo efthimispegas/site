@@ -1,0 +1,900 @@
+{
+  "status": "hash-matched authored geometry recovered; recording binding remains diagnostic",
+  "sourceRetrieval": {
+    "url": "https://www.vectrfl.com/?trace=1",
+    "method": "read-only HTTP download; no browser capture",
+    "historicalSourceEvidence": "docs/hero-reference/live/source-evidence.json#sources[id=live-trace-html-2026-07-28]",
+    "htmlHashMatches": true,
+    "sandboxAttempt": "curl exit 6 DNS; permitted retry exit 0"
+  },
+  "geometry": {
+    "targetSelector": "#loader .loader__logo #cube_01",
+    "parentTargetSelector": "#loader .loader__logo",
+    "cubePathD": "M40.0076 0H56.0038V15.9962H40.0076V0Z",
+    "vertices": [
+      [
+        40.0076,
+        0
+      ],
+      [
+        56.0038,
+        0
+      ],
+      [
+        56.0038,
+        15.9962
+      ],
+      [
+        40.0076,
+        15.9962
+      ]
+    ],
+    "authoredOrientation": "axis-aligned",
+    "viewBox": [
+      0,
+      0,
+      96,
+      96
+    ],
+    "cubeAnimations": [
+      "cube-fade",
+      "cube-slide"
+    ],
+    "cubeDelayMs": 0,
+    "parentAnimationName": "logo-rotate",
+    "parentDurationMs": 1500,
+    "parentEasing": "ease-out",
+    "parentRotationDegrees": [
+      -60,
+      0
+    ],
+    "cssViewport": [
+      1508,
+      761
+    ],
+    "recordingPixels": [
+      3016,
+      1522
+    ],
+    "derivedLogoWidthCssPx": 84.11999999999999,
+    "derivedSvgUnitScaleRecordingPx": 1.7524999999999997,
+    "mobileOverrideApplies": false
+  },
+  "validation": {
+    "eligibleConditionalRows": 48,
+    "centroidResidualRangePixels": [
+      5.442775212599115,
+      11.873693092313825
+    ],
+    "independence": "Positions use ages inferred from orientation, so agreement is a diagnostic cross-check, not an independent onset proof.",
+    "staticFrameCalibration": {
+      "status": "diagnostic; thresholds not certified antialias/codec bounds",
+      "frameIndex": 148,
+      "bounds": [
+        {
+          "threshold": 30,
+          "bboxInclusive": [
+            120,
+            122,
+            289,
+            289
+          ],
+          "center": [
+            205.0,
+            206.0
+          ],
+          "size": [
+            170,
+            168
+          ]
+        },
+        {
+          "threshold": 60,
+          "bboxInclusive": [
+            120,
+            122,
+            288,
+            289
+          ],
+          "center": [
+            204.5,
+            206.0
+          ],
+          "size": [
+            169,
+            168
+          ]
+        },
+        {
+          "threshold": 90,
+          "bboxInclusive": [
+            120,
+            122,
+            288,
+            289
+          ],
+          "center": [
+            204.5,
+            206.0
+          ],
+          "size": [
+            169,
+            168
+          ]
+        }
+      ]
+    },
+    "calibratedCenterCropPixels": [
+      204.66666666666666,
+      206.0
+    ],
+    "calibratedCentroidResidualRangePixels": [
+      0.48302749630654324,
+      7.93340952001238
+    ],
+    "maskSensitivityMs": 106.93094472034386,
+    "requiredOnsetWidthMs": 16.666666666666668
+  },
+  "limitations": [
+    "Hash equality proves same HTML as the locked audit, not the recording runtime DOM or computed style.",
+    "Source cube identity is now explicit in HTML; raster component binding remains inferred.",
+    "Thresholded centroid/angle errors include codec, antialiasing, faint-opacity and raster quantization effects; they are not bounded.",
+    "No averaging or intersection of conditional estimates qualifies onset.",
+    "The local implementation lacks logo assembly/rotation; it cannot be assigned this source effect role."
+  ],
+  "nextAction": "Validate a geometry-based raster estimator and conservative error model on the retained recording, or switch to an effect with measurable timing; retain independent review before phase qualification.",
+  "checks": [
+    {
+      "calibratedCentroidResidualPixels": 0.5939519297885615,
+      "frameIndex": 60,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 50.20600355825104,
+      "predictedCube01CentroidCropPixels": [
+        117.99073476042271,
+        146.04604413968895
+      ],
+      "observedCentroidCropPixels": [
+        122.8794402583423,
+        151.4951560818084
+      ],
+      "centroidResidualPixels": 7.320673630420776
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.8902992394030815,
+      "frameIndex": 60,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 40.90548746360571,
+      "predictedCube01CentroidCropPixels": [
+        116.38275205293013,
+        146.24845348024422
+      ],
+      "observedCentroidCropPixels": [
+        122.60786516853932,
+        151.17865168539325
+      ],
+      "centroidResidualPixels": 7.940962639641635
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.3130544972879872,
+      "frameIndex": 60,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 53.77884369167748,
+      "predictedCube01CentroidCropPixels": [
+        118.60125473925262,
+        145.97398419860946
+      ],
+      "observedCentroidCropPixels": [
+        122.51266586248492,
+        150.89987937273824
+      ],
+      "centroidResidualPixels": 6.289958683604415
+    },
+    {
+      "calibratedCentroidResidualPixels": 4.907788855255834,
+      "frameIndex": 61,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 104.39819012257453,
+      "predictedCube01CentroidCropPixels": [
+        126.83955674271627,
+        145.25640240843913
+      ],
+      "observedCentroidCropPixels": [
+        126.62403100775194,
+        150.75581395348837
+      ],
+      "centroidResidualPixels": 5.503633225811182
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.2892904984270925,
+      "frameIndex": 61,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 70.2532219431788,
+      "predictedCube01CentroidCropPixels": [
+        121.36604520510802,
+        145.68060255095398
+      ],
+      "observedCentroidCropPixels": [
+        126.80543933054393,
+        150.64853556485355
+      ],
+      "centroidResidualPixels": 7.366638777788683
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.0779836594852081,
+      "frameIndex": 61,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 79.1364006897337,
+      "predictedCube01CentroidCropPixels": [
+        122.82311463704794,
+        145.54756843861477
+      ],
+      "observedCentroidCropPixels": [
+        126.84350721420644,
+        150.684794672586
+      ],
+      "centroidResidualPixels": 6.523392511069179
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.6704362077953454,
+      "frameIndex": 62,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 110.79477938268735,
+      "predictedCube01CentroidCropPixels": [
+        127.8268657240548,
+        145.20138818396825
+      ],
+      "observedCentroidCropPixels": [
+        129.95266868076536,
+        150.37965760322257
+      ],
+      "centroidResidualPixels": 5.597634535153562
+    },
+    {
+      "calibratedCentroidResidualPixels": 3.9353581578459105,
+      "frameIndex": 62,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 69.65466168889884,
+      "predictedCube01CentroidCropPixels": [
+        121.26702222287551,
+        145.69018162780702
+      ],
+      "observedCentroidCropPixels": [
+        129.7086956521739,
+        150.5782608695652
+      ],
+      "centroidResidualPixels": 9.754751096805586
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.9416286109782505,
+      "frameIndex": 62,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 89.43032034854275,
+      "predictedCube01CentroidCropPixels": [
+        124.48240653725016,
+        145.41397929915172
+      ],
+      "observedCentroidCropPixels": [
+        129.5311111111111,
+        150.55333333333334
+      ],
+      "centroidResidualPixels": 7.20433048678247
+    },
+    {
+      "calibratedCentroidResidualPixels": 7.93340952001238,
+      "frameIndex": 63,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 163.6108182278615,
+      "predictedCube01CentroidCropPixels": [
+        135.51811056174066,
+        144.97808409341835
+      ],
+      "observedCentroidCropPixels": [
+        132.26051924798568,
+        150.5971351835273
+      ],
+      "centroidResidualPixels": 6.495047060699917
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.5429543243228327,
+      "frameIndex": 63,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 116.60318467292257,
+      "predictedCube01CentroidCropPixels": [
+        128.71299611642823,
+        145.15741040998876
+      ],
+      "observedCentroidCropPixels": [
+        132.09375,
+        150.3046875
+      ],
+      "centroidResidualPixels": 6.158243114934667
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.7130528333819063,
+      "frameIndex": 63,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 107.88591560720408,
+      "predictedCube01CentroidCropPixels": [
+        127.37937147398036,
+        145.2255312987338
+      ],
+      "observedCentroidCropPixels": [
+        132.05427974947807,
+        150.5125260960334
+      ],
+      "centroidResidualPixels": 7.057413220932301
+    },
+    {
+      "calibratedCentroidResidualPixels": 7.197140436908525,
+      "frameIndex": 64,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 168.629294790245,
+      "predictedCube01CentroidCropPixels": [
+        136.20569877457342,
+        144.97403718008087
+      ],
+      "observedCentroidCropPixels": [
+        133.68014375561546,
+        150.7079964061096
+      ],
+      "centroidResidualPixels": 6.265518059948733
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.8693694402562981,
+      "frameIndex": 64,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 119.83418038007778,
+      "predictedCube01CentroidCropPixels": [
+        129.20163131555273,
+        145.1353113996848
+      ],
+      "observedCentroidCropPixels": [
+        133.485,
+        150.355
+      ],
+      "centroidResidualPixels": 6.752214182856161
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.5644230766756495,
+      "frameIndex": 64,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 109.24861253610788,
+      "predictedCube01CentroidCropPixels": [
+        127.58931507913205,
+        145.21404168410137
+      ],
+      "observedCentroidCropPixels": [
+        133.4789029535865,
+        150.23839662447259
+      ],
+      "centroidResidualPixels": 7.741536533386216
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.0898792919858176,
+      "frameIndex": 65,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 154.09932567511646,
+      "predictedCube01CentroidCropPixels": [
+        134.19416718005243,
+        144.9925258506665
+      ],
+      "observedCentroidCropPixels": [
+        136.7727659574468,
+        150.90553191489363
+      ],
+      "centroidResidualPixels": 6.450799359022605
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.9668460809673074,
+      "frameIndex": 65,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 148.8056164107261,
+      "predictedCube01CentroidCropPixels": [
+        133.44559441783497,
+        145.00477641078038
+      ],
+      "observedCentroidCropPixels": [
+        136.1710775047259,
+        150.6880907372401
+      ],
+      "centroidResidualPixels": 6.303040519485076
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.0220405584001493,
+      "frameIndex": 65,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 120.35593170854872,
+      "predictedCube01CentroidCropPixels": [
+        129.28025013312222,
+        145.1318971577243
+      ],
+      "observedCentroidCropPixels": [
+        135.82980866062437,
+        150.39476334340384
+      ],
+      "centroidResidualPixels": 8.402051975175182
+    },
+    {
+      "calibratedCentroidResidualPixels": 3.2196242219344886,
+      "frameIndex": 66,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 175.40985038310123,
+      "predictedCube01CentroidCropPixels": [
+        137.1226300589853,
+        144.9720733073018
+      ],
+      "observedCentroidCropPixels": [
+        138.61792863359443,
+        151.52741514360312
+      ],
+      "centroidResidualPixels": 6.72372102469983
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.6922446539372864,
+      "frameIndex": 66,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 141.55202617577459,
+      "predictedCube01CentroidCropPixels": [
+        132.40633309233772,
+        145.0269282933611
+      ],
+      "observedCentroidCropPixels": [
+        138.75848690591658,
+        150.87584869059165
+      ],
+      "centroidResidualPixels": 8.634797501071128
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.799493682524154,
+      "frameIndex": 66,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 133.82904964328486,
+      "predictedCube01CentroidCropPixels": [
+        131.28267262236835,
+        145.0578764705043
+      ],
+      "observedCentroidCropPixels": [
+        138.7295081967213,
+        150.7295081967213
+      ],
+      "centroidResidualPixels": 9.360703312747374
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.950153047825887,
+      "frameIndex": 67,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 182.15328401571833,
+      "predictedCube01CentroidCropPixels": [
+        138.0207020569602,
+        144.97369367897494
+      ],
+      "observedCentroidCropPixels": [
+        139.73832599118944,
+        151.0546255506608
+      ],
+      "centroidResidualPixels": 6.3188578404267055
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.7848340634979077,
+      "frameIndex": 67,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 155.93845091157755,
+      "predictedCube01CentroidCropPixels": [
+        134.45227589219797,
+        144.9889988858533
+      ],
+      "observedCentroidCropPixels": [
+        139.8521327014218,
+        150.7090047393365
+      ],
+      "centroidResidualPixels": 7.866188436848112
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.48302749630654324,
+      "frameIndex": 67,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 159.81257433279666,
+      "predictedCube01CentroidCropPixels": [
+        134.99267057299284,
+        144.98274165969002
+      ],
+      "observedCentroidCropPixels": [
+        139.56938775510204,
+        150.5081632653061
+      ],
+      "centroidResidualPixels": 7.174721185162717
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.8024491673582745,
+      "frameIndex": 68,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 169.2242344155536,
+      "predictedCube01CentroidCropPixels": [
+        136.28670871377756,
+        144.97370878074963
+      ],
+      "observedCentroidCropPixels": [
+        143.7532588454376,
+        150.8538175046555
+      ],
+      "centroidResidualPixels": 9.503949151460494
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.1039953379350775,
+      "frameIndex": 68,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 207.6735282759097,
+      "predictedCube01CentroidCropPixels": [
+        141.29307427506563,
+        145.00381781386977
+      ],
+      "observedCentroidCropPixels": [
+        143.92338308457713,
+        150.47462686567164
+      ],
+      "centroidResidualPixels": 6.070278092037545
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.4395838291440985,
+      "frameIndex": 68,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 176.27251815350746,
+      "predictedCube01CentroidCropPixels": [
+        137.23828921734923,
+        144.97209154729165
+      ],
+      "observedCentroidCropPixels": [
+        144.1218487394958,
+        149.95378151260505
+      ],
+      "centroidResidualPixels": 8.497095186323305
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.5821062419270464,
+      "frameIndex": 69,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 230.2722948252549,
+      "predictedCube01CentroidCropPixels": [
+        144.02106882203526,
+        145.04601111541888
+      ],
+      "observedCentroidCropPixels": [
+        146.16304347826087,
+        150.50452898550725
+      ],
+      "centroidResidualPixels": 5.863742215171718
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.7843987763841802,
+      "frameIndex": 69,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 206.0804673812588,
+      "predictedCube01CentroidCropPixels": [
+        141.09470506964558,
+        145.00113669191134
+      ],
+      "observedCentroidCropPixels": [
+        146.32188420019628,
+        150.45240431795878
+      ],
+      "centroidResidualPixels": 7.55246452448852
+    },
+    {
+      "calibratedCentroidResidualPixels": 3.501827423933788,
+      "frameIndex": 69,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 183.28493935183656,
+      "predictedCube01CentroidCropPixels": [
+        138.17005502922126,
+        144.97428183961028
+      ],
+      "observedCentroidCropPixels": [
+        146.28482972136223,
+        150.36326109391126
+      ],
+      "centroidResidualPixels": 9.74118399926302
+    },
+    {
+      "calibratedCentroidResidualPixels": 5.9761735261356534,
+      "frameIndex": 70,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 274.7853427571056,
+      "predictedCube01CentroidCropPixels": [
+        148.91197766977422,
+        145.08896497276814
+      ],
+      "observedCentroidCropPixels": [
+        147.64442413162706,
+        150.382084095064
+      ],
+      "centroidResidualPixels": 5.442775212599115
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.213634934377885,
+      "frameIndex": 70,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 238.04575970881524,
+      "predictedCube01CentroidCropPixels": [
+        144.92186211911832,
+        145.0601031598249
+      ],
+      "observedCentroidCropPixels": [
+        147.48959365708623,
+        150.3567888999009
+      ],
+      "centroidResidualPixels": 5.886265801015052
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.5240601014443067,
+      "frameIndex": 70,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 230.9498010665625,
+      "predictedCube01CentroidCropPixels": [
+        144.10035033207643,
+        145.04728164803424
+      ],
+      "observedCentroidCropPixels": [
+        147.3181818181818,
+        150.57438016528926
+      ],
+      "centroidResidualPixels": 6.395565455252079
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.5168525961584517,
+      "frameIndex": 71,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 238.55201558518343,
+      "predictedCube01CentroidCropPixels": [
+        144.97985248594267,
+        145.06097408733245
+      ],
+      "observedCentroidCropPixels": [
+        149.42293906810036,
+        150.59498207885304
+      ],
+      "centroidResidualPixels": 7.096919248995537
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.7794522011267687,
+      "frameIndex": 71,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 234.7120331047854,
+      "predictedCube01CentroidCropPixels": [
+        144.53792739862237,
+        145.05420722744702
+      ],
+      "observedCentroidCropPixels": [
+        149.13601532567048,
+        150.27777777777777
+      ],
+      "centroidResidualPixels": 6.959030239850111
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.973548485834479,
+      "frameIndex": 71,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 218.1507695544924,
+      "predictedCube01CentroidCropPixels": [
+        142.57789381089984,
+        145.02285458140182
+      ],
+      "observedCentroidCropPixels": [
+        148.9496981891348,
+        150.0291750503018
+      ],
+      "centroidResidualPixels": 8.103279315920272
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.817914498163053,
+      "frameIndex": 72,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 269.79265982161917,
+      "predictedCube01CentroidCropPixels": [
+        148.396099558739,
+        145.09084119019772
+      ],
+      "observedCentroidCropPixels": [
+        151.40257352941177,
+        150.35018382352942
+      ],
+      "centroidResidualPixels": 6.058017057677644
+    },
+    {
+      "calibratedCentroidResidualPixels": 2.287462566840909,
+      "frameIndex": 72,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 234.08495676095845,
+      "predictedCube01CentroidCropPixels": [
+        144.46530914575217,
+        145.05307048399692
+      ],
+      "observedCentroidCropPixels": [
+        151.2875368007851,
+        150.2875368007851
+      ],
+      "centroidResidualPixels": 8.59897829969851
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.2879979630944187,
+      "frameIndex": 72,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 244.87279521963922,
+      "predictedCube01CentroidCropPixels": [
+        145.69689482078627,
+        145.07116625413732
+      ],
+      "observedCentroidCropPixels": [
+        151.244769874477,
+        150.13179916317992
+      ],
+      "centroidResidualPixels": 7.509255825409646
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.0470079149712703,
+      "frameIndex": 73,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 263.0947867561704,
+      "predictedCube01CentroidCropPixels": [
+        147.6908608591837,
+        145.08979484748636
+      ],
+      "observedCentroidCropPixels": [
+        153.0535390199637,
+        150.3076225045372
+      ],
+      "centroidResidualPixels": 7.4822484932533095
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.7075661102976578,
+      "frameIndex": 73,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 254.1322177000544,
+      "predictedCube01CentroidCropPixels": [
+        146.723788468434,
+        145.08306219405884
+      ],
+      "observedCentroidCropPixels": [
+        152.99811320754716,
+        150.50754716981132
+      ],
+      "centroidResidualPixels": 8.294105628939851
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.9673143777342188,
+      "frameIndex": 73,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 251.09551654112283,
+      "predictedCube01CentroidCropPixels": [
+        146.3901067611902,
+        145.07963676106493
+      ],
+      "observedCentroidCropPixels": [
+        152.88866396761134,
+        150.36234817813767
+      ],
+      "centroidResidualPixels": 8.374860338011537
+    },
+    {
+      "calibratedCentroidResidualPixels": 5.910930712141185,
+      "frameIndex": 74,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 240.01320684085113,
+      "predictedCube01CentroidCropPixels": [
+        145.14676375379332,
+        145.06344688072318
+      ],
+      "observedCentroidCropPixels": [
+        155.69826800364632,
+        150.50865998176846
+      ],
+      "centroidResidualPixels": 11.873693092313825
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.7401420414357708,
+      "frameIndex": 74,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 295.4058689394892,
+      "predictedCube01CentroidCropPixels": [
+        150.9523413014331,
+        145.05058998447583
+      ],
+      "observedCentroidCropPixels": [
+        155.03696498054475,
+        150.59338521400778
+      ],
+      "centroidResidualPixels": 6.885254501939754
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.8960482735817585,
+      "frameIndex": 74,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 295.0311354133064,
+      "predictedCube01CentroidCropPixels": [
+        150.91657671921035,
+        145.0518048973199
+      ],
+      "observedCentroidCropPixels": [
+        154.97540983606558,
+        150.39344262295083
+      ],
+      "centroidResidualPixels": 6.708742047684074
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.7720138902834166,
+      "frameIndex": 75,
+      "thresholdBlueExcess": 3,
+      "conditionalAgeMs": 323.898737929307,
+      "predictedCube01CentroidCropPixels": [
+        153.52494070710674,
+        144.88420516660767
+      ],
+      "observedCentroidCropPixels": [
+        156.44355555555555,
+        150.59377777777777
+      ],
+      "centroidResidualPixels": 6.4122953796444575
+    },
+    {
+      "calibratedCentroidResidualPixels": 1.1728713832551858,
+      "frameIndex": 75,
+      "thresholdBlueExcess": 6,
+      "conditionalAgeMs": 313.68845045451485,
+      "predictedCube01CentroidCropPixels": [
+        152.63677061207204,
+        144.96227417590694
+      ],
+      "observedCentroidCropPixels": [
+        156.38368860055607,
+        150.2344763670065
+      ],
+      "centroidResidualPixels": 6.468037597004219
+    },
+    {
+      "calibratedCentroidResidualPixels": 0.7667690236702209,
+      "frameIndex": 75,
+      "thresholdBlueExcess": 10,
+      "conditionalAgeMs": 297.4582968214447,
+      "predictedCube01CentroidCropPixels": [
+        151.14735081960413,
+        145.0435482412267
+      ],
+      "observedCentroidCropPixels": [
+        155.96184738955824,
+        150.29116465863453
+      ],
+      "centroidResidualPixels": 7.121576741589481
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "/Users/whiskey/Work/site/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-html-candidate.html",
+      "bytes": 25201,
+      "sha256": "a0d66705e329aa59f646cadeccbbd4a99362a26dd65d82451233b3aa93882012"
+    },
+    {
+      "path": "/Users/whiskey/Work/site/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/locked-loader-logo.svg",
+      "bytes": 1650,
+      "sha256": "45d661504ff49f3daa2534c43e3401293a27d4317486887d053da36d5f718380"
+    },
+    {
+      "path": "docs/hero-reference/live/locked-reference-loader.css",
+      "bytes": 75910,
+      "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c"
+    },
+    {
+      "path": "docs/hero-reference/live/source-evidence.json",
+      "bytes": 24139,
+      "sha256": "2d5fc00b842e464532fdd22706ec62d53aef442db5e92c300fe5805d74ecbb3d"
+    },
+    {
+      "path": "/Users/whiskey/Work/site/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/settled-logo-frame148.png",
+      "bytes": 16840,
+      "sha256": "0becd0bd58eb0c49c725f32e55bd596ac957259b41e83c8056ec874859d2774c"
+    },
+    {
+      "path": "/Users/whiskey/Work/site/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/settled-logo-bounds.json",
+      "bytes": 795,
+      "sha256": "1035c6ca12a3701107affeb0c321cc7475ffdfe0fad5081d342fe2ab48b3ec32"
+    }
+  ]
+}

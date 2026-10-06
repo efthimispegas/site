@@ -1,0 +1,365 @@
+diff --git a/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/before/measurement-contract.test.mjs b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/measurement-contract.test.mjs
+index fa29d5f..1f47237 100644
+--- a/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/before/measurement-contract.test.mjs
++++ b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/measurement-contract.test.mjs
+@@ -1070,3 +1070,147 @@ test('candidate blocks clipped endpoint separation while retaining shaft support
+   assert.equal(r.foregroundEvidence?.boundarySeparation?.externalContinuationPixels, 15);
+   assert.equal(r.qualification.status, 'blocked');
+ });
++
++// Profile diagnostic challenges: expectations below come from literal pixel
++// rows, independently of the helper. Existing 71 contracts stay intact.
++let profileDiagnostics = {};
++try {
++  profileDiagnostics = await import('../../apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs');
++} catch (error) {
++  if (error.code !== 'ERR_MODULE_NOT_FOUND') throw error;
++}
++function profileFixture(rows = []) {
++  const image = { width: 32, height: 80, channels: 3 };
++  const data = new Uint8Array(32 * 80 * 3);
++  for (let i = 0; i < 32 * 80; i++) data.set([180,200,210], i * 3);
++  for (const [top,bottom,rgb] of rows)
++    for (let y = top; y <= bottom; y++)
++      for (let x = 0; x < 32; x++) data.set(rgb, (y * 32 + x) * 3);
++  return { data, image, dpr: 2,
++    section: { axis: 'vertical', fixedCoordinate: 12, stripWidth: 3,
++      range: [10,70], sidebands: [[10,20],[60,70]] },
++    peakFractions: [0.5,0.8], residualThresholds: [5,45],
++    maximumSidebandNoise: 3, minimumPeakExcess: 5 };
++}
++function profileCall(fixture) {
++  assert.equal(typeof profileDiagnostics.measureBeamCrossSectionDiagnostic, 'function', 'beam cross-section diagnostic missing');
++  return profileDiagnostics.measureBeamCrossSectionDiagnostic(fixture);
++}
++const isolatedProfileRows = [[27,43,[170,225,250]],[33,37,[240,250,255]]];
++
++// Break caught: a hue-only classifier deletes a bright near-white core.
++test('beam profile retains raw white-core samples independently of hue', () => {
++  const r = profileCall(profileFixture(isolatedProfileRows));
++  assert.equal(r.status, 'observed-diagnostic');
++  const sample = r.samples.find(s => s.coordinate === 35);
++  assert.deepEqual(sample.rgb, [240,250,255]);
++  assert.deepEqual(sample.pixels[0].rgb, [240,250,255]);
++  assert.deepEqual(r.peakWidths[0].rasterBounds, [33,37]);
++  assert.equal(r.peakWidths[0].cssSpan, 2.5);
++  assert.equal(r.qualification.status, 'blocked');
++});
++// Break caught: blue-tinted flat background becomes a false halo/core.
++test('beam profile rejects a flat cyan-tinted background', () => {
++  const f = profileFixture([[0,79,[208,225,235]]]);
++  const r = profileCall(f);
++  assert.equal(r.status, 'blocked');
++  assert.match(r.reasons.join('; '), /peak|missing|background/i);
++  assert.equal(r.peakWidths.length, 0);
++});
++// Break caught: a spike in calibration sidebands is silently fitted away.
++test('beam profile blocks contaminated sidebands while retaining raw samples', () => {
++  const r = profileCall(profileFixture([...isolatedProfileRows,[15,15,[255,255,255]]]));
++  assert.equal(r.status, 'blocked');
++  assert.match(r.reasons.join('; '), /sideband.*noise|contaminat/i);
++  assert.deepEqual(r.samples.find(s => s.coordinate === 15).rgb, [255,255,255]);
++  assert.equal(r.peakWidths.length, 0);
++});
++// Break caught: silently clipping unavailable sidebands invents calibration.
++test('beam profile blocks unavailable sidebands instead of clipping', () => {
++  const f = profileFixture(isolatedProfileRows);
++  f.section.sidebands[0] = [-2,20];
++  const r = profileCall(f);
++  assert.equal(r.status, 'blocked');
++  assert.match(r.reasons.join('; '), /sideband|clip|range/i);
++});
++// Break caught: an equally bright dot/branch peak is assigned to the beam.
++test('beam profile blocks competing bright peaks', () => {
++  const r = profileCall(profileFixture([...isolatedProfileRows,[48,52,[240,250,255]]]));
++  assert.equal(r.status, 'blocked');
++  assert.match(r.reasons.join('; '), /competing|ambiguous/i);
++  assert.equal(r.peakWidths.length, 0);
++});
++// Break caught: one support area is relabeled both core and halo, hiding tails.
++test('beam profile exposes separate declared threshold envelopes', () => {
++  const r = profileCall(profileFixture(isolatedProfileRows));
++  assert.deepEqual(r.residualEnvelopes.map(e => e.rasterBounds), [[27,43],[33,37]]);
++  assert.deepEqual(r.residualEnvelopes.map(e => e.cssSpan), [8.5,2.5]);
++  assert.equal(r.uncertainty.measuredSidebandNoise, 0);
++  assert.equal(r.uncertainty.certifiedEdgeErrorCss, null);
++});
++function exitProfileFixture(rows = []) {
++  const image = { width: 20, height: 100, channels: 3 };
++  const data = new Uint8Array(20 * 100 * 3).fill(100);
++  for (const [top,bottom,value] of rows)
++    for (let y = top; y <= bottom; y++)
++      for (let x = 0; x < 20; x++) data.set([value,value,value], (y * 20 + x) * 3);
++  return { data,image,dpr:2 };
++}
++function exitProfileCall(fixture) {
++  assert.equal(typeof profileDiagnostics.measureExitBoundaryDiagnostic, 'function', 'exit boundary diagnostic missing');
++  return profileDiagnostics.measureExitBoundaryDiagnostic(fixture);
++}
++// Break caught: adjacent contrast accumulation relaxes the single-row gate.
++test('exit diagnostic exposes weak row scores without relaxing contrast or dominance', () => {
++  const r = exitProfileCall(exitProfileFixture([[55,99,117],[72,99,127]]));
++  assert.equal(r.rows.find(row => row.y === 55).meanDelta, 17);
++  assert.equal(r.peak.y, 55);
++  assert.equal(r.dominanceRatio, 1.7);
++  assert.equal(r.measurement.status, 'blocked');
++  assert.match(r.measurement.reason, /mean row delta.*below 20/);
++  assert.match(r.measurement.reason, /dominance.*below 3/);
++  assert.equal(r.qualification.status, 'blocked');
++});
++// Break caught: reporting structural observation as accepted exit behavior.
++test('exit diagnostic retains observed boundary while qualification stays blocked', () => {
++  const r = exitProfileCall(exitProfileFixture([[55,99,150]]));
++  assert.equal(r.measurement.status, 'observed');
++  assert.equal(r.measurement.position.cssY, 27.5);
++  assert.equal(r.qualification.status, 'blocked');
++});
++// Break caught: CSS opacity or requested crop labels are called applied values.
++test('exit diagnostic never infers crop or opacity from requested labels', () => {
++  const r = exitProfileCall({ ...exitProfileFixture([[55,99,150]]),
++    cssValues: { opacity: 1 }, requestedCropPlaneCssY: 27.5, expectedFrameId: 4 });
++  assert.equal(r.applied.cropPlane.status, 'unavailable');
++  assert.equal(r.applied.effectiveWorldOpacity.status, 'unavailable');
++  assert.equal(r.applied.cropPlane.value, null);
++  assert.equal(r.applied.effectiveWorldOpacity.value, null);
++});
++// Break caught: stale frame readback is accepted as the captured frame.
++test('exit diagnostic rejects stale applied crop and opacity readback', () => {
++  const r = exitProfileCall({ ...exitProfileFixture([[55,99,150]]), expectedFrameId: 4,
++    appliedReadback: { frameId: 3, cropPlaneCssY: 27.5, effectiveWorldOpacity: 0.7 } });
++  assert.equal(r.applied.cropPlane.status, 'unavailable');
++  assert.equal(r.applied.effectiveWorldOpacity.status, 'unavailable');
++});
++// Break caught: unavailable and actual zero opacity are conflated.
++test('exit diagnostic preserves explicit same-frame applied zero opacity', () => {
++  const r = exitProfileCall({ ...exitProfileFixture([[55,99,150]]), expectedFrameId: 4,
++    appliedReadback: { frameId: 4, cropPlaneCssY: 27.5, effectiveWorldOpacity: 0 } });
++  assert.equal(r.applied.cropPlane.status, 'observed-readback');
++  assert.equal(r.applied.cropPlane.value, 27.5);
++  assert.equal(r.applied.effectiveWorldOpacity.status, 'observed-readback');
++  assert.equal(r.applied.effectiveWorldOpacity.value, 0);
++  assert.equal(r.qualification.status, 'blocked');
++});
++
++// Break caught: median filtering hides one contaminated calibration column.
++test('beam sideband uncertainty includes raw strip pixels rather than median alone', () => {
++  const f = profileFixture(isolatedProfileRows);
++  f.data.set([255,255,255], (15 * 32 + 11) * 3);
++  const r = profileCall(f);
++  assert.equal(r.status, 'blocked');
++  assert.match(r.reasons.join('; '), /sideband.*noise|contaminat/i);
++  assert.deepEqual(r.samples.find(s => s.coordinate === 15).pixels[0].rgb, [255,255,255]);
++});
+diff --git a/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/screen-profile-diagnostics.mjs b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/screen-profile-diagnostics.mjs
+new file mode 100644
+index 0000000..3bcacb8
+--- /dev/null
++++ b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/screen-profile-diagnostics.mjs
+@@ -0,0 +1,207 @@
++import {
++  JOURNEY_EXIT_BOUNDARY_CONFIG,
++  measureHorizontalBoundary,
++} from './screen-structural-features.mjs';
++
++const qualification = () => ({
++  status: 'blocked',
++  reason: 'Inactive diagnostic; semantic role, edge error and current capture correspondence are unqualified.',
++});
++const median = (values) =>
++  [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)];
++const validImage = ({ data, image, dpr }) =>
++  Number.isInteger(image?.width) && image.width > 0 &&
++  Number.isInteger(image?.height) && image.height > 0 &&
++  Number.isInteger(image?.channels) && image.channels >= 3 &&
++  data?.length >= image.width * image.height * image.channels &&
++  Number.isFinite(dpr) && dpr > 0;
++const interval = (value) =>
++  Array.isArray(value) && value.length === 2 &&
++  value.every(Number.isInteger) && value[0] <= value[1];
++
++/** Evaluate each raster independently. No source masks, splines or area/radius conversion. */
++export function measureBeamCrossSectionDiagnostic({
++  data, image, dpr, section, peakFractions = [0.5, 0.8, 0.9],
++  residualThresholds = [3, 5, 10], maximumSidebandNoise = 3,
++  minimumPeakExcess = 5,
++}) {
++  const result = {
++    status: 'blocked', reasons: [], samples: [], peak: null,
++    peakWidths: [], residualEnvelopes: [], background: null,
++    uncertainty: { measuredSidebandNoise: null, certifiedEdgeErrorCss: null },
++    qualification: qualification(),
++  };
++  if (!validImage({ data, image, dpr })) {
++    result.reasons.push('Invalid image, data or screenshot DPR.');
++    return result;
++  }
++  const vertical = section?.axis === 'vertical';
++  const length = vertical ? image.height : image.width;
++  const crossLength = vertical ? image.width : image.height;
++  const bands = section?.sidebands;
++  const strip = section?.stripWidth;
++  if (!['vertical', 'horizontal'].includes(section?.axis) ||
++      !Number.isInteger(section?.fixedCoordinate) ||
++      !Number.isInteger(strip) || strip < 1 || strip % 2 !== 1 ||
++      section.fixedCoordinate - (strip - 1) / 2 < 0 ||
++      section.fixedCoordinate + (strip - 1) / 2 >= crossLength ||
++      !interval(section.range) || section.range[0] < 0 || section.range[1] >= length ||
++      !Array.isArray(bands) || bands.length !== 2 || !bands.every(interval) ||
++      bands.some(([a, b]) => a < section.range[0] || b > section.range[1]) ||
++      bands[0][0] !== section.range[0] || bands[1][1] !== section.range[1] ||
++      bands[0][1] >= bands[1][0] - 1 ||
++      !Array.isArray(peakFractions) || !peakFractions.length ||
++      peakFractions.some((v) => !Number.isFinite(v) || v <= 0 || v > 1) ||
++      !Array.isArray(residualThresholds) || !residualThresholds.length ||
++      residualThresholds.some((v) => !Number.isFinite(v) || v <= 0) ||
++      !Number.isFinite(maximumSidebandNoise) || maximumSidebandNoise < 0 ||
++      !Number.isFinite(minimumPeakExcess) || minimumPeakExcess <= 0) {
++    result.reasons.push('Section or sidebands are clipped, overlapping, unavailable or invalid.');
++    return result;
++  }
++  for (let coordinate = section.range[0]; coordinate <= section.range[1]; coordinate++) {
++    const pixels = [];
++    for (let offset = -(strip - 1) / 2; offset <= (strip - 1) / 2; offset++) {
++      const x = vertical ? section.fixedCoordinate + offset : coordinate;
++      const y = vertical ? coordinate : section.fixedCoordinate + offset;
++      const index = (y * image.width + x) * image.channels;
++      const rgb = [data[index], data[index + 1], data[index + 2]];
++      if (rgb.some((v) => !Number.isFinite(v) || v < 0 || v > 255)) {
++        result.reasons.push('Invalid raw RGB sample.');
++        return result;
++      }
++      pixels.push({ x, y, rgb });
++    }
++    result.samples.push({ coordinate, pixels,
++      rgb: [0, 1, 2].map((c) => median(pixels.map((p) => p.rgb[c]))),
++    });
++  }
++  const sideSamples = bands.map(([a, b]) =>
++    result.samples.filter((s) => s.coordinate >= a && s.coordinate <= b));
++  const calibration = sideSamples.map((samples) =>
++    [0, 1, 2].map((c) => median(samples.map((s) => s.rgb[c]))));
++  const centers = bands.map(([a, b]) => (a + b) / 2);
++  result.background = { sidebands: bands.map((b) => [...b]),
++    rgb: calibration, centerCoordinates: centers, method: 'independent-linear-sideband-fit' };
++  for (const sample of result.samples) {
++    const t = (sample.coordinate - centers[0]) / (centers[1] - centers[0]);
++    sample.backgroundRgb = calibration[0].map((v, c) => v + t * (calibration[1][c] - v));
++    sample.residualRgb = sample.rgb.map((v, c) => v - sample.backgroundRgb[c]);
++    sample.brightExcess = sample.residualRgb.reduce((a, b) => a + b, 0) / 3;
++    sample.cyanExcess = (sample.residualRgb[1] + sample.residualRgb[2]) / 2 - sample.residualRgb[0];
++    sample.maxChannelResidual = Math.max(...sample.residualRgb.map(Math.abs));
++  }
++  const sidebandNoise = Math.max(...sideSamples.flatMap((samples) =>
++    samples.flatMap((s) => s.pixels.flatMap((p) =>
++      p.rgb.map((value, c) => Math.abs(value - s.backgroundRgb[c]))))));
++  result.uncertainty.measuredSidebandNoise = sidebandNoise;
++  if (sidebandNoise > maximumSidebandNoise) {
++    result.reasons.push('Sideband noise exceeds the declared limit; background calibration is contaminated.');
++    return result;
++  }
++  const interior = result.samples.filter((s) =>
++    s.coordinate > bands[0][1] && s.coordinate < bands[1][0]);
++  const peak = interior.reduce((best, s) => s.brightExcess > best.brightExcess ? s : best, interior[0]);
++  result.peak = { coordinate: peak.coordinate, rgb: [...peak.rgb], brightExcess: peak.brightExcess };
++  if (peak.brightExcess <= Math.max(minimumPeakExcess, sidebandNoise)) {
++    result.reasons.push('No bright beam peak above the declared background/noise limit.');
++    return result;
++  }
++  const groups = [];
++  let group = null;
++  for (const sample of interior) {
++    if (sample.brightExcess >= minimumPeakExcess) {
++      if (!group) { group = []; groups.push(group); }
++      group.push(sample);
++    } else group = null;
++  }
++  const competing = groups.filter((g) => Math.max(...g.map((s) => s.brightExcess)) >= peak.brightExcess / 2);
++  if (competing.length !== 1) {
++    result.reasons.push('Competing bright peaks make beam assignment ambiguous.');
++    return result;
++  }
++  const peakIndex = result.samples.findIndex((s) => s.coordinate === peak.coordinate);
++  result.peakWidths = peakFractions.map((fraction) => {
++    let a = peakIndex, b = peakIndex;
++    while (a > 0 && result.samples[a - 1].brightExcess >= peak.brightExcess * fraction) a--;
++    while (b < result.samples.length - 1 && result.samples[b + 1].brightExcess >= peak.brightExcess * fraction) b++;
++    return { fraction, rasterBounds: [result.samples[a].coordinate, result.samples[b].coordinate],
++      cssSpan: (b - a + 1) / dpr, quantity: 'apparent-composited-bright-profile' };
++  });
++  result.residualEnvelopes = residualThresholds.map((threshold) => {
++    const support = result.samples.filter((s) => s.maxChannelResidual >= threshold);
++    const a = support[0]?.coordinate, b = support.at(-1)?.coordinate;
++    return { threshold, rasterBounds: a === undefined ? null : [a, b],
++      cssSpan: a === undefined ? null : (b - a + 1) / dpr,
++      endpointsClosed: result.samples[0].maxChannelResidual < threshold &&
++        result.samples.at(-1).maxChannelResidual < threshold,
++      thresholdAboveMeasuredNoise: threshold > sidebandNoise,
++      quantity: 'diagnostic-residual-visibility-envelope' };
++  });
++  if (result.residualEnvelopes.some((e) => !e.endpointsClosed || !e.thresholdAboveMeasuredNoise)) {
++    result.reasons.push('Residual envelope is clipped or its threshold overlaps measured background noise.');
++    return result;
++  }
++  result.status = 'observed-diagnostic';
++  return result;
++}
++
++/** Expose chronological row scores while retaining the original boundary classifier gates. */
++export function measureExitBoundaryDiagnostic({ data, image, dpr, expectedFrameId, appliedReadback }) {
++  const config = JOURNEY_EXIT_BOUNDARY_CONFIG;
++  const classified = measureHorizontalBoundary({ data, image, dpr, config });
++  const x0 = Math.floor(config.roi[0] * image.width);
++  const x1 = Math.ceil((config.roi[0] + config.roi[2]) * image.width);
++  const y0 = Math.floor(config.roi[1] * image.height);
++  const y1 = Math.ceil((config.roi[1] + config.roi[3]) * image.height);
++  const delta = (x, y) => {
++    const i = (y * image.width + x) * image.channels;
++    const previous = i - image.width * image.channels;
++    return [0, 1, 2].reduce((sum, c) => sum + Math.abs(data[i + c] - data[previous + c]), 0) / 3;
++  };
++  const rows = [];
++  for (let y = y0 + 1; y < y1; y++) {
++    let total = 0, supported = 0;
++    for (let x = x0; x < x1; x++) {
++      const value = delta(x, y);
++      total += value;
++      if (value >= config.minimumPixelDelta) supported++;
++    }
++    const meanDelta = total / (x1 - x0), rowSupportRatio = supported / (x1 - x0);
++    rows.push({ y, meanDelta, rowSupportRatio, score: meanDelta * rowSupportRatio });
++  }
++  const ranked = [...rows].sort((a, b) => b.score - a.score || a.y - b.y);
++  const peak = ranked[0];
++  const runnerUp = ranked.find((r) => Math.abs(r.y - peak.y) > config.verticalExclusionRadius) ?? null;
++  const localRows = [];
++  for (let x = x0; x < x1; x++) {
++    let bestY = peak.y, bestDelta = -1;
++    for (let y = Math.max(y0 + 1, peak.y - config.localSearchRadius);
++      y <= Math.min(y1 - 1, peak.y + config.localSearchRadius); y++) {
++      const value = delta(x, y);
++      if (value > bestDelta) { bestDelta = value; bestY = y; }
++    }
++    if (bestDelta >= config.minimumPixelDelta) localRows.push(bestY);
++  }
++  const meanY = localRows.length ? localRows.reduce((a, b) => a + b, 0) / localRows.length : null;
++  const unavailable = () => ({ status: 'unavailable', value: null,
++    reason: 'Explicit same-frame applied consumer readback is unavailable.' });
++  const sameFrame = Number.isInteger(expectedFrameId) && expectedFrameId >= 0 &&
++    appliedReadback?.frameId === expectedFrameId;
++  const readback = (value, valid) => sameFrame && valid
++    ? { status: 'observed-readback', value, frameId: expectedFrameId,
++      evidenceClass: 'caller-supplied-applied-consumer-readback' }
++    : unavailable();
++  return { status: 'diagnostic-only', measurement: classified.measurement,
++    rows, peak, runnerUp,
++    dominanceRatio: runnerUp && runnerUp.score > 0 ? peak.score / runnerUp.score : null,
++    diagnosticMeanRasterY: meanY, diagnosticMeanCssY: meanY === null ? null : meanY / dpr,
++    localColumnSupportRatio: localRows.length / (x1 - x0),
++    unchangedGates: { ...config, roi: [...config.roi] },
++    applied: {
++      cropPlane: readback(appliedReadback?.cropPlaneCssY, Number.isFinite(appliedReadback?.cropPlaneCssY)),
++      effectiveWorldOpacity: readback(appliedReadback?.effectiveWorldOpacity,
++        Number.isFinite(appliedReadback?.effectiveWorldOpacity) &&
++        appliedReadback.effectiveWorldOpacity >= 0 && appliedReadback.effectiveWorldOpacity <= 1),
++    }, qualification: qualification() };
++}

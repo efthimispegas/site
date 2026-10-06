@@ -1,0 +1,55 @@
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/pegasoft-e2e:hero-capture
+
+> playwright test --config=playwright.visual.config.ts
+
+(node:7589) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7589) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:7614) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:7615) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m⨯ Failed to start server
+
+[1A[2K[2m[WebServer] [22mError: listen EPERM: operation not permitted 127.0.0.1:4317
+[2m[WebServer] [22m    at <unknown> (Error: listen EPERM: operation not permitted 127.0.0.1:4317) {
+[2m[WebServer] [22m  code: [32m'EPERM'[39m,
+[2m[WebServer] [22m  errno: [33m-1[39m,
+[2m[WebServer] [22m  syscall: [32m'listen'[39m,
+[2m[WebServer] [22m  address: [32m'127.0.0.1'[39m,
+[2m[WebServer] [22m  port: [33m4317[39m
+[2m[WebServer] [22m}
+
+Error: Process from config.webServer was not able to start. Exit code: 1
+
+[1A[2KWarning: command "playwright test --config=playwright.visual.config.ts" exited with non-zero status code
+
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      2.1s
+  Cache:             0/2 hit (0%)
+  Critical path:     1.9s (3 tasks)
+  Recoverable time:  <1ms

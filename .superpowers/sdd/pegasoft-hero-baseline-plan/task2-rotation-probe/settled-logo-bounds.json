@@ -1,0 +1,57 @@
+{
+  "status": "diagnostic; thresholds not certified antialias/codec bounds",
+  "frameIndex": 148,
+  "bounds": [
+    {
+      "threshold": 30,
+      "bboxInclusive": [
+        120,
+        122,
+        289,
+        289
+      ],
+      "center": [
+        205.0,
+        206.0
+      ],
+      "size": [
+        170,
+        168
+      ]
+    },
+    {
+      "threshold": 60,
+      "bboxInclusive": [
+        120,
+        122,
+        288,
+        289
+      ],
+      "center": [
+        204.5,
+        206.0
+      ],
+      "size": [
+        169,
+        168
+      ]
+    },
+    {
+      "threshold": 90,
+      "bboxInclusive": [
+        120,
+        122,
+        288,
+        289
+      ],
+      "center": [
+        204.5,
+        206.0
+      ],
+      "size": [
+        169,
+        168
+      ]
+    }
+  ]
+}

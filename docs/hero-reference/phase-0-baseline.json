@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "capturedAtUtc": "2026-07-28T12:15:05Z",
+  "branch": "codex/hero-reference-rebaseline",
+  "startingHead": "2ac0cd0",
+  "snapshots": {
+    "sourceAndDocuments": "e7897fe",
+    "recordingLfs": "4db3f5b"
+  },
+  "recording": {
+    "path": "docs/vectrfl_recording.mov",
+    "bytes": 190835536,
+    "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+    "storage": "git-lfs",
+    "lfsPointer": {
+      "version": "https://git-lfs.github.com/spec/v1",
+      "oid": "sha256:de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "size": 190835536
+    }
+  },
+  "inventoryAtSnapshot": {
+    "modified": [
+      ".gitignore",
+      "apps/pegasoft/src/app/shared/pegasoft-field-scene.tsx",
+      "apps/pegasoft/src/app/shared/pegasoft-home.module.css",
+      "apps/pegasoft/src/app/shared/pegasoft-home.tsx"
+    ],
+    "untracked": [
+      "apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx",
+      "apps/pegasoft/src/app/shared/hero-scene/hero-camera.tsx",
+      "apps/pegasoft/src/app/shared/hero-scene/hero-materials.ts",
+      "apps/pegasoft/src/app/shared/hero-scene/hero-route.ts",
+      "apps/pegasoft/src/app/shared/hero-scene/hero-scene.tsx",
+      "apps/pegasoft/src/app/shared/hero-scene/hero-sequence.ts",
+      "apps/pegasoft/src/app/shared/hero-scene/hero-world.tsx",
+      "apps/pegasoft/src/app/shared/hero-scene/reference-states.ts",
+      "docs/pegasoft-codex-usage-memo.md",
+      "docs/pegasoft-hero-baseline-plan.md",
+      "docs/vectr-hero-motion-map.md",
+      "docs/vectrfl_recording.mov",
+      "docs/website-plan.md"
+    ]
+  },
+  "verificationBaseline": {
+    "commands": [
+      {
+        "command": "pnpm nx lint @site/pegasoft --skipNxCache",
+        "result": "passed"
+      },
+      {
+        "command": "pnpm nx build @site/pegasoft --skipNxCache",
+        "result": "passed"
+      },
+      {
+        "command": "pnpm nx run @site/pegasoft-e2e:typecheck --skipNxCache",
+        "result": "passed"
+      },
+      {
+        "command": "pnpm nx run @site/pegasoft-e2e:e2e --skipNxCache",
+        "result": "6 passed / 4 failed",
+        "expectedBaselineFailures": [
+          "obsolete heading expectation on Chromium",
+          "obsolete heading expectation on Mobile Chrome",
+          "obsolete .hero-actions accessibility wait on Chromium",
+          "obsolete .hero-actions accessibility wait on Mobile Chrome"
+        ]
+      }
+    ]
+  },
+  "recovery": {
+    "commands": [
+      "git switch codex/hero-reference-rebaseline",
+      "git reset --keep 4db3f5b",
+      "git lfs pull --include=docs/vectrfl_recording.mov",
+      "shasum -a 256 docs/vectrfl_recording.mov"
+    ],
+    "expectedRecordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321"
+  }
+}

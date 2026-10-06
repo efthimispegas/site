@@ -661,7 +661,9 @@ for (const shardState of SHARD_STATES) {
         }
         let observed: Awaited<ReturnType<typeof readObservation>> | undefined;
         let restorationEvidence: RestorationEvidence | null = null;
-        await page.goto('/');
+        await page.goto('/', {
+          waitUntil: cell.sceneSelection === null ? 'commit' : 'load',
+        });
         if (cell.sceneSelection === null) {
           // Startup recipes remain normal timed navigation; no state/time control is used.
           await page.waitForTimeout(cell.state === 'loader-mark' ? 2_000 : 3_500);

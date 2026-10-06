@@ -1,0 +1,56 @@
+
+> nx run @site/pegasoft-e2e:hero-capture-contract-test --grep=clock_transport_batches
+
+> playwright test --config=playwright.capture-contract.config.ts --grep=clock_transport_batches
+
+(node:68604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2mRunning [22m1[2m test using [22m1[2m worker[22m
+
+[1A[2K(node:68635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:68635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/1] src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window
+[1A[2K[31m  1) src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window [39m
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m240[39m
+    Received: [31m16[39m
+
+      110 |
+      111 | test('clock_transport_batches_without_overshooting_event_window', () => {
+    > 112 |   expect(nextCaptureClockDelta(6944, 7500)).toBe(240);
+          |                                             ^
+      113 |   expect(nextCaptureClockDelta(7480, 7500)).toBe(20);
+      114 |   expect(nextCaptureClockDelta(7500, 7500)).toBe(16);
+      115 | });
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-contract.spec.ts:112:45[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-capture-contract-cloc-11d4a-t-overshooting-event-window/error-context.md[22m
+
+
+[1A[2K[31m  1 failed[39m
+[31m    src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window [39m
+Warning: command "playwright test --config=playwright.capture-contract.config.ts --grep=clock_transport_batches" exited with non-zero status code
+
+
+ NX   Running target hero-capture-contract-test for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture-contract-test
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      628ms
+  Critical path:     621ms (1 task)
+  Recoverable time:  <1ms

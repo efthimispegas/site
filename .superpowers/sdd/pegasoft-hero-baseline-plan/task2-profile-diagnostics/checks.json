@@ -1,0 +1,12 @@
+{
+  "baseline": { "status": "pass", "tests": 71, "log": "logs/before-test.log" },
+  "redMissingDiagnostics": { "status": "expected-fail", "originalPass": 71, "newFail": 11, "reason": "Missing beam/exit diagnostic behavior", "log": "logs/red-test.log" },
+  "greenInitial": { "status": "pass", "tests": 82, "log": "logs/green-test.log" },
+  "redRawSideband": { "status": "expected-fail", "pass": 82, "fail": 1, "reason": "Median-only sideband noise hid raw calibration contamination", "log": "logs/red-raw-sideband.log" },
+  "greenFinal": { "status": "pass", "tests": 83, "log": "logs/green-final-test.log" },
+  "typecheck": { "status": "pass", "projects": ["@site/pegasoft", "@site/pegasoft-e2e"], "log": "logs/typecheck.log" },
+  "lint": { "status": "pass", "project": "@site/pegasoft-e2e", "errors": 0, "existingWarnings": 39, "log": "logs/lint.log" },
+  "rasterReproduction": { "status": "pass", "historicalImagePins": 4, "beamProfiles": 4, "exitClassifierResults": 2, "log": "logs/raster-reproduction.log" },
+  "existingTestPrefix": { "status": "pass", "preservedExistingContracts": 71, "snapshot": "before/measurement-contract.test.mjs" },
+  "whitespace": { "status": "pass", "command": "git diff --check -- tools/hero-reference/measurement-contract.test.mjs apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs", "exitCode": 0 }
+}

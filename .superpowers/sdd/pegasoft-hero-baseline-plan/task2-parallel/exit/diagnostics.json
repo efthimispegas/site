@@ -1,0 +1,391 @@
+{
+  "scope": "Historical saved-raster exit diagnostics only; no runtime changes or new captures.",
+  "unchangedBoundaryConfig": {
+    "label": "hero-to-following-section boundary at journey exit",
+    "method": "dominant-horizontal-boundary",
+    "roi": [
+      0,
+      0.32,
+      1,
+      0.5
+    ],
+    "minimumPixelDelta": 8,
+    "minimumMeanDelta": 20,
+    "minimumRowSupportRatio": 0.8,
+    "minimumDominanceRatio": 3,
+    "verticalExclusionRadius": 3,
+    "localSearchRadius": 3,
+    "maximumVerticalStandardDeviation": 1,
+    "rationale": "The compositional focus is the nearly full-width horizontal discontinuity between the pale hero and the following white section. Row support, peak dominance, and per-column vertical variance reject text and arrow edges."
+  },
+  "sourceSemantics": {
+    "anchor": {
+      "status": "observed",
+      "decodedFrameIndex": 1918,
+      "bestEffortTimestampPts": 192000,
+      "timeBase": "1/6000",
+      "timestampSeconds": 32,
+      "timestamp": "00:00:32.000000",
+      "pictureType": "B",
+      "selectionType": "representative",
+      "capturePath": "docs/hero-reference/recording/frame-001918-journey-exit.png",
+      "captureSha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b",
+      "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,1918)'\" -frames:v 1 docs/hero-reference/recording/frame-001918-journey-exit.png"
+    },
+    "journeyProgressTarget": {
+      "status": "observed",
+      "value": 1.0513,
+      "reason": "Selected by current-live trace candidate ranking at the locked recording viewport and the observed following-section boundary."
+    },
+    "screenBoundary": [
+      0,
+      367.5,
+      1508,
+      1
+    ],
+    "visualComposition": "pale journey recedes above while the next white page section occupies the lower viewport",
+    "expectedVisibleContext": [
+      "fixed header",
+      "remaining Step 04 area above",
+      "white following section",
+      "Designed for today's operations, beyond legacy staffing workflows"
+    ]
+  },
+  "frames": [
+    {
+      "role": "source",
+      "path": "docs/hero-reference/recording/frame-001918-journey-exit.png",
+      "raster": [
+        3016,
+        1522
+      ],
+      "classifierMeasurement": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "hero-to-following-section boundary at journey exit",
+        "bounds": {
+          "rasterPixels": [
+            0,
+            735,
+            3016,
+            2
+          ],
+          "cssPixels": [
+            0,
+            367.5,
+            1508,
+            1
+          ],
+          "normalized": [
+            0,
+            0.482917,
+            1,
+            0.001314
+          ]
+        },
+        "position": {
+          "rasterY": 735.134,
+          "cssY": 367.567,
+          "normalizedY": 0.483005
+        },
+        "pixelSupport": 3016,
+        "method": {
+          "id": "dominant-horizontal-boundary",
+          "roiNormalized": [
+            0,
+            0.32,
+            1,
+            0.5
+          ],
+          "roiRasterPixels": [
+            0,
+            487,
+            3016,
+            762
+          ],
+          "minimumPixelDelta": 8,
+          "minimumMeanDelta": 20,
+          "minimumRowSupportRatio": 0.8,
+          "minimumDominanceRatio": 3,
+          "verticalExclusionRadius": 3,
+          "localSearchRadius": 3,
+          "maximumVerticalStandardDeviation": 1,
+          "peakRasterY": 735,
+          "peakMeanDelta": 38.869,
+          "peakRowSupportRatio": 0.919,
+          "peakScore": 35.724,
+          "runnerUpRasterY": 1102,
+          "runnerUpScore": 7.66,
+          "dominanceRatio": 4.664,
+          "localColumnSupportRatio": 1,
+          "verticalStandardDeviation": 0.34,
+          "rationale": "The compositional focus is the nearly full-width horizontal discontinuity between the pale hero and the following white section. Row support, peak dominance, and per-column vertical variance reject text and arrow edges."
+        }
+      },
+      "diagnostic": {
+        "peak": {
+          "y": 735,
+          "meanDelta": 38.86881078691422,
+          "rowSupportRatio": 0.9190981432360743,
+          "score": 35.72425182404715
+        },
+        "runnerUp": {
+          "y": 1102,
+          "meanDelta": 31.99790008841736,
+          "rowSupportRatio": 0.23938992042440319,
+          "score": 7.659974755914235
+        },
+        "dominanceRatio": 4.663755816749213,
+        "diagnosticMeanRasterY": 735.1336206896551,
+        "diagnosticMeanCssY": 367.56681034482756,
+        "localColumnSupportRatio": 1,
+        "verticalStandardDeviation": 0.34024432537699273,
+        "boundaryNeighborhood": [
+          {
+            "y": 732,
+            "meanDelta": 1.917661361626883,
+            "rowSupportRatio": 0.0016578249336870027,
+            "score": 0.0031791468196732146
+          },
+          {
+            "y": 733,
+            "meanDelta": 1.4125773651635753,
+            "rowSupportRatio": 0,
+            "score": 0
+          },
+          {
+            "y": 734,
+            "meanDelta": 1.6052166224580007,
+            "rowSupportRatio": 0.0003315649867374005,
+            "score": 0.0005322336281359418
+          },
+          {
+            "y": 735,
+            "meanDelta": 38.86881078691422,
+            "rowSupportRatio": 0.9190981432360743,
+            "score": 35.72425182404715
+          },
+          {
+            "y": 736,
+            "meanDelta": 9.5478558797521,
+            "rowSupportRatio": 0.9847480106100795,
+            "score": 9.402232083177632
+          },
+          {
+            "y": 737,
+            "meanDelta": 0.001326259946949602,
+            "rowSupportRatio": 0,
+            "score": 0
+          },
+          {
+            "y": 738,
+            "meanDelta": 0.016136162687886826,
+            "rowSupportRatio": 0,
+            "score": 0
+          }
+        ],
+        "adjacentTwoRowMeanDelta": 40.47402740937222,
+        "diagnosticOnly": true
+      },
+      "appearanceSample": {
+        "rasterBox": [
+          1495,
+          494,
+          28,
+          28
+        ],
+        "medianRgb": [
+          55,
+          47,
+          203
+        ],
+        "medianRgbChroma": 156,
+        "interpretation": "Manually located visible upper square interior; RGB appearance diagnostic only, not an alpha/opacity estimate or subject mask."
+      }
+    },
+    {
+      "role": "implementation",
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/journey-exit.png",
+      "raster": [
+        3016,
+        1522
+      ],
+      "classifierMeasurement": {
+        "status": "blocked",
+        "label": "hero-to-following-section boundary at journey exit",
+        "reason": "The deterministic dominant-horizontal-boundary quality gate failed: mean row delta 16.366 is below 20; peak dominance 1.998 is below 3.",
+        "method": {
+          "id": "dominant-horizontal-boundary",
+          "roiNormalized": [
+            0,
+            0.32,
+            1,
+            0.5
+          ],
+          "roiRasterPixels": [
+            0,
+            487,
+            3016,
+            762
+          ]
+        }
+      },
+      "diagnostic": {
+        "peak": {
+          "y": 741,
+          "meanDelta": 16.36582670203361,
+          "rowSupportRatio": 1,
+          "score": 16.36582670203361
+        },
+        "runnerUp": {
+          "y": 1246,
+          "meanDelta": 37.95711759504882,
+          "rowSupportRatio": 0.21584880636604775,
+          "score": 8.192998525986997
+        },
+        "dominanceRatio": 1.9975380991615697,
+        "diagnosticMeanRasterY": 740.9983421750663,
+        "diagnosticMeanCssY": 370.49917108753317,
+        "localColumnSupportRatio": 1,
+        "verticalStandardDeviation": 0.060369416682624716,
+        "boundaryNeighborhood": [
+          {
+            "y": 738,
+            "meanDelta": 0.0914014146772767,
+            "rowSupportRatio": 0.002652519893899204,
+            "score": 0.00024244407076200712
+          },
+          {
+            "y": 739,
+            "meanDelta": 0.07482316534040671,
+            "rowSupportRatio": 0.0029840848806366046,
+            "score": 0.0002232786764136805
+          },
+          {
+            "y": 740,
+            "meanDelta": 14.361737400530767,
+            "rowSupportRatio": 0.9996684350132626,
+            "score": 14.356975551260035
+          },
+          {
+            "y": 741,
+            "meanDelta": 16.36582670203361,
+            "rowSupportRatio": 1,
+            "score": 16.36582670203361
+          },
+          {
+            "y": 742,
+            "meanDelta": 0,
+            "rowSupportRatio": 0,
+            "score": 0
+          },
+          {
+            "y": 743,
+            "meanDelta": 0,
+            "rowSupportRatio": 0,
+            "score": 0
+          },
+          {
+            "y": 744,
+            "meanDelta": 0,
+            "rowSupportRatio": 0,
+            "score": 0
+          }
+        ],
+        "adjacentTwoRowMeanDelta": 30.727564102564376,
+        "diagnosticOnly": true
+      },
+      "appearanceSample": {
+        "rasterBox": [
+          1495,
+          525,
+          28,
+          28
+        ],
+        "medianRgb": [
+          177,
+          178,
+          233
+        ],
+        "medianRgbChroma": 56,
+        "interpretation": "Manually located visible upper square interior; RGB appearance diagnostic only, not an alpha/opacity estimate or subject mask."
+      }
+    }
+  ],
+  "diagnosticBoundaryDeltaCss": 2.9323607427056118,
+  "toleranceCss": 2,
+  "telemetry": {
+    "classificationEvidence": "Requested/measurement labels and CSS values are input/state evidence, not rendered pixel acceptance.",
+    "classification": {
+      "data-hero-attempt-state": "ready",
+      "data-hero-render-ready": "true",
+      "data-hero-fallback-ready": "false",
+      "data-hero-attempt-id": "_R_1favb_",
+      "data-hero-attempt-started-at": "83",
+      "data-hero-attempt-elapsed-ms": "13",
+      "data-hero-fallback-at": "0",
+      "data-hero-resources-started-at": "83",
+      "data-hero-resources-ready-at": "83",
+      "data-hero-ready-at": "96",
+      "data-hero-first-applied-frame": "1",
+      "data-hero-attempt-reason": "frame-applied",
+      "data-hero-reference-state": "journey-exit",
+      "data-hero-step": "4",
+      "data-hero-lifecycle": "exit",
+      "data-hero-motion": "full",
+      "data-hero-profile": "desktop",
+      "data-hero-scene-progress": "1.051305",
+      "data-hero-direct-entry": "false",
+      "data-hero-pointer-trail": "true",
+      "data-hero-seed": "43117"
+    },
+    "cssVariables": {
+      "heroExitProgress": "1.0000",
+      "heroFadeProgress": "1.0000",
+      "flowRevealProgress": "1.0000",
+      "fieldVisibility": "0.5107"
+    },
+    "canvasSurface": {
+      "kind": "canvas",
+      "canvasPresent": true,
+      "webglContextAvailable": true,
+      "webglContextType": "webgl2",
+      "opacity": "1",
+      "visibility": "visible",
+      "display": "block",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "width": 2639,
+      "height": 1331,
+      "centerPixel": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "webglContextLost": false
+    },
+    "frame": {
+      "frameId": 267,
+      "target": 1.0513048018803215,
+      "rendered": {
+        "value": 1.0493108137575407,
+        "velocity": 0.02379771372642963
+      },
+      "retreat": 0.42660232502154466
+    },
+    "arrivalReadback": {
+      "activationRatio": 0.7680000000000003,
+      "clockElapsedMs": 384,
+      "visible": true
+    },
+    "wakeOpacityReadback": 0.44,
+    "feedOpacityReadback": 0.82
+  },
+  "interpretation": {
+    "boundary": "Local horizontal edge is present, but its unchanged mean-delta and dominance gates fail. Diagnostic location is not eligible acceptance geometry.",
+    "crop": "Both saved rasters show following-section content occluding the lower arrow. Source retains a horizontal shaft and strong blue arrow at the crop; local shows mostly a pale diagonal arm. Equal lifecycle labels do not establish equal projected exit composition.",
+    "opacity": "Flattened RGB establishes different appearance, not the cause or effective alpha. Canvas opacity 1 and completed CSS progress do not prove whole-world opacity. Arrival activation is still 0.768 in the applied readback.",
+    "transition": "Local boundary contrast is split across raster rows 740 and 741 (approximately 14.362 and 16.366 mean RGB delta). The existing single-row gate requires 20. Two-row totals are diagnostic only and never substitute for this gate. The runner-up is a following-section text edge at y=1246.",
+    "provenance": "Source seek is an anchor coordinate. This historical packet does not qualify current code or normal forward/reverse playback."
+  }
+}

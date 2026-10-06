@@ -1,0 +1,40 @@
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+src/visual/hero-capture-clock.spec.ts(53,31): error TS2345: Argument of type 'string | null' is not assignable to parameter of type 'string'.
+  Type 'null' is not assignable to type 'string'.
+src/visual/hero-capture-clock.ts(199,5): error TS2322: Type '() => { nowMs: number; animations: { animationName: string | null; transitionProperty: string | null; target: { tagName: string; namespaceURI: string | null; id: string; className: string; selector: string | null; pseudoElement: string | null; } | null; ... 5 more ...; currentTime: number; }[]; log: { ...; }[]; }' is not assignable to type '() => CaptureCssClockSnapshot'.
+  Call signature return types '{ nowMs: number; animations: { animationName: string | null; transitionProperty: string | null; target: { tagName: string; namespaceURI: string | null; id: string; className: string; selector: string | null; pseudoElement: string | null; } | null; ... 5 more ...; currentTime: number; }[]; log: { ...; }[]; }' and 'CaptureCssClockSnapshot' are incompatible.
+    The types of 'animations' are incompatible between these types.
+      Type '{ animationName: string | null; transitionProperty: string | null; target: { tagName: string; namespaceURI: string | null; id: string; className: string; selector: string | null; pseudoElement: string | null; } | null; ... 5 more ...; currentTime: number; }[]' is not assignable to type '{ id: number; kind: "animation" | "transition"; currentTime: number; observedAtMs: number; initialTimeMs: number; animationName: string | null; transitionProperty: string | null; target: { ...; } | null; timing: { ...; } | null; }[]'.
+        Type '{ animationName: string | null; transitionProperty: string | null; target: { tagName: string; namespaceURI: string | null; id: string; className: string; selector: string | null; pseudoElement: string | null; } | null; ... 5 more ...; currentTime: number; }' is not assignable to type '{ id: number; kind: "animation" | "transition"; currentTime: number; observedAtMs: number; initialTimeMs: number; animationName: string | null; transitionProperty: string | null; target: { ...; } | null; timing: { ...; } | null; }'.
+          Types of property 'timing' are incompatible.
+            Type '{ delay: number; endDelay: number; duration: string | number | CSSNumericValue; iterations: number | "infinite"; iterationStart: number; direction: PlaybackDirection; fill: FillMode; easing: string; } | null' is not assignable to type '{ delay: number; endDelay: number; duration: string | number; iterations: number | "infinite"; iterationStart: number; direction: PlaybackDirection; fill: FillMode; easing: string; } | null'.
+              Type '{ delay: number; endDelay: number; duration: string | number | CSSNumericValue; iterations: number | "infinite"; iterationStart: number; direction: PlaybackDirection; fill: FillMode; easing: string; }' is not assignable to type '{ delay: number; endDelay: number; duration: string | number; iterations: number | "infinite"; iterationStart: number; direction: PlaybackDirection; fill: FillMode; easing: string; }'.
+                Types of property 'duration' are incompatible.
+                  Type 'string | number | CSSNumericValue' is not assignable to type 'string | number'.
+                    Type 'CSSNumericValue' is not assignable to type 'string | number'.
+Warning: command "tsc --build tsconfig.json --emitDeclarationOnly" exited with non-zero status code
+
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:typecheck
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      1.9s
+  Cache:             0/1 hit (0%)
+  Critical path:     1.9s (2 tasks)
+  Recoverable time:  <1ms

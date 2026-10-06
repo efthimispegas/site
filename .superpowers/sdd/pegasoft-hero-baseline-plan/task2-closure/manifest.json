@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-02",
+  "status": "complete implementation evidence inventory; Task 2 qualification blocked",
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/check-readiness.py",
+      "bytes": 4246,
+      "sha256": "c37571d9a31d8aa5452daf5080dc5f5ab222e8f9d5d8b2bcbedcb18f4a4912c8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/search-loader-logs.py",
+      "bytes": 2370,
+      "sha256": "1c65556097945e5fa1f6f7f19e41244dfed420d93f765f0549873e7d668cb8c4"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/loader-log-search.json",
+      "bytes": 17045,
+      "sha256": "0c91a7343b631892440e7696ba63acba173f46c271a7d56157ea6580ae2bd1df"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/closure-packet.json",
+      "bytes": 6278,
+      "sha256": "83fd057bda6e21953d586d4a353663fd5e5649d48240969a2d21865c085da6f2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/live-measurement.log",
+      "bytes": 9615,
+      "sha256": "a56b09bcd25c62f2f59c0ae21f66792531420fe498b08de682f050c00a0851b5"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/manifest.json",
+      "bytes": 11240,
+      "sha256": "522574e868784df445db7e3d1d47498fba3f8e6d1fa6a7c7278d2a82c36d9ed0"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/review-packet.json",
+      "bytes": 6590,
+      "sha256": "31cbc35965acb6dbb1a96d4716021a5e5099a0c57a46e593c922051f71bd3247"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/independent-review.json",
+      "bytes": 4740,
+      "sha256": "ac87feb83ee85f593e0635d2ccd7ef027ba5b0d2b2ff990aa88f85a0014a911a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/review-packet.json",
+      "bytes": 7486,
+      "sha256": "a3475dfa1f50b6f58039821fca9dafe4c45b220b5d8cfd2d408ed5bf00bf9cc1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/checks.json",
+      "bytes": 1343,
+      "sha256": "00b24c1356bcb2018bc821aec87ad5849b4f2f072cc9d5684fbbfc3bf5a16e50"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/outcome.json",
+      "bytes": 3698,
+      "sha256": "d1aa0e2fba1dc0e75c497a4a31d5991c985e6fe84a3b62886d83c85777d7fd88"
+    }
+  ],
+  "checks": {
+    "measurementTests": 83,
+    "failed": 0,
+    "profilePacketPins": 31,
+    "landmarkRefinementSnapshotPins": 41,
+    "loaderSearchPins": 72,
+    "profileOutputsRepeated": 2,
+    "task2Complete": false,
+    "blockedQualificationGates": 5
+  },
+  "limits": "Profile implementation is not independently qualified. Landmark review approves veto only. No current capture or accepted geometry; old packets resolve through immutable snapshots."
+}

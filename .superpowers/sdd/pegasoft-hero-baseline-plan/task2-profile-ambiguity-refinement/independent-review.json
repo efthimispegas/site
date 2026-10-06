@@ -1,0 +1,26 @@
+{
+  "packetSha256": "a2267f30572d72ad07ce17d053d6840deca03e8f6975b799a9a707bb6d24e35e",
+  "verdict": "Targeted P2 closure corroborated; qualification remains blocked.",
+  "findingClosure": {
+    "status": "closed-for-reviewed-counterexample",
+    "basis": "Grouping now uses max(minimumPeakExcess, half the measured maximum). The literal 10-unit bridge falls below 25.833, separating the two significant peaks. Saved evidence changes observed-diagnostic to blocked and suppresses widths/envelopes.",
+    "plateauPreservation": "The flat 27\u201343 plateau remains one region, observed-diagnostic, with unchanged 8.5 CSS-pixel span."
+  },
+  "remainingActionableFindings": [],
+  "verifiedEvidence": {
+    "packetHash": "matches",
+    "linkedPins": "35/35 bytes and hashes match",
+    "implementationScope": "Only significant-region grouping changed; classifier dependency is byte-identical.",
+    "testPreservation": "Original 83-test prefix is byte-identical.",
+    "savedTests": "Counterexample fails before refinement; final 85/85 pass, including plateau and affected regressions.",
+    "savedChecks": "Both typechecks pass; lint 0 errors/39 warnings; whitespace log empty.",
+    "savedRasterEvidence": "Four beam profiles and two exit results reproduced; literal before/after and plateau controls recorded.",
+    "repeatability": "Root's three-output verification was not rerun during this read-only review."
+  },
+  "qualificationLimits": [
+    "Closure covers the literal dim-bridge finding, not every connected peak configuration.",
+    "Higher connecting support and branch/dot/contact/pulse/residual ambiguity remain challenge prerequisites.",
+    "Semantic core/halo definitions, calibrated edge error, applied exit readback, source age and current capture provenance remain unqualified.",
+    "No geometry acceptance, runtime integration, captures or edits were performed."
+  ]
+}

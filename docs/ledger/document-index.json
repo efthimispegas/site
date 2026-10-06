@@ -1,0 +1,606 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-28T13:23:18.867Z",
+  "documents": [
+    {
+      "id": "D001",
+      "path": "docs/hero-reference/cleanup-2026-09-23.md",
+      "title": "Repository cleanup inventory — 2026-09-23",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 6682,
+      "lines": 123,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D002",
+      "path": "docs/hero-reference/foundation-audit-2026-09-15.md",
+      "title": "Hero foundation audit — Phases 1–7",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 19667,
+      "lines": 329,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D003",
+      "path": "docs/hero-reference/live/probe-method.md",
+      "title": "Live Vectr hero probe method",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 5456,
+      "lines": 103,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D004",
+      "path": "docs/hero-reference/repair-sprints.md",
+      "title": "Hero foundation repair sprints",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 33435,
+      "lines": 528,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D005",
+      "path": "docs/hero-reference/repairs/s0/browser/README.md",
+      "title": "S0 ordinary-page failure evidence",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 1838,
+      "lines": 37,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D006",
+      "path": "docs/hero-reference/repairs/s0/contracts/README.md",
+      "title": "S0 repair contracts and failure baseline",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 26348,
+      "lines": 427,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D007",
+      "path": "docs/hero-reference/repairs/s0/review.md",
+      "title": "S0 independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 6827,
+      "lines": 95,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D008",
+      "path": "docs/hero-reference/repairs/s0/source/source-contract.md",
+      "title": "S0 source semantics: field, clocks, profiles, and render resolution",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 13206,
+      "lines": 183,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D009",
+      "path": "docs/hero-reference/repairs/s1/README.md",
+      "title": "S1 — physical progress and ordinary DOM state",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 9338,
+      "lines": 147,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D010",
+      "path": "docs/hero-reference/repairs/s1/review.md",
+      "title": "S1 independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 5381,
+      "lines": 94,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D011",
+      "path": "docs/hero-reference/repairs/s2/README.md",
+      "title": "S2 shared-frame and clock repair",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 14994,
+      "lines": 188,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D012",
+      "path": "docs/hero-reference/repairs/s2/review.md",
+      "title": "S2 independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 7029,
+      "lines": 122,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D013",
+      "path": "docs/hero-reference/repairs/s3/README.md",
+      "title": "S3 acceptance packet — route consumers, depth, and proxy hygiene",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 2433,
+      "lines": 49,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D014",
+      "path": "docs/hero-reference/repairs/s3/review.md",
+      "title": "S3 independent acceptance review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 3863,
+      "lines": 67,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D015",
+      "path": "docs/hero-reference/repairs/s4/implementation-report.md",
+      "title": "S4 measurement repair handover",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 11761,
+      "lines": 203,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D016",
+      "path": "docs/hero-reference/repairs/s4/review.md",
+      "title": "S4 independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 10317,
+      "lines": 136,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D017",
+      "path": "docs/hero-reference/repairs/s5-source-preparation.md",
+      "title": "S5 source preparation",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 3865,
+      "lines": 71,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D018",
+      "path": "docs/hero-reference/repairs/s5/README.md",
+      "title": "S5 profile and Canvas sizing repair",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 8896,
+      "lines": 157,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D019",
+      "path": "docs/hero-reference/repairs/s5/review.md",
+      "title": "S5 independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 4882,
+      "lines": 78,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D020",
+      "path": "docs/hero-reference/repairs/s6-preparation.md",
+      "title": "S6 readiness, fallback and visible DOM preparation",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 5088,
+      "lines": 67,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D021",
+      "path": "docs/hero-reference/repairs/s6/review.md",
+      "title": "S6 independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 5230,
+      "lines": 91,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D022",
+      "path": "docs/hero-reference/repairs/s6/status-history-through-2026-09-19.md",
+      "title": "S6 status — fixes verified; written independent verdict pending",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 11559,
+      "lines": 192,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D023",
+      "path": "docs/hero-reference/repairs/s6/status.md",
+      "title": "S6 status — independently accepted",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 1621,
+      "lines": 27,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D024",
+      "path": "docs/hero-reference/repairs/s7/accounting-inventory.md",
+      "title": "S7 accounting inventory",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 19554,
+      "lines": 112,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D025",
+      "path": "docs/hero-reference/repairs/s7/checkpoint-2026-09-21-loader-clear.md",
+      "title": "S7 loader-clear diagnosis and focused regression checkpoint",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 3790,
+      "lines": 79,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D026",
+      "path": "docs/hero-reference/repairs/s7/checkpoint-2026-09-21-matrix-attempt.md",
+      "title": "S7 matrix attempt checkpoint",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 2310,
+      "lines": 46,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D027",
+      "path": "docs/hero-reference/repairs/s7/checkpoint-2026-09-22-restoration-clock.md",
+      "title": "S7 restoration clock checkpoint",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 3301,
+      "lines": 63,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D028",
+      "path": "docs/hero-reference/repairs/s7/checkpoint-2026-09-22-source-contract-reframe.md",
+      "title": "S7 source-contract reframe checkpoint",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 2708,
+      "lines": 52,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D029",
+      "path": "docs/hero-reference/repairs/s7/checkpoint-2026-09-22-three-full-pass-stop.md",
+      "title": "S7 checkpoint — three full-matrix passes exhausted",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 2851,
+      "lines": 53,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D030",
+      "path": "docs/hero-reference/repairs/s7/checkpoint-2026-09-23-fail-fast-shard-design.md",
+      "title": "S7 fail-fast evidence-shard design",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 6179,
+      "lines": 115,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D031",
+      "path": "docs/hero-reference/repairs/s7/checkpoint-2026-09-23-sharded-pass-1-stop.md",
+      "title": "S7 checkpoint — fail-fast sharded pass stopped on mobile restoration",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 4993,
+      "lines": 90,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D032",
+      "path": "docs/hero-reference/repairs/s7/commit-handoff-2026-09-25.md",
+      "title": "S7 commit handoff — 2026-09-25",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 1568,
+      "lines": 24,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D033",
+      "path": "docs/hero-reference/repairs/s7/fail-fast-shard-design-review.md",
+      "title": "S7 fail-fast evidence-shard design — independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 10017,
+      "lines": 177,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D034",
+      "path": "docs/hero-reference/repairs/s7/mobile-restoration-diagnosis-2026-09-23.md",
+      "title": "S7 mobile native-restoration diagnosis",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 8920,
+      "lines": 181,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D035",
+      "path": "docs/hero-reference/repairs/s7/restoration-reachability-amendment-v1-draft.md",
+      "title": "S7 restoration reachability amendment v1 — draft",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 5305,
+      "lines": 93,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D036",
+      "path": "docs/hero-reference/repairs/s7/restoration-reachability-amendment-v1-review.md",
+      "title": "S7 restoration reachability amendment v1 — independent review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 6276,
+      "lines": 117,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D037",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-1-timeout/recording-desktop/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 8945,
+      "lines": 162,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D038",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-2-mobile-timeout/mobile/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 8953,
+      "lines": 175,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D039",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-3-stop/desktop/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 9054,
+      "lines": 166,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D040",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-3-stop/mobile/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 9062,
+      "lines": 179,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D041",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-3-stop/recording-desktop/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 9054,
+      "lines": 166,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D042",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-3-stop/tablet/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 9054,
+      "lines": 166,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D043",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-23-full-matrix-sharded-pass-1c/playwright-output/hero-s7-matrix-records-bounded-S7-shard-arrival-travel-mobile/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 9257,
+      "lines": 227,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D044",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v3/playwright-output/hero-s7-matrix-records-bounded-S7-shard-loader-mark-desktop/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 10547,
+      "lines": 227,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D045",
+      "path": "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v5/handover.md",
+      "title": "S7 v5 handover — accepted within bounded repair scope",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 2250,
+      "lines": 49,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D046",
+      "path": "docs/hero-reference/repairs/s7/s7-matrix-accounting.md",
+      "title": "S7 per-cell matrix accounting",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 105606,
+      "lines": 423,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D047",
+      "path": "docs/hero-reference/repairs/s7/sharded-pass-1-review.md",
+      "title": "S7 sharded pass 1 — independent failed-packet review",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 3780,
+      "lines": 79,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D048",
+      "path": "docs/hero-reference/repairs/s7/status.md",
+      "title": "S7 status — accepted within bounded repair scope",
+      "tier": "canonical",
+      "kind": "current-status",
+      "bytes": 1112,
+      "lines": 19,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D049",
+      "path": "docs/hero-reference/repairs/s8/runs/2026-09-25-integrated-acceptance/report.md",
+      "title": "S8 independent repair acceptance — integrated revision",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 6124,
+      "lines": 111,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D050",
+      "path": "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/a01-a10-mapping.md",
+      "title": "S8 A01–A10 repair and debt map",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 6634,
+      "lines": 50,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D051",
+      "path": "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/handover.md",
+      "title": "S8 closure handover — repairs qualified, awaiting phase authorization",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 2172,
+      "lines": 19,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D052",
+      "path": "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/independent-review.md",
+      "title": "S8 independent review — requalification-2",
+      "tier": "historical",
+      "kind": "decision-history",
+      "bytes": 17798,
+      "lines": 328,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D053",
+      "path": "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/normal-motion/BLOCKED.md",
+      "title": "Normal-motion capture",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 901,
+      "lines": 19,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D054",
+      "path": "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/smoke/BLOCKED.md",
+      "title": "Production smoke blocked before browser execution",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 984,
+      "lines": 19,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D055",
+      "path": "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification/playwright-output/hero-s7-matrix-records-bounded-S7-shard-loader-mark-recording-desktop/error-context.md",
+      "title": "Instructions",
+      "tier": "raw-evidence",
+      "kind": "run-artifact",
+      "bytes": 6266,
+      "lines": 166,
+      "retrieval": "read-on-demand"
+    },
+    {
+      "id": "D056",
+      "path": "docs/pegasoft-brand/brand-direction-v1.md",
+      "title": "Pegasoft Solutions — Brand direction v1",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 5970,
+      "lines": 95,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D057",
+      "path": "docs/pegasoft-codex-usage-memo.md",
+      "title": "Pegasoft Agent Usage Guide",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 10806,
+      "lines": 197,
+      "retrieval": "summary-first"
+    },
+    {
+      "id": "D058",
+      "path": "docs/pegasoft-hero-baseline-plan.md",
+      "title": "Pegasoft Hero Baseline Plan",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 43650,
+      "lines": 757,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D059",
+      "path": "docs/vectr-hero-motion-map.md",
+      "title": "Vectr Hero Motion Map",
+      "tier": "canonical",
+      "kind": "orientation",
+      "bytes": 16367,
+      "lines": 293,
+      "retrieval": "read-first"
+    },
+    {
+      "id": "D060",
+      "path": "docs/website-plan.md",
+      "title": "Pegasoft Nx Monorepo Kickstart Plan",
+      "tier": "reference",
+      "kind": "supporting",
+      "bytes": 3318,
+      "lines": 48,
+      "retrieval": "summary-first"
+    }
+  ]
+}

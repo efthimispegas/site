@@ -1,0 +1,162 @@
+
+> nx run @site/pegasoft-e2e:hero-capture-clock-test
+
+> playwright test --config=playwright.capture-clock.config.ts
+
+(node:24213) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:24213) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2mRunning [22m6[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:24219) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:24219) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/6] src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering
+[1A[2K[31m  1) src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering [39m
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 14[39m
+    [31m+ Received  +  6[39m
+
+    [32m- ObjectContaining {[39m
+    [32m-   "animationName": "travel",[39m
+    [32m-   "target": ObjectContaining {[39m
+    [32m-     "id": "animation",[39m
+    [32m-     "pseudoElement": null,[39m
+    [32m-     "selector": "#animation",[39m
+    [32m-     "tagName": "div",[39m
+    [32m-   },[39m
+    [32m-   "timing": ObjectContaining {[39m
+    [32m-     "delay": 0,[39m
+    [32m-     "duration": 1000,[39m
+    [32m-     "iterations": Infinity,[39m
+    [32m-   },[39m
+    [32m-   "transitionProperty": null,[39m
+    [31m+ Object {[39m
+    [31m+   "currentTime": 0,[39m
+    [31m+   "id": 0,[39m
+    [31m+   "initialTimeMs": 0,[39m
+    [31m+   "kind": "animation",[39m
+    [31m+   "observedAtMs": 0,[39m
+    [2m  }[22m
+
+      28 |   await installCaptureCssClock(page);
+      29 |   const before = await readCaptureCssClock(page);
+    > 30 |   expect(before.animations[0]).toEqual(expect.objectContaining({
+         |                                ^
+      31 |     animationName: 'travel', transitionProperty: null,
+      32 |     target: expect.objectContaining({ tagName: 'div', id: 'animation', selector: '#animation', pseudoElement: null }),
+      33 |     timing: expect.objectContaining({ duration: 1000, delay: 0, iterations: Infinity }),
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts:30:32[22m
+
+[2m    Error Context: test-output/playwright/capture-clock/hero-capture-clock-native--2ba10-reenshot-and-DOM-reordering/error-context.md[22m
+
+
+[1A[2K(node:24237) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:24237) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[2/6] src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs
+[1A[2K[31m  2) src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs [39m
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"dash"[39m
+    Received: [31mundefined[39m
+
+      48 |   expect(snapshot.animations).toHaveLength(2);
+      49 |   for (const animation of snapshot.animations) {
+    > 50 |     expect(animation.animationName).toBe('dash');
+         |                                     ^
+      51 |     expect(animation.target?.tagName).toBe('svg');
+      52 |     expect(animation.target?.namespaceURI).toBe('http://www.w3.org/2000/svg');
+      53 |     expect(await page.locator(animation.target!.selector).count()).toBe(1);
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts:50:37[22m
+
+[2m    Error Context: test-output/playwright/capture-clock/hero-capture-clock-same-na-a7610-targets-without-element-IDs/error-context.md[22m
+
+
+[1A[2K(node:24250) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:24250) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[3/6] src/visual/hero-capture-clock.spec.ts:58:5 › css_document_timeline_progresses_while_javascript_clock_is_paused
+[1A[2K[4/6] src/visual/hero-capture-clock.spec.ts:75:5 › css_transport_advances_input_delta_and_stays_stable_across_screenshot
+[1A[2K[5/6] src/visual/hero-capture-clock.spec.ts:98:5 › css_transition_created_in_timer_uses_remaining_interval
+[1A[2K[31m  3) src/visual/hero-capture-clock.spec.ts:98:5 › css_transition_created_in_timer_uses_remaining_interval [39m
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoEqual[2m([22m[32mexpected[39m[2m) // deep equality[22m
+
+    [32m- Expected  - 6[39m
+    [31m+ Received  + 6[39m
+
+    [32m- ObjectContaining {[39m
+    [32m-   "animationName": null,[39m
+    [32m-   "target": ObjectContaining {[39m
+    [32m-     "selector": "#transition",[39m
+    [32m-   },[39m
+    [32m-   "transitionProperty": "opacity",[39m
+    [31m+ Object {[39m
+    [31m+   "currentTime": 200,[39m
+    [31m+   "id": 1,[39m
+    [31m+   "initialTimeMs": 0,[39m
+    [31m+   "kind": "transition",[39m
+    [31m+   "observedAtMs": 100,[39m
+    [2m  }[22m
+
+      116 |   expect(transition?.observedAtMs).toBe(100);
+      117 |   expect(transition?.currentTime).toBeCloseTo(200, 5);
+    > 118 |   expect(transition).toEqual(expect.objectContaining({
+          |                      ^
+      119 |     animationName: null, transitionProperty: 'opacity',
+      120 |     target: expect.objectContaining({ selector: '#transition' }),
+      121 |   }));
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts:118:22[22m
+
+[2m    Error Context: test-output/playwright/capture-clock/hero-capture-clock-css-tra-f649f-mer-uses-remaining-interval/error-context.md[22m
+
+
+[1A[2K(node:24270) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:24270) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[6/6] src/visual/hero-capture-clock.spec.ts:129:5 › css_transport_installed_before_navigation_preserves_timer_creation_time
+[1A[2K[31m  3 failed[39m
+[31m    src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering [39m
+[31m    src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs [39m
+[31m    src/visual/hero-capture-clock.spec.ts:98:5 › css_transition_created_in_timer_uses_remaining_interval [39m
+[32m  3 passed[39m[2m (4.2s)[22m
+Warning: command "playwright test --config=playwright.capture-clock.config.ts" exited with non-zero status code
+
+
+ NX   Running target hero-capture-clock-test for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture-clock-test
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      4.5s
+  Critical path:     4.5s (1 task)
+  Recoverable time:  <1ms

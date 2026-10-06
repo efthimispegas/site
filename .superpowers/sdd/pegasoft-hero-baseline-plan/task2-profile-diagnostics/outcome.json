@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "implementationStatus": "complete-inactive",
+  "qualificationStatus": "blocked",
+  "ownedFiles": ["apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs", "tools/hero-reference/measurement-contract.test.mjs append-only after original 71 contracts"],
+  "changes": [
+    "Independent raw RGB strips and median profile samples with per-image linear background calibration, raw-pixel sideband noise, explicit uncalibrated edge uncertainty, declared bright-peak fractions and residual threshold sensitivity.",
+    "Blank/tinted background, unavailable/clipped sidebands, contaminated calibration and competing bright peaks block profile observation.",
+    "Exit diagnostic exposes chronological raw row scores and candidate location while retaining the original single-row contrast, support, dominance and variance gates through the unchanged boundary classifier.",
+    "Applied crop/opacity remain unavailable unless the caller supplies explicit finite, valid, same-frame applied consumer readback. Requested CSS/state labels are ignored; actual zero opacity is retained. No telemetry was invented or added to runtime.",
+    "Existing 71 tests preserved byte-for-byte; 12 append-only diagnostic challenges observed RED to GREEN."
+  ],
+  "checks": "checks.json",
+  "savedRasterEvidence": {
+    "historicalRunId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+    "beam": "beam-raster-diagnostics.json",
+    "exit": "exit-raster-diagnostics.json",
+    "sourceArrivalBrightHalfHeightCss": 12,
+    "localArrivalBrightHalfHeightCss": 24,
+    "interpretation": "Apparent composited intensity profile only; no physical radius or calibrated semantic-core claim.",
+    "exitReadback": "Applied crop-plane and effective world-opacity are explicitly unavailable in this historical evidence. Source boundary observation is retained; the local boundary classifier remains blocked."
+  },
+  "immutableSnapshots": {
+    "beforeTests": "before/measurement-contract.test.mjs",
+    "beforeModuleState": "before/module-state.json",
+    "afterModule": "after/screen-profile-diagnostics.mjs",
+    "afterTests": "after/measurement-contract.test.mjs",
+    "unchangedClassifierDependency": "after/screen-structural-features.mjs",
+    "patch": "implementation.patch"
+  },
+  "integration": {
+    "activeCaptureOrComparatorUse": false,
+    "newCapture": false,
+    "runtimeGeometryOrSurfaceChange": false,
+    "sourceMaskUse": false,
+    "historicalPacketMutation": false,
+    "ledgerOwner": "parent"
+  },
+  "remainingBlockers": [
+    "No independently established source loader onset/animation age; stopped reconstruction remains stopped.",
+    "Landmark subject/contour semantics, clipped support and calibrated edge-error bounds remain unqualified.",
+    "Profile peak fractions and residual thresholds are diagnostics, not reviewed same-quantity core/halo definitions or accepted edge-error thresholds. Full-route branch/dot/contact/pulse challenges and semantic review remain required.",
+    "Local exit boundary still fails unchanged contrast/dominance requirements. Real applied crop-plane/effective world-opacity readback and continuous exit correspondence are unavailable.",
+    "Historical pinned rasters cannot qualify current capture provenance, current timing correspondence or personal visual acceptance. Task 3 cannot consume these diagnostics as accepted geometry."
+  ],
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/reproduce.mjs --verify",
+  "stopCondition": "Complete implementation/check/evidence packet delivered. Inactive helpers are reviewable; qualification remains blocked. No further capture or runtime work performed."
+}

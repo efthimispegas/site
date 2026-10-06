@@ -1,0 +1,9 @@
+file:///Users/whiskey/Work/site/node_modules/.pnpm/sharp@0.35.4_@types+node@20.19.9/node_modules/sharp/dist/output.mjs:159
+  const stack = Error();
+                ^
+
+Error: Image to composite must have same dimensions or smaller
+    at Sharp.toBuffer (file:///Users/whiskey/Work/site/node_modules/.pnpm/sharp@0.35.4_@types+node@20.19.9/node_modules/sharp/dist/output.mjs:159:17)
+    at file:///Users/whiskey/Work/site/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/evaluate.mjs:64:81
+
+Node.js v24.19.0

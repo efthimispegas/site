@@ -1,0 +1,310 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pegasoft.example/schemas/hero-accuracy-report.schema.json",
+  "title": "Pegasoft hero accuracy report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "generatedAtUtc",
+    "implementationCommit",
+    "reference",
+    "capture",
+    "state",
+    "measurements",
+    "behaviorChecks",
+    "result"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "generatedAtUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "implementationCommit": {
+      "type": "string",
+      "minLength": 7
+    },
+    "reference": {
+      "$ref": "#/$defs/reference"
+    },
+    "capture": {
+      "$ref": "#/$defs/capture"
+    },
+    "state": {
+      "enum": [
+        "loader-mark",
+        "world-reveal",
+        "landing",
+        "landing-idle",
+        "activation-route",
+        "activation-contact",
+        "clearance-travel",
+        "clearance-field-preview",
+        "field-approach",
+        "field-contact",
+        "field-pulse-a",
+        "field-pulse-b",
+        "arrival-travel",
+        "arrival-lockup",
+        "journey-exit"
+      ]
+    },
+    "measurements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/measurement"
+      }
+    },
+    "behaviorChecks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/behaviorCheck"
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "referenceImage": {
+          "type": "string"
+        },
+        "implementationImage": {
+          "type": "string"
+        },
+        "overlayImage": {
+          "type": "string"
+        },
+        "heatmapImage": {
+          "type": "string"
+        },
+        "blinkComparison": {
+          "type": "string"
+        }
+      }
+    },
+    "intentionalDifferences": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["region", "reason"],
+        "properties": {
+          "region": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "mask": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "unexplainedVisibleDifferences"],
+      "properties": {
+        "status": {
+          "enum": ["pass", "fail", "blocked"]
+        },
+        "unexplainedVisibleDifferences": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "source", "evidenceClass"],
+      "properties": {
+        "authority": {
+          "enum": ["live-site", "recording"]
+        },
+        "source": {
+          "type": "string"
+        },
+        "recordingSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "frame": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "timestampSeconds": {
+          "type": "number",
+          "minimum": 0
+        },
+        "capturedAtUtc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidenceClass": {
+          "enum": ["observed", "source-confirmed", "inferred", "unknown"]
+        }
+      }
+    },
+    "capture": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "viewportCss",
+        "dpr",
+        "fontState",
+        "progress",
+        "localTimeMs",
+        "seed",
+        "entryMode"
+      ],
+      "properties": {
+        "profile": {
+          "enum": [
+            "recording-desktop",
+            "live-desktop-1440",
+            "live-desktop-1920",
+            "live-mobile-390",
+            "reduced-motion-desktop",
+            "reduced-motion-mobile",
+            "static-fallback-desktop",
+            "static-fallback-mobile"
+          ]
+        },
+        "viewportCss": {
+          "$ref": "#/$defs/size"
+        },
+        "rasterPixels": {
+          "$ref": "#/$defs/size"
+        },
+        "dpr": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "fontState": {
+          "enum": ["loaded", "fallback"]
+        },
+        "progress": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "localTimeMs": {
+          "type": "number",
+          "minimum": 0
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "entryMode": {
+          "enum": ["forward", "reverse", "direct", "resize", "restored-reload"]
+        },
+        "inputClass": {
+          "enum": ["fine-pointer", "coarse-pointer", "keyboard", "none"]
+        }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "metric", "actual", "threshold", "unit", "status"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "metric": {
+          "enum": [
+            "dom-bounds-css-px",
+            "primary-center-percent",
+            "primary-size-percent",
+            "primary-silhouette-iou",
+            "secondary-silhouette-iou",
+            "route-hausdorff-short-edge-percent",
+            "route-contact-percent",
+            "route-thickness-css-px",
+            "route-thickness-percent",
+            "camera-axis-degrees",
+            "negative-space-percent",
+            "solid-delta-e-2000",
+            "fog-glow-delta-e-2000",
+            "progress-handoff",
+            "loader-event-ms",
+            "settled-screen-error-percent",
+            "settle-duration-ms",
+            "pixel-difference-percent"
+          ]
+        },
+        "actual": {
+          "type": "number"
+        },
+        "threshold": {
+          "type": "number"
+        },
+        "comparison": {
+          "enum": ["lte", "gte"],
+          "default": "lte"
+        },
+        "unit": {
+          "type": "string"
+        },
+        "status": {
+          "enum": ["pass", "fail", "blocked"]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "behaviorCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "status"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": ["pass", "fail", "blocked"]
+        },
+        "evidence": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "size": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height"],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

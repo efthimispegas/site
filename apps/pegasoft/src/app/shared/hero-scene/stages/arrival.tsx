@@ -147,6 +147,36 @@ function ArrivalRouteWake({ frameRef }: { frameRef: HeroFrameRef }) {
   );
 }
 
+function ArrivalFeed({ frameRef }: { frameRef: HeroFrameRef }) {
+  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
+
+  useFrame(() => {
+    const progress = frameRef.current.rendered.value;
+    const reveal = THREE.MathUtils.smoothstep(progress, 0.74, 0.82);
+    const material = materialRef.current;
+    if (!material) return;
+    material.opacity = reveal * 0.82;
+    acknowledgeHeroFrame(frameRef, 'arrival-feed', {
+      visible: reveal > 0,
+      opacity: material.opacity,
+    });
+  }, -30);
+
+  return (
+    <mesh position={[57.25, 0.18, 25]}>
+      <boxGeometry args={[3.5, 0.08, 0.16]} />
+      <meshBasicMaterial
+        ref={materialRef}
+        color={HERO_PALETTE.blueGlow}
+        transparent
+        opacity={0}
+        toneMapped={false}
+        depthWrite={false}
+      />
+    </mesh>
+  );
+}
+
 export function ArrivalStage({ frameRef }: { frameRef: HeroFrameRef }) {
   const groupRef = useRef<THREE.Group>(null);
   const baseMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
@@ -209,6 +239,7 @@ export function ArrivalStage({ frameRef }: { frameRef: HeroFrameRef }) {
   return (
     <>
       <ArrivalRouteWake frameRef={frameRef} />
+      <ArrivalFeed frameRef={frameRef} />
       <group ref={groupRef} visible={false} position={[arrivalX, 0, arrivalZ]}>
         <ArrowLayer
           height={0.4}

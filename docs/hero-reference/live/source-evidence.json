@@ -1,0 +1,667 @@
+{
+  "schemaVersion": 3,
+  "auditedAtUtc": "2026-09-15T10:36:30Z",
+  "canonicalUrl": "https://www.vectrfl.com/",
+  "sources": [
+    {
+      "id": "live-trace-desktop-1508-2026-07-30",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-30T08:15:00Z",
+      "profile": {
+        "viewportCss": {
+          "width": 1508,
+          "height": 761
+        },
+        "devicePixelRatio": 1,
+        "pointer": "fine",
+        "hover": true,
+        "traceSmoothTimeSeconds": 0.01
+      },
+      "scope": "Current-live source for recording progress candidate ranking and the locked landing and journey DOM profiles. Disposable screenshots were not retained; repository authority remains the URL plus serialized calibration and DOM measurements."
+    },
+    {
+      "id": "current-live-profile-probe-2026-07-30",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "path": "docs/hero-reference/live/current-live-profiles.json",
+      "schemaId": "vectr-live-profile-probe/v1",
+      "capturedAtUtc": "2026-07-30T12:27:02.718Z",
+      "runStatus": "passed",
+      "profileSummary": {
+        "pass": 4,
+        "fail": 0
+      },
+      "readinessContract": [
+        "HTTP 200",
+        "document fonts loaded",
+        "one unique ready canvas",
+        "four complete flow steps",
+        "requested viewport and input profile",
+        "no observed main-thread WebGL context-loss event"
+      ],
+      "browser": {
+        "name": "chromium",
+        "channel": "chrome",
+        "version": "150.0.7871.188"
+      },
+      "profiles": [
+        {
+          "id": "recording-desktop",
+          "viewportCss": {
+            "width": 1508,
+            "height": 761
+          },
+          "devicePixelRatio": 1,
+          "pointer": "fine",
+          "hover": true,
+          "emulation": false
+        },
+        {
+          "id": "desktop",
+          "viewportCss": {
+            "width": 1440,
+            "height": 900
+          },
+          "devicePixelRatio": 1,
+          "pointer": "fine",
+          "hover": true,
+          "emulation": false
+        },
+        {
+          "id": "tablet",
+          "viewportCss": {
+            "width": 1024,
+            "height": 768
+          },
+          "devicePixelRatio": 1,
+          "pointer": "coarse",
+          "hover": false,
+          "emulation": true
+        },
+        {
+          "id": "mobile",
+          "viewportCss": {
+            "width": 390,
+            "height": 844
+          },
+          "devicePixelRatio": 1,
+          "pointer": "coarse",
+          "hover": false,
+          "emulation": true
+        }
+      ],
+      "scope": "Current repository-owned readiness, landing/flow geometry, responsive, input, diagnostics, and resource observations. The tablet and mobile contexts are browser emulations, not physical-device or performance evidence; worker/OffscreenCanvas context-loss state remains unknown."
+    },
+    {
+      "id": "live-trace-desktop-1440-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-28T12:18:17.966Z",
+      "profile": {
+        "viewportCss": {
+          "width": 1440,
+          "height": 900
+        },
+        "devicePixelRatio": 1,
+        "pointer": "fine",
+        "hover": true
+      }
+    },
+    {
+      "id": "live-trace-desktop-1920-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-28T12:18:36.338Z",
+      "profile": {
+        "viewportCss": {
+          "width": 1920,
+          "height": 1080
+        },
+        "devicePixelRatio": 1,
+        "pointer": "fine",
+        "hover": true
+      }
+    },
+    {
+      "id": "live-trace-mobile-390-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "capturedAtUtc": "2026-07-28T12:18:54.660Z",
+      "profile": {
+        "viewportCss": {
+          "width": 390,
+          "height": 844
+        },
+        "devicePixelRatio": 1,
+        "pointer": "coarse",
+        "hover": false
+      }
+    },
+    {
+      "id": "live-trace-html-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "httpStatus": 200,
+      "lastModifiedUtc": "2026-07-17T01:28:50Z",
+      "decodedBytes": 25201,
+      "sha256": "a0d66705e329aa59f646cadeccbbd4a99362a26dd65d82451233b3aa93882012"
+    },
+    {
+      "id": "live-css-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/apply.B-bC7KCE.css",
+      "httpStatus": 200,
+      "decodedBytes": 75910,
+      "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c"
+    },
+    {
+      "id": "live-app-js-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/CommonScripts.astro_astro_type_script_index_0_lang.CZTi642d.js",
+      "httpStatus": 200,
+      "decodedBytes": 120694,
+      "sha256": "352de1ba99e915be04f929107ffcfbfa2893b943bf0b60ae1d74006fa1e36494"
+    },
+    {
+      "id": "live-app-js-2026-09-15-phase7",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/CommonScripts.astro_astro_type_script_index_0_lang.CZTi642d.js",
+      "capturedAtUtc": "2026-09-15T10:36:30Z",
+      "httpStatus": 200,
+      "decodedBytes": 120694,
+      "sha256": "352de1ba99e915be04f929107ffcfbfa2893b943bf0b60ae1d74006fa1e36494",
+      "scope": "Fresh Phase 7 route-knot, equal-distance resampling, contact-point, and scene-progress verification."
+    },
+    {
+      "id": "live-vendor-js-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/vendor.BgqcyBjU.js",
+      "httpStatus": 200,
+      "decodedBytes": 2394196,
+      "sha256": "18915412cc633133d3d2daf84ed1c5f746d1ac3835f9fabcd5b499eec4a41e36"
+    },
+    {
+      "id": "live-renderer-js-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/_astro/renderer.C_wI7OdU.js",
+      "httpStatus": 200,
+      "decodedBytes": 9365,
+      "sha256": "664abaf682e04ea8e8d2ef1babcdc4749cc9c27300bfa173f41b36656a236b18"
+    },
+    {
+      "id": "live-desktop-scene-glb-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+      "httpStatus": 200,
+      "decodedBytes": 2190704,
+      "sha256": "4e33ca95ac15dde3f9efe6803a09031c406ef9eeaa6bd7012450d8e770469ba3"
+    },
+    {
+      "id": "live-workers-glb-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/glb/workers.glb",
+      "httpStatus": 200,
+      "decodedBytes": 421756,
+      "sha256": "324788c696b3124e47b8b211df24a793197c458684c85f3dfc892f400714bcdb"
+    },
+    {
+      "id": "live-draco-wasm-2026-07-28",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/draco/draco_decoder.wasm",
+      "httpStatus": 200,
+      "decodedBytes": 192420,
+      "sha256": "a680d927bed9cb864ddbd63521868891af2bfbe755092761b4837487618df8ac"
+    },
+    {
+      "id": "recording-landing-frame",
+      "evidenceClass": "observed",
+      "path": "docs/hero-reference/recording/frame-000298-landing.png",
+      "rasterPixels": {
+        "width": 3016,
+        "height": 1522
+      }
+    },
+    {
+      "id": "s0-live-profiles-2026-09-15",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "path": "docs/hero-reference/repairs/s0/source/source-probe.json",
+      "artifactManifest": "docs/hero-reference/repairs/s0/source/artifact-manifest.json",
+      "scope": "Five Chromium profile probes; touch/device cases are emulations, not hardware performance evidence."
+    },
+    {
+      "id": "s0-live-frames-2026-09-15",
+      "evidenceClass": "observed",
+      "url": "https://www.vectrfl.com/?trace=1",
+      "path": "docs/hero-reference/repairs/s0/source/source-frame-state.json",
+      "artifactManifest": "docs/hero-reference/repairs/s0/source/artifact-manifest.json",
+      "scope": "Separate recording-profile applied camera/progress trace, not same instant as screenshot probe."
+    }
+  ],
+  "claims": [
+    {
+      "id": "recording-profile-dom-bounds",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-desktop-1508-2026-07-30",
+        "recording-landing-frame"
+      ],
+      "value": {
+        "artifact": "docs/hero-reference/live/recording-profile-dom.json",
+        "viewportCss": {
+          "width": 1508,
+          "height": 761
+        },
+        "liveDevicePixelRatio": 1,
+        "recordingDevicePixelRatio": 2,
+        "scrollY": 0,
+        "applicableStates": ["landing", "landing-idle"],
+        "boundsToleranceCssPx": 2,
+        "qualification": "CSS-pixel geometry is authoritative for the named DOM elements only. WebGL structural landmarks remain unmeasured."
+      }
+    },
+    {
+      "id": "recording-profile-journey-dom-bounds",
+      "evidenceClass": "observed",
+      "sourceRefs": ["live-trace-desktop-1508-2026-07-30"],
+      "value": {
+        "profileArtifact": "docs/hero-reference/live/recording-profile-journey-dom.json",
+        "rawProbeArtifact": "docs/hero-reference/live/journey-dom-probe.json",
+        "viewportCss": {
+          "width": 1508,
+          "height": 761
+        },
+        "liveDevicePixelRatio": 1,
+        "recordingDevicePixelRatio": 2,
+        "stateCount": 11,
+        "boundsToleranceCssPx": 2,
+        "scrollToleranceCssPx": 2,
+        "promotedGeometry": [
+          "source scroll",
+          "active step index",
+          "active step container",
+          "active header",
+          "active number container",
+          "active title position and line-box height",
+          "active body container",
+          "active description container"
+        ],
+        "qualification": "Title glyph-sequence width and text pixels are identity-specific. No full DOM box is excluded, and WebGL structural landmarks remain independent and unmeasured."
+      }
+    },
+    {
+      "id": "identity-only-raster-mask",
+      "evidenceClass": "observed",
+      "sourceRefs": ["recording-landing-frame"],
+      "value": {
+        "status": "blocked",
+        "appliedMaskedPixelCount": 0,
+        "perStateRasterPixelCount": 4590352,
+        "provenance": "The recording frames are flattened RGB rasters without a pixel-precise source glyph/logo alpha or mask artifact.",
+        "decision": "No whole DOM box or color/edge-derived approximation is masked. Such a mask cannot prove exclusion of container, background, scene, and antialiasing pixels."
+      }
+    },
+    {
+      "id": "hero-copy",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-trace-html-2026-07-28"],
+      "value": {
+        "title": "The New Standard\nin Staffing",
+        "subtitle": "AI driven speed. Expert curation.\nWe mobilize verified crews to protect your schedule and your bottom line in high-consequence environments.",
+        "scrollCue": "SCROLL TO DISCOVER OUR PROCESS"
+      }
+    },
+    {
+      "id": "authored-hero-reveal-css",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-css-2026-07-28"],
+      "value": {
+        "title": {
+          "opacityAndTransformDurationMs": 1500,
+          "delayMs": 0,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "subtitle": {
+          "opacityAndTransformDurationMs": 1500,
+          "delayMs": 300,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "scrollCueUnderline": {
+          "durationMs": 900,
+          "delayMs": 250,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        },
+        "scrollCueText": {
+          "durationMs": 1500,
+          "delayMs": 650,
+          "easing": "cubic-bezier(0.16, 1, 0.3, 1)"
+        }
+      }
+    },
+    {
+      "id": "flow-layout",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-css-2026-07-28"],
+      "value": {
+        "baseHeight": "456svh",
+        "desktopMultiplier": 1,
+        "maxWidth820Multiplier": 1.25,
+        "wrapper": {
+          "position": "sticky",
+          "top": 0,
+          "desktopHeight": "100svh",
+          "maxWidth820Height": "100dvh"
+        }
+      }
+    },
+    {
+      "id": "dom-step-thresholds",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-app-js-2026-07-28"],
+      "value": [0.191, 0.697, 0.876],
+      "progressDomain": "DOM flow progress, not scene target or rendered camera progress."
+    },
+    {
+      "id": "camera-damping",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-app-js-2026-07-28"],
+      "value": {
+        "defaultSmoothTime": 0.15,
+        "mobileOrTabletSmoothTime": 0.1,
+        "runtime": "camera progress is damped toward target progress each frame"
+      }
+    },
+    {
+      "id": "scene-progress-ranges",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-app-js-2026-07-28"],
+      "value": {
+        "redRoutes": [0, 0.17],
+        "blueRoute0": [0.17, 0.74],
+        "fieldGridReveal": [0.72, 0.75],
+        "fieldCameraComposition": [0.72, 0.85],
+        "blueRoute1": [0.74, 0.9],
+        "arrivalAndLogoActivationStarts": 0.9,
+        "cameraRetreat": [0.9, 1.25]
+      },
+      "progressDomain": "Damped cameraProgress in source onRaf, not immediate scene target."
+    },
+    {
+      "id": "canonical-route-topology",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-app-js-2026-09-15-phase7"],
+      "value": {
+        "redCameraPathXZ": [
+          [-50, -35],
+          [-56.1, 3]
+        ],
+        "blueRouteZeroXZ": [
+          [-56.1, 3],
+          [-55.5, 11],
+          [-50, 20],
+          [-40, 25],
+          [-20, 25],
+          [0, 25],
+          [24, 25]
+        ],
+        "blueRouteOneXZ": [
+          [24, 25],
+          [55.5, 25]
+        ],
+        "construction": "Blue route zero only: Catmull-Rom authored controls sampled to 31 points, then resampled to 40 equal-distance points. Other paths retain distinct construction/sampling semantics.",
+        "contacts": {
+          "activation": [-56.1, 3],
+          "field": [24, 25],
+          "arrival": [55.5, 25]
+        },
+        "roleScope": {
+          "redCameraPathXZ": "Camera look-at path, not one visible red trunk.",
+          "activationContact": "Camera/blue-route handoff coordinate; four visible red feeders have distinct contact points.",
+          "landingIdle": "Uses the same four activation feeder paths; only draw/retract ranges and local time differ.",
+          "localRouteFractions": "The implementation's 0.25/0.75 fractions are not source timing.",
+          "consumerAcceptance": "User accepted source coordinates; rendered consumer behavior and screen projection are reopened by the foundation audit."
+        }
+      }
+    },
+    {
+      "id": "desktop-pointer-trail",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-app-js-2026-07-28"],
+      "value": {
+        "createdWhen": "isMobileOrTablet is false",
+        "renderTargetSize": 256,
+        "fadeFactor": 0.947,
+        "splatRadius": 0.012,
+        "baseRadius": 0.002,
+        "velocityFactor": 0.0025,
+        "maxRadius": 0.033
+      }
+    },
+    {
+      "id": "scene-asset-selection",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-07-28",
+        "live-desktop-scene-glb-2026-07-28"
+      ],
+      "value": {
+        "desktopUrl": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+        "mobileUrlDeclaredInBundle": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans_mobile.glb",
+        "selectionPredicate": "iPhone, iPad, iPod, or a touch-capable Macintosh user agent",
+        "notSelectionPredicate": "the general isMobileOrTablet flag"
+      }
+    },
+    {
+      "id": "android-emulation-scene-request",
+      "evidenceClass": "observed",
+      "sourceRefs": [
+        "live-trace-mobile-390-2026-07-28",
+        "live-desktop-scene-glb-2026-07-28"
+      ],
+      "value": {
+        "profile": "live-mobile-390",
+        "requestedSceneUrl": "https://www.vectrfl.com/glb/nuclear_staffing_noHumans.glb",
+        "requestedMobileSceneUrl": false
+      }
+    },
+    {
+      "id": "reduced-motion-token-audit",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-trace-html-2026-07-28",
+        "live-css-2026-07-28",
+        "live-app-js-2026-07-28"
+      ],
+      "value": {
+        "prefersReducedMotionTokenPresent": false,
+        "scope": "the fetched current HTML, CSS, and app script only"
+      }
+    },
+    {
+      "id": "recording-css-viewport-profile",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "recording-landing-frame",
+        "live-trace-desktop-1440-2026-07-28",
+        "live-trace-desktop-1920-2026-07-28"
+      ],
+      "value": {
+        "isConsistent": true,
+        "candidateCssViewport": {
+          "width": 1508,
+          "height": 761
+        },
+        "candidateDevicePixelRatio": 2,
+        "exactRasterIdentity": {
+          "width": "1508 * 2 = 3016",
+          "height": "761 * 2 = 1522"
+        },
+        "liveDesktopLayoutModel": {
+          "titleBox": {
+            "css": [405.05, 128, 697.91, 172.78],
+            "predictedRecordingPixels": [810.09, 256, 1395.82, 345.56]
+          },
+          "subtitleBox": {
+            "css": [444, 348.78, 620, 86.39],
+            "predictedRecordingPixels": [888, 697.56, 1240, 172.78]
+          },
+          "logoSvgBox": {
+            "css": [707.5, 30.41, 93, 16],
+            "predictedRecordingPixels": [1415, 60.82, 186, 32]
+          },
+          "scrollCueBox": {
+            "css": [611.95, 673, 284.11, 40],
+            "predictedRecordingPixels": [1223.89, 1346, 568.22, 80]
+          }
+        },
+        "qualification": "Accepted capture profile: the 2× raster identity is exact and the projected live desktop layout cross-checks against the named landing frame. The MOV does not carry a dedicated CSS-viewport or DPR metadata field, so retain that provenance caveat even though the baseline classification is source-confirmed."
+      }
+    },
+    {
+      "id": "live-webgl-landmark-bounds",
+      "evidenceClass": "unknown",
+      "sourceRefs": [
+        "live-trace-desktop-1440-2026-07-28",
+        "live-trace-desktop-1920-2026-07-28",
+        "live-trace-mobile-390-2026-07-28"
+      ],
+      "value": {
+        "unmeasured": [
+          "building screen-space boxes",
+          "route and arrow screen-space paths",
+          "field contact point",
+          "people and vehicle screen-space boxes",
+          "negative-space silhouettes"
+        ]
+      }
+    },
+    {
+      "id": "physical-dom-scene-mapping",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-app-js-2026-09-15-phase7"],
+      "value": {
+        "H": "viewport height",
+        "R": "flow.offsetHeight - wrapper.offsetHeight",
+        "domProgress": "clamp((scrollY - 0.4H) / R, 0, 1)",
+        "sceneTarget": "max(0, scrollY / (0.4H + R * 400/356))",
+        "scope": "Audited source flow handler; preserve distinct domains and early scene movement."
+      }
+    },
+    {
+      "id": "idle-feeder-and-rendered-clock-ownership",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": ["live-app-js-2026-09-15-phase7"],
+      "value": {
+        "sourceSymbols": "Oa._createAllLines and Oa._createIdleRedLines iterate zr for red geometry.",
+        "redRadius": 0.075,
+        "blueRadius": 0.125,
+        "idleGeometry": "Same four activation feeders, not a separate landing network.",
+        "idleDepth": "Normal depth testing; mirror line duplicates also exist.",
+        "coupledEffects": "Source onRaf derives red/blue reveal, field composition/grid ratio and arrival ratio from damped cameraProgress.",
+        "targetException": "Landing idle spawning requires target progress zero.",
+        "gridClock": "Resets when gridRatio is zero; do not substitute the later 0.74 contact gate."
+      }
+    },
+    {
+      "id": "settled-landing-runtime-camera",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-09-15-phase7",
+        "live-desktop-scene-glb-2026-07-28"
+      ],
+      "value": {
+        "progress": 0,
+        "pointer": "neutral",
+        "position": [-80, 66, 15],
+        "target": [-50, 0.15, -35],
+        "verticalFovDegrees": 14.42629256144392,
+        "scope": "Settled live runtime formula, not the GLB's unmodified authored pose. Local model already matches these values at the recording aspect; screen mismatch does not by itself identify camera error."
+      }
+    },
+    {
+      "id": "static-field-independent-of-grid-activation",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-09-15-phase7",
+        "s0-live-profiles-2026-09-15",
+        "s0-live-frames-2026-09-15"
+      ],
+      "value": {
+        "staticGeometry": "Always present; no whole-field progress opacity gate.",
+        "pulseAndCenter": "Rendered progress maps 0.72–0.75; grid time resets at/below0.72, not0.74.",
+        "pulsePeriodSeconds": 3.535,
+        "repair": "Remove unsupported whole-field0.50–0.54 fade; preserve camera constraints and report any exposed geometry mismatch as visual debt.",
+        "details": "docs/hero-reference/repairs/s0/source/source-contract.md"
+      }
+    },
+    {
+      "id": "observed-source-render-resolution",
+      "evidenceClass": "observed",
+      "sourceRefs": ["s0-live-profiles-2026-09-15"],
+      "value": {
+        "deviceDpr": 2,
+        "recordingDesktop": {
+          "css": [1508, 761],
+          "backing": [2639, 1331]
+        },
+        "desktop": {
+          "css": [1440, 900],
+          "backing": [2520, 1575]
+        },
+        "androidTablet": {
+          "css": [1024, 768],
+          "backing": [1792, 1344]
+        },
+        "androidPhone": {
+          "css": [390, 844],
+          "backing": [585, 1266]
+        },
+        "iosEmulation": {
+          "css": [390, 844],
+          "backing": [487, 1055]
+        },
+        "consequence": "Audited localhost recording backing matches source. A09 requires predicate/capture-style repair, not automatic DPR increase."
+      }
+    },
+    {
+      "id": "independent-responsive-source-rules",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-09-15-phase7",
+        "live-renderer-js-2026-07-28",
+        "live-css-2026-07-28",
+        "s0-live-profiles-2026-09-15"
+      ],
+      "value": {
+        "flowSvh": {
+          "default": 456,
+          "widthAtMost820": 570
+        },
+        "dprCaps": {
+          "ios": 1.25,
+          "nonIosMobileTabletUaAndWidthBelow900": 1.5,
+          "default": 1.75
+        },
+        "details": "docs/hero-reference/repairs/s0/source/source-contract.md",
+        "scope": "Source UA/device, CSS, FOV and height-cache predicates are independent; do not collapse them into viewport or pointer class."
+      }
+    }
+  ],
+  "recordingMeasurementAmendment": {
+    "status": "source-only-amendment-reviewed",
+    "path": "docs/hero-reference/recording-measurement-amendments-v1.json",
+    "sha256": "db6a1faef49031c49d9440e2f928386a84b3701d638bc1e5e3bc7c78198b031b",
+    "reviewRef": "docs/hero-reference/repairs/s4/review.md",
+    "records": 12,
+    "numericLeaves": 42,
+    "scope": "Correct connected-component membership measurements from unchanged recording pixels. Original anchors and historical local captures stay immutable; accepted source coordinates and visual acceptance do not change.",
+    "activation": "Explicit comparator --source-measurement-overlay option; not silently applied to historical reports."
+  },
+  "foundationAudit": {
+    "date": "2026-09-15",
+    "artifact": "docs/hero-reference/foundation-audit-2026-09-15.md",
+    "scope": "Reinspection of matching current application/desktop-GLB bytes; no new full-profile browser probe.",
+    "s0Resolution": "Static-field and render-resolution uncertainties resolved by source shader semantics plus fresh profile/frame evidence; runtime repairs still require sprint acceptance."
+  }
+}

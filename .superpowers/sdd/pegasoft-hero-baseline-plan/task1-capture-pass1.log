@@ -1,0 +1,67 @@
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/pegasoft-e2e:hero-capture
+
+> playwright test --config=playwright.visual.config.ts
+
+(node:63014) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:63014) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:63039) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:63040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+First argument must use the object destructuring pattern: _fixtures
+
+[90m   at [39mhero-reference.visual.ts:456
+
+  454 | });
+  455 |
+> 456 | test.afterEach(async (_fixtures, testInfo) => {
+      |      ^
+  457 |   if (testInfo.status !== 'passed') {
+  458 |     const state = REFERENCE_STATES.find((key) => testInfo.title === `capture ${key} at the recording profile`);
+  459 |     if (state) await recordCaptureOutcome(captureRun, { state, status: 'failed', error: testInfo.errors.map((error) => error.message).join('\n') || String(testInfo.status) });
+
+Error: Capture failed; preserved manifest: /Users/whiskey/Work/site/apps/pegasoft-e2e/test-output/hero-reference/runs/87d31383-47c2-4fe2-9df7-23374b543082/capture-manifest.json (15 failures)
+
+[90m   at [39mhero-capture-global-teardown.ts:7
+
+   5 |   const manifest = await finalizeCaptureRun(context);
+   6 |   if (manifest.status !== 'complete') {
+>  7 |     throw new Error(
+     |           ^
+   8 |       `Capture failed; preserved manifest: ${context.outputRoot}/capture-manifest.json (${manifest.failures.length} failures)`,
+   9 |     );
+  10 |   }
+[2m    at captureGlobalTeardown (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-global-teardown.ts:7:11)[22m
+
+[1A[2KWarning: command "playwright test --config=playwright.visual.config.ts" exited with non-zero status code
+
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      2.0s
+  Cache:             0/2 hit (0%)
+  Critical path:     2.0s (3 tasks)
+  Recoverable time:  <1ms

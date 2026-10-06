@@ -22,6 +22,7 @@ export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
 
   return (
     <>
+      <ambientLight color={HERO_PALETTE.background} intensity={0.85} />
       <hemisphereLight
         color="#ffffff"
         groundColor={HERO_PALETTE.ground}
@@ -33,8 +34,8 @@ export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
         intensity={HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightIntensity}
         position={[...HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightPosition]}
         shadow-mapSize={[shadowMapSize, shadowMapSize]}
-        shadow-bias={-0.00025}
-        shadow-normalBias={0.025}
+        shadow-bias={-0.00018}
+        shadow-normalBias={0.018}
         shadow-camera-left={-92}
         shadow-camera-right={92}
         shadow-camera-top={92}
@@ -42,10 +43,16 @@ export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
         shadow-camera-near={1}
         shadow-camera-far={180}
       />
+      <pointLight
+        color={HERO_PALETTE.blueGlow}
+        intensity={mobile ? 0.45 : 0.7}
+        distance={42}
+        position={[-45, 18, -18]}
+      />
       <ContactShadows
-        position={[0, 0.012, 0]}
+        position={[-40, 0.012, 0]}
         scale={178}
-        opacity={mobile ? 0.16 : 0.22}
+        opacity={mobile ? 0.22 : 0.34}
         blur={mobile ? 2.2 : 3.2}
         far={88}
         resolution={mobile ? 512 : 1024}

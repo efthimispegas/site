@@ -1,0 +1,76 @@
+{
+  "reviewDate": "2026-10-02",
+  "packetSha256": "31cbc35965acb6dbb1a96d4716021a5e5099a0c57a46e593c922051f71bd3247",
+  "verdict": "Accept the bounded refinement as a conservative measurement veto. Semantic separation and contour-error qualification remain blocked; this packet cannot close Task 2.",
+  "implementationFindings": [],
+  "implementationAssessment": {
+    "redVeto": "Correctly examines excluded red-dominant neighbors of filled selected support, blocks measurement and quality, and preserves diagnostic pixels. Checking after interior fill avoids treating the enclosed red logo fixture as external contamination.",
+    "boundaryVeto": "Correctly blocks measurement when selected support reaches the unchanged ROI boundary. Outside-ROI predicate-positive neighbors are recorded as context without being selected or assigned a feed/shaft role.",
+    "preservation": "Original extractor prefix, classifier configurations, ROI/support gates and interior-fill logic are unchanged. All three diagnostic mask files are byte-identical to their prior counterparts. The four isolated test additions match the snapshot delta apart from boundary blank lines.",
+    "integration": "Candidate-only change; no active-comparison integration is established or approved."
+  },
+  "perState": [
+    {
+      "state": "activation-route",
+      "measurement": "observed",
+      "qualification": "blocked",
+      "support": 188869,
+      "changedSupportPixels": 0,
+      "finding": "Prior saved-raster building identification remains corroborated. Absence of red adjacency does not independently establish contour accuracy."
+    },
+    {
+      "state": "activation-contact",
+      "measurement": "blocked",
+      "qualification": "blocked",
+      "support": 171906,
+      "changedSupportPixels": 0,
+      "redAdjacentContourPixels": 103,
+      "finding": "The veto catches the previously identified rail fringe, including selected pixel (1438,634). The contaminated mask remains diagnostic; no clean contact silhouette has been produced."
+    },
+    {
+      "state": "arrival-lockup",
+      "measurement": "blocked",
+      "qualification": "blocked",
+      "support": 33392,
+      "changedSupportPixels": 0,
+      "roiBoundarySupportPixels": 29,
+      "externalContinuationPixels": 25,
+      "finding": "Clipped support and unresolved endpoint/shaft roles remain honestly blocked. Context witnesses do not establish the complete arrow contour."
+    }
+  ],
+  "qualificationFindings": [
+    {
+      "severity": "P2",
+      "title": "Veto detects ambiguity without separating subjects",
+      "file": "/Users/whiskey/Work/site/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-after.mjs",
+      "lines": [
+        1824,
+        1837
+      ],
+      "impact": "Red adjacency may also block legitimate physical contact. Boundary continuation establishes unresolved extent, not which pixels belong to the arrow. These policies are suitable rejection guards, not semantic classifiers."
+    },
+    {
+      "severity": "P2",
+      "title": "Contour uncertainty remains uncalibrated",
+      "file": "/Users/whiskey/Work/site/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-after.mjs",
+      "lines": [
+        1938,
+        1941
+      ],
+      "impact": "The unchanged four-unit RGB uncertainty count supplies neither independently labeled contour truth nor an accepted missed/extra-support error bound. Preserved contaminated masks cannot establish boundary accuracy."
+    }
+  ],
+  "verifiedEvidence": {
+    "manifestEntries": "41/41 hashes and sizes match using immutable before/after snapshots",
+    "uniqueResolvedFiles": 35,
+    "packetHash": "matches assigned hash",
+    "maskPreservation": "3/3 byte-identical to prior diagnostic masks",
+    "savedMeasurementLogs": "Red: 69/71 pass, two expected failures. Green: 71/71 pass.",
+    "savedTypecheckLog": "Both targets pass; 0/2 cache hits.",
+    "savedLintLog": "Zero errors, 39 warnings.",
+    "repeatability": "Two evaluation logs are byte-identical; evaluation code asserts unchanged configurations, masks and filled support. Reviewer did not rerun it.",
+    "whitespace": "Recorded exit code zero with pinned empty raw log.",
+    "reviewerExecution": "Read-only inspection and hashing; no edits, test execution, captures or delegation."
+  },
+  "remainingPrerequisite": "Provide independently labeled implementation-only contact-contaminant and arrival-endpoint challenges, a justified separation method, and calibrated contour-error bounds while preserving existing gates. Current capture provenance must be established separately before current comparison or acceptance. Source masks remain reference goals only."
+}

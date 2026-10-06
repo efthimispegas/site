@@ -1,0 +1,68 @@
+{
+  "attributes": {
+    "id": "outer",
+    "data-hero-render-ready": "true"
+  },
+  "canvasVisible": true,
+  "fontsReady": true,
+  "loaderCleared": false,
+  "lifecycleElapsedMs": null,
+  "record": {
+    "renderedAtMs": 41.4000000001397,
+    "frame": {
+      "frameId": 7,
+      "target": 0,
+      "rendered": {
+        "value": 0,
+        "velocity": 0
+      },
+      "fieldElapsedMs": 0
+    },
+    "appliedConsumers": {
+      "camera": {
+        "frameId": 7
+      },
+      "field": {
+        "frameId": 7
+      }
+    },
+    "canvas": {
+      "cssWidth": 240,
+      "cssHeight": 220,
+      "backingWidth": 240,
+      "backingHeight": 220
+    }
+  },
+  "presentation": {
+    "status": "observed",
+    "binding": {
+      "status": "bound-to-completed-frame",
+      "frameId": 7
+    },
+    "clipping": {
+      "status": "supported-rectangular",
+      "intersection": {
+        "x": 10,
+        "y": 10,
+        "width": 160,
+        "height": 140
+      },
+      "horizontalCropPlaneCssY": null,
+      "reasons": []
+    },
+    "opacity": {
+      "status": "observed-css-opacity-product",
+      "quantity": "ancestor-css-group-opacity-product",
+      "cssOpacityProduct": 0.4,
+      "sceneMaterialOpacity": null,
+      "reasons": []
+    },
+    "temporal": {
+      "status": "static-at-sample"
+    },
+    "timing": {
+      "sampleStartedAtMs": 43.200000000186265,
+      "sampleEndedAtMs": 43.700000000186265
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "status": "Immutable read-scope evidence; historical inputs, no new visual or native timing evidence",
+  "inputPins": [
+    {
+      "path": "docs/ledger/CURRENT.md",
+      "bytes": 9620,
+      "sha256": "9e84f2d0630e233bb790203b4fd491584185be102f86df640a5c6ff410e8f011"
+    },
+    {
+      "path": "docs/pegasoft-hero-baseline-plan.md",
+      "bytes": 69055,
+      "sha256": "30a43c2ae18f2be45039d36d377dfdc560f4eb5e1901e7fb4841a1dac28b0bd9"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json",
+      "bytes": 3068,
+      "sha256": "8e2a5dec0197d9a43ad383ff4048237ad43f1c5ba9cb578f487063fed96abec8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/checkpoint.json",
+      "bytes": 13992,
+      "sha256": "bf3128e5194bde644b748ca1a2862dd0418d2c44c8a7ce798416074e0f06e89a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-manifest.json",
+      "bytes": 1459,
+      "sha256": "9265c5524a255f58e35c3118fd499757d33ac9499998e1193c92645f6c2f1d78"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-checkpoint.json",
+      "bytes": 26157,
+      "sha256": "5a31f30d9b6f1aba0a242a60beb794acb7a3075052a28acaffc20ba9d765b26c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-manifest.json",
+      "bytes": 7510,
+      "sha256": "6fc111f48baa3a92d01aeeeaa7a8997911610cbbca730dfa9a976a10bab6ad3d"
+    },
+    {
+      "path": "docs/hero-reference/live/locked-reference-loader.css",
+      "bytes": 75910,
+      "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c"
+    }
+  ],
+  "baselineExcerpt": {
+    "path": "docs/pegasoft-hero-baseline-plan.md",
+    "firstLine": 266,
+    "lastLine": 357,
+    "text": "- Loader correspondence is implemented in `measurement-contract.mjs` and\n  `compare-captures.mjs`. `qualification-contract.json#loaderPhaseContracts`\n  requires independent source/local animation-onset evidence, age intervals\n  no wider than one recording frame, overlapping ages, and matching\n  run/state/recording/reference/local image pins. Missing correspondence blocks\n  structural qualification while retaining numerical failures as diagnostics.\n- Local age must now include the captured native `currentTime` of exactly one\n  reviewer-identified CSS animation (`implementation.animationId`); absent,\n  duplicate, transition-only or conflicting readings block qualification.\n  Three regressions were observed RED\u2192GREEN; measurement suite **57/57**.\n  Current saved native animation IDs 0/1 read **2016.666ms** at loader-mark\n  and **3500ms** at world-reveal; they have no retained target/name binding.\n- Named telemetry checkpoint: native CSS animation names/transition properties,\n  target identity/unique capture-time selectors, pseudo-elements and JSON-safe\n  authored timing are implemented. Comparison requires matching native name/target\n  and reviewed equivalent source/local effect roles. **6/6** clock fixtures,\n  **59/59** measurement contracts, **28/28** capture contracts, both typechecks\n  and lint pass (**0 errors/39 warnings**); five regression cases observed RED\u2192GREEN.\n  The [source-onset evidence contract](../.superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json)\n  remains unfilled, with source ages null. This implements evidence collection,\n  not source-onset or visual qualification.\n- Retained-recording rotation probe: **52** thresholded cube observations across\n  **18** frames yield conditional onset estimates spanning **106.93ms**, versus\n  the **16.67ms** gate. This sensitivity range is not a certified uncertainty\n  bound: authored cube geometry, effect identity, raster error and recording/CSS\n  equivalence remain unproven. **3/3** input hashes and **52/52** row hashes\n  verify; **43** decoded center crops and reproducible analysis are retained in\n  [the probe checkpoint](../.superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/checkpoint.json).\n  No onset contract or capture offset was populated. Next pin recording-matched\n  effect geometry and validate estimator error before independent qualification.\n  No new reference capture or runtime edit; Task 2 remains blocked.\n- Authored geometry checkpoint: retrieved HTML **25201 bytes** exactly matches\n  the locked audit hash. Its SVG pins `cube_01`'s axis-aligned path, zero-delay\n  fade/slide and parent `logo-rotate`. A recorded assembled-logo frame measures\n  center offset **4.5\u20135px right / 6px down** from the crop center; using that\n  diagnostic placement leaves **0.48\u20137.93px** positional residual across **48**\n  conditional rows. **6/6** artifact hashes and reproducible analyses verify;\n  [geometry manifest](../.superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-manifest.json)\n  pins source bytes, SVG, frame and methods. HTML hash equality establishes the\n  audited source version, not the recording's native computed style or timing.\n  Next validate a conservative raster estimator error bound. No new visual\n  capture batch, runtime edit or phase qualification.\n- Geometry-based raster estimator checkpoint: **18/18** independent forward-rendered\n  synthetic poses recover within the stated **0.25\u00b0 / 0.25px** validation\n  tolerances; **16/16** recording frame hashes match. Recorded conditional\n  onset estimates span **19.33ms**, exceeding **16.67ms** before any error\n  allowance. Maximum normalized recording residual **0.253** exceeds the tested\n  synthetic envelope **0.067**. Both qualification checks **fail**; synthetic\n  recovery supplies no conservative recorded-codec error bound. The\n  [estimator manifest](../.superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-manifest.json)\n  retains algorithms, synthetic truths, per-frame fits and residual previews.\n  Background onset, threshold moments and direct geometry fitting are three\n  insufficient source-onset approaches; stop retries on this evidence per the\n  three-pass rule. No onset contract, capture offset or acceptance was assigned.\n- Telemetry changes the capture input tree. Current comparison correctly rejects\n  the saved anonymous packet before metrics; its report below is historical for\n  its recorded inputs. Original clock source/tests are retained and match the\n  captured hashes. Checks, failure logs and source-resolution pins:\n  `repair-sprint-ledger.json#recoveryTask2.namedTelemetryCheckpoint`. No new\n  reference capture or runtime geometry/surface edit ran in this batch.\n- Authorized 2026-10-01 packet `4cbfe8c6-b763-444d-a84b-2d5301969fd6`\n  captures **15/15**, passes **62/62** manifest artifact bytes/hash checks and\n  **15/15** strict provenance. Full tracked diff bytes and the preflight identity\n  are retained; all state pins match both preflight and current WIP. The old\n  packet and its tracked-diff mismatch remain historical, with no backfilled pins.\n  Records: `repair-sprint-ledger.json#recoveryTask2`.\n- [Retained pre-instrumentation comparison](../apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json)\n  exits **1**: structural **8 fail/7 blocked**, raster diagnostic **15 fail**,\n  DOM **10 pass/3 fail/2 N/A**. Nx measurement **57/57** and both capture\n  typechecks pass (app typecheck cache hit). The sandbox server-start failure\n  is retained; the permitted capture passed. No geometry/surface edit or visual acceptance.\n- Source-only extraction from the existing MOV places the visible page-to-loader\n  presentation change between decoded frames 56/57 (PTS 5800/5900, time base\n  1/6000; 0.966667\u20130.983333s). Full-resolution frames, timestamp metadata and\n  hashes are retained in `repair-sprint-ledger.json#recoveryTask2.sourceOnsetCandidate`.\n  The [independent loader review](../.superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-independent-review.json)\n  verifies the packet plus **20 linked hashes**, **4/4** byte-identical recording\n  frame re-decodes and **2/2** clock agreements. All three qualification questions\n  are **blocked**: these frames establish background presentation only, not\n  effect-specific animation onset; anonymous native IDs cannot establish semantic\n  correspondence, and equivalent source/local age overlap is unproven. Do not\n  populate phase contracts or guess capture offsets. Review and packet hashes\n  are pinned in `repair-sprint-ledger.json#recoveryTask2.loaderQualificationReview`.\n- Ruling: use animation-onset age, never infer navigation age from MOV seek.\n  The recording begins on a settled page before reload; CSS and a two-second\n  seek cannot prove source age. No guessed .8s offset or identity mask for arc\n  differences. Cost: loader metrics remain unqualified until onset evidence exists.\n- [Locked loader CSS](./hero-reference/live/locked-reference-loader.css), SHA256\n  `cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c`,\n  confirms 1.5s logo rotation, staged cube/arrow assembly and ellipse erasure\n  absent from current local CSS. Qualify timing before comparing these effects.\n- Activation/arrival landmark support audit reproduces **3/3** historical"
+  },
+  "cssRulesExamined": [
+    "#loader .loader__logo{color:var(--color-highlight);z-index:1;width:clamp(80px,min((100vw - 120px) * .064,(100vh - 60px) * .12),96px);height:clamp(80px,min((100vw - 120px) * .064,(100vh - 60px) * .12),96px);animation:logo-rotate 1.5s ease-out forwards}",
+    "#loader .loader__logo .arrow-mask-line{stroke-dasharray:60;stroke-dashoffset:60;animation:draw-line .5s ease-out both .8s}",
+    "#loader .loader__logo [id^=cube_]{animation:cube-fade .4s ease both,cube-slide .4s ease-out both}",
+    "#loader .loader__logo #cube_01{--cube-tx: 0px;--cube-ty: -20px;animation-delay:0s}",
+    "#loader .loader__logo #cube_02{--cube-tx: 14px;--cube-ty: -14px;animation-delay:.08s}",
+    "#loader .loader__logo #cube_03{--cube-tx: 20px;--cube-ty: 0px;animation-delay:.16s}",
+    "#loader .loader__logo #cube_04{--cube-tx: 14px;--cube-ty: 14px;animation-delay:.24s}",
+    "#loader .loader__logo #cube_05{--cube-tx: 0px;--cube-ty: 20px;animation-delay:.32s}",
+    "#loader .loader__logo #cube_06{--cube-tx: -14px;--cube-ty: 14px;animation-delay:.4s}",
+    "#loader .loader__logo #cube_07{--cube-tx: -20px;--cube-ty: 0px;animation-delay:.48s}",
+    "#loader .loader__logo #cube_08{--cube-tx: -14px;--cube-ty: -14px;animation-delay:.56s}",
+    "#loader .loader__logo{width:48px;height:48px}",
+    "@keyframes dash-move{to{stroke-dashoffset:-24}}",
+    "@keyframes dash-move-reverse{to{stroke-dashoffset:48}}",
+    "@keyframes draw-line{to{stroke-dashoffset:0}}",
+    "@keyframes logo-rotate{0%{transform:rotate(-60deg)}to{transform:rotate(0)}}",
+    "@keyframes cube-fade{0%{opacity:0}to{opacity:1}}",
+    "@keyframes cube-slide{0%{transform:translate(var(--cube-tx),var(--cube-ty))}to{transform:translate(0)}}",
+    "#loader .loader__ellipse{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);overflow:visible}",
+    "#loader .loader__ellipse ellipse{fill:none;stroke:#585765;stroke-width:1;stroke-dasharray:2 4;animation:dash-move 4s linear infinite}",
+    "#loader .loader__ellipse--outer{width:1500px;max-width:calc(100vw - 120px);aspect-ratio:1500/800;max-height:calc(100vh - 60px)}",
+    "#loader .loader__ellipse--outer ellipse{stroke-dashoffset:24}",
+    "#loader .loader__ellipse--inner{width:800px;aspect-ratio:1;max-width:min(100vh - 60px,(100vw - 120px) * 8 / 15)}",
+    "#loader .loader__ellipse .loader__draw{stroke-dasharray:3700;stroke-dashoffset:3700;animation:draw-line 2s ease-out forwards}",
+    "#loader .loader__ellipse .loader__draw--inner{stroke-dasharray:2520;stroke-dashoffset:2520;animation:draw-line 1.8s ease-out forwards .2s}",
+    "#loader .loader__ellipse--outer{width:330px;height:176px;max-width:none;max-height:none;aspect-ratio:auto}",
+    "#loader .loader__ellipse--inner{width:176px;height:176px;max-width:none;aspect-ratio:auto}"
+  ],
+  "readLimits": [
+    "No raw MOV decode, fit rerun, crop analysis or capture",
+    "Only named evidence summaries and locked loader rules used",
+    "User supplied original-session trace availability: NONE; no log search performed"
+  ],
+  "knownMethods": {
+    "backgroundPresentation": "Not an effect-specific onset",
+    "thresholdMomentsConditionalSpreadMs": 106.93094472034386,
+    "rasterFitSummary": {
+      "syntheticCases": 18,
+      "maxSyntheticAngleErrorDegrees": 0.054999999999999716,
+      "maxSyntheticCenterErrorPixels": 0.03716517186829616,
+      "maxSyntheticRmsResidual": 0.007302770358921097,
+      "maxSyntheticAbsResidual": 0.06684438855189279,
+      "recordingFrames": 16,
+      "conditionalOnsetRangeMs": [
+        973.1940991065859,
+        992.5266455779267
+      ],
+      "conditionalOnsetSpreadMs": 19.332546471340834,
+      "maxRecordingRmsResidual": 0.026472215227509643,
+      "maxRecordingAbsResidual": 0.2529107072680399
+    }
+  }
+}

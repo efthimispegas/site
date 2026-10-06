@@ -1,0 +1,25 @@
+
+ NX   Running targets typecheck, lint, test for 2 projects:
+
+- @site/pegasoft
+- @site/pegasoft-e2e
+
+
+✔  nx run @site/pegasoft:lint  [existing outputs match the cache, left as is]
+✔  nx run @site/pegasoft-e2e:lint  [existing outputs match the cache, left as is]
+✔  nx run @site/pegasoft:test
+✔  nx run @site/pegasoft:typecheck
+✔  nx run @site/pegasoft-e2e:typecheck  [local cache]
+
+
+
+ NX   Successfully ran targets typecheck, lint, test for 2 projects
+
+Nx read the output from the cache instead of running the command for 3 out of 5 tasks.
+
+Output of 5 successful tasks were not shown. Run with --verbose or --output-style=static to see it.
+
+  Run duration:      1.4s
+  Cache:             3/5 hit (60%)
+  Critical path:     1.4s (2 tasks)
+  Recoverable time:  <1ms

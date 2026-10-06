@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-03",
+  "status": "partial witness-label packet; contour identifiability and error calibration blocked",
+  "inputs": [
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-contact.png",
+      "bytes": 388415,
+      "sha256": "1d2135173ddc983a14d4ddc2e78a7a06f302d909eab24b394b3fc9961c0961fa"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/prepare-raw-crops.mjs",
+      "bytes": 2448,
+      "sha256": "a852af3b1ea74888fd8bbddbeb52171fbda6e93d197201ff1dc41caf759065b1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/package-labels.mjs",
+      "bytes": 4874,
+      "sha256": "97f5c3f2dec753c4e993d7c5bcc486a84c3b3c80a9485ab55611f3095bc74cb9"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/raw-inputs.json",
+      "bytes": 3351,
+      "sha256": "dfc125c337fe5bccd4f2c6aed3e70d203e57c02b2c10562c63381390f9bfec71"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/labels.json",
+      "bytes": 22616,
+      "sha256": "4612695f9ad152bd7399fffa696eb6dbea7981229a806296b83ceae67d1ab0ca"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/method-error-limits.json",
+      "bytes": 3699,
+      "sha256": "b1e1e0faeeec7c34eb78628324d06d0d53b534f5519a4f3652888d619924a543"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/raw-pixel-probes.json",
+      "bytes": 14895,
+      "sha256": "6f0e9af764ee1421555c47fa0b76a2a59c436c181b3c6550f5a43870d150e269"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/verification.json",
+      "bytes": 289,
+      "sha256": "f3442adbaa99aaa2ec51f7ccc6de6a02249204ee5c50765922429fcb7936185e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/contact-rail-junction.png",
+      "bytes": 14493,
+      "sha256": "be91c4ec5800fe7cc4e6845621d11b5d5288825c1478c1721bb33dea0c0a96de"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/contact-subject.png",
+      "bytes": 72378,
+      "sha256": "57fb903e8ea2190c2fb9a654832512c7e45298f9010f455f9e4916e03c3bbd6b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/arrival-feed-shaft-junction.png",
+      "bytes": 10819,
+      "sha256": "3c837a05d4fe50594bfb9efba2e1a98ddf1fe46d18dc3edf72c201cadb61caf3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/arrival-subject.png",
+      "bytes": 47185,
+      "sha256": "ded2b9fd990d471a99e95d9c93fb31ce7e1c7db4e2f31f905cc2513865151d5c"
+    }
+  ],
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/package-labels.mjs --verify",
+  "firstExposureBlinded": false,
+  "semanticSelfReview": false
+}

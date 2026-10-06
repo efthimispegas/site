@@ -28,7 +28,9 @@
       "parallelism": false,
       "dependsOn": [
         {
-          "projects": ["@site/pegasoft"],
+          "projects": [
+            "@site/pegasoft"
+          ],
           "target": "build-s7-diagnostics"
         }
       ],
@@ -60,7 +62,9 @@
       "parallelism": false,
       "dependsOn": [
         {
-          "projects": ["@site/pegasoft"],
+          "projects": [
+            "@site/pegasoft"
+          ],
           "target": "build-s7-diagnostics"
         }
       ],
@@ -137,7 +141,9 @@
       "dependsOn": [
         "typecheck",
         {
-          "projects": ["@site/pegasoft"],
+          "projects": [
+            "@site/pegasoft"
+          ],
           "target": "typecheck"
         }
       ],
@@ -149,10 +155,25 @@
     "hero-compare": {
       "executor": "nx:run-commands",
       "cache": false,
-      "dependsOn": ["hero-capture"],
       "options": {
         "cwd": ".",
         "command": "node tools/hero-reference/compare-captures.mjs"
+      }
+    },
+    "hero-capture-contract-test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.capture-contract.config.ts"
+      }
+    },
+    "hero-capture-clock-test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.capture-clock.config.ts"
       }
     }
   }

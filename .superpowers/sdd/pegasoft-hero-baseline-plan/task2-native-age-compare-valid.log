@@ -1,0 +1,29 @@
+
+> nx run @site/pegasoft-e2e:hero-compare --args=--capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4c1c48b5-98a6-4a61-9ecf-02a503e7f27f --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json
+
+> node tools/hero-reference/compare-captures.mjs --capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4c1c48b5-98a6-4a61-9ecf-02a503e7f27f --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json
+
+(node:2983) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+file:///Users/whiskey/Work/site/tools/hero-reference/compare-captures.mjs:847
+if (provenance.status !== 'pass') throw new Error(`Capture provenance blocked: ${JSON.stringify(provenanceResults)}`);
+                                        ^
+
+Error: Capture provenance blocked: [{"stateId":"loader-mark","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"world-reveal","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"landing","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"landing-idle","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"activation-route","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"activation-contact","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"clearance-travel","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"clearance-field-preview","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"field-approach","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"field-contact","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"field-pulse-a","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"field-pulse-b","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"arrival-travel","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"arrival-lockup","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]},{"stateId":"journey-exit","status":"fail","failures":["trackedDiffSha256 does not match the trusted capture input"],"blockers":[]}]
+    at [90mfile:///Users/whiskey/Work/site/[39mtools/hero-reference/compare-captures.mjs:847:41
+
+Node.js v24.19.0
+Warning: command "node tools/hero-reference/compare-captures.mjs --capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4c1c48b5-98a6-4a61-9ecf-02a503e7f27f --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json" exited with non-zero status code
+
+
+ NX   Running target hero-compare for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-compare
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      195ms
+  Critical path:     189ms (1 task)
+  Recoverable time:  <1ms

@@ -1,0 +1,138 @@
+
+> nx run @site/pegasoft-e2e:hero-measurement-test
+
+> node --test tools/hero-reference/measurement-contract.test.mjs
+
+(node:7584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7585) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ a claimed local loader age must contain the captured native animation time [90m(0.8155ms)[39m[39m
+[32m✔ claimed native name and target must match the captured effect binding [90m(0.276334ms)[39m[39m
+[32m✔ source and local ages of different semantic effects cannot qualify a match [90m(0.115625ms)[39m[39m
+[32m✔ local loader phase requires an independently identified captured animation [90m(0.0805ms)[39m[39m
+[32m✔ missing or ambiguous native clock readings cannot qualify local loader age [90m(0.071667ms)[39m[39m
+[32m✔ loader recording seek alone cannot qualify animation phase [90m(0.045834ms)[39m[39m
+[32m✔ independently pinned overlapping loader ages qualify correspondence [90m(0.040125ms)[39m[39m
+[32m✔ unknown, stale, self-reviewed or imprecise loader phase stays blocked [90m(0.096375ms)[39m[39m
+[32m✔ different loader ages block graphics comparison without becoming a geometry failure [90m(0.045417ms)[39m[39m
+[32m✔ complete coherent fifteen-state packet passes independent pins [90m(0.997542ms)[39m[39m
+[32m✔ mixed measurement or outcome run IDs block the packet [90m(0.266ms)[39m[39m
+[32m✔ missing or duplicate states block comparison despite a complete label [90m(0.328583ms)[39m[39m
+[32m✔ wrong viewport or self-consistent wrong backing dimensions block correspondence [90m(0.242583ms)[39m[39m
+[32m✔ stale input hashes or build IDs block a otherwise complete packet [90m(0.522584ms)[39m[39m
+[32m✔ pulse DOM labels cannot replace the actual applied pulse clock [90m(0.168292ms)[39m[39m
+[32m✔ stale consumer or CSS animation clocks block the packet [90m(0.202917ms)[39m[39m
+[32m✔ lawful rendered field history establishes applied pulse age regardless of DOM label [90m(0.194792ms)[39m[39m
+[32m✔ physical measurement sequence and effect age cannot be substituted [90m(0.098208ms)[39m[39m
+[32m✔ screenshot brackets must retain the observed frame and CSS clock [90m(0.200625ms)[39m[39m
+[32m✔ identity exclusions permit agreed copy and glyph differences only [90m(0.052625ms)[39m[39m
+[32m✔ comparison requires an explicit capture selection and rejects conflicting selections [90m(0.2255ms)[39m[39m
+[32m✔ positive actual color selection and unchanged core/glow pass [90m(2.146958ms)[39m[39m
+[32m✔ missing route is blocked, never not-applicable/pass [90m(0.461292ms)[39m[39m
+[32m✔ moved route is a failure [90m(0.636375ms)[39m[39m
+[32m✔ route moved wholly outside ROI is blocked [90m(0.231375ms)[39m[39m
+[32m✔ core width changes fail [90m(0.65325ms)[39m[39m
+[32m✔ glow-only change cannot hide behind unchanged core support [90m(0.9305ms)[39m[39m
+[32m✔ narrowed core with compensating larger glow fails appearance [90m(0.523708ms)[39m[39m
+[32m✔ bright neutral tile/recolored route cannot be accepted by white-cyan support [90m(1.558959ms)[39m[39m
+[32m✔ contact/pulse overlap blocks ambiguous aggregate width [90m(0.639417ms)[39m[39m
+[32m✔ clipped subject cannot be qualified even when a narrow ROI keeps its centroid [90m(0.48825ms)[39m[39m
+[32m✔ component bounding box does not reintroduce rejected disconnected pixels [90m(1.0885ms)[39m[39m
+[32m✔ visible glyph positive control passes, overflow and wrap fail [90m(0.176917ms)[39m[39m
+[32m✔ approved identity differences remain diagnostic; all mandatory gates remain independent [90m(0.130708ms)[39m[39m
+[32m✔ complete provenance with independently supplied bytes and expected pins passes [90m(0.703208ms)[39m[39m
+[32m✔ stale or mixed runId is rejected against independent pins [90m(0.113667ms)[39m[39m
+[32m✔ stale or mixed gitRevision is rejected against independent pins [90m(0.098ms)[39m[39m
+[32m✔ stale or mixed trackedDiffSha256 is rejected against independent pins [90m(0.105333ms)[39m[39m
+[32m✔ stale or mixed bundleSha256 is rejected against independent pins [90m(0.103167ms)[39m[39m
+[32m✔ stale or mixed recordingSha256 is rejected against independent pins [90m(0.067625ms)[39m[39m
+[32m✔ stale or mixed captureLabel is rejected against independent pins [90m(0.0575ms)[39m[39m
+[32m✔ missing expected authority cannot validate a self-consistent capture [90m(0.057584ms)[39m[39m
+[32m✔ wrong bytes and missing artifact hash fail [90m(0.117417ms)[39m[39m
+[32m✔ duplicate/escaping paths and mixed frame/profile artifact fail [90m(0.156208ms)[39m[39m
+[32m✔ stale applied frame, missing readiness or consumer acknowledgment block [90m(0.094875ms)[39m[39m
+[32m✔ legacy capture stays historical/blocked, not silently qualified [90m(0.023833ms)[39m[39m
+[32m✔ actual source evidence resolver reads sources and rejects conflicting bundle pins [90m(6.296625ms)[39m[39m
+[32m✔ unrelated current-frame artifact cannot replace compared PNG or measurement inputs [90m(0.156625ms)[39m[39m
+[32m✔ independent text coverage cannot omit CTA or bless a changed expected line count [90m(0.091542ms)[39m[39m
+[32m✔ self-consistent wrong backing/device dimensions fail independent profile pins [90m(0.0565ms)[39m[39m
+[32m✔ untracked source bytes cannot be omitted or modified [90m(0.153125ms)[39m[39m
+[32m✔ rendering assets and fonts are capture inputs, not just source code [90m(0.493458ms)[39m[39m
+[32m✔ missing route/contact clock payload and mismatched measurement sequence block [90m(0.101292ms)[39m[39m
+[32m✔ supplemental review is explicit and bound; absent or stale review cannot produce final acceptance [90m(0.09825ms)[39m[39m
+[32m✔ production comparator consumes shared gates and keeps diagnostic raster out of CLI exit gate [90m(0.853667ms)[39m[39m
+[32m✔ actual report assembly passes positive pixel/text/provenance controls and rejects core/glow corruption [90m(1.351292ms)[39m[39m
+[32m✔ reviewed source overlay updates only effective measurement, preserving historical manifest [90m(0.342917ms)[39m[39m
+[32m✔ source overlay rejects hash/approval/state/before-value tampering [90m(0.272333ms)[39m[39m
+[32m✔ source overlay rejects local/camera/control coordinates and conflicting duplicates [90m(0.322042ms)[39m[39m
+[32m✔ background-separated landmark rejects every saved pale-background sample [90m(5.7765ms)[39m[39m
+[32m✔ background separation retains complete neutral support without a source mask [90m(2.677292ms)[39m[39m
+[32m✔ several eligible neutral subjects cannot silently assign a landmark role [90m(1.949083ms)[39m[39m
+[32m✔ boundary-reaching foreground remains blocked after background removal [90m(2.67175ms)[39m[39m
+[32m✔ unestablished background cannot be replaced with the foreground color [90m(0.499208ms)[39m[39m
+[32m✔ adjacent background color bins do not invent missing border evidence [90m(1.8295ms)[39m[39m
+[32m✔ candidate filled silhouette includes enclosed logo/window holes [90m(1.810625ms)[39m[39m
+[32m✔ candidate hole fill never closes an exterior concave opening [90m(2.018292ms)[39m[39m
+[32m✔ candidate rejects contour-connected red ambiguity while preserving diagnostic building support [90m(1.848625ms)[39m[39m
+[32m✔ candidate does not treat detached red support as contour-connected ambiguity [90m(1.84425ms)[39m[39m
+[32m✔ candidate ambiguity handling preserves an enclosed red logo interior [90m(1.25075ms)[39m[39m
+[32m✔ candidate blocks clipped endpoint separation while retaining shaft support [90m(2.180792ms)[39m[39m
+[32m✔ beam profile retains raw white-core samples independently of hue [90m(0.843417ms)[39m[39m
+[32m✔ beam profile rejects a flat cyan-tinted background [90m(0.288167ms)[39m[39m
+[32m✔ beam profile blocks contaminated sidebands while retaining raw samples [90m(0.422209ms)[39m[39m
+[32m✔ beam profile blocks unavailable sidebands instead of clipping [90m(0.165375ms)[39m[39m
+[32m✔ beam profile blocks competing bright peaks [90m(0.182125ms)[39m[39m
+[32m✔ beam profile exposes separate declared threshold envelopes [90m(0.211875ms)[39m[39m
+[32m✔ exit diagnostic exposes weak row scores without relaxing contrast or dominance [90m(0.846792ms)[39m[39m
+[32m✔ exit diagnostic retains observed boundary while qualification stays blocked [90m(0.240625ms)[39m[39m
+[32m✔ exit diagnostic never infers crop or opacity from requested labels [90m(0.1715ms)[39m[39m
+[32m✔ exit diagnostic rejects stale applied crop and opacity readback [90m(0.205875ms)[39m[39m
+[32m✔ exit diagnostic preserves explicit same-frame applied zero opacity [90m(0.162792ms)[39m[39m
+[31m✖ beam sideband uncertainty includes raw strip pixels rather than median alone [90m(0.707333ms)[39m[39m
+[34mℹ tests 83[39m
+[34mℹ suites 0[39m
+[34mℹ pass 82[39m
+[34mℹ fail 1[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 104.371709[39m
+
+[31m✖ failing tests:[39m
+
+test at tools/hero-reference/measurement-contract.test.mjs:1209:1
+[31m✖ beam sideband uncertainty includes raw strip pixels rather than median alone [90m(0.707333ms)[39m[39m
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  [32mactual[39m [31mexpected[39m
+  
+  [39m'[39m[32mo[39m[39mb[39m[32ms[39m[32me[39m[32mr[39m[32mv[39m[32me[39m[32md[39m[32m-[39m[32md[39m[32mi[39m[32ma[39m[32mg[39m[32mn[39m[31ml[39m[39mo[39m[32ms[39m[32mt[39m[32mi[39m[39mc[39m[31mk[39m[31me[39m[31md[39m[39m'[39m
+  
+      at TestContext.<anonymous> [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/measurement-contract.test.mjs:1213:10[90m)[39m
+  [90m    at Test.runInAsyncScope (node:async_hooks:227:14)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1382:25)[39m
+  [90m    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)[39m
+  [90m    at Test.postRun (node:internal/test_runner/test:1522:19)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1447:12)[39m
+  [90m    at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)[39m {
+    generatedMessage: [33mtrue[39m,
+    code: [32m'ERR_ASSERTION'[39m,
+    actual: [32m'observed-diagnostic'[39m,
+    expected: [32m'blocked'[39m,
+    operator: [32m'strictEqual'[39m,
+    diff: [32m'simple'[39m
+  }
+Warning: command "node --test tools/hero-reference/measurement-contract.test.mjs" exited with non-zero status code
+
+
+ NX   Running target hero-measurement-test for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-measurement-test
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      143ms
+  Critical path:     137ms (1 task)
+  Recoverable time:  <1ms

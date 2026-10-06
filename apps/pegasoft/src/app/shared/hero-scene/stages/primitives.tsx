@@ -159,6 +159,34 @@ export function CampusHub({
         size={[1.75, 3.5, 3.1]}
         roof="slab"
       />
+      <RoundedBox
+        args={[2.75, 0.3, 2.2]}
+        position={[0, 5.16, 0]}
+        radius={0.12}
+        smoothness={3}
+        castShadow
+      >
+        <meshStandardMaterial
+          color={roofColor}
+          roughness={HERO_SURFACES.topRoughness}
+        />
+      </RoundedBox>
+      {[-1, 1].flatMap((side) =>
+        [0, 1, 2].flatMap((floor) =>
+          [-1, 1].map((column) => (
+            <mesh
+              key={`${side}-${floor}-${column}`}
+              position={[side * 2.45 + column * 0.35, 0.92 + floor * 0.85, 1.67]}
+            >
+              <boxGeometry args={[0.2, 0.34, 0.045]} />
+              <meshStandardMaterial
+                color={HERO_PALETTE.ground}
+                roughness={HERO_SURFACES.structureRoughness}
+              />
+            </mesh>
+          )),
+        ),
+      )}
       <mesh position={[0, 0.5, 1.47]} castShadow>
         <boxGeometry args={[1.35, 1, 0.16]} />
         <meshStandardMaterial

@@ -1,0 +1,18 @@
+{
+  "reviewer": "/root/task2_beam_correspondence",
+  "independentOfProducer": true,
+  "verdict": "PASS_NO_PROCEED_ON_RETAINED_EVIDENCE",
+  "findings": [],
+  "checks": {
+    "manifestSha256": "2421a613e06fc6421a1040dd263e8aee78f67c05e511f0455bc07d11c3260dbf",
+    "feasibilitySha256": "e98d4a89b4933198e6da586473edbaa5e6154f4398ea88f695f3d3227bf9be82",
+    "linkedPinsVerified": 10,
+    "edits": 0,
+    "fitsOrCaptures": 0
+  },
+  "reason": "Ordinal events are conceptually distinct from pose inversion, but retained evidence supplies no certified visibility latency, common native start, original-effect binding or recording error family. Authored 80ms staggering does not establish a <=100-PTS onset interval.",
+  "limits": "106.93ms sensitivity and 19.33ms conditional spread remain diagnostics, not complete uncertainty bounds. NO_PROCEED is evidence-specific, not universal impossibility. Unbounded latency means uncertified by this evidence, not necessarily physically infinite.",
+  "minimumInput": "Original effect-specific native timing correlated to PTS within 100 ticks; alternatively independently validated original-effect equivalence and conservative observation/timing bounds covering every semantic/alias branch. User confirms the original-session trace is unavailable.",
+  "authorityChange": "A synchronized replacement reference requires explicit authorization, changes reference authority and cannot retrospectively qualify this MOV.",
+  "qualification": "BLOCKED; both loader contracts remain unfilled"
+}

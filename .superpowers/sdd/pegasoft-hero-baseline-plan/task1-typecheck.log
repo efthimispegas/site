@@ -1,0 +1,29 @@
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+src/visual/hero-reference.visual.ts(2,1): error TS6133: 'createHash' is declared but its value is never read.
+src/visual/hero-reference.visual.ts(3,10): error TS6133: 'readFile' is declared but its value is never read.
+Warning: command "tsc --build tsconfig.json --emitDeclarationOnly" exited with non-zero status code
+
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:typecheck
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      1.9s
+  Cache:             0/1 hit (0%)
+  Critical path:     1.9s (2 tasks)
+  Recoverable time:  <1ms

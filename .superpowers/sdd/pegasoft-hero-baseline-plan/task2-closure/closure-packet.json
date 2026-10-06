@@ -1,0 +1,129 @@
+{
+  "date": "2026-10-02",
+  "task": 2,
+  "status": "blocked",
+  "complete": false,
+  "implementation": {
+    "landmark": "complete; independently accepted bounded veto only",
+    "profiles": "complete-inactive",
+    "profilesIndependentQualification": "not granted"
+  },
+  "gates": [
+    {
+      "gate": "reference/local loader age correspondence",
+      "status": "blocked",
+      "missing": "Effect-specific source onset within one recording frame, equivalent effect role and named current local capture binding. Searched saved logs do not supply recording-session telemetry."
+    },
+    {
+      "gate": "semantic silhouettes and contour-error accuracy",
+      "status": "blocked",
+      "missing": "Provide independently labeled implementation-only contact-contaminant and arrival-endpoint challenges, a justified separation method, and calibrated contour-error bounds while preserving existing gates. Current capture provenance must be established separately before current comparison or acceptance. Source masks remain reference goals only."
+    },
+    {
+      "gate": "equivalent core and independently calibrated halo",
+      "status": "blocked",
+      "missing": [
+        "No accepted same-quantity core definition or calibrated core-edge error envelope across source bloom and local additive surfaces.",
+        "No accepted halo visibility threshold; source residual falloff spans vary by 42-43 CSS px across the tested thresholds.",
+        "No full-route independently reviewed negative/background, branch/contact, clipping and pulse contamination validation.",
+        "Historical images cannot establish current acquisition provenance, source/local timing equivalence, current comparison qualification or personal visual acceptance."
+      ]
+    },
+    {
+      "gate": "exit boundary correspondence",
+      "status": "blocked",
+      "missing": [
+        "Local boundary classifier fails unchanged contrast/dominance requirements; no qualified local boundary bounds.",
+        "Rendered arrow crop and color strength differ despite matching exit labels and DOM envelope.",
+        "One flattened frame cannot establish continuous retreat/opacity or forward/reverse handoff.",
+        "Historical evidence cannot qualify current capture provenance or visual acceptance."
+      ]
+    },
+    {
+      "gate": "current matching-input capture and ordered qualified comparison",
+      "status": "blocked",
+      "missing": "The latest selected 15-state packet is historical after input changes; no new matching packet with all qualified measurement contracts has been established. Do not backfill hashes or consume blocked geometry."
+    }
+  ],
+  "blockedGateCount": 5,
+  "inputs": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json",
+      "bytes": 3068,
+      "sha256": "8e2a5dec0197d9a43ad383ff4048237ad43f1c5ba9cb578f487063fed96abec8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/review-packet.json",
+      "bytes": 6590,
+      "sha256": "31cbc35965acb6dbb1a96d4716021a5e5099a0c57a46e593c922051f71bd3247"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/independent-review.json",
+      "bytes": 4740,
+      "sha256": "ac87feb83ee85f593e0635d2ccd7ef027ba5b0d2b2ff990aa88f85a0014a911a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/outcome.json",
+      "bytes": 7046,
+      "sha256": "4d4e3d32e17463e33a0131fea5e76de034b76e0ac09c3cb3163d25fce81e01e2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/outcome.json",
+      "bytes": 1484,
+      "sha256": "5e86a447ee66c5792b5e1700c09299259703e28962208cdeef519ccfb8a21aa6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/loader-log-search.json",
+      "bytes": 17045,
+      "sha256": "0c91a7343b631892440e7696ba63acba173f46c271a7d56157ea6580ae2bd1df"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+      "bytes": 1438555,
+      "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts",
+      "bytes": 6990,
+      "sha256": "9152d18346dae261b901fd3bb1434bd22a3c14642a57a47d32d094e687d21007"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+      "bytes": 8785,
+      "sha256": "e4a907ff1f2846df7d307b9776f554e74477996d09bc6669613b00fe331a1757"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/review-packet.json",
+      "bytes": 7486,
+      "sha256": "a3475dfa1f50b6f58039821fca9dafe4c45b220b5d8cfd2d408ed5bf00bf9cc1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/outcome.json",
+      "bytes": 3698,
+      "sha256": "d1aa0e2fba1dc0e75c497a4a31d5991c985e6fe84a3b62886d83c85777d7fd88"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/live-measurement.log",
+      "bytes": 9615,
+      "sha256": "a56b09bcd25c62f2f59c0ae21f66792531420fe498b08de682f050c00a0851b5"
+    }
+  ],
+  "closureRule": "Task 2 completes only when correspondence gates are independently qualified and a matching-input comparison provides the ordered repair list. Technical checks, diagnostic profiles or conservative vetoes cannot substitute.",
+  "recordedCaptureRunId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+  "changedCapturedTelemetryInputs": [
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts",
+      "recordedSha256": "09bcf1acfcdb130b6f294b6249375122e0990bdbcd2c7995b74461f364bebf8e",
+      "currentSha256": "9152d18346dae261b901fd3bb1434bd22a3c14642a57a47d32d094e687d21007"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+      "recordedSha256": "7f40a5c46a5606088f8be2a4add3893cf4868ed19a3bae0b84dff28cd962916e",
+      "currentSha256": "e4a907ff1f2846df7d307b9776f554e74477996d09bc6669613b00fe331a1757"
+    }
+  ],
+  "loaderLogSearch": {
+    "logsSearched": 70,
+    "sourceAgeContractsUnfilled": 2
+  }
+}

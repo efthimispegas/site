@@ -10,6 +10,45 @@ import AxeBuilder from '@axe-core/playwright';
 const REFERENCE_STATE = 'landing-idle';
 const HERO_URL = `/?__heroState=${REFERENCE_STATE}&__heroTime=2500`;
 
+test.afterEach(async ({ page, browser }, testInfo) => {
+  if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+  const observed = await page.evaluate(() => {
+    const scene = document.querySelector('[data-hero-reference-state]');
+    const loader = document.querySelector('[data-hidden][data-revealing]');
+    const style = loader ? getComputedStyle(loader) : null;
+    return {
+      nowMs: performance.now(),
+      visibility: document.visibilityState,
+      url: location.href,
+      userAgent: navigator.userAgent,
+      scene: scene
+        ? Object.fromEntries(
+            [...scene.attributes].map(({ name, value }) => [name, value]),
+          )
+        : null,
+      loader: loader
+        ? {
+            hidden: loader.getAttribute('data-hidden'),
+            revealing: loader.getAttribute('data-revealing'),
+            visibility: style?.visibility,
+            opacity: style?.opacity,
+            display: style?.display,
+            pointerEvents: style?.pointerEvents,
+            animations: loader.getAnimations().map((animation) => ({
+              currentTime: animation.currentTime,
+              playState: animation.playState,
+              pending: animation.pending,
+            })),
+          }
+        : null,
+    };
+  });
+  await testInfo.attach('failure-runtime-state', {
+    body: JSON.stringify({ browserVersion: browser.version(), ...observed }),
+    contentType: 'application/json',
+  });
+});
+
 type RuntimeErrors = {
   console: string[];
   page: string[];
@@ -60,6 +99,23 @@ async function expectUsefulLanding(page: Page, state: Locator) {
 }
 
 async function expectLoaderDoesNotBlock(page: Page) {
+  // Match a single committed CSS/DOM observation before locator assertions.
+  // The same 5s visibility budget applies; no animation or page state is changed.
+  const cleared = await page.waitForFunction(() => {
+    const shell = document.querySelector('[data-hero-shell]');
+    const loaders = document.querySelectorAll(
+      '[aria-hidden="true"][data-direct][data-hidden][data-revealing]',
+    );
+    const loader = loaders[0];
+    if (!loader || loaders.length !== 1) return false;
+    const style = getComputedStyle(loader);
+    return shell?.getAttribute('data-loader-cleared') === 'true' &&
+      loader.getAttribute('data-hidden') === 'true' &&
+      (style.visibility === 'hidden' || style.display === 'none') &&
+      style.pointerEvents === 'none' &&
+      !document.body.classList.contains('pegasoft-locked');
+  }, undefined, { polling: 50, timeout: 5_000 });
+  await cleared.dispose();
   const shell = page.locator('[data-hero-shell]');
   const loader = page.locator(
     '[aria-hidden="true"][data-direct][data-hidden][data-revealing]',
@@ -170,6 +226,24 @@ async function retainFallbackTiming(
     body: JSON.stringify({ ...timing, observedAt, responseMs }),
     contentType: 'application/json',
   });
+}
+
+// Observe the transition in the browser rather than spending the assertion
+// budget on repeated protocol/locator snapshots of a GPU-backed page.
+async function waitForAttemptState(
+  page: Page,
+  expected: 'loading-resources' | 'ready' | 'fallback',
+  timeout: number,
+) {
+  const observed = await page.waitForFunction(
+    (expectedState) => {
+      const scene = document.querySelector('[data-hero-reference-state]');
+      return scene?.getAttribute('data-hero-attempt-state') === expectedState;
+    },
+    expected,
+    { polling: 50, timeout },
+  );
+  await observed.dispose();
 }
 
 test('reduced motion is useful, non-blocking, deterministic, and keyboard reachable', async ({
@@ -395,14 +469,12 @@ test('never-resolving essential resources reach useful fallback at the finite de
     'loading-resources',
   );
   await page.setViewportSize({ width: 1100, height: 760 });
-  await expect(state).toHaveAttribute('data-hero-attempt-state', 'fallback', {
-    timeout: 16_000,
-  });
+  await waitForAttemptState(page, 'fallback', 16_000);
+  await retainFallbackTiming(state, testInfo);
   await expect(state).toHaveAttribute('data-hero-render-ready', 'false');
   await expect(state).toHaveAttribute('data-hero-fallback-ready', 'true');
   await expectUsefulLanding(page, state);
   await expectLoaderDoesNotBlock(page);
-  await retainFallbackTiming(state, testInfo);
   expectNoRuntimeErrors(errors);
 });
 
@@ -619,7 +691,7 @@ test('route remount rejects abandoned resource and context callbacks', async ({
     'data-hero-attempt-state',
     'loading-resources',
   );
-  expect(await state.getAttribute('data-hero-attempt-id')).not.toBe(oldId);
+  await expect(state).not.toHaveAttribute('data-hero-attempt-id', oldId ?? '');
   await oldCanvas!.evaluate((el) => {
     el.dispatchEvent(new Event('webglcontextrestored'));
     el.dispatchEvent(new Event('webglcontextlost', { cancelable: true }));
@@ -628,9 +700,7 @@ test('route remount rejects abandoned resource and context callbacks', async ({
     'data-hero-attempt-state',
     'loading-resources',
   );
-  await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready', {
-    timeout: 7_000,
-  });
+  await waitForAttemptState(page, 'ready', 7_000);
   await expect(state.locator('canvas')).toHaveCount(1);
   await oldCanvas!.dispose();
   expectNoRuntimeErrors(errors);
@@ -685,7 +755,7 @@ test('successful capability probe with failed actual Canvas selects fallback', a
   await expect(page).toHaveURL(/\/services$/);
   await page.goBack();
   await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready');
-  expect(await state.getAttribute('data-hero-attempt-id')).not.toBe(oldId);
+  await expect(state).not.toHaveAttribute('data-hero-attempt-id', oldId ?? '');
   await expect(state.locator('canvas')).toHaveCount(1);
 });
 

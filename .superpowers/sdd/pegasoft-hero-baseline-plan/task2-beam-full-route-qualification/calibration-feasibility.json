@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "status": "review-ready-calibration-feasibility; no qualification",
+  "candidateSameQuantity": {
+    "definition": "Apparent composited mean-RGB contrast-profile width at the same declared peak fraction, on a reviewed isolated visible route section with independently established background and orientation.",
+    "supportedRetainedCase": "Arrival clean sections retain source12/local24 CSS-pixel half-peak widths. They are commensurate declared encoded-sRGB measurements, not producer-qualified physical/semantic core thickness.",
+    "limits": ["Positive mean-RGB excess misses the actual red feeders (selected red samples have negative mean excess around -65/-78).", "Axis-aligned probes across diagonal routes do not yet establish normal-to-route thickness or its orientation error.", "Independent per-image subject/background labels and the accepted core definition/error bound remain missing."]
+  },
+  "testedCalibrationRoutes": [
+    {
+      "method": "Set halo threshold above observed blank-background residual",
+      "outcome": "insufficient",
+      "evidence": "Six proposed blank sections have zero residual after their own fit. Non-route pale object residual reaches39, detached grid dot30 and copy ink159. Blank controls cannot calibrate semantic rejection, latent background under the beam, source bloom attribution or error at subject edges.",
+      "thresholdAdopted": false
+    },
+    {
+      "method": "One absolute-RGB residual amplitude threshold removes non-route support",
+      "outcome": "cannot separate the retained challenge classes",
+      "evidence": "Local non-route pale object and clean local feed both reach39 residual levels. Copy ink reaches159 versus the local feed39. A scalar threshold retaining the feed cannot reject all of these non-route departures. The detached dot30 broadens arrival's threshold3 envelope to51.5 CSS px while the same bright profile remains24 CSS px; isolated feed envelope is25.5 CSS px.",
+      "thresholdAdopted": false
+    },
+    {
+      "method": "Apply fixed fraction widths and 3/5/10 residual sensitivity as calibrated edges",
+      "outcome": "diagnostics only",
+      "evidence": "Clean source arrival envelope varies84/60.5/41 CSS px while local varies25.5/25.5/25. Source clearance body/copy/marks have sideband residual uncertainty31/12.76/12.07 levels and fail unchanged noise limit3. These sweeps expose uncertainty; they do not identify one correct halo boundary.",
+      "thresholdAdopted": false
+    },
+    {
+      "method": "Recover core and halo causal layers from one flattened RGB frame",
+      "outcome": "underdetermined",
+      "evidence": "RGB contains combined scene, core, bloom/additive surface, field marks and copy. For even one positive residual vector d, assigning (core=d, halo=0) or (core=d/2, halo=d/2) produces the same sum. Retained radius/source shader facts do not uniquely bind those component pixels or source/local clocks.",
+      "limit": "This does not prevent defining a declared visible-profile statistic. It prevents calling its independently unvalidated components causal core/halo layers.",
+      "thresholdAdopted": false
+    }
+  ],
+  "independentlyDefensibleNextMethod": {
+    "status": "conditional-method-for-independent-review; not executed or qualified",
+    "steps": [
+      "Independently review per-image visible-route, background, branch/contact, field-mark, copy/occlusion and clipping labels. Enumerate all relevant feeders/route intervals; reject unavailable intervals rather than extending masks.",
+      "Declare one observable apparent-core quantity for each source/local role before evaluation. A contrast-magnitude method capable of measuring dark red and bright cyan requires controlled semantic negatives, reviewed route-normal orientation and error challenges; this packet supplies no acceptance threshold for it.",
+      "Obtain matched route-disabled background and component-separated core/bloom or glow source/local evidence with known camera, capture profile, source/local effect age and exact frame binding. This makes subtraction attributable rather than relying on a guessed baseline under luminous marks.",
+      "Use independent labelled edge intervals or known-support renderer challenges to measure worst-case localization error across red/cyan, graded tails, branches, contact, pulse, copy and clipping. Freeze thresholds and an error envelope before applying them to withheld retained sections.",
+      "Preserve blocked outcomes for coverage gaps, saturation/occlusion, unsupported source timing and unavailable component readback. Have an independent reviewer qualify the complete correspondence packet before geometry consumption."
+    ]
+  },
+  "preciseRetainedEvidenceBoundary": [
+    "Pixels outside image bounds and pixels occluded by copy/scene objects are not recorded. They cannot establish complete route extent or hidden core thickness without inventing support.",
+    "Single composited frames cannot attribute overlapping field marks to beam bloom, establish a pulse's causal phase, or recover the latent no-route background at every route section.",
+    "The current helper's positive mean profile does not cover the red route class, and its total residual envelope includes detached non-route components. No calibrated subject-edge error is available.",
+    "All raw frames are the historical packet. Their exact hashes cannot prove current implementation/capture provenance or source/local animation-age correspondence."
+  ],
+  "minimumMissingInput": {
+    "visibleSectionOnly": "Independent review-approved per-image semantic/edge-uncertainty labels, fixed apparent-core definition and route-normal orientation/error protocol; an inactive polarity-general diagnostic evaluated on withheld controls. This can qualify only supported visible sections if accepted, not unavailable full-route support.",
+    "fullSeparateCoreHalo": "Source/local matched route-disabled and component-isolated or independently calibrated core/halo frames/readbacks, plus branch/contact/pulse/copy/clipping examples covering the missing route intervals with causal frame/age pins. If such source component evidence cannot be obtained, restrict claims to reviewed visible composited profiles and keep full-route core/halo qualification blocked.",
+    "captureAuthorization": "No new captures were performed by this owner; root owns capture prerequisites and independent review."
+  }
+}

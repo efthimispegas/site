@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-01",
+  "status": "insufficient source-onset evidence; cube estimator rejected for qualification",
+  "summary": {
+    "syntheticCases": 18,
+    "maxSyntheticAngleErrorDegrees": 0.054999999999999716,
+    "maxSyntheticCenterErrorPixels": 0.03716517186829616,
+    "maxSyntheticRmsResidual": 0.007302770358921097,
+    "maxSyntheticAbsResidual": 0.06684438855189279,
+    "recordingFrames": 16,
+    "conditionalOnsetRangeMs": [
+      973.1940991065859,
+      992.5266455779267
+    ],
+    "conditionalOnsetSpreadMs": 19.332546471340834,
+    "maxRecordingRmsResidual": 0.026472215227509643,
+    "maxRecordingAbsResidual": 0.2529107072680399
+  },
+  "checks": {
+    "syntheticRecovery": "18/18 within 0.25 degree and 0.25px validation tolerances; not recording error bounds",
+    "recordingFrameHashes": "16/16 match",
+    "oneFrameSpreadGate": "FAIL",
+    "recordingErrorEnvelopeGate": "FAIL",
+    "phaseQualification": "BLOCKED",
+    "sourceOnsetContract": "unfilled"
+  },
+  "inputs": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-manifest.json",
+      "bytes": 1459,
+      "sha256": "9265c5524a255f58e35c3118fd499757d33ac9499998e1193c92645f6c2f1d78"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/rotation-diagnostics.json",
+      "bytes": 23353,
+      "sha256": "5383a0a093a77b3fb68dcb804dc262d2d848b0786044d03c1e334feab3881b2c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-frames.json",
+      "bytes": 235608,
+      "sha256": "87245987ca4ceda9a58d135e713d24fc2c6c6a96a8d31788fcb6fbf520ffe7eb"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-raster-pose.py",
+      "bytes": 6130,
+      "sha256": "677a966f173f64d17d31d8017d31c6efa98b7c2868d8e9949f55f657d0383d19"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-checkpoint.json",
+      "bytes": 22470,
+      "sha256": "c69b4ba3749adab947bce05b37634cfaa2dc03d3bd7fb6d3ec01e5bde49982eb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-check.log",
+      "bytes": 463,
+      "sha256": "3b3b23eba666c02f08a4453923e00425317e601d82c531616d75dd1f0a8c2d3f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/verify-raster-fits.py",
+      "bytes": 937,
+      "sha256": "36d185dc0f95afbd9566c78fd0a8d4e39ef053f2d55edd5598816bfb49591c61"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-verification.log",
+      "bytes": 286,
+      "sha256": "778c93adf46acd7e9c0105e98c077644b94b69b8e9a47efe24070c132416d1cb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-060.png",
+      "bytes": 12110,
+      "sha256": "2d8bbbd9645e207d21f5f7de2b887251e7c71d326bc54562194737cb3b42c7b3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-061.png",
+      "bytes": 14623,
+      "sha256": "8b1f64115213158f4c79973b9a2ec331be889239669a0ed3a537b38ae9fef62d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-062.png",
+      "bytes": 15300,
+      "sha256": "be44d2ea4729c5320e98200c2e033f3d61564e71e57d346d8246cc7121984779"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-063.png",
+      "bytes": 16836,
+      "sha256": "e842185d9ca976f26b3b17795dd84794169b58df3c4aa1b81fa460f356c177bf"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-064.png",
+      "bytes": 17815,
+      "sha256": "8150b66a87560ca2ab021bb1228bbcebf339831231ed91903974cf979edb00c2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-065.png",
+      "bytes": 16438,
+      "sha256": "4ae5738d687877c429b411790888d341a0efb4c26726f5c4862e9e86ba2c799b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-066.png",
+      "bytes": 17300,
+      "sha256": "b9f013d23eafdd68a9739fcdd67089867a73974c2a10d920aebacc45fdc899e5"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-067.png",
+      "bytes": 19979,
+      "sha256": "a9ee16b257d75dd369725d6ced0d69778de5fe377049086574b53c145069072a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-068.png",
+      "bytes": 19668,
+      "sha256": "948c6b0dd50dd6f9f620544acc9ae8c1be215df6c7b7cb1958d478d9928dd4c7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-069.png",
+      "bytes": 19605,
+      "sha256": "541b906ba2db42db028aa55598695c95f95690238bbde618353be67431ca4ca0"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-070.png",
+      "bytes": 19091,
+      "sha256": "0c753a6ee4b3c9ee435a4d2d081592b650dbfb936c2b5cc44126b881957598ff"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-071.png",
+      "bytes": 17306,
+      "sha256": "a18de696e8a9b6e30f4c347b4359009964e744b4bf57c726c0d2c407aa161675"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-072.png",
+      "bytes": 18960,
+      "sha256": "931cd9fefb28a57518df7d917a3cafd1ad7e7627f14068c4833fe7732c8a2b7f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-073.png",
+      "bytes": 20327,
+      "sha256": "62a6b0475b9ee491f039314fce6b80c9814732b0e6e3e16a99517f18e9dff056"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-074.png",
+      "bytes": 20061,
+      "sha256": "42f31dba42b777ed7f33ebd167653a84ed8f70b8e96c36de79850cbfeac9f632"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/fit-frame-075.png",
+      "bytes": 18431,
+      "sha256": "a619140e821e35f2c9e6d224ea805101d4ebc21c680abc384b72b53f7c5922c0"
+    }
+  ],
+  "ruling": "Synthetic pose recovery is verified within the tested perturbations. It supplies no conservative bound for the recorded codec/antialiasing residual. The 19.33ms conditional spread already exceeds one frame before any added uncertainty; no averaging, contract population, capture offset or gate widening is authorized.",
+  "sourceOnsetAttempts": [
+    "Background presentation frames: independent review found effect onset unproven.",
+    "Thresholded cube moments: 106.93ms sensitivity, not a certified bound.",
+    "Pinned geometry/luminance pose fit: 19.33ms conditional spread, recording residual outside tested synthetic envelope."
+  ],
+  "stopCondition": "Three source-onset approaches are insufficient. Stop loader reconstruction retries on this evidence; preserve the blocker and progress only an independent Task 2 measurement item.",
+  "nextAction": "Qualify clipped activation/arrival landmark support from the retained frame/mask evidence. Loader age remains blocked and may not be consumed by Task 3. Reopen onset only with new causal evidence or an independently justified method, not another identical retry.",
+  "newVisualCaptureBatch": false,
+  "runtimeEdits": false
+}

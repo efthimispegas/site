@@ -1,0 +1,672 @@
+{
+  "schemaVersion": 19,
+  "generatedAtUtc": "2026-09-23T09:27:17Z",
+  "phaseScope": [1, 5, 7],
+  "workingTree": {
+    "branch": "codex/hero-reference-rebaseline",
+    "implementationState": "implementation-checkpoint",
+    "note": "This evidence describes the files in the repository revision containing this report; Git history is the recovery mechanism."
+  },
+  "authoritativeReferences": [
+    {
+      "authority": "live-site",
+      "source": "https://vectrfl.com/",
+      "scope": "current geometry, responsive behavior, input causality, and scroll mappings"
+    },
+    {
+      "authority": "recording",
+      "source": "docs/vectrfl_recording.mov",
+      "sizeBytes": 190835536,
+      "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "scope": "immutable supplied chronology and exact frame anchors",
+      "measurementStatus": {
+        "primaryLandmarksMeasured": 7,
+        "primaryLandmarksBlocked": 4,
+        "landmarksNotApplicable": 4,
+        "routeCoresMeasured": 12,
+        "copyInkEnvelopesMeasured": 11,
+        "copyInkEnvelopesBlocked": 2,
+        "fieldTileProfilesMeasured": 5,
+        "fieldTileProfilesBlocked": 0,
+        "screenCompositionsMeasured": 15,
+        "sectionBoundariesMeasured": 1,
+        "primaryStructuresMeasured": 15,
+        "primaryStructuresBlocked": 0
+      }
+    }
+  ],
+  "resolvedNxConfiguration": {
+    "application": {
+      "name": "@site/pegasoft",
+      "root": "apps/pegasoft",
+      "sourceRoot": "apps/pegasoft/src",
+      "targets": [
+        "build",
+        "build-s7-diagnostics",
+        "dev",
+        "lint",
+        "serve-static",
+        "start",
+        "test",
+        "test-ci",
+        "typecheck"
+      ]
+    },
+    "browserHarness": {
+      "name": "@site/pegasoft-e2e",
+      "root": "apps/pegasoft-e2e",
+      "targets": [
+        "e2e",
+        "lint",
+        "typecheck",
+        "hero-capture",
+        "hero-compare",
+        "hero-s7-harness-test",
+        "hero-s7-create-plan",
+        "hero-s7-matrix",
+        "hero-s7-validate-packet"
+      ],
+      "implicitDependency": "@site/pegasoft"
+    }
+  },
+  "moduleOwnership": [
+    {
+      "owner": "serializable-domain-contract",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-contract.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/reference-states.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-runtime-states.ts"
+      ],
+      "responsibilities": [
+        "15 canonical state keys and evidence schema",
+        "full source-linked evidence records outside the production runtime graph",
+        "minimal production runtime-state projection kept in contract sync by unit test"
+      ],
+      "mustNotOwn": [
+        "Three.js objects",
+        "browser listeners",
+        "render-loop mutation"
+      ]
+    },
+    {
+      "owner": "profile-progress-controller",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-profile.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-sequence.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-controller.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/use-hero-controller.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-development-control.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-development-diagnostics.ts"
+      ],
+      "responsibilities": [
+        "desktop, tablet, mobile, reduced, and static profiles",
+        "one physical page measurement mapped to raw, DOM, and scene domains",
+        "one journey snapshot consumed by DOM and scene",
+        "development-only direct state/time/fallback controls"
+      ]
+    },
+    {
+      "owner": "page-measurement-and-dom-consumer",
+      "path": "apps/pegasoft/src/app/shared/pegasoft-home.tsx",
+      "responsibilities": [
+        "one animation-frame-scheduled page geometry stream",
+        "loader, landing and process DOM",
+        "consumption of the controller snapshot",
+        "development-only direct-state scroll positioning"
+      ],
+      "mustNotOwn": [
+        "camera interpolation",
+        "route geometry",
+        "duplicate progress thresholds"
+      ]
+    },
+    {
+      "owner": "canvas-and-static-alternative",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-scene.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-fallback.tsx"
+      ],
+      "responsibilities": [
+        "one Canvas boundary",
+        "state-specific loader, landing, journey, field, arrival, and exit fallback compositions",
+        "development-only state diagnostics",
+        "production-safe readiness and surface markers"
+      ]
+    },
+    {
+      "owner": "camera",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-camera-model.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-camera.tsx"
+      ],
+      "responsibilities": [
+        "history-independent pose sampling",
+        "camera-only smoothing",
+        "writing actual damped progress to a scene-local render ref",
+        "immediate direct, reduced, and static pose entry"
+      ],
+      "mustNotOwn": ["document scroll", "world-root compensation"]
+    },
+    {
+      "owner": "route-and-local-effects",
+      "paths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-route.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-landing-rail-model.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-landing-rails.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-local-clock.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-pointer-trail.tsx"
+      ],
+      "responsibilities": [
+        "one source-confirmed canonical route/contact model plus explicitly provisional branch and rendering calibration",
+        "shared scene-progress ranges, trunk sampling, activation feeders, landing packet, contact points, beam tip, route frame, and camera path ownership",
+        "progress-gated resettable local clocks",
+        "route beam and landing cadence",
+        "fine-pointer ground-plane raycast trail with no coarse-pointer substitute"
+      ]
+    },
+    {
+      "owner": "fixed-world-assembly",
+      "path": "apps/pegasoft/src/app/shared/hero-scene/hero-world.tsx",
+      "lineCountAtInspection": 45,
+      "stagePaths": [
+        "apps/pegasoft/src/app/shared/hero-scene/hero-world-layout.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-field-model.ts",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/clearance.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/field-match.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/arrival.tsx",
+        "apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx"
+      ],
+      "responsibilities": [
+        "fixed world root",
+        "bounded stage geometry",
+        "31 activation-layout and 46 clearance-layout items in a typed, explicitly provisional and unaccepted proxy manifest",
+        "ground, contact shadow, route, beam, and optional pointer-trail assembly"
+      ]
+    }
+  ],
+  "dataflow": [
+    "PegasoftHome owns one physical page-geometry stream refreshed by scroll, viewport, and observed layout changes",
+    "useHeroController observes capabilities and invokes the pure controller",
+    "the controller returns one HeroJourneySnapshot",
+    "PegasoftHome DOM and HeroScene consume the same snapshot",
+    "HeroCamera owns damped camera progress and shares the actual render value with stage effects through a scene-local ref",
+    "HeroWorld consumes no document scroll and keeps its root fixed"
+  ],
+  "deterministicHarness": {
+    "contract": {
+      "referenceStateCount": 15,
+      "captureSeed": 43117,
+      "recordingProfile": {
+        "cssViewport": {
+          "width": 1508,
+          "height": 761
+        },
+        "rasterPixels": {
+          "width": 3016,
+          "height": 1522
+        },
+        "devicePixelRatio": 2
+      }
+    },
+    "developmentControls": ["__heroState", "__heroTime", "__heroFallback"],
+    "productionIsolation": {
+      "queryParsingDisabled": true,
+      "stateProgressSeedAndDirectDiagnosticsAbsent": true,
+      "executableAssetScan": "zero development-control, evidence, recording, external-scratch, or legacy markers in production JavaScript, CSS, JSON, and HTML",
+      "sourceMapControlContractsAbsent": true,
+      "sourceMapDevelopmentModulePathCount": 2,
+      "sourceMapScan": "zero legacy, evidence, direct-control query, state/seed contract, recording, or external-scratch markers; one private server source map retains the two dynamic-import module path strings hero-development-control and hero-development-diagnostics"
+    },
+    "unitCoverage": {
+      "files": 5,
+      "tests": 35,
+      "status": "passed",
+      "coverage": [
+        "canonical evidence/runtime state synchronization",
+        "all 15 direct states independent of traversal history",
+        "DOM and scene mapping curves",
+        "forward, reverse, jump, and restored threshold selection",
+        "profile and journey-height selection",
+        "provisional route continuity with source/candidate evidence labels",
+        "typed world-layout item counts and unique keys",
+        "camera pose, retreat, FOV, and damping budgets",
+        "local clock reset and deterministic injection"
+      ]
+    },
+    "browserCoverage": {
+      "currentPageSmoke": {
+        "configuredExecutions": 22,
+        "status": "passed-current-checkpoint",
+        "currentCheckpointRecertified": true
+      },
+      "accessibleAlternatives": {
+        "configuredExecutions": 8,
+        "status": "passed-current-checkpoint",
+        "currentCheckpointRecertified": true,
+        "coverage": [
+          "reduced-motion deterministic pose",
+          "forced fallback",
+          "mobile navigation focus and assistive-technology state",
+          "deterministic state-specific fallback compositions"
+        ]
+      },
+      "recordingProfileCapture": {
+        "states": 15,
+        "status": "passed-current-checkpoint",
+        "artifactRoot": "apps/pegasoft-e2e/test-output/hero-reference/recording",
+        "captureManifest": "apps/pegasoft-e2e/test-output/hero-reference/recording/capture-manifest.json",
+        "captureManifestSchemaVersion": 7,
+        "captureRunId": "a779ce20-e41c-44f8-845a-50d9cda9ddea",
+        "captureStartedAt": "2026-09-15T10:39:47.942Z",
+        "captureCompletedAt": "2026-09-15T10:41:49.978Z",
+        "artifactIntegrity": "all 15 implementation images and 15 measurement records matched manifest byte counts and SHA-256 values",
+        "requiredRendererSemantics": {
+          "motion": "full",
+          "profile": "recording-desktop",
+          "seed": 43117,
+          "surface": "visible WebGL canvas",
+          "contextLoss": "none observed"
+        },
+        "note": "The Nx capture target ran both the app and E2E typecheck prerequisites before completing all 15 states. Every state required a real recording-desktop full-motion WebGL canvas, seed 43117, render readiness, no observed context loss, and an observed screen-composition measurement. All 13 source-applicable copy states, all 12 source-applicable route states, all 7 source-observed landmark states, all 5 source-applicable field states, the independent field-contact center, and journey-exit additionally carry structural evidence records. The two transition-copy states use state-specific visible-ink regions and never infer censored pixels. The source contract uses composition as the primary structure for landing and landing-idle, and field profile as the primary structure for field-approach and field-pulse-a; all 15 source-primary structures are observed. All five implementation field profiles now pass the unchanged source-pixel quality gate and remain measured visual mismatches. Three transferable landmarks and all 12 applicable routes are observed; the reveal and landing-idle packet is decoupled from activation feeder geometry, and eight cyan-family states use renderer-independent localhost classifiers. Four source-mask landmarks, including the complete arrival arrow, are compared with renderer-independent implementation masks; source masks remain reference-only and never classify implementation pixels. Runtime errors, context loss, invalid structural records, and missing composition evidence are hard failures, and the complete size/SHA-256 manifest is published atomically."
+      },
+      "convergenceMatrix": {
+        "coverage": [
+          "forward",
+          "reverse",
+          "direct jump",
+          "resize",
+          "restored-scroll reload"
+        ],
+        "profiles": ["desktop", "mobile"],
+        "targetedExecutions": {
+          "pass": 2,
+          "fail": 0
+        },
+        "status": "passed-current-checkpoint"
+      },
+      "currentLiveProfileProbe": {
+        "artifact": "docs/hero-reference/live/current-live-profiles.json",
+        "schemaId": "vectr-live-profile-probe/v1",
+        "generatedAtUtc": "2026-09-14T14:29:41.330Z",
+        "browser": "Chrome 152.0.7977.84",
+        "profiles": {
+          "pass": 4,
+          "fail": 0,
+          "ids": ["recording-desktop", "desktop", "tablet", "mobile"]
+        },
+        "qualification": "Tablet and mobile are browser emulations, not physical-device or performance evidence. Main-thread context-loss events were monitored; worker and OffscreenCanvas context-loss state remains unknown."
+      }
+    },
+    "comparison": {
+      "command": "pnpm nx run @site/pegasoft-e2e:hero-compare",
+      "status": "failed-as-designed",
+      "schemaVersion": 16,
+      "preliminaryRasterSummary": {
+        "pass": 1,
+        "fail": 14
+      },
+      "structuralAccuracySummary": {
+        "pass": 0,
+        "fail": 15,
+        "blocked": 0
+      },
+      "structuralChecks": {
+        "composition": {
+          "checks": 285,
+          "pass": 204,
+          "fail": 81
+        },
+        "copyBounds": {
+          "statesMeasured": 13,
+          "checks": 52,
+          "pass": 21,
+          "fail": 31
+        },
+        "fieldTileProfileEvidence": {
+          "statesApplicable": 5,
+          "sourceStatesObserved": 5,
+          "implementationStatesObserved": 5,
+          "implementationStatesQualityBlocked": 0,
+          "checks": 45,
+          "pass": 14,
+          "fail": 31,
+          "maskIou": {
+            "minimum": 0.9,
+            "pass": 0,
+            "fail": 5,
+            "values": {
+              "clearance-field-preview": 0.5227891475779196,
+              "field-approach": 0.6179114785147446,
+              "field-contact": 0.4299237795929178,
+              "field-pulse-a": 0.3846544622055516,
+              "field-pulse-b": 0.17874055299082314
+            }
+          },
+          "sourceVisibleComponentCounts": {
+            "clearance-field-preview": 7,
+            "field-approach": 36,
+            "field-contact": 72,
+            "field-pulse-a": 59,
+            "field-pulse-b": 21
+          },
+          "implementationVisibleComponentCounts": {
+            "clearance-field-preview": 6,
+            "field-approach": 35,
+            "field-contact": 77,
+            "field-pulse-a": 71,
+            "field-pulse-b": 77
+          },
+          "comparisonArtifacts": 5,
+          "qualification": "The same bright-neutral predicate and component-shape gates measure full visible tile tops in both rasters. Clipped, activated, pulse-recolored, and bloom-obscured tiles are not inferred. All five implementation profiles are observed; each remains a measured visual mismatch."
+        },
+        "fieldContactCenterEvidence": {
+          "statesApplicable": 1,
+          "sourceStatesObserved": 1,
+          "implementationStatesObserved": 1,
+          "checks": 5,
+          "pass": 0,
+          "fail": 5,
+          "silhouetteIou": {
+            "minimum": 0.9,
+            "pass": 0,
+            "fail": 1,
+            "values": {
+              "field-contact": 0.12729033507650592
+            }
+          },
+          "comparisonArtifacts": 1,
+          "qualification": "The shared chroma predicate measures only the saturated field-contact center tile. It is independent structural evidence and does not replace the authoritative source-tied tile-plus-standing-figure semantic landmark union."
+        },
+        "landmarkEvidence": {
+          "statesObserved": 7,
+          "statesSemanticIsolationBlocked": 0,
+          "statesSourcePixelQualityBlocked": 0,
+          "boundsChecks": 28,
+          "silhouetteIou": {
+            "statesMeasured": 7,
+            "minimum": 0.9,
+            "pass": 0,
+            "fail": 7,
+            "values": {
+              "loader-mark": 0.39871152469577664,
+              "world-reveal": 0.6459859827970691,
+              "activation-route": 0.7008768014447472,
+              "activation-contact": 0.6497848866365772,
+              "field-contact": 0.18787160802896866,
+              "field-pulse-b": 0.3585200146896805,
+              "arrival-lockup": 0.36421413538864655
+            }
+          },
+          "checks": 35,
+          "pass": 13,
+          "fail": 22,
+          "comparisonArtifacts": 7,
+          "qualification": "Loader, world-reveal, and field-pulse-b use shared transferable chroma masks. Activation-route, activation-contact, field-contact, and arrival-lockup use hash-locked source semantic masks paired with separate renderer-independent localhost classifiers. All seven comparisons are true filled-silhouette evidence and fail the locked minimum."
+        },
+        "routeEvidence": {
+          "statesObserved": 12,
+          "statesQualityBlocked": 0,
+          "proxyChecks": 72,
+          "centerlineHausdorff": {
+            "checks": 12,
+            "maximumNormalizedShortEdge": 0.0075,
+            "pass": 0,
+            "fail": 12,
+            "minimumObserved": 0.09767456469985877,
+            "maximumObserved": 0.9393338008679243
+          },
+          "checks": 84,
+          "pass": 14,
+          "fail": 70,
+          "comparisonArtifacts": 12,
+          "qualification": "The centerline metric is exact symmetric Euclidean Hausdorff distance over deterministic skeletons of the visible selected route-core masks. It includes parallel rails and branches without inferring a hidden renderer spline."
+        },
+        "journeyExitBoundaryBounds": {
+          "statesMeasured": 1,
+          "checks": 4,
+          "pass": 4,
+          "fail": 0
+        },
+        "tolerances": {
+          "compositionCentroidNormalized": 0.0075,
+          "negativeSpaceOccupancy": 0.03,
+          "copyBoundsCssPixels": 2,
+          "fieldEnvelopeCenterNormalized": 0.0075,
+          "fieldEnvelopeSizeRatio": 0.02,
+          "fieldMedianTileCssPixelsMinimum": 1,
+          "fieldMedianTileSizeRatio": 0.02,
+          "fieldSelectedPixelOccupancy": 0.02,
+          "fieldTileComponentCountDelta": 0,
+          "fieldTileMaskIouMinimum": 0.9,
+          "contactCenterCenterNormalized": 0.0075,
+          "contactCenterSilhouetteIouMinimum": 0.9,
+          "contactCenterSizeRatio": 0.02,
+          "landmarkCenterNormalized": 0.0075,
+          "landmarkSilhouetteIouMinimum": 0.9,
+          "landmarkSizeRatio": 0.02,
+          "routeCenterlineHausdorffNormalizedShortEdge": 0.0075,
+          "routeDirectionDegrees": 1,
+          "routeEndpointNormalized": 0.005,
+          "routeThicknessCssPixelsMinimum": 1,
+          "routeThicknessRatio": 0.1,
+          "sectionBoundaryBoundsCssPixels": 2
+        }
+      },
+      "domSummary": {
+        "pass": 13,
+        "fail": 0,
+        "blocked": 0,
+        "notApplicable": 2
+      },
+      "preliminaryRasterGateSatisfied": false,
+      "structuralAccuracyGateSatisfied": false,
+      "domLayoutGateSatisfied": true,
+      "gateSatisfied": false,
+      "report": "apps/pegasoft-e2e/test-output/hero-reference/recording/comparison-report.json",
+      "domAuthority": [
+        "docs/hero-reference/live/recording-profile-dom.json",
+        "docs/hero-reference/live/recording-profile-journey-dom.json"
+      ],
+      "identityRasterMask": {
+        "status": "blocked",
+        "appliedMaskedPixelCount": 0,
+        "evaluatedPixelCount": 68855280
+      },
+      "currency": "current-checkpoint-complete-and-manifest-verified",
+      "reason": "The whole four-row landing/journey DOM ladder passes all 13 applicable state contracts; loader-mark and world-reveal have no applicable DOM profile. The unmasked full-frame raster is only a preliminary diagnostic and passes 1 of 15 states. Shared source/implementation algorithms measure all declared structural roles. Composition passes 204/285 checks, copy bounds pass 21/52, field evidence passes 14/45, contact-center evidence passes 0/5, landmark evidence passes 13/35, all 12 observed route cores pass 14/84, and the boundary passes 4/4. The current live bundle source-confirms the Phase 7 world-space route knots and construction; remaining projected route displacement is carried into the Phase 8 static-camera solve rather than distorting that topology. Structural accuracy remains 0 pass / 15 fail / 0 blocked."
+    }
+  },
+  "validationSnapshot": [
+    {
+      "command": "pnpm nx run-many -t lint typecheck -p @site/pegasoft @site/pegasoft-e2e --skipNxCache",
+      "result": "passed",
+      "details": "Fresh Phase 1 tranche validation launched the workspace-local Nx CLI under Node 24.19.0 with pnpm 10.8.1. Pegasoft and Pegasoft E2E lint and typecheck passed. The unsupported Node 20.15.0 shell-runtime issue is isolated from this hero change set."
+    },
+    {
+      "command": "pnpm nx run @site/pegasoft:test-ci--src/app/shared/hero-scene/hero-contract.spec.ts --skipNxCache",
+      "result": "passed",
+      "details": "Fresh Phase 1 tranche validation passed the 12 hero reference-state contract tests under Node 24.19.0 with pnpm 10.8.1."
+    },
+    {
+      "command": "pnpm nx run @site/pegasoft:test -- --run",
+      "result": "passed",
+      "details": "The Pegasoft app passed all 5 Vitest files and 42 tests, including source-confirmed route ownership, contact/tangent continuity, proxy-ground extent, landing-packet geometry, field reveal, and locked-clock assertions."
+    },
+    {
+      "command": "NODE_ENV=production pnpm nx run @site/pegasoft:build --skipNxCache",
+      "result": "passed"
+    },
+    {
+      "command": "Production executable scan",
+      "result": "passed",
+      "details": "No legacy renderer, development query/diagnostic, recording evidence, or external scratch marker matched production JavaScript, CSS, JSON, or HTML."
+    },
+    {
+      "command": "Production source-map scan",
+      "result": "passed-with-recorded-caveat",
+      "details": "Legacy, evidence, direct-control query, state/seed contract, recording, and external-scratch markers were absent. One private server source map retains two dynamic-import module path strings: hero-development-control and hero-development-diagnostics. The actual __heroState control contract is absent."
+    },
+    {
+      "command": "node tools/hero-reference/measure-recording-bounds.mjs --check",
+      "result": "passed",
+      "details": "The restored 190835536-byte Git LFS recording matched SHA-256 de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321; structural-bounds v16 reproduced schema-v10 evidence with 7 landmark measurements, 4 explicit non-primary landmark blocks, 4 landmark-not-applicable classifications, 12 route cores and their PCA proxy geometry, 13 copy-ink envelopes, 5 field tile profiles, 1 independent field-contact center tile, 15 composition proxies, and 1 section boundary byte-for-byte. All 15 source-primary structures and all 13 applicable copy states are observed. The four reviewed source masks are accepted for reference refinement only and are machine-declared as neither implementation pixel classifiers nor visual acceptance."
+    },
+    {
+      "command": "pnpm nx run @site/pegasoft-e2e:e2e",
+      "result": "passed",
+      "details": "The final current-checkpoint run passed 30 Chromium and Mobile Chrome executions; the two opt-in Phase 19 performance probes were skipped. Genuine profile-aware desktop and mobile restored-reload convergence passed."
+    },
+    {
+      "command": "pnpm nx run @site/pegasoft-e2e:e2e -- --grep \"hero state converges\"",
+      "result": "passed",
+      "details": "The genuine desktop and mobile profile executions passed 2/2 for forward, reverse, direct jump, resize, and restored-scroll reload convergence. ResizeObserver-backed page geometry updates cover post-hydration and reload layout changes."
+    },
+    {
+      "command": "pnpm nx run @site/pegasoft-e2e:hero-capture --skipNxCache",
+      "result": "passed",
+      "details": "The app typecheck and E2E typecheck prerequisites passed before all 15 recording-profile states were captured. Run a779ce20-e41c-44f8-845a-50d9cda9ddea completed at 2026-09-15T10:41:49.978Z and published a complete schema-v7 atomic size/SHA-256 manifest with every declared structural record. All five implementation field states, all seven landmarks, and all 12 routes were observed."
+    },
+    {
+      "command": "node tools/hero-reference/compare-captures.mjs",
+      "result": "failed-acceptance-current-input",
+      "details": "Schema 16 reports preliminary raster at 1 pass / 14 fail, composition at 204 pass / 81 fail, copy bounds at 21 pass / 31 fail, field evidence at 14 pass / 31 fail, contact-center evidence at 0 pass / 5 fail, landmark evidence at 13 pass / 22 fail, route evidence at 14 pass / 70 fail, boundary bounds at 4 pass / 0 fail, structural accuracy at 0 pass / 15 fail / 0 blocked, and whole-ladder DOM at 13 pass / 0 fail / 0 blocked / 2 not applicable. The source-confirmed world-space route is preserved; screen-space route and proxy fitting now continues in Phase 8."
+    },
+    {
+      "command": "node tools/hero-reference/probe-live-profiles.mjs --output docs/hero-reference/live/current-live-profiles.json",
+      "result": "passed",
+      "details": "All four repository-owned current-live profiles passed. Tablet and mobile were emulated browser contexts; this is not physical-device or performance evidence, and worker/OffscreenCanvas context-loss state remains unknown."
+    },
+    {
+      "command": "curl current Vectr application bundle and verify SHA-256 plus route controls",
+      "result": "passed",
+      "details": "At 2026-09-15T10:36:30Z the canonical live bundle remained 120694 bytes with SHA-256 352de1ba99e915be04f929107ffcfbfa2893b943bf0b60ae1d74006fa1e36494. Its red, blue-zero, and blue-one controls and 31-sample to 40-point equal-distance construction match the canonical local route model exactly."
+    }
+  ],
+  "resolvedFormerDebts": [
+    "The shared structural-number formatter canonicalizes JavaScript negative zero to zero, so a horizontal PCA axis cannot fail capture/recompute integrity solely because one execution serializes -0.",
+    "Route trunk controls, contacts, scene ranges, activation feeders, landing packet paths, render radii, beam sampling, route frames, and camera sampling now have one ownership boundary. Source-confirmed trunk geometry is separated from provisional renderer calibration.",
+    "The recording evidence generator now applies the workspace Prettier configuration before writing or byte-checking its JSON outputs, so repository formatting and reproducibility no longer contradict each other.",
+    "Recording and implementation screenshots now use shared pure screen-composition, transferable landmark, route-core, copy-ink, field-tile-profile, independent field-contact-center, and section-boundary algorithms; schema-v7 capture records and their source PNGs are integrity-bound by the atomic manifest. Comparator schema 16 derives transferable masks afresh from those locked rasters, verifies their complete measurements against both records, emits seven landmark-overlap artifacts, five field-profile artifacts, one contact-center artifact, and twelve visible-route-centerline Hausdorff artifacts. Landing and landing-idle use composition as their primary structure; field-approach and field-pulse-a use field profile. Source semantic masks are accepted for reference refinement and remain isolated to hash-locked recording frames; separate renderer-independent classifiers measure localhost, and the source masks never classify implementation pixels or confer visual acceptance.",
+    "The fallback is state-specific rather than a generic four-block composition.",
+    "Unit direct-entry coverage iterates all 15 states.",
+    "The controller no longer publishes a fictitious settled-camera snapshot; the render adapter owns actual damping.",
+    "The production runtime imports the minimal runtime-state projection rather than the full evidence manifest.",
+    "Development controls and state/seed diagnostic contracts are absent from production executable assets; source maps retain two dynamic-import module path strings but no query/control contract.",
+    "Reduced motion uses demand rendering, immediate poses, no pointer trail, and discrete DOM handoffs.",
+    "ResizeObserver and visual-viewport resize signals keep page geometry current after mobile hydration, resize, and reload.",
+    "The duplicate 48px wrapper inset was removed; the single 48px steps-container inset now matches the authoritative whole-ladder DOM box."
+  ],
+  "blockingEvidence": [
+    {
+      "severity": "blocks-phase-7-screen-integration-and-phases-8-through-16",
+      "issue": "Phase 1 is evidence-complete with 0 pass / 15 fail / 0 blocked structural states. Composition passes 204/285 checks, copy bounds 21/52, field evidence 14/45, contact center 0/5, landmarks 13/35, routes 14/84, and boundary bounds 4/4. Phase 7 now source-locks the world-space route and all of its consumers, but projected route/proxy bounds remain coupled to the provisional static camera. Static cameras, materials, lighting, effects, and detailed geometry have not passed state-specific structural and visual tolerances."
+    },
+    {
+      "severity": "blocks-phases-10-through-14",
+      "issue": "Loader, landing packets, field pulse cadence, pointer-trail appearance, and arrival timing remain comparison candidates rather than accepted source matches."
+    },
+    {
+      "severity": "blocks-phase-19",
+      "issue": "The Phase 19 acceptance performance run remains unrun on locked hardware. An earlier development software-renderer diagnostic exceeded frame-time, long-task, and mobile CLS budgets and is not acceptance evidence."
+    }
+  ],
+  "acceptance": {
+    "architectureCandidateImplemented": true,
+    "decoupledFromDeletedLegacyRenderer": true,
+    "sourceKnotsUserAccepted": true,
+    "renderedConsumerConsistencyAccepted": false,
+    "deterministicUnitHarnessPassed": true,
+    "unitHarnessScope": "42 current tests pass; several audited defects are outside their assertions.",
+    "normalRenderedMotionConvergenceAccepted": false,
+    "productionFailureRecoveryAccepted": false,
+    "directStateDomBoundsHistoricallyPassed": true,
+    "normalDomLifecycleAccepted": false,
+    "visualComparisonPassed": false,
+    "phase0Status": "accepted-preservation",
+    "phase1Status": "partially-reopened-source-semantics-coverage-and-classifiers",
+    "phase2Status": "development-smoke-retained-production-failure-gates-open",
+    "phase3Status": "accepted-source-legacy-removal-production-recheck-at-cutover",
+    "phase4Status": "accepted-scoped-hygiene-compensations-remain-replaceable",
+    "phase5Status": "reopened-rendered-state-and-normal-entry-harness",
+    "phase6Status": "reopened-physical-progress-visible-copy-and-lifecycle",
+    "phase7Status": "source-coordinates-user-accepted-consumers-and-projection-reopened",
+    "laterPhasesStatus": "not-accepted",
+    "reason": "The foundation audit found incorrect physical/DOM mapping, mixed target/rendered clocks, separate camera-fitted landing paths with disabled depth, insufficient rendered convergence assertions, and circular camera/graphics gates. Preserve source knots and cleanup, repair R1/R2, then review a representative landing graphics slice. Historical passes cannot close these findings."
+  },
+  "foundationAudit": {
+    "date": "2026-09-15",
+    "artifact": "docs/hero-reference/foundation-audit-2026-09-15.md",
+    "implementationRevision": "f47854d",
+    "scope": "Source/code/stored-capture audit plus a fresh 42-test unit run. No fresh full browser, production build, visual capture, physical-device, or performance acceptance run.",
+    "supersedesAcceptanceClaims": true,
+    "historicalRecordPolicy": "generatedAtUtc and detailed checks describe the earlier checkpoint. Passing historical flags do not establish the reopened gates.",
+    "currentMeasurementCorrection": {
+      "captureRunId": "a779ce20-e41c-44f8-845a-50d9cda9ddea",
+      "copyInkEnvelopesMeasured": 13,
+      "copyInkEnvelopesBlocked": 0,
+      "note": "The older authoritativeReferences.measurementStatus block is retained as historical data, not the latest source coverage."
+    },
+    "findings": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08",
+      "A09",
+      "A10"
+    ],
+    "nextPriority": "S0-S6 are accepted after independent review within bounded repair scope. S7 remains blocked at 0/336 qualified cells. The independently reviewed fail-fast same-build sharded runner retained 71 applicable mobile pass observations and stopped without closed-page fallout at arrival-travel/mobile/native-restored: back navigation initially restored 4282px, then loader/layout reinitialization shifted to 5244px and selected journey-exit. Runtime repair is outside the completed harness-only batch. Do not rerun unchanged or merge partial observations. A separately authorized source-backed runtime repair, fresh review/build/plan, complete 336-pass packet, refreshed production checks, and final independent review remain required. S8 is unstarted and R3 remains unauthorized.",
+    "executionHold": "Repair sprints S0\u2013S8 authorized by the user's request to start with parallel subagents. R3/visual phase implementation remains unauthorized.",
+    "repairSprintPlan": "docs/hero-reference/repair-sprints.md",
+    "repairSprintLedger": "docs/hero-reference/repair-sprint-ledger.json"
+  },
+  "historicalAcceptanceBeforeFoundationAudit": {
+    "architectureCandidateImplemented": true,
+    "decoupledFromDeletedLegacyRenderer": true,
+    "singleSnapshotBoundaryPresent": true,
+    "fixedWorldRootPresent": true,
+    "canonicalRoutePresent": true,
+    "stateSpecificFallbackPresent": true,
+    "deterministicUnitHarnessPassed": true,
+    "historicalCurrentPageBrowserHarnessPassed": true,
+    "currentCheckpointBrowserHarnessPassed": true,
+    "currentCheckpointCapturePassed": true,
+    "captureManifestIntegrityPassed": true,
+    "freshProductionBuildPassed": true,
+    "fullStateConvergenceMatrixPassed": true,
+    "domLayoutComparisonPassed": true,
+    "preliminaryRasterComparisonPassed": false,
+    "structuralAccuracyComparisonPassed": false,
+    "visualComparisonPassed": false,
+    "phase1Status": "evidence-gate-passed-visual-acceptance-red",
+    "phase5Status": "accepted-current-checkpoint",
+    "phase7Status": "world-space-subgate-passed-screen-integration-pending-phase-8",
+    "reason": "Phases 1\u20136 and the Phase 7 world-space topology subgate pass their current ordered gates. The current live bundle source-confirms the canonical route controls and resampling, every route consumer shares that owner, handoff tangents are continuous, and the proxy ground cannot expose an edge. The comparator reports 1/15 preliminary raster states passing and structural accuracy at 0 pass / 15 fail / 0 blocked. Projected route and proxy bounds remain red because the static camera and later contact/pulse effects are provisional. The next ordered work is Phase 8 static-camera fitting while preserving the Phase 7 topology; final hero acceptance remains red."
+  },
+  "s6LatestCheckpoint": {
+    "date": "2026-09-20",
+    "status": "accepted-bounded-s6-scope-only",
+    "review": "docs/hero-reference/repairs/s6/review.md",
+    "visualFidelityAccepted": false
+  },
+  "s7LatestCheckpoint": {
+    "date": "2026-09-23",
+    "status": "blocked-0-of-336-qualified-mobile-restoration-layout-shift",
+    "checkpoint": "docs/hero-reference/repairs/s7/checkpoint-2026-09-23-sharded-pass-1-stop.md",
+    "runnerDesignReview": "docs/hero-reference/repairs/s7/fail-fast-shard-design-review.md",
+    "failedPacketReview": "docs/hero-reference/repairs/s7/sharded-pass-1-review.md",
+    "independentVerdict": "blocked-correctly",
+    "observedApplicablePasses": 71,
+    "applicableWithoutPass": 265,
+    "fatalRunnerRecords": 1,
+    "closedPageFalloutRecords": 0,
+    "harnessFocusedTestsPassed": 28,
+    "qualifiedApplicableBrowserCells": 0,
+    "visualFidelityAccepted": false
+  }
+}

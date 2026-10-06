@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "owner": "task2_beam_correspondence",
+  "scope": "Pinned historical raster/source diagnostics only; three route states and two isolated arrival-feed sections per image.",
+  "status": "blocked",
+  "separateCoreHaloQualification": false,
+  "historicalRunId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+  "evidence": {
+    "diagnostic": "diagnostic.json",
+    "profiles": "profiles.svg",
+    "inputPins": "input-pins.json",
+    "reproduce": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/verify.mjs"
+  },
+  "checks": {
+    "historicalImagePins": "6/6 verified against recording anchors or capture-manifest hashes",
+    "appearanceReproduction": "6/6 source/local appearance records exactly reproduced with pinned classifier snapshot",
+    "sourceExcerptHashes": "5/5 retained excerpt hashes verify; original bundles were not fetched or reverified",
+    "inputPins": "15/15 pinned and checked before execution",
+    "artifactPins": "15/15 verified, including scripts and outcome",
+    "repeatability": "11/11 diagnostic raster/plot/JSON outputs reproduce byte-for-byte through verify.mjs"
+  },
+  "findings": [
+    {
+      "id": "cyan-halo-background-admission",
+      "status": "observed",
+      "finding": "Broad cyan hue support admits all four interior corner samples in both source/local clearance and arrival ROIs (16/16). Historical clearance glow counts 1542909/1443939 and arrival 351669/305376 therefore do not isolate route halos.",
+      "limit": "These corner samples are contamination diagnostics; they are not a reviewed route-background mask. No global support gate changed."
+    },
+    {
+      "id": "white-source-peak-excluded",
+      "status": "observed",
+      "finding": "At both isolated arrival-feed sections (x=24,80 raster), the source independently detected bright peak is RGB [225,245,252] at y=738 and fails the strict source cyan predicate. Local peak [247,255,255] starts at y=751 and passes its different near-white cyan predicate. Current selected-color supports cannot be equated with the same bright core quantity.",
+      "limit": "The local white plateau spans several equally bright pixels; first-maximum peak y is not its centerline. This cannot qualify centerline or geometry."
+    },
+    {
+      "id": "separate-intensity-and-chroma-profiles",
+      "status": "observed-diagnostic",
+      "finding": "Independent mean-RGB and cyan-residual profiles show a bright central peak plus broad cyan shoulders in the source, and an abrupt local luminous band. Mean-RGB half-height spans are 12 CSS px source and 24 CSS px local at both sections. At 80% peak they are 8.5 and 11.5 CSS px; at 90% source is 5/6 and local 11.5 CSS px.",
+      "limit": "Peak-fraction widths measure composited encoded-sRGB intensity. They are not calibrated physical-core thickness and are not geometry failure assertions."
+    },
+    {
+      "id": "halo-threshold-uncertainty",
+      "status": "observed-diagnostic",
+      "finding": "Per-image background sidebands bound source RGB residual noise to 1/2 digital levels and local to zero. Source total residual-envelope spans change from 83/84 CSS px at threshold 3 to 60/60.5 at 5 and 41 at 10; local spans are 25.5,25.5,25. Width endpoints close within both independently evaluated strips.",
+      "limit": "Thresholds 3/5/10 are sensitivity probes, not accepted visibility or edge-error thresholds. Source graded falloff has no unique raster halo boundary. Two nearby sections demonstrate local repeatability, not full-route coverage."
+    },
+    {
+      "id": "source-versus-local-layer-semantics",
+      "status": "retained-source-and-current-code",
+      "finding": "Pinned retained renderer excerpt defines a bloom postprocess; retained source-confirmed route records define red radius 0.075 and blue 0.125. Pinned current local code defines depth-tested normal-blended core tubes and an additive larger blue tube (radius scale 2.15, opacity 0.2). Authored physical radii and composited visible halo profiles are distinct quantities.",
+      "limit": "Excerpt integrity verifies retained text only, not fresh source bundle correspondence. Current local snapshots are not recaptured or rebound to the historical rendered packet. No component-only raster layer or bloom decomposition is available."
+    },
+    {
+      "id": "red-band-result-limit",
+      "status": "historical-reproduced",
+      "finding": "Activation-route helper reproduces source/local core counts 35732/36999 and outside-core hue counts 4716/2238, with its original qualified band labels. These are red-color support counts, not independently calibrated halo profiles.",
+      "limit": "No whole red feeder geometry, mask, or renderer layer was borrowed or newly qualified. Branch/contact and material-edge semantics still need independent challenges."
+    }
+  ],
+  "supports": [
+    "A small inactive cross-section helper can recover bright peaks and surrounding graded residuals independently on each raster without source-mask borrowing.",
+    "The saved cyan predicate omits the source white peak, and its broad hue halo predicate admits background; reproductions and raw RGB profiles make this directly reviewable.",
+    "Core/halo work should measure apparent bright-profile and falloff quantities separately from source-confirmed tube radius."
+  ],
+  "blockers": [
+    "No accepted same-quantity core definition or calibrated core-edge error envelope across source bloom and local additive surfaces.",
+    "No accepted halo visibility threshold; source residual falloff spans vary by 42-43 CSS px across the tested thresholds.",
+    "No full-route independently reviewed negative/background, branch/contact, clipping and pulse contamination validation.",
+    "Historical images cannot establish current acquisition provenance, source/local timing equivalence, current comparison qualification or personal visual acceptance."
+  ],
+  "smallestProposedImplementation": {
+    "files": ["apps/pegasoft-e2e/src/visual/screen-structural-features.mjs", "tools/hero-reference/measurement-contract.test.mjs"],
+    "change": "Add an inactive independent cross-section diagnostic helper that returns raw RGB samples, per-image remote background fit/noise, bright-profile widths at declared fractions, and threshold-sensitivity envelopes. Keep halo status blocked until threshold/error/negative validation exists. Keep existing ROI, minimum support and historical color classifiers intact; do not infer geometry radius or activate in comparison.",
+    "acceptanceChallenges": ["white core survives without saturated hue", "cyan-tinted blank background returns no beam", "dot/branch/contact overlaps block section", "clipped or contaminated sidebands block fit", "graded halos retain explicit threshold uncertainty", "changed source/local intensity cannot be relabeled identical core support"]
+  },
+  "stopCondition": "Evidence checkpoint complete. No shared implementation, capture, browser, build, network, source/test/docs edit or geometry/surface change performed."
+}

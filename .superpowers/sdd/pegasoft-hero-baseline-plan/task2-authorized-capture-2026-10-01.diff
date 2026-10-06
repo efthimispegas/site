@@ -1,0 +1,1697 @@
+diff --git a/.gitignore b/.gitignore
+index a6b20eb..6d58cf3 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -60,6 +60,7 @@ tools/docs/**
+ # Next.js
+ .next
+ apps/pegasoft/.next-s7-diagnostics
++apps/pegasoft/.next-lifecycle-review
+ out
+ 
+ test-output
+diff --git a/AGENTS.md b/AGENTS.md
+index 2b5cc6a..1bfca47 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -21,4 +21,76 @@
+ - The `nx-generate` skill handles generator discovery internally - don't call nx_docs just to look up generator syntax
+ 
+ 
+-<!-- nx configuration end-->
+\ No newline at end of file
++<!-- nx configuration end-->
++
++# Required context and usage preflight
++
++Standing user agreement (2026-09-16): apply these prerequisites to every prompt.
++
++- Before substantive work, choose the smallest necessary context, a suitable
++  model, bounded scope, required checks, and a stopping condition. Respect any
++  current allowance or credit restrictions; never promise an unmeasurable cap.
++- For each new substantive user request, prefer a fresh task with a compact
++  handoff instead of continuing a long conversation or forking its full history.
++  The user has requested this workflow. Where task creation is unavailable or
++  unsuitable, explain briefly and use a narrowly scoped continuation. Simple
++  acknowledgments and clarifications need not create another task.
++- A newly created task executes its assigned request directly: do not recursively
++  create another task merely because its initial handoff is a prompt.
++- Handoffs contain only objective, accepted constraints, owned files, relevant
++  artifact links, current state, checks, and stop condition. Preserve decisions
++  and evidence in project files rather than copying conversation history.
++- When delegation is authorized, give every subagent a self-contained assignment,
++  explicit file ownership, minimum relevant context, and its own acceptance
++  checks. Use no inherited conversation history by default (`fork_turns: "none"`),
++  explicitly select an appropriate model, and tell workers to preserve others'
++  edits. Do not reuse oversized agents across unrelated assignments.
++- Read specific artifacts, screenshots, recordings, and large outputs only when
++  needed for the current decision. Batch related checks and return concise
++  results with evidence links; avoid repeated full-history or full-artifact reads.
++- Use docs/pegasoft-codex-usage-memo.md for detailed usage policy; load only the
++  relevant policy section when needed.
++
++# Lean delivery and review
++
++- One owner completes dependent implementation, checks, and evidence packaging;
++  delegate only independent work. Do not split packaging into approval rounds.
++- Before independent review, verify every required artifact exists, checks have
++  explicit outcomes, and evidence matches the reviewed inputs. Review the complete
++  packet once; subsequent reviews focus on findings and affected regressions.
++- Reuse valid evidence. Rerun checks affected by changed inputs plus mandatory
++  milestone gates; never weaken tests, provenance, or review independence.
++- Update the existing ledger: outcome, checks, evidence links, blocker/next action.
++  No routine per-task Markdown report. Keep handoffs under 120 words and current
++  status under 200 unless unique technical reasoning requires more.
++- Merge baseline checkpoints into the current state and owning task instead of
++  appending repeated history. Preserve unique decisions, acceptance limits and
++  evidence links; archive superseded detail with explicit historical status.
++  Routine resumption should require only the tracker, checkpoint and active task.
++- Keep logs/hashes in artifacts, not repeated prose. Report delivered changes and
++  blockers, not dispatch activity as progress. Visual phases deliver reviewable
++  slices; functional checks never substitute for visual acceptance.
++
++## Context and delegation controls
++
++- Start Pegasoft work with `docs/ledger/CURRENT.md` and the relevant linked
++  artifact only. Do not read the whole usage memo, sprint ledger, or `docs/`
++  tree by default.
++- Treat `docs/pegasoft-hero-baseline-plan.md` as the sole live authority for
++  hero status, phase authorization, implementation scope, and next action.
++  `docs/hero-reference/` status notes, sprint breakdowns, manifests, and
++  reviews are evidence/history consumers; update them only to remove stale
++  competing claims and preserve their provenance.
++- Treat input above 50K tokens as a mandatory context review. For routine work,
++  stop and create a compact handoff; do not resume a large history merely
++  because the user says “continue”.
++- One owner handles dependent S8 work end-to-end. Do not create coordinator,
++  mapping, or review tasks while the owner is still missing a required artifact.
++  Independent review starts once, after the packet is complete.
++- Do not poll status in a loop. Use one bounded wait only when an active task is
++  expected to produce work; otherwise read the saved checkpoint or ledger.
++- Usage checks belong at session start, before a real dispatch, after a bounded
++  execution batch, and at the 95% pause threshold—not before every status read
++  or wait. Record account snapshots in structured ledgers, not repeated prose.
++- A status response is not progress. Every continuation must either produce a
++  changed artifact, a required check result, or a concrete blocker and stop.
+diff --git a/apps/pegasoft-e2e/playwright.s6.config.ts b/apps/pegasoft-e2e/playwright.s6.config.ts
+index 98c0a50..37a8e7d 100644
+--- a/apps/pegasoft-e2e/playwright.s6.config.ts
++++ b/apps/pegasoft-e2e/playwright.s6.config.ts
+@@ -4,6 +4,11 @@ import { workspaceRoot } from '@nx/devkit';
+ 
+ const port = Number(process.env.S6_PORT ?? 4200);
+ const baseURL = `http://127.0.0.1:${port}`;
++// Explicit diagnostic comparison; the established qualification default stays Chrome.
++const browserChannel = process.env.S6_BROWSER_CHANNEL ?? 'chrome';
++if (!['chrome', 'chromium'].includes(browserChannel)) {
++  throw new Error('S6_BROWSER_CHANNEL must be chrome or chromium');
++}
+ 
+ /** Serialized S6 lifecycle run on the user-cleared local test port. */
+ export default defineConfig({
+@@ -24,7 +29,11 @@ export default defineConfig({
+   projects: [
+     {
+       name: 'chromium',
+-      use: { ...devices['Desktop Chrome'], channel: 'chrome', baseURL },
++      use: {
++        ...devices['Desktop Chrome'],
++        channel: browserChannel === 'chromium' ? undefined : 'chrome',
++        baseURL,
++      },
+     },
+   ],
+ });
+diff --git a/apps/pegasoft-e2e/playwright.s7.config.ts b/apps/pegasoft-e2e/playwright.s7.config.ts
+index 959552d..d02039b 100644
+--- a/apps/pegasoft-e2e/playwright.s7.config.ts
++++ b/apps/pegasoft-e2e/playwright.s7.config.ts
+@@ -1,9 +1,12 @@
+ import { defineConfig, devices } from '@playwright/test';
+ import { nxE2EPreset } from '@nx/playwright/preset';
+ import { workspaceRoot } from '@nx/devkit';
++import { resolve } from 'node:path';
+ 
+ const port = Number(process.env.S7_PORT ?? 4306);
+ const baseURL = `http://127.0.0.1:${port}`;
++const appRoot = resolve(workspaceRoot, 'apps/pegasoft');
++const distDir = process.env.NEXT_DIST_DIR ?? '.next';
+ 
+ /**
+  * S7 shipping-build smoke only. Full S7 matrix qualification remains a
+@@ -19,10 +22,10 @@ export default defineConfig({
+   ],
+   use: { baseURL, trace: 'on-first-retry' },
+   webServer: {
+-    command: `pnpm --filter @site/pegasoft exec next start -H 127.0.0.1 -p ${port}`,
++    command: `NEXT_DIST_DIR=${distDir} pnpm exec next start -H 127.0.0.1 -p ${port}`,
+     url: baseURL,
+     reuseExistingServer: false,
+-    cwd: workspaceRoot,
++    cwd: appRoot,
+   },
+   projects: [
+     { name: 'desktop-chrome', use: { ...devices['Desktop Chrome'], channel: 'chrome', baseURL } },
+diff --git a/apps/pegasoft-e2e/playwright.visual.config.ts b/apps/pegasoft-e2e/playwright.visual.config.ts
+index d7cc790..ec5e091 100644
+--- a/apps/pegasoft-e2e/playwright.visual.config.ts
++++ b/apps/pegasoft-e2e/playwright.visual.config.ts
+@@ -1,15 +1,35 @@
+ import { defineConfig, devices } from '@playwright/test';
+ import { workspaceRoot } from '@nx/devkit';
++import { readFileSync } from 'node:fs';
++import { execFileSync } from 'node:child_process';
++import { createHash } from 'node:crypto';
++import path from 'node:path';
++import { CAPTURE_EXPECTATIONS } from './src/visual/hero-capture-contract';
+ 
+ const requestedBaseURL = process.env['BASE_URL'];
+ const baseURL =
+   requestedBaseURL && /^https?:\/\//u.test(requestedBaseURL)
+     ? requestedBaseURL
+-    : 'http://127.0.0.1:4200';
++    : 'http://127.0.0.1:4317';
++
++const inputFiles = execFileSync('git', ['ls-files', '--cached', '--others', '--exclude-standard'], { cwd: workspaceRoot, encoding: 'utf8' })
++  .split('\n').filter((file) => /^(apps|libs|tools)\//u.test(file) && !/(?:^|\/)(?:test-output|out-tsc|node_modules|\.next[^/]*|dist|\.cache)(?:\/|$)/u.test(file)).sort();
++const inputHash = createHash('sha256');
++for (const file of inputFiles) inputHash.update(file).update('\0').update(readFileSync(path.join(workspaceRoot, file))).update('\0');
+ 
+ export default defineConfig({
+   testDir: './src/visual',
+   testMatch: '**/*.visual.ts',
++  globalSetup: './src/visual/hero-capture-global-setup.ts',
++  globalTeardown: './src/visual/hero-capture-global-teardown.ts',
++  metadata: { heroCapture: {
++    root: path.join(workspaceRoot, 'apps/pegasoft-e2e'),
++    expectedStates: Object.keys(CAPTURE_EXPECTATIONS),
++    provenance: {
++      buildId: readFileSync(path.join(workspaceRoot, 'apps/pegasoft/.next-s7-diagnostics/BUILD_ID'), 'utf8').trim(),
++      inputTreeSha256: inputHash.digest('hex'),
++    },
++  } },
+   outputDir: 'test-output/playwright/hero-reference',
+   fullyParallel: false,
+   workers: 1,
+@@ -17,6 +37,7 @@ export default defineConfig({
+   reporter: 'line',
+   use: {
+     ...devices['Desktop Chrome'],
++    channel: 'chrome',
+     baseURL,
+     viewport: {
+       width: 1508,
+@@ -27,9 +48,9 @@ export default defineConfig({
+     trace: 'retain-on-failure',
+   },
+   webServer: {
+-    command: 'pnpm --filter @site/pegasoft exec next dev -H 127.0.0.1 -p 4200',
++    command: 'NEXT_DIST_DIR=.next-s7-diagnostics pnpm --filter @site/pegasoft exec next start -H 127.0.0.1 -p 4317',
+     url: baseURL,
+-    reuseExistingServer: true,
++    reuseExistingServer: false,
+     cwd: workspaceRoot,
+   },
+ });
+diff --git a/apps/pegasoft-e2e/project.json b/apps/pegasoft-e2e/project.json
+index c17ccc7..2e4e8f9 100644
+--- a/apps/pegasoft-e2e/project.json
++++ b/apps/pegasoft-e2e/project.json
+@@ -28,7 +28,9 @@
+       "parallelism": false,
+       "dependsOn": [
+         {
+-          "projects": ["@site/pegasoft"],
++          "projects": [
++            "@site/pegasoft"
++          ],
+           "target": "build-s7-diagnostics"
+         }
+       ],
+@@ -60,7 +62,9 @@
+       "parallelism": false,
+       "dependsOn": [
+         {
+-          "projects": ["@site/pegasoft"],
++          "projects": [
++            "@site/pegasoft"
++          ],
+           "target": "build-s7-diagnostics"
+         }
+       ],
+@@ -137,7 +141,9 @@
+       "dependsOn": [
+         "typecheck",
+         {
+-          "projects": ["@site/pegasoft"],
++          "projects": [
++            "@site/pegasoft"
++          ],
+           "target": "typecheck"
+         }
+       ],
+@@ -149,11 +155,26 @@
+     "hero-compare": {
+       "executor": "nx:run-commands",
+       "cache": false,
+-      "dependsOn": ["hero-capture"],
+       "options": {
+         "cwd": ".",
+         "command": "node tools/hero-reference/compare-captures.mjs"
+       }
++    },
++    "hero-capture-contract-test": {
++      "executor": "nx:run-commands",
++      "cache": false,
++      "options": {
++        "cwd": "apps/pegasoft-e2e",
++        "command": "playwright test --config=playwright.capture-contract.config.ts"
++      }
++    },
++    "hero-capture-clock-test": {
++      "executor": "nx:run-commands",
++      "cache": false,
++      "options": {
++        "cwd": "apps/pegasoft-e2e",
++        "command": "playwright test --config=playwright.capture-clock.config.ts"
++      }
+     }
+   }
+ }
+diff --git a/apps/pegasoft-e2e/src/hero-alternatives.spec.ts b/apps/pegasoft-e2e/src/hero-alternatives.spec.ts
+index 1bd2d78..3eaa334 100644
+--- a/apps/pegasoft-e2e/src/hero-alternatives.spec.ts
++++ b/apps/pegasoft-e2e/src/hero-alternatives.spec.ts
+@@ -10,6 +10,45 @@ import AxeBuilder from '@axe-core/playwright';
+ const REFERENCE_STATE = 'landing-idle';
+ const HERO_URL = `/?__heroState=${REFERENCE_STATE}&__heroTime=2500`;
+ 
++test.afterEach(async ({ page, browser }, testInfo) => {
++  if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
++  const observed = await page.evaluate(() => {
++    const scene = document.querySelector('[data-hero-reference-state]');
++    const loader = document.querySelector('[data-hidden][data-revealing]');
++    const style = loader ? getComputedStyle(loader) : null;
++    return {
++      nowMs: performance.now(),
++      visibility: document.visibilityState,
++      url: location.href,
++      userAgent: navigator.userAgent,
++      scene: scene
++        ? Object.fromEntries(
++            [...scene.attributes].map(({ name, value }) => [name, value]),
++          )
++        : null,
++      loader: loader
++        ? {
++            hidden: loader.getAttribute('data-hidden'),
++            revealing: loader.getAttribute('data-revealing'),
++            visibility: style?.visibility,
++            opacity: style?.opacity,
++            display: style?.display,
++            pointerEvents: style?.pointerEvents,
++            animations: loader.getAnimations().map((animation) => ({
++              currentTime: animation.currentTime,
++              playState: animation.playState,
++              pending: animation.pending,
++            })),
++          }
++        : null,
++    };
++  });
++  await testInfo.attach('failure-runtime-state', {
++    body: JSON.stringify({ browserVersion: browser.version(), ...observed }),
++    contentType: 'application/json',
++  });
++});
++
+ type RuntimeErrors = {
+   console: string[];
+   page: string[];
+@@ -60,6 +99,23 @@ async function expectUsefulLanding(page: Page, state: Locator) {
+ }
+ 
+ async function expectLoaderDoesNotBlock(page: Page) {
++  // Match a single committed CSS/DOM observation before locator assertions.
++  // The same 5s visibility budget applies; no animation or page state is changed.
++  const cleared = await page.waitForFunction(() => {
++    const shell = document.querySelector('[data-hero-shell]');
++    const loaders = document.querySelectorAll(
++      '[aria-hidden="true"][data-direct][data-hidden][data-revealing]',
++    );
++    const loader = loaders[0];
++    if (!loader || loaders.length !== 1) return false;
++    const style = getComputedStyle(loader);
++    return shell?.getAttribute('data-loader-cleared') === 'true' &&
++      loader.getAttribute('data-hidden') === 'true' &&
++      (style.visibility === 'hidden' || style.display === 'none') &&
++      style.pointerEvents === 'none' &&
++      !document.body.classList.contains('pegasoft-locked');
++  }, undefined, { polling: 50, timeout: 5_000 });
++  await cleared.dispose();
+   const shell = page.locator('[data-hero-shell]');
+   const loader = page.locator(
+     '[aria-hidden="true"][data-direct][data-hidden][data-revealing]',
+@@ -172,6 +228,24 @@ async function retainFallbackTiming(
+   });
+ }
+ 
++// Observe the transition in the browser rather than spending the assertion
++// budget on repeated protocol/locator snapshots of a GPU-backed page.
++async function waitForAttemptState(
++  page: Page,
++  expected: 'loading-resources' | 'ready' | 'fallback',
++  timeout: number,
++) {
++  const observed = await page.waitForFunction(
++    (expectedState) => {
++      const scene = document.querySelector('[data-hero-reference-state]');
++      return scene?.getAttribute('data-hero-attempt-state') === expectedState;
++    },
++    expected,
++    { polling: 50, timeout },
++  );
++  await observed.dispose();
++}
++
+ test('reduced motion is useful, non-blocking, deterministic, and keyboard reachable', async ({
+   page,
+ }) => {
+@@ -395,14 +469,12 @@ test('never-resolving essential resources reach useful fallback at the finite de
+     'loading-resources',
+   );
+   await page.setViewportSize({ width: 1100, height: 760 });
+-  await expect(state).toHaveAttribute('data-hero-attempt-state', 'fallback', {
+-    timeout: 16_000,
+-  });
++  await waitForAttemptState(page, 'fallback', 16_000);
++  await retainFallbackTiming(state, testInfo);
+   await expect(state).toHaveAttribute('data-hero-render-ready', 'false');
+   await expect(state).toHaveAttribute('data-hero-fallback-ready', 'true');
+   await expectUsefulLanding(page, state);
+   await expectLoaderDoesNotBlock(page);
+-  await retainFallbackTiming(state, testInfo);
+   expectNoRuntimeErrors(errors);
+ });
+ 
+@@ -619,7 +691,7 @@ test('route remount rejects abandoned resource and context callbacks', async ({
+     'data-hero-attempt-state',
+     'loading-resources',
+   );
+-  expect(await state.getAttribute('data-hero-attempt-id')).not.toBe(oldId);
++  await expect(state).not.toHaveAttribute('data-hero-attempt-id', oldId ?? '');
+   await oldCanvas!.evaluate((el) => {
+     el.dispatchEvent(new Event('webglcontextrestored'));
+     el.dispatchEvent(new Event('webglcontextlost', { cancelable: true }));
+@@ -628,9 +700,7 @@ test('route remount rejects abandoned resource and context callbacks', async ({
+     'data-hero-attempt-state',
+     'loading-resources',
+   );
+-  await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready', {
+-    timeout: 7_000,
+-  });
++  await waitForAttemptState(page, 'ready', 7_000);
+   await expect(state.locator('canvas')).toHaveCount(1);
+   await oldCanvas!.dispose();
+   expectNoRuntimeErrors(errors);
+@@ -685,7 +755,7 @@ test('successful capability probe with failed actual Canvas selects fallback', a
+   await expect(page).toHaveURL(/\/services$/);
+   await page.goBack();
+   await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready');
+-  expect(await state.getAttribute('data-hero-attempt-id')).not.toBe(oldId);
++  await expect(state).not.toHaveAttribute('data-hero-attempt-id', oldId ?? '');
+   await expect(state.locator('canvas')).toHaveCount(1);
+ });
+ 
+diff --git a/apps/pegasoft-e2e/src/hero-s7-matrix.spec.ts b/apps/pegasoft-e2e/src/hero-s7-matrix.spec.ts
+index 222aeb4..79ef503 100644
+--- a/apps/pegasoft-e2e/src/hero-s7-matrix.spec.ts
++++ b/apps/pegasoft-e2e/src/hero-s7-matrix.spec.ts
+@@ -661,7 +661,9 @@ for (const shardState of SHARD_STATES) {
+         }
+         let observed: Awaited<ReturnType<typeof readObservation>> | undefined;
+         let restorationEvidence: RestorationEvidence | null = null;
+-        await page.goto('/');
++        await page.goto('/', {
++          waitUntil: cell.sceneSelection === null ? 'commit' : 'load',
++        });
+         if (cell.sceneSelection === null) {
+           // Startup recipes remain normal timed navigation; no state/time control is used.
+           await page.waitForTimeout(cell.state === 'loader-mark' ? 2_000 : 3_500);
+diff --git a/apps/pegasoft-e2e/src/pegasoft.spec.ts b/apps/pegasoft-e2e/src/pegasoft.spec.ts
+index 8fd2061..6d7f148 100644
+--- a/apps/pegasoft-e2e/src/pegasoft.spec.ts
++++ b/apps/pegasoft-e2e/src/pegasoft.spec.ts
+@@ -225,6 +225,149 @@ async function scrollToRawHeroProgress(page: Page, rawProgress: number) {
+   });
+ }
+ 
++type AppliedFieldFrame = {
++  fieldElapsedMs: number;
++  frameId: number;
++  renderedProgress: number;
++  targetProgress: number;
++};
++
++async function enterAppliedFieldPhase(
++  page: Page,
++  minimumFieldElapsedMs: number,
++): Promise<AppliedFieldFrame> {
++  const sceneProgress = 0.74;
++  await page.goto('/');
++  await waitForAnyHeroState(page);
++  const shell = page.locator('[data-hero-shell]');
++  await expect(shell).toHaveAttribute('data-loader-cleared', 'true', {
++    timeout: 10_000,
++  });
++  await expect(page.locator('body')).not.toHaveClass(/pegasoft-locked/u, {
++    timeout: 10_000,
++  });
++
++  const targetScrollY = await page.evaluate((target) => {
++    const flow = document.querySelector<HTMLElement>('[data-hero-process]');
++    const wrapper = flow?.querySelector<HTMLElement>('div');
++    if (!flow || !wrapper) {
++      throw new Error('Hero flow geometry is unavailable');
++    }
++
++    const range = Math.max(flow.scrollHeight - wrapper.clientHeight, 1);
++    const denominator = window.innerHeight * 0.4 + (range * 400) / 356;
++    return Math.round(target * denominator);
++  }, sceneProgress);
++
++  await page.mouse.wheel(0, targetScrollY);
++  try {
++    await page.waitForFunction(
++      ({ expectedTarget, minimumFieldMs }) => {
++        const record = (
++          window as Window & {
++            __pegasoftHeroFrame?: {
++              renderedAtMs?: number;
++              frame?: {
++                fieldElapsedMs?: number;
++                frameId?: number;
++                rendered?: { value?: number; velocity?: number };
++                target?: number;
++              };
++              appliedConsumers?: Record<string, { frameId?: number }>;
++            };
++          }
++        ).__pegasoftHeroFrame;
++        const frame = record?.frame;
++        const consumers = Object.values(record?.appliedConsumers ?? {});
++
++        return Boolean(
++          record?.renderedAtMs &&
++            frame?.frameId &&
++            Math.abs((frame.target ?? Number.NaN) - expectedTarget) <= 0.002 &&
++            Math.abs(
++              (frame.rendered?.value ?? Number.NaN) - expectedTarget,
++            ) <= 0.002 &&
++            Math.abs(frame.rendered?.velocity ?? Number.NaN) <= 0.03 &&
++            (frame.fieldElapsedMs ?? 0) >= minimumFieldMs &&
++            consumers.length > 0 &&
++            consumers.every((consumer) => consumer.frameId === frame.frameId),
++        );
++      },
++      {
++        expectedTarget: sceneProgress,
++        minimumFieldMs: minimumFieldElapsedMs,
++      },
++      { timeout: 10_000 },
++    );
++  } catch (error) {
++    const probe = await page.evaluate(() => {
++      const record = (
++        window as Window & {
++          __pegasoftHeroFrame?: {
++            appliedConsumers?: Record<string, { frameId?: number }>;
++            frame?: {
++              fieldElapsedMs?: number;
++              frameId?: number;
++              rendered?: { value?: number; velocity?: number };
++              target?: number;
++            };
++          };
++        }
++      ).__pegasoftHeroFrame;
++      const frame = record?.frame;
++      return {
++        appliedConsumers: Object.fromEntries(
++          Object.entries(record?.appliedConsumers ?? {}).map(
++            ([key, value]) => [key, value.frameId],
++          ),
++        ),
++        frame: frame
++          ? {
++              fieldElapsedMs: frame.fieldElapsedMs,
++              frameId: frame.frameId,
++              rendered: frame.rendered,
++              target: frame.target,
++            }
++          : null,
++        maxScrollY:
++          document.documentElement.scrollHeight - window.innerHeight,
++        sceneProgress: document
++          .querySelector('[data-hero-shell]')
++          ?.getAttribute('data-hero-scene-progress'),
++        scrollY: window.scrollY,
++      };
++    });
++    throw new Error(
++      `Applied field phase did not converge: ${JSON.stringify(probe)}`,
++      { cause: error },
++    );
++  }
++
++  return page.evaluate(() => {
++    const record = (
++      window as Window & {
++        __pegasoftHeroFrame?: {
++          frame?: {
++            fieldElapsedMs?: number;
++            frameId?: number;
++            rendered?: { value?: number };
++            target?: number;
++          };
++        };
++      }
++    ).__pegasoftHeroFrame;
++    const frame = record?.frame;
++    if (!frame?.frameId) throw new Error('Applied hero frame is unavailable');
++
++    return {
++      fieldElapsedMs: frame.fieldElapsedMs ?? 0,
++      frameId: frame.frameId,
++      renderedProgress: frame.rendered?.value ?? Number.NaN,
++      targetProgress: frame.target ?? Number.NaN,
++    };
++  });
++}
++
+ async function readHeroProgressProbe(page: Page) {
+   return page.evaluate(() => {
+     const flow = document.querySelector<HTMLElement>('[data-hero-process]');
+@@ -440,18 +583,24 @@ test('homepage hydrates without runtime errors and mounts WebGL or fallback', as
+   expect(consoleErrors, 'console and hydration errors').toEqual([]);
+ });
+ 
+-test('development harness enters a named state without traversal history', async ({
++test('development harness observes field-pulse-b from physical input and applied time', async ({
+   page,
+ }) => {
+-  await page.goto('/?__heroState=field-pulse-b&__heroTime=2800');
++  const frame = await enterAppliedFieldPhase(page, 2_800);
+ 
+-  const state = page.locator('[data-hero-reference-state="field-pulse-b"]');
+-  await expect(state).toHaveAttribute('data-hero-direct-entry', 'true');
+-  await expect(state).toHaveAttribute('data-hero-scene-progress', '0.740000');
++  const state = page.locator('[data-hero-reference-state]');
++  await expect(state).toHaveAttribute('data-hero-direct-entry', 'false');
++  const diagnosticProgress = Number(
++    await state.getAttribute('data-hero-scene-progress'),
++  );
+   await expect(state).toHaveAttribute('data-hero-seed', '43117');
+   await expect(
+     page.locator('[data-hero-process-step="3"][data-active="true"]'),
+   ).toHaveCount(1);
++  expect(frame.targetProgress).toBeCloseTo(0.74, 3);
++  expect(frame.renderedProgress).toBeCloseTo(0.74, 3);
++  expect(diagnosticProgress).toBeCloseTo(frame.targetProgress, 3);
++  expect(frame.fieldElapsedMs).toBeGreaterThanOrEqual(2_800);
+ });
+ 
+ test('hero state converges across forward, reverse, jump, resize, and restored reload entry', async ({
+@@ -506,7 +655,166 @@ test('hero state converges across forward, reverse, jump, resize, and restored r
+   expectEquivalentHeroSignature(await readHeroBrowserSignature(page), forward);
+ });
+ 
+-test('same named state produces a stable capture', async ({
++/* eslint-disable playwright/no-conditional-expect, playwright/no-conditional-in-test -- direction-specific journey invariants share one bounded desktop gate */
++test('desktop journeys complete at normal, slow, fast, and reverse rates', async ({
++  page,
++}, testInfo) => {
++  // eslint-disable-next-line playwright/no-skipped-test -- Phase 15 is the desktop integration gate
++  test.skip(
++    testInfo.project.name !== 'chromium',
++    'Phase 15 rate coverage runs in the desktop Chromium profile.',
++  );
++  test.setTimeout(60_000);
++
++  await page.goto('/');
++  await waitForAnyHeroState(page);
++  const shell = page.locator('[data-hero-shell]');
++  await expect(shell).toHaveAttribute('data-loader-cleared', 'true', {
++    timeout: 10_000,
++  });
++
++  const runLeg = async (
++    direction: 'forward' | 'reverse',
++    durationMs: number,
++  ) => {
++    const result = await page.evaluate(
++      async ({ duration, journeyDirection }) => {
++        const flow = document.querySelector<HTMLElement>(
++          '[data-hero-process]',
++        );
++        const shellElement = document.querySelector<HTMLElement>(
++          '[data-hero-shell]',
++        );
++        if (!flow || !shellElement) {
++          throw new Error('Hero journey geometry is unavailable');
++        }
++
++        const flowTop = flow.getBoundingClientRect().top + window.scrollY;
++        const range = Math.max(0, flow.offsetHeight - window.innerHeight);
++        const lead = Math.max(0, flowTop - window.innerHeight * 0.4);
++        const startY =
++          journeyDirection === 'forward' ? 0 : flowTop - lead + range;
++        const endY =
++          journeyDirection === 'forward' ? flowTop - lead + range : 0;
++        const samples: Array<{
++          rawProgress: number;
++          sceneProgress: number;
++          scrollY: number;
++        }> = [];
++        const startedAt = performance.now();
++        document.documentElement.style.scrollBehavior = 'auto';
++        window.scrollTo(0, startY);
++
++        await new Promise<void>((resolve) => {
++          const step = (timestamp: number) => {
++            const ratio = Math.min(1, (timestamp - startedAt) / duration);
++            const eased = ratio * ratio * (3 - 2 * ratio);
++            window.scrollTo(0, startY + (endY - startY) * eased);
++            samples.push({
++              rawProgress: Number(shellElement.dataset.heroRawProgress),
++              sceneProgress: Number(shellElement.dataset.heroSceneProgress),
++              scrollY: window.scrollY,
++            });
++            if (ratio < 1) requestAnimationFrame(step);
++            else resolve();
++          };
++          requestAnimationFrame(step);
++        });
++
++        await new Promise<void>((resolve) =>
++          requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
++        );
++        return {
++          endY,
++          finalRawProgress: Number(shellElement.dataset.heroRawProgress),
++          finalSceneProgress: Number(shellElement.dataset.heroSceneProgress),
++          finalScrollY: window.scrollY,
++          samples,
++        };
++      },
++      { duration: durationMs, journeyDirection: direction },
++    );
++
++    const expectedRawProgress = direction === 'forward' ? 1 : 0;
++    await page.waitForFunction(
++      () => {
++        const record = (
++          window as Window & {
++            __pegasoftHeroFrame?: {
++              appliedConsumers?: Record<string, { frameId?: number }>;
++              frame?: {
++                frameId?: number;
++                rendered: { value: number; velocity: number };
++                target: number;
++              };
++              renderedAtMs?: number;
++            };
++          }
++        ).__pegasoftHeroFrame;
++        const frame = record?.frame;
++        const consumers = Object.values(record?.appliedConsumers ?? {});
++        const diagnosticTarget = Number(
++          document
++            .querySelector<HTMLElement>('[data-hero-shell]')
++            ?.dataset.heroSceneProgress,
++        );
++        return Boolean(
++          record?.renderedAtMs &&
++            frame?.frameId &&
++            Math.abs(frame.target - diagnosticTarget) <= 0.002 &&
++            Math.abs(frame.rendered.value - frame.target) <= 0.002 &&
++            Math.abs(frame.rendered.velocity) <= 0.03 &&
++            consumers.length > 0 &&
++            consumers.every((consumer) => consumer.frameId === frame.frameId),
++        );
++      },
++      undefined,
++      { timeout: 10_000 },
++    );
++
++    expect(Math.abs(result.finalScrollY - result.endY)).toBeLessThanOrEqual(1);
++    expect(result.finalRawProgress).toBeCloseTo(expectedRawProgress, 3);
++    if (direction === 'forward') {
++      expect(result.finalSceneProgress).toBeGreaterThan(0.8);
++    } else {
++      expect(result.finalSceneProgress).toBeCloseTo(0, 3);
++    }
++    const orderedSamples = result.samples.filter(
++      (sample) =>
++        Number.isFinite(sample.rawProgress) &&
++        Number.isFinite(sample.sceneProgress),
++    );
++    expect(orderedSamples.length).toBeGreaterThan(2);
++    for (let index = 1; index < orderedSamples.length; index += 1) {
++      const previous = orderedSamples[index - 1];
++      const current = orderedSamples[index];
++      if (direction === 'forward') {
++        expect(current.scrollY).toBeGreaterThanOrEqual(previous.scrollY);
++        expect(current.rawProgress + 0.002).toBeGreaterThanOrEqual(
++          previous.rawProgress,
++        );
++      } else {
++        expect(current.scrollY).toBeLessThanOrEqual(previous.scrollY);
++        expect(current.rawProgress - 0.002).toBeLessThanOrEqual(
++          previous.rawProgress,
++        );
++      }
++    }
++  };
++
++  await runLeg('forward', 3_600);
++  await runLeg('reverse', 600);
++  await runLeg('forward', 7_200);
++  await runLeg('reverse', 600);
++  await runLeg('forward', 900);
++  await runLeg('reverse', 3_600);
++
++  await expect(shell).toHaveAttribute('data-hero-attempt-state', 'ready');
++  await expect(shell).toHaveAttribute('data-loader-cleared', 'true');
++});
++/* eslint-enable playwright/no-conditional-expect, playwright/no-conditional-in-test */
++
++test('the same physically reached applied field frame produces a stable capture', async ({
+   page,
+ }, testInfo) => {
+   // eslint-disable-next-line playwright/no-skipped-test -- fixed-viewport coverage belongs to one browser profile
+@@ -516,12 +824,22 @@ test('same named state produces a stable capture', async ({
+   );
+ 
+   await page.setViewportSize({ width: 1508, height: 761 });
+-  await page.goto('/?__heroState=field-pulse-a&__heroTime=300');
+-  const state = page.locator('[data-hero-reference-state="field-pulse-a"]');
++  const appliedFrame = await enterAppliedFieldPhase(page, 300);
++  expect(appliedFrame.fieldElapsedMs).toBeLessThan(1_600);
++  const state = page.locator('[data-hero-reference-state]');
+   await expect(state).toHaveCount(1);
+   await expect(state.locator('[data-hero-surface]')).toBeVisible();
+   await expect(state).toHaveAttribute('data-hero-render-ready', 'true');
+   await page.evaluate(() => document.fonts.ready);
++  await page.evaluate(() => {
++    const driver = (
++      window as Window & {
++        __pegasoftHeroFrameDriver?: { pause: () => void };
++      }
++    ).__pegasoftHeroFrameDriver;
++    if (!driver) throw new Error('Hero frame driver is unavailable');
++    driver.pause();
++  });
+   await page.evaluate(
+     () =>
+       new Promise<void>((resolve) =>
+@@ -546,7 +864,7 @@ test('same named state produces a stable capture', async ({
+ 
+   expect(
+     first.equals(second),
+-    'direct state should not inherit an elapsed scene clock',
++    'a paused applied frame should remain byte-stable',
+   ).toBe(true);
+ });
+ 
+diff --git a/apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs b/apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs
+index 2cf7e9c..0dbee20 100644
+--- a/apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs
++++ b/apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs
+@@ -108,7 +108,7 @@ test('resource cleanup has a short independent deadline', async () => {
+   const started = Date.now();
+   await assert.rejects(
+     closeShardResources({
+-      page: { isClosed: () => false, close: () => new Promise(() => {}) },
++      page: { isClosed: () => false, close: () => new Promise(() => undefined) },
+       context: { close: async () => undefined },
+       timeoutMs: 10,
+     }),
+diff --git a/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts b/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts
+index 9b2931c..244acab 100644
+--- a/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts
++++ b/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts
+@@ -1,8 +1,14 @@
+ import { expect, test, type Page } from '@playwright/test';
+-import { createHash, randomUUID } from 'node:crypto';
+-import { mkdir, readFile, rename, rm, writeFile } from 'node:fs/promises';
++import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
+ import path from 'node:path';
++import { createHash } from 'node:crypto';
++import { buildCaptureProvenance } from './hero-capture-provenance';
++import { readCaptureIdentities, readPaintedFonts } from './hero-capture-identity';
++import { readCaptureSample } from './hero-capture-contract';
++import { readCaptureCssClock } from './hero-capture-clock';
+ import sharp from 'sharp';
++import { installCaptureInputClock, waitForCaptureObservation, CAPTURE_EXPECTATIONS } from './hero-capture-contract';
++import { readCaptureRun, recordCaptureOutcome, type CaptureRunContext } from './hero-capture-run';
+ import { measureScreenComposition } from './screen-composition.mjs';
+ import {
+   COPY_CONFIG_BY_STATE,
+@@ -40,18 +46,6 @@ const REFERENCE_STATES = [
+ 
+ type ReferenceStateKey = (typeof REFERENCE_STATES)[number];
+ 
+-const LOCAL_TIME_MS: Partial<Record<ReferenceStateKey, number>> = {
+-  'loader-mark': 2000,
+-  'world-reveal': 3500,
+-  landing: 0,
+-  'landing-idle': 2500,
+-  'field-contact': 0,
+-  'field-pulse-a': 300,
+-  'field-pulse-b': 2800,
+-  'arrival-travel': 300,
+-  'arrival-lockup': 0,
+-  'journey-exit': 1000,
+-};
+ 
+ type RouteConfig =
+   (typeof ROUTE_CONFIG_BY_STATE)[keyof typeof ROUTE_CONFIG_BY_STATE];
+@@ -79,27 +73,12 @@ const FIELD_CONTACT_CENTER_CONFIGS: Partial<
+   Record<ReferenceStateKey, FieldContactCenterConfig>
+ > = FIELD_CONTACT_CENTER_CONFIG_BY_STATE;
+ 
+-const outputRoot = path.resolve(
+-  process.cwd(),
+-  'test-output/hero-reference/recording',
+-);
+-const implementationRoot = path.join(outputRoot, 'implementation');
+-const measurementRoot = path.join(outputRoot, 'measurements');
+-const comparisonRoot = path.join(outputRoot, 'comparisons');
+-const comparisonReportPath = path.join(outputRoot, 'comparison-report.json');
+-const captureManifestPath = path.join(outputRoot, 'capture-manifest.json');
+-const captureManifestTemporaryPath = path.join(
+-  outputRoot,
+-  '.capture-manifest.json.tmp',
+-);
+-const generatedOutputPaths = [
+-  implementationRoot,
+-  measurementRoot,
+-  comparisonRoot,
+-  comparisonReportPath,
+-  captureManifestPath,
+-  captureManifestTemporaryPath,
+-] as const;
++let captureRun: CaptureRunContext;
++let outputRoot: string;
++let implementationRoot: string;
++let measurementRoot: string;
++let identities: ReturnType<typeof readCaptureIdentities>;
++const sha256 = (bytes: Buffer) => createHash('sha256').update(bytes).digest('hex');
+ 
+ type RuntimeErrors = {
+   console: string[];
+@@ -107,10 +86,6 @@ type RuntimeErrors = {
+   page: string[];
+ };
+ 
+-let captureRunId = '';
+-let captureRunStartedAt = '';
+-const capturedStates = new Set<ReferenceStateKey>();
+-
+ function captureRuntimeErrors(page: Page): RuntimeErrors {
+   let reportFirstError: (message: string) => void = () => undefined;
+   const errors: RuntimeErrors = {
+@@ -173,16 +148,6 @@ function expectNoRuntimeErrors(
+   });
+ }
+ 
+-async function createArtifactEvidence(relativePath: string) {
+-  const artifact = await readFile(path.join(outputRoot, relativePath));
+-
+-  return {
+-    path: relativePath,
+-    bytes: artifact.byteLength,
+-    sha256: createHash('sha256').update(artifact).digest('hex'),
+-  };
+-}
+-
+ async function measureImplementationStructure(
+   imagePath: string,
+   stateKey: ReferenceStateKey,
+@@ -299,77 +264,13 @@ async function measureImplementationStructure(
+   };
+ }
+ 
+-function createStateQuery(stateKey: ReferenceStateKey) {
+-  const query = new URLSearchParams({
+-    __heroState: stateKey,
+-  });
+-  const localTime = LOCAL_TIME_MS[stateKey];
+-  if (localTime !== undefined) {
+-    query.set('__heroTime', String(localTime));
+-  }
+-
+-  return query.toString();
+-}
+-
+-async function waitForSettledDirectState(
+-  page: Page,
+-  stateKey: ReferenceStateKey,
+-) {
+-  const root = page.locator(
+-    `[data-hero-reference-state="${stateKey}"][data-hero-direct-entry="true"]`,
+-  );
+-
+-  await expect(root).toHaveCount(1);
+-  await expect(root).toHaveAttribute('data-hero-render-ready', 'true');
+-  await expect(root).toHaveAttribute('data-hero-motion', 'full');
+-  await expect(root).toHaveAttribute('data-hero-profile', 'recording-desktop');
+-  await expect(root).toHaveAttribute('data-hero-seed', '43117');
+-  await expect(
+-    root.locator('[data-hero-surface="canvas"] canvas'),
+-  ).toBeVisible();
+-  await page.evaluate(() => document.fonts.ready);
+-  if (stateKey === 'journey-exit') {
+-    await page.evaluate(() =>
+-      window.scrollTo({
+-        top: 3520,
+-        behavior: 'auto',
+-      }),
+-    );
+-  }
+-  await page.locator('nextjs-portal').evaluateAll((portals) => {
+-    portals.forEach((portal) => portal.remove());
+-  });
+-  await page.evaluate(
+-    () =>
+-      new Promise<void>((resolve) =>
+-        requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+-      ),
+-  );
+-
+-  return root;
+-}
+-
+-async function waitForSettledStateOrRuntimeError(
+-  page: Page,
+-  stateKey: ReferenceStateKey,
+-  runtimeErrors: RuntimeErrors,
+-) {
++async function waitForSettledStateOrRuntimeError(page: Page, stateKey: ReferenceStateKey, runtimeErrors: RuntimeErrors) {
+   const outcome = await Promise.race([
+-    waitForSettledDirectState(page, stateKey).then((root) => ({
+-      root,
+-    })),
+-    runtimeErrors.first.then((runtimeError) => ({
+-      runtimeError,
+-    })),
++    waitForCaptureObservation(page, CAPTURE_EXPECTATIONS[stateKey]).then((observation) => ({ observation })),
++    runtimeErrors.first.then((runtimeError) => ({ runtimeError })),
+   ]);
+-
+-  if ('runtimeError' in outcome) {
+-    throw new Error(
+-      `${stateKey}: hero failed before render readiness: ${outcome.runtimeError}`,
+-    );
+-  }
+-
+-  return outcome.root;
++  if ('runtimeError' in outcome) throw new Error(`${stateKey}: hero failed before capture: ${outcome.runtimeError}`);
++  return outcome.observation;
+ }
+ 
+ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
+@@ -395,7 +296,7 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
+       return serializeBounds(element.getBoundingClientRect());
+     };
+     const root = document.querySelector<HTMLElement>(
+-      `[data-hero-reference-state="${key}"]`,
++      '[data-hero-render-ready]',
+     );
+     const shell = document.querySelector<HTMLElement>('[data-hero-shell]');
+     const surface = root?.querySelector<HTMLElement>('[data-hero-surface]');
+@@ -553,54 +454,19 @@ async function measurePage(page: Page, stateKey: ReferenceStateKey) {
+ }
+ 
+ test.beforeAll(async () => {
+-  captureRunId = randomUUID();
+-  captureRunStartedAt = new Date().toISOString();
+-  capturedStates.clear();
+-
+-  await Promise.all(
+-    generatedOutputPaths.map((generatedPath) =>
+-      rm(generatedPath, { force: true, recursive: true }),
+-    ),
+-  );
+-  await Promise.all([
+-    mkdir(implementationRoot, { recursive: true }),
+-    mkdir(measurementRoot, { recursive: true }),
+-  ]);
++  captureRun = await readCaptureRun();
++  identities = readCaptureIdentities();
++  await mkdir(path.join(captureRun.outputRoot, 'observations'), { recursive: true });
++  outputRoot = captureRun.outputRoot;
++  implementationRoot = path.join(outputRoot, 'implementation');
++  measurementRoot = path.join(outputRoot, 'measurements');
+ });
+ 
+-test.afterAll(async () => {
+-  if (REFERENCE_STATES.some((stateKey) => !capturedStates.has(stateKey))) {
+-    return;
++test.afterEach(async ({ page }, testInfo) => {
++  if (testInfo.status !== 'passed') {
++    const state = REFERENCE_STATES.find((key) => testInfo.title === `capture ${key} at the recording profile`);
++    if (state) await recordCaptureOutcome(captureRun, { state, status: 'failed', error: `${page.url()}\n${testInfo.errors.map((error) => error.message).join('\n') || String(testInfo.status)}` });
+   }
+-
+-  const states = await Promise.all(
+-    REFERENCE_STATES.map(async (stateKey) => ({
+-      key: stateKey,
+-      implementation: await createArtifactEvidence(
+-        path.posix.join('implementation', `${stateKey}.png`),
+-      ),
+-      measurement: await createArtifactEvidence(
+-        path.posix.join('measurements', `${stateKey}.json`),
+-      ),
+-    })),
+-  );
+-  const manifest = {
+-    schemaVersion: 7,
+-    status: 'complete',
+-    runId: captureRunId,
+-    startedAt: captureRunStartedAt,
+-    completedAt: new Date().toISOString(),
+-    expectedStateCount: REFERENCE_STATES.length,
+-    capturedStateCount: capturedStates.size,
+-    states,
+-  };
+-
+-  await writeFile(
+-    captureManifestTemporaryPath,
+-    `${JSON.stringify(manifest, null, 2)}\n`,
+-    'utf8',
+-  );
+-  await rename(captureManifestTemporaryPath, captureManifestPath);
+ });
+ 
+ for (const stateKey of REFERENCE_STATES) {
+@@ -608,28 +474,35 @@ for (const stateKey of REFERENCE_STATES) {
+     const runtimeErrors = captureRuntimeErrors(page);
+     await installWebGlContextLossMonitor(page);
+ 
+-    await page.goto(`/?${createStateQuery(stateKey)}`, {
++    await installCaptureInputClock(page);
++    await page.goto('/', {
+       waitUntil: 'domcontentloaded',
+     });
+-    const stateRoot = await waitForSettledStateOrRuntimeError(
++    const captureObservation = await waitForSettledStateOrRuntimeError(
+       page,
+       stateKey,
+       runtimeErrors,
+     );
+-    await expect(stateRoot).toHaveAttribute(
+-      'data-hero-reference-state',
+-      stateKey,
+-    );
+     expectNoRuntimeErrors(runtimeErrors, stateKey);
+ 
+     const imagePath = path.join(implementationRoot, `${stateKey}.png`);
+     const measurementPath = path.join(measurementRoot, `${stateKey}.json`);
+ 
++    const inputProfile = await page.evaluate(() => ({ pointerClass: matchMedia('(pointer: fine)').matches ? 'fine' : 'coarse', isIos: /iPad|iPhone|iPod/u.test(navigator.userAgent), reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches }));
++    expect(inputProfile).toEqual({ pointerClass: 'fine', isIos: false, reducedMotion: false });
++    const fontEvidence = await readPaintedFonts(page);
++    const before = { record: (await readCaptureSample(page)).record, cssClock: await readCaptureCssClock(page) };
+     await page.screenshot({
+       path: imagePath,
+-      animations: 'disabled',
++      animations: 'allow',
+       scale: 'device',
+     });
++    const after = { record: (await readCaptureSample(page)).record, cssClock: await readCaptureCssClock(page) };
++    expect(after.record?.frame.frameId).toBe(before.record?.frame.frameId);
++    expect(after.cssClock.nowMs).toBe(before.cssClock.nowMs);
++    const observationPath = path.posix.join('observations', `${stateKey}.json`);
++    const observationBytes = Buffer.from(`${JSON.stringify({ schemaVersion: 1, runId: captureRun.runId, stateId: stateKey, before, after }, null, 2)}\n`);
++    await writeFile(path.join(outputRoot, observationPath), observationBytes);
+     const pageMeasurement = await measurePage(page, stateKey);
+     const structuralAccuracy = await measureImplementationStructure(
+       imagePath,
+@@ -638,15 +511,24 @@ for (const stateKey of REFERENCE_STATES) {
+     );
+     const measurement = {
+       schemaVersion: 7,
++      runId: captureRun.runId,
++      buildId: captureRun.buildId,
++      inputTreeSha256: captureRun.inputTreeSha256,
++      captureObservation,
+       ...pageMeasurement,
+       structuralAccuracy,
+     };
+     expect(measurement.state).toMatchObject({
+       'data-hero-motion': 'full',
+-      'data-hero-profile': 'recording-desktop',
++      'data-hero-profile': 'desktop',
+       'data-hero-render-ready': 'true',
+       'data-hero-seed': '43117',
+     });
++    expect(measurement.viewport).toEqual({
++      width: 1508,
++      height: 761,
++      devicePixelRatio: 2,
++    });
+     expect(measurement.renderSurface).toMatchObject({
+       kind: 'canvas',
+       canvasPresent: true,
+@@ -664,6 +546,28 @@ for (const stateKey of REFERENCE_STATES) {
+       'utf8',
+     );
+     expectNoRuntimeErrors(runtimeErrors, stateKey);
+-    capturedStates.add(stateKey);
++    const artifacts = await Promise.all([imagePath, measurementPath].map(async (file) => {
++      const bytes = await readFile(file);
++      return { path: path.relative(outputRoot, file).split(path.sep).join('/'), bytes: bytes.length, sha256: sha256(bytes) };
++    }));
++    const browser = page.context().browser();
++    if (!browser || !captureObservation.record) throw new Error('Missing actual browser/frame identity');
++    const captureProvenance = buildCaptureProvenance({ context: captureRun, state: stateKey, measurement, artifacts,
++      ...identities, environment: { node: process.version, browserName: browser.browserType().name(), browserVersion: browser.version() },
++      fontEvidence, profile: { captureLabel: 'recording-desktop', ...inputProfile },
++      physical: captureObservation.physical,
++      build: { mode: 'test-enabled-production', startupCommand: 'NEXT_DIST_DIR=.next-s7-diagnostics pnpm --filter @site/pegasoft exec next start -H 127.0.0.1 -p 4317' },
++    });
++    const canvas = captureObservation.record.canvas;
++    const profile = { viewportWidth: captureObservation.viewport.width, viewportHeight: captureObservation.viewport.height, screenshotDpr: captureObservation.viewport.devicePixelRatio,
++      canvasCssWidth: canvas.cssWidth, canvasCssHeight: canvas.cssHeight, canvasBackingWidth: canvas.backingWidth, canvasBackingHeight: canvas.backingHeight,
++      canvasDprX: canvas.backingWidth / canvas.cssWidth, canvasDprY: canvas.backingHeight / canvas.cssHeight, ...inputProfile };
++    const qualificationPath = path.join(outputRoot, 'qualification-contract.json');
++    const previousQualification = await readFile(qualificationPath, 'utf8').then((text) => JSON.parse(text)).catch((error: NodeJS.ErrnoException) => { if (error.code !== 'ENOENT') throw error; return { states: {} }; });
++    const qualificationStates = previousQualification.states;
++    qualificationStates[stateKey] = { captureFrameId: before.record?.frame.frameId, observation: { relativePath: observationPath, sha256: sha256(observationBytes), bytes: observationBytes.length } };
++    await writeFile(`${qualificationPath}.tmp`, `${JSON.stringify({ schemaVersion: 1, runId: captureRun.runId, profiles: { 'recording-desktop': profile }, states: qualificationStates }, null, 2)}\n`);
++    await rename(`${qualificationPath}.tmp`, qualificationPath);
++    await recordCaptureOutcome(captureRun, { state: stateKey, status: 'complete', captureProvenance });
+   });
+ }
+diff --git a/apps/pegasoft/eslint.config.mjs b/apps/pegasoft/eslint.config.mjs
+index 5d51c68..34815f2 100644
+--- a/apps/pegasoft/eslint.config.mjs
++++ b/apps/pegasoft/eslint.config.mjs
+@@ -7,6 +7,11 @@ export default [
+   ...nx.configs['flat/react-typescript'],
+   ...baseConfig,
+   {
+-    ignores: ['.next/**/*', '**/out-tsc'],
++    ignores: [
++      '.next/**/*',
++      '.next-s7-diagnostics/**/*',
++      '.next-lifecycle-review/**/*',
++      '**/out-tsc',
++    ],
+   },
+ ];
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx b/apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx
+index 704b31e..2b617c4 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx
++++ b/apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx
+@@ -21,6 +21,7 @@ import {
+ const RED_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.activation[1];
+ const BLUE_ZERO_ROUTE_END = HERO_ROUTE_SEGMENT_PROGRESS.clearance[1];
+ const TUBE_RADIAL_SEGMENTS = HERO_ROUTE_RENDERING.radialSegments;
++const BLUE_TUBE_TUBULAR_SEGMENTS = 180;
+ 
+ const redFeederCurves = HERO_ACTIVATION_FEEDER_PATHS.map((_, index) =>
+   createHeroFeederCurve(index),
+@@ -121,7 +122,28 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
+   const lightRef = useRef<THREE.PointLight>(null);
+   useFrame(() => {
+     const frame = frameRef.current;
+-    const tip = getHeroRoutePoint(getHeroRouteProgress(frame.rendered.value));
++    const blueZeroRatio = frame.ratios.blueZero;
++    const blueOneRatio = frame.ratios.blueOne;
++    const quantize = (ratio: number) =>
++      Math.ceil(THREE.MathUtils.clamp(ratio, 0, 1) * BLUE_TUBE_TUBULAR_SEGMENTS) /
++      BLUE_TUBE_TUBULAR_SEGMENTS;
++    const routeProgress =
++      blueZeroRatio < 1
++        ? THREE.MathUtils.lerp(
++            RED_ROUTE_END,
++            BLUE_ZERO_ROUTE_END,
++            quantize(blueZeroRatio),
++          )
++        : THREE.MathUtils.lerp(
++            BLUE_ZERO_ROUTE_END,
++            1,
++            quantize(blueOneRatio),
++          );
++    const tip = getHeroRoutePoint(
++      blueZeroRatio > 0
++        ? routeProgress
++        : getHeroRouteProgress(frame.rendered.value),
++    );
+     if (tipRef.current) {
+       tipRef.current.position.set(tip.x, tip.y + 0.02, tip.z);
+       tipRef.current.visible = frame.ratios.blueZero > 0;
+@@ -155,7 +177,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
+ 
+       <SourceTube
+         curve={blueZeroCurve}
+-        tubularSegments={100}
++        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
+         radius={
+           HERO_ROUTE_RENDERING.blueCoreRadius *
+           HERO_ROUTE_RENDERING.blueGlowRadiusScale
+@@ -169,7 +191,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
+       />
+       <SourceTube
+         curve={blueZeroCurve}
+-        tubularSegments={100}
++        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
+         radius={HERO_ROUTE_RENDERING.blueCoreRadius}
+         color={HERO_PALETTE.blueCore}
+         frameRef={frameRef}
+@@ -178,7 +200,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
+       />
+       <SourceTube
+         curve={blueOneCurve}
+-        tubularSegments={100}
++        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
+         radius={
+           HERO_ROUTE_RENDERING.blueCoreRadius *
+           HERO_ROUTE_RENDERING.blueGlowRadiusScale
+@@ -192,7 +214,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
+       />
+       <SourceTube
+         curve={blueOneCurve}
+-        tubularSegments={100}
++        tubularSegments={BLUE_TUBE_TUBULAR_SEGMENTS}
+         radius={HERO_ROUTE_RENDERING.blueCoreRadius}
+         color={HERO_PALETTE.blueCore}
+         frameRef={frameRef}
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/hero-development-diagnostics.ts b/apps/pegasoft/src/app/shared/hero-scene/hero-development-diagnostics.ts
+index 3ed5cfe..661eb60 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/hero-development-diagnostics.ts
++++ b/apps/pegasoft/src/app/shared/hero-scene/hero-development-diagnostics.ts
+@@ -25,6 +25,7 @@ export type HeroAppliedFrameRecord = {
+ };
+ declare global {
+   interface Window {
++    __pegasoftHeroLifecycleStartedAtMs?: number;
+     __pegasoftHeroFrame?: HeroAppliedFrameRecord;
+     __pegasoftHeroFrames?: HeroAppliedFrameRecord[];
+     __pegasoftHeroFrameDriver?: {
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/hero-lighting.tsx b/apps/pegasoft/src/app/shared/hero-scene/hero-lighting.tsx
+index 2567d1d..d5b80b4 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/hero-lighting.tsx
++++ b/apps/pegasoft/src/app/shared/hero-scene/hero-lighting.tsx
+@@ -22,6 +22,7 @@ export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
+ 
+   return (
+     <>
++      <ambientLight color={HERO_PALETTE.background} intensity={0.85} />
+       <hemisphereLight
+         color="#ffffff"
+         groundColor={HERO_PALETTE.ground}
+@@ -33,8 +34,8 @@ export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
+         intensity={HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightIntensity}
+         position={[...HERO_STANDARD_MATERIAL_COMPATIBILITY.keyLightPosition]}
+         shadow-mapSize={[shadowMapSize, shadowMapSize]}
+-        shadow-bias={-0.00025}
+-        shadow-normalBias={0.025}
++        shadow-bias={-0.00018}
++        shadow-normalBias={0.018}
+         shadow-camera-left={-92}
+         shadow-camera-right={92}
+         shadow-camera-top={92}
+@@ -42,10 +43,16 @@ export function HeroLighting({ profile }: { profile: HeroRuntimeProfile }) {
+         shadow-camera-near={1}
+         shadow-camera-far={180}
+       />
++      <pointLight
++        color={HERO_PALETTE.blueGlow}
++        intensity={mobile ? 0.45 : 0.7}
++        distance={42}
++        position={[-45, 18, -18]}
++      />
+       <ContactShadows
+-        position={[0, 0.012, 0]}
++        position={[-40, 0.012, 0]}
+         scale={178}
+-        opacity={mobile ? 0.16 : 0.22}
++        opacity={mobile ? 0.22 : 0.34}
+         blur={mobile ? 2.2 : 3.2}
+         far={88}
+         resolution={mobile ? 512 : 1024}
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/hero-materials.ts b/apps/pegasoft/src/app/shared/hero-scene/hero-materials.ts
+index f5c6694..b69b62e 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/hero-materials.ts
++++ b/apps/pegasoft/src/app/shared/hero-scene/hero-materials.ts
+@@ -14,10 +14,10 @@ export const HERO_PALETTE = {
+ } as const;
+ 
+ export const HERO_SURFACES = {
+-  structureRoughness: 0.76,
+-  topRoughness: 0.68,
++  structureRoughness: 0.72,
++  topRoughness: 0.56,
+   groundRoughness: 0.96,
+-  accentRoughness: 0.42,
++  accentRoughness: 0.36,
+ } as const;
+ 
+ /**
+@@ -25,8 +25,8 @@ export const HERO_SURFACES = {
+  * The authority uses authored node materials rather than a scene light rig.
+  */
+ export const HERO_STANDARD_MATERIAL_COMPATIBILITY = {
+-  hemisphereIntensity: 1.25,
+-  keyLightIntensity: 2.15,
++  hemisphereIntensity: 1.1,
++  keyLightIntensity: 2.35,
+   keyLightPosition: [-34, 72, -26] as const,
+   keyLightShadowMapSize: 2048,
+   exposure: 1,
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/hero-world.tsx b/apps/pegasoft/src/app/shared/hero-scene/hero-world.tsx
+index 26c61ef..eb2bd7f 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/hero-world.tsx
++++ b/apps/pegasoft/src/app/shared/hero-scene/hero-world.tsx
+@@ -1,17 +1,34 @@
+ import type { HeroJourneySnapshot } from './hero-contract';
+ import type { HeroFrameRef } from './hero-frame-state';
+ import { HeroBeam } from './hero-beam';
++import { HeroGroundShadow } from './hero-ground-shadow';
+ import { HERO_PALETTE } from './hero-materials';
+ import { DesktopPointerTrail } from './hero-pointer-trail';
+ import {
+   HERO_PROXY_GROUND_SIZE,
+   HERO_PROXY_GROUND_POSITION,
+   HERO_PROXY_GROUND_ROTATION,
++  HERO_WORLD_LAYOUT,
+ } from './hero-world-layout';
+ import { ActivationStage } from './stages/activation';
+ import { ArrivalStage } from './stages/arrival';
+ import { ClearanceStage } from './stages/clearance';
+ import { FieldMatchStage } from './stages/field-match';
++import { LandingGraphics } from './stages/landing-graphics';
++import { ProceduralWorldItem } from './stages/primitives';
++
++const landingContextIds = new Set([
++  'activation-turbine-one',
++  'activation-turbine-two',
++  'activation-turbine-three',
++  'activation-turbine-four',
++  'activation-worker-one',
++  'activation-worker-two',
++  'activation-worker-three',
++]);
++const landingContextItems = HERO_WORLD_LAYOUT.activation.items.filter((item) =>
++  landingContextIds.has(item.id),
++);
+ 
+ export function HeroWorld({
+   snapshot,
+@@ -33,6 +50,11 @@ export function HeroWorld({
+       </mesh>
+ 
+       <ActivationStage frameRef={frameRef} />
++      <HeroGroundShadow />
++      <LandingGraphics />
++      {landingContextItems.map((item) => (
++        <ProceduralWorldItem key={item.id} item={item} />
++      ))}
+       <ClearanceStage />
+       <FieldMatchStage frameRef={frameRef} />
+       <ArrivalStage frameRef={frameRef} />
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx b/apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx
+index de17a72..06d4b4d 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx
++++ b/apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx
+@@ -7,6 +7,63 @@ import { HERO_PALETTE, HERO_SURFACES } from '../hero-materials';
+ import { HERO_DESTINATION_TOPOLOGY, HERO_ROUTE_CONTACTS } from '../hero-route';
+ import { ProceduralWorldItem } from './primitives';
+ 
++const destinationTrees: readonly [number, number, number][] = [
++  [-58, 0, 6],
++  [-55.5, 0, 8],
++  [-60, 0, 9],
++  [-57.5, 0, 12],
++];
++
++function DestinationTree({ position }: { position: [number, number, number] }) {
++  return (
++    <group position={position}>
++      <mesh position={[0, 0.3, 0]} castShadow>
++        <cylinderGeometry args={[0.045, 0.065, 0.6, 8]} />
++        <meshStandardMaterial color={HERO_PALETTE.ground} roughness={0.9} />
++      </mesh>
++      <mesh position={[0, 0.75, 0]} castShadow>
++        <sphereGeometry args={[0.31, 12, 10]} />
++        <meshStandardMaterial color={HERO_PALETTE.surface} roughness={0.84} />
++      </mesh>
++    </group>
++  );
++}
++
++// Keep the destination and yard in world space through the first handoff.
++// The provisional north/west buildings overlap the authored landing landmarks;
++// their layout data remains available for later source-matched placement.
++const ACTIVATION_REVIEW_ITEM_IDS = new Set([
++  'activation-contact-hub',
++  'activation-pallet-yard',
++  'activation-service-truck',
++  'activation-worker-five',
++  'activation-worker-six',
++  'activation-worker-seven',
++  'activation-worker-eight',
++  'activation-worker-nine',
++]);
++
++const ACTIVATION_MARK_SHAPES = Array.from({ length: 8 }, (_, index) => {
++  const angle = (index * Math.PI) / 4;
++  const along = [Math.cos(angle), Math.sin(angle)];
++  const across = [-along[1], along[0]];
++  const shape = new THREE.Shape();
++  const corners = [
++    [0.17, -0.075],
++    [0.48, -0.075],
++    [0.48, 0.075],
++    [0.17, 0.075],
++  ];
++  corners.forEach(([length, width], corner) => {
++    const x = along[0] * length + across[0] * width;
++    const y = along[1] * length + across[1] * width;
++    if (corner === 0) shape.moveTo(x, y);
++    else shape.lineTo(x, y);
++  });
++  shape.closePath();
++  return shape;
++});
++
+ function ActivationDestination({ frameRef }: { frameRef: HeroFrameRef }) {
+   const accentRef = useRef<THREE.MeshStandardMaterial>(null);
+   const contactRef = useRef<THREE.MeshBasicMaterial>(null);
+@@ -37,7 +94,7 @@ function ActivationDestination({ frameRef }: { frameRef: HeroFrameRef }) {
+         rotation={[0, 0, 0]}
+         renderOrder={3}
+       >
+-        <circleGeometry args={[0.56, 32]} />
++        <shapeGeometry args={[ACTIVATION_MARK_SHAPES]} />
+         <meshStandardMaterial
+           color={HERO_PALETTE.indigo}
+           emissive={HERO_PALETTE.indigo}
+@@ -75,8 +132,13 @@ function ActivationDestination({ frameRef }: { frameRef: HeroFrameRef }) {
+ export function ActivationStage({ frameRef }: { frameRef: HeroFrameRef }) {
+   return (
+     <group>
+-      {HERO_WORLD_LAYOUT.activation.items.map((item) => (
+-        <ProceduralWorldItem key={item.id} item={item} />
++      {HERO_WORLD_LAYOUT.activation.items
++        .filter((item) => ACTIVATION_REVIEW_ITEM_IDS.has(item.id))
++        .map((item) => (
++          <ProceduralWorldItem key={item.id} item={item} />
++        ))}
++      {destinationTrees.map((position, index) => (
++        <DestinationTree key={index} position={position} />
+       ))}
+       <ActivationDestination frameRef={frameRef} />
+     </group>
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/stages/arrival.tsx b/apps/pegasoft/src/app/shared/hero-scene/stages/arrival.tsx
+index 2401608..9b564b9 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/stages/arrival.tsx
++++ b/apps/pegasoft/src/app/shared/hero-scene/stages/arrival.tsx
+@@ -147,6 +147,36 @@ function ArrivalRouteWake({ frameRef }: { frameRef: HeroFrameRef }) {
+   );
+ }
+ 
++function ArrivalFeed({ frameRef }: { frameRef: HeroFrameRef }) {
++  const materialRef = useRef<THREE.MeshBasicMaterial>(null);
++
++  useFrame(() => {
++    const progress = frameRef.current.rendered.value;
++    const reveal = THREE.MathUtils.smoothstep(progress, 0.74, 0.82);
++    const material = materialRef.current;
++    if (!material) return;
++    material.opacity = reveal * 0.82;
++    acknowledgeHeroFrame(frameRef, 'arrival-feed', {
++      visible: reveal > 0,
++      opacity: material.opacity,
++    });
++  }, -30);
++
++  return (
++    <mesh position={[57.25, 0.18, 25]}>
++      <boxGeometry args={[3.5, 0.08, 0.16]} />
++      <meshBasicMaterial
++        ref={materialRef}
++        color={HERO_PALETTE.blueGlow}
++        transparent
++        opacity={0}
++        toneMapped={false}
++        depthWrite={false}
++      />
++    </mesh>
++  );
++}
++
+ export function ArrivalStage({ frameRef }: { frameRef: HeroFrameRef }) {
+   const groupRef = useRef<THREE.Group>(null);
+   const baseMaterialsRef = useRef<Array<THREE.MeshStandardMaterial | null>>([]);
+@@ -209,6 +239,7 @@ export function ArrivalStage({ frameRef }: { frameRef: HeroFrameRef }) {
+   return (
+     <>
+       <ArrivalRouteWake frameRef={frameRef} />
++      <ArrivalFeed frameRef={frameRef} />
+       <group ref={groupRef} visible={false} position={[arrivalX, 0, arrivalZ]}>
+         <ArrowLayer
+           height={0.4}
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx b/apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx
+index 4ec8173..1162eea 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx
++++ b/apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx
+@@ -159,6 +159,34 @@ export function CampusHub({
+         size={[1.75, 3.5, 3.1]}
+         roof="slab"
+       />
++      <RoundedBox
++        args={[2.75, 0.3, 2.2]}
++        position={[0, 5.16, 0]}
++        radius={0.12}
++        smoothness={3}
++        castShadow
++      >
++        <meshStandardMaterial
++          color={roofColor}
++          roughness={HERO_SURFACES.topRoughness}
++        />
++      </RoundedBox>
++      {[-1, 1].flatMap((side) =>
++        [0, 1, 2].flatMap((floor) =>
++          [-1, 1].map((column) => (
++            <mesh
++              key={`${side}-${floor}-${column}`}
++              position={[side * 2.45 + column * 0.35, 0.92 + floor * 0.85, 1.67]}
++            >
++              <boxGeometry args={[0.2, 0.34, 0.045]} />
++              <meshStandardMaterial
++                color={HERO_PALETTE.ground}
++                roughness={HERO_SURFACES.structureRoughness}
++              />
++            </mesh>
++          )),
++        ),
++      )}
+       <mesh position={[0, 0.5, 1.47]} castShadow>
+         <boxGeometry args={[1.35, 1, 0.16]} />
+         <meshStandardMaterial
+diff --git a/apps/pegasoft/src/app/shared/hero-scene/use-hero-controller.ts b/apps/pegasoft/src/app/shared/hero-scene/use-hero-controller.ts
+index 5fd6994..070e593 100644
+--- a/apps/pegasoft/src/app/shared/hero-scene/use-hero-controller.ts
++++ b/apps/pegasoft/src/app/shared/hero-scene/use-hero-controller.ts
+@@ -74,6 +74,11 @@ export function useHeroJourneyController(
+ 
+   useEffect(() => {
+     startedAtRef.current = performance.now();
++    // Read-only clock origin for the isolated diagnostics artifact. Rendered
++    // frame age cannot substitute for lifecycle age after resource delays.
++    if (process.env.NODE_ENV !== 'production' || HERO_TEST_DIAGNOSTICS) {
++      window.__pegasoftHeroLifecycleStartedAtMs = startedAtRef.current;
++    }
+     let timeout = 0;
+ 
+     const updateElapsed = () => {
+@@ -99,6 +104,9 @@ export function useHeroJourneyController(
+     document.addEventListener('visibilitychange', updateElapsed);
+ 
+     return () => {
++      if (process.env.NODE_ENV !== 'production' || HERO_TEST_DIAGNOSTICS) {
++        delete window.__pegasoftHeroLifecycleStartedAtMs;
++      }
+       window.clearTimeout(timeout);
+       window.removeEventListener('focus', updateElapsed);
+       document.removeEventListener('visibilitychange', updateElapsed);
+diff --git a/apps/pegasoft/src/app/shared/pegasoft-home.module.css b/apps/pegasoft/src/app/shared/pegasoft-home.module.css
+index 1f28192..e33dadb 100644
+--- a/apps/pegasoft/src/app/shared/pegasoft-home.module.css
++++ b/apps/pegasoft/src/app/shared/pegasoft-home.module.css
+@@ -152,7 +152,8 @@
+ }
+ 
+ :global(.pegasoft-header__ctas > a:nth-of-type(1)) {
+-  width: 90.5156px;
++  min-width: 98.9844px;
++  width: auto;
+   padding-inline: 10px;
+ }
+ 
+diff --git a/apps/pegasoft/src/app/shared/pegasoft-home.tsx b/apps/pegasoft/src/app/shared/pegasoft-home.tsx
+index f0473bd..f02b1bf 100644
+--- a/apps/pegasoft/src/app/shared/pegasoft-home.tsx
++++ b/apps/pegasoft/src/app/shared/pegasoft-home.tsx
+@@ -239,18 +239,16 @@ export function PegasoftHome() {
+     getDevelopmentHeroDiagnostics?.(heroJourney) ?? {};
+   const usableFallback = heroAttemptState === 'fallback';
+   const sceneReady = heroAttemptState === 'ready';
+-  const loaderRevealing =
++  const loaderCanReveal =
+     usableFallback ||
+     heroJourney.motion === 'reduced' ||
+-    heroJourney.localClocks.loaderMs >= 3200;
++    (sceneReady && heroJourney.localClocks.loaderMs >= 2200);
+   const loaderHidden =
+     usableFallback ||
+     heroJourney.motion === 'reduced' ||
+-    heroJourney.localClocks.loaderMs >= 4800;
+-  const pageReady =
+-    usableFallback ||
+-    heroJourney.motion === 'reduced' ||
+-    heroJourney.localClocks.loaderMs >= 3595;
++    (sceneReady && heroJourney.localClocks.loaderMs >= 3500);
++  const loaderRevealing = loaderCanReveal && !loaderHidden;
++  const pageReady = loaderHidden;
+   const fieldClipBottom = Math.min(
+     pageMeasurement.viewportHeight,
+     Math.max(
+@@ -782,13 +780,20 @@ export function PegasoftHome() {
+                     className={heroStyles.flowHeader}
+                     type="button"
+                     onClick={() => jumpToFlowStep(index)}
++                    aria-current={heroJourney.stepIndex === index ? 'step' : undefined}
++                    aria-expanded={heroJourney.stepIndex === index}
++                    aria-controls={`hero-flow-description-${index + 1}`}
+                   >
+                     <div className={heroStyles.flowNumber}>
+                       <span>{step.number}</span>
+                     </div>
+                     <h3 className={heroStyles.flowTitle}>{step.title}</h3>
+                   </button>
+-                  <div className={heroStyles.flowBody}>
++                  <div
++                    id={`hero-flow-description-${index + 1}`}
++                    className={heroStyles.flowBody}
++                    aria-hidden={heroJourney.stepIndex !== index}
++                  >
+                     <div className={heroStyles.flowBodyInner}>
+                       <div className={heroStyles.flowTrack}>
+                         <div className={heroStyles.flowTrackBar}>

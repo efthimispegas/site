@@ -1,0 +1,75 @@
+{
+  "status": "pass",
+  "inputPinsVerified": 9,
+  "artifactPinsVerified": 11,
+  "byteIdenticalReruns": 2,
+  "baseManifest": {
+    "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/manifest.json",
+    "bytes": 5105,
+    "sha256": "3cfa32cc16ce525ff3de05f6f5f111ac08dae107551a2a90b42f8eb98b11a46f"
+  },
+  "artifactHashes": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/activation-contact-contour-accounting.png",
+      "bytes": 17479,
+      "sha256": "f924416e9ce452744b074fc6d0ea11af2164fe10778aad7583cf48b4d43a48f6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/activation-contact-filled-interiors.png",
+      "bytes": 61205,
+      "sha256": "5a39e4ddf1d7a9638ba1779a677c09eb436a888c30db1c02b140d9ee90424a9e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/activation-contact-inspection.png",
+      "bytes": 21303,
+      "sha256": "d93d6035bf718db5d838c49ed56aaff37a25c60f63ebe7dcd2d95fe0c06962b9"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/activation-route-contour-accounting.png",
+      "bytes": 47059,
+      "sha256": "511e88d5275e1206154876069b62ae5ce7934907dacd3f325ab66521e85b590e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/activation-route-filled-interiors.png",
+      "bytes": 55278,
+      "sha256": "49091ce44f31494770fde61f268c3ad28afb01301cb9e6baf07bff92e6793706"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/activation-route-inspection.png",
+      "bytes": 65165,
+      "sha256": "bdde5532047bd3cadca9b3967281cb98e0ece66e6ea6723e81ebff9c33823c9f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/arrival-lockup-contour-accounting.png",
+      "bytes": 52049,
+      "sha256": "0443d2f7d460ff48a57dd7972cedb0766d8c19a0a611aa881ce169d3ce6e5b6e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/arrival-lockup-inspection.png",
+      "bytes": 53011,
+      "sha256": "03005d256a0598dcdc0a8c40a02a8bb6de9f700e7969b6fb4aba9ffe1cdec3ea"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/contour-evidence.json",
+      "bytes": 219626,
+      "sha256": "25ef58ccb4a10cf53b97f7bdcb12b18d3c0eab51ca5b899d7f5476b4a1430512"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/diagnose-contours.mjs",
+      "bytes": 16259,
+      "sha256": "a0104b125146510ce9669c0d721141bbe4348541380c5fad0a822b7b06cb5f6c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/outcome.json",
+      "bytes": 4015,
+      "sha256": "45a6794b45fbdc3c43bddbe16a62e8e056d2cf4978392a58449462005f7b6c06"
+    }
+  ],
+  "checks": [
+    "3/3 historical masks reproduced pixel-for-pixel",
+    "3/3 filled-interior counts agree",
+    "3/3 uncertainty counts agree",
+    "2 runs have identical artifact and base-manifest hashes"
+  ],
+  "qualification": "diagnostics only; no semantic or contour-error qualification"
+}

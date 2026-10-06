@@ -14,10 +14,10 @@ export const HERO_PALETTE = {
 } as const;
 
 export const HERO_SURFACES = {
-  structureRoughness: 0.76,
-  topRoughness: 0.68,
+  structureRoughness: 0.72,
+  topRoughness: 0.56,
   groundRoughness: 0.96,
-  accentRoughness: 0.42,
+  accentRoughness: 0.36,
 } as const;
 
 /**
@@ -25,8 +25,8 @@ export const HERO_SURFACES = {
  * The authority uses authored node materials rather than a scene light rig.
  */
 export const HERO_STANDARD_MATERIAL_COMPATIBILITY = {
-  hemisphereIntensity: 1.25,
-  keyLightIntensity: 2.15,
+  hemisphereIntensity: 1.1,
+  keyLightIntensity: 2.35,
   keyLightPosition: [-34, 72, -26] as const,
   keyLightShadowMapSize: 2048,
   exposure: 1,

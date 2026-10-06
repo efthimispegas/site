@@ -1,0 +1,22 @@
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+
+
+ NX   Successfully ran target typecheck for project @site/pegasoft-e2e and 1 task it depends on
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+
+  Run duration:      932ms
+  Cache:             0/2 hit (0%)
+  Critical path:     922ms (2 tasks)
+  Recoverable time:  <1ms

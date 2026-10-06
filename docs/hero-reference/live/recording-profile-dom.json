@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "profileId": "live-recording-desktop-1508",
+  "authority": {
+    "evidenceClass": "observed",
+    "sourceRef": "live-trace-desktop-1508-2026-07-30",
+    "url": "https://www.vectrfl.com/?trace=1",
+    "capturedAtUtc": "2026-07-30T08:15:00Z",
+    "qualification": "Measured from the current live site at scrollY 0 after its hero settled. The recording uses the same 1508x761 CSS viewport at DPR 2; this live DOM probe used DPR 1 because CSS-pixel geometry is unchanged."
+  },
+  "captureProfile": {
+    "viewportCss": {
+      "width": 1508,
+      "height": 761
+    },
+    "liveDevicePixelRatio": 1,
+    "implementationCaptureDevicePixelRatio": 2,
+    "scrollCss": {
+      "x": 0,
+      "y": 0
+    },
+    "pointer": "fine",
+    "hover": true
+  },
+  "acceptance": {
+    "applicableStates": ["landing", "landing-idle"],
+    "boundsToleranceCssPx": 2,
+    "policy": "Every authoritative x, y, width, and height component must be within the tolerance. Missing implementation elements fail. This DOM gate is independent of raster and WebGL structural gates and cannot make either one pass.",
+    "applicabilityQualification": "Only the two zero-progress settled landing states share the exact measured live scroll and layout state. No later journey state inherits these bounds."
+  },
+  "identityRasterMask": {
+    "status": "blocked",
+    "appliedMaskedPixelCount": 0,
+    "perStateRasterPixelCount": 4590352,
+    "provenance": "The recording is a flattened 3016x1522 RGB raster and provides no pixel-precise source glyph/logo alpha or mask layer.",
+    "decision": "Do not mask a DOM rectangle or color/edge-segmented approximation because either can remove container, background, scene, or antialiasing pixels. Raster comparison remains fully unmasked."
+  },
+  "bounds": {
+    "header": {
+      "label": "Header",
+      "expectedText": null,
+      "value": {
+        "x": 0,
+        "y": 0,
+        "width": 1508,
+        "height": 80
+      }
+    },
+    "headerPrimaryFirst": {
+      "label": "Primary navigation first link",
+      "expectedText": "Our Industries",
+      "value": {
+        "x": 2,
+        "y": 18,
+        "width": 134.8594,
+        "height": 44
+      }
+    },
+    "headerPrimarySecond": {
+      "label": "Primary navigation second link",
+      "expectedText": "Our Mission",
+      "value": {
+        "x": 136.8594,
+        "y": 18,
+        "width": 114.4063,
+        "height": 44
+      }
+    },
+    "headerLogoLink": {
+      "label": "Logo link",
+      "expectedText": null,
+      "value": {
+        "x": 689.5,
+        "y": 9.3984,
+        "width": 129,
+        "height": 61.1953
+      }
+    },
+    "headerCtaFirst": {
+      "label": "Header first CTA",
+      "expectedText": "Apply",
+      "value": {
+        "x": 1228.2969,
+        "y": 16,
+        "width": 90.5156,
+        "height": 48
+      }
+    },
+    "headerCtaSecond": {
+      "label": "Header second CTA",
+      "expectedText": "Request Crews",
+      "value": {
+        "x": 1328.8125,
+        "y": 16,
+        "width": 161.1875,
+        "height": 48
+      }
+    },
+    "landingContent": {
+      "label": "Landing hero content",
+      "expectedText": null,
+      "value": {
+        "x": 405.0469,
+        "y": 0,
+        "width": 697.9063,
+        "height": 435.1875
+      }
+    },
+    "landingTitle": {
+      "label": "Landing title",
+      "expectedText": "The New Standard in Staffing",
+      "value": {
+        "x": 405.0469,
+        "y": 128,
+        "width": 697.9063,
+        "height": 172.7969
+      }
+    },
+    "landingSubtitle": {
+      "label": "Landing subtitle",
+      "expectedText": "AI driven speed. Expert curation. We mobilize verified crews to protect your schedule and your bottom line in high-consequence environments.",
+      "value": {
+        "x": 444,
+        "y": 348.7969,
+        "width": 620,
+        "height": 86.3906
+      }
+    },
+    "scrollCue": {
+      "label": "Scroll cue",
+      "expectedText": "SCROLL TO DISCOVER OUR PROCESS",
+      "value": {
+        "x": 611.9492,
+        "y": 673,
+        "width": 284.1016,
+        "height": 40
+      }
+    },
+    "process": {
+      "label": "Flow section",
+      "expectedText": null,
+      "value": {
+        "x": 0,
+        "y": 420,
+        "width": 1508,
+        "height": 3470.1563
+      }
+    }
+  },
+  "unknownAndExcluded": [
+    "Identity-specific Vectr and Pegasoft logo glyph bounds and pixels; the shared logo-link container remains measured",
+    "WebGL building and subject bounds",
+    "route and arrow centerlines",
+    "field contact point",
+    "negative-space silhouettes",
+    "Loader and world-reveal DOM bounds",
+    "DOM bounds outside the landing states covered here and the nonzero states covered by recording-profile-journey-dom.json"
+  ]
+}

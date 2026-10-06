@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-01",
+  "status": "verified classifier/background ambiguity; silhouettes unqualified",
+  "checks": {
+    "historicalReproduction": "3/3 exact support and quality",
+    "savedCaptureImagePins": "3/3 bytes/hash match manifest",
+    "sourceMaskPins": "3/3 match; source-only scope retained",
+    "sourceFrameAndOverlayPins": "6/6 match",
+    "snapshotOriginalPrefix": "exact original bytes plus export-only suffix",
+    "dominantComponentsReachWholeRoi": "3/3",
+    "backgroundAdmissionSamples": 11,
+    "phaseQualification": "blocked"
+  },
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/activation-contact-component-support.png",
+      "bytes": 29805,
+      "sha256": "670603c6c475488d2b8f0255e6515242e86ac4840e7a3d28161e7aae70aa49de"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/activation-route-component-support.png",
+      "bytes": 25734,
+      "sha256": "b46cacd12804faa8d3b9bbb08355aeef586d53e02cfbc12ed63e1cb708c61a82"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/arrival-lockup-component-support.png",
+      "bytes": 23516,
+      "sha256": "8bc6693bc244d71b0fd37aaf33bcc828678271c8174679ee5249a4bb1dbcd1cd"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/audit-landmarks.mjs",
+      "bytes": 6500,
+      "sha256": "f103ff8f65b4bd2745629078a8563d4c6902a828b697abaa6664d0cd684bfa98"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/audit.log",
+      "bytes": 1030,
+      "sha256": "0ab4fa0bf0e667d0fe793e6aa2b296a7e824c84dc2d7160aaf39da236e0801d3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/checkpoint.json",
+      "bytes": 19187,
+      "sha256": "2ab9f83d9eb51076c76735ccbef71dd468442f6deba269aae2bd7c3f59dd3af5"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/classifier-challenge-contract.json",
+      "bytes": 4311,
+      "sha256": "d438c88cf9607d8e42fbc5eff9e20bfc1dfaf11d23a3300281c725236f2c8607"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/retained-extractor-with-audit-exports.mjs",
+      "bytes": 63932,
+      "sha256": "573a3e6f4df63bb0128959560deea0fa256e191dae4c84bf505dd0118735006e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/verification.json",
+      "bytes": 420,
+      "sha256": "018f3915c0ee1716aee7065388294b827fe16bccedda16cfeb5388fd5b02fa6e"
+    }
+  ],
+  "ruling": "Pale-neutral predicate admits background and building together; raw components span the ROI and fail unchanged size gates. Small selected residues do not prove intended-object clipping. Do not widen support or turn blocked landmark metrics into repair evidence.",
+  "nextAction": "Design and validate an independent foreground/background silhouette extractor against the saved negative samples and semantic-object challenges, then package it for independent qualification.",
+  "runtimeEdits": false,
+  "captureInputEdits": false,
+  "newCaptures": 0
+}

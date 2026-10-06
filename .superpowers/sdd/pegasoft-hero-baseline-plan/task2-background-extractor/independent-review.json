@@ -1,0 +1,73 @@
+{
+  "reviewDate": "2026-10-02",
+  "packet": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/review-packet.json",
+  "packetSha256": "c80f6c1923b224cc6a709e03f64c9b3672dc3ddc04789b9f35600d6fa66b4162",
+  "overallVerdict": "Partial corroboration only. Activation-route isolates the intended building in its pinned historical raster. Activation-contact is not a clean semantic silhouette. Arrival remains correctly blocked. Do not integrate or grant structural acceptance from this packet.",
+  "perState": [
+    {
+      "state": "activation-route",
+      "qualification": "qualified-for-pinned-historical-raster-subject-inspection-only",
+      "selectedPixels": 188869,
+      "basis": "Independent inspection of the unmasked raster and saved binary mask corroborates the complete connected left annex, center tower and right volume. The logo and window interiors are included. No visible ground, shadow, worker, tree or neighboring-building support is selected.",
+      "limits": "This is subject identification for the saved input, not validated boundary error, current capture provenance, source/local IoU, structural acceptance or final visual acceptance."
+    },
+    {
+      "state": "activation-contact",
+      "qualification": "blocked",
+      "selectedPixels": 171906,
+      "basis": "The complete building body is recovered, and surrounding workers and structures are excluded, but thin diagonal red-rail fringes remain attached at the upper-left contact edge. The saved mask therefore does not satisfy clean exclusion of the contact rails."
+    },
+    {
+      "state": "arrival-lockup",
+      "qualification": "blocked",
+      "selectedPixels": 33392,
+      "basis": "Selected support begins at raster x=1194, exactly the unchanged ROI left edge. The full arrow/feed junction is unresolved, and the selected left end includes a rounded projection near the bright feed endpoint. The boundary gate correctly prevents qualification."
+    }
+  ],
+  "reviewQuestions": [
+    {
+      "question": 1,
+      "answer": "No for the pair as a whole. Activation-route is visually corroborated for its pinned raster; activation-contact has observable rail-fringe contamination."
+    },
+    {
+      "question": 2,
+      "answer": "Partly justified, but insufficiently conservative for semantic qualification. Border-derived calibration causally removes the admitted pale-blue background. Adjacent-bin clustering addresses the demonstrated palette discontinuity. Eight-neighbor exterior flood fill preserves the tested exterior notch and fills enclosed logo/window support; the maximum support gate is rechecked. However, the four-unit RGB uncertainty policy has no independent contour-error calibration, and neutralized rail-edge pixels pass it. The ambiguity fixture covers two disconnected eligible subjects, while connected contamination remains inside one eligible component. Passing those fixtures and selected-color-support quality does not establish semantic purity."
+    },
+    {
+      "question": 3,
+      "answer": "Yes. Arrival must remain blocked. Additional evidence should establish the implementation arrow contour and distinguish its shaft from the incoming feed endpoint on the existing pinned full raster, especially immediately around x=1194. If the true arrow extends outside the unchanged ROI, record that the present gate cannot qualify it; do not widen the ROI or relax support thresholds under this task."
+    }
+  ],
+  "findings": [
+    {
+      "severity": "P2",
+      "title": "Connected rail fringe survives foreground separation",
+      "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+      "lines": [1852, 1857],
+      "evidence": "In activation-contact, mask pixel (1438,634) is selected with RGB [213,201,213]. Its neighboring unmasked pixels (1434,634) and (1435,634) are red rail core [255,77,103], followed by rail antialias colors [252,87,112] and [237,130,150]. Background separates the selected fringe from the building edge near x=1445. Additional selected diagonal projections occur around y=655-667 and y=682-691.",
+      "impact": "One eligible connected component and qualified RGB-support quality still admit non-building rail support. Contact semantic qualification must remain blocked.",
+      "relatedTestLines": "/Users/whiskey/Work/site/tools/hero-reference/measurement-contract.test.mjs:976-980"
+    },
+    {
+      "severity": "P2",
+      "title": "RGB uncertainty is not a demonstrated contour-error bound",
+      "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+      "lines": [1830, 1864],
+      "evidence": "The four-unit exclusion distance is fixed candidate policy. The reported uncertainty counts cover all qualifying ROI colors, without locating subject-edge uncertainty or measuring missed/extra contour support. The observed contact rail fringe falls beyond that band and is selected.",
+      "impact": "The packet supports a bounded diagnostic extractor, but cannot establish conservative full-silhouette boundary accuracy."
+    }
+  ],
+  "verifiedChecks": {
+    "packetHash": "matches assigned hash",
+    "linkedHashesAndSizes": "32/32 match",
+    "savedMaskSupportCounts": "All three independently counted totals match candidate-evaluation.json",
+    "savedNegativeSamples": "11/11 are excluded in the saved binary masks",
+    "measurementLog": "Saved final log records 67 passing tests and zero failures",
+    "redGreenLogs": "Saved API, palette and enclosed-hole logs show failure followed by passing runs",
+    "typecheckLogs": "Saved final log records both targets passing with 0/2 cache hits",
+    "lintLog": "Saved final log records zero errors and 39 warnings",
+    "captureFixturesAndWhitespace": "Passes are recorded in checks.json; no linked raw fixture or whitespace log independently establishes them",
+    "execution": "No application execution, test reruns, captures, edits or delegation performed"
+  },
+  "nextAction": "Keep the candidate unintegrated. Produce bounded implementation-only contour evidence for the contact rail junction and arrival feed/shaft boundary, plus an explicit accounting of subject-edge uncertainty and filled interiors on the pinned rasters. Preserve all existing ROI/support gates and source-mask boundaries. Current capture provenance remains a separate requirement."
+}

@@ -74,6 +74,11 @@ export function useHeroJourneyController(
 
   useEffect(() => {
     startedAtRef.current = performance.now();
+    // Read-only clock origin for the isolated diagnostics artifact. Rendered
+    // frame age cannot substitute for lifecycle age after resource delays.
+    if (process.env.NODE_ENV !== 'production' || HERO_TEST_DIAGNOSTICS) {
+      window.__pegasoftHeroLifecycleStartedAtMs = startedAtRef.current;
+    }
     let timeout = 0;
 
     const updateElapsed = () => {
@@ -99,6 +104,9 @@ export function useHeroJourneyController(
     document.addEventListener('visibilitychange', updateElapsed);
 
     return () => {
+      if (process.env.NODE_ENV !== 'production' || HERO_TEST_DIAGNOSTICS) {
+        delete window.__pegasoftHeroLifecycleStartedAtMs;
+      }
       window.clearTimeout(timeout);
       window.removeEventListener('focus', updateElapsed);
       document.removeEventListener('visibilitychange', updateElapsed);

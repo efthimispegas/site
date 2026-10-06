@@ -4,6 +4,11 @@ import { workspaceRoot } from '@nx/devkit';
 
 const port = Number(process.env.S6_PORT ?? 4200);
 const baseURL = `http://127.0.0.1:${port}`;
+// Explicit diagnostic comparison; the established qualification default stays Chrome.
+const browserChannel = process.env.S6_BROWSER_CHANNEL ?? 'chrome';
+if (!['chrome', 'chromium'].includes(browserChannel)) {
+  throw new Error('S6_BROWSER_CHANNEL must be chrome or chromium');
+}
 
 /** Serialized S6 lifecycle run on the user-cleared local test port. */
 export default defineConfig({
@@ -24,7 +29,11 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], channel: 'chrome', baseURL },
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: browserChannel === 'chromium' ? undefined : 'chrome',
+        baseURL,
+      },
     },
   ],
 });

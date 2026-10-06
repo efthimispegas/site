@@ -239,18 +239,16 @@ export function PegasoftHome() {
     getDevelopmentHeroDiagnostics?.(heroJourney) ?? {};
   const usableFallback = heroAttemptState === 'fallback';
   const sceneReady = heroAttemptState === 'ready';
-  const loaderRevealing =
+  const loaderCanReveal =
     usableFallback ||
     heroJourney.motion === 'reduced' ||
-    heroJourney.localClocks.loaderMs >= 3200;
+    (sceneReady && heroJourney.localClocks.loaderMs >= 2200);
   const loaderHidden =
     usableFallback ||
     heroJourney.motion === 'reduced' ||
-    heroJourney.localClocks.loaderMs >= 4800;
-  const pageReady =
-    usableFallback ||
-    heroJourney.motion === 'reduced' ||
-    heroJourney.localClocks.loaderMs >= 3595;
+    (sceneReady && heroJourney.localClocks.loaderMs >= 3500);
+  const loaderRevealing = loaderCanReveal && !loaderHidden;
+  const pageReady = loaderHidden;
   const fieldClipBottom = Math.min(
     pageMeasurement.viewportHeight,
     Math.max(
@@ -782,13 +780,20 @@ export function PegasoftHome() {
                     className={heroStyles.flowHeader}
                     type="button"
                     onClick={() => jumpToFlowStep(index)}
+                    aria-current={heroJourney.stepIndex === index ? 'step' : undefined}
+                    aria-expanded={heroJourney.stepIndex === index}
+                    aria-controls={`hero-flow-description-${index + 1}`}
                   >
                     <div className={heroStyles.flowNumber}>
                       <span>{step.number}</span>
                     </div>
                     <h3 className={heroStyles.flowTitle}>{step.title}</h3>
                   </button>
-                  <div className={heroStyles.flowBody}>
+                  <div
+                    id={`hero-flow-description-${index + 1}`}
+                    className={heroStyles.flowBody}
+                    aria-hidden={heroJourney.stepIndex !== index}
+                  >
                     <div className={heroStyles.flowBodyInner}>
                       <div className={heroStyles.flowTrack}>
                         <div className={heroStyles.flowTrackBar}>

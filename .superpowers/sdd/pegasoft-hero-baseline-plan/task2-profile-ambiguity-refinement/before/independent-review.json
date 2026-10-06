@@ -1,0 +1,45 @@
+{
+  "reviewDate": "2026-10-03",
+  "packetSha256": "a3475dfa1f50b6f58039821fca9dafe4c45b220b5d8cfd2d408ed5bf00bf9cc1",
+  "verdict": "Diagnostic implementation corroborated with one targeted beam ambiguity finding. Qualification remains blocked.",
+  "findings": [
+    {
+      "priority": "P2",
+      "title": "Connected bright peaks escape competing-peak rejection",
+      "file": "apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs",
+      "startLine": 109,
+      "endLine": 121,
+      "basis": "Static counterexample using the existing fixture: add bright rows 48\u201352 [240,250,255] and bridge rows 44\u201347 [190,210,220]. Both white peaks exceed half the maximum, but the bridge exceeds minimumPeakExcess=5, so they form one group. The helper selects the first peak and returns observed-diagnostic.",
+      "impact": "The competing-peak veto rejects disconnected groups but misses connected branch/dot/contact ambiguity.",
+      "smallestFollowup": "Add this literal fixture RED first, then conservatively reject multiple significant peak regions without widening existing gates.",
+      "verificationLimit": "Derived from source inspection; not executed during this read-only review."
+    }
+  ],
+  "corroborated": [
+    "Source/local profiles use identical declared quantities with independent background calibration; white cores survive without hue classification.",
+    "Raw strip pixels contribute to sideband noise, preventing median-hidden contamination.",
+    "Residual envelopes represent absolute RGB departures, including dark/cyan support; they are not qualified halo boundaries.",
+    "Exit delegates classification to the unchanged helper. Saved local contrast 16.366<20 and dominance 1.998<3 remain blocked.",
+    "Historical applied crop/opacity remain unavailable. Caller-supplied readback requires matching frame IDs and valid values, preserves zero opacity, and grants no qualification."
+  ],
+  "verifiedChecks": {
+    "packetHash": "matches",
+    "linkedPins": "31/31 bytes and hashes match",
+    "existingTestPrefix": "71-contract prefix unchanged byte-for-byte",
+    "savedTestLogs": "11 missing-API failures followed by 82 passes; raw-sideband regression fails before final 83/83 pass",
+    "savedTypecheckLog": "both targets pass; 0/2 cache hits",
+    "savedLintLog": "0 errors/39 warnings",
+    "savedRasterLog": "4 profiles and 2 exit classifier reproductions pass",
+    "activeIntegration": "no imports found in active capture/comparator entry points",
+    "repeatability": "not rerun; root verification remains separate",
+    "whitespace": "recorded pass; no linked raw log",
+    "execution": "No tests, diagnostics, application execution, edits, captures or delegation"
+  },
+  "openPrerequisites": [
+    "Resolve connected competing peaks and challenge branch/dot/contact/pulse and detached residual contamination.",
+    "Independently review same-quantity core/halo definitions and calibrate conservative edge-error bounds.",
+    "Obtain real applied consumer readback and continuous exit correspondence; retain unchanged exit gates.",
+    "Establish current capture provenance, timing and source animation-age correspondence.",
+    "Keep geometry consumption and integration blocked. Landmark code was not qualified by this review."
+  ]
+}

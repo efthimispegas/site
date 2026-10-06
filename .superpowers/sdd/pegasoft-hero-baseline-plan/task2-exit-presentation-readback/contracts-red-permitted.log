@@ -1,0 +1,344 @@
+
+> nx run @site/pegasoft-e2e:hero-capture-contract-test
+
+> playwright test --config=playwright.capture-contract.config.ts
+
+(node:14914) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:14914) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2mRunning [22m37[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:14925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/37] src/visual/hero-capture-contract.spec.ts:26:5 › lifecycle_changes_between_assertions
+[1A[2K[2/37] src/visual/hero-capture-contract.spec.ts:34:5 › resource_readiness_delays_entry
+[1A[2K[3/37] src/visual/hero-capture-contract.spec.ts:43:5 › pulse_label_differs_from_applied_clock
+[1A[2K[4/37] src/visual/hero-capture-contract.spec.ts:54:5 › stale_consumer_rejects_frame
+[1A[2K[5/37] src/visual/hero-capture-contract.spec.ts:63:5 › pending_render_rejects_frame
+[1A[2K[6/37] src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify
+[1A[2K[7/37] src/visual/hero-capture-contract.spec.ts:75:5 › physical_entry_uses_viewport_and_flow_domains
+[1A[2K[8/37] src/visual/hero-capture-contract.spec.ts:79:5 › loader_age_uses_lifecycle_origin_not_rendered_age
+[1A[2K[9/37] src/visual/hero-capture-contract.spec.ts:88:5 › physical_entry_waits_for_actual_loader_clearance
+[1A[2K[10/37] src/visual/hero-capture-contract.spec.ts:96:5 › contact_clock_requires_real_history_above_point72
+[1A[2K[11/37] src/visual/hero-capture-contract.spec.ts:107:5 › incomplete_clock_history_cannot_qualify
+[1A[2K[12/37] src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window
+[1A[2K[13/37] src/visual/hero-capture-provenance.spec.ts:88:5 › provenance_saved_field_contact_passes_independent_validator_pins
+[1A[2K[14/37] src/visual/hero-capture-provenance.spec.ts:147:5 › provenance_stale_camera_readback_rejected
+[1A[2K[15/37] src/visual/hero-capture-provenance.spec.ts:153:5 › provenance_missing_route_readback_rejected
+[1A[2K[16/37] src/visual/hero-capture-provenance.spec.ts:159:5 › provenance_acknowledgment_without_actual_object_readback_rejected
+[1A[2K[17/37] src/visual/hero-capture-provenance.spec.ts:165:5 › provenance_field_clock_disagrees_with_completed_frame_rejected
+[1A[2K[18/37] src/visual/hero-capture-provenance.spec.ts:171:5 › provenance_unknown_physical_height_is_not_guessed_from_viewport
+[1A[2K[19/37] src/visual/hero-capture-provenance.spec.ts:177:5 › provenance_saved_journey_exit_preserves_material_readback_roundtrip
+[1A[2K[20/37] src/visual/hero-capture-provenance.spec.ts:206:5 › provenance_survives_durable_outcome_and_manifest_finalization
+[1A[2K[21/37] src/visual/hero-capture-run.spec.ts:43:5 › restart_preserves_run_artifacts
+[1A[2K[22/37] src/visual/hero-capture-run.spec.ts:64:5 › capture_run_preserves_historical_and_concurrent_outputs
+[1A[2K[23/37] src/visual/hero-capture-run.spec.ts:78:5 › capture_run_failed_and_missing_states_are_explicit
+[1A[2K[24/37] src/visual/hero-capture-run.spec.ts:108:5 › capture_run_complete_manifest_hashes_all_artifacts
+[1A[2K[25/37] src/visual/hero-capture-run.spec.ts:147:5 › capture_run_missing_or_changed_artifact_cannot_complete
+[1A[2K[26/37] src/visual/hero-capture-run.spec.ts:166:5 › capture_run_foreign_measurement_identity_cannot_complete
+[1A[2K[27/37] src/visual/hero-capture-run.spec.ts:180:5 › capture_run_failure_survives_later_success
+[1A[2K[28/37] src/visual/hero-capture-run.spec.ts:199:5 › capture_run_failed_manifest_hashes_empty_partial_artifacts
+[1A[2K[29/37] src/visual/hero-presentation-readback.spec.ts:38:5 › same-task readback intersects nested overflow and rectangular inset clips
+[1A[2K[31m  1) src/visual/hero-presentation-readback.spec.ts:38:5 › same-task readback intersects nested overflow and rectangular inset clips [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:40:18[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-53de3-and-rectangular-inset-clips/error-context.md[22m
+
+
+[1A[2K(node:14930) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14930) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[30/37] src/visual/hero-presentation-readback.spec.ts:49:5 › readback records ancestor CSS opacity product and preserves zero
+[1A[2K[31m  2) src/visual/hero-presentation-readback.spec.ts:49:5 › readback records ancestor CSS opacity product and preserves zero [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:51:18[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-dba06--product-and-preserves-zero/error-context.md[22m
+
+
+[1A[2K(node:14937) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14937) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[31/37] src/visual/hero-presentation-readback.spec.ts:63:5 › readback rejects nonrectangular and transformed clipping without inventing a plane
+[1A[2K[31m  3) src/visual/hero-presentation-readback.spec.ts:63:5 › readback rejects nonrectangular and transformed clipping without inventing a plane [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:71:20[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-c7a92-g-without-inventing-a-plane/error-context.md[22m
+
+
+[1A[2K(node:14942) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14942) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[32/37] src/visual/hero-presentation-readback.spec.ts:81:5 › readback marks unsupported compositing separately from observed CSS values
+[1A[2K[31m  4) src/visual/hero-presentation-readback.spec.ts:81:5 › readback marks unsupported compositing separately from observed CSS values [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:84:20[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-97125-ly-from-observed-CSS-values/error-context.md[22m
+
+
+[1A[2K(node:14949) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14949) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[33/37] src/visual/hero-presentation-readback.spec.ts:93:5 › readback rejects frame mismatch and incomplete consumer application
+[1A[2K[31m  5) src/visual/hero-presentation-readback.spec.ts:93:5 › readback rejects frame mismatch and incomplete consumer application [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:95:20[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-80c5b-mplete-consumer-application/error-context.md[22m
+
+
+[1A[2K(node:14955) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14955) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[34/37] src/visual/hero-presentation-readback.spec.ts:108:5 › readback cannot bind pending renders or an ambiguous canvas selection
+[1A[2K[31m  6) src/visual/hero-presentation-readback.spec.ts:108:5 › readback cannot bind pending renders or an ambiguous canvas selection [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:114:19[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-1ed1f--ambiguous-canvas-selection/error-context.md[22m
+
+
+[1A[2K(node:14961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[35/37] src/visual/hero-presentation-readback.spec.ts:125:5 › running native opacity animation remains temporally uncertain on a completed frame
+[1A[2K[31m  7) src/visual/hero-presentation-readback.spec.ts:125:5 › running native opacity animation remains temporally uncertain on a completed frame [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:127:18[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-38ff3-ertain-on-a-completed-frame/error-context.md[22m
+
+
+[1A[2K(node:14967) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14967) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[36/37] src/visual/hero-presentation-readback.spec.ts:140:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection
+[1A[2K[31m  8) src/visual/hero-presentation-readback.spec.ts:140:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:142:18[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-09e16-r-than-a-false-intersection/error-context.md[22m
+
+
+[1A[2K(node:14973) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:14973) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[37/37] src/visual/hero-presentation-readback.spec.ts:149:5 › readback retains DOM values but cannot invent a missing completed frame
+[1A[2K[31m  9) src/visual/hero-presentation-readback.spec.ts:149:5 › readback retains DOM values but cannot invent a missing completed frame [39m
+
+    Error: same-task presentation collector is missing
+
+    [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"[7mf[27mun[7mction[27m"[39m
+    Received: [31m"un[7mdefined[27m"[39m
+
+      10 |     return {};
+      11 |   });
+    > 12 |   expect(typeof module.readHeroCaptureWithPresentation, 'same-task presentation collector is missing').toBe('function');
+         |                                                                                                        ^
+      13 |   return page.evaluate(module.readHeroCaptureWithPresentation, { expectedFrameId });
+      14 | }
+      15 | async function fixture(page: Page, css = '', extra = '') {
+    [2m    at read (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:12:104)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts:152:18[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-presentation-readback-bcb8b-t-a-missing-completed-frame/error-context.md[22m
+
+
+[1A[2K[31m  9 failed[39m
+[31m    src/visual/hero-presentation-readback.spec.ts:38:5 › same-task readback intersects nested overflow and rectangular inset clips [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:49:5 › readback records ancestor CSS opacity product and preserves zero [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:63:5 › readback rejects nonrectangular and transformed clipping without inventing a plane [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:81:5 › readback marks unsupported compositing separately from observed CSS values [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:93:5 › readback rejects frame mismatch and incomplete consumer application [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:108:5 › readback cannot bind pending renders or an ambiguous canvas selection [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:125:5 › running native opacity animation remains temporally uncertain on a completed frame [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:140:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection [39m
+[31m    src/visual/hero-presentation-readback.spec.ts:149:5 › readback retains DOM values but cannot invent a missing completed frame [39m
+[32m  28 passed[39m[2m (4.2s)[22m
+Warning: command "playwright test --config=playwright.capture-contract.config.ts" exited with non-zero status code
+
+
+ NX   Running target hero-capture-contract-test for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture-contract-test
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      4.5s
+  Critical path:     4.5s (1 task)
+  Recoverable time:  <1ms

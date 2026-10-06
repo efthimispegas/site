@@ -1,0 +1,22 @@
+
+> nx run @site/pegasoft-e2e:hero-compare --args=--capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6 --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json
+
+> node tools/hero-reference/compare-captures.mjs --capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6 --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json
+
+(node:9441) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Compared 15 states (preliminary raster: 0 pass, 15 fail; structural accuracy: 0 pass, 8 fail, 7 blocked; DOM: 10 pass, 3 fail, 0 blocked, 2 not applicable); report: apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json
+Warning: command "node tools/hero-reference/compare-captures.mjs --capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6 --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json" exited with non-zero status code
+
+
+ NX   Running target hero-compare for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-compare
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      6.7s
+  Critical path:     6.7s (1 task)
+  Recoverable time:  <1ms
