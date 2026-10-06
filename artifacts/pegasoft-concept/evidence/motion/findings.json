@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-03",
+  "observed_from_inspected_cues": [
+    "Loader at requested 1.5 s shows an expanded outer disk with a distinct small central disk; pulse layers must be separate.",
+    "Hero entry cues show aperture and globe precede fully entered headline/CTAs.",
+    "Main pivot cue at requested 132.6667 s exposes both container end and side; changing camera view must preserve the load.",
+    "Road cues show side view followed by top view and curved entry; deck cues preserve the silver roof alignment during reverse scrolling.",
+    "Jet window numeric maxima near 276 s include testimonial scrolling and plane-tail exit, demonstrating that ROI peaks need semantic review."
+  ],
+  "measurement_limits": [
+    "Additional watch cue times are requested extraction times, not independent frame correspondence.",
+    "Native source PTS intervals are approximately 16.667 ms; motion above the recording temporal resolution is unavailable.",
+    "10 wheel/DOM samples are coarse checkpoints at 1280\u00d7720, not exact pin intervals or easing."
+  ],
+  "visual_review": {
+    "original_cues": 123,
+    "additional_cues": 27,
+    "all_additional_cue_sheets_reviewed": true,
+    "numeric_frames_not_claimed_visually_watched": 25295
+  },
+  "next": "Fit per-event normalized geometry and physical scroll boundaries, then validate rendered slices and obtain user approval."
+}

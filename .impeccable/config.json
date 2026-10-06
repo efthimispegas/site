@@ -1,0 +1,1016 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:23:34.687Z",
+        "reason": "User requested independent typography for Pegasoft Concept. Manrope is intentional in this proposal file only."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:23:34.767Z",
+        "reason": "User requested independent typography for Pegasoft Concept. DM Sans is intentional in this proposal file only."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "plex",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:23:34.849Z",
+        "reason": "User requested independent typography for Pegasoft Concept. IBM Plex Mono is intentional in this proposal file only."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#153d64",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.230Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#3e5265",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.250Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#4c6070",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.269Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#566674",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.288Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#aebccc",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.305Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(12, 25, 39)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.330Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(123, 203, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.350Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(130, 149, 166)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.367Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(135, 155, 171)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.385Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(156, 174, 189)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.404Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(165, 178, 190)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.423Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(17, 21, 27)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.441Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(170, 188, 206)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.459Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(172, 189, 205)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.476Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(174, 189, 202)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.495Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(182, 203, 220)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.511Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 231, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.531Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(20, 125, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.548Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(201, 212, 222)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.567Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(220, 231, 240)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.585Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(226, 241, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.602Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(237, 242, 247)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.622Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(28, 60, 85)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.638Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(41, 50, 60)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.660Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(49, 84, 108)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.677Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(5, 7, 10)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.697Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(6, 30, 59)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.714Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(83, 98, 114)",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.733Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "12px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.752Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.770Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "15px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.790Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "30px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.807Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "56px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.827Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "18px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.869Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "20px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.896Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "2px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.914Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "3px",
+        "files": [
+          "artifacts/pegasoft-concept/review/index.html"
+        ],
+        "createdAt": "2026-10-03T13:24:21.933Z",
+        "reason": "Independent Pegasoft Concept review presentation requested by user; proposed palette, sizing and shapes intentionally differ from the existing app. This exception applies only to this review file."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:32:33.051Z",
+        "reason": "Independent Pegasoft concept review uses the approved asset direction and the proposed DM Sans type system; root DESIGN.md belongs to other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:32:33.128Z",
+        "reason": "Independent Pegasoft concept review uses the approved asset direction and the proposed Manrope type system; root DESIGN.md belongs to other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#147dff",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.208Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(0, 0, 0)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.231Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(123, 203, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.251Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(17, 21, 27)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.272Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 199, 213)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.296Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 231, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.316Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(41, 50, 60)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.335Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(5, 7, 10)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.353Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(83, 98, 114)",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.371Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13px",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.387Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.404Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "30px",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.421Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "38px",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.438Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "5px",
+        "files": [
+          "artifacts/pegasoft-concept/review/motion.html"
+        ],
+        "createdAt": "2026-10-03T19:42:35.455Z",
+        "reason": "Independent Pegasoft concept evidence viewer uses its own proposed typography, palette and review controls; root DESIGN.md belongs to other applications."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(123, 203, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.043Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(17, 21, 27)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.057Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 199, 213)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.072Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 231, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.087Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(20, 125, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.102Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(41, 50, 60)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.116Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(5, 7, 10)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.129Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(6, 30, 59)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.143Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(83, 98, 114)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.156Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.169Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.182Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "4px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.196Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "5px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet.html"
+        ],
+        "createdAt": "2026-10-03T20:26:04.210Z",
+        "reason": "Independent approved Pegasoft concept typography/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(123, 203, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.737Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(17, 21, 27)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.752Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 199, 213)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.767Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 231, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.783Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(20, 125, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.798Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(237, 242, 247)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.813Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(41, 50, 60)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.827Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(5, 7, 10)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.842Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(6, 30, 59)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.856Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(83, 98, 114)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.870Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.885Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.898Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "4px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.913Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "5px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-views.html"
+        ],
+        "createdAt": "2026-10-03T20:56:23.927Z",
+        "reason": "Independent approved Pegasoft concept fonts/palette and review-control geometry; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(5, 7, 10)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.478Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(6, 30, 59)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.498Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.516Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.534Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(185, 231, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.553Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(123, 203, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.572Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(20, 125, 255)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.589Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "4px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.606Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(17, 21, 27)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.622Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(237, 242, 247)",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.639Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "12px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.656Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "30px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.672Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "14px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.689Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "13px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.704Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "26px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T22:32:48.720Z",
+        "reason": "Independent user-approved Pegasoft concept typography/palette and review controls. Root DESIGN.md governs other apps; preserve it."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "16px",
+        "files": [
+          "artifacts/pegasoft-concept/review/jet-transition.html"
+        ],
+        "createdAt": "2026-10-03T23:31:16.057Z",
+        "reason": "Independent approved Pegasoft concept typography; review control heading. Preserve root DESIGN.md for other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-family.html"
+        ],
+        "createdAt": "2026-10-04T17:04:24.118Z",
+        "reason": "Approved independent Pegasoft Concept typography; root DESIGN.md belongs to other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-family.html"
+        ],
+        "createdAt": "2026-10-04T17:04:24.184Z",
+        "reason": "Approved independent Pegasoft Concept typography; root DESIGN.md belongs to other apps."
+      },
+      {
+        "rule": "wide-tracking",
+        "value": "*",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-family.html"
+        ],
+        "createdAt": "2026-10-04T17:20:58.616Z",
+        "reason": "Verified in browser: this review page uses 0.08em only for two short uppercase eyebrow labels, while body text uses normal spacing. Rule provides no extractable value, so scope this exception to the file."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-model.html"
+        ],
+        "createdAt": "2026-10-04T21:11:59.015Z",
+        "reason": "Pegasoft Concept approved Manrope display type; root DESIGN.md belongs to other apps"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-model.html"
+        ],
+        "createdAt": "2026-10-04T21:11:59.097Z",
+        "reason": "Pegasoft Concept approved DM Sans body type; root DESIGN.md belongs to other apps"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-model.css"
+        ],
+        "createdAt": "2026-10-04T21:11:59.173Z",
+        "reason": "Pegasoft Concept approved Manrope display type; root DESIGN.md belongs to other apps"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-model.css"
+        ],
+        "createdAt": "2026-10-04T21:11:59.247Z",
+        "reason": "Pegasoft Concept approved DM Sans body type; root DESIGN.md belongs to other apps"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-materials.html"
+        ],
+        "createdAt": "2026-10-05T10:21:23.761Z",
+        "reason": "Approved Pegasoft Concept Manrope typography in PROPOSAL.md; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-materials.html"
+        ],
+        "createdAt": "2026-10-05T10:21:23.847Z",
+        "reason": "Approved Pegasoft Concept DM Sans typography in PROPOSAL.md; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-rig.html"
+        ],
+        "createdAt": "2026-10-05T11:29:48.552Z",
+        "reason": "Approved Pegasoft Concept Manrope typography in PROPOSAL.md; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-rig.html"
+        ],
+        "createdAt": "2026-10-05T11:29:48.630Z",
+        "reason": "Approved Pegasoft Concept DM Sans typography in PROPOSAL.md; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "manrope",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-motion.html"
+        ],
+        "createdAt": "2026-10-05T15:15:28.070Z",
+        "reason": "Approved Pegasoft Concept Manrope typography in PROPOSAL.md; root DESIGN.md governs other apps."
+      },
+      {
+        "rule": "design-system-font",
+        "value": "dm",
+        "files": [
+          "artifacts/pegasoft-concept/review/lift-motion.html"
+        ],
+        "createdAt": "2026-10-05T15:15:28.179Z",
+        "reason": "Approved Pegasoft Concept DM Sans typography in PROPOSAL.md; root DESIGN.md governs other apps."
+      }
+    ]
+  }
+}

@@ -1,0 +1,337 @@
+{
+  "date_local": "2026-10-06",
+  "viewport": [
+    757,
+    788
+  ],
+  "observations": [
+    {
+      "test": "normal_1x_play_0",
+      "file": "lift-wheel-solid-combined-approach.png",
+      "motion": {
+        "approachOffset": 0.07685495957063213,
+        "attached": false,
+        "balance": 0,
+        "cab_focus": null,
+        "cameraRoll": 0,
+        "elevation": 27,
+        "focus": false,
+        "frame": 0,
+        "inner": 0,
+        "load_owner": "support",
+        "load_world_center": [
+          1.8350495671863851,
+          3.257452713452018,
+          2.247009002476208e-16
+        ],
+        "middle": 0,
+        "phase": "01 / Approach",
+        "playing": true,
+        "progress": 0.317667031763417,
+        "referenceIndex": "Lift 0 / 158",
+        "scroll_driven": false,
+        "speed": 1,
+        "vh": 84.62900808587358,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 225,
+        "wheel_isolated": true,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -32.316886221876786,
+        "yaw": 0
+      }
+    },
+    {
+      "test": "normal_1x_play_1",
+      "file": "lift-wheel-solid-combined-lift.png",
+      "motion": {
+        "approachOffset": 0,
+        "attached": true,
+        "balance": -0.5037706101899095,
+        "cab_focus": null,
+        "cameraRoll": 0,
+        "elevation": 22.8472531926269,
+        "focus": false,
+        "frame": 65.38786115676483,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          1.600063260295784,
+          3.5860099149944733,
+          1.9591533256813063e-16
+        ],
+        "middle": 0,
+        "phase": "03 / Lift and settle",
+        "playing": true,
+        "progress": 0.5941511500547648,
+        "referenceIndex": "Lift 130 / 158",
+        "scroll_driven": false,
+        "speed": 1,
+        "vh": 201.80447445527392,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 225,
+        "wheel_isolated": true,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": 0,
+        "yaw": 0
+      }
+    },
+    {
+      "test": "normal_1x_play_2",
+      "file": "lift-wheel-solid-combined-pivot-porcelain.png",
+      "motion": {
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "cameraRoll": -2.207034962490214,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 138.04069850675884,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          1.376193523792201,
+          3.8341499715736416,
+          1.6853922771287164e-16
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": true,
+        "progress": 0.8607228915662671,
+        "referenceIndex": "Pivot 58 / 96",
+        "scroll_driven": false,
+        "speed": 1,
+        "vh": 314.7790218743001,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 225,
+        "wheel_isolated": true,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": 0,
+        "yaw": 59.83814192970444
+      }
+    },
+    {
+      "test": "normal_reverse_combined",
+      "motion": {
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "cameraRoll": 0,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 89.78557829299272,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          1.376193523792201,
+          3.8341499715736416,
+          1.6853922771287164e-16
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.683669222343924,
+        "referenceIndex": "Pivot 10 / 96",
+        "scroll_driven": false,
+        "speed": 1,
+        "vh": 239.7427181916418,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 225,
+        "wheel_isolated": true,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": 0,
+        "yaw": 3.664935171627403
+      }
+    },
+    {
+      "test": "physical_scroll_start",
+      "motion": {
+        "approachOffset": 0.75,
+        "attached": false,
+        "balance": 0,
+        "cab_focus": null,
+        "cameraRoll": 0,
+        "elevation": 27,
+        "focus": false,
+        "frame": 0,
+        "inner": 0,
+        "load_owner": "support",
+        "load_world_center": [
+          1.8350495671863851,
+          3.257452713452018,
+          2.247009002476208e-16
+        ],
+        "middle": 0,
+        "phase": "01 / Approach",
+        "playing": false,
+        "progress": 0,
+        "referenceIndex": "Lift 0 / 158",
+        "scroll_driven": true,
+        "speed": 1,
+        "vh": -50,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 225,
+        "wheel_isolated": true,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -315.3689078989419,
+        "yaw": 0
+      }
+    },
+    {
+      "test": "physical_scroll_positive",
+      "motion": {
+        "approachOffset": 0.5501963039340103,
+        "attached": false,
+        "balance": 0,
+        "cab_focus": null,
+        "cameraRoll": 0,
+        "elevation": 27,
+        "focus": false,
+        "frame": 0,
+        "inner": 0,
+        "load_owner": "support",
+        "load_world_center": [
+          1.8350495671863851,
+          3.257452713452018,
+          2.247009002476208e-16
+        ],
+        "middle": 0,
+        "phase": "01 / Approach",
+        "playing": false,
+        "progress": 0.09429029889926496,
+        "referenceIndex": "Lift 0 / 158",
+        "scroll_driven": true,
+        "speed": 1,
+        "vh": -10.03926078680204,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 225,
+        "wheel_isolated": true,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -231.3530766689376,
+        "yaw": 0
+      }
+    },
+    {
+      "test": "physical_scroll_reverse",
+      "motion": {
+        "approachOffset": 0.6501328521573604,
+        "attached": false,
+        "balance": 0,
+        "cab_focus": null,
+        "cameraRoll": 0,
+        "elevation": 27,
+        "focus": false,
+        "frame": 0,
+        "inner": 0,
+        "load_owner": "support",
+        "load_world_center": [
+          1.8350495671863851,
+          3.257452713452018,
+          2.247009002476208e-16
+        ],
+        "middle": 0,
+        "phase": "01 / Approach",
+        "playing": false,
+        "progress": 0.047128773920125835,
+        "referenceIndex": "Lift 0 / 158",
+        "scroll_driven": true,
+        "speed": 1,
+        "vh": -30.026570431472084,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 225,
+        "wheel_isolated": true,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -273.3755834321214,
+        "yaw": 0
+      }
+    }
+  ],
+  "hub_materials": [
+    {
+      "material": {
+        "color": "#11151b",
+        "metalness": 0.35,
+        "name": "Wheel hub · approved shared satin carbon",
+        "normal_scale": [
+          0.12,
+          -0.12
+        ],
+        "roughness": 0.5
+      },
+      "wheel": "front_wheel_left"
+    },
+    {
+      "material": {
+        "color": "#11151b",
+        "metalness": 0.35,
+        "name": "Wheel hub · approved shared satin carbon",
+        "normal_scale": [
+          0.12,
+          -0.12
+        ],
+        "roughness": 0.5
+      },
+      "wheel": "front_wheel_right"
+    },
+    {
+      "material": {
+        "color": "#11151b",
+        "metalness": 0.35,
+        "name": "Wheel hub · approved shared satin carbon",
+        "normal_scale": [
+          0.12,
+          -0.12
+        ],
+        "roughness": 0.5
+      },
+      "wheel": "rear_wheel_left"
+    },
+    {
+      "material": {
+        "color": "#11151b",
+        "metalness": 0.35,
+        "name": "Wheel hub · approved shared satin carbon",
+        "normal_scale": [
+          0.12,
+          -0.12
+        ],
+        "roughness": 0.5
+      },
+      "wheel": "rear_wheel_right"
+    }
+  ],
+  "console": [],
+  "final_state": {
+    "approachOffset": 0.4769095019035533,
+    "attached": false,
+    "balance": 0,
+    "cab_focus": null,
+    "cameraRoll": 0,
+    "elevation": 27,
+    "focus": false,
+    "frame": 0,
+    "inner": 0,
+    "load_owner": "support",
+    "load_world_center": [
+      1.8350495671863851,
+      3.257452713452018,
+      2.247009002476208e-16
+    ],
+    "middle": 0,
+    "phase": "01 / Approach",
+    "playing": false,
+    "progress": 0.12887541721730034,
+    "referenceIndex": "Lift 0 / 158",
+    "scroll_driven": false,
+    "speed": 1,
+    "vh": 4.618099619289339,
+    "wheel_focus": "front_wheel_right",
+    "wheel_inspection_angle": 135,
+    "wheel_isolated": true,
+    "wheel_orbit": 40,
+    "wheel_roll_degrees": -200.53657170926928,
+    "yaw": 0
+  },
+  "user_visual_acceptance": "pending"
+}

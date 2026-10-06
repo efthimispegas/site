@@ -1,0 +1,15 @@
+{
+  "date_local": "2026-10-05",
+  "user_statement": "Approved",
+  "review_url": "http://127.0.0.1:8766/review/lift-model.html?revision=20261005-cab-entry#viewer",
+  "approved_model": "model-draft/model-entry-amended.glb",
+  "approved_model_sha256": "7dfe2a7b627705f0449629cc488dad11b895e490e8cae9ac921e581b1b3e9e84",
+  "approved_scope": "Cab-entry amendment on the current lift draft: three steps per side, separate landing, exterior metallic rails and door grips. Use this reviewed draft for the approved mechanical stage.",
+  "reviewed_reference_sha256": {
+    "generation/L01/L01-side.png": "d57f2c879953ba8041eb257bfe792496afef5cf5c253fd3a428c0afae29b2fc0",
+    "generation/lift-family/lift-left.png": "7d7556d96c9bfefd6521ac50049e146bd65ecb532b4e335e662ef06b3d982b46"
+  },
+  "checks": "../../evidence/lift-entry-amendment-checks.json",
+  "limits": "Final model, material cleanup, mechanical rig and rendered motion acceptance remain separate; no new generation or substantial reconstruction authorized.",
+  "accepted_state_screenshot": "../../evidence/lift-entry-approved.png"
+}

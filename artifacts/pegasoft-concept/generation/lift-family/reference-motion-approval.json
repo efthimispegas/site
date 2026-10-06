@@ -1,0 +1,55 @@
+{
+  "date_local": "2026-10-06",
+  "status": "user_approved_locked",
+  "user_statement": "Approved",
+  "review_url": "http://127.0.0.1:8766/review/lift-motion.html?revision=20261006-solid-wheels#viewer",
+  "approved_scope": [
+    "Physical cab amendment and closed independent wheel assemblies",
+    "Clockwise forward scroll and counterclockwise reverse scroll in exterior view",
+    "Reference lift/camera pivot and brief settling sequence",
+    "Connected diagnostic load contact and reversible mechanics"
+  ],
+  "reviewed_packet": "../../evidence/lift-wheel-volume-input/lift-motion-review.json",
+  "reviewed_packet_sha256": "e28542352792903bc50b10947ccbb386aa9b806c69e3ade0c99f9eced9c4f014",
+  "immutable_inputs": "../../evidence/lift-wheel-volume-input/",
+  "input_count": 55,
+  "locked_original_count": 9,
+  "source_modules": [
+    {
+      "path": "../../review/lift-motion.js",
+      "sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6"
+    },
+    {
+      "path": "../../review/lift-motion.html",
+      "sha256": "fba25b19341636c7daa87dd4d81eb7bfc5111bec719a22e28c9896dff5a17bbe"
+    },
+    {
+      "path": "../../review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "../../review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "../../review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "../../review/lift-motion-data.js",
+      "sha256": "1b331873fdaac909d745d215d67b7c9ddd23d1abd377abfdef7cbc3cddedb7a1"
+    }
+  ],
+  "checks": [
+    "lift-wheel-volume-checks.json",
+    "lift-motion-checks.json",
+    "lift-integrity-checks.json",
+    "lift-cab-checks.json"
+  ],
+  "limits": [
+    "Approval applies to this connected diagnostic-load sequence; no production container or trailer/deck handoff is approved by the proxy.",
+    "Preserve original GLB, accepted full rig, asset book and every immutable evidence packet. Final framing and ownership transfer with the production container require their section review."
+  ],
+  "next_action": "Container family: agree minimum required views and model method, then generate and review the silver master under the locked prompt/color contract. No overhead, underside or unused variants.",
+  "paid_jobs_added": 0
+}

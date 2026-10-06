@@ -1,0 +1,294 @@
+{
+  "date": "2026-10-03",
+  "account_windows_percent_used": {
+    "start": {
+      "primary": 75,
+      "secondary": 77
+    },
+    "after_audit_and_proposal": {
+      "primary": 88,
+      "secondary": 79
+    },
+    "lock_motion_update_start": {
+      "primary": 3,
+      "secondary": 80
+    },
+    "after_lock_motion_update": {
+      "primary": 15,
+      "secondary": 82
+    },
+    "implementation_start": {
+      "primary": 18,
+      "secondary": 82
+    },
+    "after_J01_and_three_family_drafts": {
+      "primary": 27,
+      "secondary": 84
+    },
+    "after_review_packaging": {
+      "primary": 30,
+      "secondary": 84
+    },
+    "remaining_jet_views_start": {
+      "primary": 6,
+      "secondary": 85
+    },
+    "after_remaining_jet_views_review": {
+      "primary": 14,
+      "secondary": 87
+    },
+    "jet_static_approval_and_3d_method_start": {
+      "primary": 17,
+      "secondary": 87
+    },
+    "after_jet_static_approval_and_3d_method": {
+      "primary": 27,
+      "secondary": 89
+    },
+    "jet_static_route_assessment_start": {
+      "primary": 28,
+      "secondary": 89
+    }
+  },
+  "no_paid_generation": false,
+  "fal_generation": {
+    "endpoint": "openai/gpt-image-2.5/sunburst/edit",
+    "completed_jobs": 11,
+    "refinement_jobs": 0,
+    "reported_total_charge": null,
+    "note": "Exact generation charges were not returned; catalog unit price is not a per-image invoice.",
+    "new_jobs_this_batch": 0
+  },
+  "last_updated_local": "2026-10-04",
+  "lift_cab_entry_review": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user credit exception for lift-family review",
+    "start": {
+      "weekly_used_percent": 100,
+      "primary_used_percent": 0,
+      "credits_available": true,
+      "credits_balance": "215.6751380000",
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "weekly_used_percent": 100,
+      "primary_used_percent": 0,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0
+  },
+  "lift_boom_and_material_review": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception",
+    "start": {
+      "weekly_used_percent": 100,
+      "primary_used_percent": 0,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "after_boom_batch": {
+      "weekly_used_percent": 100,
+      "primary_used_percent": 0,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0
+  },
+  "lift_model_lock_mechanical_batch": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception",
+    "start": {
+      "weekly_used_percent": 100,
+      "primary_used_percent": 0,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "weekly_used_percent": 100,
+      "primary_used_percent": 0,
+      "credits_available": true,
+      "credits_balance": "111.6877680000",
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Static model locked; mechanical ownership diagnostic failed; stop after three passes"
+  },
+  "lift_attachment_repair": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": "110.2213380000",
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Connected-component repair implemented and checked; awaiting user review"
+  },
+  "lift_wheel_payload_corrections": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Wheel/body ownership and centered proxy corrected; checks passed; awaiting user review"
+  },
+  "lift_full_solidity_diagnosis": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception",
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "All-part geometry audit and method proposal packaged; no closure repairs implemented; substantial reconstruction awaits method selection."
+  },
+  "lift_localized_fillings_amendment": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception; localized amendment specifically authorized",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": "2048.2603880000",
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Localized fillings user-approved; acceptance/hash snapshot locked. Continue full mechanics/inscription gate."
+  },
+  "lift_full_mechanics_review": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Localized amendment locked. Full joint checks and exact inscription implemented; rendered playback inspected; awaiting full rig/inscription user approval.",
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    }
+  },
+  "lift_reference_motion_review": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-family review credit exception; direct motion-phase authorization",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Mechanical rig approved and locked. Measured lift/camera/brief settling draft implemented, constraint and genuine browser controls checked; interactive user visual approval pending. No paid jobs.",
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    }
+  },
+  "lift_integrity_corrections": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing user lift-review credit allowance; explicit wheel/load and cab correction request",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": "1914.9011180000",
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Wheel sectors/ownership and payload roof corrected; checks and rendered review pass technically. Cab failed three fidelity tests; original restored, localized cab method prepared, current gate stays open."
+  },
+  "lift_physical_cab_amendment": {
+    "date_local": "2026-10-05",
+    "authorization": "Existing lift-review credit allowance; user agreed focused cab amendment and requires a real coherent glazed volume",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": "1903.4158480000",
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Physical cab draft built, technical checks passed, both-surface orbit and normal trajectory inspected; final user visual acceptance pending."
+  },
+  "lift_closed_wheel_amendment": {
+    "date_local": "2026-10-06",
+    "authorization": "Existing lift-review credit allowance; explicit individual-wheel filling and scroll-direction requests",
+    "start": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": null,
+      "spend_control_reached": false
+    },
+    "after_batch": {
+      "primary_used_percent": 0,
+      "weekly_used_percent": 100,
+      "credits_available": true,
+      "credits_balance": "1822.1808880000",
+      "spend_control_reached": false
+    },
+    "paid_generation_jobs_added": 0,
+    "outcome": "Closed independent wheels and requested scroll direction implemented; all-part closure/depth, stationary-body, cab and reversible-contact checks passed; interactive user visual approval pending."
+  }
+}

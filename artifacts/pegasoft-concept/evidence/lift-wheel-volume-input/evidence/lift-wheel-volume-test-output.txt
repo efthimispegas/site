@@ -1,0 +1,1263 @@
+(node:75941) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/whiskey/Work/site/artifacts/pegasoft-concept/review/lift-wheels.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/whiskey/Work/site/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "date_local": "2026-10-06",
+  "status": "technical_checks_passed_visual_review_pending",
+  "source_js_sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6",
+  "approved_mechanics_js_sha256": "5fd724dd6ddd2d7f0335955a93d28fc373a1b2d0c1e27137518af6b76075f78d",
+  "approved_model_sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+  "checks": {
+    "retained_mesh_inventory": 81,
+    "construction_unchanged_outside_wheel_roof_and_cab_amendments": true,
+    "original_source_vertex_inventory": 166642,
+    "retained_attribute_values": 495584,
+    "forward_and_reverse_poses": 601,
+    "attached_poses": 300,
+    "attachment_contact_max_error": 9.155133597044475e-16,
+    "ram_endpoint_max_error": 1.1116099371267112e-15,
+    "ownership_world_position_jump": 0,
+    "forward_reverse_world_matrix_error": 0,
+    "pause_world_matrix_error": 0,
+    "authored_cab_meshes": 49,
+    "wheel_volume_triangles": 106112,
+    "proxy_connector_lengths": [
+      0.0028767785665191753,
+      0.002941777858254793,
+      0.0005000000000000143,
+      0.0005175658569885194
+    ]
+  },
+  "limits": "Diagnostic load retains approved proxy geometry. Reference projected measurements guide motion; no exact final raster/camera-intrinsics claim. Rendered normal/slow/pause/resume/reverse and physical scroll review required."
+}
+{
+  "date_local": "2026-10-06",
+  "status": "closed_wheel_volume_and_direction_checks_passed_user_visual_approval_pending",
+  "source_js_sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6",
+  "wheel_module_sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95",
+  "checks": {
+    "wheels": [
+      {
+        "wheel": "front_wheel_left",
+        "closed_solids": [
+          {
+            "name": "front_wheel_left · closed tire",
+            "volume": 0.00484841261513135,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · closed rim barrel",
+            "volume": 0.00106798659050791,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · hub -1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · molded sidewall ring -1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · molded sidewall ring -1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · rim bead -1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug -1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · valve -1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · hub 1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · molded sidewall ring 1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · molded sidewall ring 1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · rim bead 1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · lug 1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_left · valve 1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          }
+        ],
+        "radial_barrel_probes": 1800,
+        "both_face_probes": 4320,
+        "misses": 0,
+        "independent_axle_children": 48,
+        "photographic_color_maps": 0
+      },
+      {
+        "wheel": "front_wheel_right",
+        "closed_solids": [
+          {
+            "name": "front_wheel_right · closed tire",
+            "volume": 0.004555617446160713,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · closed rim barrel",
+            "volume": 0.0010036842096229736,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · hub -1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · molded sidewall ring -1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · molded sidewall ring -1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · rim bead -1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug -1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · valve -1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · hub 1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · molded sidewall ring 1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · molded sidewall ring 1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · rim bead 1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · lug 1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "front_wheel_right · valve 1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          }
+        ],
+        "radial_barrel_probes": 1800,
+        "both_face_probes": 4320,
+        "misses": 0,
+        "independent_axle_children": 48,
+        "photographic_color_maps": 0
+      },
+      {
+        "wheel": "rear_wheel_left",
+        "closed_solids": [
+          {
+            "name": "rear_wheel_left · closed tire",
+            "volume": 0.004920962718486251,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · closed rim barrel",
+            "volume": 0.001069052357228918,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · hub -1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · molded sidewall ring -1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · molded sidewall ring -1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · rim bead -1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug -1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · valve -1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · hub 1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · molded sidewall ring 1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · molded sidewall ring 1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · rim bead 1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · lug 1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_left · valve 1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          }
+        ],
+        "radial_barrel_probes": 1800,
+        "both_face_probes": 4320,
+        "misses": 0,
+        "independent_axle_children": 48,
+        "photographic_color_maps": 0
+      },
+      {
+        "wheel": "rear_wheel_right",
+        "closed_solids": [
+          {
+            "name": "rear_wheel_right · closed tire",
+            "volume": 0.0049164694174510404,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · closed rim barrel",
+            "volume": 0.0010680786546282358,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · hub -1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · molded sidewall ring -1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · molded sidewall ring -1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · rim bead -1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug -1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · valve -1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · hub 1",
+            "volume": 0.00003735722132244167,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · molded sidewall ring 1 0.087",
+            "volume": 5.997950841304115e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · molded sidewall ring 1 0.108",
+            "volume": 7.445741904401724e-7,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · rim bead 1",
+            "volume": 0.0000021983438799561213,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 0",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 1",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 2",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 3",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 4",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 5",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 6",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 7",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 8",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 9",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 10",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 11",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 12",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 13",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 14",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 15",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 16",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · lug 1 17",
+            "volume": 8.522988760079752e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          },
+          {
+            "name": "rear_wheel_right · valve 1",
+            "volume": 5.727564416561742e-8,
+            "degenerate": 0,
+            "open_or_nonmanifold_edges": 0
+          }
+        ],
+        "radial_barrel_probes": 1800,
+        "both_face_probes": 4320,
+        "misses": 0,
+        "independent_axle_children": 48,
+        "photographic_color_maps": 0
+      }
+    ],
+    "body_matrix_max_displacement_over_73_angles": 0,
+    "scroll_direction": {
+      "forward_exterior": "clockwise",
+      "reverse_exterior": "counterclockwise",
+      "forward_projected_angle_deltas_radians": [
+        -0.19652732322689315,
+        -0.2000533833291105
+      ],
+      "samples": [
+        {
+          "progress": 0.04,
+          "angle": 1.8756091670437685,
+          "local_roll_degrees": -279.72734152408293
+        },
+        {
+          "progress": 0.05,
+          "angle": 1.6790818438168753,
+          "local_roll_degrees": -270.81694993036814
+        },
+        {
+          "progress": 0.06,
+          "angle": 1.4790284604877648,
+          "local_roll_degrees": -261.90655833665335
+        }
+      ],
+      "camera_note": "A rigid wheel appears to reverse from the opposite side; this is physical perspective, not an inverted wheel spin."
+    }
+  },
+  "limits": "Geometric closure, actual-camera direction and scope checks do not grant user visual acceptance. Original GLB and previous accepted rig remain immutable."
+}

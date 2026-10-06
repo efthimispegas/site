@@ -1,0 +1,15 @@
+{
+  "date_local": "2026-10-06",
+  "status": "cab_closed_wheels_load_draft_ready_visual_review_pending",
+  "review_url": "http://127.0.0.1:8766/review/lift-motion.html?revision=20261006-solid-wheels#viewer",
+  "review_packet": "../../evidence/lift-motion-review.json",
+  "approved_base": "full-mechanics-approval.json",
+  "scope": [
+    "Approach",
+    "Empty spreader lowers onto support",
+    "Attachment and lift-off",
+    "Brief phase-driven settling",
+    "Immediate camera pivot"
+  ],
+  "next_action": "Review closed wheel entities, clockwise forward/counterclockwise reverse scroll, physical cab and proxy contact through lift/camera/settling. Hold container gate."
+}

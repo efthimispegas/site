@@ -1,0 +1,24 @@
+{
+  "date_local": "2026-10-05",
+  "user_statement": "approved",
+  "review_url": "http://127.0.0.1:8766/review/lift-materials.html?revision=20261005-aligned#samples",
+  "approved_recipe": {
+    "id": "pegasoft_carbon",
+    "srgb": "#11151B",
+    "metalness": 0.35,
+    "roughness": 0.5,
+    "emission": 0,
+    "surface": "Shared subtle neutral micrograin normal texture; identical texture density; no baked lighting, no woven motif",
+    "color_status": "agreed",
+    "surface_settings_status": "user_approved"
+  },
+  "approval_scope": "Lift carbon surface recipe shown as the left sample: #11151B, metalness .35, roughness .50, zero emission and subtle shared neutral grain. Apply to original and repaired carbon parts. Whole-model visual and mechanical/motion approvals remain separate.",
+  "reviewed_snapshot": "../../evidence/locks/lift-surface-approved",
+  "snapshot_hashes": {
+    "lift-materials.html": "b37beef4617ce07303017c13022b637828463de9392d83ec84622ab0ee6f5325",
+    "material-contract.reviewed.json": "04620031c4fc073a8fd3a6ea94e60fc5cd3991998d902987f7445e69f3c7e330",
+    "lift-model.css": "363e2b59539f0f133824366deda46399d01a8f13a0da3ee141390a48f766b2ae",
+    "lift-materials.js": "e48ed965405dd9e8d7246d982da5ae5c56477ad388ace0f860f45c579bc8b0ac"
+  },
+  "paid_jobs_authorized": 0
+}

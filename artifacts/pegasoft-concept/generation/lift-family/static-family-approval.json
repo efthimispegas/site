@@ -1,0 +1,174 @@
+{
+  "status": "user_approved_all_generated_lift_assets_with_motion_scope_exclusions",
+  "date_local": "2026-10-04",
+  "timezone": "Europe/Athens",
+  "authority": "Direct user instruction",
+  "user_quote": "The lift family is reviewed and approved all generated assets. Overhead and underside will not be needed for the full 3d motion phase. Note that down for all the asset families that will be generated moving forward. Only assets that will be required for the 3d motion generation phase must be generated, assessed, reviewed and approved. The rest should not be generated. Marking those two as out of scope.",
+  "approval_scope": "All 16 existing lift presentations accepted as rendered, including their vector inscription layers where shown. Overhead and underside remain approved/preserved but are excluded from the active 3D-motion inputs.",
+  "assets": [
+    {
+      "id": "right",
+      "file": "../L01/L01-side.png",
+      "sha256": "d57f2c879953ba8041eb257bfe792496afef5cf5c253fd3a428c0afae29b2fc0",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "../L01/boom-branding.svg",
+      "overlay_sha256": "020ebc57f5c63a91bee7eb358629fb989a3a6d650f03eb61005b3b91b47f4f00"
+    },
+    {
+      "id": "front",
+      "file": "lift-front.png",
+      "sha256": "43bc2e82dc81adf6cebadd64b197f49b488e341840abcfff5199304c31956f17",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "rear",
+      "file": "lift-rear.png",
+      "sha256": "d1afbd207ff9bfa26e353ce17d0bc39b41e93045eb0631da0252d527eabdafeb",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "left",
+      "file": "lift-left.png",
+      "sha256": "7d7556d96c9bfefd6521ac50049e146bd65ecb532b4e335e662ef06b3d982b46",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "top",
+      "file": "lift-top.png",
+      "sha256": "34cc5f4bc53f499fffd57770e12b09dd2326cdfb1885fe2da8b709a7e4898470",
+      "user_approved": true,
+      "in_motion_scope": false
+    },
+    {
+      "id": "underside",
+      "file": "lift-underside.png",
+      "sha256": "fbc9f776106217cb8ca7d7f814faafdfa65e723318630f8a57ffe8027360ab48",
+      "user_approved": true,
+      "in_motion_scope": false
+    },
+    {
+      "id": "front-right",
+      "file": "lift-front-right.png",
+      "sha256": "86082cfb606273e2774c156158566baf976316a50789069acb1ff29036fdf286",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-front-right.svg",
+      "overlay_sha256": "6e8c213d4bde338270dc1cbda95a92d68624dfc9b2c58ee72f3260d2a34f77f3"
+    },
+    {
+      "id": "front-left",
+      "file": "lift-front-left.png",
+      "sha256": "ef35edcb32d3417d611e5cb197eb4a1596ac90a0c9551570f28003198e235089",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-front-left.svg",
+      "overlay_sha256": "0461d72580cfb11aad953e18f76d1c8dcaaee1b7a6ee07a4e03c5cc74a273860"
+    },
+    {
+      "id": "rear-right",
+      "file": "lift-rear-right.png",
+      "sha256": "a86dac52c5a97d51d72794bf46547e9b606b194948fc82765d4fccd147637b8e",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-rear-right.svg",
+      "overlay_sha256": "24e4e10e1a4cc3361b1dde1d70b3a5d70eee716487669625f187d43ba2a60cd8"
+    },
+    {
+      "id": "rear-left",
+      "file": "lift-rear-left.png",
+      "sha256": "09d15e23e5a99bd93306c6df43d08baa9ce42f5f3e9174d70e78058c2d54a4df",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-rear-left.svg",
+      "overlay_sha256": "0f49eb68808e48c8cc04885b25770617fb2946e3e41be85df0f5f1e38bfc7218"
+    },
+    {
+      "id": "rest",
+      "file": "lift-rest.png",
+      "sha256": "e9a8c42a957e95a2c6f0a9fa068e290a26818b3faf9538f004d382d3a6ac6bd3",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-rest.svg",
+      "overlay_sha256": "9faecc9688432d449ce87d5d78f1015255402a389e1c069fe2414b35809daec9"
+    },
+    {
+      "id": "alignment",
+      "file": "lift-alignment.png",
+      "sha256": "39b16d96b9eadf068df36e76620ca90dea47dad3dc830faee5c7fbd04e415fce",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-alignment.svg",
+      "overlay_sha256": "5167e3ed09977b3cc79d1ad3bf88d17345c4a9d409ce521ff621140c1fa22fb7"
+    },
+    {
+      "id": "mid-lift",
+      "file": "lift-mid-lift.png",
+      "sha256": "69a854991d55aa0b65b8bf6e741219e2834f5d79892446247ae7aca4dc2b6e63",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-mid-lift.svg",
+      "overlay_sha256": "8151ddfc8490d44f913c7df5936e221f9d4888cac4002e19872cd4036c62c60f"
+    },
+    {
+      "id": "handoff",
+      "file": "lift-handoff.png",
+      "sha256": "b00ad9816bd495d655ba9ff37fbdf3c523855c812c66076d7dae7070e45a7c68",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-handoff.svg",
+      "overlay_sha256": "d2fa55ea9005e5e814ef928d2b4dfe01b41739451c0889a61e8fe02367e1b9fe"
+    },
+    {
+      "id": "boom",
+      "file": "lift-boom.png",
+      "sha256": "8edc67faa50371ab4ad33425d62cf1585996cab8a642a666a7ac4aa44f5caf16",
+      "user_approved": true,
+      "in_motion_scope": true,
+      "overlay_file": "branding-boom.svg",
+      "overlay_sha256": "bf3bd6f614916671c83f325041f1c2507e62b24bd67c786758c17a846578bdd3"
+    },
+    {
+      "id": "spreader",
+      "file": "lift-spreader.png",
+      "sha256": "1855b42a12c04679376f79997d3796dc443e7f3b08a89675f729db7bf73626b0",
+      "user_approved": true,
+      "in_motion_scope": true
+    }
+  ],
+  "accepted_motion_input_count": 14,
+  "excluded_ids": [
+    "top",
+    "underside"
+  ],
+  "reviewed_manifest_sha256": "d46468c6f3f4dbff2ca7bf18c0bf7a840de3bb0baad94373cb3d977c90f9baf4",
+  "reviewed_html_sha256": "fa6c8ab4e78503d03a5e1e5ff2863164640a93b1a617653461b8344461a08705",
+  "reviewed_snapshot": "approval-snapshots/lift-family.reviewed-2026-10-04.html",
+  "prior_agent_observations": [
+    {
+      "id": "front-left",
+      "finding": "Camera-side mismatch: candidate shows the right-facing side instead of a distinct opposite-side front-left quarter.",
+      "status": "accepted_as_rendered_by_user",
+      "regeneration_required": false
+    },
+    {
+      "id": "rear-left",
+      "finding": "Camera-side mismatch: candidate shows the right-facing side instead of a distinct opposite-side rear-left quarter.",
+      "status": "accepted_as_rendered_by_user",
+      "regeneration_required": false
+    },
+    {
+      "id": "boom",
+      "finding": "Isolation mismatch: plate includes the suspended head/spreader. A separate boom/ram plate is required.",
+      "status": "accepted_as_rendered_by_user",
+      "regeneration_required": false
+    }
+  ],
+  "correction_proposal_disposition": "Superseded by acceptance; no correction jobs submitted or scheduled.",
+  "scope_amendment": "../../evidence/motion-input-scope-approval.json",
+  "next_gate": "Confirm lift interactive-model production method and motion approach using accepted in-scope inputs. Final model and rendered motion reviews remain separate.",
+  "jobs_submitted_this_update": 0
+}

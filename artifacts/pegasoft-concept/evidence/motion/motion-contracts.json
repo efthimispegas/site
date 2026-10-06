@@ -1,0 +1,394 @@
+{
+  "status": "Lift/pivot measured draft implemented; other contracts retain their individual pending gates; no parity acceptance",
+  "contracts": [
+    {
+      "id": "loader",
+      "driver": "time",
+      "reference_window_s": [
+        0,
+        2.89
+      ],
+      "reference_source": "loader",
+      "numeric_event_candidates": [
+        {
+          "frame": 90,
+          "source_pts_s": 1.5,
+          "center_mad": 3.85650634765625
+        },
+        {
+          "frame": 111,
+          "source_pts_s": 1.85,
+          "center_mad": 12.203208923339844
+        },
+        {
+          "frame": 162,
+          "source_pts_s": 2.7,
+          "center_mad": 2.016221046447754
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Concentric ring recession, mark fade, nested pulse disks, expanding aperture and staggered headline must be separately timed.",
+        "Use dedicated loader PTS; clip onset is relative and ends before every entrance necessarily finishes."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "hero-entry",
+      "driver": "time/pointer",
+      "reference_window_s": [
+        0,
+        5
+      ],
+      "reference_source": "hero",
+      "numeric_event_candidates": [
+        {
+          "frame": 100,
+          "source_pts_s": 1.666667,
+          "center_mad": 4.211764812469482
+        },
+        {
+          "frame": 123,
+          "source_pts_s": 2.05,
+          "center_mad": 9.007843017578125
+        },
+        {
+          "frame": 180,
+          "source_pts_s": 3.0,
+          "center_mad": 1.6629233360290527
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Maintain globe dots, raised arcs and entry overlap; apply typed horizontal-nav changes."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "hero-hover",
+      "driver": "pointer/time",
+      "reference_window_s": [
+        5,
+        9.5
+      ],
+      "reference_source": "hero",
+      "numeric_event_candidates": [],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Measure pointer enter/leave and link/CTA response separately from globe rotation."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "hero-exit",
+      "driver": "scroll",
+      "reference_window_s": [
+        9.5,
+        14.24
+      ],
+      "reference_source": "hero",
+      "numeric_event_candidates": [
+        {
+          "frame": 652,
+          "source_pts_s": 10.866667,
+          "center_mad": 18.82085609436035
+        },
+        {
+          "frame": 826,
+          "source_pts_s": 13.766667,
+          "center_mad": 2.9458110332489014
+        },
+        {
+          "frame": 849,
+          "source_pts_s": 14.15,
+          "center_mad": 2.620142698287964
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Text exits before atmospheric blue-to-porcelain wipe completes; fit globe scale and mask separately."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "lift",
+      "driver": "scroll",
+      "reference_window_s": [
+        110,
+        131
+      ],
+      "reference_source": "main",
+      "numeric_event_candidates": [
+        {
+          "frame": 6691,
+          "source_pts_s": 111.516667,
+          "center_mad": 2.0434937477111816
+        },
+        {
+          "frame": 6779,
+          "source_pts_s": 112.983333,
+          "center_mad": 2.042424201965332
+        },
+        {
+          "frame": 6936,
+          "source_pts_s": 115.6,
+          "center_mad": 2.0438501834869385
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": "Measured phase curves; see calibration arrays. No source wall-time inference.",
+      "constraints": [
+        "Lock spreader/container attachment before lift; preserve container world geometry.",
+        "Reproduce user-specified brief pendulum-like settling of the attached spreader/load after lift-off. Keep the load rigidly attached, converge to balance and do not qualify this motion from sparse stills."
+      ],
+      "status": "wheel/load amended motion draft; cab fidelity unresolved; user visual approval pending",
+      "secondary_motion": {
+        "id": "loaded-spreader-settling",
+        "authority": "User requirement and continuous source sequence; fixed-view edge measurement supports this draft",
+        "driver": "same reversible normalized scroll phase as lift",
+        "onset_source_s": null,
+        "end_source_s": null,
+        "axis": "spreader local Z",
+        "amplitude_degrees": 1.283,
+        "damping": null,
+        "settling_duration_seconds": null,
+        "camera_pivot_overlap": "last residual fades over pivot frames 0..8; no hold",
+        "review": "Normal/quarter continuous repeat close-up, pause/resume/reverse and actual page scroll exercised; user visual approval pending",
+        "amplitude_basis": "smoothed projected fixed-camera container edge angle, approximate",
+        "phase_frames": [
+          40,
+          79
+        ],
+        "calibration": "../lift-reference-calibration/calibration.json"
+      },
+      "calibration": "../lift-reference-calibration/calibration.json",
+      "implementation": "../../review/lift-motion-contract.js",
+      "review_url": "http://127.0.0.1:8766/review/lift-motion.html?revision=20261005-integrity#viewer",
+      "scroll_coordinates": {
+        "unit": "vh relative to story chapter",
+        "sequence_start": 100,
+        "start_pixel_offset": 1,
+        "sequence_end": 450,
+        "review_end_frame": 176,
+        "sequence_target_frame": 225
+      }
+    },
+    {
+      "id": "handoff",
+      "driver": "scroll",
+      "reference_window_s": [
+        131,
+        147
+      ],
+      "reference_source": "main",
+      "numeric_event_candidates": [
+        {
+          "frame": 7960,
+          "source_pts_s": 132.666667,
+          "center_mad": 9.534046173095703
+        },
+        {
+          "frame": 8727,
+          "source_pts_s": 145.45,
+          "center_mad": 20.278610229492188
+        },
+        {
+          "frame": 8765,
+          "source_pts_s": 146.083333,
+          "center_mad": 11.408912658691406
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": "Measured phase curves; see calibration arrays. No source wall-time inference.",
+      "constraints": [
+        "Keep attached load through camera pivot; trailer support precedes spreader release.",
+        "Retain rigid spreader/container attachment through any settling sway and camera pivot; calibrate their overlap from continuous playback without inventing a settle-before-pivot hold."
+      ],
+      "status": "wheel/load amended motion draft; cab fidelity unresolved; user visual approval pending",
+      "calibration": "../lift-reference-calibration/calibration.json",
+      "implementation": "../../review/lift-motion-contract.js",
+      "review_url": "http://127.0.0.1:8766/review/lift-motion.html?revision=20261005-integrity#viewer",
+      "scroll_coordinates": {
+        "unit": "vh relative to story chapter",
+        "sequence_start": 100,
+        "start_pixel_offset": 1,
+        "sequence_end": 450,
+        "review_end_frame": 176,
+        "sequence_target_frame": 225
+      }
+    },
+    {
+      "id": "road",
+      "driver": "scroll",
+      "reference_window_s": [
+        159,
+        177
+      ],
+      "reference_source": "main",
+      "numeric_event_candidates": [
+        {
+          "frame": 9671,
+          "source_pts_s": 161.183333,
+          "center_mad": 7.116042613983154
+        },
+        {
+          "frame": 9977,
+          "source_pts_s": 166.283333,
+          "center_mad": 11.396256446838379
+        },
+        {
+          "frame": 10303,
+          "source_pts_s": 171.716667,
+          "center_mad": 8.135293960571289
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Match side-to-top camera/view blend, then curved path into central vertical lane."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "deck",
+      "driver": "scroll",
+      "reference_window_s": [
+        185,
+        211
+      ],
+      "reference_source": "main",
+      "numeric_event_candidates": [
+        {
+          "frame": 11148,
+          "source_pts_s": 185.8,
+          "center_mad": 4.863814830780029
+        },
+        {
+          "frame": 11577,
+          "source_pts_s": 192.95,
+          "center_mad": 6.821746826171875
+        },
+        {
+          "frame": 11861,
+          "source_pts_s": 197.683333,
+          "center_mad": 4.601604461669922
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Match silver container roof center/size across road/deck; restore alignment on reverse scroll."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "pullback",
+      "driver": "scroll",
+      "reference_window_s": [
+        211,
+        243
+      ],
+      "reference_source": "main",
+      "numeric_event_candidates": [
+        {
+          "frame": 13073,
+          "source_pts_s": 217.883333,
+          "center_mad": 11.424777030944824
+        },
+        {
+          "frame": 13123,
+          "source_pts_s": 218.716667,
+          "center_mad": 12.440998077392578
+        },
+        {
+          "frame": 13856,
+          "source_pts_s": 230.933333,
+          "center_mad": 11.028698921203613
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Continuous ship/camera scale, ordered text reveals and independent cloud occlusion."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "jet",
+      "driver": "scroll",
+      "reference_window_s": [
+        243,
+        278
+      ],
+      "reference_source": "main",
+      "numeric_event_candidates": [
+        {
+          "frame": 16559,
+          "source_pts_s": 275.983333,
+          "center_mad": 9.158110618591309
+        },
+        {
+          "frame": 16582,
+          "source_pts_s": 276.366667,
+          "center_mad": 10.111764907836914
+        },
+        {
+          "frame": 16650,
+          "source_pts_s": 277.5,
+          "center_mad": 10.47397518157959
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Couple jet, soft shadow and trust mask at approved jet wing/fuselage/tail landmarks.",
+        "Do not fit the crossing to the strongest frame-change peak alone; late peaks include ordinary testimonial scrolling."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    }
+  ],
+  "live_measurement_viewport": [
+    1280,
+    720
+  ],
+  "source_recording_viewport": [
+    3016,
+    1532
+  ],
+  "comparison_requirement": "Match aspect ratio before fidelity qualification; normalize geometry and measure actual scroll/time driver.",
+  "source_temporal_resolution_s": 0.016666666666666666
+}

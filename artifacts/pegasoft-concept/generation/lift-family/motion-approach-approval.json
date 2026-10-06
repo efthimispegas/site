@@ -1,0 +1,25 @@
+{
+  "status": "user_approved_motion_approach",
+  "date_local": "2026-10-04",
+  "authority": "Direct user approval in response to updated step 02 motion review",
+  "user_quote": "Approved",
+  "review_url": "http://127.0.0.1:8766/review/lift-family.html?revision=20261004-family-approved#motion-approach",
+  "approved_scope": [
+    "Approach and attachment before lift",
+    "Lift and camera pivot with brief damped settling swing of attached spreader/load",
+    "Trailer support before release; reversible sequence",
+    "Continuous normal/slow close-up review and calibration; no additional static assets"
+  ],
+  "review_html_sha256": "9ed08b22fcae4668a2cd9d6035e270ac0fabcd7002f22ba98c52953cfd50b585",
+  "review_plan_sha256": "01e381741acdf2076a99a44f94bafda9946c5d52eebe76bb134bf8e38387ca26",
+  "review_evidence": "../../evidence/lift-settling-review-checks.json",
+  "production_method_status": "Not yet selected or approved",
+  "calibration_status": "Sway onset, axis, amplitude, damping, duration and camera-pivot overlap remain to be measured",
+  "separate_remaining_gates": [
+    "Interactive-model production method/provider",
+    "Final interactive-model review",
+    "Rendered section-motion review"
+  ],
+  "jobs_submitted_this_update": 0,
+  "next_action": "Present the lift interactive-model production method/provider and controllable rig for approval using the accepted static inputs and motion approach."
+}

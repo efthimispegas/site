@@ -1,0 +1,20 @@
+{
+  "date_local": "2026-10-05",
+  "user_statement": "The 3D lift model is approved. Proceed with locking it down and moving to the next phase",
+  "approved_model": "model-draft/model-carbon-unified.glb",
+  "approved_model_sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+  "approved_bytes": 17389976,
+  "triangles": 55538,
+  "approved_scope": "Current static 3D lift geometry and unified carbon material application, including closed boom, pivot/hoses and cab-entry amendments. Preserve the model as the baseline for mechanical separation/articulation.",
+  "surface_approval": "material-surface-approval.json",
+  "snapshot": "../../evidence/locks/lift-model-approved",
+  "snapshot_hashes": {
+    "carbon-grain-normal.png": "24b58677d284e6ff87e799cd170f8704307f6b92b471ba7e05da7e60fb987389",
+    "lift-model.css": "363e2b59539f0f133824366deda46399d01a8f13a0da3ee141390a48f766b2ae",
+    "lift-model.js": "5ea511a212cefbc3608d2033a00e6f13a9da5e152c7dec5979b2867a31fa8fe1",
+    "carbon-amendment.json": "f77a9cfc1ab6685cffa6e77caec853cab2b9066dabd1841bd4c7fd1cf9e03be1",
+    "lift-model.html": "b0550093bba6a9cb45f2809503074aa65d8f799489764e75cf2377d382f9c0a5"
+  },
+  "limits": "No mechanical rig or calibrated motion exists in this approved GLB. Derive a separate rigged output; review mechanics and rendered motion. No new paid job or substantial machine rebuild authorized.",
+  "next_phase": "Mechanical separation and constrained articulation assessment"
+}

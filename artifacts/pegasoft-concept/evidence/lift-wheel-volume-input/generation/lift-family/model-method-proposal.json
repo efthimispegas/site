@@ -1,0 +1,166 @@
+{
+  "status": "mechanical_rig_user_approved_motion_draft_awaiting_review",
+  "date_local": "2026-10-06",
+  "recommended_method": "One Meshy 7.1 multiview draft through fal, then local mechanical separation/cleanup and custom Three.js rig",
+  "endpoint_id": "meshy/v7.1/multi-image-to-3d",
+  "proposed_job_limit": 1,
+  "automatic_retries": 0,
+  "jobs_submitted": 1,
+  "input_manifest": [
+    {
+      "id": "right",
+      "label": "Right side \u00b7 Approved anchor",
+      "file": "../L01/L01-side.png",
+      "sha256": "d57f2c879953ba8041eb257bfe792496afef5cf5c253fd3a428c0afae29b2fc0",
+      "url": "https://v3b.fal.media/files/b/0aacf5e2/dN-HJ8MAMhpWWCE8x8T7U_cVqXIgtB.png",
+      "reason": "Primary identity and raised-boom silhouette"
+    },
+    {
+      "id": "front",
+      "label": "Front",
+      "file": "lift-front.png",
+      "sha256": "43bc2e82dc81adf6cebadd64b197f49b488e341840abcfff5199304c31956f17",
+      "url": "https://v3b.fal.media/files/b/0aad0d2a/HGTt2iyzvrwLBJf2En-9E_ghEcRrrY.png",
+      "reason": "Cab/chassis width and wheel spacing"
+    },
+    {
+      "id": "rear",
+      "label": "Rear",
+      "file": "lift-rear.png",
+      "sha256": "d1afbd207ff9bfa26e353ce17d0bc39b41e93045eb0631da0252d527eabdafeb",
+      "url": "https://v3b.fal.media/files/b/0aad0d2b/VE0-uWR4E1bdtg9fB7_tx_T5nJwCuu.png",
+      "reason": "Rear counterweight and cab-back depth"
+    },
+    {
+      "id": "left",
+      "label": "Left side",
+      "file": "lift-left.png",
+      "sha256": "7d7556d96c9bfefd6521ac50049e146bd65ecb532b4e335e662ef06b3d982b46",
+      "url": "https://v3b.fal.media/files/b/0aad0d2b/kOvrz8t5JA6Dijkz_Sukb_RNT7fZG7.png",
+      "reason": "Opposite side and accepted asymmetry"
+    }
+  ],
+  "recipe": {
+    "image_urls": [
+      "https://v3b.fal.media/files/b/0aacf5e2/dN-HJ8MAMhpWWCE8x8T7U_cVqXIgtB.png",
+      "https://v3b.fal.media/files/b/0aad0d2a/HGTt2iyzvrwLBJf2En-9E_ghEcRrrY.png",
+      "https://v3b.fal.media/files/b/0aad0d2b/VE0-uWR4E1bdtg9fB7_tx_T5nJwCuu.png",
+      "https://v3b.fal.media/files/b/0aad0d2b/kOvrz8t5JA6Dijkz_Sukb_RNT7fZG7.png"
+    ],
+    "topology": "quad",
+    "target_polycount": 30000,
+    "symmetry_mode": "off",
+    "should_remesh": true,
+    "should_texture": true,
+    "enable_pbr": true,
+    "geometry_resolution": "2k",
+    "enable_rigging": false,
+    "enable_animation": false,
+    "texture_prompt": "Match the accepted graphite, steel-blue and brushed-titanium lift. Retain functional safety markings and restrained Pegasoft #147DFF, #7BCBFF and #B9E7FF accents. Natural materials, no warm decorative spill. No new logos, lettering, labels, people or watermarks; branding will be applied separately."
+  },
+  "remaining_plates_use": "Rig/component/working-pose comparison only; avoid mixing different poses in the base-mesh request. No overhead/underside inputs. Accepted quarters remain available for local review.",
+  "output": "Textured GLB/PBR draft; topology and part separability require inspection. Image inputs guide geometry; texture_prompt guides materials only.",
+  "pricing": {
+    "unit_price": 0.8,
+    "unit": "generations",
+    "currency": "USD",
+    "quantity": 1,
+    "estimate_usd": 0.8,
+    "limit": "Generation rate, not total production cost. Recheck before submission; no automatic additional jobs."
+  },
+  "runtime": {
+    "available": [
+      "Node 24.19.0",
+      "Three.js 0.182.0",
+      "React Three Fiber 9.6.1",
+      "Drei 10.7.7"
+    ],
+    "not_available_at_checked_paths": [
+      "Blender",
+      "@gltf-transform/core",
+      "@gltf-transform/functions"
+    ],
+    "route": "Local Node/Three.js named rigid meshes, constrained joints and GLB inspection/export; no installs or dependency edits in this review."
+  },
+  "rig": [
+    {
+      "id": "chassis",
+      "label": "Chassis and wheels",
+      "controls": "Ground translation; wheel rotation from travel",
+      "purpose": "Keep the accepted body rigid; rotate wheels around their axle centers."
+    },
+    {
+      "id": "boom",
+      "label": "Boom and telescoping sections",
+      "controls": "Elevation; nested extension",
+      "purpose": "Separate rigid sections; preserve overlap and the original hinge."
+    },
+    {
+      "id": "hydraulics",
+      "label": "Hydraulic linkage",
+      "controls": "Derived ram length and orientation",
+      "purpose": "Follow linkage endpoints from the boom pose; keep rams connected."
+    },
+    {
+      "id": "spreader",
+      "label": "Spreader and loaded settling",
+      "controls": "Balanced pose; settling joint offset; attachment state",
+      "purpose": "Keep the container rigidly attached. Fit the brief damped swing from continuous playback; leave axis, amplitude and timing unset until calibration."
+    },
+    {
+      "id": "container",
+      "label": "Container support and release",
+      "controls": "Support ownership; attach/release landmarks",
+      "purpose": "Use a clearly labeled proxy only in lift-rig diagnostics until the separate container is approved. Support precedes release."
+    },
+    {
+      "id": "camera",
+      "label": "Camera and timeline",
+      "controls": "Orbit/zoom; camera pivot; reversible phase scrub",
+      "purpose": "Keep camera transforms separate from joint motion; verify normal playback, pause/resume and reverse."
+    }
+  ],
+  "settling_driver_proposal": "Reference-fitted deterministic damped joint offset over lift-off phase, sampled with scroll progress. Confirm from playback/live scroll whether a time response is required; revise driver before final motion review if the source continues to settle at fixed scroll.",
+  "production_steps": [
+    "Generate exactly one approved mesh draft",
+    "Inspect silhouette, wheel/cab/boom identity, materials and topology",
+    "Preserve the approved model and exact carbon recipe. Derive a separate articulated output without changing the locked static baseline.",
+    "Separate rigid parts and locally reconstruct limited fused/sliding geometry while preserving accepted identity",
+    "Apply exact external PEGASOFT Solutions lettering; review carbon and porcelain",
+    "Present orbit, zoom, part controls and comparison poses for final interactive-model approval",
+    "Calibrate and render the approved sequence; obtain final motion review"
+  ],
+  "stop_conditions": [
+    "Material identity or mechanical geometry differs substantially",
+    "Part separation would require a substantial rebuild",
+    "Endpoint, pricing or recipe changes from approved scope"
+  ],
+  "alternative": {
+    "method": "Locally authored articulated geometry from accepted views",
+    "generation_jobs": 0,
+    "tradeoff": "Direct control of all parts; more modeling/material work and fidelity still requires review",
+    "status": "Alternative for explicit selection; not executed"
+  },
+  "sources": [
+    "https://fal.ai/models/meshy/v7.1/multi-image-to-3d/api",
+    "https://docs.meshy.ai/en/api/rigging",
+    "../../evidence/lift-method-provider-preflight.json"
+  ],
+  "approval_scope": "Approved method, four existing inputs and exact recipe for one mesh draft. Obtain interactive draft approval before cleanup/rigging; final model and motion approvals remain separate.",
+  "approval": "model-method-approval.json",
+  "request_id": "01a108be-bdb0-7293-b6ce-001746127d4f",
+  "draft_output": "model-draft/manifest.json",
+  "next_gate": "Physical cab, wheel and proxy-contact visual acceptance; hold container concept until this derivative passes",
+  "amendment": "model-draft/boom-amendment.json",
+  "draft_approval": "model-approval.json",
+  "material_contract": "material-contract.proposed.json",
+  "global_color_contract": "../../material-color-contract.json",
+  "future_material_rule": "Use agreed #11151B for painted carbon/graphite; preserve accepted existing assets and separate blue/metal/rubber/glass roles. Review exact physical finishes by role.",
+  "mechanical_failure_evidence": "../../evidence/lift-rig-ownership-failure.json",
+  "solid_repair_method": "solid-repair-method.proposed.json",
+  "solid_amendment": "solid-amendment.json",
+  "solid_amendment_approval": "solid-amendment-approval.json",
+  "full_mechanics_approval": "full-mechanics-approval.json",
+  "review_url": "http://127.0.0.1:8766/review/lift-motion.html?revision=20261006-solid-wheels#viewer",
+  "next_action": "Review closed wheel entities, clockwise forward/counterclockwise reverse scroll, physical cab and proxy contact through lift/camera/settling. Hold container gate."
+}

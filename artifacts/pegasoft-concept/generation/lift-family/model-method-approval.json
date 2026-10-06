@@ -1,0 +1,63 @@
+{
+  "date_local": "2026-10-05",
+  "user_instruction": "Method is approved. Once draft is completed present it for interactive review and further approval",
+  "approved_proposal_sha256": "f4e53c1c82bd3d1a7e3ae9e093d5fc183e8d1fc2418040366999816dc30f6749",
+  "endpoint_id": "meshy/v7.1/multi-image-to-3d",
+  "approved_recipe": {
+    "image_urls": [
+      "https://v3b.fal.media/files/b/0aacf5e2/dN-HJ8MAMhpWWCE8x8T7U_cVqXIgtB.png",
+      "https://v3b.fal.media/files/b/0aad0d2a/HGTt2iyzvrwLBJf2En-9E_ghEcRrrY.png",
+      "https://v3b.fal.media/files/b/0aad0d2b/VE0-uWR4E1bdtg9fB7_tx_T5nJwCuu.png",
+      "https://v3b.fal.media/files/b/0aad0d2b/kOvrz8t5JA6Dijkz_Sukb_RNT7fZG7.png"
+    ],
+    "topology": "quad",
+    "target_polycount": 30000,
+    "symmetry_mode": "off",
+    "should_remesh": true,
+    "should_texture": true,
+    "enable_pbr": true,
+    "geometry_resolution": "2k",
+    "enable_rigging": false,
+    "enable_animation": false,
+    "texture_prompt": "Match the accepted graphite, steel-blue and brushed-titanium lift. Retain functional safety markings and restrained Pegasoft #147DFF, #7BCBFF and #B9E7FF accents. Natural materials, no warm decorative spill. No new logos, lettering, labels, people or watermarks; branding will be applied separately."
+  },
+  "approved_inputs": [
+    {
+      "id": "right",
+      "label": "Right side \u00b7 Approved anchor",
+      "file": "../L01/L01-side.png",
+      "sha256": "d57f2c879953ba8041eb257bfe792496afef5cf5c253fd3a428c0afae29b2fc0",
+      "url": "https://v3b.fal.media/files/b/0aacf5e2/dN-HJ8MAMhpWWCE8x8T7U_cVqXIgtB.png",
+      "reason": "Primary identity and raised-boom silhouette"
+    },
+    {
+      "id": "front",
+      "label": "Front",
+      "file": "lift-front.png",
+      "sha256": "43bc2e82dc81adf6cebadd64b197f49b488e341840abcfff5199304c31956f17",
+      "url": "https://v3b.fal.media/files/b/0aad0d2a/HGTt2iyzvrwLBJf2En-9E_ghEcRrrY.png",
+      "reason": "Cab/chassis width and wheel spacing"
+    },
+    {
+      "id": "rear",
+      "label": "Rear",
+      "file": "lift-rear.png",
+      "sha256": "d1afbd207ff9bfa26e353ce17d0bc39b41e93045eb0631da0252d527eabdafeb",
+      "url": "https://v3b.fal.media/files/b/0aad0d2b/VE0-uWR4E1bdtg9fB7_tx_T5nJwCuu.png",
+      "reason": "Rear counterweight and cab-back depth"
+    },
+    {
+      "id": "left",
+      "label": "Left side",
+      "file": "lift-left.png",
+      "sha256": "7d7556d96c9bfefd6521ac50049e146bd65ecb532b4e335e662ef06b3d982b46",
+      "url": "https://v3b.fal.media/files/b/0aad0d2b/kOvrz8t5JA6Dijkz_Sukb_RNT7fZG7.png",
+      "reason": "Opposite side and accepted asymmetry"
+    }
+  ],
+  "job_limit": 1,
+  "automatic_retries": 0,
+  "selected_method": "One Meshy 7.1 multiview draft through fal, then local mechanical separation/cleanup and custom Three.js rig",
+  "next_gate": "Interactive review of original generated draft before geometry cleanup, separation, branding or rigging",
+  "final_model_and_motion_gates": "Separate approval remains required"
+}

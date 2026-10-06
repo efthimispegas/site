@@ -1,0 +1,30 @@
+{
+  "status": "official_user_approved_static_transition_route",
+  "approved_date": "2026-10-04",
+  "authority": "Direct user instruction: The change is officiated. Record this official change in the proposal.md and remove any reference to 3D jet production assets across the documentation plan. After the update is done, proceed with next action for approval",
+  "rendering": "J02-overhead.png plus approved independent shadow and synchronized reversible scroll mask",
+  "assets": [
+    {
+      "file": "J02-overhead.png",
+      "sha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8"
+    }
+  ],
+  "static_family_approval": "static-family-approval.json",
+  "shadow_approval": "J02-shadow-approval.json",
+  "other_views": "All ten originals remain accepted and preserved. No further jet asset generation is scheduled.",
+  "next_action": "Build and present the jet-to-trust transition draft for final rendered review.",
+  "new_generation_jobs": 0,
+  "prompt_lock_sha256": "40b581e2e3f21dd3a4a03c475ad90afbddf3b9f3dc78ff2feebdcad6007c0b1b",
+  "approval_limit": "Route approval does not certify exact motion parity or final section acceptance.",
+  "updated_documents": [
+    "PROPOSAL.md",
+    "ASSET-PROMPTS.md",
+    "CURRENT.md",
+    "review/index.html",
+    "review/jet.html",
+    "review/jet-views.html",
+    "generation/jet-family/review.json",
+    "generation/jet-family/view-plan.json",
+    "generation/jet-family/refinement-proposal.json"
+  ]
+}

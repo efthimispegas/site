@@ -1,0 +1,29 @@
+{
+  "date_local": "2026-10-06",
+  "status": "technical_checks_passed_visual_review_pending",
+  "source_js_sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6",
+  "approved_mechanics_js_sha256": "5fd724dd6ddd2d7f0335955a93d28fc373a1b2d0c1e27137518af6b76075f78d",
+  "approved_model_sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+  "checks": {
+    "retained_mesh_inventory": 81,
+    "construction_unchanged_outside_wheel_roof_and_cab_amendments": true,
+    "original_source_vertex_inventory": 166642,
+    "retained_attribute_values": 495584,
+    "forward_and_reverse_poses": 601,
+    "attached_poses": 300,
+    "attachment_contact_max_error": 9.155133597044475e-16,
+    "ram_endpoint_max_error": 1.1116099371267112e-15,
+    "ownership_world_position_jump": 0,
+    "forward_reverse_world_matrix_error": 0,
+    "pause_world_matrix_error": 0,
+    "authored_cab_meshes": 49,
+    "wheel_volume_triangles": 106112,
+    "proxy_connector_lengths": [
+      0.0028767785665191753,
+      0.002941777858254793,
+      0.0005000000000000143,
+      0.0005175658569885194
+    ]
+  },
+  "limits": "Diagnostic load retains approved proxy geometry. Reference projected measurements guide motion; no exact final raster/camera-intrinsics claim. Rendered normal/slow/pause/resume/reverse and physical scroll review required."
+}

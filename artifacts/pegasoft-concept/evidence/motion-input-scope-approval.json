@@ -1,0 +1,32 @@
+{
+  "status": "user_approved_scope_amendment",
+  "date_local": "2026-10-04",
+  "timezone": "Europe/Athens",
+  "authority": "Direct user instruction",
+  "user_quote": "The lift family is reviewed and approved all generated assets. Overhead and underside will not be needed for the full 3d motion phase. Note that down for all the asset families that will be generated moving forward. Only assets that will be required for the 3d motion generation phase must be generated, assessed, reviewed and approved. The rest should not be generated. Marking those two as out of scope.",
+  "families": [
+    "lift",
+    "containers",
+    "truck",
+    "ship"
+  ],
+  "excluded_new_static_inputs": [
+    "overhead / top / roof-only views",
+    "underside views"
+  ],
+  "rule": "Generate, assess, review and approve only the inputs required by the agreed 3D motion production method. Do not generate other positions, poses, components or variants by default.",
+  "input_manifest_gate": "For each forthcoming family, agree the motion use, model method and minimum required input list before generation. Record the purpose of each selected input.",
+  "existing_lift_exclusions": [
+    "top",
+    "underside"
+  ],
+  "existing_files_policy": "Preserve accepted originals and generation provenance. Excluded files are retained as out-of-scope evidence, not active motion inputs.",
+  "existing_jet_policy": "The accepted existing J02 overhead static crossing and its shadow remain in scope; no new jet generation is scheduled.",
+  "camera_policy": "Exclude generated input plates, while retaining approved 3D overhead road/ship camera choreography.",
+  "deferred_other_assets": "Atmosphere/editorial cards remain concept inventory; no automatic generation in the current family 3D-input phase.",
+  "model_and_section_gates": "Static acceptance does not approve a model/provider, interactive model or rendered section motion.",
+  "jobs_submitted_this_update": 0,
+  "previous_prompt_book_sha256": "40b581e2e3f21dd3a4a03c475ad90afbddf3b9f3dc78ff2feebdcad6007c0b1b",
+  "amended_prompt_book_sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e",
+  "approved_snapshot": "evidence/locks/ASSET-PROMPTS.approved-motion-input-scope-2026-10-04.md"
+}

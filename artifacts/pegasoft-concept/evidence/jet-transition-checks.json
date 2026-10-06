@@ -1,0 +1,154 @@
+{
+  "status": "approved shadow preset applied and runtime verified; exact site parity not qualified",
+  "date_local": "2026-10-04",
+  "branch": "codex/hero-reference-rebaseline",
+  "input_sha256": "5f8d928840eca02c81cfc213753a77f3f7148bd13d593413989730cdcd183073",
+  "approval": "../generation/jet-family/shadow-measurements-approval.json",
+  "checks": {
+    "inline_javascript_syntax": {
+      "passed": true,
+      "diagnostic": ""
+    },
+    "prompt_lock": {
+      "passed": true,
+      "canonical_mode": "0o444",
+      "current_sha256": "40b581e2e3f21dd3a4a03c475ad90afbddf3b9f3dc78ff2feebdcad6007c0b1b",
+      "previous_snapshot_preserved": true
+    },
+    "approved_originals": {
+      "passed": true,
+      "count": 10,
+      "changed": []
+    },
+    "json_parse": {
+      "passed": true,
+      "files": 82,
+      "failures": []
+    },
+    "served_current_files": {
+      "passed": true,
+      "files": [
+        {
+          "path": "review/jet-transition.html",
+          "http_status": 200,
+          "matches_disk": true
+        },
+        {
+          "path": "PROPOSAL.md",
+          "http_status": 200,
+          "matches_disk": true
+        },
+        {
+          "path": "CURRENT.md",
+          "http_status": 200,
+          "matches_disk": true
+        },
+        {
+          "path": "generation/jet-family/shadow-measurements-approval.json",
+          "http_status": 200,
+          "matches_disk": true
+        },
+        {
+          "path": "generation/jet-family/transition-draft.json",
+          "http_status": 200,
+          "matches_disk": true
+        }
+      ]
+    },
+    "active_jet_mesh_plan_removed": {
+      "passed": true,
+      "stale_references": [],
+      "historical_evidence": "history/jet-route-superseded-2026-10-04 preserved; not active instructions"
+    },
+    "approved_preset_runtime": {
+      "passed": true,
+      "evidence": "jet-shadow-approved-runtime.json",
+      "console": []
+    },
+    "design_scan": {
+      "exit_code": 0,
+      "findings": [],
+      "triage": "Confident cramped-padding false positive: full-bleed stage viewport with text individually inset at 4%/26%. Persisted rule exception scoped only to review/jet-transition.html; no rendering changes. Approved typography/palette exceptions remain review-scoped.",
+      "ignore_record": ".impeccable/config.json: detector.ignoreValues, cramped-padding=* for artifacts/pegasoft-concept/review/jet-transition.html",
+      "user_confirmation": {
+        "date_local": "2026-10-04",
+        "status": "user_confirmed_false_positive",
+        "user_quote": "The hooks Design deep pass trigger is indeed a false-positive.",
+        "finding": "cramped-padding on full-bleed animation stage",
+        "resolution": "File-scoped ignore persisted; text remains individually inset. No layout or shadow modification.",
+        "remaining_design_findings": 0,
+        "next_approval": "L01 lift/reach-stacker static identity image using Image 2.5; static family views/components follow identity approval."
+      }
+    }
+  },
+  "evidence": [
+    "jet-shadow-approved-runtime.json",
+    "jet-shadow-approved.png",
+    "jet-shadow-editor-runtime.json",
+    "jet-shadow-editor-wide.png",
+    "jet-shadow-editor-mobile.png"
+  ],
+  "limits": [
+    "Isolated jet/trust scene only; atmosphere ungenerated.",
+    "Earlier editor screenshots use former working defaults and are responsive-control evidence only.",
+    "Source timing/pin parity and full website responsive acceptance remain separate."
+  ],
+  "usage_snapshot": {
+    "primary_used_percent": 53,
+    "secondary_used_percent": 93,
+    "ordinary_usage_allowed": true,
+    "source": "get_usage_limits, final bounded delivery batch on 2026-10-04"
+  },
+  "new_generation_jobs": 0,
+  "next_action": "Lift identity anchor via approved Image 2.5 prompt, with existing static-family and model gates.",
+  "latest_delivered_inputs": [
+    {
+      "file": "CURRENT.md",
+      "sha256": "2cacddb530d86e23dc9e25e125703e669d0f0071884a49232f6784b672e29e77",
+      "http_bytes_match": true
+    },
+    {
+      "file": "PROPOSAL.md",
+      "sha256": "0232c3bdd598a4dab9fce88a9e624db17e04c30d51cbeae09315c39ca6362bbe",
+      "http_bytes_match": true
+    },
+    {
+      "file": "review/jet-transition.html",
+      "sha256": "5f8d928840eca02c81cfc213753a77f3f7148bd13d593413989730cdcd183073",
+      "http_bytes_match": true
+    },
+    {
+      "file": "review/jet-views.html",
+      "sha256": "0e107efb782cc526f92605c261fc0d664ce27284c87bae7d5722ee757996101d",
+      "http_bytes_match": true
+    },
+    {
+      "file": "review/index.html",
+      "sha256": "02470712b8f5fced64b0cc6ea96cdd0dfd687cae7d6ee4a189fb7eb42116e6f0",
+      "http_bytes_match": true
+    },
+    {
+      "file": "generation/jet-family/review.json",
+      "sha256": "a173b35c3b3d901cdde6459fb59016226a37e5a1d1ee1e4138c6c2b16df7b92d",
+      "http_bytes_match": true
+    },
+    {
+      "file": "generation/jet-family/view-plan.json",
+      "sha256": "5b73574f45c53e19f0848f5d5aa31994463e1fd50457c074c2ef473f7f28e801",
+      "http_bytes_match": true
+    },
+    {
+      "file": "generation/jet-family/shadow-measurements-approval.json",
+      "sha256": "4314dbfabc7569ef79b12785913cdccae1ce3e21521fa0f5a567f34b82444c9c",
+      "http_bytes_match": true
+    }
+  ],
+  "review_status": {
+    "jet_static_family": "approved",
+    "isolated_crossing_motion": "positively reviewed",
+    "exact_shadow_preset": "approved and runtime verified",
+    "design_hook": "user-confirmed false positive; review closed",
+    "exact_reference_parity": "not qualified",
+    "full_website": "not assembled"
+  }
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pegasoft · Jet transition review</title>
+<link rel="preload" href="../generation/jet-family/J02-overhead.png" as="image">
+<style>
+@font-face{font-family:DM;src:url(fonts/dmsans.ttf);font-weight:100 1000;font-style:normal}
+@font-face{font-family:Manrope;src:url(fonts/manrope.ttf);font-weight:200 800;font-style:normal}
+:root{--black:#05070A;--carbon:#11151B;--deep:#061E3B;--blue:#147DFF;--sky:#7BCBFF;--ice:#B9E7FF;--paper:#EDF2F7;--white:#F5F8FC;--ease-out:cubic-bezier(.23,1,.32,1)}
+*{box-sizing:border-box}html{scroll-behavior:auto}body{margin:0;background:var(--black);color:var(--white);font:400 15px/1.5 DM,sans-serif;font-style:normal}
+a{color:var(--sky);text-underline-offset:4px}h1,h2,h3{font-family:Manrope,sans-serif}button,input,select{font:inherit}
+.review-bar{position:sticky;top:0;z-index:10;background:var(--black);border-bottom:1px solid var(--deep);padding:12px 24px}
+.review-top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:10px}.brand{font:650 22px Manrope;letter-spacing:-.04em}.status{font-size:12px;color:var(--ice)}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:8px}button,select{border:1px solid var(--sky);border-radius:4px;background:var(--carbon);color:var(--white);padding:7px 11px;cursor:pointer}
+button:hover{border-color:var(--ice)}button:disabled{opacity:.45;cursor:default}button.primary{background:var(--blue);border-color:var(--blue);color:var(--black)}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,textarea:focus-visible{outline:2px solid var(--ice);outline-offset:3px}
+.progress-label{display:flex;gap:8px;align-items:center;margin-left:6px;flex:1;min-width:190px}.progress-label input{width:100%;accent-color:var(--sky)}output{min-width:38px;font-variant-numeric:tabular-nums;font-size:12px;color:var(--ice)}
+.reduce{display:flex;gap:7px;align-items:center;font-size:12px;margin-left:8px}.reduce input{accent-color:var(--blue)}
+.intro{padding:24px;max-width:980px}.intro h1{font-size:30px;line-height:1.1;letter-spacing:-.04em;margin:0 0 10px}.intro p{margin:0;color:var(--ice);font-size:14px}
+.chapter{position:relative}.pin{position:sticky;top:var(--pin-top,105px);width:100%;background:var(--black)}.review-workspace{display:grid;align-items:start;grid-template-columns:minmax(0,1fr)}
+.stage{position:relative;width:100%;aspect-ratio:3016/1532;overflow:hidden;background:var(--carbon);container-type:inline-size;isolation:isolate}
+.stage-mark{position:absolute;top:6%;left:4%;font:650 2cqw Manrope;letter-spacing:-.04em;color:var(--ice)}
+.trust{position:absolute;inset:0;background:var(--paper);color:var(--black);clip-path:inset(0 100% 0 0);will-change:clip-path}
+.trust-inner{position:absolute;inset:13% 4% 7% 26%;display:grid;grid-template-columns:1.8fr 1fr;gap:5%;align-content:start}
+.trust h2{font:700 5.8cqw/.98 Manrope;letter-spacing:-.052em;text-transform:uppercase;margin:0}
+.trust h2 span{display:block}.trust h2 span:last-child{color:var(--deep)}
+.trust p{align-self:end;margin:0;font-size:1.32cqw;line-height:1.45;max-width:21cqw}
+.trust-rule{grid-column:1/-1;border-top:1px solid var(--deep);opacity:.2;margin-top:3.5cqw}
+.trust-foot{grid-column:1/-1;font:500 1.55cqw Manrope;margin-top:1.5cqw;color:var(--deep)}
+.aircraft{position:absolute;inset:0 auto auto 0;width:100%;aspect-ratio:16/9;transform-origin:0 0;will-change:transform;pointer-events:none;container-type:inline-size}
+.aircraft img{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:contain}
+.shadow-wrap{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform,opacity;filter:blur(3.31px);opacity:.3027}
+.shadow-shape{position:absolute;inset:0;background:var(--deep);mask:url('../generation/jet-family/J02-overhead.png') center/100% 100% no-repeat}
+.stage.gentle .aircraft{opacity:0}.stage.gentle .trust{clip-path:inset(0)!important}
+.stage.gentle .trust{transition:opacity 160ms var(--ease-out)}
+.stage-label{position:absolute;left:4%;bottom:4%;font-size:1.15cqw;color:var(--ice);pointer-events:none;mix-blend-mode:difference}
+.shadow-editor{position:fixed;bottom:0;left:0;width:100%;z-index:11;padding:10px 18px 12px;border:1px solid var(--deep);background:var(--black);min-width:0;max-height:55dvh;overflow:auto}.editor-title{display:flex;justify-content:space-between;gap:12px;align-items:center}.editor-title h2{font-size:16px;margin:0;letter-spacing:-.02em}.editor-title label{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ice)}.editor-title input{accent-color:var(--sky)}
+.shadow-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 16px;margin-top:10px}.shadow-field{min-width:0}.shadow-field label{display:flex;align-items:center;justify-content:space-between;gap:5px;font-size:12px;color:var(--ice)}.shadow-field input[type=number]{width:72px;min-width:0;border:1px solid var(--deep);border-radius:4px;padding:3px 5px;background:var(--carbon);color:var(--white);font-size:13px;font-variant-numeric:tabular-nums}.shadow-field input[type=range]{display:block;width:100%;margin:5px 0 0;accent-color:var(--sky)}
+.shadow-metrics{font-size:12px;color:var(--ice);margin:8px 0;font-variant-numeric:tabular-nums}.editor-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.editor-actions button{font-size:12px;padding:5px 8px}.editor-help{font-size:12px;color:var(--ice);margin:8px 0 0}.shadow-editor details{font-size:12px;padding-top:8px;margin-top:8px}.shadow-editor textarea{display:block;width:100%;height:160px;margin-top:8px;background:var(--carbon);border:1px solid var(--deep);color:var(--ice);padding:8px;resize:vertical;font:12px/1.5 monospace}
+body{padding-bottom:320px}body.editor-hidden{padding-bottom:0}.editor-hidden .shadow-editor{display:none}
+@media(min-width:1000px){body{padding-bottom:0}.review-workspace{grid-template-columns:minmax(0,1fr) 320px}.editor-hidden .review-workspace{grid-template-columns:minmax(0,1fr)}.shadow-editor{left:auto;right:0;top:var(--bar-height,105px);bottom:auto;width:320px;max-height:calc(100dvh - var(--bar-height,105px));height:auto}.shadow-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.shadow-field label{display:block}.shadow-field input[type=number]{width:100%;margin-top:3px}}
+.notes{padding:24px;max-width:1080px;margin:auto}.notes h2{font-size:24px;letter-spacing:-.03em}.notes p,.notes li{font-size:14px;color:var(--ice)}.notes ul{padding-left:18px}
+.links{display:flex;gap:18px;flex-wrap:wrap;margin:20px 0;font-size:13px}details{border-top:1px solid var(--deep);padding-top:18px}summary{cursor:pointer;color:var(--ice)}video{display:block;width:100%;margin-top:18px;background:var(--carbon)}footer{font-size:12px;color:var(--ice);margin:24px 0}
+@media(max-width:600px){.review-bar{padding:12px 16px}.intro,.notes{padding:20px 16px}.review-top{gap:6px}.controls{gap:6px}button,select{font-size:13px;padding:6px 9px}.progress-label{margin-left:0;min-width:200px}.reduce{margin-left:0}.intro h1{font-size:26px}.trust p{font-size:1.6cqw}.stage-label{font-size:1.55cqw}}
+@media(max-width:500px){.shadow-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}.shadow-editor{padding:10px 14px}.shadow-metrics{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.stage .aircraft{opacity:0}.stage .trust{clip-path:inset(0)!important}}
+</style></head><body>
+<header class="review-bar" id="review-bar"><div class="review-top"><div class="brand">pegasoft</div><span class="status">Jet transition · Shadow approved</span><a href="jet-views.html?revision=20261004-static">Approved static family ↗</a></div>
+<div class="controls"><button class="primary" id="play">Play crossing</button><button id="pause">Pause</button><button id="reverse">Reverse</button><button id="reset">Reset</button>
+<label>Speed <select id="speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label>
+<label class="progress-label">Progress <input id="progress" type="range" min="0" max="1000" value="0" step="1" aria-label="Crossing progress"><output id="readout">0%</output></label>
+<label class="reduce"><input id="reduce" type="checkbox">Reduced motion preview</label><button id="toggle-editor" aria-expanded="true" aria-controls="shadow-editor">Hide editor</button></div></header>
+<section class="chapter" id="chapter" aria-label="Scroll-driven jet transition"><div class="pin" id="pin"><div class="review-workspace" id="workspace"><div class="stage" id="stage">
+<div class="stage-mark" aria-hidden="true">pegasoft</div>
+<section class="trust" id="trust" aria-label="Pegasoft trust chapter"><div class="trust-inner"><h2><span>Trusted to</span><span>build what</span><span>comes next.</span></h2><p>We bring clarity to complex challenges, shaping purposeful digital experiences.</p><div class="trust-rule" aria-hidden="true"></div><div class="trust-foot">Precision in every detail.</div></div></section>
+<div class="aircraft" id="aircraft"><div class="shadow-wrap" id="shadow"><div class="shadow-shape"></div></div><img id="jet" src="../generation/jet-family/J02-overhead.png" alt="Approved black private jet with restrained Pegasoft blue highlights"></div>
+<div class="stage-label" aria-hidden="true">J02 · Independent dynamic shadow</div>
+</div><aside class="shadow-editor" id="shadow-editor" aria-label="Dynamic shadow editor">
+<div class="editor-title"><h2>Dynamic shadow</h2><label><input type="checkbox" id="shadow-visible" checked>Visible</label></div>
+<div class="shadow-fields" id="shadow-fields">
+<div class="shadow-field"><label for="shadow-x">X · px <input id="shadow-x" data-shadow="x" type="number" min="-500" max="500" step=".01" value="19.18" aria-label="Shadow transform X in pixels"></label><input data-slider="x" type="range" min="-500" max="500" step=".01" value="19.18" aria-label="Shadow X slider"></div>
+<div class="shadow-field"><label for="shadow-y">Y · px <input id="shadow-y" data-shadow="y" type="number" min="-500" max="500" step=".01" value="-13.22" aria-label="Shadow transform Y in pixels"></label><input data-slider="y" type="range" min="-500" max="500" step=".01" value="-13.22" aria-label="Shadow Y slider"></div>
+<div class="shadow-field"><label for="shadow-width">Width · % <input id="shadow-width" data-shadow="width" type="number" min="10" max="250" step=".01" value="113.05" aria-label="Shadow width percent"></label><input data-slider="width" type="range" min="10" max="250" step=".01" value="113.05" aria-label="Shadow width slider"></div>
+<div class="shadow-field"><label for="shadow-height">Height · % <input id="shadow-height" data-shadow="height" type="number" min="10" max="250" step=".01" value="109.2" aria-label="Shadow height percent"></label><input data-slider="height" type="range" min="10" max="250" step=".01" value="109.2" aria-label="Shadow height slider"></div>
+<div class="shadow-field"><label for="shadow-blur">Blur · px <input id="shadow-blur" data-shadow="blur" type="number" min="0" max="160" step=".01" value="3.31" aria-label="Shadow blur in pixels"></label><input data-slider="blur" type="range" min="0" max="160" step=".01" value="3.31" aria-label="Shadow blur slider"></div>
+<div class="shadow-field"><label for="shadow-opacity">Opacity · % <input id="shadow-opacity" data-shadow="opacity" type="number" min="0" max="100" step=".01" value="30.27" aria-label="Shadow opacity percent"></label><input data-slider="opacity" type="range" min="0" max="100" step=".01" value="30.27" aria-label="Shadow opacity slider"></div>
+</div>
+<p class="shadow-metrics" id="shadow-metrics"></p>
+<div class="editor-actions"><button id="shadow-reset">Reset shadow</button><button id="shadow-copy">Copy measurements</button><output id="shadow-message" role="status" aria-live="polite"></output></div>
+<p class="editor-help">Scene pixels: −X left, −Y up. Size follows the jet. Footprint includes the image’s transparent margins, before blur.</p>
+<details><summary>Exact settings</summary><textarea id="shadow-json" readonly aria-label="Exact shadow settings JSON"></textarea></details>
+</aside></div></div></section>
+<section class="notes"><h1>A seamless shadow, precisely placed.</h1><p>Pause or scrub to the porcelain crossing, then type exact shadow values or drag the sliders. Settings update during playback and stay saved in this browser. The preset uses your approved measurements; reset restores those exact values.</p><h2>Review this transition.</h2><ul><li>The oversized aircraft enters from the left and exits completely to the right.</li><li>The porcelain reveal tracks the wing/fuselage landmark; shadow and jet stay coupled.</li><li>Scrolling backward restores the earlier state without restarting an animation.</li></ul>
+<p>The stage keeps the supplied recording’s aspect ratio. This is an isolated jet/trust draft: carbon stands in for the unapproved atmosphere, and the short supporting copy is a draft. Testimonials and company claims await approved content.</p>
+<p>Playback traverses the scroll-controlled draft in 12 seconds at 1× for inspection. The reference recording includes pauses; its 35-second clip is not the website’s animation duration. Endpoint geometry guides this first fit. Exact intermediate easing, pin boundaries and final responsive parity remain to be reviewed.</p>
+<div class="links"><a href="../PROPOSAL.md">Updated proposal</a><a href="../generation/jet-family/static-transition-route-approval.json">Official route approval</a><a href="../generation/jet-family/transition-draft.json">Motion inputs & review scope</a></div>
+<details><summary>Watch the reference crossing at its recorded cadence</summary><video controls muted playsinline preload="none" aria-label="United Carriers recorded jet crossing"><source src="../evidence/motion/clips/jet.mp4" type="video/mp4"></video><p>Main walkthrough 04:03–04:38. Use this to compare composition, reveal order and movement. Recorded narration remains instruction evidence, not a site soundtrack.</p></details>
+<footer>Approved shadow preset · Existing approved image only · No new asset generation</footer></section>
+<script>
+const stage=document.querySelector('#stage'),chapter=document.querySelector('#chapter'),bar=document.querySelector('#review-bar'),jet=document.querySelector('#jet'),aircraft=document.querySelector('#aircraft'),trust=document.querySelector('#trust'),progress=document.querySelector('#progress'),readout=document.querySelector('#readout'),play=document.querySelector('#play'),reverse=document.querySelector('#reverse'),reduce=document.querySelector('#reduce'),media=matchMedia('(prefers-reduced-motion: reduce)');
+let p=0,mode='scroll',direction=1,last=null,raf=null,w=1,h=1,travel=1,pinTop=1,start=0,scrollIntentUntil=0;const clamp=x=>Math.max(0,Math.min(1,x));
+function gentle(){return media.matches||reduce.checked}
+const shadow=document.querySelector('#shadow'),shadowMetrics=document.querySelector('#shadow-metrics'),shadowJson=document.querySelector('#shadow-json'),shadowMessage=document.querySelector('#shadow-message'),visible=document.querySelector('#shadow-visible');
+const shadowDefaults={x:19.18,y:-13.22,width:113.05,height:109.2,blur:3.31,opacity:30.27,visible:true},shadowKey='pegasoft-concept.jet-shadow.v2-approved';let settings={...shadowDefaults};
+try{const saved=JSON.parse(localStorage.getItem(shadowKey));if(saved){for(const key of Object.keys(shadowDefaults)){if(key==='visible'){if(typeof saved.visible==='boolean')settings.visible=saved.visible}else{const field=document.querySelector('[data-shadow="'+key+'"]');if(Number.isFinite(saved[key])&&saved[key]>=Number(field.min)&&saved[key]<=Number(field.max))settings[key]=saved[key]}}}}catch{}
+function syncShadowFields(){for(const field of document.querySelectorAll('input[data-shadow],input[data-slider]'))field.value=settings[field.dataset.shadow||field.dataset.slider];visible.checked=settings.visible}
+function saveShadow(){try{localStorage.setItem(shadowKey,JSON.stringify(settings))}catch{shadowMessage.textContent='Local saving unavailable; copy the settings.'}}
+function renderShadow(){
+ const scale=1+.3*p,planeX=(-1.1+2.245*p)*w,planeY=(h-w*(9/16)*scale)/2;
+ shadow.style.transform='translate('+settings.x/scale+'px,'+settings.y/scale+'px) scale('+settings.width/100+','+settings.height/100+')';
+ shadow.style.filter='blur('+settings.blur/scale+'px)';shadow.style.opacity=settings.visible?settings.opacity/100:0;
+ const footprint={width:w*scale*settings.width/100,height:w*(9/16)*scale*settings.height/100},center={x:planeX+w*scale/2+settings.x,y:planeY+w*(9/16)*scale/2+settings.y},round=n=>Math.round(n*100)/100;
+ shadowMetrics.textContent='Footprint '+round(footprint.width)+' × '+round(footprint.height)+' px · Center ('+round(center.x)+', '+round(center.y)+')';
+ shadowJson.value=JSON.stringify({asset:'J02-overhead.png',units:'displayed scene pixels; sizes are percent of aircraft canvas',transformX:settings.x,transformY:settings.y,widthPercent:settings.width,heightPercent:settings.height,blur:settings.blur,opacity:settings.opacity/100,visible:settings.visible,color:'#061E3B',scene:{width:w,height:round(h)},crossingProgress:round(p),footprint:{width:round(footprint.width),height:round(footprint.height)},center:{x:round(center.x),y:round(center.y)}},null,2);
+ stage.dataset.shadow=JSON.stringify(settings);
+}
+for(const field of document.querySelectorAll('input[data-shadow],input[data-slider]'))field.addEventListener('input',()=>{if(field.value==='')return;const key=field.dataset.shadow||field.dataset.slider,value=Number(field.value);if(!Number.isFinite(value)||value<Number(field.min)||value>Number(field.max))return;settings[key]=value;const peer=document.querySelector(field.dataset.shadow?'[data-slider="'+key+'"]':'[data-shadow="'+key+'"]');peer.value=value;shadowMessage.textContent='';saveShadow();renderShadow()});
+visible.onchange=()=>{settings.visible=visible.checked;saveShadow();renderShadow()};
+document.querySelector('#shadow-reset').onclick=()=>{settings={...shadowDefaults};syncShadowFields();saveShadow();renderShadow();shadowMessage.textContent='Approved shadow preset restored.'};
+document.querySelector('#shadow-copy').onclick=async()=>{try{await navigator.clipboard.writeText(shadowJson.value);shadowMessage.textContent='Measurements copied.'}catch{shadowJson.parentElement.open=true;shadowJson.focus();shadowJson.select();shadowMessage.textContent='Select and copy the settings below.'}};
+syncShadowFields();
+function pose(value){
+ p=clamp(value);const scale=1+.3*p,x=(-1.1+2.245*p)*w,y=(h-w*(9/16)*scale)/2,edge=x+.55*w*scale;
+ aircraft.style.transform='translate3d('+x+'px,'+y+'px,0) scale('+scale+')';
+ renderShadow();
+ trust.style.clipPath='inset(0 '+Math.max(0,w-clamp(edge/w)*w)+'px 0 0)';
+ stage.classList.toggle('gentle',gentle());play.disabled=reverse.disabled=gentle();progress.disabled=gentle();
+ progress.value=Math.round(p*1000);readout.textContent=Math.round(p*100)+'%';
+ stage.dataset.progress=p.toFixed(5);stage.dataset.driver=mode;stage.dataset.reveal=clamp(edge/w).toFixed(5);
+ aircraft.setAttribute('aria-hidden',gentle()||p===0||p===1?'true':'false');
+ trust.setAttribute('aria-hidden',!gentle()&&edge<=0?'true':'false');
+}
+function measure(){
+ w=stage.getBoundingClientRect().width;h=stage.getBoundingClientRect().height;pinTop=bar.getBoundingClientRect().height;travel=1717/1280*w;
+ document.documentElement.style.setProperty('--bar-height',pinTop+'px');
+ document.querySelector('#pin').style.setProperty('--pin-top',pinTop+'px');
+ chapter.style.height=(document.querySelector('#workspace').offsetHeight+travel)+'px';start=chapter.getBoundingClientRect().top+scrollY-pinTop;pose(p);
+}
+function stop(){if(raf!==null)cancelAnimationFrame(raf);raf=null;last=null}
+function tick(now){
+ if(last!==null)pose(p+direction*(now-last)/12000*Number(document.querySelector('#speed').value));last=now;
+ if((direction>0&&p>=1)||(direction<0&&p<=0)){stop();mode='manual';pose(p);return}
+ raf=requestAnimationFrame(tick);
+}
+function run(dir){if(gentle())return;scrollIntentUntil=0;stop();mode='playback';direction=dir;if(dir>0&&p>=1)pose(0);if(dir<0&&p<=0)pose(1);raf=requestAnimationFrame(tick)}
+play.onclick=()=>run(1);reverse.onclick=()=>run(-1);
+document.querySelector('#pause').onclick=()=>{scrollIntentUntil=0;stop();mode='manual';pose(p)};
+document.querySelector('#reset').onclick=()=>{scrollIntentUntil=0;stop();mode='manual';pose(0)};
+document.querySelector('#toggle-editor').onclick=event=>{const hidden=document.body.classList.toggle('editor-hidden');event.currentTarget.textContent=hidden?'Show editor':'Hide editor';event.currentTarget.setAttribute('aria-expanded',String(!hidden));measure()};
+progress.oninput=()=>{scrollIntentUntil=0;stop();mode='manual';pose(Number(progress.value)/1000)};
+reduce.onchange=()=>{scrollIntentUntil=0;stop();mode='manual';pose(p)};media.addEventListener('change',()=>{stop();pose(p)});
+let scrollQueued=false;
+// Focus/scrollIntoView from review controls must not take over playback.
+addEventListener('wheel',()=>{scrollIntentUntil=Date.now()+1000},{passive:true});
+addEventListener('touchmove',()=>{scrollIntentUntil=Date.now()+1000},{passive:true});
+addEventListener('keydown',event=>{if(!event.target.closest('input,textarea,select,button')&&['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(event.key))scrollIntentUntil=Date.now()+1000});
+addEventListener('pointerdown',event=>{if(event.clientX>=document.documentElement.clientWidth-18)scrollIntentUntil=Date.now()+1000},{passive:true});
+addEventListener('scroll',()=>{if(Date.now()>scrollIntentUntil)return;stop();mode='scroll';if(!scrollQueued){scrollQueued=true;requestAnimationFrame(()=>{scrollQueued=false;pose((scrollY-start)/travel)})}},{passive:true});
+new ResizeObserver(()=>measure()).observe(stage);new ResizeObserver(()=>measure()).observe(bar);new ResizeObserver(()=>measure()).observe(document.querySelector('#workspace'));
+jet.addEventListener('load',measure);measure();pose(0);
+</script></body></html>

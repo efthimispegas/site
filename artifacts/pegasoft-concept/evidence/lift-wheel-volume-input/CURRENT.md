@@ -1,0 +1,6 @@
+# Pegasoft Concept checkpoint
+
+- **Locked:** original GLB, full mechanical rig, carbon recipe, asset book and original ownership maps. Preserve every acceptance snapshot.
+- **Current gate:** [cab, solid wheels and connected sequence](http://127.0.0.1:8766/review/lift-motion.html?revision=20261006-solid-wheels#viewer). Four closed wheel entities contain real tread, both sidewalls, rims, hubs and fasteners. Only wheels are amended; original fragmented wheel surfaces remain hidden comparison inputs. The physical cab draft remains pending acceptance.
+- **Checks:** [all wheel-part closure/depth and direction](evidence/lift-wheel-volume-checks.json), [601 reversible poses/contact](evidence/lift-motion-checks.json), [stationary body](evidence/lift-integrity-checks.json) and [cab regression](evidence/lift-cab-checks.json) pass. Genuine forward/reverse scrolling, both-surface wheel views and normal combined playback inspected; [packet](evidence/lift-motion-review.json).
+- **Next:** obtain user visual approval of wheels, cab and proxy contact through the reference sequence. Hold container production. Follow [PROPOSAL.md](PROPOSAL.md); resume from this derivative and its wheel-volume checkpoint.

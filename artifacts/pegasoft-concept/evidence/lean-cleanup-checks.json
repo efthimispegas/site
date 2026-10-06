@@ -1,0 +1,63 @@
+{
+  "date_local": "2026-10-06",
+  "status": "cleanup_complete_archive_links_acceptance_hashes_tests_and_runtime_verified",
+  "archived_files": 655,
+  "archived_source_bytes": 113583300,
+  "archive_bytes": 100267590,
+  "archive_index": "../history/archive-index.json",
+  "approved_inputs_verified": 55,
+  "original_locks_verified": 9,
+  "accepted_modules_verified": 6,
+  "redirects": {
+    "review/lift-model.html": "lift-motion.html",
+    "review/jet-views.html": "index.html"
+  },
+  "obsolete_loose_files_removed": 517,
+  "retained_recovered_dependency": "generation/lift-family/branding-placements.json",
+  "replaced_with_current_manifest": "generation/lift-family/model-draft/manifest.json",
+  "live_doc_html_links": {
+    "checked": 74,
+    "missing": 0
+  },
+  "retained_json": "all parsed",
+  "tests": {
+    "check-motion.mjs": "passed via wheel/cab tests",
+    "check-wheel-volumes.mjs": "passed",
+    "check-motion-integrity.mjs": "passed",
+    "check-cab.mjs": "passed"
+  },
+  "runtime": {
+    "review_portal": "accepted transport and next container gate rendered; reference gallery image loaded",
+    "lift_viewer": "GLB canvas loaded; no missing images or reference video errors",
+    "portal_screenshot": "lean-review-portal.png"
+  },
+  "design_detection": {
+    "target": "../review/index.html",
+    "exit_code": 0,
+    "advisory": false
+  },
+  "folders": {
+    "evidence": "Current checks and acceptance, immutable inputs and focused reference data",
+    "generation": "Approved outputs plus all original generated model/media binaries retained. Superseded plans and provider receipts remain recoverable in the archive.",
+    "history": "One verified cold archive and its lookup index; not execution guidance",
+    "review": "Five live pages, two compatibility redirects and runtime/font/vendor dependencies",
+    "watch": "All 139 original outputs restored: frames, audio, transcripts and processing logs. Read only a relevant event; reports are captured analysis, not live status."
+  },
+  "authority": "CURRENT.md controls state; PROPOSAL.md controls implementation; contracts control colors/content; frozen records are provenance.",
+  "current_check_sha256": {
+    "lift-motion-checks.json": "b7929f13d1bc02ab9ec3a95728e628f3a92e6de4abc62961fe574b94378b4a45",
+    "lift-wheel-volume-checks.json": "288cbc4cab8c97d650a7eba5e8c87dd376010f363de97d6a1a55d627a0f643fe",
+    "lift-integrity-checks.json": "0ff6194438a6f3f71e84128304ba4e97793c614d66f8d92aca9f981d6c7f8201",
+    "lift-cab-checks.json": "9db22f870686fb886e564ba33f2a417703b6aff435c59036447628d95cebaadf"
+  },
+  "approved_static_manifest_entries_verified": 26,
+  "account_snapshot": {
+    "primary_used_percent": 0,
+    "weekly_used_percent": 100,
+    "credits_available": true,
+    "credit_balance": null,
+    "spend_control_reached": false,
+    "allowance": "Lift review exception; no paid generation in this cleanup."
+  },
+  "source_media_restoration": "source-media-restoration-checks.json"
+}

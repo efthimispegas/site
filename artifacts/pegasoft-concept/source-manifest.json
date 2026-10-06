@@ -1,0 +1,91 @@
+{
+  "role": "reference_source_identity",
+  "path_base": "/Users/whiskey/Work/site",
+  "sources": [
+    {
+      "path": "docs/references/contact_walkthrough.mov",
+      "bytes": 16221518,
+      "sha256": "9af151e64a97e4d03348679bcbd41b7851468264e6e5ae56e4d3f82a8fdbc33b",
+      "video": {
+        "width": 3016,
+        "height": 1532,
+        "r_frame_rate": "60/1"
+      },
+      "duration_seconds": 42.152833,
+      "has_audio_stream": true
+    },
+    {
+      "path": "docs/references/cookies_walkthrough.mov",
+      "bytes": 8003398,
+      "sha256": "f2c8b446ea71065a89ecc3a170d596507f24875c8d9c1528446b27b7b3959976",
+      "video": {
+        "width": 3016,
+        "height": 1532,
+        "r_frame_rate": "60/1"
+      },
+      "duration_seconds": 16.261333,
+      "has_audio_stream": true
+    },
+    {
+      "path": "docs/references/darkjet.jpg",
+      "bytes": 44272,
+      "sha256": "8f354b727d1eee1fbfc153ba5a5082d58cf2c0a042d3261a29e4faae05ca007b"
+    },
+    {
+      "path": "docs/references/hero_walkthrough.mov",
+      "bytes": 84713680,
+      "sha256": "9ccd71bab6624d6615bb2269533482ef9881d1774bc328919e81398e9b9a57c6",
+      "video": {
+        "width": 3016,
+        "height": 1532,
+        "r_frame_rate": "60/1"
+      },
+      "duration_seconds": 14.244833,
+      "has_audio_stream": true
+    },
+    {
+      "path": "docs/references/loader_animation.mov",
+      "bytes": 10872335,
+      "sha256": "75eac99bd602e7479954e6501f61b608e1c57acf5a8348d55d812825203c9c17",
+      "video": {
+        "width": 3016,
+        "height": 1532,
+        "r_frame_rate": "60/1"
+      },
+      "duration_seconds": 2.894333,
+      "has_audio_stream": true
+    },
+    {
+      "path": "docs/references/pegasoft_blue_accent_bottom.png",
+      "bytes": 1998693,
+      "sha256": "2c5400b0f578dde768bb6659cd5a426aa6c024c9b278fd70b8a8c366b5617c04"
+    },
+    {
+      "path": "docs/references/pegasoft_blue_accent_top2.png",
+      "bytes": 1713585,
+      "sha256": "7044698ef9e8ee1a4d6407ac5b5535317233aedebfe37d631f664eb618aa19cc"
+    },
+    {
+      "path": "docs/references/pegasoft_blue_accents_top1.png",
+      "bytes": 1806719,
+      "sha256": "49e8cd0d38cc330fb7ea37e616f10d6997e3e94557b803cfe20716d6c6f55dfd"
+    },
+    {
+      "path": "docs/references/reference_walkthrough.mov",
+      "bytes": 1943350760,
+      "sha256": "90d94411a0989e010354abc3c2e205fcdfcc0c291b6d87e1f53caf1ee8ec2f07",
+      "video": {
+        "width": 3016,
+        "height": 1532,
+        "r_frame_rate": "60/1"
+      },
+      "duration_seconds": 404.431667,
+      "has_audio_stream": true
+    }
+  ],
+  "analysis_manifest": "evidence/motion/motion-manifest.json",
+  "motion_contracts": "evidence/motion/motion-contracts.json",
+  "viewer": "review/motion.html",
+  "qualification": "Reference evidence is not rendered website parity.",
+  "source_location_note": "Supplied original reference media remains in this source checkout; generated work lives on codex/pegasoft-concept. Use these source paths only as media, not other-app guidance."
+}

@@ -1,0 +1,50 @@
+{
+  "date_local": "2026-10-05",
+  "status": "user_approved",
+  "user_statement": "Amendments approved. Proceed with next review phase",
+  "scope": "Localized surface fillings, rear-panel infill and diagnostic pickup contacts. Preserve accepted geometry/material identity.",
+  "snapshot": "../../evidence/locks/lift-local-fillings-approved/",
+  "files": [
+    {
+      "path": "review/lift-rig.js",
+      "sha256": "8717d2c54130bcbdbca76c3c20dcea9753ba82289a8837e5e5ccb5d21abcbeb6"
+    },
+    {
+      "path": "review/lift-rig.html",
+      "sha256": "132db0c99b395ce7ca0ff98fcf1b0c5cd2ce5ab4683f49e330984c25f7bc9d38"
+    },
+    {
+      "path": "generation/lift-family/model-draft/check-solid-amendment.mjs",
+      "sha256": "746512531b1426b02e9128686d05b8000cf118d755be8723da991062a9dcda51"
+    },
+    {
+      "path": "generation/lift-family/solid-amendment.json",
+      "sha256": "a92c5eb87d5f110f410073ce1be8ba617c6877b7510c3abe0899c34d338bd4f6"
+    },
+    {
+      "path": "generation/lift-family/solid-amendment-authorization.json",
+      "sha256": "cba1018844f7ab875527b5ba1e936107b56bf1332568f9cdbf4858549b1d0d6f"
+    },
+    {
+      "path": "evidence/lift-solid-amendment-checks.json",
+      "sha256": "e3b92b9b3d57f5ac676ae70c2a3dcfb2b180dd4a4d1c98c0ee3fc5744bbf6374"
+    },
+    {
+      "path": "evidence/lift-local-fillings-rear-before.png",
+      "sha256": "785c75d7eaf70a8e47dd2662d0fa98729ede3467b57005490f6d5188f71116a6"
+    },
+    {
+      "path": "evidence/lift-local-fillings-rear-after.png",
+      "sha256": "01d2492f021a02bae1abd4e3cf3bac508f18fa8b819a0d20fc7826a5b117e75c"
+    },
+    {
+      "path": "evidence/lift-local-fillings-carbon-max.png",
+      "sha256": "ca0f39f19b6d54ba798bb43588a6399d2d5f67804242ed05cc9d0534af454bef"
+    },
+    {
+      "path": "evidence/lift-local-fillings-review.png",
+      "sha256": "004cb5d0f07a70984aca1e168eeaa7d7537bff85c9364a149b9b25dbf9d43c47"
+    }
+  ],
+  "next_gate": "Full mechanical joints and exact boom inscription; reference calibration remains separate."
+}

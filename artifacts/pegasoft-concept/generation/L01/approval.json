@@ -1,0 +1,23 @@
+{
+  "status": "user_approved_static_identity_on_carbon_and_porcelain",
+  "date_local": "2026-10-04",
+  "timezone": "Europe/Athens",
+  "authority": "Direct user instruction",
+  "user_quote": "The asset is approved in carbon/porcelain.",
+  "file": "L01-side.png",
+  "sha256": "d57f2c879953ba8041eb257bfe792496afef5cf5c253fd3a428c0afae29b2fc0",
+  "dimensions": [
+    2560,
+    1440
+  ],
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+  "request_id": "01a10444-cd43-7800-b75d-f1e67eab6193",
+  "approval_scope": "Exact original L01 side-view identity image on both surfaces, including its rendered functional safety markings. No cleanup required.",
+  "reviewed_inputs": [
+    "../../review/lift.html",
+    "../../evidence/L01-review.png",
+    "../../evidence/L01-checks.json"
+  ],
+  "next_gate": "Matching all-position, component and working-configuration static family approval. Interactive model method and final model approval remain separate.",
+  "jobs_submitted_this_update": 0
+}

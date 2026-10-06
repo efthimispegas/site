@@ -1,0 +1,28 @@
+{
+  "date_local": "2026-10-05",
+  "status": "physical_cab_draft_ready_for_visual_approval",
+  "requested_scope": "Transparent cab faithful to approved static assets; wheels/roof contact separate corrections proceed",
+  "exact_failure": "Three local transparency/pane tests did not produce a faithful transparent cabin. Baked interior/window fragments remained; localized pane replacement did not match the full original cab extent. No failed cab candidate promoted to live review.",
+  "attempts": [
+    "Spatial material reassignment from protected glazing region: original opaque fragments remained",
+    "Tighter pane isolation with physical glazing: overlapping fake interior fragments remained",
+    "Clean pane replacement within first inferred local outline: mismatch with full cab extent; silhouette/painted fragments remained"
+  ],
+  "failed_candidate": "../../history/lift-cab-failed-tests-20261005/pane-replacement-candidate.js",
+  "evidence": "../../evidence/lift-cab-failed-pane-test.png",
+  "current_hypothesis": "Resolved source diagnosis: baked upper-cab shell and 41 rear facade faces misassigned to a hydraulic group; a 34-triangle cap was derived from that wrong ownership. Local amendment removes these and authors one clear glazed volume.",
+  "next_method": "Draft implemented. Inspect actual cab orbit and later trajectory on carbon/porcelain, then await user visual acceptance.",
+  "checks_required": [
+    "Window/frame outline overlay against approved static views",
+    "Render side, front quarter and opposite side on both surfaces",
+    "True line of sight through panes and interior parallax",
+    "Retain boom, wheel, inscription and attachment ownership",
+    "User approval before gate passes"
+  ],
+  "stop_condition": "Await user visual acceptance of physical cab, wheel and proxy-contact amendments; no container gate or paid generation.",
+  "paid_jobs_added": 0,
+  "method_approval": "User agreed to focused amendment; requires a real-life reach-stacker cab construction, one transparent volume, consistent across future trajectory angles, never merged left/front/right pictures.",
+  "review_url": "http://127.0.0.1:8766/review/lift-motion.html?revision=20261005-physical-cab#viewer",
+  "checks": "../../evidence/lift-cab-checks.json",
+  "packet": "../../evidence/lift-motion-review.json"
+}

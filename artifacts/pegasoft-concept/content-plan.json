@@ -1,0 +1,205 @@
+{
+  "date": "2026-10-06",
+  "authority": "User: entire reference content is placeholder and must be replaced",
+  "mandatory_action": "Replace all reference website content with approved Pegasoft content before full-site approval or release",
+  "acceptance": "No borrowed reference copy, company claims, relationships, contacts or links in any rendered Pegasoft route or interaction state",
+  "slots": [
+    {
+      "section": "global/navigation",
+      "replace": [
+        "brand/logo",
+        "link labels",
+        "link destinations",
+        "CTA text/destination",
+        "menu copy",
+        "accessibility labels"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "loader/hero",
+      "replace": [
+        "loader wordmark",
+        "eyebrow",
+        "headline",
+        "description",
+        "CTAs",
+        "globe labels/locations",
+        "network artwork",
+        "news/utility strip"
+      ],
+      "status": "draft; real HQ list needed"
+    },
+    {
+      "section": "outcome/metrics",
+      "replace": [
+        "headline",
+        "description",
+        "metric values/labels",
+        "image",
+        "about link"
+      ],
+      "status": "real metrics needed"
+    },
+    {
+      "section": "lift/story",
+      "replace": [
+        "vehicle/container imagery",
+        "machine inscription",
+        "story labels"
+      ],
+      "status": "story copy draft; production container pending",
+      "accepted_lift": "generation/lift-family/reference-motion-approval.json"
+    },
+    {
+      "section": "services",
+      "replace": [
+        "heading",
+        "description",
+        "service labels/descriptions",
+        "icons",
+        "links",
+        "truck artwork"
+      ],
+      "status": "six tech capabilities proposed, unapproved"
+    },
+    {
+      "section": "road/reliability",
+      "replace": [
+        "heading",
+        "body",
+        "capability blocks",
+        "icons",
+        "road/truck artwork",
+        "speed label behavior"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "ship/scale",
+      "replace": [
+        "eyebrow",
+        "heading",
+        "five pillar labels/descriptions",
+        "icons",
+        "ship/ocean/cloud imagery"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "jet/trust",
+      "replace": [
+        "plane image",
+        "heading",
+        "support copy",
+        "quotes",
+        "attribution/roles",
+        "portraits"
+      ],
+      "status": "real testimonial evidence needed"
+    },
+    {
+      "section": "partners",
+      "replace": [
+        "category labels",
+        "logos",
+        "company names",
+        "links"
+      ],
+      "status": "approved relationships needed"
+    },
+    {
+      "section": "insights",
+      "replace": [
+        "heading",
+        "summary",
+        "titles",
+        "categories",
+        "dates",
+        "preview images",
+        "links",
+        "CTA"
+      ],
+      "status": "editorial drafts/approval needed"
+    },
+    {
+      "section": "FAQ",
+      "replace": [
+        "heading",
+        "intro",
+        "questions",
+        "answers",
+        "contact prompt/link"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "closing CTA",
+      "replace": [
+        "headline",
+        "support copy",
+        "cursor CTA text",
+        "destination"
+      ],
+      "status": "draft"
+    },
+    {
+      "section": "footer",
+      "replace": [
+        "brand statement",
+        "all links",
+        "socials",
+        "industries/services items",
+        "office imagery",
+        "addresses",
+        "map labels",
+        "email",
+        "phone",
+        "hours",
+        "copyright",
+        "legal identity",
+        "particle wordmark",
+        "payment assertions"
+      ],
+      "status": "real company details needed; omit unsupported payment claims"
+    },
+    {
+      "section": "contact",
+      "replace": [
+        "headline",
+        "intro",
+        "contact info",
+        "tab labels",
+        "tab-specific fields",
+        "field labels",
+        "validation/help text",
+        "success/failure copy",
+        "submission destinations",
+        "privacy links"
+      ],
+      "status": "tab audiences accepted; fields/endpoint unapproved"
+    },
+    {
+      "section": "cookies",
+      "replace": [
+        "banner copy",
+        "control labels",
+        "modal category descriptions",
+        "privacy link",
+        "actual tracker inventory",
+        "reopen label"
+      ],
+      "status": "draft; describe actual implemented choices only"
+    }
+  ],
+  "final_checks": [
+    "inventory every content slot",
+    "approve all factual replacements",
+    "replace all media and branding",
+    "scan product source/content for reference leftovers",
+    "inspect rendered routes, responsive layouts and interaction states",
+    "verify destinations and submission behavior",
+    "obtain final user review"
+  ],
+  "current_asset_status": "CURRENT.md"
+}

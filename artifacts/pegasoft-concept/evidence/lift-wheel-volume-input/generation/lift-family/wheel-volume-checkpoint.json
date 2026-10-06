@@ -1,0 +1,23 @@
+{
+  "date_local": "2026-10-06",
+  "status": "closed_wheel_draft_ready_for_user_visual_approval",
+  "user_scope": "Fill each wheel as an individual realistic entity; forward scroll clockwise and reverse counterclockwise. Preserve the lift outside wheel amendments.",
+  "review_url": "http://127.0.0.1:8766/review/lift-motion.html?revision=20261006-solid-wheels#viewer",
+  "source_module": "../../review/lift-wheels.js",
+  "base_model": "model-draft/model-carbon-unified.glb",
+  "scope": [
+    "Four axle-local closed tire/rim/hub assemblies with physical tread and fasteners",
+    "Retain original fragmented source meshes hidden and unchanged as comparison inputs",
+    "No photographic color maps or baked lighting; hub reuses approved carbon material/grain",
+    "Roll direction follows signed chassis travel; reverse traverses the same poses",
+    "Preserve physical cab draft, hydraulics, boom, spreader and proxy contact"
+  ],
+  "checks": [
+    "../../evidence/lift-wheel-volume-checks.json",
+    "../../evidence/lift-motion-checks.json",
+    "../../evidence/lift-integrity-checks.json",
+    "../../evidence/lift-cab-checks.json"
+  ],
+  "next_action": "User visual acceptance of closed wheels, cab and contact through combined motion; no next family until accepted.",
+  "paid_jobs_added": 0
+}

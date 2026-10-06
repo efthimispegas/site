@@ -1,0 +1,33 @@
+{
+  "status": "user_approved",
+  "date": "2026-10-03",
+  "authority": "Jet is approved with shadow. Proceed with next state for review.",
+  "scope": [
+    "J02-overhead aircraft appearance",
+    "Separate wider deep-blue shadow as displayed on porcelain"
+  ],
+  "J02_sha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8",
+  "J01_anchor": "../J01/approval.json",
+  "approved_review_snapshot": "approval-snapshots/jet-shadow.approved-2026-10-03.html",
+  "approved_review_sha256": "80f5ceb22a5eec16c9c5419e4541c308356086ce31bd0c5db2f5808d864e2b8c",
+  "shadow_direction": {
+    "authority": "Direct user correction: Jet J02 halo on porcelain is not visible and must be wider to achieve the website shadow effect.",
+    "status": "User-approved displayed shadow appearance.",
+    "implementation": "Independent silhouette mask derived from J02 alpha, behind aircraft, coupled to its motion. Final 3D shadow should use approved geometry.",
+    "color": "#061E3B",
+    "surface": "#EDF2F7",
+    "review_draft": {
+      "scale": 1.12,
+      "blur_in_plate_width_percent": 3.6,
+      "offset_in_plate_width_percent": [
+        2,
+        4
+      ],
+      "opacity": 0.42
+    },
+    "acceptance": "Broad soft shadow visibly extends outside wings/fuselage on porcelain; no champagne-gold/purple or luminous neon outline. Calibrate final spread/offset/opacity to the crossing reference.",
+    "not_a_generated_asset_edit": true
+  },
+  "approval_does_not_cover_unseen_views_or_3D": true,
+  "next_review": "Remaining seven jet angles, then complete static view-set approval before interactive 3D method/provider decision."
+}

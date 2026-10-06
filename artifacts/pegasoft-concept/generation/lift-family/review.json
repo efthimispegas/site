@@ -1,0 +1,183 @@
+{
+  "role": "approved_static_asset_manifest",
+  "current_status": "../../CURRENT.md",
+  "static_approval": "static-family-approval.json",
+  "accepted_motion": "reference-motion-approval.json",
+  "plates": [
+    {
+      "id": "right",
+      "label": "Right side \u00b7 Approved anchor",
+      "kind": "view",
+      "file": "../L01/L01-side.png",
+      "overlay_file": "../L01/boom-branding.svg",
+      "sha256": "d57f2c879953ba8041eb257bfe792496afef5cf5c253fd3a428c0afae29b2fc0",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "front",
+      "label": "Front",
+      "kind": "view",
+      "file": "lift-front.png",
+      "sha256": "43bc2e82dc81adf6cebadd64b197f49b488e341840abcfff5199304c31956f17",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "rear",
+      "label": "Rear",
+      "kind": "view",
+      "file": "lift-rear.png",
+      "sha256": "d1afbd207ff9bfa26e353ce17d0bc39b41e93045eb0631da0252d527eabdafeb",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "left",
+      "label": "Left side",
+      "kind": "view",
+      "file": "lift-left.png",
+      "sha256": "7d7556d96c9bfefd6521ac50049e146bd65ecb532b4e335e662ef06b3d982b46",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "top",
+      "label": "Overhead",
+      "kind": "view",
+      "file": "lift-top.png",
+      "sha256": "34cc5f4bc53f499fffd57770e12b09dd2326cdfb1885fe2da8b709a7e4898470",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": false
+    },
+    {
+      "id": "underside",
+      "label": "Underside",
+      "kind": "view",
+      "file": "lift-underside.png",
+      "sha256": "fbc9f776106217cb8ca7d7f814faafdfa65e723318630f8a57ffe8027360ab48",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": false
+    },
+    {
+      "id": "front-right",
+      "label": "Front right quarter",
+      "kind": "view",
+      "file": "lift-front-right.png",
+      "overlay_file": "branding-front-right.svg",
+      "sha256": "86082cfb606273e2774c156158566baf976316a50789069acb1ff29036fdf286",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "front-left",
+      "label": "Front left quarter",
+      "kind": "view",
+      "file": "lift-front-left.png",
+      "overlay_file": "branding-front-left.svg",
+      "sha256": "ef35edcb32d3417d611e5cb197eb4a1596ac90a0c9551570f28003198e235089",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "rear-right",
+      "label": "Rear right quarter",
+      "kind": "view",
+      "file": "lift-rear-right.png",
+      "overlay_file": "branding-rear-right.svg",
+      "sha256": "a86dac52c5a97d51d72794bf46547e9b606b194948fc82765d4fccd147637b8e",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "rear-left",
+      "label": "Rear left quarter",
+      "kind": "view",
+      "file": "lift-rear-left.png",
+      "overlay_file": "branding-rear-left.svg",
+      "sha256": "09d15e23e5a99bd93306c6df43d08baa9ce42f5f3e9174d70e78058c2d54a4df",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "rest",
+      "label": "Rest / retracted",
+      "kind": "configuration",
+      "file": "lift-rest.png",
+      "overlay_file": "branding-rest.svg",
+      "sha256": "e9a8c42a957e95a2c6f0a9fa068e290a26818b3faf9538f004d382d3a6ac6bd3",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "alignment",
+      "label": "Spreader alignment",
+      "kind": "configuration",
+      "file": "lift-alignment.png",
+      "overlay_file": "branding-alignment.svg",
+      "sha256": "39b16d96b9eadf068df36e76620ca90dea47dad3dc830faee5c7fbd04e415fce",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "mid-lift",
+      "label": "Mid-lift",
+      "kind": "configuration",
+      "file": "lift-mid-lift.png",
+      "overlay_file": "branding-mid-lift.svg",
+      "sha256": "69a854991d55aa0b65b8bf6e741219e2834f5d79892446247ae7aca4dc2b6e63",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "handoff",
+      "label": "Lowering / handoff",
+      "kind": "configuration",
+      "file": "lift-handoff.png",
+      "overlay_file": "branding-handoff.svg",
+      "sha256": "b00ad9816bd495d655ba9ff37fbdf3c523855c812c66076d7dae7070e45a7c68",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "boom",
+      "label": "Boom and hydraulic assembly",
+      "kind": "component",
+      "file": "lift-boom.png",
+      "overlay_file": "branding-boom.svg",
+      "sha256": "8edc67faa50371ab4ad33425d62cf1585996cab8a642a666a7ac4aa44f5caf16",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    },
+    {
+      "id": "spreader",
+      "label": "Container spreader",
+      "kind": "component",
+      "file": "lift-spreader.png",
+      "sha256": "1855b42a12c04679376f79997d3796dc443e7f3b08a89675f729db7bf73626b0",
+      "status": "user_approved",
+      "user_approved": true,
+      "in_motion_scope": true
+    }
+  ],
+  "accepted_motion_input_count": 14,
+  "excluded_ids": [
+    "top",
+    "underside"
+  ]
+}

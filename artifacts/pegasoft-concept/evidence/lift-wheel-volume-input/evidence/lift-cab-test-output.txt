@@ -1,0 +1,206 @@
+(node:76034) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/whiskey/Work/site/artifacts/pegasoft-concept/review/lift-wheels.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/whiskey/Work/site/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "date_local": "2026-10-06",
+  "status": "technical_checks_passed_visual_review_pending",
+  "source_js_sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6",
+  "approved_mechanics_js_sha256": "5fd724dd6ddd2d7f0335955a93d28fc373a1b2d0c1e27137518af6b76075f78d",
+  "approved_model_sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+  "checks": {
+    "retained_mesh_inventory": 81,
+    "construction_unchanged_outside_wheel_roof_and_cab_amendments": true,
+    "original_source_vertex_inventory": 166642,
+    "retained_attribute_values": 495584,
+    "forward_and_reverse_poses": 601,
+    "attached_poses": 300,
+    "attachment_contact_max_error": 9.155133597044475e-16,
+    "ram_endpoint_max_error": 1.1116099371267112e-15,
+    "ownership_world_position_jump": 0,
+    "forward_reverse_world_matrix_error": 0,
+    "pause_world_matrix_error": 0,
+    "authored_cab_meshes": 49,
+    "wheel_volume_triangles": 106112,
+    "proxy_connector_lengths": [
+      0.0028767785665191753,
+      0.002941777858254793,
+      0.0005000000000000143,
+      0.0005175658569885194
+    ]
+  },
+  "limits": "Diagnostic load retains approved proxy geometry. Reference projected measurements guide motion; no exact final raster/camera-intrinsics claim. Rendered normal/slow/pause/resume/reverse and physical scroll review required."
+}
+{
+  "date_local": "2026-10-06",
+  "status": "technical_checks_passed_render_and_user_review_required",
+  "motion_js_sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6",
+  "cab_js_sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7",
+  "checks": {
+    "glass_panes": 6,
+    "photographic_window_maps": 0,
+    "opaque_chassis_faces_remaining_in_cut_volume": 0,
+    "exact_unaffected_chassis_triangles_retained": 31918,
+    "clear_paired_pane_sightlines": 9,
+    "shared_carbon_recipe": true,
+    "solid_interior_components": true,
+    "ram_surface_scope": [
+      {
+        "ram": 0,
+        "segment": 0,
+        "removed_cab_faces_and_derived_caps": 0,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      },
+      {
+        "ram": 0,
+        "segment": 1,
+        "removed_cab_faces_and_derived_caps": 0,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      },
+      {
+        "ram": 1,
+        "segment": 0,
+        "removed_cab_faces_and_derived_caps": 75,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      },
+      {
+        "ram": 1,
+        "segment": 1,
+        "removed_cab_faces_and_derived_caps": 0,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      },
+      {
+        "ram": 2,
+        "segment": 0,
+        "removed_cab_faces_and_derived_caps": 0,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      },
+      {
+        "ram": 2,
+        "segment": 1,
+        "removed_cab_faces_and_derived_caps": 0,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      },
+      {
+        "ram": 3,
+        "segment": 0,
+        "removed_cab_faces_and_derived_caps": 0,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      },
+      {
+        "ram": 3,
+        "segment": 1,
+        "removed_cab_faces_and_derived_caps": 0,
+        "added_local_cap_faces": 0,
+        "changes_outside_authorized_cab_source_or_cap_components": 0
+      }
+    ],
+    "misclassified_cab_faces_restored_to_chassis": 41,
+    "other_lift_parts": "Checked by motion/integrity tests; original locks unchanged"
+  },
+  "amendment": {
+    "clip_outline_xy": [
+      [
+        -0.113,
+        -0.204
+      ],
+      [
+        -0.066,
+        -0.021
+      ],
+      [
+        0.177,
+        -0.021
+      ],
+      [
+        0.177,
+        -0.154
+      ]
+    ],
+    "clip_depth": [
+      -0.085,
+      0.213
+    ],
+    "glazed_outline_xy": [
+      [
+        -0.104,
+        -0.195
+      ],
+      [
+        -0.066,
+        -0.025
+      ],
+      [
+        0.14,
+        -0.025
+      ],
+      [
+        0.14,
+        -0.16
+      ]
+    ],
+    "glazed_depth": [
+      -0.073,
+      0.1905
+    ],
+    "center": [
+      0.018,
+      -0.117,
+      0.05875
+    ],
+    "source_partitions": [
+      {
+        "material": "Material_0",
+        "source_triangles": 10758,
+        "untouched_triangles": 9894,
+        "affected_triangles": 864,
+        "removed_triangles": 683,
+        "output_triangles": 10177
+      },
+      {
+        "material": "Pegasoft carbon — approved shared satin",
+        "source_triangles": 22087,
+        "untouched_triangles": 22024,
+        "affected_triangles": 63,
+        "removed_triangles": 16,
+        "output_triangles": 22103
+      }
+    ],
+    "misclassified_facade_transfers": [
+      {
+        "side": 1,
+        "segment": 0,
+        "faces": 41,
+        "removed_cab_derived_cap_triangles": 34,
+        "cap_components": [
+          {
+            "triangles": 34,
+            "derived_from_selected_cab_vertices": true,
+            "min": [
+              0.13056899776851474,
+              -0.14052000473872248,
+              0.04971600860357285
+            ],
+            "max": [
+              0.17444500798925155,
+              -0.05369200122204798,
+              0.18026600569486617
+            ]
+          }
+        ]
+      }
+    ],
+    "authored_meshes": 49,
+    "glass_panes": 6,
+    "reference": "Kalmar EGO cabin brochure pp.10–11; approved L01 silhouette",
+    "limits": "Manual visual amendment, not OEM engineering CAD; retains source roof/lower shell/access details."
+  },
+  "limits": "Technical evidence does not establish final visual fidelity. Orbit, both surfaces and production trajectory need rendered inspection and user approval."
+}

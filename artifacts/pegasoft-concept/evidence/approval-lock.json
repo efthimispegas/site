@@ -1,0 +1,27 @@
+{
+  "status": "approved_locked",
+  "approved_date": "2026-10-04",
+  "timezone": "Europe/Athens",
+  "authority": "Direct user approval of lift family and motion-only input scope on 4 October 2026",
+  "canonical_file": "ASSET-PROMPTS.md",
+  "sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e",
+  "snapshot": "evidence/locks/ASSET-PROMPTS.approved-motion-input-scope-2026-10-04.md",
+  "snapshot_sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e",
+  "change_policy": "Do not modify approved prompt content without explicit user approval.",
+  "separate_gates": [
+    "static assets",
+    "jet rendered transition",
+    "lift/container/truck/ship interactive model method and final review",
+    "videos",
+    "section drafts",
+    "full website assembly"
+  ],
+  "jobs_submitted_this_update": 0,
+  "filesystem_mode": "0444",
+  "approved_initial_date": "2026-10-03",
+  "amendment_scope": "Generate only required 3D motion inputs. New overhead/top/roof-only and underside family plates excluded; existing lift exclusions retained as evidence. Existing jet static route preserved.",
+  "previous_approved_snapshot": "evidence/locks/ASSET-PROMPTS.approved-amendment-2026-10-04.md",
+  "previous_sha256": "40b581e2e3f21dd3a4a03c475ad90afbddf3b9f3dc78ff2feebdcad6007c0b1b",
+  "previous_lock_record": "evidence/locks/approval-lock.before-motion-input-scope-2026-10-04.json",
+  "scope_approval": "evidence/motion-input-scope-approval.json"
+}

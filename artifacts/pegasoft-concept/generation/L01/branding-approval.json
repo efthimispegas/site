@@ -1,0 +1,31 @@
+{
+  "status": "user_approved_static_identity_and_inscription_on_carbon_and_porcelain",
+  "date_local": "2026-10-04",
+  "timezone": "Europe/Athens",
+  "authority": "Direct user instruction",
+  "user_quote": "The inscription is approved alongside the static lift asset on carbon/porcelain",
+  "wordmark": "PEGASOFT Solutions",
+  "original_file": "L01-side.png",
+  "original_sha256": "d57f2c879953ba8041eb257bfe792496afef5cf5c253fd3a428c0afae29b2fc0",
+  "overlay_file": "boom-branding.svg",
+  "overlay_sha256": "020ebc57f5c63a91bee7eb358629fb989a3a6d650f03eb61005b3b91b47f4f00",
+  "settings_file": "branding-review.json",
+  "reviewed_html_sha256": "7cb46f72f3458267091c902a212fcb93aa45d9a0b9a31a40c27564ffe589b805",
+  "approval_scope": "Approved L01 original plus separate PEGASOFT Solutions boom inscription, including its placement, scale, typography and champagne-blue appearance on carbon and cool porcelain. Preserve both layers.",
+  "reviewed_inputs": [
+    "../../review/lift.html?revision=20261004-L01-branded",
+    "../../evidence/L01-branded-review.png",
+    "../../evidence/L01-boom-detail.png",
+    "../../evidence/L01-branding-checks.json"
+  ],
+  "original_identity_approval": "approval.json",
+  "next_gate": "Matching all-position, component and working-configuration static lift family approval; interactive-model method and final model approval remain separate.",
+  "jobs_submitted_this_update": 0,
+  "accepted_status_review": {
+    "url": "http://127.0.0.1:8766/review/lift.html?revision=20261004-L01-brand-approved",
+    "screenshot": "../../evidence/L01-brand-approved-review.png",
+    "review_html_sha256": "e91d19915ea28aafa18cbbb21acfed67bda865300df88bb269564efa1f7fc7f7",
+    "browser_status_verified": "L01 \u00b7 Lift and inscription approved",
+    "asset_overlay_unchanged_since_review": true
+  }
+}

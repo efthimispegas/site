@@ -1,0 +1,85 @@
+{
+  "status": "user_approved_as_part_of_lift_family",
+  "anchor_approval": "../L01/branding-approval.json",
+  "wordmark": "PEGASOFT Solutions",
+  "color": "#B9E7FF",
+  "font": "Manrope upright 650",
+  "physical_rule": "Approved right exterior boom face only; no lettering on hidden/opposite/top/underside surfaces",
+  "placements": {
+    "front-right": {
+      "center_x": 1333,
+      "baseline_y": 440,
+      "rotation_degrees": -20.3,
+      "font_size": 52,
+      "text_length": 600,
+      "overlay_file": "branding-front-right.svg"
+    },
+    "front-left": {
+      "center_x": 1350,
+      "baseline_y": 435,
+      "rotation_degrees": -20.4,
+      "font_size": 52,
+      "text_length": 600,
+      "overlay_file": "branding-front-left.svg"
+    },
+    "rear-right": {
+      "center_x": 1461,
+      "baseline_y": 357,
+      "rotation_degrees": -20.4,
+      "font_size": 48,
+      "text_length": 520,
+      "overlay_file": "branding-rear-right.svg"
+    },
+    "rear-left": {
+      "center_x": 1373,
+      "baseline_y": 427,
+      "rotation_degrees": -18.4,
+      "font_size": 50,
+      "text_length": 570,
+      "overlay_file": "branding-rear-left.svg"
+    },
+    "rest": {
+      "center_x": 1420,
+      "baseline_y": 520,
+      "rotation_degrees": -10.2,
+      "font_size": 52,
+      "text_length": 550,
+      "overlay_file": "branding-rest.svg"
+    },
+    "alignment": {
+      "center_x": 1413,
+      "baseline_y": 493,
+      "rotation_degrees": -12.5,
+      "font_size": 52,
+      "text_length": 600,
+      "overlay_file": "branding-alignment.svg"
+    },
+    "mid-lift": {
+      "center_x": 1453,
+      "baseline_y": 423,
+      "rotation_degrees": -26.7,
+      "font_size": 52,
+      "text_length": 638,
+      "overlay_file": "branding-mid-lift.svg"
+    },
+    "handoff": {
+      "center_x": 1450,
+      "baseline_y": 455,
+      "rotation_degrees": -17.1,
+      "font_size": 52,
+      "text_length": 600,
+      "overlay_file": "branding-handoff.svg"
+    },
+    "boom": {
+      "center_x": 1430,
+      "baseline_y": 536,
+      "rotation_degrees": -21.5,
+      "font_size": 52,
+      "text_length": 638,
+      "overlay_file": "branding-boom.svg"
+    }
+  },
+  "note": "All presented placements accepted as rendered. Preserve them; no replacement or image correction is scheduled.",
+  "user_approved": true,
+  "approval_record": "static-family-approval.json"
+}

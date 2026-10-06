@@ -1,0 +1,114 @@
+{
+  "status": "user_approved_static_family",
+  "approved_date": "2026-10-04",
+  "recorded_at_local": "2026-10-04T00:32:31.703026+03:00",
+  "timezone": "Europe/Athens",
+  "authority": "Direct user message",
+  "user_quote": "Static jet family is approved on both carbon and porcelain",
+  "surfaces": [
+    "carbon #11151B",
+    "porcelain #EDF2F7"
+  ],
+  "scope": "J01 lighting/identity anchor and all ten existing Image 2.5 flight-view originals; previously approved wider separate J02 shadow retained. No original was changed in this update.",
+  "flight_views": [
+    {
+      "id": "J02-overhead",
+      "file": "J02-overhead.png",
+      "sha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8",
+      "request_id": "01a10366-48b5-7ca3-b1bf-a0905bca2302",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "J03-right",
+      "file": "J03-right.png",
+      "sha256": "8677a62ea0a430390e0489e8b8e208963297cb260e8c50c2ab85141c2741294d",
+      "request_id": "01a10366-cf98-70d1-adbe-beeb9602b319",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-left",
+      "file": "jet-left.png",
+      "sha256": "436415e62716751e612bb5e6f6ea7af42edff2e822a647308d6bb897308b1df3",
+      "request_id": "01a10367-5946-7961-b143-f33c38f27691",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-front",
+      "file": "jet-front.png",
+      "sha256": "701cae124db7d49b89d30702d47b9805dbceba2f199ff3f7ecf772ecf4a048e0",
+      "request_id": "01a10384-c438-73b1-bf64-78c38d06ffa6",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-rear",
+      "file": "jet-rear.png",
+      "sha256": "32c1e0d0e879568221c77f478b2fa19412ad33a64a4852b968f0b2140f4ea81b",
+      "request_id": "01a10383-b0a8-7952-af8c-79ba3e5a7bea",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-underside",
+      "file": "jet-underside.png",
+      "sha256": "ed1c49b3c273003a82fefad80b37cef949b13b77b573df9b34245e8a1836a783",
+      "request_id": "01a10384-304c-7123-ad39-cd02c0b97f83",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-front-left",
+      "file": "jet-front-left.png",
+      "sha256": "19ed99040bca69559f41dc2bc6ab7013849a62a4a7c6a6ef3848457973121d3f",
+      "request_id": "01a10384-305a-7103-951a-bd9dc0dc3e5d",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-front-right",
+      "file": "jet-front-right.png",
+      "sha256": "4a6e97f6e4bb4ec95a0acd5257961ff6f40dff2c89833542ea71d9af91316eba",
+      "request_id": "01a10384-c407-7552-9aae-d8550fd34259",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-rear-left",
+      "file": "jet-rear-left.png",
+      "sha256": "90b5af300e93f7866dd1a7a9ed8555818a9559ddbfdda952f274d6883c4e3c76",
+      "request_id": "01a10385-43bd-7bc2-9808-376cd368f92f",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    },
+    {
+      "id": "jet-rear-right",
+      "file": "jet-rear-right.png",
+      "sha256": "d256efc80e5d61db7d35ae04a57b2208cd56d23aae29e42f8adeec7baab13d6f",
+      "request_id": "01a10385-e849-76d0-ac5f-0996bf5fd77e",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit"
+    }
+  ],
+  "approved_anchor": "../J01/approval.json",
+  "approved_shadow": "J02-shadow-approval.json",
+  "reviewed_input_snapshots": [
+    {
+      "path": "approval-snapshots/jet-family.reviewed-2026-10-04.json",
+      "sha256": "43dc859576b4078a70a02e2640df89958eb121e3d3fd2b2702a1e6e3ab4fabfc"
+    },
+    {
+      "path": "approval-snapshots/jet-family.reviewed-2026-10-04.html",
+      "sha256": "b7326a261964111ca64ec9982fe792c1ff35480a5c4c829ae578099e2e2aa862"
+    },
+    {
+      "path": "approval-snapshots/jet-family.view-plan-2026-10-04.json",
+      "sha256": "3fd567e0c2e671b921981c762c43d08522fea573df778c3b13be1ed57ba7c37b"
+    },
+    {
+      "path": "approval-snapshots/jet-family.refinements-history-2026-10-04.json",
+      "sha256": "f5406b95995f2055e2f657e060affd28901f5693f0afd20d94c3513277bf9ee2"
+    }
+  ],
+  "earlier_runtime_evidence": "../../evidence/jet-complete-set-checks.json",
+  "acceptance_limits": [
+    "This records personal static-family acceptance; it does not relabel earlier camera/geometry observations as technical qualification.",
+    "Interactive 3D production method/provider and final 3D model remain separate gates.",
+    "No paid job, static regeneration, interactive mesh, section or app scaffold was produced in this approval update."
+  ],
+  "locked_prompt_sha256": "8ed3f09cabef6eed05522dd692db3a028e3d068b33dfb4511c88a6424c800391",
+  "jobs_submitted_this_update": 0,
+  "next_gate": "Confirm exact 3D production method/provider under ASSET-PROMPTS.md approval order step 4."
+}

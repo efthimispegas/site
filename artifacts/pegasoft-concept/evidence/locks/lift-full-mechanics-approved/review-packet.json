@@ -1,0 +1,87 @@
+{
+  "date_local": "2026-10-05",
+  "branch": "codex/hero-reference-rebaseline",
+  "status": "ready_for_interactive_user_approval",
+  "review_url": "http://127.0.0.1:8766/review/lift-rig.html?revision=20261005-full-mechanics#viewer",
+  "approved_amendment": "../generation/lift-family/solid-amendment-approval.json",
+  "checks": "lift-full-mechanics-checks.json",
+  "runtime": {
+    "browser": "Codex in-app browser",
+    "viewport": [
+      536,
+      788
+    ],
+    "loaded": true,
+    "final_surface": "porcelain",
+    "final_pose": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "fillings_enabled": true,
+    "normal_raise_return_exercised": true,
+    "eight_second_browser_recording_created": true,
+    "recording_persistence": "In-page replay; recreate using Record test replay after reload."
+  },
+  "visual_inspection": [
+    "Right boom lettering legible at rest and attached through live raising/return",
+    "Maximum elevation and both telescopes, attached diagnostic load on carbon and porcelain",
+    "Manual spreader balance at -5 and +5 degrees",
+    "Opposite-face perspective remains unlettered",
+    "Approved fillings retained"
+  ],
+  "locked_inputs_unchanged": true,
+  "syntax_check_exit_code": 0,
+  "design_detect_exit_code": 0,
+  "user_visual_acceptance": "pending",
+  "paid_jobs_added": 0,
+  "files": [
+    {
+      "path": "review/lift-rig.js",
+      "sha256": "5fd724dd6ddd2d7f0335955a93d28fc373a1b2d0c1e27137518af6b76075f78d"
+    },
+    {
+      "path": "review/lift-rig.html",
+      "sha256": "d65f8187a40537e8954f2647bbb2b49d22b12ecafba1a297de6ff97314583ad0"
+    },
+    {
+      "path": "review/lift-model.css",
+      "sha256": "363e2b59539f0f133824366deda46399d01a8f13a0da3ee141390a48f766b2ae"
+    },
+    {
+      "path": "review/fonts/manrope.ttf",
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+    },
+    {
+      "path": "generation/lift-family/model-draft/check-full-mechanics.mjs",
+      "sha256": "a25154f79c5fb1a0ee1fa574d39b7c71c3dc2a6f5e91654dc97d05d38ff986ab"
+    },
+    {
+      "path": "evidence/lift-full-mechanics-checks.json",
+      "sha256": "d55bec1b1f30319c6554a63de79b5ace4610526acfbae1d509d5a0652a2ae794"
+    },
+    {
+      "path": "generation/lift-family/solid-amendment-approval.json",
+      "sha256": "22c350259d8016c057f6931ff081a085ace8e6f671672d2c69b7d48aaa5484ba"
+    },
+    {
+      "path": "evidence/lift-full-mechanics-inscription.png",
+      "sha256": "c945f2f0034ec115e81697f25a0c34532d11f5c92c00a4f47d72a1ee14e8ba96"
+    },
+    {
+      "path": "evidence/lift-full-mechanics-carbon-max.png",
+      "sha256": "94d23298796b6f900886a9f49b3e8097b5fdffacedea1a3b863c9762cc147bf0"
+    },
+    {
+      "path": "evidence/lift-full-mechanics-porcelain-max.png",
+      "sha256": "a7f2df765781937907bba620dff6880b475add3fd37a6453b153308748718b95"
+    },
+    {
+      "path": "evidence/lift-full-mechanics-review.png",
+      "sha256": "471132685a2b385ff559b56473ccdba888b199ad596218362db5fb206d268aad"
+    }
+  ],
+  "limits": "Constrained diagnostic rig, not reference-calibrated choreography. Production container and brief loaded settling remain separate gates."
+}

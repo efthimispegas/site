@@ -1,0 +1,28 @@
+{
+  "role": "approved_lift_surface_recipe",
+  "approval": "material-surface-approval.json",
+  "color_authority": "../../material-color-contract.json",
+  "recommended": {
+    "id": "pegasoft_carbon",
+    "srgb": "#11151B",
+    "metalness": 0.35,
+    "roughness": 0.5,
+    "emission": 0,
+    "surface": "Shared subtle neutral micrograin normal texture; identical texture density; no baked lighting, no woven motif",
+    "color_status": "agreed",
+    "surface_settings_status": "user_approved"
+  },
+  "carbon_parts": [
+    "All telescopic boom shells and shoulders",
+    "Graphite pivot/gusset/end housings",
+    "Carbon chassis and structural decks",
+    "Carbon spreader housing",
+    "Carbon stair supports, frames and landing frames"
+  ],
+  "retain_distinct": [
+    "Steel-blue cab/body panels and approved blue accents",
+    "Brushed-metal treads, nosings, handles, pins and hydraulic rods",
+    "Black tire and hose rubber",
+    "Glass and functional safety markers"
+  ]
+}
