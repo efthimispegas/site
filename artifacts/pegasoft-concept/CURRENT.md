@@ -1,10 +1,9 @@
 # Pegasoft Concept checkpoint
 
-- **Accepted and locked:** [physical cab, solid wheels and connected lift/camera/settling sequence](generation/lift-family/reference-motion-approval.json), including clockwise forward/counterclockwise reverse scroll and diagnostic load contact. Jet static family, crossing and shadow are accepted. Preserve exact [reviewed lift inputs](evidence/lift-wheel-volume-input/) and original locks.
-- **Checks:** closed wheel volumes, 24,480 depth/face probes, 601 reversible poses, stationary body, cab scope and pickup contact pass. Both surfaces, playback and genuine forward/reverse scroll inspected. [Acceptance packet](evidence/lift-motion-review.json).
-- **Next:** agree the persistent silver 40-foot container’s minimum views, material roles and model method. Then review its Image 2.5 static master on carbon/porcelain. No overhead, underside or unused variants. Obtain an allowance extension before non-lift paid production.
-- **Separate gates:** production-container contact, trailer/deck transfers, section framing, final content and full website. Proxy acceptance does not approve a container.
-- **Files:** [Complete watch outputs and generated assets restored](evidence/source-media-restoration-checks.json), hashes verified; keep reusable media on disk. [Cleanup checks](evidence/lean-cleanup-checks.json) retain approval, link, test and viewer evidence.
-- **Resume:** [HANDOFF.md](HANDOFF.md) → relevant [PROPOSAL.md](PROPOSAL.md) section. Completed work is recoverable through [archive-index.json](history/archive-index.json); frozen review captions and technical-test statuses describe their capture, not today’s gate.
-- **Branch:** `codex/pegasoft-concept`; work from the checkout in [HANDOFF.md](HANDOFF.md).
-- **Review:** `http://127.0.0.1:8766/review/`. Restart with `python3 artifacts/pegasoft-concept/review/server.py` from the workspace root.
+- **Workspace:** `/Users/whiskey/.codex/worktrees/pegasoft-concept/site`; branch `codex/pegasoft-concept`; preview 8767.
+- **Accepted:** L01/C01, T01 and [connected journey](review/handoff.html#viewer). Approval is recorded in the [packet](evidence/handoff-review/review.json). Approved geometry, finish, lettering and compact grabber remain intact.
+- **Motion:** lift/grabber hold after seating; truck alone departs. Reverse 25–35%; seating 45–55%; departure 60%. Road pace stays 15% lower and constant from 63–100%. Overhead approach shortened four points; zoom 84–87.2%, turn 83–93%, central-lane content from 91%, straight travel 93–100%. First headings share the runway position. Left title passes through the middle near 95%, pins near the top around 97%; spaced right title/description groups continue rising. No content fade.
+- **Checks:** 32 approval pins, geometry/contact/camera, normal/reverse/quarter playback, native scroll and served source pass. Historical inputs/diagnostics remain archived.
+- **Commits:** container/pickup `09983d87`; truck `f5dbc9b0`; journey `1cefbd0c`; final documentation follows in Git history.
+- **Stop:** accepted checkpoint saved locally. No production integration, later phases or push authorized.
+- **Limits:** visual roof coupling; physical pickup unresolved. Tire scrub/suspension excluded; copy remains draft.
