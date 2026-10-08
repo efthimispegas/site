@@ -1,0 +1,5 @@
+{
+  "status": "superseded",
+  "failure": "Normal capture first frame used the scroll-mode viewport before ResizeObserver resized playback. Reverse and quarter-speed checks passed.",
+  "resolution": "Synchronously resize viewer on mode changes before starting playback/capture."
+}

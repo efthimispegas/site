@@ -1,0 +1,100 @@
+{
+  "status": "failed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791498326230.json",
+      "status": "failed",
+      "errors": [
+        "too few rendered observations",
+        "incomplete requested playback range"
+      ],
+      "frames": 1,
+      "progress_range": [
+        1,
+        1
+      ],
+      "elapsed_seconds": 0.0,
+      "expected_inspection_seconds": 0.0,
+      "observed_interval_median": 0.008399999999997817,
+      "max_camera_step": 0,
+      "departure_distance_range": [
+        149.9586189358629,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791498386418.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1375,
+      "progress_range": [
+        0.00044266666666682193,
+        1
+      ],
+      "elapsed_seconds": 18.766600000000007,
+      "expected_inspection_seconds": 18.741699999999998,
+      "observed_interval_median": 0.016599999999991268,
+      "max_camera_step": 4.579981342156074,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791498462279.json",
+      "status": "failed",
+      "errors": [
+        "aerial orientation or framing changed during turn",
+        "aerial camera bobbed during junction turn"
+      ],
+      "frames": 4465,
+      "progress_range": [
+        0.18010933333333348,
+        1
+      ],
+      "elapsed_seconds": 61.528699999999986,
+      "expected_inspection_seconds": 61.49179999999999,
+      "observed_interval_median": 0.016600000000005822,
+      "max_camera_step": 44.0732531580775,
+      "departure_distance_range": [
+        68.1630086072104,
+        194.02508287868648
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791498345112.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1373,
+      "progress_range": [
+        0.9995093333333335,
+        0
+      ],
+      "elapsed_seconds": 18.741500000000002,
+      "expected_inspection_seconds": 18.740800000000004,
+      "observed_interval_median": 0.016599999999998546,
+      "max_camera_step": 4.5054878021496165,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}

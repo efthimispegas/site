@@ -1,0 +1,305 @@
+{
+  "status": "failed",
+  "metrics": {
+    "stationaryLiftAfterSeating": true,
+    "truckStartsDeparture": true,
+    "initialScreenTravel": 0.15705773023620961,
+    "slowerRoadPace": true,
+    "steadyPaceAfter63": true,
+    "truckTurnSpan": 0.09999999999999998,
+    "maxAcceptedDepartureViewDifference": 2.1316282072803006e-14,
+    "reverseSpan": 0.09999999999999998,
+    "monotonicPickup": true,
+    "straightDuringCamera": true,
+    "stableAerial": true,
+    "levelAerialCamera": true,
+    "monotonicWidening": true,
+    "downwardTurn": true,
+    "screenDownward": true,
+    "monotonicTravel": true,
+    "joinSpeed": 1530.0000000593172,
+    "fixedFraming": true,
+    "straightDeparture": true,
+    "maxPickupAimDifference": 1.970645868709653e-15,
+    "resizeCases": [
+      {
+        "width": 557,
+        "height": 410,
+        "fitted": [
+          {
+            "progress": 0.45,
+            "maxNDC": 0.6806324200362927
+          },
+          {
+            "progress": 0.6,
+            "maxNDC": 0.6807738011143223
+          },
+          {
+            "progress": 0.605,
+            "maxNDC": 0.6944732179476839
+          },
+          {
+            "progress": 0.615,
+            "maxNDC": 0.8364866416056782
+          },
+          {
+            "progress": 0.625,
+            "maxNDC": 0.7189384308037029
+          },
+          {
+            "progress": 0.76,
+            "maxNDC": 0.6546840570985458
+          },
+          {
+            "progress": 0.824,
+            "maxNDC": 0.6939300368450437
+          },
+          {
+            "progress": 0.856,
+            "maxNDC": 0.6784339340641345
+          },
+          {
+            "progress": 0.87,
+            "maxNDC": 0.6784339340641347
+          },
+          {
+            "progress": 0.928,
+            "maxNDC": 0.45924565762781483
+          },
+          {
+            "progress": 1,
+            "maxNDC": 0.6294232728446616
+          }
+        ],
+        "boundaryCameraStep": 7.944109290391274e-15,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 225.78231755889263
+      },
+      {
+        "width": 1440,
+        "height": 570,
+        "fitted": [
+          {
+            "progress": 0.45,
+            "maxNDC": 0.4275957028247753
+          },
+          {
+            "progress": 0.6,
+            "maxNDC": 0.44968753422880015
+          },
+          {
+            "progress": 0.605,
+            "maxNDC": 0.44968753422880015
+          },
+          {
+            "progress": 0.615,
+            "maxNDC": 0.4498240918756552
+          },
+          {
+            "progress": 0.625,
+            "maxNDC": 0.44968753422880015
+          },
+          {
+            "progress": 0.76,
+            "maxNDC": 0.4496875342288001
+          },
+          {
+            "progress": 0.824,
+            "maxNDC": 0.6939300368450437
+          },
+          {
+            "progress": 0.856,
+            "maxNDC": 0.4855393987924183
+          },
+          {
+            "progress": 0.87,
+            "maxNDC": 0.4855393987924201
+          },
+          {
+            "progress": 0.928,
+            "maxNDC": 0.6112020305711202
+          },
+          {
+            "progress": 1,
+            "maxNDC": 0.8376934060492972
+          }
+        ],
+        "boundaryCameraStep": 1.0658141036401503e-14,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 170.40752151802602
+      },
+      {
+        "width": 375,
+        "height": 410,
+        "fitted": [
+          {
+            "progress": 0.45,
+            "maxNDC": 0.8335941844011444
+          },
+          {
+            "progress": 0.6,
+            "maxNDC": 0.833736953961804
+          },
+          {
+            "progress": 0.605,
+            "maxNDC": 0.8505144945237418
+          },
+          {
+            "progress": 0.615,
+            "maxNDC": 1.0244369325912728
+          },
+          {
+            "progress": 0.625,
+            "maxNDC": 0.8804767992000035
+          },
+          {
+            "progress": 0.76,
+            "maxNDC": 0.8017851020107557
+          },
+          {
+            "progress": 0.824,
+            "maxNDC": 0.8382763389500978
+          },
+          {
+            "progress": 0.856,
+            "maxNDC": 0.6754193071515054
+          },
+          {
+            "progress": 0.87,
+            "maxNDC": 0.6754193071515071
+          },
+          {
+            "progress": 0.928,
+            "maxNDC": 0.393340133395664
+          },
+          {
+            "progress": 1,
+            "maxNDC": 0.42186716131830654
+          }
+        ],
+        "boundaryCameraStep": 1.4210854715202004e-14,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 335.36200234747514
+      }
+    ],
+    "maxPickupDifference": 8.704148513061227e-14,
+    "maxServiceGap": 1.171857626336878e-13,
+    "minHeadClearance": 0.37631313209890926,
+    "maxContact": 5.859296020405085e-14,
+    "maxGround": 4.551914400963142e-15,
+    "maxArticulationDegrees": 9.597641270920207,
+    "maxReverseDiff": 0,
+    "boundaries": [
+      {
+        "progress": 0.2,
+        "cameraStep": 1.0363265801061061e-11,
+        "cargoStep": 1.5295849576277525e-33
+      },
+      {
+        "progress": 0.25,
+        "cameraStep": 8.878053848082788e-11,
+        "cargoStep": 9.45204565283575e-7
+      },
+      {
+        "progress": 0.35,
+        "cameraStep": 7.944109290391274e-15,
+        "cargoStep": 0
+      },
+      {
+        "progress": 0.45,
+        "cameraStep": 7.944109290391274e-15,
+        "cargoStep": 0
+      },
+      {
+        "progress": 0.55,
+        "cameraStep": 0,
+        "cargoStep": 8.881784197001252e-16
+      },
+      {
+        "progress": 0.6,
+        "cameraStep": 0,
+        "cargoStep": 4.440892098500626e-16
+      },
+      {
+        "progress": 0.76,
+        "cameraStep": 0.00010961257960049963,
+        "cargoStep": 0.00010300213219238685
+      },
+      {
+        "progress": 0.824,
+        "cameraStep": 0.00010961257965632064,
+        "cargoStep": 0.00010300213224923027
+      },
+      {
+        "progress": 0.856,
+        "cameraStep": 0.00010961257965877536,
+        "cargoStep": 0.00010300213224923027
+      },
+      {
+        "progress": 0.87,
+        "cameraStep": 0.0001096125796223469,
+        "cargoStep": 0.00010300213222080856
+      },
+      {
+        "progress": 0.97,
+        "cameraStep": 0.00010961257964164136,
+        "cargoStep": 0.00010278600036883745
+      },
+      {
+        "progress": 0.95,
+        "cameraStep": 0.00010106587947503502,
+        "cargoStep": 0.00009705430825590611
+      },
+      {
+        "progress": 0.95,
+        "cameraStep": 0.00010106587947503502,
+        "cargoStep": 0.00009705430825590611
+      },
+      {
+        "progress": 0.97,
+        "cameraStep": 0.00010961257964164136,
+        "cargoStep": 0.00010278600036883745
+      }
+    ],
+    "scale": 0.7164220893068572,
+    "dock": [
+      -4.565858994759644,
+      0,
+      -3.8763562688881255
+    ],
+    "endpoint": {
+      "position": [
+        6.55070737268567,
+        6.794891361877775,
+        39.01314455733807
+      ],
+      "quaternion": [
+        -0.04174145669977262,
+        0.1734921262541318,
+        0.007360145030244035,
+        0.9839227414718775
+      ],
+      "target": [
+        -9.377155299105993,
+        2.8364451898546577,
+        -4.748298473583681
+      ],
+      "distance": 46.569954964977846,
+      "fov": 12,
+      "aspect": 1.3585365853658538,
+      "azimuth": 0.34906585039886595,
+      "rollDegrees": 0,
+      "groundAnchorY": 322.3408365667787,
+      "hubAnchorY": 304.0764492991196,
+      "supportRectNDC": {
+        "minX": 1.4642853584319526,
+        "maxX": 1.9767637455038793,
+        "minY": -1.0946938212042208,
+        "maxY": -0.2471734942678456
+      },
+      "supportIntersectsView": false,
+      "supportVisible": false,
+      "framing": "level_chassis_tracking"
+    }
+  }
+}

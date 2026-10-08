@@ -1,0 +1,74 @@
+{
+  "status": "accepted",
+  "approved_at_utc": "2026-10-08T22:43:46.866916+00:00",
+  "authority": "Direct user approval in this chat; update documents, commit grouped work and stop at this checkpoint.",
+  "reviewed_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "9f73d45610d545facd119a0527b70a1dbe76fa6af6777a1b6a2c14e947fff866"
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "3f3374d3888ff0b04d510d0feb7cd88a8257d8d901947d3631d359a5aa9386de"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "cc5a8c846343891a860406ec3679def0a74b4436806809e624619dcd24d33776"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65"
+    },
+    {
+      "path": "review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    }
+  ],
+  "approval_only_document_updates": [
+    {
+      "path": "review/handoff.html",
+      "reviewed_sha256": "9f73d45610d545facd119a0527b70a1dbe76fa6af6777a1b6a2c14e947fff866",
+      "current_sha256": "37422680cb495bbf5815230f2af2d4ee01b0173a9e732c558bd8f9cf4df4250c",
+      "snapshot": "evidence/handoff-review/accepted-inputs/review/handoff.html",
+      "replacements": [
+        [
+          "CONNECTED MOTION \u00b7 PERSONAL REVIEW",
+          "CONNECTED MOTION \u00b7 ACCEPTED CHECKPOINT"
+        ],
+        [
+          "Handoff and departure draft \u00b7 Awaiting personal approval \u00b7 No new generated assets",
+          "Handoff and departure approved \u00b7 Checkpoint complete \u00b7 Production integration deferred"
+        ]
+      ]
+    }
+  ],
+  "review_packet": "evidence/handoff-review/review.json"
+}

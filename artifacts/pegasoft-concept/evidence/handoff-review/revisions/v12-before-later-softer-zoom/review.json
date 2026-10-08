@@ -1,0 +1,170 @@
+{
+  "status": "awaiting_personal_review",
+  "recorded_at_utc": "2026-10-08T22:13:46.142781+00:00",
+  "workspace": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "preview": "http://127.0.0.1:8767/review/handoff.html#viewer",
+  "changes": [
+    "15% lower constant road pace from 63% through all highway phases.",
+    "Lift base stationary after seating; truck starts moving at departure and carries the following camera away. Initial screen motion moves forward only; tracking settles at a fixed lag by 63%.",
+    "Physical turn remains 87\u201397%; central-lane/content entry begins at 95%; content fully visible by 97%; straight reading travel through 100%."
+  ],
+  "checks": {
+    "geometry_contact_camera_viewports": "passed",
+    "approved_input_pins": {
+      "status": "passed",
+      "count": 32
+    },
+    "normal_reverse_quarter_playback": "passed",
+    "native_scroll": "passed",
+    "source_http": "passed"
+  },
+  "reviewed_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "8fe99602c4b5225bd4672e54b9c4158442bbb5c29967352942d157cc5d9f9828"
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "35ffca8d7f2145e7f014148a27c42853d25bbe91e01c47c06189d2b2b52035bd"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "1dbe5d2a45e40e445892c3fc6fce97bf05ffacdc99cc17a877ce3fb34d2d1800"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "cc5a8c846343891a860406ec3679def0a74b4436806809e624619dcd24d33776"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65"
+    },
+    {
+      "path": "review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    }
+  ],
+  "verification_input_pins": [
+    {
+      "path": "generation/handoff/check-sequence.mjs",
+      "sha256": "a0bd5f3cc2eb593a490264c709f683b0690c7a53dea1f9e74400337d03477762"
+    },
+    {
+      "path": "generation/handoff/check-playback.py",
+      "sha256": "a4c5a671078990c8396ee41832e33bc523137be3355d7690c1daf2042aeb67b8"
+    }
+  ],
+  "evidence": [
+    "sequence-checks.json",
+    "playback-checks.json",
+    "native-scroll.json",
+    "source-checks.json",
+    "departure-scroll.png",
+    "road-content.png",
+    "playback-frames/0.615.png",
+    "playback-frames/0.63.png",
+    "reference/choreography.json"
+  ],
+  "playback_runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791497131036.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1961,
+      "progress_range": [
+        0.00044799999999999875,
+        1
+      ],
+      "elapsed_seconds": 18.7498,
+      "expected_inspection_seconds": 18.7416,
+      "observed_interval_median": 0.008300000000001091,
+      "max_camera_step": 5.0275714550088235,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791497524597.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 7274,
+      "progress_range": [
+        0.18,
+        1
+      ],
+      "elapsed_seconds": 61.50779999999998,
+      "expected_inspection_seconds": 61.50000000000001,
+      "observed_interval_median": 0.008299999999988358,
+      "max_camera_step": 1.1711566158689684,
+      "departure_distance_range": [
+        68.1630086072104,
+        225.49060144655547
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791497189200.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1949,
+      "progress_range": [
+        0.9995573333333332,
+        0
+      ],
+      "elapsed_seconds": 18.749800000000004,
+      "expected_inspection_seconds": 18.741699999999998,
+      "observed_interval_median": 0.008300000000002911,
+      "max_camera_step": 2.8688745783458076,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802616
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "visual_inspection": "Inspected current recorded departure/turn frames and native scroll through departure, camera transition, central-lane content and reverse reading. Personal acceptance pending.",
+  "recording_retry": "Failed slow-capture cadence retained under revisions/v11-slow-capture-cadence; isolated retry passed without tolerance changes.",
+  "limits": [
+    "Visual roof coupling only; four-corner pickup remains unresolved.",
+    "Ground-plane bicycle model with rigid three-axle effective bogie; tyre scrub and suspension dynamics not simulated.",
+    "Browser playback and visual review are separate required gates."
+  ],
+  "delivery": "Uncommitted standalone review; frozen approved assets unchanged; no production integration or image jobs."
+}

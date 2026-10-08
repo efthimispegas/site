@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "path": "review/handoff.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "path": "generation/handoff/check-sequence.mjs",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "path": "review/handoff-capture-server.py",
+      "status": "compiled"
+    },
+    {
+      "path": "review/handoff-review-server.py",
+      "status": "compiled"
+    },
+    {
+      "path": "generation/handoff/check-playback.py",
+      "status": "compiled"
+    },
+    {
+      "fallback": "generation/truck-family/T01/T01-side-original.png",
+      "exists": true
+    }
+  ]
+}

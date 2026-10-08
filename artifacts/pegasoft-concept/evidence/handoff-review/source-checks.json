@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": {
+    "handoff.js syntax": true,
+    "handoff-sequence.js syntax": true,
+    "handoff-lift-rig.js syntax": true,
+    "handoff.html served current": true,
+    "handoff.js served current": true,
+    "handoff-sequence.js served current": true,
+    "handoff-lift-rig.js served current": true,
+    "geometry_current": true,
+    "32_approved_pins": true
+  },
+  "approval_copy_note": "Live HTML differs from the accepted playback input only by the exact status-label replacements pinned in user-approval.json; captured source retained intact."
+}

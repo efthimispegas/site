@@ -1,0 +1,284 @@
+{
+  "status": "awaiting_personal_review",
+  "revision": "handoff-v2-fixed-framing-services",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "uncommitted": true,
+  "checked_at_utc": "2026-10-08T10:42:39.109792+00:00",
+  "url": "http://127.0.0.1:8767/review/handoff.html#viewer",
+  "requirements": {
+    "fixed_framing_from_opening": true,
+    "straight_departure_services_interval": [
+      0.75,
+      0.85
+    ],
+    "overhead_transition_interval": [
+      0.85,
+      0.96
+    ],
+    "approved_asset_hashes_preserved": true,
+    "fixed_grabber_dimensions": true
+  },
+  "checks": {
+    "geometry_contacts_boundaries_and_viewport_fit": "passed",
+    "normal_slow_reverse_rendered_playback": "passed",
+    "genuine_pause_resume_keyboard_scrub": "passed",
+    "source_syntax": "passed",
+    "browser_console_errors": []
+  },
+  "rendered_viewports": [
+    {
+      "width": 1214,
+      "height": 568
+    },
+    {
+      "width": 555,
+      "height": 408
+    }
+  ],
+  "reviewed_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "10032265e2ee29774dd3fa6313a9f8eb130ba6f3fc1e6d854433c41543bc1861"
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "4a856a0024082062e0ca4ad53e204a3099257321704b7dcb8cf96c39c13836f6"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "ebda450a502834e88b3cca64bb82aaf34e2a68d6a20b3892279d998c39705df2"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "7d5830b77368d70a7597a422e9ce4facc8023e02a01f4f3039f2817c6213de35"
+    },
+    {
+      "path": "review/handoff-capture-server.py",
+      "sha256": "42d103452a6486a779365cb99347b2d4fc0b7b0077710816c750faccdeed24ad"
+    },
+    {
+      "path": "review/handoff-review-server.py",
+      "sha256": "bb869dce228b9ad739b62c2f1a983f32bc2a368ace7aefb3bec9ecd98c32fc10"
+    },
+    {
+      "path": "generation/handoff/check-sequence.mjs",
+      "sha256": "2c29a36cea219977c0e10377422defa88cbac99cb5fc1c98dc867b3e27247f6d"
+    },
+    {
+      "path": "generation/handoff/check-playback.py",
+      "sha256": "d1d1a258675208b57fe6cef80b2ba374dfe2ea3a266a633ac9567b972a6910fa"
+    },
+    {
+      "path": "review/vendor/three/build/three.module.js",
+      "sha256": "d835eab0b3bca3fdfd51e2ce7d06911f4a089b08db73cc3cd70fe5e3005a623f"
+    },
+    {
+      "path": "review/vendor/three/build/three.core.js",
+      "sha256": "283be43b2229e15f46dac84cd19354ede5f06cac7ffb185e765cfcfb2c1eec90"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "sha256": "a2d45c28c56774cc789b99154e914c34db3197f9ea2b89fee27600cc2509b14f"
+    },
+    {
+      "path": "review/fonts/manrope.ttf",
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+    },
+    {
+      "path": "review/fonts/dmsans.ttf",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+    },
+    {
+      "path": "evidence/motion/clips/handoff.mp4",
+      "sha256": "871ad95426f98d92a463e334c7a4bc5a16953dbea95b99bf1d80b78953f9efbd"
+    },
+    {
+      "path": "evidence/motion/clips/road.mp4",
+      "sha256": "35706311141fb97bb0e6d17e01612406da34a56f7dec1effab08fd2edad5acd0"
+    }
+  ],
+  "approved_inputs": [
+    {
+      "path": "review/lift-container.html",
+      "sha256": "44e39925418d3cc210b8da20d476594e2f36b634872d7e4aa4e191cde698f3db",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.html"
+    },
+    {
+      "path": "review/lift-container.js",
+      "sha256": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.js"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-contact.js"
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "sha256": "eff3c88fb443f3d8a7107106d4d104999368b8c0cdd0116be456c06022b7e766",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-replay.js"
+    },
+    {
+      "path": "review/integration-server.py",
+      "sha256": "57cbe737715a235844b01450abd2ad06a54b391ffeb0e5ae28ac12a945f6af41",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/integration-server.py"
+    },
+    {
+      "path": "generation/container-family/lift-integration/rig-harness.mjs",
+      "sha256": "b31c7869f5a4344bed8f47624cad385d1a1f2f3ccbe019dd233e3d47788d0924",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/rig-harness.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-integration.mjs",
+      "sha256": "c3d62950fea9455415594b3252cf78b7b2a22acfe41f9c9b44c61e88f9c2deab",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-integration.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/measure-rendered-edges.py",
+      "sha256": "564d0e9e7f958a7fe467f96f8b23259023021cf16e4cd8337630370a24dacf68",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/measure-rendered-edges.py"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera.mjs",
+      "sha256": "b48dd817c2813cef77176ca234e8cd9b80c61d13918027548de0570b05ac7629",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-camera.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera-turn.mjs",
+      "sha256": "5cb06960caa6654e7527c645a17c0ff30dcb764decb6743643c9911c1b57be3f",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-camera-turn.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-rendered-camera.py",
+      "sha256": "b565548c9e150311c48c1183e87939111e4dd71b45eda08d10a614b1837990a5",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-rendered-camera.py"
+    },
+    {
+      "path": "review/truck-model.html",
+      "sha256": "20097935005a449fd76b3162ffb0af6571f2c1bd72069444cc4792f8041c4eb0",
+      "bytes": 7647,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "review/truck-model.js",
+      "sha256": "1d0b5c8c40a6a86bc1992ec207e0992462a57ed4e13fa14f3e1f46c00674bb3d",
+      "bytes": 9573,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32",
+      "bytes": 28659,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/build-model.mjs",
+      "sha256": "ec6a5d64a1c86fc770eeaa029a254f0b9f47f73c79b31a25134dbc4a1be0c297",
+      "bytes": 15689,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "bytes": 4287352,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/model-checks.json",
+      "sha256": "9b7924eeed510b072722b741a7ee8076e920be45e6c9c3f609802d93b9e9c062",
+      "bytes": 606133,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "bytes": 2174140,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "evidence/truck-model-review-v2/browser-observation.json",
+      "sha256": "27f50e63d30978bcbb3b9b010fde4f5f5d87841611e07fc80b8db182d4f08dc9"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/usage-final.json",
+      "sha256": "dd2c6ff74194877ce1db826aaf3ed2eac336c08090da443933f23d559c382c0a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/cab-final.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/wheel-final.png",
+      "sha256": "308c1e5b94f70bde8c0726072ef292e0d94162f4d40e9654b5a670b6a1a31871"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/suspension-final.png",
+      "sha256": "d3197813c5a22fed29384f69c98d98c1b88c2f1134fa014610d01bc51623785c"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/coupling-final.png",
+      "sha256": "de86bffb941a559a9b75af2b8d376b2a74a301a7caceb59b62294d32a68da5b6"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/side-final.png",
+      "sha256": "d51d1fee6b9f44760b2a639ec89b3ad933672d32b4f17edf1bdda500aad36969"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/support-final.png",
+      "sha256": "29ebaa2783a92288d255b8fe16f54d4795888483d13211fa70153710e6ccd4ac"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/loaded-oblique-final.png",
+      "sha256": "12fab701d89d8265c6e9f51d00f3717cc11679f3aba152ad22576089994d55f0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-positive.png",
+      "sha256": "a134cf021fa1e040bdbad9021a9206562f7958271142eb4d645b813d89a86f09"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-negative.png",
+      "sha256": "da23eadbc66c5fdaf8c59787f1fd2a78cddf1104a4db4c19452a255fdb76b757"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/front-final.png",
+      "sha256": "aa64b871ff2886a533f4390cc69d27357ff1f93706ddfc8cf89b34881d85528a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/upper-final.png",
+      "sha256": "3c74d7722df87e3cdba64fd345d11d076c0ccdd117feb3dbf95a9973612bca22"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/review-ready.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    }
+  ],
+  "evidence": [
+    "evidence/handoff-review/sequence-checks.json",
+    "evidence/handoff-review/playback-checks.json",
+    "evidence/handoff-review/interaction-checks.json",
+    "evidence/handoff-review/source-checks.json",
+    "evidence/handoff-review/aligned-truck-panel.png",
+    "evidence/handoff-review/services-straight-panel.png",
+    "evidence/handoff-review/review-ready.png",
+    "evidence/handoff-review/playback-frames.json",
+    "evidence/handoff-review/playback/handoff-forward-normal-1791455880029.json",
+    "evidence/handoff-review/playback/handoff-forward-quarter-1791456033872.json",
+    "evidence/handoff-review/playback/handoff-reverse-normal-1791455930986.json",
+    "evidence/handoff-review/playback/handoff-forward-normal-1791455880029.webm",
+    "evidence/handoff-review/playback/handoff-forward-quarter-1791456033872.webm",
+    "evidence/handoff-review/playback/handoff-reverse-normal-1791455930986.webm"
+  ],
+  "visual_inspection": "Rendered truck entry, seating, services and overhead boundaries inspected. Full normal/reverse and quarter-speed connection/departure recordings saved; canvas videos omit DOM services, which are covered by page screenshots and rendered observations. Personal acceptance remains pending.",
+  "limits": [
+    "Visual roof coupling only; four-corner pickup remains unresolved.",
+    "Ground-plane bicycle model with rigid three-axle effective bogie; tyre scrub and suspension dynamics not simulated.",
+    "Inspection tempo and observed rendering are not representative-device performance certification.",
+    "No production integration or deployment."
+  ],
+  "historical_evidence": [
+    "evidence/handoff-review/first-pass/",
+    "evidence/handoff-review/revisions/v1-zoomout/",
+    "evidence/handoff-review/revisions/v2-fallback-path/"
+  ]
+}

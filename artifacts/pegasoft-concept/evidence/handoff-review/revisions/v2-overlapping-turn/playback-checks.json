@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791455880029.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 2971,
+      "progress_range": [
+        0.00026333333333333254,
+        1
+      ],
+      "elapsed_seconds": 30.0003,
+      "expected_inspection_seconds": 29.9921,
+      "observed_interval_median": 0.008399999999997817,
+      "max_camera_step": 1.632287307735812,
+      "departure_distance_range": [
+        68.1630086072104,
+        68.1630086072104
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791456033872.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 6436,
+      "progress_range": [
+        0.36006916666666666,
+        1
+      ],
+      "elapsed_seconds": 76.8079,
+      "expected_inspection_seconds": 76.7917,
+      "observed_interval_median": 0.00840000000000873,
+      "max_camera_step": 0.5090784473079516,
+      "departure_distance_range": [
+        68.1630086072104,
+        68.1630086072104
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791455930986.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 2897,
+      "progress_range": [
+        0.9997233333333332,
+        0
+      ],
+      "elapsed_seconds": 30.0082,
+      "expected_inspection_seconds": 29.991699999999994,
+      "observed_interval_median": 0.00839999999999418,
+      "max_camera_step": 1.5807512925252678,
+      "departure_distance_range": [
+        68.1630086072104,
+        68.1630086072104
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}

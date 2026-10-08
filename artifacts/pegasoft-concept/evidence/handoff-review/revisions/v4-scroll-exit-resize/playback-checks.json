@@ -1,0 +1,74 @@
+{
+  "status": "failed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791459337678.json",
+      "status": "failed",
+      "errors": [
+        "handoff/side/overhead rotation framing changed"
+      ],
+      "frames": 3551,
+      "progress_range": [
+        0,
+        1
+      ],
+      "elapsed_seconds": 30.008,
+      "expected_inspection_seconds": 30.0,
+      "observed_interval_median": 0.008300000000002911,
+      "max_camera_step": 6.522605267141977,
+      "departure_distance_range": [
+        68.1630086072104,
+        225.49060144655547
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791459506544.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 7858,
+      "progress_range": [
+        0.3600691666666668,
+        1
+      ],
+      "elapsed_seconds": 76.96609999999998,
+      "expected_inspection_seconds": 76.79169999999999,
+      "observed_interval_median": 0.008300000000017462,
+      "max_camera_step": 1.6863449175751406,
+      "departure_distance_range": [
+        68.1630086072104,
+        225.49060144655547
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791459404823.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 3473,
+      "progress_range": [
+        0.9997199999999997,
+        0
+      ],
+      "elapsed_seconds": 29.9998,
+      "expected_inspection_seconds": 29.99159999999999,
+      "observed_interval_median": 0.008300000000002911,
+      "max_camera_step": 8.246971780297915,
+      "departure_distance_range": [
+        68.1630086072104,
+        225.49060144655547
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}

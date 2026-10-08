@@ -1,0 +1,152 @@
+{
+  "status": "awaiting_personal_review",
+  "recorded_at_utc": "2026-10-08T13:59:25.747589+00:00",
+  "workspace": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "preview": "http://127.0.0.1:8767/review/handoff.html#viewer",
+  "changes": [
+    "Smoother lift reverse 25\u201335%; truck entry 35\u201345%; seating 45\u201355%; release 55\u201360%.",
+    "Constant road travel from 63\u2013100%, including overhead camera transitions.",
+    "Turn 87\u201397%; content animation begins at 97%; straight road continues through 100%."
+  ],
+  "checks": {
+    "geometry_camera_contact": "passed",
+    "normal_reverse_quarter_playback": "passed",
+    "native_scroll": "passed",
+    "source_http": "passed"
+  },
+  "reviewed_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "477f1ab59ee8cb3e4c756b54b1ad6622454047ee3fccfb79f26b824326086d37"
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "27034b7070aacbe6c4a034509a05dab1c0e582899c82648ce322874daf52ad5c"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "2e4ffd0a69944e5197ab224e57d48a2ec721108d0162539d3d7fecc8396184bf"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "7d5830b77368d70a7597a422e9ce4facc8023e02a01f4f3039f2817c6213de35"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65"
+    },
+    {
+      "path": "review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    }
+  ],
+  "evidence": [
+    "sequence-checks.json",
+    "playback-checks.json",
+    "native-scroll.json",
+    "source-checks.json",
+    "road-content.png",
+    "reference/choreography.json"
+  ],
+  "playback_runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791467768974.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1445,
+      "progress_range": [
+        0.0004480000000000291,
+        1
+      ],
+      "elapsed_seconds": 18.758100000000002,
+      "expected_inspection_seconds": 18.7416,
+      "observed_interval_median": 0.015900000000001455,
+      "max_camera_step": 7.960333489032243,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791467894481.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 4664,
+      "progress_range": [
+        0.1801106666666667,
+        1
+      ],
+      "elapsed_seconds": 61.4953,
+      "expected_inspection_seconds": 61.491699999999994,
+      "observed_interval_median": 0.0165,
+      "max_camera_step": 1.6726528353248902,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791467805816.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1577,
+      "progress_range": [
+        0.9995573333333335,
+        0
+      ],
+      "elapsed_seconds": 18.7499,
+      "expected_inspection_seconds": 18.741700000000005,
+      "observed_interval_median": 0.00869999999999709,
+      "max_camera_step": 5.9739514782271765,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "visual_inspection": "Inspected recorded camera/turn frames and actual scroll-rendered camera transition/content. Personal acceptance pending.",
+  "limits": [
+    "Visual roof coupling only; four-corner pickup remains unresolved.",
+    "Ground-plane bicycle model with rigid three-axle effective bogie; tyre scrub and suspension dynamics not simulated.",
+    "Browser playback and visual review are separate required gates."
+  ],
+  "delivery": "Uncommitted standalone review; approved assets unchanged; no production integration or image jobs."
+}

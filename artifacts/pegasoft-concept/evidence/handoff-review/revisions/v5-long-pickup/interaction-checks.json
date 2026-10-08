@@ -1,0 +1,243 @@
+{
+  "observations": [
+    {
+      "action": "play",
+      "p": 0.0173,
+      "playing": "true"
+    },
+    {
+      "action": "pause",
+      "motion": {
+        "camera": [
+          -1.0819945990378932,
+          5.77303816529604,
+          67.91809606230635
+        ],
+        "cargoMatrix": [
+          -7.134125792889644e-17,
+          -4.017093282207487e-33,
+          -0.7164220893068574,
+          0,
+          -2.4980018054066026e-17,
+          0.7164220893068574,
+          -1.5295849576277525e-33,
+          0,
+          0.7164220893068574,
+          2.4980018054066026e-17,
+          -7.134125792889644e-17,
+          0,
+          2.530854872816062,
+          2.074758370632667,
+          3.099734011136057e-16,
+          1
+        ],
+        "contacts": [
+          {
+            "gap": 14.957284511588778,
+            "id": "corner_casting_-1_-1_-1"
+          },
+          {
+            "gap": 13.124929612997844,
+            "id": "corner_casting_-1_-1_1"
+          },
+          {
+            "gap": 16.38853025837397,
+            "id": "corner_casting_1_-1_-1"
+          },
+          {
+            "gap": 14.735241478006843,
+            "id": "corner_casting_1_-1_1"
+          }
+        ],
+        "distance": 68.1630086072104,
+        "grabberScale": [
+          1,
+          1,
+          1
+        ],
+        "ground": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17
+        ],
+        "owner": "stack",
+        "phase": "Stacked pickup",
+        "pitch": 0.084796174523203,
+        "progress": 0.01914333333333295,
+        "quaternion": [
+          -0.04238538595182565,
+          0,
+          0,
+          0.9991013357301224
+        ],
+        "stackInView": true,
+        "stackOpacity": 1,
+        "stackVisible": true,
+        "target": [
+          -1.0819945990378932,
+          0,
+          -6.483482035437038e-18
+        ],
+        "travel": 0
+      },
+      "p": 0.0191
+    },
+    {
+      "action": "pause-held",
+      "motion": {
+        "camera": [
+          -1.0819945990378932,
+          5.77303816529604,
+          67.91809606230635
+        ],
+        "cargoMatrix": [
+          -7.134125792889644e-17,
+          -4.017093282207487e-33,
+          -0.7164220893068574,
+          0,
+          -2.4980018054066026e-17,
+          0.7164220893068574,
+          -1.5295849576277525e-33,
+          0,
+          0.7164220893068574,
+          2.4980018054066026e-17,
+          -7.134125792889644e-17,
+          0,
+          2.530854872816062,
+          2.074758370632667,
+          3.099734011136057e-16,
+          1
+        ],
+        "contacts": [
+          {
+            "gap": 14.957284511588778,
+            "id": "corner_casting_-1_-1_-1"
+          },
+          {
+            "gap": 13.124929612997844,
+            "id": "corner_casting_-1_-1_1"
+          },
+          {
+            "gap": 16.38853025837397,
+            "id": "corner_casting_1_-1_-1"
+          },
+          {
+            "gap": 14.735241478006843,
+            "id": "corner_casting_1_-1_1"
+          }
+        ],
+        "distance": 68.1630086072104,
+        "grabberScale": [
+          1,
+          1,
+          1
+        ],
+        "ground": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17,
+          -5.551115123125783e-17
+        ],
+        "owner": "stack",
+        "phase": "Stacked pickup",
+        "pitch": 0.084796174523203,
+        "progress": 0.01914333333333295,
+        "quaternion": [
+          -0.04238538595182565,
+          0,
+          0,
+          0.9991013357301224
+        ],
+        "stackInView": true,
+        "stackOpacity": 1,
+        "stackVisible": true,
+        "target": [
+          -1.0819945990378932,
+          0,
+          -6.483482035437038e-18
+        ],
+        "travel": 0
+      },
+      "p": 0.0191
+    },
+    {
+      "action": "resume",
+      "p": 0.0286
+    },
+    {
+      "action": "keyboard-end",
+      "p": 1
+    },
+    {
+      "action": "keyboard-home",
+      "p": 0
+    }
+  ],
+  "status": "passed",
+  "checks": {
+    "pause_holds_progress": true,
+    "pause_holds_camera": true,
+    "resume_advances": true,
+    "keyboard_end": true,
+    "keyboard_home": true
+  },
+  "recorded_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "c8e7005575745c616f2beb5e4cd26104665280335845612a5d060ede6847bb95",
+      "bytes": 11955
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "7c0944c9e24cb7250d488bf0c1dba235457a0ec8f1565e8aa6751ca0b629577d",
+      "bytes": 17438
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "925a65b04305e78f6ab01477def51ad13f6bcd884968fddc39f75ae8367a9e26",
+      "bytes": 12172
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "7d5830b77368d70a7597a422e9ce4facc8023e02a01f4f3039f2817c6213de35",
+      "bytes": 35418
+    },
+    {
+      "path": "generation/handoff/check-sequence.mjs",
+      "sha256": "ad44f7c4ee8cfa61b9862e50549e2c36f7625ae9c66ee6854c39ae60f002c5be",
+      "bytes": 8535
+    },
+    {
+      "path": "generation/handoff/check-playback.py",
+      "sha256": "7ff7d55822a5a36132945878cbedccc39474e7ce899d5b6ce8b236aeb1ef3899",
+      "bytes": 5053
+    },
+    {
+      "path": "review/handoff-capture-server.py",
+      "sha256": "42d103452a6486a779365cb99347b2d4fc0b7b0077710816c750faccdeed24ad",
+      "bytes": 2345
+    },
+    {
+      "path": "review/handoff-review-server.py",
+      "sha256": "bb869dce228b9ad739b62c2f1a983f32bc2a368ace7aefb3bec9ecd98c32fc10",
+      "bytes": 299
+    }
+  ]
+}

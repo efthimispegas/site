@@ -1,0 +1,93 @@
+{
+  "source": "/Users/whiskey/Work/site/docs/references/reference_walkthrough.mov",
+  "source_sha256": "90d94411a0989e010354abc3c2e205fcdfcc0c291b6d87e1f53caf1ee8ec2f07",
+  "window_seconds": [
+    147,
+    177
+  ],
+  "clip_sha256": "e02b4af07cf78be6ca78066c7458fdb86856965c9ffc3250db64fb8c13c59307",
+  "landmarks": [
+    {
+      "clip_seconds": [
+        0,
+        15
+      ],
+      "observation": "Side-view truck above full-width dark services section. Services content travels horizontally."
+    },
+    {
+      "clip_seconds": [
+        16,
+        19
+      ],
+      "observation": "Services gives way to a horizontal road; truck camera rotates overhead while heading stays straight."
+    },
+    {
+      "clip_seconds": [
+        19,
+        20
+      ],
+      "observation": "Overhead framing widens to reveal junction, truck remains on straight approach."
+    },
+    {
+      "clip_seconds": [
+        20,
+        21
+      ],
+      "observation": "Straight overhead approach before turn."
+    },
+    {
+      "clip_seconds": [
+        21,
+        26
+      ],
+      "observation": "Downward bend into central vertical lane with continuing right-side road branch."
+    },
+    {
+      "clip_seconds": [
+        26,
+        30
+      ],
+      "observation": "Vertical downward travel; left title moves up and pins near the top, right content rises from below as the truck passes; no content fade."
+    }
+  ],
+  "mapping_note": "Video timestamps locate observations in a scroll recording; they are not physical speed or scroll-progress measurements. User requests an explicit separation between camera change and steering.",
+  "review_progress": {
+    "side_services": [
+      0.6,
+      0.76
+    ],
+    "overhead_camera": [
+      0.76,
+      0.824
+    ],
+    "aerial_widening": [
+      0.84,
+      0.872
+    ],
+    "straight_overhead": [
+      0.824,
+      0.83
+    ],
+    "downward_turn": [
+      0.83,
+      0.93
+    ],
+    "vertical_tracking": [
+      0.93,
+      1
+    ],
+    "road_content": [
+      0.91,
+      1
+    ],
+    "central_lane_entry": [
+      0.91,
+      1
+    ],
+    "content_hold": [
+      0.973,
+      1
+    ]
+  },
+  "user_amendment": "Reallocate four percentage points from overhead approach to central-lane travel. Zoom 84\u201387.2%, turn 83\u201393%, central-lane content from 91%. Both columns share a runway position and move up at full opacity. Left title passes through the middle before pinning near the top around 97%; spaced right title/description groups keep rising. Entire lift/grabber stays fixed after seating; truck alone departs. Preserve lower steady road pace and reduced zoom increase."
+}

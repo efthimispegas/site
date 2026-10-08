@@ -1,0 +1,106 @@
+(node:90454) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/review/vendor/three/build/three.module.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/whiskey/.codex/worktrees/pegasoft-concept/site/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "status": "passed",
+  "metrics": {
+    "resizeCases": [
+      {
+        "width": 557,
+        "height": 410,
+        "boundaryCameraStep": 7.160723346098895e-15,
+        "stackOutsideAtBoundary": true,
+        "departureDistance": 68.1630086072104
+      },
+      {
+        "width": 1440,
+        "height": 570,
+        "boundaryCameraStep": 1.0048591735576161e-14,
+        "stackOutsideAtBoundary": true,
+        "departureDistance": 68.1630086072104
+      },
+      {
+        "width": 375,
+        "height": 410,
+        "boundaryCameraStep": 1.5888218580782548e-14,
+        "stackOutsideAtBoundary": true,
+        "departureDistance": 82.6797268211446
+      }
+    ],
+    "maxPickupDifference": 8.43769498715119e-15,
+    "maxServiceGap": 3.177663110895394e-14,
+    "minHeadClearance": 0.37631313209891415,
+    "maxContact": 1.588860647200905e-14,
+    "maxGround": 2.831068712794149e-15,
+    "maxArticulationDegrees": 8.203994682537267,
+    "maxReverseDiff": 0,
+    "boundaries": [
+      {
+        "progress": 0.4,
+        "cameraStep": 2.847001459690819e-11,
+        "cargoStep": 1.000577398713176e-11
+      },
+      {
+        "progress": 0.55,
+        "cameraStep": 0.0000015362528168672342,
+        "cargoStep": 0
+      },
+      {
+        "progress": 0.67,
+        "cameraStep": 0,
+        "cargoStep": 2.1094237467877974e-15
+      },
+      {
+        "progress": 0.75,
+        "cameraStep": 0,
+        "cargoStep": 4.440892098500626e-16
+      },
+      {
+        "progress": 0.93,
+        "cameraStep": 0.00007055911852115829,
+        "cargoStep": 0.00006694051189981565
+      }
+    ],
+    "scale": 0.7164220893068572,
+    "dock": [
+      -4.565858994759644,
+      0,
+      -3.8763562688881255
+    ],
+    "endpoint": {
+      "position": [
+        13.487936927076465,
+        8.518955057043659,
+        58.073026111600036
+      ],
+      "quaternion": [
+        -0.04174145669977262,
+        0.17349212625413174,
+        0.007360145030244032,
+        0.9839227414718775
+      ],
+      "target": [
+        -9.377155299105993,
+        2.8364451898546577,
+        -4.748298473583681
+      ],
+      "distance": 66.85305726104707,
+      "fov": 12,
+      "aspect": 0.9146341463414634,
+      "azimuth": 0.34906585039886595,
+      "rollDegrees": 0,
+      "groundAnchorY": 286.86684426461215,
+      "hubAnchorY": 274.1073555429777,
+      "supportRectNDC": {
+        "minX": 1.3705394259429982,
+        "maxX": 1.9790236604028528,
+        "minY": -0.685391483204064,
+        "maxY": -0.16736047019180608
+      },
+      "supportIntersectsView": false,
+      "supportVisible": false,
+      "framing": "level_chassis_tracking"
+    }
+  }
+}

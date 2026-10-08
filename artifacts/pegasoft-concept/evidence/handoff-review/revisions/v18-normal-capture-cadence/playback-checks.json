@@ -1,0 +1,74 @@
+{
+  "status": "failed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791499095223.json",
+      "status": "failed",
+      "errors": [
+        "inspection cadence slowed by more than .5 seconds"
+      ],
+      "frames": 1899,
+      "progress_range": [
+        0.00044800000000000487,
+        1
+      ],
+      "elapsed_seconds": 19.3416,
+      "expected_inspection_seconds": 18.7416,
+      "observed_interval_median": 0.008300000000002911,
+      "max_camera_step": 4.536335215763419,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791499224990.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 5421,
+      "progress_range": [
+        0.18011733333333338,
+        1
+      ],
+      "elapsed_seconds": 61.51629999999999,
+      "expected_inspection_seconds": 61.4912,
+      "observed_interval_median": 0.00839999999999418,
+      "max_camera_step": 1.2008964517816265,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791499131591.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1807,
+      "progress_range": [
+        0.9995360000000002,
+        0
+      ],
+      "elapsed_seconds": 18.799800000000005,
+      "expected_inspection_seconds": 18.741300000000003,
+      "observed_interval_median": 0.00839999999999418,
+      "max_camera_step": 6.576844501640878,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}

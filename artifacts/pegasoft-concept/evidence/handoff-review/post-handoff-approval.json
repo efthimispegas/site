@@ -1,0 +1,55 @@
+{
+  "status": "accepted_post_handoff_motion",
+  "user_statement": "The rest of the story (after container handoff to the truck) is ok.",
+  "date": "2026-10-08",
+  "accepted_review": "revisions/v5-long-pickup/review.json",
+  "source_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "c8e7005575745c616f2beb5e4cd26104665280335845612a5d060ede6847bb95",
+      "bytes": 11955
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "7c0944c9e24cb7250d488bf0c1dba235457a0ec8f1565e8aa6751ca0b629577d",
+      "bytes": 17438
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "925a65b04305e78f6ab01477def51ad13f6bcd884968fddc39f75ae8367a9e26",
+      "bytes": 12172
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "7d5830b77368d70a7597a422e9ce4facc8023e02a01f4f3039f2817c6213de35",
+      "bytes": 35418
+    },
+    {
+      "path": "generation/handoff/check-sequence.mjs",
+      "sha256": "ad44f7c4ee8cfa61b9862e50549e2c36f7625ae9c66ee6854c39ae60f002c5be",
+      "bytes": 8535
+    },
+    {
+      "path": "generation/handoff/check-playback.py",
+      "sha256": "7ff7d55822a5a36132945878cbedccc39474e7ce899d5b6ce8b236aeb1ef3899",
+      "bytes": 5053
+    },
+    {
+      "path": "review/handoff-capture-server.py",
+      "sha256": "42d103452a6486a779365cb99347b2d4fc0b7b0077710816c750faccdeed24ad",
+      "bytes": 2345
+    },
+    {
+      "path": "review/handoff-review-server.py",
+      "sha256": "bb869dce228b9ad739b62c2f1a983f32bc2a368ace7aefb3bec9ecd98c32fc10",
+      "bytes": 299
+    }
+  ],
+  "scope": "Preserve post-handoff scene choreography, vehicle and camera poses, scroll distance and playback pace. Early pickup/reverse/truck-entry timing remains under review.",
+  "later_amendments": [
+    "Slower consistent highway travel.",
+    "Left/right content begins around 95% on central-lane entry.",
+    "Truck starts moving at departure; lift leaves due to following camera, without separate lift retreat."
+  ],
+  "amendment_acceptance": "Pending personal review of current amended packet."
+}

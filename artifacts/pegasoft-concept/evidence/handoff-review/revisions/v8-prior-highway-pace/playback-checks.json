@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791467768974.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1445,
+      "progress_range": [
+        0.0004480000000000291,
+        1
+      ],
+      "elapsed_seconds": 18.758100000000002,
+      "expected_inspection_seconds": 18.7416,
+      "observed_interval_median": 0.015900000000001455,
+      "max_camera_step": 7.960333489032243,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791467894481.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 4664,
+      "progress_range": [
+        0.1801106666666667,
+        1
+      ],
+      "elapsed_seconds": 61.4953,
+      "expected_inspection_seconds": 61.491699999999994,
+      "observed_interval_median": 0.0165,
+      "max_camera_step": 1.6726528353248902,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791467805816.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1577,
+      "progress_range": [
+        0.9995573333333335,
+        0
+      ],
+      "elapsed_seconds": 18.7499,
+      "expected_inspection_seconds": 18.741700000000005,
+      "observed_interval_median": 0.00869999999999709,
+      "max_camera_step": 5.9739514782271765,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}

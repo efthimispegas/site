@@ -1,0 +1,271 @@
+{
+  "status": "awaiting_personal_review",
+  "recorded_at_utc": "2026-10-08T11:46:03.954694+00:00",
+  "workspace": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "delivery": "Uncommitted standalone review slice; no production integration or new image jobs.",
+  "preview": "http://127.0.0.1:8767/review/handoff.html#viewer",
+  "changes": [
+    "Camera distance fixed through 89%, including initial truck departure.",
+    "Services split and horizontal content movement follow the inspected continuous reference.",
+    "Camera turns overhead on a straight road at 85\u201389%; aerial widening 89\u201391%; straight approach to 93%; later downward turn 93\u201398%.",
+    "Static world-anchored asphalt with separate depth layers, three lanes, shoulders and overlap-aware fork markings.",
+    "Scroll story uses page scrolling forward/reverse exclusively; synchronous resize prevents mode-switch camera races."
+  ],
+  "checks": {
+    "geometry_contact_camera_viewport": "passed",
+    "approved_input_pins": {
+      "status": "passed",
+      "count": 32
+    },
+    "source_http": "passed",
+    "normal_reverse_quarter_playback": "passed",
+    "native_scroll": "passed",
+    "pause_resume_keyboard": "passed"
+  },
+  "reference": {
+    "source": "/Users/whiskey/Work/site/docs/references/reference_walkthrough.mov",
+    "source_sha256": "90d94411a0989e010354abc3c2e205fcdfcc0c291b6d87e1f53caf1ee8ec2f07",
+    "window_seconds": [
+      147,
+      177
+    ],
+    "clip_sha256": "e02b4af07cf78be6ca78066c7458fdb86856965c9ffc3250db64fb8c13c59307",
+    "landmarks": [
+      {
+        "clip_seconds": [
+          0,
+          15
+        ],
+        "observation": "Side-view truck above full-width dark services section. Services content travels horizontally."
+      },
+      {
+        "clip_seconds": [
+          16,
+          19
+        ],
+        "observation": "Services gives way to a horizontal road; truck camera rotates overhead while heading stays straight."
+      },
+      {
+        "clip_seconds": [
+          19,
+          20
+        ],
+        "observation": "Overhead framing widens to reveal junction, truck remains on straight approach."
+      },
+      {
+        "clip_seconds": [
+          20,
+          21
+        ],
+        "observation": "Straight overhead approach before turn."
+      },
+      {
+        "clip_seconds": [
+          21,
+          26
+        ],
+        "observation": "Downward bend into central vertical lane with continuing right-side road branch."
+      },
+      {
+        "clip_seconds": [
+          26,
+          30
+        ],
+        "observation": "Vertical downward travel; left headline and right capability content enter."
+      }
+    ],
+    "mapping_note": "Video timestamps locate observations in a scroll recording; they are not physical speed or scroll-progress measurements. User requests an explicit separation between camera change and steering.",
+    "review_progress": {
+      "side_services": [
+        0.75,
+        0.85
+      ],
+      "overhead_camera": [
+        0.85,
+        0.89
+      ],
+      "aerial_widening": [
+        0.89,
+        0.91
+      ],
+      "straight_overhead": [
+        0.91,
+        0.93
+      ],
+      "downward_turn": [
+        0.93,
+        0.98
+      ],
+      "vertical_tracking": [
+        0.98,
+        1
+      ]
+    }
+  },
+  "source_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "c8e7005575745c616f2beb5e4cd26104665280335845612a5d060ede6847bb95",
+      "bytes": 11955
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "7c0944c9e24cb7250d488bf0c1dba235457a0ec8f1565e8aa6751ca0b629577d",
+      "bytes": 17438
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "925a65b04305e78f6ab01477def51ad13f6bcd884968fddc39f75ae8367a9e26",
+      "bytes": 12172
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "7d5830b77368d70a7597a422e9ce4facc8023e02a01f4f3039f2817c6213de35",
+      "bytes": 35418
+    },
+    {
+      "path": "generation/handoff/check-sequence.mjs",
+      "sha256": "ad44f7c4ee8cfa61b9862e50549e2c36f7625ae9c66ee6854c39ae60f002c5be",
+      "bytes": 8535
+    },
+    {
+      "path": "generation/handoff/check-playback.py",
+      "sha256": "7ff7d55822a5a36132945878cbedccc39474e7ce899d5b6ce8b236aeb1ef3899",
+      "bytes": 5053
+    },
+    {
+      "path": "review/handoff-capture-server.py",
+      "sha256": "42d103452a6486a779365cb99347b2d4fc0b7b0077710816c750faccdeed24ad",
+      "bytes": 2345
+    },
+    {
+      "path": "review/handoff-review-server.py",
+      "sha256": "bb869dce228b9ad739b62c2f1a983f32bc2a368ace7aefb3bec9ecd98c32fc10",
+      "bytes": 299
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "evidence/handoff-review/source-checks.json",
+      "bytes": 2712,
+      "sha256": "f6a3d91124b6356c61df8dbf31e084daec6e881515e594d63ffd3dee59f29db0"
+    },
+    {
+      "path": "evidence/handoff-review/sequence-checks.json",
+      "bytes": 742003,
+      "sha256": "7f09e03d447b721ee4f1c365ee7de0c3031492e3b9c39e047da486df3a282605"
+    },
+    {
+      "path": "evidence/handoff-review/playback-checks.json",
+      "bytes": 1955,
+      "sha256": "a6e56d6599f96dc83921785c276f17d4912a4aec7815599500d0df4d7423d1fc"
+    },
+    {
+      "path": "evidence/handoff-review/scroll-interactions.json",
+      "bytes": 22687,
+      "sha256": "567c009dd83404cdac0becd1b882a0d13d784bf040b2dba84fa816a962a9208c"
+    },
+    {
+      "path": "evidence/handoff-review/interaction-checks.json",
+      "bytes": 5876,
+      "sha256": "a6cc3a6fc4299493cbf4ae35940a5be1303ef41aa4f41c9d050de2344816d03e"
+    },
+    {
+      "path": "evidence/handoff-review/articulation-clearance-audit.json",
+      "bytes": 3275,
+      "sha256": "97eda6d61409efe15ae2620ae89e75c7e1d96529cba1a5ce5ae0e2fd2ca3eedf"
+    },
+    {
+      "path": "evidence/handoff-review/reference/choreography.json",
+      "bytes": 1915,
+      "sha256": "0129f8ef3be7d402abbb893528deab85e3745f93aec87eec6a45eab0394ce524"
+    },
+    {
+      "path": "evidence/handoff-review/reference/post-handoff.mp4",
+      "bytes": 1556118,
+      "sha256": "e02b4af07cf78be6ca78066c7458fdb86856965c9ffc3250db64fb8c13c59307"
+    },
+    {
+      "path": "evidence/handoff-review/road-continuity/frames.json",
+      "bytes": 944,
+      "sha256": "c891ba3447fa0bf1a39fe8ee0385762b15872f2f00e54df7361626509c7187a6"
+    },
+    {
+      "path": "evidence/handoff-review/road-continuity/pixel-observations.json",
+      "bytes": 5211,
+      "sha256": "3888b80c3bb62c3e06ab3b74ac004901021b701a9956e959e63e4782512da398"
+    },
+    {
+      "path": "evidence/handoff-review/road-continuity/ordered-road-frames.png",
+      "bytes": 165481,
+      "sha256": "d53e5a9bf4a56bd766fc890d89f317843d27d6e56ad2f114851e176746e26891"
+    },
+    {
+      "path": "evidence/handoff-review/road-92.8.png",
+      "bytes": 33629,
+      "sha256": "058a01699638ee59865293ee9776c82ad29ffbde4d15856dfcda4f786a584ba4"
+    },
+    {
+      "path": "evidence/handoff-review/services-scroll.png",
+      "bytes": 43698,
+      "sha256": "12c5cc039c93a4f7d234f0864bbea0d8195c6492f596d847582e50cf34dc9da0"
+    },
+    {
+      "path": "evidence/handoff-review/downward-turn.png",
+      "bytes": 38500,
+      "sha256": "30ebce61dfc6ea112761fea3d5b8d935d8d011e254b02e601f2672a2acb46d86"
+    },
+    {
+      "path": "evidence/handoff-review/review-ready.png",
+      "bytes": 43782,
+      "sha256": "29df320c7a8e5f860df69197292add23e26c4345550b6f2254fe808fd1263ee0"
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791459630497.json",
+      "bytes": 3141222,
+      "sha256": "7e14c51fd6e5fd3f5ce8cdecef0e0a161d133ce05843c9ee1912d9af7c5d7147"
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791459630497.webm",
+      "bytes": 4301900,
+      "sha256": "824aee5bba83b9342707135257f9e1c0c12ed42606c207d67e9ca161e4e01a51"
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791459817626.json",
+      "bytes": 8196444,
+      "sha256": "0594126557284f82eae6f6763e63d3541b061857d3b0c343c49e74412135eedc"
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791459817626.webm",
+      "bytes": 10908445,
+      "sha256": "a558b5dc1469e39b05cc5b935ee8825738f61bbf26d63051553081996cd79e53"
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791459696748.json",
+      "bytes": 3047048,
+      "sha256": "3ed03b011d98d1838599ea6998a26fa35f915f2764b1604304ce32ffd6b70c6b"
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791459696748.webm",
+      "bytes": 4385526,
+      "sha256": "17b87c837315fdb70c01c58f182d7c6e8d11aaf066ea3acee3e9109058ec4183"
+    }
+  ],
+  "visual_inspection": {
+    "status": "inspected_by_implementing_agent",
+    "personal_approval": "pending",
+    "road_92_8": "Ordered frames and localized asphalt pixel observations show no abrupt fill change.",
+    "coverage": "Actual browser 597\u00d7788; three motion recordings at 555\u00d7408 canvas. Scroll-mode stage at 555\u00d7536. Core fit checks include narrow and wide viewports.",
+    "recording_scope": "Canvas recordings cover vehicle/camera/road motion; browser screenshots and wheel observations cover DOM services and road-copy overlays."
+  },
+  "limits": [
+    "Road curve is broader than the reference to preserve the approved 10-degree articulation envelope; approved cab/chassis/grabber/assets unchanged.",
+    "Visual roof coupling only; four-corner pickup unresolved.",
+    "Ground-plane bicycle/effective bogie model excludes tire scrub and suspension dynamics.",
+    "Services text is proposed copy, awaiting approval.",
+    "Runtime checks do not certify representative-device performance."
+  ],
+  "history": "Superseded iterations and failed resize recording are retained under revisions/."
+}

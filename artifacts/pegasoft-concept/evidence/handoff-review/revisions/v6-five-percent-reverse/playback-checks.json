@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791466827925.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1894,
+      "progress_range": [
+        0.0004979999999999973,
+        1
+      ],
+      "elapsed_seconds": 16.6665,
+      "expected_inspection_seconds": 16.65836666666667,
+      "observed_interval_median": 0.008300000000001091,
+      "max_camera_step": 8.208363670040994,
+      "departure_distance_range": [
+        68.1630086072104,
+        225.49060144655547
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791466859712.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1918,
+      "progress_range": [
+        0.9994959999999999,
+        0
+      ],
+      "elapsed_seconds": 16.6666,
+      "expected_inspection_seconds": 16.658266666666666,
+      "observed_interval_median": 0.008300000000002911,
+      "max_camera_step": 4.257020191327022,
+      "departure_distance_range": [
+        68.1630086072104,
+        225.49060144655547
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}

@@ -1,0 +1,30 @@
+{
+  "status": "failed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791497026900.json",
+      "status": "failed",
+      "errors": [
+        "truck slid backwards on screen during initial departure"
+      ],
+      "frames": 1981,
+      "progress_range": [
+        0.0004426666666666643,
+        1
+      ],
+      "elapsed_seconds": 18.7506,
+      "expected_inspection_seconds": 18.741699999999998,
+      "observed_interval_median": 0.008300000000001091,
+      "max_camera_step": 2.8366584624543956,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}

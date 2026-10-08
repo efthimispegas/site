@@ -1,0 +1,5 @@
+{
+  "initial_failure": "straightDuringCamera failed at exact turn onset: linearly interpolated steering sampled ahead of the straight/curve boundary.",
+  "repair": "Evaluate steering from analytical curvature at the requested distance; preserve road integration and all test tolerances.",
+  "final_status": "passed"
+}

@@ -1,0 +1,248 @@
+{
+  "status": "passed",
+  "metrics": {
+    "maxAcceptedPostDifference": 8.526512829121202e-13,
+    "reverseSpan": 0.04999999999999999,
+    "monotonicPickup": true,
+    "straightDuringCamera": true,
+    "stableAerial": true,
+    "levelAerialCamera": true,
+    "monotonicWidening": true,
+    "downwardTurn": true,
+    "screenDownward": true,
+    "monotonicTravel": true,
+    "joinSpeed": 138.88889002799942,
+    "fixedFraming": true,
+    "straightDeparture": true,
+    "maxPickupAimDifference": 2.761679773755077e-15,
+    "resizeCases": [
+      {
+        "width": 557,
+        "height": 410,
+        "fitted": [
+          {
+            "progress": 0.4,
+            "maxNDC": 0.6806324200362927
+          },
+          {
+            "progress": 0.55,
+            "maxNDC": 0.6807738011143223
+          },
+          {
+            "progress": 0.73,
+            "maxNDC": 0.6546840570985436
+          },
+          {
+            "progress": 0.802,
+            "maxNDC": 0.6939300368450632
+          },
+          {
+            "progress": 0.838,
+            "maxNDC": 0.6784339340641338
+          },
+          {
+            "progress": 0.874,
+            "maxNDC": 0.6784339340641344
+          },
+          {
+            "progress": 0.928,
+            "maxNDC": 0.48350105761997536
+          },
+          {
+            "progress": 1,
+            "maxNDC": 0.6294232728446628
+          }
+        ],
+        "boundaryCameraStep": 7.944109290391274e-15,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 225.78231755889263
+      },
+      {
+        "width": 1440,
+        "height": 570,
+        "fitted": [
+          {
+            "progress": 0.4,
+            "maxNDC": 0.4275957028247753
+          },
+          {
+            "progress": 0.55,
+            "maxNDC": 0.44968753422880015
+          },
+          {
+            "progress": 0.73,
+            "maxNDC": 0.4496875342288001
+          },
+          {
+            "progress": 0.802,
+            "maxNDC": 0.6939300368450632
+          },
+          {
+            "progress": 0.838,
+            "maxNDC": 0.4855393987924205
+          },
+          {
+            "progress": 0.874,
+            "maxNDC": 0.48553939879242136
+          },
+          {
+            "progress": 0.928,
+            "maxNDC": 0.643483661868019
+          },
+          {
+            "progress": 1,
+            "maxNDC": 0.8376934060492992
+          }
+        ],
+        "boundaryCameraStep": 1.0658141036401503e-14,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 170.40752151802602
+      },
+      {
+        "width": 375,
+        "height": 410,
+        "fitted": [
+          {
+            "progress": 0.4,
+            "maxNDC": 0.8335941844011444
+          },
+          {
+            "progress": 0.55,
+            "maxNDC": 0.833736953961804
+          },
+          {
+            "progress": 0.73,
+            "maxNDC": 0.8017851020107538
+          },
+          {
+            "progress": 0.802,
+            "maxNDC": 0.8382763389500884
+          },
+          {
+            "progress": 0.838,
+            "maxNDC": 0.6754193071515052
+          },
+          {
+            "progress": 0.874,
+            "maxNDC": 0.675419307151505
+          },
+          {
+            "progress": 0.928,
+            "maxNDC": 0.3491489723648558
+          },
+          {
+            "progress": 1,
+            "maxNDC": 0.4218671613183065
+          }
+        ],
+        "boundaryCameraStep": 1.4210854715202004e-14,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 335.36200234747514
+      }
+    ],
+    "maxPickupDifference": 1.1723955140041653e-13,
+    "maxServiceGap": 5.783398860650275e-14,
+    "minHeadClearance": 0.3763131320989106,
+    "maxContact": 2.8643108549553355e-14,
+    "maxGround": 3.497202527569243e-15,
+    "maxArticulationDegrees": 8.202180646181514,
+    "maxReverseDiff": 0,
+    "boundaries": [
+      {
+        "progress": 0.2,
+        "cameraStep": 1.0363265801061061e-11,
+        "cargoStep": 1.5295849576277525e-33
+      },
+      {
+        "progress": 0.25,
+        "cameraStep": 1.4868462085059637e-10,
+        "cargoStep": 0.000001223204717071269
+      },
+      {
+        "progress": 0.3,
+        "cameraStep": 7.944109290391274e-15,
+        "cargoStep": 0
+      },
+      {
+        "progress": 0.4,
+        "cameraStep": 7.944109290391274e-15,
+        "cargoStep": 0
+      },
+      {
+        "progress": 0.5,
+        "cameraStep": 0,
+        "cargoStep": 2.7755575615628914e-15
+      },
+      {
+        "progress": 0.55,
+        "cameraStep": 0,
+        "cargoStep": 4.440892098500626e-16
+      },
+      {
+        "progress": 0.73,
+        "cameraStep": 0.000009950306798406465,
+        "cargoStep": 0.000009350229838389623
+      },
+      {
+        "progress": 0.802,
+        "cameraStep": 0.000014614513111615452,
+        "cargoStep": 0.000013733150126427063
+      },
+      {
+        "progress": 0.838,
+        "cameraStep": 0.000012573927685475533,
+        "cargoStep": 0.000011815627061650957
+      },
+      {
+        "progress": 0.874,
+        "cameraStep": 0.000009950306843328369,
+        "cargoStep": 0.000009350229923654751
+      },
+      {
+        "progress": 0.964,
+        "cameraStep": 0.000019900613712088004,
+        "cargoStep": 0.00001867570965963239
+      }
+    ],
+    "scale": 0.7164220893068572,
+    "dock": [
+      -4.565858994759644,
+      0,
+      -3.8763562688881255
+    ],
+    "endpoint": {
+      "position": [
+        6.55070737268567,
+        6.794891361877775,
+        39.01314455733807
+      ],
+      "quaternion": [
+        -0.04174145669977262,
+        0.1734921262541318,
+        0.007360145030244035,
+        0.9839227414718775
+      ],
+      "target": [
+        -9.377155299105993,
+        2.8364451898546577,
+        -4.748298473583681
+      ],
+      "distance": 46.569954964977846,
+      "fov": 12,
+      "aspect": 1.3585365853658538,
+      "azimuth": 0.34906585039886595,
+      "rollDegrees": 0,
+      "groundAnchorY": 322.3408365667787,
+      "hubAnchorY": 304.0764492991196,
+      "supportRectNDC": {
+        "minX": 1.4642853584319526,
+        "maxX": 1.9767637455038793,
+        "minY": -1.0946938212042208,
+        "maxY": -0.2471734942678456
+      },
+      "supportIntersectsView": false,
+      "supportVisible": false,
+      "framing": "level_chassis_tracking"
+    }
+  }
+}

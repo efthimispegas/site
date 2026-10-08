@@ -1,0 +1,193 @@
+{
+  "status": "accepted",
+  "recorded_at_utc": "2026-10-08T22:43:46.866916+00:00",
+  "workspace": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "preview": "http://127.0.0.1:8767/review/handoff.html#viewer",
+  "changes": [
+    "Overhead approach shortened by four percentage points; zoom 84\u201387.2%, turn 83\u201393%, central-lane content from 91%, straight downward travel 93\u2013100%.",
+    "Both first headings share the same runway position and pass upward at full opacity. Left title crosses the middle near 95%, pins near the top around 97%, and holds. Right title/description groups continue rising with generous spacing.",
+    "Stationary entire lift/grabber after seating, steady lower road pace and reduced overhead distance increase preserved."
+  ],
+  "checks": {
+    "geometry_contact_camera_viewports": "passed",
+    "approved_input_pins": {
+      "status": "passed",
+      "count": 32
+    },
+    "normal_reverse_quarter_playback": "passed",
+    "native_scroll": "passed",
+    "source_http": "passed"
+  },
+  "reviewed_inputs": [
+    {
+      "path": "review/handoff.html",
+      "sha256": "9f73d45610d545facd119a0527b70a1dbe76fa6af6777a1b6a2c14e947fff866"
+    },
+    {
+      "path": "review/handoff.js",
+      "sha256": "3f3374d3888ff0b04d510d0feb7cd88a8257d8d901947d3631d359a5aa9386de"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "cc5a8c846343891a860406ec3679def0a74b4436806809e624619dcd24d33776"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65"
+    },
+    {
+      "path": "review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    }
+  ],
+  "verification_input_pins": [
+    {
+      "path": "generation/handoff/check-sequence.mjs",
+      "sha256": "5a7f6207d005d51346bd2f5354d799b16a7e0cd17d09fa46ed79d6b9b894b8c8"
+    },
+    {
+      "path": "generation/handoff/check-playback.py",
+      "sha256": "8268b85a101d4f91c31d5c22477241ab22631d7242392f157c5a57243597549e"
+    }
+  ],
+  "evidence": [
+    "sequence-checks.json",
+    "playback-checks.json",
+    "native-scroll.json",
+    "source-checks.json",
+    "content-mid-runway-95.png",
+    "content-pinned-98.png",
+    "road-content.png",
+    "reference/choreography.json",
+    "user-approval.json"
+  ],
+  "playback_runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791499280872.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1947,
+      "progress_range": [
+        0.0004479999999996896,
+        1
+      ],
+      "elapsed_seconds": 18.74979999999999,
+      "expected_inspection_seconds": 18.741600000000005,
+      "observed_interval_median": 0.008300000000017462,
+      "max_camera_step": 4.685362866612521,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791499224990.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 5421,
+      "progress_range": [
+        0.18011733333333338,
+        1
+      ],
+      "elapsed_seconds": 61.51629999999999,
+      "expected_inspection_seconds": 61.4912,
+      "observed_interval_median": 0.00839999999999418,
+      "max_camera_step": 1.2008964517816265,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791499131591.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1807,
+      "progress_range": [
+        0.9995360000000002,
+        0
+      ],
+      "elapsed_seconds": 18.799800000000005,
+      "expected_inspection_seconds": 18.741300000000003,
+      "observed_interval_median": 0.00839999999999418,
+      "max_camera_step": 6.576844501640878,
+      "departure_distance_range": [
+        68.1630086072104,
+        149.9586189358629
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "visual_inspection": "Inspected native scroll at 93%, 95%, 98% and 100%: same-height first headings, title passing through the middle then pinning, full-opacity content and generous group spacing. Current normal/reverse/quarter browser playback passes. User accepted this checkpoint.",
+  "recording_retry": "Initial normal replay had a .6-second cadence loss; retained under revisions/v18-normal-capture-cadence. Isolated normal retry passed unchanged tolerance.",
+  "limits": [
+    "Visual roof coupling only; four-corner pickup remains unresolved.",
+    "Ground-plane bicycle model with rigid three-axle effective bogie; tyre scrub and suspension dynamics not simulated.",
+    "Browser playback and visual review are separate required gates."
+  ],
+  "delivery": "Accepted standalone checkpoint; approved assets unchanged; grouped local commits authorized. Production integration remains deferred.",
+  "acceptance": {
+    "authority": "Direct user approval in this chat",
+    "approved_at_utc": "2026-10-08T22:43:46.866916+00:00",
+    "scope": "Connected handoff, shorter overhead approach, longer central-lane trip and motion-only spaced content; stop at checkpoint after grouped commits."
+  },
+  "approval_only_document_updates": [
+    {
+      "path": "review/handoff.html",
+      "reviewed_sha256": "9f73d45610d545facd119a0527b70a1dbe76fa6af6777a1b6a2c14e947fff866",
+      "current_sha256": "37422680cb495bbf5815230f2af2d4ee01b0173a9e732c558bd8f9cf4df4250c",
+      "snapshot": "evidence/handoff-review/accepted-inputs/review/handoff.html",
+      "replacements": [
+        [
+          "CONNECTED MOTION \u00b7 PERSONAL REVIEW",
+          "CONNECTED MOTION \u00b7 ACCEPTED CHECKPOINT"
+        ],
+        [
+          "Handoff and departure draft \u00b7 Awaiting personal approval \u00b7 No new generated assets",
+          "Handoff and departure approved \u00b7 Checkpoint complete \u00b7 Production integration deferred"
+        ]
+      ]
+    }
+  ]
+}

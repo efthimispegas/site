@@ -1,0 +1,168 @@
+(node:94019) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/review/vendor/three/build/three.module.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/whiskey/.codex/worktrees/pegasoft-concept/site/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "status": "passed",
+  "metrics": {
+    "fixedFraming": true,
+    "straightDeparture": true,
+    "maxPickupAimDifference": 2.220446049250313e-16,
+    "resizeCases": [
+      {
+        "width": 557,
+        "height": 410,
+        "fitted": [
+          {
+            "progress": 0.55,
+            "maxNDC": 0.6806324200362927
+          },
+          {
+            "progress": 0.75,
+            "maxNDC": 0.6807738011143223
+          },
+          {
+            "progress": 0.85,
+            "maxNDC": 0.6546840570985449
+          },
+          {
+            "progress": 0.96,
+            "maxNDC": 0.9393452969522869
+          }
+        ],
+        "boundaryCameraStep": 7.944109290391274e-15,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 68.1630086072104
+      },
+      {
+        "width": 1440,
+        "height": 570,
+        "fitted": [
+          {
+            "progress": 0.55,
+            "maxNDC": 0.4275957028247753
+          },
+          {
+            "progress": 0.75,
+            "maxNDC": 0.44968753422880015
+          },
+          {
+            "progress": 0.85,
+            "maxNDC": 0.44968753422880015
+          },
+          {
+            "progress": 0.96,
+            "maxNDC": 0.9393452969522869
+          }
+        ],
+        "boundaryCameraStep": 1.0658141036401503e-14,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 68.1630086072104
+      },
+      {
+        "width": 375,
+        "height": 410,
+        "fitted": [
+          {
+            "progress": 0.55,
+            "maxNDC": 0.8335941844011444
+          },
+          {
+            "progress": 0.75,
+            "maxNDC": 0.833736953961804
+          },
+          {
+            "progress": 0.85,
+            "maxNDC": 0.8017851020107548
+          },
+          {
+            "progress": 0.96,
+            "maxNDC": 0.7670209665880716
+          }
+        ],
+        "boundaryCameraStep": 1.4210854715202004e-14,
+        "stackRetiredAtBoundary": true,
+        "departureDistance": 82.79501326583397
+      }
+    ],
+    "maxPickupDifference": 4.440892098500626e-15,
+    "maxServiceGap": 4.019452027135386e-14,
+    "minHeadClearance": 0.3763131320989137,
+    "maxContact": 3.177663110895394e-14,
+    "maxGround": 2.7200464103316335e-15,
+    "maxArticulationDegrees": 8.200713488723887,
+    "maxReverseDiff": 0,
+    "boundaries": [
+      {
+        "progress": 0.4,
+        "cameraStep": 3.904874796964956e-11,
+        "cargoStep": 1.000577398713176e-11
+      },
+      {
+        "progress": 0.55,
+        "cameraStep": 3.552713678800501e-15,
+        "cargoStep": 0
+      },
+      {
+        "progress": 0.67,
+        "cameraStep": 0,
+        "cargoStep": 2.1094237467877974e-15
+      },
+      {
+        "progress": 0.75,
+        "cameraStep": 0,
+        "cargoStep": 4.440892098500626e-16
+      },
+      {
+        "progress": 0.85,
+        "cameraStep": 0.00013865351163701398,
+        "cargoStep": 0.00013029159487132347
+      },
+      {
+        "progress": 0.96,
+        "cameraStep": 0.00004348142921946452,
+        "cargoStep": 0.00004090510869048103
+      }
+    ],
+    "scale": 0.7164220893068572,
+    "dock": [
+      -4.565858994759644,
+      0,
+      -3.8763562688881255
+    ],
+    "endpoint": {
+      "position": [
+        13.487936927076465,
+        8.518955057043659,
+        58.073026111600036
+      ],
+      "quaternion": [
+        -0.04174145669977262,
+        0.17349212625413174,
+        0.007360145030244032,
+        0.9839227414718775
+      ],
+      "target": [
+        -9.377155299105993,
+        2.8364451898546577,
+        -4.748298473583681
+      ],
+      "distance": 66.85305726104707,
+      "fov": 12,
+      "aspect": 0.9146341463414634,
+      "azimuth": 0.34906585039886595,
+      "rollDegrees": 0,
+      "groundAnchorY": 286.86684426461215,
+      "hubAnchorY": 274.1073555429777,
+      "supportRectNDC": {
+        "minX": 1.3705394259429982,
+        "maxX": 1.9790236604028528,
+        "minY": -0.685391483204064,
+        "maxY": -0.16736047019180608
+      },
+      "supportIntersectsView": false,
+      "supportVisible": false,
+      "framing": "level_chassis_tracking"
+    }
+  }
+}

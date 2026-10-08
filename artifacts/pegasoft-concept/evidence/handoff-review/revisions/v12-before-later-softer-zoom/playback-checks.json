@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "runs": [
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-normal-1791497131036.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1961,
+      "progress_range": [
+        0.00044799999999999875,
+        1
+      ],
+      "elapsed_seconds": 18.7498,
+      "expected_inspection_seconds": 18.7416,
+      "observed_interval_median": 0.008300000000001091,
+      "max_camera_step": 5.0275714550088235,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802602
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-forward-quarter-1791497524597.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 7274,
+      "progress_range": [
+        0.18,
+        1
+      ],
+      "elapsed_seconds": 61.50779999999998,
+      "expected_inspection_seconds": 61.50000000000001,
+      "observed_interval_median": 0.008299999999988358,
+      "max_camera_step": 1.1711566158689684,
+      "departure_distance_range": [
+        68.1630086072104,
+        225.49060144655547
+      ],
+      "viewport": {
+        "width": 555,
+        "height": 408
+      }
+    },
+    {
+      "path": "evidence/handoff-review/playback/handoff-reverse-normal-1791497189200.json",
+      "status": "passed",
+      "errors": [],
+      "frames": 1949,
+      "progress_range": [
+        0.9995573333333332,
+        0
+      ],
+      "elapsed_seconds": 18.749800000000004,
+      "expected_inspection_seconds": 18.741699999999998,
+      "observed_interval_median": 0.008300000000002911,
+      "max_camera_step": 2.8688745783458076,
+      "departure_distance_range": [
+        68.1630086072104,
+        170.40752151802616
+      ],
+      "viewport": {
+        "width": 1214,
+        "height": 568
+      }
+    }
+  ],
+  "scope": "Observed browser rendering at the recorded viewport; not a representative-device performance certification."
+}
