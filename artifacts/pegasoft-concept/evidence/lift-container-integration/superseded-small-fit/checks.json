@@ -1,0 +1,487 @@
+{
+  "status": "technical_integration_checks_passed_rendered_review_required",
+  "date_local": "2026-10-06",
+  "inputs": {
+    "liftGLB": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+    "containerGLB": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+    "acceptedLiftJS": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6",
+    "integrationJS": "af58b893dea7b5ee8e0e044e4d264321c6102d090bbbaa747625607ed91c6807",
+    "contactJS": "18dd8a6229c3ff1097d95a2de9ce684e8d47ca4330fe5cdbbbdc1cf78a94e442",
+    "harness": "7ffc5a0d8a5c36296fc819d653b9f0f97ac3c77a13fe570f54ed16172dd74ce0",
+    "checkScript": "bb4eaa8d95d4af5b2f62cf595017863eb5daad6ac0bffdfa77602111656f71bf"
+  },
+  "fit": {
+    "length": 12.192,
+    "width": 2.438,
+    "height": 2.896,
+    "spreaderWidth": 0.3,
+    "scale": 0.12305168170631664,
+    "yaw": -1.5707963267948966,
+    "lockDrop": 0.012,
+    "extensionRailHeight": 0.022,
+    "extensionAnchorSpan": 0.296,
+    "containerModelDimensions": [
+      12.192,
+      2.896,
+      2.438
+    ],
+    "containerAxis": "long X meters -> lift Z visual coordinates; front doors face initial camera",
+    "roofLocal": -0.2668639775514603,
+    "actualSpreaderUnderside": -0.23286397755146027,
+    "clippedRoofTriangles": 13615,
+    "contactCount": 4,
+    "contacts": [
+      {
+        "id": "-1_-1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          -1.139
+        ],
+        "roofLocal": [
+          0.11212287715363434,
+          -0.2668639775514603,
+          -0.7284644080880629
+        ],
+        "spreaderLocal": [
+          0.11212287715363423,
+          -0.25486397749185563,
+          -0.7379393875794492
+        ],
+        "originalHeadAnchor": [
+          0.05996701169013974,
+          -0.1977554358811625,
+          -0.2961215040683746
+        ],
+        "extensionRail": "C01 long-container extension rail -1_-1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.09752000048438726,
+        "sole": "C01 pickup sole -1_-1",
+        "neck": "C01 pickup neck -1_-1",
+        "pin": "C01 inserted lock pin -1_-1"
+      },
+      {
+        "id": "-1_1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          1.139
+        ],
+        "roofLocal": [
+          -0.16818885377335502,
+          -0.2668639775514603,
+          -0.7284644080880629
+        ],
+        "spreaderLocal": [
+          -0.16818885377335513,
+          -0.25486397749185563,
+          -0.737939387579449
+        ],
+        "originalHeadAnchor": [
+          -0.1160329883098602,
+          -0.19537865731464335,
+          -0.2961215040683746
+        ],
+        "extensionRail": "C01 long-container extension rail -1_1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.09752000048438726,
+        "sole": "C01 pickup sole -1_1",
+        "neck": "C01 pickup neck -1_1",
+        "pin": "C01 inserted lock pin -1_1"
+      },
+      {
+        "id": "1_-1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          -1.139
+        ],
+        "roofLocal": [
+          0.11212287715363456,
+          -0.2668639775514603,
+          0.7471713589340864
+        ],
+        "spreaderLocal": [
+          0.11212287715363467,
+          -0.25486397749185563,
+          0.7376963794426997
+        ],
+        "originalHeadAnchor": [
+          0.05996701169013974,
+          -0.19773787002417403,
+          0.29587849593162535
+        ],
+        "extensionRail": "C01 long-container extension rail 1_-1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.09752000048438726,
+        "sole": "C01 pickup sole 1_-1",
+        "neck": "C01 pickup neck 1_-1",
+        "pin": "C01 inserted lock pin 1_-1"
+      },
+      {
+        "id": "1_1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          1.139
+        ],
+        "roofLocal": [
+          -0.1681888537733548,
+          -0.2668639775514603,
+          0.7471713589340864
+        ],
+        "spreaderLocal": [
+          -0.16818885377335469,
+          -0.25486397749185563,
+          0.7376963794427
+        ],
+        "originalHeadAnchor": [
+          -0.1160329883098602,
+          -0.19531365802290773,
+          0.29587849593162535
+        ],
+        "extensionRail": "C01 long-container extension rail 1_1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.09752000048438726,
+        "sole": "C01 pickup sole 1_1",
+        "neck": "C01 pickup neck 1_1",
+        "pin": "C01 inserted lock pin 1_1"
+      }
+    ],
+    "scaleIsUniform": true,
+    "originalContainerMeshes": 197
+  },
+  "checks": {
+    "retainedLiftMeshes": 322,
+    "retainedAttributeValues": 1917936,
+    "forwardReverseSamples": 601,
+    "attachedSamples": 300,
+    "maxErrors": {
+      "retainedWorldMatrix": 0,
+      "reverse": 0,
+      "pause": 0,
+      "ownershipJump": 8.881784197001252e-16,
+      "contact": 6.610836509878011e-11,
+      "ram": 1.1116099371267112e-15,
+      "supportCompression": 0.031136430211353705,
+      "supportPenetration": 0
+    },
+    "interfaceSolidPrimitives": [
+      {
+        "name": "C01 long-container extension rail -1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0003895197512667941,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension anchor mount -1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0000561736678365949,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension cross tie -1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.00006611689875932857,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup sole -1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 7.92983750659047e-7,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup neck -1_-1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0000010868930082117034,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 inserted lock pin -1_-1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 2.1515404336431164e-7,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 long-container extension rail -1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0003895197512667941,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension anchor mount -1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.00005997651593613099,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension cross tie -1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.00006611689875932857,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup sole -1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 7.92983750659047e-7,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup neck -1_1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0000010868930082117034,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 inserted lock pin -1_1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 2.1515404336431164e-7,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 long-container extension rail 1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0003895197512667941,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension anchor mount 1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.00005620177738882497,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension cross tie 1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.00006611689875932857,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup sole 1_-1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 7.92983750659047e-7,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup neck 1_-1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0000010868930082117034,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 inserted lock pin 1_-1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 2.1515404336431164e-7,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 long-container extension rail 1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0003895197512667941,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension anchor mount 1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.00006008051412682445,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 extension cross tie 1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.00006611689875932857,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup sole 1_1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 7.92983750659047e-7,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 pickup neck 1_1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0000010868930082117034,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "C01 inserted lock pin 1_1",
+        "triangles": 96,
+        "weldedVertices": 50,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 2.1515404336431164e-7,
+        "degenerateTriangles": 0
+      }
+    ],
+    "supportSolidPrimitives": [
+      {
+        "name": "Pickup pedestal 0",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.029582021159315342,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "Compliant pickup pad 0",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0011812500100582823,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "Pickup pedestal 1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.029592712992361322,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "Compliant pickup pad 1",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0011812500100582823,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "Pickup pedestal 2",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.029582021159315342,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "Compliant pickup pad 2",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0011812500100582823,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "Pickup pedestal 3",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.029592712992361322,
+        "degenerateTriangles": 0
+      },
+      {
+        "name": "Compliant pickup pad 3",
+        "triangles": 12,
+        "weldedVertices": 8,
+        "boundaryOrWindingEdges": 0,
+        "positiveVolumeM3": 0.0011812500100582823,
+        "degenerateTriangles": 0
+      }
+    ],
+    "castingChecks": [
+      {
+        "id": "-1_-1",
+        "rimRaycast": true,
+        "pinDepthMeters": 0.055,
+        "clearDepthMeters": 0.14799999994784505
+      },
+      {
+        "id": "-1_1",
+        "rimRaycast": true,
+        "pinDepthMeters": 0.055,
+        "clearDepthMeters": 0.14799999994784505
+      },
+      {
+        "id": "1_-1",
+        "rimRaycast": true,
+        "pinDepthMeters": 0.055,
+        "clearDepthMeters": 0.14799999994784505
+      },
+      {
+        "id": "1_1",
+        "rimRaycast": true,
+        "pinDepthMeters": 0.055,
+        "clearDepthMeters": 0.14799999994784505
+      }
+    ],
+    "bodyEnvelopeTransitionPoses": 13,
+    "bodyEnvelopeIntersections": 0,
+    "containerMeshes": 197,
+    "approvedContainerBytesUnchanged": true,
+    "approvedLiftSourcesUnchanged": true
+  },
+  "limits": [
+    "The nominal C01 dimensions remain in meters; one uniform visual conversion maps them into the existing lift model coordinates.",
+    "Long-container extensions and compliant support fixture are local integration interpretations, requiring user review.",
+    "Composite overlapping closed primitives are visual mechanism geometry, not manufacturing certification.",
+    "Runtime playback, physical scroll, pause/resume, reverse and affected cab/wheel appearances require rendered evidence. No trailer/deck transfer or final section framing."
+  ]
+}

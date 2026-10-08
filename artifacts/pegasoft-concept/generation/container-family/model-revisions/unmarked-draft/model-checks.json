@@ -1,0 +1,1697 @@
+{
+  "status": "technical_model_checks_passed_not_user_acceptance",
+  "units": "meters",
+  "externalDimensions": {
+    "length": 12.192000002980233,
+    "width": 2.4380000001043083,
+    "height": 2.896000000104308
+  },
+  "boundingBox": {
+    "min": [
+      -6.096000001490117,
+      -5.215407619663104e-11,
+      -1.2190000000521541
+    ],
+    "max": [
+      6.096000001490117,
+      2.8960000000521537,
+      1.2190000000521541
+    ]
+  },
+  "meshCount": 193,
+  "triangles": 20964,
+  "closedSolidPrimitiveChecks": [
+    {
+      "name": "long_wall_-1",
+      "triangles": 1844,
+      "weldedVertices": 924,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.36451429799964913,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "long_wall_1",
+      "triangles": 1844,
+      "weldedVertices": 924,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.3645142979996579,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corrugated_roof",
+      "triangles": 364,
+      "weldedVertices": 184,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.311025768430373,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "closed_far_end",
+      "triangles": 324,
+      "weldedVertices": 164,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.06794458106031022,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "sealed_floor",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 2.099469932429879,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "long_rail_-1_0.09",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.1650880005993843,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "long_rail_-1_2.806",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.1650880005993843,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_post_-1_-5.996",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03709439798469547,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_post_-1_5.996",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03709439798469547,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "long_rail_1_0.09",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.1650880005993843,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "long_rail_1_2.806",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.1650880005993843,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_post_1_-5.996",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03709439798469547,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_post_1_5.996",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03709439798469547,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "end_rail_-5.996_0.09",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03558239986885784,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "end_rail_-5.996_2.806",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03558239986885784,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "end_rail_5.996_0.09",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03558239986885784,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "end_rail_5.996_2.806",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.03558239986885784,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_0",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_2",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_3",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_4",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_5",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_6",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_7",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_8",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_9",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_10",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_11",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_12",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_13",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_14",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_15",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_16",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_17",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_18",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_19",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_20",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_21",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_22",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "floor_crossmember_23",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.01247625062674283,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_seal_back_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.07206359767784475,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "closed_door_-1",
+      "triangles": 164,
+      "weldedVertices": 84,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0412353605562537,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_stile_-1_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0021581360433696505,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_stile_-1_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0021581360433696505,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_horizontal_edge_-1_0.2",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0009625920131508112,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_horizontal_edge_-1_2.6959999999999997",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0009625920131508112,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_rod",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0024264092823659935,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_mount_0.29",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_sleeve_0.29",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_mount_0.96",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_sleeve_0.96",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_mount_1.72",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_sleeve_1.72",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_mount_2.53",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_sleeve_2.53",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_cam_base_0.195",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_cam_0.195",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_cam_base_2.701",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_cam_2.701",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_latched_handle",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00008050307856264693,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_-0.255_latch_keeper",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000926100006352365,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_rod",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0024264092823659935,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_mount_0.29",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_sleeve_0.29",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_mount_0.96",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_sleeve_0.96",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_mount_1.72",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_sleeve_1.72",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_mount_2.53",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_sleeve_2.53",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_cam_base_0.195",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_cam_0.195",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_cam_base_2.701",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_cam_2.701",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_latched_handle",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00008050307856264693,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_-1_0.255_latch_keeper",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000926100006352365,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_0_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_0_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_0_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_0_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_1_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_1_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_1_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_1_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_2_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_2_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_2_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_2_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_3_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_3_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_3_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_-1_3_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_seal_back_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.07206359767784475,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "closed_door_1",
+      "triangles": 164,
+      "weldedVertices": 84,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0412353605562537,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_stile_1_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0021581360433696505,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_stile_1_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0021581360433696505,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_horizontal_edge_1_0.2",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0009625920131508112,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "door_horizontal_edge_1_2.6959999999999997",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0009625920131508112,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_rod",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0024264092823659935,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_mount_0.29",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_sleeve_0.29",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_mount_0.96",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_sleeve_0.96",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_mount_1.72",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_sleeve_1.72",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_mount_2.53",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_sleeve_2.53",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_cam_base_0.195",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_cam_0.195",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_cam_base_2.701",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_cam_2.701",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_latched_handle",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00008050307856264693,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_-0.255_latch_keeper",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000926100006352365,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_rod",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0024264092823659935,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_mount_0.29",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_sleeve_0.29",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_mount_0.96",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_sleeve_0.96",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_mount_1.72",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_sleeve_1.72",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_mount_2.53",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00016400000330805771,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_sleeve_2.53",
+      "triangles": 384,
+      "weldedVertices": 192,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000697793017707668,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_cam_base_0.195",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_cam_0.195",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_cam_base_2.701",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023625001978129194,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_cam_2.701",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00012452819835982298,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_latched_handle",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00008050307856264693,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "lock_1_0.255_latch_keeper",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0000926100006352365,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_0_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_0_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_0_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_0_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_1_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_1_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_1_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_1_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_2_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_2_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_2_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_2_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_3_leaf",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0004998000136852256,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_3_pin",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0002911714418924158,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_3_bolt_-0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "hinge_1_3_bolt_0.033",
+      "triangles": 96,
+      "weldedVertices": 50,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.000003758052619073709,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_-1_x_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_-1_x_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_-1_y_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_-1_y_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_-1_z_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_-1_z_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_1_x_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_1_x_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_1_y_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_1_y_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_1_z_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_-1_1_z_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_-1_x_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_-1_x_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_-1_y_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_-1_y_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_-1_z_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_-1_z_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_1_x_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_1_x_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_1_y_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_1_y_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_1_z_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_-1_1_1_z_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_-1_x_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_-1_x_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_-1_y_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_-1_y_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_-1_z_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_-1_z_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_1_x_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_1_x_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_1_y_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_1_y_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_1_z_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_-1_1_z_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_-1_x_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_-1_x_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_-1_y_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_-1_y_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_-1_z_-1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_-1_z_1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_1_x_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.0003071999889373781,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_1_x_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00023560162994036392,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_1_y_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_1_y_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_1_z_-1",
+      "triangles": 12,
+      "weldedVertices": 8,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00038400000047683695,
+      "degenerateTriangles": 0
+    },
+    {
+      "name": "corner_casting_1_1_1_z_1",
+      "triangles": 208,
+      "weldedVertices": 104,
+      "boundaryOrWindingEdges": 0,
+      "positiveVolumeM3": 0.00029450205324841233,
+      "degenerateTriangles": 0
+    }
+  ],
+  "cornerCastings": {
+    "count": 8,
+    "method": "Six joined closed solid shell plates per casting, with three intentional outward apertures. Assembly overlap is retained; this is not a Boolean-union boundary certification."
+  },
+  "landmarks": [
+    {
+      "id": "corner_casting_-1_-1_-1",
+      "role": "support rim",
+      "point": [
+        -5.9190000000000005,
+        -5.215405884939628e-11,
+        -1.139
+      ],
+      "hole_center": [
+        -5.996,
+        0,
+        -1.139
+      ]
+    },
+    {
+      "id": "corner_casting_-1_-1_1",
+      "role": "support rim",
+      "point": [
+        -5.9190000000000005,
+        -5.215405884939628e-11,
+        1.139
+      ],
+      "hole_center": [
+        -5.996,
+        0,
+        1.139
+      ]
+    },
+    {
+      "id": "corner_casting_-1_1_-1",
+      "role": "pickup rim",
+      "point": [
+        -5.9190000000000005,
+        2.8960000000521537,
+        -1.139
+      ],
+      "hole_center": [
+        -5.996,
+        2.896,
+        -1.139
+      ]
+    },
+    {
+      "id": "corner_casting_-1_1_1",
+      "role": "pickup rim",
+      "point": [
+        -5.9190000000000005,
+        2.8960000000521537,
+        1.139
+      ],
+      "hole_center": [
+        -5.996,
+        2.896,
+        1.139
+      ]
+    },
+    {
+      "id": "corner_casting_1_-1_-1",
+      "role": "support rim",
+      "point": [
+        6.073,
+        -5.215405884939628e-11,
+        -1.139
+      ],
+      "hole_center": [
+        5.996,
+        0,
+        -1.139
+      ]
+    },
+    {
+      "id": "corner_casting_1_-1_1",
+      "role": "support rim",
+      "point": [
+        6.073,
+        -5.215405884939628e-11,
+        1.139
+      ],
+      "hole_center": [
+        5.996,
+        0,
+        1.139
+      ]
+    },
+    {
+      "id": "corner_casting_1_1_-1",
+      "role": "pickup rim",
+      "point": [
+        6.073,
+        2.8960000000521537,
+        -1.139
+      ],
+      "hole_center": [
+        5.996,
+        2.896,
+        -1.139
+      ]
+    },
+    {
+      "id": "corner_casting_1_1_1",
+      "role": "pickup rim",
+      "point": [
+        6.073,
+        2.8960000000521537,
+        1.139
+      ],
+      "hole_center": [
+        5.996,
+        2.896,
+        1.139
+      ]
+    }
+  ],
+  "exportedAttributeReadbacks": 702,
+  "embeddedProceduralMaps": 2,
+  "glbBytes": 2074364,
+  "glbSha256": "cb31c7d065d53c33d49eb791d3d38f92296106427b05c327fd415c161d8a7dc6",
+  "staticReferenceSha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3",
+  "sourceHashes": {
+    "container-model.mjs": "5d3a4db63da2f244328c912897dc3a7667df8c047215433c2507469785d78d94",
+    "build-model.mjs": "4e21eb8c0777284820512765c8b0a885ebf66961a143ede4e807f76ac16f79fa"
+  },
+  "acceptanceLimits": "Draft hidden surfaces, finish, hardware and composite casting construction require interactive review. No lift integration, physical support transfer, production framing or user model acceptance."
+}

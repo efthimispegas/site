@@ -1,0 +1,279 @@
+{
+  "status": "fixed_approved_grabber_and_camera_ready_for_user_review_corner_pickup_unresolved",
+  "created_at_utc": "2026-10-06T21:34:57.685593+00:00",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "source_manifest": "generation/container-family/lift-integration/integration-manifest.json",
+  "technical_checks": {
+    "path": "evidence/lift-container-integration/checks.json",
+    "sha256": "70ed73014684fa8d54955ddb00716f2881b2a023942e13ee535b8ba0e3917166",
+    "outcome": "Passed exact retained lift/head geometry and dimensions, zero added reach solids, 601 forward + 601 reverse poses, actual central roof seating, paired stack rims, static lower container, ram endpoints and body exclusions. Four-corner lock mechanics remain unresolved."
+  },
+  "runtime_checks": {
+    "path": "evidence/lift-container-integration/camera-v4-runtime-interactions.json",
+    "sha256": "53fbb9582636b908ef47ece66d8e888f22dfee2563c9896d44a9262d37dcb055",
+    "outcome": "Passed mid-turn pause/resume/hold, physical forward/reverse scroll with exact restoration and native 92.1 percent proof."
+  },
+  "rendered_playbacks": [
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-normal.webm",
+      "trace_sha256": "bbda7744b904cce1cc4e003ad25f86f131ecc26c50e743a26205150a00d100f9",
+      "video_sha256": "753b53f9f6e1588b8a3f88b1e19b16cf13fdbd193c9979a7f0b009211c75982c",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 1
+      },
+      "observations": 1081,
+      "reported_interval_observations": 239,
+      "ground_anchor_pixel_span": 2.2737367544323206e-13,
+      "hub_anchor_pixel_span": 2.8421709430404007e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 10,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 3,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 9125,
+      "grounded_container_kept_visible_in_scene": true
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-quarter.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-quarter.webm",
+      "trace_sha256": "5b06de17de05ab274c176faad6d927a511441592efd1c49687f8899be0f9c5e3",
+      "video_sha256": "a95c481595cac05b692d5c499d4ceb9d46dd0dcad21ded418f5115df3cfc5871",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 0.25
+      },
+      "observations": 4320,
+      "reported_interval_observations": 955,
+      "ground_anchor_pixel_span": 2.8421709430404007e-13,
+      "hub_anchor_pixel_span": 2.2737367544323206e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 41,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 0,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 36516.3,
+      "grounded_container_kept_visible_in_scene": true
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v4-full-reverse-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v4-full-reverse-normal.webm",
+      "trace_sha256": "a8abee9680d18803ccb470c68d7d7794ff92e60096ddf45c863871bdaf684839",
+      "video_sha256": "6eb1241780ed725fd61e3bcbb7d10c8d497c0b452d1adfc2f4d8bca5d70b6606",
+      "mode": {
+        "scope": "full",
+        "reverse": true,
+        "speed": 1
+      },
+      "observations": 1079,
+      "reported_interval_observations": 238,
+      "ground_anchor_pixel_span": 1.7053025658242404e-13,
+      "hub_anchor_pixel_span": 1.7053025658242404e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 10,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 0,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 9124.899999999994,
+      "grounded_container_kept_visible_in_scene": true
+    }
+  ],
+  "raster_tracking": {
+    "path": "evidence/lift-container-integration/rendered-edge-measurements.json",
+    "sha256": "6cb399c99baa6813ccfc24be67bbf3285cedeaadb19dc1d100f0bc8e034221bb",
+    "status": "historical_prior_render_unqualified_not_current_render_proof",
+    "paired_frames": 290,
+    "total_frames": 414,
+    "p95_angle_difference_degrees": 0.1612709860226188,
+    "diagnostic": "evidence/lift-container-integration/edge-diagnostic.json",
+    "prior_packet": "evidence/lift-container-integration/pre-camera-fix/evidence/lift-container-integration/review.json"
+  },
+  "reference": {
+    "native_source": "evidence/motion/clips/handoff.mp4",
+    "native_source_sha256": "871ad95426f98d92a463e334c7a4bc5a16953dbea95b99bf1d80b78953f9efbd",
+    "derived_departure": "evidence/lift-container-integration/reference-departure.mp4",
+    "derived_departure_sha256": "6cc7a37e7c3cac3c2be87b27355d9d46206908492bad488644a2c27701be705c",
+    "interval_seconds": [
+      0,
+      6
+    ],
+    "operation": "FFmpeg stream copy, no inserted frames/holds; excludes later truck transfer."
+  },
+  "checks": {
+    "syntax": "passed: three authored viewer modules",
+    "git_diff_check": "passed",
+    "http_bytes": "evidence/lift-container-integration/camera-v4-http-checks.json",
+    "Nx": "No app or Nx target changed; standalone artifact scripts and rendered browser checks only.",
+    "git_delivery": "New integration files are local/untracked; not ignored, staged or committed."
+  },
+  "screenshots": [
+    {
+      "path": "evidence/lift-container-integration/grabber-fixed-review-921.png",
+      "sha256": "18e106ca3efa199c945706a78508f47df5f83f02cf11c9dc74b0a53de54a72a9",
+      "outcome": "Actual native timeline 92.1 percent, fixed head and support outside view."
+    },
+    {
+      "path": "evidence/lift-container-integration/grabber-fixed-departure-contact-sheet.png",
+      "sha256": "351a3831ea2dc00cab1bf37198b4a25d84d3aa4069dbbfe5f2f2f1b41c4101a1",
+      "outcome": "Actual normal replay frames from 7s onward; inspect compact retained head through the late turn."
+    }
+  ],
+  "environment": {
+    "node": "24.19.0",
+    "browser": "Codex in-app browser, actual user-sized viewport",
+    "capture_css_stage": [
+      783,
+      378
+    ],
+    "canvas": [
+      1174,
+      567
+    ],
+    "pixel_ratio": 1.5,
+    "full_camera_vertical_fov": 12,
+    "origin": "http://127.0.0.1:8767",
+    "final_review_stage_css": [
+      783,
+      378
+    ]
+  },
+  "acceptance": {
+    "implementation": "Requested fixed-head and camera amendments complete; mechanical pickup unresolved",
+    "technical": "Passed retained geometry, central seating, stack/body and camera scope only",
+    "runtime": "passed current revision",
+    "raster_correspondence": "historical partial/unqualified; not rerun for new framing",
+    "visual_reference_fidelity": "pending user review; old raster gate unqualified",
+    "user_integration_acceptance": "pending",
+    "deployment": "not requested",
+    "camera_stability": "numerical and rendered current checks passed; user review pending",
+    "grabber_dimensions": "exact approved dimensions preserved throughout; user review pending",
+    "four_corner_lock_mechanics": "unresolved: compact approved head does not span C01 castings"
+  },
+  "retained_diagnostics": [
+    "superseded-small-fit/status.json",
+    "stack-straight/status.json",
+    "arc-left/status.json",
+    "edge-diagnostic.json",
+    "pre-camera-fix/status.json",
+    "pre-grabber-fix/status.json"
+  ],
+  "usage": "evidence/lift-container-integration/usage.json",
+  "checkpoint": {
+    "CURRENT.md": "164cac22c4ee6c54042a9c9c35b5af42cb4934dbce132a3fd24143ca9111a031",
+    "HANDOFF.md": "48f7e19d96faf293cf1547f53e5601b554618d13960476223ffd749dcaa10aad",
+    "PROPOSAL.md": "dedf1ddf6f3bee0e9e1f2113754d5723e989bcda1b6abd4a67f7e284b99101b8",
+    "review/index.html": "070540e91586b0b4a6294bb81b32e69f29a0b4ffc752f10b462d8b2f51287593"
+  },
+  "revision": "camera-v4-fixed-approved-grabber",
+  "camera_checks": {
+    "path": "evidence/lift-container-integration/camera-stability.json",
+    "sha256": "e305d9b1d485ed7c3695b3ca4ab37a2ee97d17a44157ea32f5485a2d7fd6602e",
+    "outcome": "Four viewport shapes: constant post-contact distance; zero zoom reversals; exact pause/reverse."
+  },
+  "historical_runtime_checks": {
+    "path": "evidence/lift-container-integration/pre-camera-fix/evidence/lift-container-integration/runtime-interactions.json",
+    "scope": "Preserved earlier cab/wheel inspection evidence only; accepted cab/wheel geometry and explicit inspection controls are retained. Earlier adapter/contact/camera evidence does not qualify this amended coupling."
+  },
+  "rendered_camera_checks": {
+    "path": "evidence/lift-container-integration/camera-v4-rendered-checks.json",
+    "sha256": "ae0c61cc2ca4d341f2486efa5143b8b7ddd385b0a487989668105d8f69c3c20f",
+    "outcome": "Three actual canvas replays: level tracking in reported interval and zero foreground in the vacated right-edge raster band near 92.1 percent."
+  },
+  "updated_at_utc": "2026-10-07T12:09:16.823891+00:00",
+  "camera_turn_checks": {
+    "path": "evidence/lift-container-integration/camera-turn-stability.json",
+    "sha256": "282977458dc3db6994ef8cf3e132f161951f824f1e16c5830f22d762445df316",
+    "outcome": "1001 poses per shape: fixed camera/physical hub/ground height in 71.9\u201393.7 percent; monotonic turn and no support re-entry. Support remains visible in scene."
+  },
+  "grabber": {
+    "authority": "Direct user amendment: preserve approved grabber exact dimensions and follow accepted static family",
+    "geometry": "All approved head meshes, attributes and local dimensions preserved; zero added reach/lock solids",
+    "motion_scale": [
+      1,
+      1,
+      1
+    ],
+    "visual_coupling": "Original head seated against actual folded roof, using triangle/crease-plane clearance solve",
+    "four_corner_pickup": "unresolved at retained head size; no corner-lock claim",
+    "historical_extended_geometry": "evidence/lift-container-integration/pre-grabber-fix/status.json"
+  },
+  "accepted_static_reference": {
+    "path": "generation/lift-family/lift-spreader.png",
+    "sha256": "1855b42a12c04679376f79997d3796dc443e7f3b08a89675f729db7bf73626b0",
+    "approval": "generation/lift-family/static-family-approval.json"
+  },
+  "source_manifest_sha256": "739d88dd0569f0c016c10f3f66674033c66e315e3defe81aeeece540cabd9fd3"
+}

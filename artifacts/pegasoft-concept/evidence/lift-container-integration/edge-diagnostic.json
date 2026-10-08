@@ -1,0 +1,17 @@
+{
+  "status": "partial_raster_coverage_unqualified",
+  "failure": "Paired outer-edge coverage 290/414 = 70.05%, below the predeclared 90% threshold. P95 angle difference 0.1613 degrees; no complete raster qualification claimed.",
+  "attempts": [
+    "Default raw decoder duplicated frames; corrected to passthrough timestamps.",
+    "Strongest gradient mixed door hardware with outer silhouettes.",
+    "Outer porcelain/metal contour improved coverage but left ambiguous rows/frames."
+  ],
+  "evidence": [
+    "rendered-edge-before-passthrough.json",
+    "rendered-edge-before-contour.json",
+    "rendered-edge-measurements.json",
+    "edge-measurement.log"
+  ],
+  "hypothesis": "Door hardware and changing shadow/antialiasing compete with outer-post segmentation in some bands.",
+  "next_action": "If automated full-coverage qualification is required after visual review, inspect failed frames and use separate contour masks for each outer post; preserve threshold and all failed measurements. No further tracker attempts in this batch."
+}

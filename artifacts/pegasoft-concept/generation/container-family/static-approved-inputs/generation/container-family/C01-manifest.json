@@ -1,0 +1,109 @@
+{
+  "status": "awaiting_static_approval",
+  "created_at_utc": "2026-10-06T12:32:53.057526+00:00",
+  "date_local": "2026-10-06",
+  "branch": "codex/pegasoft-concept",
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+  "request_id": "01a1112f-f281-77a0-8be9-c0ee92b0f86b",
+  "request_status": "completed",
+  "output_url": "https://v3b.fal.media/files/b/0aad4a8b/wgAQsSy7CFR9T9mVwWMvm_bCtm8mvt.png",
+  "original": "C01-silver-oblique-original.png",
+  "review_page": "../../review/container.html",
+  "provider_jobs_submitted": 1,
+  "output_images": 1,
+  "altered_original": false,
+  "model_constructed": false,
+  "approval_record": "proposal-approval.json",
+  "file_checks": {
+    "dimensions": {
+      "width": 2560,
+      "height": 1440
+    },
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      2554,
+      1440
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "transparent_pixels": 1378530,
+    "opaque_pixels": 0,
+    "partially_transparent_pixels": 2307870,
+    "requested_transparency_met": true,
+    "file_integrity": "valid PNG",
+    "visual_acceptance": "pending_user_static_review",
+    "original_unchanged": true,
+    "initial_check_failure": "Requested alpha-extrema range (0,255) assertion failed; raw measurements below are retained.",
+    "alpha_threshold_bboxes": {
+      "8": [
+        89,
+        90,
+        2496,
+        1301
+      ],
+      "32": [
+        89,
+        91,
+        2496,
+        1301
+      ],
+      "64": [
+        90,
+        91,
+        2496,
+        1301
+      ],
+      "128": [
+        90,
+        92,
+        2495,
+        1300
+      ],
+      "200": [
+        90,
+        92,
+        2495,
+        1300
+      ],
+      "250": [
+        91,
+        95,
+        2494,
+        1299
+      ]
+    },
+    "alpha_edge_samples": {
+      "top_mid": 0,
+      "left_mid": 0,
+      "bottom_mid": 1,
+      "right_mid": 0
+    },
+    "alpha_review_note": "Maximum alpha is 254, so no pixel is fully opaque. Low-alpha support reaches canvas edges. Inspect actual carbon/porcelain rendering before static acceptance; do not alter the original or infer clean matte from transparent corners.",
+    "rendered_observation": "At the default review viewport, both carbon and porcelain displays show the full container and no obvious surrounding halo. Full-resolution edge acceptance remains pending user review."
+  },
+  "visual_assessment": "Both carbon/porcelain views inspected at the default review viewport: complete silhouette, closed doors, silver corrugation, cool highlights and readable hardware; no obvious halo at review scale. Not user acceptance or physical-geometry qualification.",
+  "user_static_acceptance": "pending",
+  "actual_billed_cost_usd": null,
+  "cost_note": "Published high/2560x1440 image charge is USD 0.05529; token/complexity costs and actual billed total are not metered here.",
+  "hashes": {
+    "input-proposal.json": "9a3c3e2abf01a302fa4862f84ebb013a323759c8e56490695679788f3e7bbf59",
+    "proposal-approval.json": "8fe8efaed139a2a0e444cc1fc6a90f0c8c7d1dc2aa2f008ef2cd1d417069ce49",
+    "preflight.json": "f57fe6a695dcf3645ab9d996b3cc454ac8db311ebb228cde5e06c0e162d6218c",
+    "C01-input.json": "170af69136418ef7a13f0a46a11215965866612f500ede951c4c416f47d4eb93",
+    "C01-provider-receipt.json": "f43058c14042b1c98901a97e8544a43f22b41c62919b415dc7be822800480295",
+    "C01-silver-oblique-original.png": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3",
+    "C01-file-checks.json": "ce36a90ee21d713448bf11596c6e6d6b224e6e53d11efb5054ef57046e0990b5"
+  },
+  "next_action": "Present one original on carbon/porcelain for explicit static approval before local model construction. No automatic correction, extra view or next family.",
+  "verification_packet": "../../evidence/container-generation-checks.json"
+}

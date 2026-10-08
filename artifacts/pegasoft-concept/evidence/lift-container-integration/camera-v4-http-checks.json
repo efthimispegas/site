@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "origin": "http://127.0.0.1:8767",
+  "files": [
+    {
+      "path": "review/lift-container.html",
+      "status": 200,
+      "sha256": "44e39925418d3cc210b8da20d476594e2f36b634872d7e4aa4e191cde698f3db",
+      "served_bytes_match": true
+    },
+    {
+      "path": "review/lift-container.js",
+      "status": 200,
+      "sha256": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1",
+      "served_bytes_match": true
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "status": 200,
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+      "served_bytes_match": true
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "status": 200,
+      "sha256": "eff3c88fb443f3d8a7107106d4d104999368b8c0cdd0116be456c06022b7e766",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/lift-family/lift-spreader.png",
+      "status": 200,
+      "sha256": "1855b42a12c04679376f79997d3796dc443e7f3b08a89675f729db7bf73626b0",
+      "served_bytes_match": true
+    }
+  ]
+}

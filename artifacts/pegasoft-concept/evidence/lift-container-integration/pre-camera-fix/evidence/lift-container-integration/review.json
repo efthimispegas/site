@@ -1,0 +1,195 @@
+{
+  "status": "ready_for_user_review_technical_and_runtime_passed_raster_coverage_partial",
+  "created_at_utc": "2026-10-06T21:13:52.309823+00:00",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "source_manifest": "generation/container-family/lift-integration/integration-manifest.json",
+  "technical_checks": {
+    "path": "evidence/lift-container-integration/checks.json",
+    "sha256": "0b499f274bb9e990862ef1767dbead768efb355aa669b72b948e533de75c6618",
+    "outcome": "passed: 601 forward + 601 reverse poses; original geometry preserved at applied integration pose, four actual paired stack metal rims, lock contact, fixed lower container, ram endpoints and body exclusions."
+  },
+  "runtime_checks": {
+    "path": "evidence/lift-container-integration/runtime-interactions.json",
+    "sha256": "e5f8293bc00eb51abaf7d8c5cc0bb07cf788593ff3ee187153f56ca5711b6133",
+    "outcome": "Passed genuine pause/resume, forward and reverse native scroll, support/spreader ownership restoration, keyboard timeline endpoint and cab/wheel inspection."
+  },
+  "rendered_playbacks": [
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-full-forward-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-full-forward-normal.webm",
+      "trace_sha256": "10f9abb91c06689d2bae6a1c504eef24e412134dd67dd4d696a503b73b31ff2f",
+      "video_sha256": "4f11689cecaf8834a564b35ef1c34f0e50c19d9cbcfc05f1808f55f2b5c9a404",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 1
+      },
+      "observations": 1077,
+      "elapsedMs": 9124.9,
+      "canvas": {
+        "width": 705,
+        "height": 567
+      },
+      "progressRange": [
+        0.0009090909090909041,
+        1
+      ],
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-full-reverse-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-full-reverse-normal.webm",
+      "trace_sha256": "66ce96fae74870c3b6e155713618f49c33f2f612a07fe731248b87b2b38abd83",
+      "video_sha256": "849b1b94af15ff6afc0af31fd5aa81320a6afb9e38a4c2f666551d3bd69219f1",
+      "mode": {
+        "scope": "full",
+        "reverse": true,
+        "speed": 1
+      },
+      "observations": 1080,
+      "elapsedMs": 9125,
+      "canvas": {
+        "width": 705,
+        "height": 567
+      },
+      "progressRange": [
+        0,
+        0.9990909090909088
+      ],
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-settling-forward-quarter.json",
+      "video": "evidence/lift-container-integration/playback/C01-settling-forward-quarter.webm",
+      "trace_sha256": "8e8f85c8a8fc82c601766beb19c11569d566ce1e5ebb87bf0923c46141068673",
+      "video_sha256": "ddf9cff2dc171c0bb3a3807989feadcfcb2bd452e21bc63f953f9932150705b2",
+      "mode": {
+        "scope": "settling",
+        "reverse": false,
+        "speed": 0.25
+      },
+      "observations": 1534,
+      "elapsedMs": 14083.800000000003,
+      "canvas": {
+        "width": 705,
+        "height": 567
+      },
+      "progressRange": [
+        0.486323656819806,
+        0.6770903599961523
+      ],
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    }
+  ],
+  "raster_tracking": {
+    "path": "evidence/lift-container-integration/rendered-edge-measurements.json",
+    "sha256": "6cb399c99baa6813ccfc24be67bbf3285cedeaadb19dc1d100f0bc8e034221bb",
+    "status": "unqualified_rendered_edge_measurements",
+    "paired_frames": 290,
+    "total_frames": 414,
+    "p95_angle_difference_degrees": 0.1612709860226188,
+    "diagnostic": "evidence/lift-container-integration/edge-diagnostic.json"
+  },
+  "reference": {
+    "native_source": "evidence/motion/clips/handoff.mp4",
+    "native_source_sha256": "871ad95426f98d92a463e334c7a4bc5a16953dbea95b99bf1d80b78953f9efbd",
+    "derived_departure": "evidence/lift-container-integration/reference-departure.mp4",
+    "derived_departure_sha256": "6cc7a37e7c3cac3c2be87b27355d9d46206908492bad488644a2c27701be705c",
+    "interval_seconds": [
+      0,
+      6
+    ],
+    "operation": "FFmpeg stream copy, no inserted frames/holds; excludes later truck transfer."
+  },
+  "checks": {
+    "syntax": "passed: three authored viewer modules",
+    "git_diff_check": "passed",
+    "http_bytes": "evidence/lift-container-integration/http-checks.json",
+    "Nx": "No app or Nx target changed; standalone artifact scripts and rendered browser checks only.",
+    "git_delivery": "New integration files are local/untracked; not ignored, staged or committed."
+  },
+  "screenshots": [
+    {
+      "path": "evidence/lift-container-integration/stack-pickup.jpg",
+      "sha256": "33ec65d60a624372e4d04090264820e1f112c5e9048bfa6d089d4f9c58ce7706"
+    },
+    {
+      "path": "evidence/lift-container-integration/departure-quarter.jpg",
+      "sha256": "828c976d8f178462fccd8fa6ca30adfc914370dbdca9c549413d73f6c7625b70"
+    },
+    {
+      "path": "evidence/lift-container-integration/pivot-porcelain.jpg",
+      "sha256": "6f89e4c925cb5de2afeecb8664d795efbfac4e98f7491241cb13a2e13093fd45"
+    },
+    {
+      "path": "evidence/lift-container-integration/cab-context.jpg",
+      "sha256": "f0e3ed92b565d3a273ef928cbba7a8ffed0e5e9096b5902031fef1ad641b4d49"
+    },
+    {
+      "path": "evidence/lift-container-integration/wheel-context.jpg",
+      "sha256": "791e355f5b68c7e92b18114281c32bd23132f5daa26067e7752efc5b3bc03654"
+    },
+    {
+      "path": "evidence/lift-container-integration/review-attachment.jpg",
+      "sha256": "f710bb1fbf86e6297e34d319ec0eccf60ca179aba923eff149d29a75d6ac0db3",
+      "role": "Current review at four-point stack attachment; user resized stage to 783\u00d7378 CSS pixels."
+    }
+  ],
+  "environment": {
+    "node": "24.19.0",
+    "browser": "Codex in-app browser, actual user-sized viewport",
+    "capture_css_stage": [
+      470,
+      378
+    ],
+    "canvas": [
+      705,
+      567
+    ],
+    "pixel_ratio": 1.5,
+    "full_camera_vertical_fov": 12,
+    "origin": "http://127.0.0.1:8767",
+    "final_review_stage_css": [
+      783,
+      378
+    ]
+  },
+  "acceptance": {
+    "implementation": "complete",
+    "technical": "passed",
+    "runtime": "passed",
+    "raster_correspondence": "partial/unqualified coverage",
+    "visual_reference_fidelity": "pending user review",
+    "user_integration_acceptance": "pending",
+    "deployment": "not requested"
+  },
+  "retained_diagnostics": [
+    "superseded-small-fit/status.json",
+    "stack-straight/status.json",
+    "arc-left/status.json",
+    "edge-diagnostic.json"
+  ],
+  "usage": "evidence/lift-container-integration/usage.json",
+  "checkpoint": {
+    "CURRENT.md": "fa0166792962a08419975056c01be9848788e0508688979cdbb52b2b1b6720f8",
+    "HANDOFF.md": "7694fffcbd7347125649cfea1f0a3bc7e44ddc57244dcc5488be2a69b07deb6e",
+    "PROPOSAL.md": "7224ef4d6c62e674ebf783b2af66289142b38f040284e7cacd7e27fb241f1941",
+    "review/index.html": "d5644d00e787e5785a8c99311a0e24d399425a05dc4bc1b93d01399662d3deb0"
+  }
+}

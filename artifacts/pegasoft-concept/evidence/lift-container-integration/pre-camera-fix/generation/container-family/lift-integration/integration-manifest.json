@@ -1,0 +1,290 @@
+{
+  "status": "implementation_complete_integration_user_review_pending",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "user_instructions": [
+    "Proceed to next phase for lift integration with container",
+    "The container is really small ... It should have realistic dimensions like in the reference and the approved static assets",
+    "Pick up from an existing stack",
+    "After lift-off ... retract/move back and then reverse along with the camera view change like in the reference"
+  ],
+  "scope": "Separate C01/lift derivative: reference-relative 40-foot scale, stationary lower C01, four casting/lock contacts, stack separation, connected settling, telescope retraction, backing/reverse arc, synchronized camera and wheel travel.",
+  "fit": {
+    "length": 12.192,
+    "width": 2.438,
+    "height": 2.896,
+    "scale": 0.225,
+    "yaw": -1.5707963267948966,
+    "lockDrop": 0.012,
+    "extensionRailHeight": 0.022,
+    "extensionAnchorSpan": 0.296,
+    "scaleBasis": {
+      "reference": "source-sequence/y-070.png at 960\u00d7540",
+      "containerEndHeightPixels": 126,
+      "frontTireDiameterPixelsApprox": 51,
+      "approvedFrontTireDiameterModel": 0.264,
+      "targetHeightToTire": 2.4705882352941178,
+      "appliedHeightToTire": 2.468181818181818,
+      "limit": "Raster silhouette ratio; retained lift has no certified SI dimensions."
+    },
+    "containerModelDimensions": [
+      12.192,
+      2.896,
+      2.438
+    ],
+    "containerAxis": "long X meters -> lift Z visual coordinates; front doors face initial camera",
+    "roofLocal": -0.2668639775514603,
+    "actualSpreaderUnderside": -0.23286397755146027,
+    "clippedRoofTriangles": 14180,
+    "contactCount": 4,
+    "contacts": [
+      {
+        "id": "-1_-1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          -1.139
+        ],
+        "roofLocal": [
+          0.22824201169013963,
+          -0.2668639775514603,
+          -1.3318965040683748
+        ],
+        "spreaderLocal": [
+          0.22824201169013936,
+          -0.25486397749185563,
+          -1.3492215040683748
+        ],
+        "originalHeadAnchor": [
+          0.05996701169013974,
+          -0.1977554358811625,
+          -0.2961215040683746
+        ],
+        "extensionRail": "C01 long-container extension rail -1_-1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.05333333359824295,
+        "sole": "C01 pickup sole -1_-1",
+        "neck": "C01 pickup neck -1_-1",
+        "pin": "C01 inserted lock pin -1_-1"
+      },
+      {
+        "id": "-1_1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          1.139
+        ],
+        "roofLocal": [
+          -0.2843079883098605,
+          -0.2668639775514603,
+          -1.3318965040683748
+        ],
+        "spreaderLocal": [
+          -0.2843079883098607,
+          -0.25486397749185563,
+          -1.3492215040683744
+        ],
+        "originalHeadAnchor": [
+          -0.1160329883098602,
+          -0.19537865731464335,
+          -0.2961215040683746
+        ],
+        "extensionRail": "C01 long-container extension rail -1_1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.05333333359824295,
+        "sole": "C01 pickup sole -1_1",
+        "neck": "C01 pickup neck -1_1",
+        "pin": "C01 inserted lock pin -1_1"
+      },
+      {
+        "id": "1_-1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          -1.139
+        ],
+        "roofLocal": [
+          0.22824201169014002,
+          -0.2668639775514603,
+          1.3663034959316256
+        ],
+        "spreaderLocal": [
+          0.22824201169014025,
+          -0.25486397749185563,
+          1.348978495931625
+        ],
+        "originalHeadAnchor": [
+          0.05996701169013974,
+          -0.19773787002417403,
+          0.29587849593162535
+        ],
+        "extensionRail": "C01 long-container extension rail 1_-1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.05333333359824295,
+        "sole": "C01 pickup sole 1_-1",
+        "neck": "C01 pickup neck 1_-1",
+        "pin": "C01 inserted lock pin 1_-1"
+      },
+      {
+        "id": "1_1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          1.139
+        ],
+        "roofLocal": [
+          -0.2843079883098601,
+          -0.2668639775514603,
+          1.3663034959316256
+        ],
+        "spreaderLocal": [
+          -0.2843079883098598,
+          -0.25486397749185563,
+          1.3489784959316256
+        ],
+        "originalHeadAnchor": [
+          -0.1160329883098602,
+          -0.19531365802290773,
+          0.29587849593162535
+        ],
+        "extensionRail": "C01 long-container extension rail 1_1",
+        "neckHeightModel": 0.012000000059604665,
+        "nominalNeckHeightMeters": 0.05333333359824295,
+        "sole": "C01 pickup sole 1_1",
+        "neck": "C01 pickup neck 1_1",
+        "pin": "C01 inserted lock pin 1_1"
+      }
+    ],
+    "scaleIsUniform": true,
+    "originalContainerMeshes": 197,
+    "pickupCalibration": {
+      "elevationOffset": 3.8004053956195314,
+      "contactElevation": 21.65340539561953,
+      "middleAtPickup": 0.3,
+      "lowerStackRoof": 2.0747583706326584,
+      "lowerContainerBase": 9.85878045867139e-14,
+      "clearancePolicy": "Solve boom elevation against the stationary casting plane; no compression or container penetration.",
+      "trajectory": {
+        "backingStartFrame": 52,
+        "backingEndFrame": 80,
+        "backingDistanceLiftUnits": 0.8,
+        "reverseArcFrames": [
+          80,
+          176
+        ],
+        "reverseArcRadiusLiftUnits": 2,
+        "headingChangeDegrees": -70,
+        "retractFrames": [
+          60,
+          104
+        ],
+        "middleAfterRetraction": 0.16
+      },
+      "referenceLimit": "Absolute reach, retreat distance and stack clearance are integration interpretations; original phase/camera/settling sources remain unchanged."
+    }
+  },
+  "approved_assets": {
+    "lift_glb": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+    "C01_glb": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+    "lift_source_modules": [
+      {
+        "path": "review/lift-motion.js",
+        "sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6"
+      },
+      {
+        "path": "review/lift-motion.html",
+        "sha256": "fba25b19341636c7daa87dd4d81eb7bfc5111bec719a22e28c9896dff5a17bbe"
+      },
+      {
+        "path": "review/lift-wheels.js",
+        "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+      },
+      {
+        "path": "review/lift-cab.js",
+        "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+      },
+      {
+        "path": "review/lift-motion-contract.js",
+        "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+      },
+      {
+        "path": "review/lift-motion-data.js",
+        "sha256": "1b331873fdaac909d745d215d67b7c9ddd23d1abd377abfdef7cbc3cddedb7a1"
+      }
+    ],
+    "C01_static_master_sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3"
+  },
+  "owned_inputs": [
+    {
+      "path": "review/lift-container.html",
+      "sha256": "0255f84fcd70980df57ed95e407f377bc0ff132d1b01c294506d7caf6e1150d0",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.html"
+    },
+    {
+      "path": "review/lift-container.js",
+      "sha256": "29c3ce1916eca01c4790f6ef37db59c5639dbf86ab9678f378aeb2253a05ca74",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.js"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "8d92e209233861fc57007a5a3a553853f2b40a2e7662b05469c489f73d2304a4",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-contact.js"
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "sha256": "f37bd317aa6811e6cbc46bf2b0abc63346d87de46bb1b950639f20138665daab",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-replay.js"
+    },
+    {
+      "path": "review/integration-server.py",
+      "sha256": "5ab9816083addaa1f3682748eb1d33a03d77b295bbade6203abc7b2f9145e89e",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/integration-server.py"
+    },
+    {
+      "path": "generation/container-family/lift-integration/rig-harness.mjs",
+      "sha256": "7ffc5a0d8a5c36296fc819d653b9f0f97ac3c77a13fe570f54ed16172dd74ce0",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/rig-harness.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-integration.mjs",
+      "sha256": "56708556734f8f7e2b4edcda2a1aa995dd97de1f7f80131205162b4a2b9269e5",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-integration.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/measure-rendered-edges.py",
+      "sha256": "564d0e9e7f958a7fe467f96f8b23259023021cf16e4cd8337630370a24dacf68",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/measure-rendered-edges.py"
+    }
+  ],
+  "calibration_limits": [
+    "Uniform C01 conversion preserves its 12.192\u00d72.438\u00d72.896 m dimensions. The retained lift is visual geometry without certified SI dimensions.",
+    "Original phase, camera-relative yaw/roll and settling curves remain read-only. Absolute boom reach is recalibrated for the stack; attachment tilt blends from a level seating pose and clearance is solved through articulation.",
+    "The reference uses separate image layers. Reverse-arc radius, travel distance, rear steering and final framing are local integration interpretations pending user review.",
+    "Parked lower container stays rigid, on the floor and static; it naturally leaves the framing during departure.",
+    "No truck/trailer/deck transfer, website section implementation, provider job, commit or deployment in this batch."
+  ],
+  "review_packet": "evidence/lift-container-integration/review.json",
+  "review_url": "http://127.0.0.1:8767/review/lift-container.html#viewer",
+  "server": "python3 artifacts/pegasoft-concept/review/integration-server.py"
+}

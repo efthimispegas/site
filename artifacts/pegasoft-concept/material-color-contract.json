@@ -55,5 +55,14 @@
   "surface_contracts": {
     "lift": "generation/lift-family/material-contract.proposed.json"
   },
-  "current_status": "CURRENT.md"
+  "current_status": "CURRENT.md",
+  "safety_marking_roles": {
+    "container_front_corner_warning": {
+      "yellow_srgb": "#F2C230",
+      "black_srgb": "#11151B",
+      "scope": "Both upper front corner casting faces and the left-door caution symbol only; authored local model markings, preserve casting apertures.",
+      "authority": "Direct user amendment 2026-10-06: yellow/black stripes at top left/right container corners of front side.",
+      "other_surfaces": "Preserve agreed silver/titanium, blue and rubber roles."
+    }
+  }
 }

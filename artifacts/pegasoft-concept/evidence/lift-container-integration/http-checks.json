@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "assets": [
+    {
+      "path": "review/lift-container.html",
+      "status": 200,
+      "bytes": 14434,
+      "sha256": "0255f84fcd70980df57ed95e407f377bc0ff132d1b01c294506d7caf6e1150d0"
+    },
+    {
+      "path": "review/lift-container.js",
+      "status": 200,
+      "bytes": 44197,
+      "sha256": "29c3ce1916eca01c4790f6ef37db59c5639dbf86ab9678f378aeb2253a05ca74"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "status": 200,
+      "bytes": 8438,
+      "sha256": "8d92e209233861fc57007a5a3a553853f2b40a2e7662b05469c489f73d2304a4"
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "status": 200,
+      "bytes": 3933,
+      "sha256": "f37bd317aa6811e6cbc46bf2b0abc63346d87de46bb1b950639f20138665daab"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "status": 200,
+      "bytes": 17389976,
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "status": 200,
+      "bytes": 2174140,
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    }
+  ],
+  "referenceVideoRange": 206
+}

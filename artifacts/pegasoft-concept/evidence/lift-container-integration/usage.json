@@ -1,0 +1,25 @@
+{
+  "captured_at_utc": "2026-10-06T21:03:10.544311+00:00",
+  "ordinaryUsageAllowed": false,
+  "primaryUsedPercent": 0,
+  "weeklyUsedPercent": 100,
+  "credits": {
+    "hasCredits": true,
+    "unlimited": false,
+    "balance": null
+  },
+  "scope": "User-authorized local integration. No provider generation jobs in this batch; no metered spend claim.",
+  "amendment_snapshots": [
+    {
+      "at_utc": "2026-10-07T12:09:16.823891+00:00",
+      "scope": "fixed-approved-head and level departure camera",
+      "ordinaryUsageAllowed": true,
+      "primaryUsedPercent": 31,
+      "weeklyUsedPercent": 5,
+      "currentCreditBalance": null,
+      "providerJobs": 0,
+      "delegatedAgents": 0,
+      "source": "get_usage_limits after bounded implementation and verification batch"
+    }
+  ]
+}

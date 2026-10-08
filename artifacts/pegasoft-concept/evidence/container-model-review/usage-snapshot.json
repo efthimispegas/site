@@ -1,0 +1,35 @@
+{
+  "date_local": "2026-10-06",
+  "ordinaryUsageAllowed": false,
+  "rateLimits": {
+    "limitId": "codex",
+    "limitName": null,
+    "normalModelSlug": null,
+    "primary": {
+      "usedPercent": 0,
+      "windowDurationMins": 300,
+      "resetsAt": 1791335725
+    },
+    "secondary": {
+      "usedPercent": 100,
+      "windowDurationMins": 10080,
+      "resetsAt": 1791375191
+    },
+    "credits": {
+      "hasCredits": true,
+      "unlimited": false,
+      "balance": null
+    },
+    "individualLimit": null,
+    "spendControlReached": false,
+    "planType": "team",
+    "rateLimitReachedType": null
+  },
+  "rateLimitResetCredits": {
+    "availableCount": 0,
+    "credits": []
+  },
+  "model_batch_provider_jobs": 0,
+  "actual_credit_spend": null,
+  "credit_spend_meter_available": false
+}

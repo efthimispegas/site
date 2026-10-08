@@ -1,0 +1,32 @@
+{
+  "status": "user_accepted_container_model_design",
+  "branch": "codex/pegasoft-concept",
+  "model": "C01-container.glb",
+  "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+  "bytes": 2174140,
+  "external_dimensions_m": {
+    "length": 12.192000002980233,
+    "width": 2.4380000001043083,
+    "height": 2.896000000104308
+  },
+  "mesh_count": 197,
+  "triangles": 21012,
+  "method": "Local parametric closed solid primitives; composite corner casting plates with outward apertures.",
+  "markings": {
+    "upperFrontWarningCastings": 2,
+    "leftDoorStickers": 3,
+    "rightDoorInfoPanels": 1,
+    "dimensionsOnly": true,
+    "noShippingRegistrationOrWeightClaims": true
+  },
+  "approval": "../model-approval.json",
+  "geometry_export_checks": "model-checks.json",
+  "runtime_packet": "../../../evidence/container-model-checks.json",
+  "provider_jobs_in_model_batch": 0,
+  "accepted_static_original_unchanged": true,
+  "earlier_unmarked_draft": "../model-revisions/unmarked-draft/",
+  "acceptance_limits": [
+    "Design/model acceptance is not manufacturing certification of composite corner casting assemblies.",
+    "Pickup/contact, loaded settling, camera pivot, support handoff and section framing retain separate motion/section review."
+  ]
+}

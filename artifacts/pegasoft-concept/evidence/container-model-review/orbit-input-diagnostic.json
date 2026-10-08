@@ -1,0 +1,44 @@
+{
+  "status": "resolved_final_pointer_release_check_passed",
+  "expected": "Pointer drag on rendered canvas changes camera and normal rendered pose.",
+  "observed": "Two native tab.drag attempts and one CDP held-left pointer sequence produced unchanged immediate DOM camera readings. The third screenshot also remains unchanged.",
+  "attempts": [
+    "Native diagonal drag on visible canvas, unmarked model.",
+    "Native drag from [250,190] to [355,220], unmarked model.",
+    "CDP left held sequence from [247,340] through [331,357], marked model; before/after camera -15.19754,4.66630,12.51562 unchanged."
+  ],
+  "checks_that_work": [
+    "Named views",
+    "Keyboard zoom",
+    "Keyboard reset"
+  ],
+  "hypothesis": "Automation pointer coordinate/event routing or controls listener hookup; not yet isolated.",
+  "next_step": "Stop repeated drags; inspect rendered canvas target and instrument event reception before a materially different diagnostic attempt.",
+  "acceptance": "Do not mark orbit as verified from prescribed-view screenshots.",
+  "followup": {
+    "method": "Temporary DOM event reception trace; genuine CDP pointer press, held move and release observed separately. Diagnostic listeners removed afterward.",
+    "received_events": [
+      "pointerdown CANVAS buttons=1 at [247,340]",
+      "pointermove CANVAS buttons=1 at [300,360]",
+      "pointerup CANVAS buttons=0 at [300,360]"
+    ],
+    "camera_before": "-15.19754,4.66630,12.51562",
+    "camera_during_hold": "-18.06614,9.88022,-0.68990",
+    "camera_after_release": "-15.19754,4.66630,12.51562",
+    "finding": "Controls receive input and rotate; pose subsequently restored to the preset. Resize callback previously refit every notification.",
+    "applied_fix": "Guard duplicate dimensions and preserve camera pose on subsequent layouts; initial load and explicit preset/reset still fit.",
+    "verification": "Resize-only change did not resolve release reset; preserved failed finding."
+  },
+  "root_cause": {
+    "observed": "Pointerup click targets CANVAS; view-call count increments from 1 to 2. Stack identifies HTMLDivElement click handler rather than resize. Document start ID remains unchanged.",
+    "cause": "The stage publishes data-view for inspection. The unrestricted [data-view] preset selector also bound a click handler to that stage. Bubbled canvas click reapplied the current preset after a drag.",
+    "fix": "Restrict preset listener and pressed-state selection to button[data-view]. Remove all temporary diagnostics. Keep resize pose preservation.",
+    "verification": {
+      "final_source": "review/container-model.js",
+      "camera_before": "-15.19754,4.66630,12.51562",
+      "camera_after_release": "-18.06614,9.88022,-0.68990",
+      "pose_persists_after_release": true,
+      "temporary_diagnostics_removed": true
+    }
+  }
+}

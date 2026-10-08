@@ -1,0 +1,145 @@
+{
+  "status": "generation_review_checks_passed",
+  "branch": "codex/pegasoft-concept",
+  "request_id": "01a1112f-f281-77a0-8be9-c0ee92b0f86b",
+  "provider_jobs": 1,
+  "original_png_sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3",
+  "approved_payload_match": true,
+  "manifest_pins": 7,
+  "retained_review_input_pins": 8,
+  "protected_inputs_unchanged": 4,
+  "http_assets": [
+    {
+      "url": "http://127.0.0.1:8766/CURRENT.md",
+      "status": 200,
+      "bytes": 1824
+    },
+    {
+      "url": "http://127.0.0.1:8766/generation/container-family/C01-file-checks.json",
+      "status": 200,
+      "bytes": 1594
+    },
+    {
+      "url": "http://127.0.0.1:8766/generation/container-family/C01-input.json",
+      "status": 200,
+      "bytes": 1659
+    },
+    {
+      "url": "http://127.0.0.1:8766/generation/container-family/C01-manifest.json",
+      "status": 200,
+      "bytes": 3873
+    },
+    {
+      "url": "http://127.0.0.1:8766/generation/container-family/C01-provider-receipt.json",
+      "status": 200,
+      "bytes": 3954
+    },
+    {
+      "url": "http://127.0.0.1:8766/generation/container-family/C01-silver-oblique-original.png",
+      "status": 200,
+      "bytes": 4081551
+    },
+    {
+      "url": "http://127.0.0.1:8766/generation/container-family/proposal-approval.json",
+      "status": 200,
+      "bytes": 3109
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/container-plan.html",
+      "status": 200,
+      "bytes": 8062
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/container.html",
+      "status": 200,
+      "bytes": 5235
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/fonts/dmsans.ttf",
+      "status": 200,
+      "bytes": 240164
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/fonts/ibmplexmono.ttf",
+      "status": 200,
+      "bytes": 135580
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/fonts/manrope.ttf",
+      "status": 200,
+      "bytes": 164700
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/index.html",
+      "status": 200,
+      "bytes": 14114
+    }
+  ],
+  "rendered_both_surfaces": true,
+  "keyboard_disclosure_and_restore": true,
+  "portal_navigation": "pass",
+  "git_diff_check": "pass",
+  "scope": "only concept artifacts",
+  "user_static_acceptance": "pending",
+  "model_constructed": false,
+  "captured_at_utc": "2026-10-06T12:37:49.948Z",
+  "date_local": "2026-10-06",
+  "usage_before_dispatch": {
+    "primary_used_percent": 0,
+    "secondary_used_percent": 100,
+    "ordinary_usage_allowed": false,
+    "credit_balance_meter": null
+  },
+  "usage_after_batch": {
+    "primary_used_percent": 0,
+    "secondary_used_percent": 100,
+    "ordinary_usage_allowed": false,
+    "credit_balance_meter": null
+  },
+  "browser_observation": "container-generation-review/browser-observation.json",
+  "review_screenshot": "container-generation-review/surfaces.jpg",
+  "file_checks": "../generation/container-family/C01-file-checks.json",
+  "generation_manifest": "../generation/container-family/C01-manifest.json",
+  "original_policy_snapshot": "../generation/container-family/approval-inputs/PROPOSAL.md",
+  "proposal_check_input_snapshots": "../generation/container-family/proposal-approval.json#reviewed_inputs",
+  "visual_limits": "Both original-image review surfaces inspected at 535x788. This does not accept hidden physical geometry, a 3D model, final framing or production handoffs. Full-resolution appearance and edges await user static approval.",
+  "actual_billed_cost_usd": null,
+  "review_artifacts": [
+    {
+      "path": "review/container.html",
+      "sha256": "1669ecb44148cea714c09b2a2a0ad03762db91c0d1cb95c418521d4df13a3f0f"
+    },
+    {
+      "path": "review/container-plan.html",
+      "sha256": "de491c9e8b30b253e313eec2fead8bfcf923905bd58f8b305b9814636aab3ca8"
+    },
+    {
+      "path": "review/index.html",
+      "sha256": "de02cc995cd53966283705b4db3c6b47263ca01e2a5ec70a6fec6d093a258711"
+    },
+    {
+      "path": "CURRENT.md",
+      "sha256": "4dd454d9e0e6c5a233689a283bdb0180001fae292437a949cf58bf352e2ee3b9"
+    },
+    {
+      "path": "HANDOFF.md",
+      "sha256": "f9896820398d04a031f6d722ea4266eee4e655e5ebac6287eab960e9fd959a42"
+    },
+    {
+      "path": "PROPOSAL.md",
+      "sha256": "531bdd3929985b420b8f3f2d46683285df499cc88f8a13afadd6c1b835745183"
+    },
+    {
+      "path": "generation/container-family/C01-manifest.json",
+      "sha256": "d24ed0349c11afd829c150bfd3356d762948d58ae7c818904c160ca14942b95e"
+    },
+    {
+      "path": "evidence/container-generation-review/surfaces.jpg",
+      "sha256": "9e9a0717a27516c90e3b0a45afcfee9fdcfd70c742cd623bd9042e69b7ef6445"
+    },
+    {
+      "path": "evidence/container-generation-review/browser-observation.json",
+      "sha256": "13899d59a489069b579c7f5064e7f18061a830424dd6d0d9651f48714c48b8d3"
+    }
+  ]
+}

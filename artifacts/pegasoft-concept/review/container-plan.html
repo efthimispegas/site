@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pegasoft · Container proposal</title>
+  <style>
+    @font-face{font-family:Manrope;src:url(fonts/manrope.ttf);font-weight:200 800;font-display:swap}
+    @font-face{font-family:DM;src:url(fonts/dmsans.ttf);font-weight:100 1000;font-display:swap}
+    @font-face{font-family:Plex;src:url(fonts/ibmplexmono.ttf);font-weight:400;font-display:swap}
+    :root{color-scheme:dark;--carbon:#11151b;--paper:#edf2f7;--sky:#7bcbff;--line:#334150}
+    *{box-sizing:border-box}body{margin:0;background:#05070a;color:#f5f8fc;font:16px/1.65 DM,sans-serif}
+    header,main,footer{max-width:1160px;margin:auto;padding:24px 36px}header{display:flex;justify-content:space-between;gap:24px;border-bottom:1px solid var(--line)}
+    a{color:var(--sky);text-underline-offset:4px}a:focus-visible{outline:3px solid var(--sky);outline-offset:5px}.brand{font:650 24px Manrope;letter-spacing:-.04em}
+    .label{font:12px/1.6 Plex,monospace;color:var(--sky)}h1{font:650 clamp(38px,6vw,68px)/1.05 Manrope;letter-spacing:-.045em;max-width:780px;margin:18px 0 22px}
+    h2{font:650 27px/1.2 Manrope;letter-spacing:-.035em;margin:0 0 18px}h3{font:650 20px/1.3 Manrope;margin:0 0 10px}p{margin:0 0 16px}.intro{max-width:780px;color:#bacbdb;font-size:19px}
+    .notice{border-left:3px solid var(--sky);padding:18px 22px;background:#0c1927;margin:24px 0 32px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    section{padding:26px;background:var(--carbon);border:1px solid var(--line);border-radius:8px;margin:20px 0}.grid section{margin:0}.muted{color:#bacbdb}.paper{background:var(--paper);color:#05070a}.paper .muted{color:#425569}.paper a{color:#0758b9}
+    table{border-collapse:collapse;width:100%;font-size:15px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #afbccc;padding:14px 12px}th:first-child,td:first-child{padding-left:0;width:31%}caption{text-align:left;margin-bottom:12px}
+    ol,ul{padding-left:23px}li{margin-bottom:12px}details{border-top:1px solid var(--line);padding-top:18px}summary{cursor:pointer;color:var(--sky);font-weight:600}summary:focus-visible{outline:3px solid var(--sky);outline-offset:4px}.prompt{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;padding-top:18px}.docs{display:flex;flex-wrap:wrap;gap:18px;font-size:14px}footer{color:#bacbdb;border-top:1px solid var(--line);font-size:13px}
+    @media(max-width:720px){header,main,footer{padding:20px}.grid{grid-template-columns:1fr}section{padding:20px}header{align-items:center}th,td{padding:12px 7px;font-size:14px}th:first-child,td:first-child{width:35%}}
+  </style>
+</head>
+<body>
+  <header><span class="brand">pegasoft</span><a href="index.html">Back to concept review</a></header>
+  <main aria-busy="true">
+    <p class="label">CONTAINERS · INPUT AND METHOD PROPOSAL · 06 OCT 2026</p>
+    <h1 id="title">Container proposal</h1>
+    <p class="intro" id="summary">Loading the proposed input set…</p>
+    <div class="notice"><strong>Input and model plan approved.</strong> The single C01 master is generated and <a href="container.html">is accepted as the static master</a>. This page preserves the agreed plan; the model design is also accepted; production motion and handoffs retain separate review.</div>
+    <div class="grid">
+      <section><h2>One image establishes the identity.</h2><h3 id="input-title"></h3><p id="input-view"></p><p class="muted" id="input-purpose"></p><p class="muted" id="input-output"></p></section>
+      <section><h2>One model carries it through.</h2><p id="motion"></p><p class="muted" id="dimensions"></p><p><a id="dimension-source" href="https://www.aclcargo.com/shipping-info/containers/" target="_blank" rel="noopener">Nominal external dimensions · ACL</a></p></section>
+    </div>
+    <section class="paper"><h2>Silver stays the anchor.</h2><table><caption>Proposed material roles</caption><thead><tr><th scope="col">Component</th><th scope="col">Finish and review scope</th></tr></thead><tbody id="materials"></tbody></table><p class="muted" id="lighting" style="margin-top:20px"></p></section>
+    <section><h2>Build the geometry locally.</h2><p id="method"></p><p class="muted" id="rationale"></p><ul id="construction"></ul><p class="muted" id="limitation"></p></section>
+    <section><h2>Review in this order.</h2><ol id="sequence"></ol><details><summary>Read the exact proposed Image 2.5 prompt</summary><p class="prompt" id="prompt"></p></details></section>
+    <section><h2>Approved scope and original terms.</h2><p id="approval"></p><p class="muted" id="batch"></p><p class="muted" id="exclusions"></p><p class="muted" id="change-rule"></p></section>
+    <nav class="docs" aria-label="Proposal sources"><a href="../generation/container-family/input-proposal.json">Original proposal snapshot</a><a href="../generation/container-family/proposal-approval.json">Approval record</a><a href="container.html">Accepted C01 master</a><a href="container-model.html">Local model review</a><a href="../CURRENT.md">Current checkpoint</a><a href="../PROPOSAL.md">Implementation plan</a><a href="../material-color-contract.json">Material/color authority</a><a href="../ASSET-PROMPTS.md">Locked prompt book</a></nav>
+  </main>
+  <footer>Container input/model plan approved; one C01 image generated. Static output accepted; local model design accepted.</footer>
+  <script>
+    const main = document.querySelector('main');
+    const set = (id, value) => { document.getElementById(id).textContent = value; };
+    const addItems = (id, items) => { for (const value of items) { const li = document.createElement('li'); li.textContent = value; document.getElementById(id).append(li); } };
+    async function loadProposal() {
+      try {
+        const response = await fetch('../generation/container-family/input-proposal.json', {cache:'no-store'});
+        if (!response.ok) throw new Error('Proposal request failed: ' + response.status);
+        const p = await response.json();
+        set('title',p.title); set('summary','Approved one-image identity plan and local parametric 3D method. The C01 static master is accepted; the local model design is accepted.'); set('motion',p.motion_use);
+        const input = p.inputs[0]; set('input-title',input.id+' · '+input.count+' transparent oblique master');
+        set('input-view',input.view); set('input-purpose',input.purpose); set('input-output',input.output);
+        const d = p.dimensions.external_meters; set('dimensions',`${p.dimensions.type}: ${d.length} × ${d.width} × ${d.height} m (length × width × height). ${p.dimensions.scope}`);
+        document.getElementById('dimension-source').href = p.dimensions.source;
+        for (const material of p.materials) { const tr = document.createElement('tr'); const th = document.createElement('th'); th.scope='row'; th.textContent=material.part; const td=document.createElement('td'); td.textContent=material.finish+' '+material.approval; tr.append(th,td); document.getElementById('materials').append(tr); }
+        set('lighting',p.lighting); set('method',p.model_method.method+' '+p.model_method.provider); set('rationale',p.model_method.rationale);
+        addItems('construction',p.model_method.construction); set('limitation',p.model_method.limitation); addItems('sequence',p.approval_sequence);
+        set('prompt',p.reviewed_prompt); set('approval','The user approved these inputs, finishes, model method and the single-image production batch on 6 October 2026. The static master is accepted and the local model is built; the model design is accepted and physical handoffs retain separate review.'); set('batch','Approved batch: one C01 Image 2.5 master, now complete. The original proposed terms are retained in the proposal manifest alongside the approval record.');
+        set('exclusions','Excluded inputs: '+p.excluded_inputs.join('; ')+'.'); set('change-rule',p.input_change_rule);
+      } catch (error) { set('summary','The proposal could not be loaded. Open the proposal manifest below to review the saved plan.'); console.error(error); }
+      finally { main.setAttribute('aria-busy','false'); }
+    }
+    loadProposal();
+  </script>
+</body>
+</html>

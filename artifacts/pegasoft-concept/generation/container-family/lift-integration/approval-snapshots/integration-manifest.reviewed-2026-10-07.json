@@ -1,0 +1,297 @@
+{
+  "status": "fixed_approved_grabber_and_level_camera_ready_for_review_corner_mechanics_unresolved",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "user_instructions": [
+    "Proceed to next phase for lift integration with container",
+    "The container is really small ... It should have realistic dimensions like in the reference and the approved static assets",
+    "Pick up from an existing stack",
+    "After lift-off ... retract/move back and then reverse along with the camera view change like in the reference",
+    "Departure camera must remain consistent and stable following the lift after contact; remove competing zoom behavior."
+  ],
+  "scope": "Separate C01/lift derivative: retained approved grabber shape and exact dimensions with zero added reach geometry, reference-relative 40-foot C01, actual central roof seating as visual coupling, stationary lower C01, stack separation, settling, retraction, backing/reverse arc and level camera. Four-corner mechanical pickup remains unresolved.",
+  "fit": {
+    "length": 12.192,
+    "width": 2.438,
+    "height": 2.896,
+    "scale": 0.225,
+    "yaw": -1.5707963267948966,
+    "scaleBasis": {
+      "reference": "source-sequence/y-070.png at 960\u00d7540",
+      "containerEndHeightPixels": 126,
+      "frontTireDiameterPixelsApprox": 51,
+      "approvedFrontTireDiameterModel": 0.264,
+      "targetHeightToTire": 2.4705882352941178,
+      "appliedHeightToTire": 2.468181818181818,
+      "limit": "Raster silhouette ratio; retained lift has no certified SI dimensions."
+    },
+    "containerModelDimensions": [
+      12.192,
+      2.896,
+      2.438
+    ],
+    "containerAxis": "long X meters -> lift Z visual coordinates; front doors face initial camera",
+    "roofLocal": -0.2087719672843814,
+    "actualSpreaderUnderside": -0.23286397755146027,
+    "clippedRoofTriangles": 14180,
+    "contactCount": 0,
+    "contacts": [],
+    "stackCorners": [
+      {
+        "id": "-1_-1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          -1.139
+        ]
+      },
+      {
+        "id": "-1_1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          1.139
+        ]
+      },
+      {
+        "id": "1_-1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          -1.139
+        ]
+      },
+      {
+        "id": "1_1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          1.139
+        ]
+      }
+    ],
+    "roofWitness": {
+      "headLocal": [
+        0.1314219832420349,
+        -0.23172196745872498,
+        0.3600969910621643
+      ],
+      "roofLocal": [
+        0.1314219832420349,
+        -0.23172196745872498,
+        0.3600969910621643
+      ],
+      "gap": 0
+    },
+    "roofSeatLift": 0.0011420100927352905,
+    "roofSeatMethod": "Head triangles clipped against actual folded roof crease planes; minimum vertical separation solved with no added hardware.",
+    "grabber": {
+      "source": "approved lift GLB; identical head geometry and transforms",
+      "localBounds": {
+        "min": [
+          -0.20140498876571655,
+          -0.23286397755146027,
+          -0.3866550028324127
+        ],
+        "max": [
+          0.1453390121459961,
+          0.1237650141119957,
+          0.38641199469566345
+        ],
+        "size": [
+          0.34674400091171265,
+          0.35662899166345596,
+          0.7730669975280762
+        ]
+      },
+      "addedReachMeshes": 0,
+      "scaleDuringMotion": [
+        1,
+        1,
+        1
+      ],
+      "schema": "Retained closed frame, central yoke/rotator, original braces and feet.",
+      "cornerLockStatus": "unresolved: fixed approved head does not span the 40ft C01 corner castings",
+      "coupling": "Central roof seating and rigid visual parenting only; no four-corner mechanical-lock claim."
+    },
+    "scaleIsUniform": true,
+    "originalContainerMeshes": 197,
+    "pickupCalibration": {
+      "elevationOffset": 1.449128318513214,
+      "contactElevation": 19.302128318513212,
+      "middleAtPickup": 0.3,
+      "lowerStackRoof": 2.0747583706326584,
+      "lowerContainerBase": 7.993605777301127e-15,
+      "clearancePolicy": "Solve boom elevation against the stationary casting plane; no compression or container penetration.",
+      "trajectory": {
+        "backingStartFrame": 52,
+        "backingEndFrame": 80,
+        "backingDistanceLiftUnits": 0.8,
+        "reverseArcFrames": [
+          80,
+          176
+        ],
+        "reverseArcRadiusLiftUnits": 2,
+        "headingChangeDegrees": -70,
+        "retractFrames": [
+          60,
+          104
+        ],
+        "middleAfterRetraction": 0.16
+      },
+      "referenceLimit": "Absolute reach, retreat distance and stack clearance are integration interpretations; original phase/camera/settling sources remain unchanged."
+    }
+  },
+  "approved_assets": {
+    "lift_glb": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+    "C01_glb": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+    "lift_source_modules": [
+      {
+        "path": "review/lift-motion.js",
+        "sha256": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6"
+      },
+      {
+        "path": "review/lift-motion.html",
+        "sha256": "fba25b19341636c7daa87dd4d81eb7bfc5111bec719a22e28c9896dff5a17bbe"
+      },
+      {
+        "path": "review/lift-wheels.js",
+        "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+      },
+      {
+        "path": "review/lift-cab.js",
+        "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+      },
+      {
+        "path": "review/lift-motion-contract.js",
+        "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+      },
+      {
+        "path": "review/lift-motion-data.js",
+        "sha256": "1b331873fdaac909d745d215d67b7c9ddd23d1abd377abfdef7cbc3cddedb7a1"
+      }
+    ],
+    "C01_static_master_sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3",
+    "static_spreader_detail": {
+      "path": "generation/lift-family/lift-spreader.png",
+      "sha256": "1855b42a12c04679376f79997d3796dc443e7f3b08a89675f729db7bf73626b0",
+      "approval": "generation/lift-family/static-family-approval.json"
+    }
+  },
+  "owned_inputs": [
+    {
+      "path": "review/lift-container.html",
+      "sha256": "44e39925418d3cc210b8da20d476594e2f36b634872d7e4aa4e191cde698f3db",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.html"
+    },
+    {
+      "path": "review/lift-container.js",
+      "sha256": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.js"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-contact.js"
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "sha256": "eff3c88fb443f3d8a7107106d4d104999368b8c0cdd0116be456c06022b7e766",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-replay.js"
+    },
+    {
+      "path": "review/integration-server.py",
+      "sha256": "57cbe737715a235844b01450abd2ad06a54b391ffeb0e5ae28ac12a945f6af41",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/integration-server.py"
+    },
+    {
+      "path": "generation/container-family/lift-integration/rig-harness.mjs",
+      "sha256": "b31c7869f5a4344bed8f47624cad385d1a1f2f3ccbe019dd233e3d47788d0924",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/rig-harness.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-integration.mjs",
+      "sha256": "c3d62950fea9455415594b3252cf78b7b2a22acfe41f9c9b44c61e88f9c2deab",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-integration.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/measure-rendered-edges.py",
+      "sha256": "564d0e9e7f958a7fe467f96f8b23259023021cf16e4cd8337630370a24dacf68",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/measure-rendered-edges.py"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera.mjs",
+      "sha256": "b48dd817c2813cef77176ca234e8cd9b80c61d13918027548de0570b05ac7629",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-camera.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera-turn.mjs",
+      "sha256": "5cb06960caa6654e7527c645a17c0ff30dcb764decb6743643c9911c1b57be3f",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-camera-turn.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-rendered-camera.py",
+      "sha256": "b565548c9e150311c48c1183e87939111e4dd71b45eda08d10a614b1837990a5",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-rendered-camera.py"
+    }
+  ],
+  "calibration_limits": [
+    "Uniform C01 conversion preserves its 12.192\u00d72.438\u00d72.896 m dimensions. The retained lift is visual geometry without certified SI dimensions.",
+    "Original reference phase/settling modules remain read-only. Derivative camera uses a level monotonic turn; accepted raw camera yaw/roll samples are not applied to this revised departure.",
+    "The reference uses separate image layers. Reverse-arc radius, travel distance, rear steering and final framing are local integration interpretations pending user review.",
+    "Parked lower container stays rigid, on the floor and static; it naturally leaves the framing during departure.",
+    "No truck/trailer/deck transfer, website section implementation, provider job, commit or deployment in this batch.",
+    "Preserving approved head dimensions leaves four-corner mechanical pickup unresolved; central roof seating is visual coupling only."
+  ],
+  "review_packet": "evidence/lift-container-integration/review.json",
+  "review_url": "http://127.0.0.1:8767/review/lift-container.html#viewer",
+  "server": "python3 artifacts/pegasoft-concept/review/integration-server.py",
+  "camera_policy": {
+    "revision": "camera-v4",
+    "fit": "Cache setup extents; constant viewport-specific distance after contact",
+    "target": "Actual axle/hub midpoint in chassis X/Z; fixed world height during reverse turn",
+    "orbit": "Smooth monotonic camera yaw composed with chassis heading; world-up, zero camera roll",
+    "composition": "Horizontal bias keeps stationary support beyond frame once it leaves; support remains visible in scene",
+    "owner": "motionApply; OrbitControls disabled",
+    "regressions": [
+      "evidence/lift-container-integration/camera-stability.json",
+      "evidence/lift-container-integration/camera-turn-stability.json",
+      "evidence/lift-container-integration/camera-v4-rendered-checks.json"
+    ]
+  },
+  "revision": "camera-v4-fixed-approved-grabber",
+  "updated_at_utc": "2026-10-07T12:09:16.823891+00:00",
+  "grabber_policy": {
+    "authority": "Direct user amendment: preserve approved grabber exact dimensions and follow accepted static family",
+    "geometry": "All approved head meshes, attributes and local dimensions preserved; zero added reach/lock solids",
+    "motion_scale": [
+      1,
+      1,
+      1
+    ],
+    "visual_coupling": "Original head seated against actual folded roof, using triangle/crease-plane clearance solve",
+    "four_corner_pickup": "unresolved at retained head size; no corner-lock claim",
+    "historical_extended_geometry": "evidence/lift-container-integration/pre-grabber-fix/status.json"
+  }
+}

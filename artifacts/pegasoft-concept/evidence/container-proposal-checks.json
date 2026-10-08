@@ -1,0 +1,153 @@
+{
+  "status": "proposal_review_checks_passed",
+  "captured_at_utc": "2026-10-06T12:19:38.233903+00:00",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "scope": "Container input/method proposal and review portal only; no app scaffolding, generated asset or model.",
+  "checks": {
+    "json_and_input_gate": "pass",
+    "exact_color_clause": "pass",
+    "authority_links": "pass",
+    "protected_input_bytes": "pass",
+    "http_assets": "pass",
+    "rendered_page": "pass",
+    "prompt_keyboard_expand_and_collapse": "pass",
+    "portal_navigation_round_trip": "pass after making the portal link an inline block; initial wrapped-link click missed the text fragments",
+    "scope": "pass",
+    "word_counts": {
+      "CURRENT.md": 170,
+      "HANDOFF.md": 91
+    },
+    "git_diff_check": "pass",
+    "updated_portal_http": "pass"
+  },
+  "http_assets": [
+    {
+      "url": "http://127.0.0.1:8766/ASSET-PROMPTS.md",
+      "status": 200,
+      "bytes": 21581
+    },
+    {
+      "url": "http://127.0.0.1:8766/CURRENT.md",
+      "status": 200,
+      "bytes": 1822
+    },
+    {
+      "url": "http://127.0.0.1:8766/PROPOSAL.md",
+      "status": 200,
+      "bytes": 23375
+    },
+    {
+      "url": "http://127.0.0.1:8766/generation/container-family/input-proposal.json",
+      "status": 200,
+      "bytes": 8663
+    },
+    {
+      "url": "http://127.0.0.1:8766/material-color-contract.json",
+      "status": 200,
+      "bytes": 4099
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/container-plan.html",
+      "status": 200,
+      "bytes": 7606
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/fonts/dmsans.ttf",
+      "status": 200,
+      "bytes": 240164
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/fonts/ibmplexmono.ttf",
+      "status": 200,
+      "bytes": 135580
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/fonts/manrope.ttf",
+      "status": 200,
+      "bytes": 164700
+    },
+    {
+      "url": "http://127.0.0.1:8766/review/index.html",
+      "status": 200,
+      "bytes": 14009
+    }
+  ],
+  "browser_observation": "container-proposal/browser-observation.json",
+  "visual_inspection": "Readable initial proposal at the default 516 x 788 viewport; no horizontal overflow. Other viewports and final asset/model visuals are not qualified.",
+  "protected_inputs": [
+    {
+      "path": "PROPOSAL.md",
+      "sha256": "8246583cfea0b7c4b2c8bfa6e32e50264995c6b6b9541ab17aa596213b7ca660",
+      "matches_head": true
+    },
+    {
+      "path": "ASSET-PROMPTS.md",
+      "sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e",
+      "matches_head": true
+    },
+    {
+      "path": "material-color-contract.json",
+      "sha256": "8044ed8282cd4edd1916d71890a5e66401b201af182e572d16cdeaad37b8a5ec",
+      "matches_head": true
+    },
+    {
+      "path": "generation/lift-family/reference-motion-approval.json",
+      "sha256": "4ab751b6b4d6d8837285b9a0cfc914fc0afa9530f162ace5f7d082b6f2d2642d",
+      "matches_head": true
+    },
+    {
+      "path": "generation/jet-family/shadow-measurements-approval.json",
+      "sha256": "4314dbfabc7569ef79b12785913cdccae1ce3e21521fa0f5a567f34b82444c9c",
+      "matches_head": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "generation/container-family/input-proposal.json",
+      "sha256": "9a3c3e2abf01a302fa4862f84ebb013a323759c8e56490695679788f3e7bbf59"
+    },
+    {
+      "path": "review/container-plan.html",
+      "sha256": "b3c6ccb7a1d4ba0ac150f225328272ef4c3c592f4fbcc43aae90bfb5bcdac3be"
+    },
+    {
+      "path": "review/index.html",
+      "sha256": "14f671728fb7adbbc91eb556ecff4b16374ce2b7ad346a9319346d2041a0de42"
+    },
+    {
+      "path": "CURRENT.md",
+      "sha256": "f8cc8c5d62b449a7d7438830e42707ee47fc2fd60b85abd309b64cd28464f79b"
+    },
+    {
+      "path": "HANDOFF.md",
+      "sha256": "7a5ae42e9db283df4e91ba382a4cbc2b902365ad17b17d5979bd0a2b9a1c6548"
+    },
+    {
+      "path": "evidence/container-proposal/overview.jpg",
+      "sha256": "ae3cd64178dd49ea5f70b9e01f6866a88c0519338fce05d7703dead1a5820d35"
+    },
+    {
+      "path": "evidence/container-proposal/browser-observation.json",
+      "sha256": "45017a6208b88b041f42f5d2f006fd85198a3b5a5c94cc4fe83706b43caa71ae"
+    }
+  ],
+  "usage_preflight": {
+    "primary_used_percent": 0,
+    "secondary_used_percent": 100,
+    "ordinary_usage_allowed": false,
+    "credits_available": true,
+    "credit_balance_meter": null,
+    "existing_exception": "Lift-family review only; no non-lift production extension authorized."
+  },
+  "provider_jobs_submitted": 0,
+  "user_acceptance": "awaiting input set, material roles, model method and non-lift allowance approval",
+  "next_action": "After explicit approval and allowance extension, verify provider settings/pricing, submit one C01 master, then stop for static review.",
+  "usage_after_batch": {
+    "ordinary_usage_allowed": false,
+    "primary_used_percent": 0,
+    "secondary_used_percent": 100,
+    "credits_available": true,
+    "credit_balance_meter": null
+  }
+}

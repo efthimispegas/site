@@ -1,0 +1,833 @@
+{
+  "origin": "http://127.0.0.1:8767",
+  "observations": [
+    {
+      "action": "Paused via Camera midpoint cue",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.2217304763960306,
+          "arcX": 1.147152872702092,
+          "arcZ": 0.3616959114220164,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6108652381980153,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.4779143939864756,
+            6.1948931244742855,
+            37.35462512550489
+          ],
+          "quaternion": [
+            -0.043991327243743106,
+            0.1019094458421866,
+            -0.013425630289726312,
+            0.993729832714504
+          ],
+          "target": [
+            -5.432480802457336,
+            2.9062584020172832,
+            -0.5178957823008415
+          ]
+        },
+        "cameraRoll": -2.0503495413661073,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 128,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -4.975178522543974,
+          2.395751599629394,
+          -0.291062893268828
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8238823966239336,
+        "referenceIndex": "Pivot 48 / 96",
+        "scroll_driven": false,
+        "speed": 1,
+        "vh": 299.165820642978,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -850.1212432093654,
+        "yaw": 46.7977
+      }
+    },
+    {
+      "action": "Resume genuine Play",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.567808215280311,
+          "arcX": 1.4120990708389591,
+          "arcZ": 0.5836751029033811,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.7839041076401555,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.984921928422997,
+            6.1948931244742855,
+            36.43381286495013
+          ],
+          "quaternion": [
+            -0.04458163281833298,
+            0.12115237290838358,
+            -0.015319671670133388,
+            0.9915139374783586
+          ],
+          "target": [
+            -6.39680800059239,
+            2.9062584020172832,
+            -1.101308496451119
+          ]
+        },
+        "cameraRoll": -2.3687194735549695,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 137.17638351606084,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.985390351679373,
+          2.395751599629394,
+          -0.7991263445568436
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": true,
+        "progress": 0.8575516189678559,
+        "referenceIndex": "Pivot 57 / 96",
+        "scroll_driven": false,
+        "speed": 1,
+        "vh": 313.4350193760743,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -995.6441212894596,
+        "yaw": 58.94769458418933
+      }
+    },
+    {
+      "action": "Pause after resumed movement",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 2.443460952792061,
+          "arcX": 1.8793852415718169,
+          "arcZ": 1.3159597133486622,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -1.2217304763960306,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            4.965421719674529,
+            6.1948931244742855,
+            33.12809012097388
+          ],
+          "quaternion": [
+            -0.04174145669977261,
+            0.17349212625413174,
+            0.007360145030244032,
+            0.9839227414718776
+          ],
+          "target": [
+            -8.26727615233153,
+            2.9062584020172832,
+            -3.228448480827995
+          ]
+        },
+        "cameraRoll": 0,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 176,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -8.022782055020675,
+          2.395751599629394,
+          -2.780340044017528
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 1,
+        "referenceIndex": "Pivot 96 / 96",
+        "scroll_driven": false,
+        "speed": 1,
+        "vh": 373.80541455160744,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -1363.8489846598588,
+        "yaw": 90
+      }
+    },
+    {
+      "action": "Quarter-speed resume from departure cue",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.286012033947389,
+          "arcX": 1.1992077060514743,
+          "arcZ": 0.3994060859334869,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6430060169736945,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.5367472076760613,
+            6.1948931244742855,
+            37.20694381260208
+          ],
+          "quaternion": [
+            -0.04428742754915322,
+            0.10502381059346633,
+            -0.015673003716151844,
+            0.9933594414531024
+          ],
+          "target": [
+            -5.619006133124271,
+            2.9062584020172832,
+            -0.6134988014145883
+          ]
+        },
+        "cameraRoll": -2.326053934241786,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 129.68437683765018,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.169229366825666,
+          2.395751599629394,
+          -0.3720875438922029
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": true,
+        "progress": 0.8300625718703732,
+        "referenceIndex": "Pivot 50 / 96",
+        "scroll_driven": false,
+        "speed": 0.25,
+        "vh": 301.78501237529696,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -877.1511160133849,
+        "yaw": 49.010677308088624
+      }
+    },
+    {
+      "action": "Pause mid-departure",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.366483715362465,
+          "arcX": 1.2626209910048094,
+          "arcZ": 0.44893964234977846,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6832418576812325,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.634748957870241,
+            6.1948931244742855,
+            37.006893526400376
+          ],
+          "quaternion": [
+            -0.04468489946007711,
+            0.10918695925180952,
+            -0.018480731209520714,
+            0.9928443635653816
+          ],
+          "target": [
+            -5.848021618509452,
+            2.9062584020172832,
+            -0.7415474404079164
+          ]
+        },
+        "cameraRoll": -2.672241904737881,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 131.79936308395085,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.408319644288785,
+          2.395751599629394,
+          -0.4822393058902767
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8378227033052027,
+        "referenceIndex": "Pivot 52 / 96",
+        "scroll_driven": false,
+        "speed": 0.25,
+        "vh": 305.07379809500986,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -910.9888043929373,
+        "yaw": 51.8119022634845
+      }
+    },
+    {
+      "action": "Paused after native page reposition",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.366483715362465,
+          "arcX": 1.2626209910048094,
+          "arcZ": 0.44893964234977846,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6832418576812325,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.634748957870241,
+            6.1948931244742855,
+            37.006893526400376
+          ],
+          "quaternion": [
+            -0.04468489946007711,
+            0.10918695925180952,
+            -0.018480731209520714,
+            0.9928443635653816
+          ],
+          "target": [
+            -5.848021618509452,
+            2.9062584020172832,
+            -0.7415474404079164
+          ]
+        },
+        "cameraRoll": -2.672241904737881,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 131.79936308395085,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.408319644288785,
+          2.395751599629394,
+          -0.4822393058902767
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8378227033052027,
+        "referenceIndex": "Pivot 52 / 96",
+        "scroll_driven": false,
+        "speed": 0.25,
+        "vh": 305.07379809500986,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -910.9888043929373,
+        "yaw": 51.8119022634845
+      }
+    },
+    {
+      "action": "Explicit close-up mode",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.366483715362465,
+          "arcX": 1.2626209910048094,
+          "arcZ": 0.44893964234977846,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6832418576812325,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 21.27940114531002,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            -18.84222892532889,
+            5.241879882297075,
+            16.020578469623267
+          ],
+          "quaternion": [
+            -0.039936056076675434,
+            -0.33471372577191805,
+            -0.01419973124132472,
+            0.9413661353785764
+          ],
+          "target": [
+            -5.408319644288785,
+            3.433130784945724,
+            -0.4822393058902765
+          ]
+        },
+        "cameraRoll": -2.672241904737881,
+        "elevation": 26.8872,
+        "focus": true,
+        "frame": 131.79936308395085,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.408319644288785,
+          2.395751599629394,
+          -0.4822393058902767
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8378227033052027,
+        "referenceIndex": "Pivot 52 / 96",
+        "scroll_driven": false,
+        "speed": 0.25,
+        "vh": 305.07379809500986,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -910.9888043929373,
+        "yaw": 51.8119022634845
+      }
+    },
+    {
+      "action": "Restore full sequence framing",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.366483715362465,
+          "arcX": 1.2626209910048094,
+          "arcZ": 0.44893964234977846,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6832418576812325,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.634748957870241,
+            6.1948931244742855,
+            37.006893526400376
+          ],
+          "quaternion": [
+            -0.04468489946007711,
+            0.10918695925180952,
+            -0.018480731209520714,
+            0.9928443635653816
+          ],
+          "target": [
+            -5.848021618509452,
+            2.9062584020172832,
+            -0.7415474404079164
+          ]
+        },
+        "cameraRoll": -2.672241904737881,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 131.79936308395085,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.408319644288785,
+          2.395751599629394,
+          -0.4822393058902767
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8378227033052027,
+        "referenceIndex": "Pivot 52 / 96",
+        "scroll_driven": false,
+        "speed": 0.25,
+        "vh": 305.07379809500986,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -910.9888043929373,
+        "yaw": 51.8119022634845
+      }
+    },
+    {
+      "action": "Native scroll baseline",
+      "scroll": 3214,
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.3659845314477634,
+          "arcX": 1.2622338194899838,
+          "arcZ": 0.4486245506210538,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6829922657238817,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.6344460514989647,
+            6.1948931244742855,
+            37.00809979848664
+          ],
+          "quaternion": [
+            -0.04468242989424062,
+            0.1091653444743068,
+            -0.01846308277191989,
+            0.9928471798817324
+          ],
+          "target": [
+            -5.846617052966585,
+            2.9062584020172832,
+            -0.7407248281712917
+          ]
+        },
+        "cameraRoll": -2.6700883315522246,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 131.78620613438517,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.406850371217609,
+          2.395751599629394,
+          -0.4815264478058573
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8377744289213435,
+        "referenceIndex": "Pivot 52 / 96",
+        "scroll_driven": true,
+        "speed": 0.25,
+        "vh": 305.05333914974614,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -910.778901611577,
+        "yaw": 51.79501005593711
+      }
+    },
+    {
+      "action": "Native forward departure scroll",
+      "scroll": 3371.5,
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.8315756912483676,
+          "arcX": 1.586085523379207,
+          "arcZ": 0.7816680614352642,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.9157878456241838,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            3.118775772573385,
+            6.1948931244742855,
+            35.675218647821204
+          ],
+          "quaternion": [
+            -0.04313414608471298,
+            0.13218465373259217,
+            -0.0027815885372239014,
+            0.9902822453847928
+          ],
+          "target": [
+            -7.056070897145752,
+            2.9062584020172832,
+            -1.652715762266491
+          ]
+        },
+        "cameraRoll": -0.9725535284912844,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 144.63985140097932,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -6.687963507767643,
+          2.395751599629394,
+          -1.2990556363746908
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8849359539004826,
+        "referenceIndex": "Pivot 65 / 96",
+        "scroll_driven": true,
+        "speed": 0.25,
+        "vh": 325.0406487944162,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -1106.5562024032013,
+        "yaw": 67.71804054679
+      }
+    },
+    {
+      "action": "Native reverse departure scroll",
+      "scroll": 3214,
+      "state": {
+        "applied_pose": {
+          "arcDistance": 1.3659845314477634,
+          "arcX": 1.2622338194899838,
+          "arcZ": 0.4486245506210538,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -0.6829922657238817,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            2.6344460514989647,
+            6.1948931244742855,
+            37.00809979848664
+          ],
+          "quaternion": [
+            -0.04468242989424062,
+            0.1091653444743068,
+            -0.01846308277191989,
+            0.9928471798817324
+          ],
+          "target": [
+            -5.846617052966585,
+            2.9062584020172832,
+            -0.7407248281712917
+          ]
+        },
+        "cameraRoll": -2.6700883315522246,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 131.78620613438517,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -5.406850371217609,
+          2.395751599629394,
+          -0.4815264478058573
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.8377744289213435,
+        "referenceIndex": "Pivot 52 / 96",
+        "scroll_driven": true,
+        "speed": 0.25,
+        "vh": 305.05333914974614,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -910.778901611577,
+        "yaw": 51.79501005593711
+      }
+    },
+    {
+      "action": "Final paused departure review",
+      "state": {
+        "applied_pose": {
+          "arcDistance": 2.119078605636012,
+          "arcX": 1.744260335574593,
+          "arcZ": 1.0214521566416854,
+          "balance": 0,
+          "clearanceCorrection": 0,
+          "elevation": 30.687605395619524,
+          "heading": -1.059539302818006,
+          "middle": 0.15999999999999998,
+          "rearSteer": 0.47161556786232767,
+          "retreat": 0.8
+        },
+        "approachOffset": 0,
+        "attached": true,
+        "balance": 0,
+        "cab_focus": null,
+        "camera": {
+          "aspect": 2.0714285714285716,
+          "distance": 38.68982026420003,
+          "fov": 12,
+          "framing": "fixed_post_contact",
+          "position": [
+            6.9652170781303315,
+            6.1948931244742855,
+            33.4620975524141
+          ],
+          "quaternion": [
+            -0.04158883995897534,
+            0.19278437448162197,
+            0.008178589924427895,
+            0.980325284797574
+          ],
+          "target": [
+            -7.68518903201346,
+            2.9062584020172832,
+            -2.3466694311608096
+          ]
+        },
+        "cameraRoll": 0,
+        "elevation": 26.8872,
+        "focus": false,
+        "frame": 154.065857929815,
+        "inner": 0,
+        "load_owner": "spreader",
+        "load_world_center": [
+          -7.371542716870803,
+          2.395751599629394,
+          -1.9439232036700935
+        ],
+        "middle": 0,
+        "phase": "04 / Camera pivot",
+        "playing": false,
+        "progress": 0.919521072218518,
+        "referenceIndex": "Pivot 74 / 96",
+        "scroll_driven": false,
+        "speed": 0.25,
+        "vh": 339.69800920050756,
+        "wheel_focus": null,
+        "wheel_inspection_angle": 0,
+        "wheel_isolated": false,
+        "wheel_orbit": 40,
+        "wheel_roll_degrees": -1227.4488425741274,
+        "yaw": 82.95802496259522
+      }
+    }
+  ],
+  "status": "passed_genuine_pause_resume_focus_restore_native_forward_reverse_scroll",
+  "input_sha256": "708ecd5292132110b8598a47d84234952e27f0e71675d0b5a6fc3619bd7e551f",
+  "assertions": {
+    "mid_departure_pause_stable": true,
+    "resume_advances": true,
+    "explicit_focus_full_restore": true,
+    "native_scroll_camera_distance_constant": true,
+    "reverse_scroll_camera_pose_exact": true
+  }
+}

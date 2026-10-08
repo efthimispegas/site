@@ -1,0 +1,148 @@
+{
+  "status": "passed_rendered_camera_stability_and_no_edge_flash",
+  "inputs": {
+    "review/lift-container.js": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1",
+    "review/lift-container-contact.js": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+    "review/lift-container-replay.js": "eff3c88fb443f3d8a7107106d4d104999368b8c0cdd0116be456c06022b7e766",
+    "review/lift-container.html": "44e39925418d3cc210b8da20d476594e2f36b634872d7e4aa4e191cde698f3db"
+  },
+  "check_sha256": "b565548c9e150311c48c1183e87939111e4dd71b45eda08d10a614b1837990a5",
+  "limits": "Dense camera observations plus the actual vacated right-edge pixels check stability and the reported flash. This does not qualify full reference raster fidelity.",
+  "results": [
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-normal.webm",
+      "trace_sha256": "bbda7744b904cce1cc4e003ad25f86f131ecc26c50e743a26205150a00d100f9",
+      "video_sha256": "753b53f9f6e1588b8a3f88b1e19b16cf13fdbd193c9979a7f0b009211c75982c",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 1
+      },
+      "observations": 1081,
+      "reported_interval_observations": 239,
+      "ground_anchor_pixel_span": 2.2737367544323206e-13,
+      "hub_anchor_pixel_span": 2.8421709430404007e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 10,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 3,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 9125,
+      "grounded_container_kept_visible_in_scene": true
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-quarter.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v4-full-forward-quarter.webm",
+      "trace_sha256": "5b06de17de05ab274c176faad6d927a511441592efd1c49687f8899be0f9c5e3",
+      "video_sha256": "a95c481595cac05b692d5c499d4ceb9d46dd0dcad21ded418f5115df3cfc5871",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 0.25
+      },
+      "observations": 4320,
+      "reported_interval_observations": 955,
+      "ground_anchor_pixel_span": 2.8421709430404007e-13,
+      "hub_anchor_pixel_span": 2.2737367544323206e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 41,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 0,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 36516.3,
+      "grounded_container_kept_visible_in_scene": true
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v4-full-reverse-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v4-full-reverse-normal.webm",
+      "trace_sha256": "a8abee9680d18803ccb470c68d7d7794ff92e60096ddf45c863871bdaf684839",
+      "video_sha256": "6eb1241780ed725fd61e3bcbb7d10c8d497c0b452d1adfc2f4d8bca5d70b6606",
+      "mode": {
+        "scope": "full",
+        "reverse": true,
+        "speed": 1
+      },
+      "observations": 1079,
+      "reported_interval_observations": 238,
+      "ground_anchor_pixel_span": 1.7053025658242404e-13,
+      "hub_anchor_pixel_span": 1.7053025658242404e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 10,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 0,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 9124.899999999994,
+      "grounded_container_kept_visible_in_scene": true
+    }
+  ]
+}

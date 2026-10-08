@@ -1,0 +1,254 @@
+{
+  "url": "http://127.0.0.1:8766/review/container-model.html",
+  "viewport": {
+    "width": 535,
+    "height": 788,
+    "override": false
+  },
+  "observations": [
+    {
+      "label": "Oblique",
+      "state": {
+        "camera": "-17.03049,5.05446,14.02511",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/oblique.jpg"
+    },
+    {
+      "label": "Door end",
+      "state": {
+        "camera": "-11.22096,1.44800,0.00000",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "doors"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/door-end.jpg"
+    },
+    {
+      "label": "Far end",
+      "state": {
+        "camera": "11.22096,1.44800,0.00000",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "far"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/far-end.jpg"
+    },
+    {
+      "label": "Left side",
+      "state": {
+        "camera": "0.00000,1.44800,-21.26304",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "left"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/left-side.jpg"
+    },
+    {
+      "label": "Right side",
+      "state": {
+        "camera": "0.00000,1.44800,21.26304",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "right"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/right-side.jpg"
+    },
+    {
+      "label": "Roof",
+      "state": {
+        "camera": "0.00000,24.47191,0.00230",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "roof"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/roof.jpg"
+    },
+    {
+      "label": "Underside",
+      "state": {
+        "camera": "0.00000,-21.57591,0.00230",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "under"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/underside.jpg"
+    },
+    {
+      "label": "Corner detail",
+      "state": {
+        "camera": "-6.54600,3.17600,1.63900",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "-5.99600,2.81600,1.13900",
+        "view": "corner"
+      },
+      "screenshot": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/container-model-review/marked/corner-detail.jpg"
+    }
+  ],
+  "interaction": {
+    "orbit": {
+      "method": "Genuine CDP mouse press, held movement, release; DOM inspection and screenshot after release",
+      "before": {
+        "camera": "-15.19754,4.66630,12.51562",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "after": {
+        "camera": "-18.06614,9.88022,-0.68990",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "pass": true
+    },
+    "reset": {
+      "method": "Focused reset button + Enter",
+      "state": {
+        "camera": "-15.19754,4.66630,12.51562",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "pass": true
+    },
+    "keyboardZoom": {
+      "before": {
+        "camera": "-15.19754,4.66630,12.51562",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "zoomed": {
+        "camera": "-12.15804,4.02264,10.01250",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "restored": {
+        "camera": "-15.19754,4.66630,12.51562",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "pass": true
+    },
+    "wheelZoom": {
+      "method": "Native scroll inside canvas",
+      "before": {
+        "camera": "-15.19754,4.66630,12.51562",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "after": {
+        "camera": "-16.14746,4.86746,13.29791",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "oblique"
+      },
+      "pass": true
+    },
+    "surface": {
+      "method": "Focused Porcelain/Carbon buttons + Enter",
+      "porcelain": {
+        "camera": "-11.22096,1.44800,0.00000",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "porcelain",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "doors"
+      },
+      "carbon": {
+        "camera": "-11.22096,1.44800,0.00000",
+        "loaded": "true",
+        "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+        "modelMeshes": "197",
+        "modelTriangles": "21012",
+        "surface": "carbon",
+        "target": "0.00000,1.44800,0.00000",
+        "view": "doors"
+      },
+      "pass": true
+    }
+  },
+  "consoleWarningsOrErrors": [],
+  "finalState": {
+    "camera": "-11.22096,1.44800,0.00000",
+    "loaded": "true",
+    "modelDimensions": "12.192000002980233,2.896000000104308,2.4380000001043083",
+    "modelMeshes": "197",
+    "modelTriangles": "21012",
+    "surface": "carbon",
+    "target": "0.00000,1.44800,0.00000",
+    "view": "doors"
+  }
+}

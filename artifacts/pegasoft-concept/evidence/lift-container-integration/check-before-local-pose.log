@@ -1,0 +1,16 @@
+(node:33629) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/review/vendor/three/build/three.module.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/whiskey/.codex/worktrees/pegasoft-concept/site/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/generation/container-family/lift-integration/check-integration.mjs:25
+ if(state.attached){attachedCount++;if(rig.load.parent!==rig.spreader||rig.load.position.distanceTo(payload)>1e-10||rig.load.quaternion.angleTo(q)>1e-10||rig.load.scale.distanceTo(scale)>1e-10)throw Error('C01 slips in attachment');
+                                                                                                                                                                                                       ^
+
+Error: C01 slips in attachment
+    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/generation/container-family/lift-integration/check-integration.mjs:25:200
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.19.0

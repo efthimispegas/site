@@ -1,0 +1,3942 @@
+{
+  "status": "unqualified_rendered_edge_measurements",
+  "inputs": {
+    "evidence/lift-container-integration/playback/C01-settling-forward-quarter.webm": "ddf9cff2dc171c0bb3a3807989feadcfcb2bd452e21bc63f953f9932150705b2",
+    "evidence/lift-container-integration/playback/C01-settling-forward-quarter.json": "8e8f85c8a8fc82c601766beb19c11569d566ce1e5ebb87bf0923c46141068673",
+    "generation/container-family/lift-integration/measure-rendered-edges.py": "7dc41dcda100a83c889aec1e4f0395fe89c18507f6bee44ad22d3e9afc299b17"
+  },
+  "method": "Every decoded quarter-speed canvas frame; grayscale gradients in +-24 pixel casting-bounded side-edge bands, robust line fits excluding end castings. Angles come from raster pixels, not the motion labels. No clock or named-pose injection.",
+  "viewportCss": [
+    470,
+    378
+  ],
+  "decodedFrames": 414,
+  "pairedEdgeFrames": 1,
+  "pairedCoverage": 0.0024154589371980675,
+  "maxTiltDifferenceDegrees": 0.07220529052982019,
+  "p95TiltDifferenceDegrees": 0.06876532863872643,
+  "rasterTiltRangeDegrees": [
+    -0.37045819822954384,
+    0.043107548264433644
+  ],
+  "limits": [
+    "Witness bands localize the actual edges; this is raster/geometry correspondence rather than independent recovery of reference world-space motion.",
+    "Recorder PTS starts at the first decoded frame; nearest RAF observation is used without time fitting.",
+    "Reference fidelity, absolute trajectory radius and overall appearance still require user review."
+  ],
+  "frames": [
+    {
+      "videoFrame": 0,
+      "videoSeconds": 0.0,
+      "nearestRenderedObservation": 0,
+      "referenceLiftFrame": 36.0574643404958,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 1,
+      "videoSeconds": 0.034,
+      "nearestRenderedObservation": 4,
+      "referenceLiftFrame": 36.31045669670469,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 2,
+      "videoSeconds": 0.067,
+      "nearestRenderedObservation": 8,
+      "referenceLiftFrame": 36.559717602232034,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 3,
+      "videoSeconds": 0.099,
+      "nearestRenderedObservation": 12,
+      "referenceLiftFrame": 36.80375447680519,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 4,
+      "videoSeconds": 0.133,
+      "nearestRenderedObservation": 16,
+      "referenceLiftFrame": 37.0574931231504,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 5,
+      "videoSeconds": 0.167,
+      "nearestRenderedObservation": 20,
+      "referenceLiftFrame": 37.306007738541446,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 6,
+      "videoSeconds": 0.2,
+      "nearestRenderedObservation": 24,
+      "referenceLiftFrame": 37.554522353932455,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 7,
+      "videoSeconds": 0.233,
+      "nearestRenderedObservation": 28,
+      "referenceLiftFrame": 37.8030369693235,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 8,
+      "videoSeconds": 0.27,
+      "nearestRenderedObservation": 32,
+      "referenceLiftFrame": 38.05229787485086,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 9,
+      "videoSeconds": 0.301,
+      "nearestRenderedObservation": 36,
+      "referenceLiftFrame": 38.30081249024187,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 10,
+      "videoSeconds": 0.334,
+      "nearestRenderedObservation": 40,
+      "referenceLiftFrame": 38.54932710563291,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 11,
+      "videoSeconds": 0.367,
+      "nearestRenderedObservation": 44,
+      "referenceLiftFrame": 38.798588011160255,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 12,
+      "videoSeconds": 0.4,
+      "nearestRenderedObservation": 48,
+      "referenceLiftFrame": 39.04710262655126,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 13,
+      "videoSeconds": 0.434,
+      "nearestRenderedObservation": 52,
+      "referenceLiftFrame": 39.2956172419423,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 14,
+      "videoSeconds": 0.467,
+      "nearestRenderedObservation": 56,
+      "referenceLiftFrame": 39.544131857333355,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 15,
+      "videoSeconds": 0.501,
+      "nearestRenderedObservation": 60,
+      "referenceLiftFrame": 39.793392762860655,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 16,
+      "videoSeconds": 0.546,
+      "nearestRenderedObservation": 65,
+      "referenceLiftFrame": 40.10459574970173,
+      "appliedBalanceDegrees": -0.001779470472329104,
+      "fits": []
+    },
+    {
+      "videoFrame": 17,
+      "videoSeconds": 0.595,
+      "nearestRenderedObservation": 68,
+      "referenceLiftFrame": 40.47774081785643,
+      "appliedBalanceDegrees": -0.0443123937356507,
+      "fits": []
+    },
+    {
+      "videoFrame": 18,
+      "videoSeconds": 0.629,
+      "nearestRenderedObservation": 70,
+      "referenceLiftFrame": 40.72625543324742,
+      "appliedBalanceDegrees": -0.09744906040960023,
+      "fits": []
+    },
+    {
+      "videoFrame": 19,
+      "videoSeconds": 0.662,
+      "nearestRenderedObservation": 72,
+      "referenceLiftFrame": 40.974770048638476,
+      "appliedBalanceDegrees": -0.1435498694592771,
+      "fits": []
+    },
+    {
+      "videoFrame": 20,
+      "videoSeconds": 0.695,
+      "nearestRenderedObservation": 74,
+      "referenceLiftFrame": 41.22403095416584,
+      "appliedBalanceDegrees": -0.14074403233668717,
+      "fits": []
+    },
+    {
+      "videoFrame": 21,
+      "videoSeconds": 0.728,
+      "nearestRenderedObservation": 76,
+      "referenceLiftFrame": 41.47254556955683,
+      "appliedBalanceDegrees": -0.13458086987499066,
+      "fits": []
+    },
+    {
+      "videoFrame": 22,
+      "videoSeconds": 0.763,
+      "nearestRenderedObservation": 78,
+      "referenceLiftFrame": 41.72106018494787,
+      "appliedBalanceDegrees": -0.12841770741329273,
+      "fits": []
+    },
+    {
+      "videoFrame": 23,
+      "videoSeconds": 0.797,
+      "nearestRenderedObservation": 80,
+      "referenceLiftFrame": 41.97032109047523,
+      "appliedBalanceDegrees": -0.12223603695621427,
+      "fits": []
+    },
+    {
+      "videoFrame": 24,
+      "videoSeconds": 0.829,
+      "nearestRenderedObservation": 82,
+      "referenceLiftFrame": 42.21883570586622,
+      "appliedBalanceDegrees": -0.10718814483634927,
+      "fits": []
+    },
+    {
+      "videoFrame": 25,
+      "videoSeconds": 0.861,
+      "nearestRenderedObservation": 84,
+      "referenceLiftFrame": 42.467350321257264,
+      "appliedBalanceDegrees": -0.09093528898977493,
+      "fits": []
+    },
+    {
+      "videoFrame": 26,
+      "videoSeconds": 0.893,
+      "nearestRenderedObservation": 86,
+      "referenceLiftFrame": 42.71661122678463,
+      "appliedBalanceDegrees": -0.07463362576828528,
+      "fits": []
+    },
+    {
+      "videoFrame": 27,
+      "videoSeconds": 0.926,
+      "nearestRenderedObservation": 88,
+      "referenceLiftFrame": 42.96512584217562,
+      "appliedBalanceDegrees": -0.05838076992171466,
+      "fits": []
+    },
+    {
+      "videoFrame": 28,
+      "videoSeconds": 0.958,
+      "nearestRenderedObservation": 90,
+      "referenceLiftFrame": 43.213640457566676,
+      "appliedBalanceDegrees": -0.09498256327713502,
+      "fits": []
+    },
+    {
+      "videoFrame": 29,
+      "videoSeconds": 1.007,
+      "nearestRenderedObservation": 93,
+      "referenceLiftFrame": 43.586785525721375,
+      "appliedBalanceDegrees": -0.1628949656812902,
+      "fits": []
+    },
+    {
+      "videoFrame": 30,
+      "videoSeconds": 1.071,
+      "nearestRenderedObservation": 97,
+      "referenceLiftFrame": 44.02261896532607,
+      "appliedBalanceDegrees": -0.2464328268261233,
+      "fits": []
+    },
+    {
+      "videoFrame": 31,
+      "videoSeconds": 1.104,
+      "nearestRenderedObservation": 99,
+      "referenceLiftFrame": 44.27113358071706,
+      "appliedBalanceDegrees": -0.33798561113616593,
+      "fits": []
+    },
+    {
+      "videoFrame": 32,
+      "videoSeconds": 1.136,
+      "nearestRenderedObservation": 101,
+      "referenceLiftFrame": 44.5196481961081,
+      "appliedBalanceDegrees": -0.4295383954462243,
+      "fits": []
+    },
+    {
+      "videoFrame": 33,
+      "videoSeconds": 1.166,
+      "nearestRenderedObservation": 103,
+      "referenceLiftFrame": 44.76890910163548,
+      "appliedBalanceDegrees": -0.5213661130425107,
+      "fits": []
+    },
+    {
+      "videoFrame": 34,
+      "videoSeconds": 1.197,
+      "nearestRenderedObservation": 105,
+      "referenceLiftFrame": 44.95548163571283,
+      "appliedBalanceDegrees": -0.5900994345966062,
+      "fits": []
+    },
+    {
+      "videoFrame": 35,
+      "videoSeconds": 1.227,
+      "nearestRenderedObservation": 107,
+      "referenceLiftFrame": 45.203996251103824,
+      "appliedBalanceDegrees": -0.6776334927599035,
+      "fits": []
+    },
+    {
+      "videoFrame": 36,
+      "videoSeconds": 1.258,
+      "nearestRenderedObservation": 109,
+      "referenceLiftFrame": 45.45325715663118,
+      "appliedBalanceDegrees": -0.764550770517293,
+      "fits": []
+    },
+    {
+      "videoFrame": 37,
+      "videoSeconds": 1.305,
+      "nearestRenderedObservation": 112,
+      "referenceLiftFrame": 45.76371385333589,
+      "appliedBalanceDegrees": -0.8728070206582237,
+      "fits": []
+    },
+    {
+      "videoFrame": 38,
+      "videoSeconds": 1.336,
+      "nearestRenderedObservation": 114,
+      "referenceLiftFrame": 46.01222846872695,
+      "appliedBalanceDegrees": -0.9550190186628411,
+      "fits": []
+    },
+    {
+      "videoFrame": 39,
+      "videoSeconds": 1.367,
+      "nearestRenderedObservation": 116,
+      "referenceLiftFrame": 46.26148937425431,
+      "appliedBalanceDegrees": -0.9513299572610362,
+      "fits": []
+    },
+    {
+      "videoFrame": 40,
+      "videoSeconds": 1.4,
+      "nearestRenderedObservation": 118,
+      "referenceLiftFrame": 46.5100039896453,
+      "appliedBalanceDegrees": -0.9476519409532496,
+      "fits": []
+    },
+    {
+      "videoFrame": 41,
+      "videoSeconds": 1.433,
+      "nearestRenderedObservation": 120,
+      "referenceLiftFrame": 46.75851860503634,
+      "appliedBalanceDegrees": -0.9439739246454621,
+      "fits": []
+    },
+    {
+      "videoFrame": 42,
+      "videoSeconds": 1.469,
+      "nearestRenderedObservation": 122,
+      "referenceLiftFrame": 47.0077795105637,
+      "appliedBalanceDegrees": -0.9386371629062654,
+      "fits": []
+    },
+    {
+      "videoFrame": 43,
+      "videoSeconds": 1.503,
+      "nearestRenderedObservation": 124,
+      "referenceLiftFrame": 47.25405525554582,
+      "appliedBalanceDegrees": -0.8828310790933167,
+      "fits": []
+    },
+    {
+      "videoFrame": 44,
+      "videoSeconds": 1.535,
+      "nearestRenderedObservation": 126,
+      "referenceLiftFrame": 47.50480874134578,
+      "appliedBalanceDegrees": -0.826010339211047,
+      "fits": []
+    },
+    {
+      "videoFrame": 45,
+      "videoSeconds": 1.567,
+      "nearestRenderedObservation": 128,
+      "referenceLiftFrame": 47.754069646873134,
+      "appliedBalanceDegrees": -0.7695278180185479,
+      "fits": []
+    },
+    {
+      "videoFrame": 46,
+      "videoSeconds": 1.599,
+      "nearestRenderedObservation": 130,
+      "referenceLiftFrame": 48.00258426226412,
+      "appliedBalanceDegrees": -0.7133591248577408,
+      "fits": []
+    },
+    {
+      "videoFrame": 47,
+      "videoSeconds": 1.618,
+      "nearestRenderedObservation": 131,
+      "referenceLiftFrame": 48.12721471502783,
+      "appliedBalanceDegrees": -0.6920971696162517,
+      "fits": []
+    },
+    {
+      "videoFrame": 48,
+      "videoSeconds": 1.641,
+      "nearestRenderedObservation": 134,
+      "referenceLiftFrame": 48.313040958968884,
+      "appliedBalanceDegrees": -0.6603952123999084,
+      "fits": []
+    },
+    {
+      "videoFrame": 49,
+      "videoSeconds": 1.669,
+      "nearestRenderedObservation": 137,
+      "referenceLiftFrame": 48.499613493046255,
+      "appliedBalanceDegrees": -0.628565938086309,
+      "fits": []
+    },
+    {
+      "videoFrame": 50,
+      "videoSeconds": 1.701,
+      "nearestRenderedObservation": 141,
+      "referenceLiftFrame": 48.74812810843728,
+      "appliedBalanceDegrees": -0.5861693447006003,
+      "fits": []
+    },
+    {
+      "videoFrame": 51,
+      "videoSeconds": 1.734,
+      "nearestRenderedObservation": 145,
+      "referenceLiftFrame": 48.997389013964636,
+      "appliedBalanceDegrees": -0.5436454342176331,
+      "fits": []
+    },
+    {
+      "videoFrame": 52,
+      "videoSeconds": 1.767,
+      "nearestRenderedObservation": 149,
+      "referenceLiftFrame": 49.24664991949199,
+      "appliedBalanceDegrees": -0.5982029320467145,
+      "fits": []
+    },
+    {
+      "videoFrame": 53,
+      "videoSeconds": 1.8,
+      "nearestRenderedObservation": 153,
+      "referenceLiftFrame": 49.495164534883024,
+      "appliedBalanceDegrees": -0.6536216912789143,
+      "fits": []
+    },
+    {
+      "videoFrame": 54,
+      "videoSeconds": 1.833,
+      "nearestRenderedObservation": 157,
+      "referenceLiftFrame": 49.74442544041038,
+      "appliedBalanceDegrees": -0.7092068732115151,
+      "fits": []
+    },
+    {
+      "videoFrame": 55,
+      "videoSeconds": 1.867,
+      "nearestRenderedObservation": 161,
+      "referenceLiftFrame": 49.99219376566515,
+      "appliedBalanceDegrees": -0.7644592097433283,
+      "fits": []
+    },
+    {
+      "videoFrame": 56,
+      "videoSeconds": 1.9,
+      "nearestRenderedObservation": 165,
+      "referenceLiftFrame": 50.24145467119246,
+      "appliedBalanceDegrees": -0.7397124225701874,
+      "fits": []
+    },
+    {
+      "videoFrame": 57,
+      "videoSeconds": 1.935,
+      "nearestRenderedObservation": 169,
+      "referenceLiftFrame": 50.48996928658354,
+      "appliedBalanceDegrees": -0.7124503692617858,
+      "fits": []
+    },
+    {
+      "videoFrame": 58,
+      "videoSeconds": 1.967,
+      "nearestRenderedObservation": 173,
+      "referenceLiftFrame": 50.73848390197462,
+      "appliedBalanceDegrees": -0.6851883159533844,
+      "fits": []
+    },
+    {
+      "videoFrame": 59,
+      "videoSeconds": 2.0,
+      "nearestRenderedObservation": 177,
+      "referenceLiftFrame": 50.98699851736563,
+      "appliedBalanceDegrees": -0.6579262626449907,
+      "fits": []
+    },
+    {
+      "videoFrame": 60,
+      "videoSeconds": 2.034,
+      "nearestRenderedObservation": 181,
+      "referenceLiftFrame": 51.236259422892985,
+      "appliedBalanceDegrees": -0.5498524965061065,
+      "fits": []
+    },
+    {
+      "videoFrame": 61,
+      "videoSeconds": 2.067,
+      "nearestRenderedObservation": 185,
+      "referenceLiftFrame": 51.48477403828407,
+      "appliedBalanceDegrees": -0.4376729991185696,
+      "fits": []
+    },
+    {
+      "videoFrame": 62,
+      "videoSeconds": 2.101,
+      "nearestRenderedObservation": 189,
+      "referenceLiftFrame": 51.73403494381137,
+      "appliedBalanceDegrees": -0.3251566263635461,
+      "fits": []
+    },
+    {
+      "videoFrame": 63,
+      "videoSeconds": 2.134,
+      "nearestRenderedObservation": 193,
+      "referenceLiftFrame": 51.982549559202454,
+      "appliedBalanceDegrees": -0.21297712897601234,
+      "fits": []
+    },
+    {
+      "videoFrame": 64,
+      "videoSeconds": 2.168,
+      "nearestRenderedObservation": 197,
+      "referenceLiftFrame": 52.2310641745935,
+      "appliedBalanceDegrees": -0.08279773238766114,
+      "fits": []
+    },
+    {
+      "videoFrame": 65,
+      "videoSeconds": 2.38,
+      "nearestRenderedObservation": 201,
+      "referenceLiftFrame": 52.79302064723443,
+      "appliedBalanceDegrees": 0.2146458285811828,
+      "fits": []
+    },
+    {
+      "videoFrame": 66,
+      "videoSeconds": 2.398,
+      "nearestRenderedObservation": 203,
+      "referenceLiftFrame": 52.91765109999812,
+      "appliedBalanceDegrees": 0.2806127272290036,
+      "fits": []
+    },
+    {
+      "videoFrame": 67,
+      "videoSeconds": 2.435,
+      "nearestRenderedObservation": 207,
+      "referenceLiftFrame": 53.165419425252836,
+      "appliedBalanceDegrees": 0.33963363237608957,
+      "fits": []
+    },
+    {
+      "videoFrame": 68,
+      "videoSeconds": 2.474,
+      "nearestRenderedObservation": 212,
+      "referenceLiftFrame": 53.47662241209385,
+      "appliedBalanceDegrees": 0.3686688710483565,
+      "fits": []
+    },
+    {
+      "videoFrame": 69,
+      "videoSeconds": 2.501,
+      "nearestRenderedObservation": 215,
+      "referenceLiftFrame": 53.6631949461712,
+      "appliedBalanceDegrees": 0.3860760884777732,
+      "fits": []
+    },
+    {
+      "videoFrame": 70,
+      "videoSeconds": 2.54,
+      "nearestRenderedObservation": 220,
+      "referenceLiftFrame": 53.974397933012256,
+      "appliedBalanceDegrees": 0.41511132715004345,
+      "fits": []
+    },
+    {
+      "videoFrame": 71,
+      "videoSeconds": 2.576,
+      "nearestRenderedObservation": 224,
+      "referenceLiftFrame": 54.22216625826697,
+      "appliedBalanceDegrees": 0.46217763453748695,
+      "fits": []
+    },
+    {
+      "videoFrame": 72,
+      "videoSeconds": 2.603,
+      "nearestRenderedObservation": 227,
+      "referenceLiftFrame": 54.409485082480614,
+      "appliedBalanceDegrees": 0.49984745008685155,
+      "fits": []
+    },
+    {
+      "videoFrame": 73,
+      "videoSeconds": 2.65,
+      "nearestRenderedObservation": 233,
+      "referenceLiftFrame": 54.78263015063535,
+      "appliedBalanceDegrees": 0.5748869232927687,
+      "fits": []
+    },
+    {
+      "videoFrame": 74,
+      "videoSeconds": 2.675,
+      "nearestRenderedObservation": 236,
+      "referenceLiftFrame": 54.9692026847127,
+      "appliedBalanceDegrees": 0.6124066598957236,
+      "fits": []
+    },
+    {
+      "videoFrame": 75,
+      "videoSeconds": 2.708,
+      "nearestRenderedObservation": 240,
+      "referenceLiftFrame": 55.21846359024008,
+      "appliedBalanceDegrees": 0.7186781706889793,
+      "fits": []
+    },
+    {
+      "videoFrame": 76,
+      "videoSeconds": 2.732,
+      "nearestRenderedObservation": 243,
+      "referenceLiftFrame": 55.40428983418113,
+      "appliedBalanceDegrees": 0.8038051730383748,
+      "fits": []
+    },
+    {
+      "videoFrame": 77,
+      "videoSeconds": 2.767,
+      "nearestRenderedObservation": 247,
+      "referenceLiftFrame": 55.65280444957221,
+      "appliedBalanceDegrees": 0.9176497183490288,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.1914188371494672,
+          "geometricTiltDegrees": -1.1740157145330348,
+          "edgeRmsPixels": 0.9108913462313032,
+          "rows": 205
+        }
+      ]
+    },
+    {
+      "videoFrame": 78,
+      "videoSeconds": 2.8,
+      "nearestRenderedObservation": 251,
+      "referenceLiftFrame": 55.902065355099495,
+      "appliedBalanceDegrees": 1.0318361391710786,
+      "fits": []
+    },
+    {
+      "videoFrame": 79,
+      "videoSeconds": 2.833,
+      "nearestRenderedObservation": 255,
+      "referenceLiftFrame": 56.15132626062685,
+      "appliedBalanceDegrees": 1.1042867773122753,
+      "fits": []
+    },
+    {
+      "videoFrame": 80,
+      "videoSeconds": 2.867,
+      "nearestRenderedObservation": 259,
+      "referenceLiftFrame": 56.39909458588166,
+      "appliedBalanceDegrees": 1.149454943006227,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.462730433530059,
+          "geometricTiltDegrees": -1.4051151251391383,
+          "edgeRmsPixels": 0.8187477069082568,
+          "rows": 208
+        }
+      ]
+    },
+    {
+      "videoFrame": 81,
+      "videoSeconds": 2.901,
+      "nearestRenderedObservation": 263,
+      "referenceLiftFrame": 56.64835549140897,
+      "appliedBalanceDegrees": 1.1948952060838554,
+      "fits": []
+    },
+    {
+      "videoFrame": 82,
+      "videoSeconds": 2.934,
+      "nearestRenderedObservation": 267,
+      "referenceLiftFrame": 56.896870106800044,
+      "appliedBalanceDegrees": 1.240199420469648,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5544216199474807,
+          "geometricTiltDegrees": -1.495156458622619,
+          "edgeRmsPixels": 0.9156221353903116,
+          "rows": 201
+        }
+      ]
+    },
+    {
+      "videoFrame": 83,
+      "videoSeconds": 2.968,
+      "nearestRenderedObservation": 271,
+      "referenceLiftFrame": 57.145384722191125,
+      "appliedBalanceDegrees": 1.252530379862495,
+      "fits": []
+    },
+    {
+      "videoFrame": 84,
+      "videoSeconds": 3.0,
+      "nearestRenderedObservation": 275,
+      "referenceLiftFrame": 57.390167886900606,
+      "appliedBalanceDegrees": 1.241637529032923,
+      "fits": []
+    },
+    {
+      "videoFrame": 85,
+      "videoSeconds": 3.034,
+      "nearestRenderedObservation": 279,
+      "referenceLiftFrame": 57.64316024310951,
+      "appliedBalanceDegrees": 1.2303793691816265,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.6790987502197545,
+          "geometricTiltDegrees": -1.4833673436504706,
+          "edgeRmsPixels": 0.9410429116813244,
+          "rows": 205
+        }
+      ]
+    },
+    {
+      "videoFrame": 86,
+      "videoSeconds": 3.067,
+      "nearestRenderedObservation": 283,
+      "referenceLiftFrame": 57.885704537410085,
+      "appliedBalanceDegrees": 1.2195861480852512,
+      "fits": []
+    },
+    {
+      "videoFrame": 87,
+      "videoSeconds": 3.104,
+      "nearestRenderedObservation": 287,
+      "referenceLiftFrame": 58.14018947389158,
+      "appliedBalanceDegrees": 1.2241029789615732,
+      "fits": []
+    },
+    {
+      "videoFrame": 88,
+      "videoSeconds": 3.147,
+      "nearestRenderedObservation": 293,
+      "referenceLiftFrame": 58.51333454204629,
+      "appliedBalanceDegrees": 1.2496634161301705,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5538737310181099,
+          "geometricTiltDegrees": -1.5016509751755007,
+          "edgeRmsPixels": 0.7644736677520356,
+          "rows": 205
+        }
+      ]
+    },
+    {
+      "videoFrame": 89,
+      "videoSeconds": 3.171,
+      "nearestRenderedObservation": 295,
+      "referenceLiftFrame": 58.637964994809984,
+      "appliedBalanceDegrees": 1.2582006021444838,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5474132802465355,
+          "geometricTiltDegrees": -1.5102031091614734,
+          "edgeRmsPixels": 0.7648833761050119,
+          "rows": 209
+        }
+      ]
+    },
+    {
+      "videoFrame": 90,
+      "videoSeconds": 3.207,
+      "nearestRenderedObservation": 300,
+      "referenceLiftFrame": 58.949914271787286,
+      "appliedBalanceDegrees": 1.279569127617429,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5311648755866734,
+          "geometricTiltDegrees": -1.531710015950158,
+          "edgeRmsPixels": 0.8952981217448281,
+          "rows": 231
+        }
+      ]
+    },
+    {
+      "videoFrame": 91,
+      "videoSeconds": 3.239,
+      "nearestRenderedObservation": 304,
+      "referenceLiftFrame": 59.19768259704206,
+      "appliedBalanceDegrees": 1.247595046869767,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5417153671725492,
+          "geometricTiltDegrees": -1.4995963460734467,
+          "edgeRmsPixels": 0.904641018414863,
+          "rows": 234
+        }
+      ]
+    },
+    {
+      "videoFrame": 92,
+      "videoSeconds": 3.27,
+      "nearestRenderedObservation": 307,
+      "referenceLiftFrame": 59.38425513111943,
+      "appliedBalanceDegrees": 1.21417990601651,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.491147025494687,
+          "geometricTiltDegrees": -1.466075221241587,
+          "edgeRmsPixels": 0.9904471000292655,
+          "rows": 216
+        }
+      ]
+    },
+    {
+      "videoFrame": 93,
+      "videoSeconds": 3.312,
+      "nearestRenderedObservation": 312,
+      "referenceLiftFrame": 59.69545811796044,
+      "appliedBalanceDegrees": 1.1584434510732848,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.4246259722403356,
+          "geometricTiltDegrees": -1.4102975807633327,
+          "edgeRmsPixels": 1.0174557677167582,
+          "rows": 234
+        }
+      ]
+    },
+    {
+      "videoFrame": 94,
+      "videoSeconds": 3.342,
+      "nearestRenderedObservation": 316,
+      "referenceLiftFrame": 59.94471902348777,
+      "appliedBalanceDegrees": 1.1138008228933403,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.410171100630121,
+          "geometricTiltDegrees": -1.3657495624914788,
+          "edgeRmsPixels": 1.0195973433261916,
+          "rows": 232
+        }
+      ]
+    },
+    {
+      "videoFrame": 95,
+      "videoSeconds": 3.376,
+      "nearestRenderedObservation": 320,
+      "referenceLiftFrame": 60.193233638878795,
+      "appliedBalanceDegrees": 1.0167516288656637,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.4595979500808578,
+          "geometricTiltDegrees": -1.268643286754209,
+          "edgeRmsPixels": 0.909614409154573,
+          "rows": 231
+        }
+      ]
+    },
+    {
+      "videoFrame": 96,
+      "videoSeconds": 3.419,
+      "nearestRenderedObservation": 324,
+      "referenceLiftFrame": 60.503690335583556,
+      "appliedBalanceDegrees": 0.8767356586518162,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.1501004902350427,
+          "geometricTiltDegrees": -1.1286318387323349,
+          "edgeRmsPixels": 0.9268372078922575,
+          "rows": 243
+        }
+      ]
+    },
+    {
+      "videoFrame": 97,
+      "videoSeconds": 3.45,
+      "nearestRenderedObservation": 327,
+      "referenceLiftFrame": 60.7492197904293,
+      "appliedBalanceDegrees": 0.7660018745163855,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.1175211340160551,
+          "geometricTiltDegrees": -1.018040409006482,
+          "edgeRmsPixels": 0.8934034762663572,
+          "rows": 227
+        }
+      ]
+    },
+    {
+      "videoFrame": 98,
+      "videoSeconds": 3.484,
+      "nearestRenderedObservation": 331,
+      "referenceLiftFrame": 61.00146585650186,
+      "appliedBalanceDegrees": 0.6522973863920857,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.112775967156119,
+          "geometricTiltDegrees": -0.9045691170851514,
+          "edgeRmsPixels": 0.8618970969503147,
+          "rows": 221
+        }
+      ]
+    },
+    {
+      "videoFrame": 99,
+      "videoSeconds": 3.507,
+      "nearestRenderedObservation": 334,
+      "referenceLiftFrame": 61.18803839057923,
+      "appliedBalanceDegrees": 0.5755974176328786,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.054408734957753,
+          "geometricTiltDegrees": -0.8281452378490255,
+          "edgeRmsPixels": 0.9642770606189576,
+          "rows": 229
+        }
+      ]
+    },
+    {
+      "videoFrame": 100,
+      "videoSeconds": 3.539,
+      "nearestRenderedObservation": 338,
+      "referenceLiftFrame": 61.432075265152385,
+      "appliedBalanceDegrees": 0.4752738584958547,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.9570253232843895,
+          "geometricTiltDegrees": -0.7282917757366844,
+          "edgeRmsPixels": 0.9390005900903106,
+          "rows": 217
+        }
+      ]
+    },
+    {
+      "videoFrame": 101,
+      "videoSeconds": 3.569,
+      "nearestRenderedObservation": 341,
+      "referenceLiftFrame": 61.62312554004766,
+      "appliedBalanceDegrees": 0.39673309048640704,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.7203282259388022,
+          "geometricTiltDegrees": -0.64888154668043,
+          "edgeRmsPixels": 0.985868792541313,
+          "rows": 212
+        }
+      ]
+    },
+    {
+      "videoFrame": 102,
+      "videoSeconds": 3.606,
+      "nearestRenderedObservation": 346,
+      "referenceLiftFrame": 61.93432852688866,
+      "appliedBalanceDegrees": 0.2687975425960706,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.7214407945943113,
+          "geometricTiltDegrees": -0.5183005276524344,
+          "edgeRmsPixels": 1.0456556236220675,
+          "rows": 205
+        }
+      ]
+    },
+    {
+      "videoFrame": 103,
+      "videoSeconds": 3.644,
+      "nearestRenderedObservation": 350,
+      "referenceLiftFrame": 62.18209685214334,
+      "appliedBalanceDegrees": 0.20461582279233026,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.4509493873692829,
+          "geometricTiltDegrees": -0.45230489941253327,
+          "edgeRmsPixels": 1.0183234153960055,
+          "rows": 210
+        }
+      ]
+    },
+    {
+      "videoFrame": 104,
+      "videoSeconds": 3.682,
+      "nearestRenderedObservation": 355,
+      "referenceLiftFrame": 62.494046129120676,
+      "appliedBalanceDegrees": 0.14091578043355796,
+      "fits": []
+    },
+    {
+      "videoFrame": 105,
+      "videoSeconds": 3.705,
+      "nearestRenderedObservation": 358,
+      "referenceLiftFrame": 62.680618663198004,
+      "appliedBalanceDegrees": 0.10281766897496758,
+      "fits": []
+    },
+    {
+      "videoFrame": 106,
+      "videoSeconds": 3.735,
+      "nearestRenderedObservation": 361,
+      "referenceLiftFrame": 62.86719119727537,
+      "appliedBalanceDegrees": 0.06471955751636993,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.6817297767742473,
+          "geometricTiltDegrees": -0.3082359938912567,
+          "edgeRmsPixels": 0.8670456490598991,
+          "rows": 209
+        }
+      ]
+    },
+    {
+      "videoFrame": 107,
+      "videoSeconds": 3.787,
+      "nearestRenderedObservation": 367,
+      "referenceLiftFrame": 63.24033626543007,
+      "appliedBalanceDegrees": -0.03849046163515906,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.09579435395810924,
+          "geometricTiltDegrees": -0.20309335123253008,
+          "edgeRmsPixels": 0.94851568988035,
+          "rows": 200
+        }
+      ]
+    },
+    {
+      "videoFrame": 108,
+      "videoSeconds": 3.813,
+      "nearestRenderedObservation": 369,
+      "referenceLiftFrame": 63.42690879950741,
+      "appliedBalanceDegrees": -0.09755932592404565,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.5571731068407847,
+          "geometricTiltDegrees": -0.14315939761950497,
+          "edgeRmsPixels": 0.9123085433441138,
+          "rows": 210
+        }
+      ]
+    },
+    {
+      "videoFrame": 109,
+      "videoSeconds": 3.835,
+      "nearestRenderedObservation": 372,
+      "referenceLiftFrame": 63.61049617303951,
+      "appliedBalanceDegrees": -0.1556830883843081,
+      "fits": []
+    },
+    {
+      "videoFrame": 110,
+      "videoSeconds": 3.877,
+      "nearestRenderedObservation": 377,
+      "referenceLiftFrame": 63.92393803028945,
+      "appliedBalanceDegrees": -0.25491878038963955,
+      "fits": []
+    },
+    {
+      "videoFrame": 111,
+      "videoSeconds": 3.902,
+      "nearestRenderedObservation": 380,
+      "referenceLiftFrame": 64.11051056436682,
+      "appliedBalanceDegrees": -0.2942725599954945,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.049861069412944325,
+          "geometricTiltDegrees": 0.0558102669999139,
+          "edgeRmsPixels": 0.9980407859023209,
+          "rows": 207
+        }
+      ]
+    },
+    {
+      "videoFrame": 112,
+      "videoSeconds": 3.937,
+      "nearestRenderedObservation": 384,
+      "referenceLiftFrame": 64.35977146989418,
+      "appliedBalanceDegrees": -0.3287204171393763,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.23575146967872596,
+          "geometricTiltDegrees": 0.09047473417531636,
+          "edgeRmsPixels": 0.8057654605007367,
+          "rows": 198
+        }
+      ]
+    },
+    {
+      "videoFrame": 113,
+      "videoSeconds": 3.971,
+      "nearestRenderedObservation": 388,
+      "referenceLiftFrame": 64.60828608528526,
+      "appliedBalanceDegrees": -0.3630651369864226,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.22179149688668495,
+          "geometricTiltDegrees": 0.1248726311500483,
+          "edgeRmsPixels": 0.8232305321869875,
+          "rows": 203
+        }
+      ]
+    },
+    {
+      "videoFrame": 114,
+      "videoSeconds": 4.001,
+      "nearestRenderedObservation": 392,
+      "referenceLiftFrame": 64.85306924999473,
+      "appliedBalanceDegrees": -0.396894170349272,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.1631979476523205,
+          "geometricTiltDegrees": 0.15859398745711317,
+          "edgeRmsPixels": 0.9237059733502009,
+          "rows": 215
+        }
+      ]
+    },
+    {
+      "videoFrame": 115,
+      "videoSeconds": 4.048,
+      "nearestRenderedObservation": 398,
+      "referenceLiftFrame": 65.22770689842208,
+      "appliedBalanceDegrees": -0.4680241797278093,
+      "fits": []
+    },
+    {
+      "videoFrame": 116,
+      "videoSeconds": 4.07,
+      "nearestRenderedObservation": 400,
+      "referenceLiftFrame": 65.35308364132204,
+      "appliedBalanceDegrees": -0.49600826874308024,
+      "fits": []
+    },
+    {
+      "videoFrame": 117,
+      "videoSeconds": 4.106,
+      "nearestRenderedObservation": 405,
+      "referenceLiftFrame": 65.66577920843572,
+      "appliedBalanceDegrees": -0.5658019193228533,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.45844931965706615,
+          "geometricTiltDegrees": 0.32688731426009493,
+          "edgeRmsPixels": 0.9254186665920667,
+          "rows": 220
+        }
+      ]
+    },
+    {
+      "videoFrame": 118,
+      "videoSeconds": 4.146,
+      "nearestRenderedObservation": 409,
+      "referenceLiftFrame": 65.9142938238268,
+      "appliedBalanceDegrees": -0.6212703814781408,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.27931340131957516,
+          "geometricTiltDegrees": 0.3818871439618697,
+          "edgeRmsPixels": 0.5970352473298055,
+          "rows": 206
+        }
+      ]
+    },
+    {
+      "videoFrame": 119,
+      "videoSeconds": 4.169,
+      "nearestRenderedObservation": 412,
+      "referenceLiftFrame": 66.10086635790414,
+      "appliedBalanceDegrees": -0.6764597229507294,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.25486215199638934,
+          "geometricTiltDegrees": 0.4366750964190709,
+          "edgeRmsPixels": 0.9018893574692787,
+          "rows": 224
+        }
+      ]
+    },
+    {
+      "videoFrame": 120,
+      "videoSeconds": 4.206,
+      "nearestRenderedObservation": 417,
+      "referenceLiftFrame": 66.41281563488147,
+      "appliedBalanceDegrees": -0.787981589470125,
+      "fits": []
+    },
+    {
+      "videoFrame": 121,
+      "videoSeconds": 4.24,
+      "nearestRenderedObservation": 421,
+      "referenceLiftFrame": 66.66058396013624,
+      "appliedBalanceDegrees": -0.8765587657487044,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.3655342197719243,
+          "geometricTiltDegrees": 0.6398764401644865,
+          "edgeRmsPixels": 0.839712629553527,
+          "rows": 199
+        }
+      ]
+    },
+    {
+      "videoFrame": 122,
+      "videoSeconds": 4.287,
+      "nearestRenderedObservation": 426,
+      "referenceLiftFrame": 66.97178694697726,
+      "appliedBalanceDegrees": -0.9878138335443707,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.7409346573688447,
+          "geometricTiltDegrees": 0.7532689205391959,
+          "edgeRmsPixels": 1.0280031664966884,
+          "rows": 202
+        }
+      ]
+    },
+    {
+      "videoFrame": 123,
+      "videoSeconds": 4.316,
+      "nearestRenderedObservation": 429,
+      "referenceLiftFrame": 67.21582382155042,
+      "appliedBalanceDegrees": -0.9937993473905421,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.6660328747750681,
+          "geometricTiltDegrees": 0.760470690639201,
+          "edgeRmsPixels": 0.7816004994996983,
+          "rows": 200
+        }
+      ]
+    },
+    {
+      "videoFrame": 124,
+      "videoSeconds": 4.344,
+      "nearestRenderedObservation": 432,
+      "referenceLiftFrame": 67.40687409644566,
+      "appliedBalanceDegrees": -0.9901693921675324,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.8446084981284037,
+          "geometricTiltDegrees": 0.7577371405662492,
+          "edgeRmsPixels": 0.8630827113333311,
+          "rows": 207
+        }
+      ]
+    },
+    {
+      "videoFrame": 125,
+      "videoSeconds": 4.379,
+      "nearestRenderedObservation": 436,
+      "referenceLiftFrame": 67.65613500197298,
+      "appliedBalanceDegrees": -0.9854334349625133,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.6920907454759687,
+          "geometricTiltDegrees": 0.754156520833142,
+          "edgeRmsPixels": 0.8710763904951399,
+          "rows": 216
+        }
+      ]
+    },
+    {
+      "videoFrame": 126,
+      "videoSeconds": 4.415,
+      "nearestRenderedObservation": 440,
+      "referenceLiftFrame": 67.96659169867773,
+      "appliedBalanceDegrees": -0.9795347577251231,
+      "fits": []
+    },
+    {
+      "videoFrame": 127,
+      "videoSeconds": 4.438,
+      "nearestRenderedObservation": 442,
+      "referenceLiftFrame": 68.09122215144141,
+      "appliedBalanceDegrees": -0.9759444022932982,
+      "fits": []
+    },
+    {
+      "videoFrame": 128,
+      "videoSeconds": 4.479,
+      "nearestRenderedObservation": 447,
+      "referenceLiftFrame": 68.40242513828242,
+      "appliedBalanceDegrees": -0.9658614255196495,
+      "fits": []
+    },
+    {
+      "videoFrame": 129,
+      "videoSeconds": 4.514,
+      "nearestRenderedObservation": 452,
+      "referenceLiftFrame": 68.71362812512352,
+      "appliedBalanceDegrees": -0.9557784487459979,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.5961184016066097,
+          "geometricTiltDegrees": 0.7290993043035124,
+          "edgeRmsPixels": 0.7323195905640848,
+          "rows": 187
+        }
+      ]
+    },
+    {
+      "videoFrame": 130,
+      "videoSeconds": 4.535,
+      "nearestRenderedObservation": 454,
+      "referenceLiftFrame": 68.83751228775087,
+      "appliedBalanceDegrees": -0.9517646018768718,
+      "fits": []
+    },
+    {
+      "videoFrame": 131,
+      "videoSeconds": 4.572,
+      "nearestRenderedObservation": 459,
+      "referenceLiftFrame": 69.14871527459186,
+      "appliedBalanceDegrees": -0.9557352185521548,
+      "fits": []
+    },
+    {
+      "videoFrame": 132,
+      "videoSeconds": 4.601,
+      "nearestRenderedObservation": 462,
+      "referenceLiftFrame": 69.33155635798771,
+      "appliedBalanceDegrees": -0.9670896498310366,
+      "fits": []
+    },
+    {
+      "videoFrame": 133,
+      "videoSeconds": 4.636,
+      "nearestRenderedObservation": 466,
+      "referenceLiftFrame": 69.58454871419659,
+      "appliedBalanceDegrees": -0.982800475151608,
+      "fits": []
+    },
+    {
+      "videoFrame": 134,
+      "videoSeconds": 4.668,
+      "nearestRenderedObservation": 470,
+      "referenceLiftFrame": 69.83231703945137,
+      "appliedBalanceDegrees": -0.99818688814993,
+      "fits": []
+    },
+    {
+      "videoFrame": 135,
+      "videoSeconds": 4.701,
+      "nearestRenderedObservation": 474,
+      "referenceLiftFrame": 70.08157794497868,
+      "appliedBalanceDegrees": -0.999479585751384,
+      "fits": []
+    },
+    {
+      "videoFrame": 136,
+      "videoSeconds": 4.734,
+      "nearestRenderedObservation": 478,
+      "referenceLiftFrame": 70.32561481955189,
+      "appliedBalanceDegrees": -0.9721962631740989,
+      "fits": []
+    },
+    {
+      "videoFrame": 137,
+      "videoSeconds": 4.771,
+      "nearestRenderedObservation": 482,
+      "referenceLiftFrame": 70.57636830535182,
+      "appliedBalanceDegrees": -0.9441620234616664,
+      "fits": []
+    },
+    {
+      "videoFrame": 138,
+      "videoSeconds": 4.802,
+      "nearestRenderedObservation": 486,
+      "referenceLiftFrame": 70.82786808128812,
+      "appliedBalanceDegrees": -0.9160443485119887,
+      "fits": []
+    },
+    {
+      "videoFrame": 139,
+      "videoSeconds": 4.834,
+      "nearestRenderedObservation": 490,
+      "referenceLiftFrame": 71.07489011640654,
+      "appliedBalanceDegrees": -0.884952383584486,
+      "fits": []
+    },
+    {
+      "videoFrame": 140,
+      "videoSeconds": 4.867,
+      "nearestRenderedObservation": 494,
+      "referenceLiftFrame": 71.32489731207023,
+      "appliedBalanceDegrees": -0.845401245230489,
+      "fits": []
+    },
+    {
+      "videoFrame": 141,
+      "videoSeconds": 4.902,
+      "nearestRenderedObservation": 498,
+      "referenceLiftFrame": 71.57341192746124,
+      "appliedBalanceDegrees": -0.8060862330756324,
+      "fits": []
+    },
+    {
+      "videoFrame": 142,
+      "videoSeconds": 4.935,
+      "nearestRenderedObservation": 502,
+      "referenceLiftFrame": 71.82267283298857,
+      "appliedBalanceDegrees": -0.7666531578212078,
+      "fits": []
+    },
+    {
+      "videoFrame": 143,
+      "videoSeconds": 4.968,
+      "nearestRenderedObservation": 506,
+      "referenceLiftFrame": 72.07118744837966,
+      "appliedBalanceDegrees": -0.7257933780364991,
+      "fits": []
+    },
+    {
+      "videoFrame": 144,
+      "videoSeconds": 5.002,
+      "nearestRenderedObservation": 510,
+      "referenceLiftFrame": 72.32044835390698,
+      "appliedBalanceDegrees": -0.6809513411321338,
+      "fits": []
+    },
+    {
+      "videoFrame": 145,
+      "videoSeconds": 5.035,
+      "nearestRenderedObservation": 514,
+      "referenceLiftFrame": 72.56896296929804,
+      "appliedBalanceDegrees": -0.6362435618232822,
+      "fits": []
+    },
+    {
+      "videoFrame": 146,
+      "videoSeconds": 5.069,
+      "nearestRenderedObservation": 518,
+      "referenceLiftFrame": 72.81822387482542,
+      "appliedBalanceDegrees": -0.5914015249189069,
+      "fits": []
+    },
+    {
+      "videoFrame": 147,
+      "videoSeconds": 5.104,
+      "nearestRenderedObservation": 522,
+      "referenceLiftFrame": 73.06599220008012,
+      "appliedBalanceDegrees": -0.5696547052132994,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.8283766491026733,
+          "geometricTiltDegrees": 0.3568877161971872,
+          "edgeRmsPixels": 0.7662799788058932,
+          "rows": 174
+        }
+      ]
+    },
+    {
+      "videoFrame": 148,
+      "videoSeconds": 5.137,
+      "nearestRenderedObservation": 526,
+      "referenceLiftFrame": 73.3152531056075,
+      "appliedBalanceDegrees": -0.6110320155308444,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.7886942825315303,
+          "geometricTiltDegrees": 0.3992345831008387,
+          "edgeRmsPixels": 0.874254567331505,
+          "rows": 169
+        }
+      ]
+    },
+    {
+      "videoFrame": 149,
+      "videoSeconds": 5.171,
+      "nearestRenderedObservation": 530,
+      "referenceLiftFrame": 73.56451401113488,
+      "appliedBalanceDegrees": -0.6524093258483893,
+      "fits": []
+    },
+    {
+      "videoFrame": 150,
+      "videoSeconds": 5.201,
+      "nearestRenderedObservation": 534,
+      "referenceLiftFrame": 73.80705830543546,
+      "appliedBalanceDegrees": -0.6926716787022866,
+      "fits": []
+    },
+    {
+      "videoFrame": 151,
+      "videoSeconds": 5.245,
+      "nearestRenderedObservation": 539,
+      "referenceLiftFrame": 74.12423161336696,
+      "appliedBalanceDegrees": -0.7412600740618156,
+      "fits": []
+    },
+    {
+      "videoFrame": 152,
+      "videoSeconds": 5.269,
+      "nearestRenderedObservation": 542,
+      "referenceLiftFrame": 74.30856527703537,
+      "appliedBalanceDegrees": -0.7658317514288149,
+      "fits": []
+    },
+    {
+      "videoFrame": 153,
+      "videoSeconds": 5.301,
+      "nearestRenderedObservation": 546,
+      "referenceLiftFrame": 74.55857247269901,
+      "appliedBalanceDegrees": -0.7991577106107783,
+      "fits": []
+    },
+    {
+      "videoFrame": 154,
+      "videoSeconds": 5.335,
+      "nearestRenderedObservation": 550,
+      "referenceLiftFrame": 74.80783337822639,
+      "appliedBalanceDegrees": -0.832384189317578,
+      "fits": []
+    },
+    {
+      "videoFrame": 155,
+      "videoSeconds": 5.368,
+      "nearestRenderedObservation": 554,
+      "referenceLiftFrame": 75.05634799361746,
+      "appliedBalanceDegrees": -0.8580169043980852,
+      "fits": []
+    },
+    {
+      "videoFrame": 156,
+      "videoSeconds": 5.401,
+      "nearestRenderedObservation": 558,
+      "referenceLiftFrame": 75.30411631887218,
+      "appliedBalanceDegrees": -0.8580912348956616,
+      "fits": []
+    },
+    {
+      "videoFrame": 157,
+      "videoSeconds": 5.435,
+      "nearestRenderedObservation": 562,
+      "referenceLiftFrame": 75.55412351453586,
+      "appliedBalanceDegrees": -0.8581662370543607,
+      "fits": []
+    },
+    {
+      "videoFrame": 158,
+      "videoSeconds": 5.468,
+      "nearestRenderedObservation": 566,
+      "referenceLiftFrame": 75.80263812992689,
+      "appliedBalanceDegrees": -0.858240791438978,
+      "fits": []
+    },
+    {
+      "videoFrame": 159,
+      "videoSeconds": 5.502,
+      "nearestRenderedObservation": 570,
+      "referenceLiftFrame": 76.05189903545421,
+      "appliedBalanceDegrees": -0.8378621598381311,
+      "fits": []
+    },
+    {
+      "videoFrame": 160,
+      "videoSeconds": 5.535,
+      "nearestRenderedObservation": 574,
+      "referenceLiftFrame": 76.3004136508453,
+      "appliedBalanceDegrees": -0.7399971042971207,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.8512456723894893,
+          "geometricTiltDegrees": 0.535959650200477,
+          "edgeRmsPixels": 0.8073269210070809,
+          "rows": 167
+        }
+      ]
+    },
+    {
+      "videoFrame": 161,
+      "videoSeconds": 5.568,
+      "nearestRenderedObservation": 578,
+      "referenceLiftFrame": 76.54892826623636,
+      "appliedBalanceDegrees": -0.6421320487561217,
+      "fits": [
+        {
+          "rasterTiltDegrees": 1.0203236018630535,
+          "geometricTiltDegrees": 0.4380047967556428,
+          "edgeRmsPixels": 0.7325852713497406,
+          "rows": 167
+        }
+      ]
+    },
+    {
+      "videoFrame": 162,
+      "videoSeconds": 5.601,
+      "nearestRenderedObservation": 582,
+      "referenceLiftFrame": 76.79818917176364,
+      "appliedBalanceDegrees": -0.5439731041594791,
+      "fits": []
+    },
+    {
+      "videoFrame": 163,
+      "videoSeconds": 5.634,
+      "nearestRenderedObservation": 586,
+      "referenceLiftFrame": 77.04446491674575,
+      "appliedBalanceDegrees": -0.4547310577909581,
+      "fits": []
+    },
+    {
+      "videoFrame": 164,
+      "videoSeconds": 5.667,
+      "nearestRenderedObservation": 590,
+      "referenceLiftFrame": 77.29521840254576,
+      "appliedBalanceDegrees": -0.39964051696069725,
+      "fits": []
+    },
+    {
+      "videoFrame": 165,
+      "videoSeconds": 5.701,
+      "nearestRenderedObservation": 594,
+      "referenceLiftFrame": 77.54447930807306,
+      "appliedBalanceDegrees": -0.34487789601634766,
+      "fits": []
+    },
+    {
+      "videoFrame": 166,
+      "videoSeconds": 5.734,
+      "nearestRenderedObservation": 598,
+      "referenceLiftFrame": 77.79224763332789,
+      "appliedBalanceDegrees": -0.2904431949578627,
+      "fits": []
+    },
+    {
+      "videoFrame": 167,
+      "videoSeconds": 5.767,
+      "nearestRenderedObservation": 602,
+      "referenceLiftFrame": 78.04150853885523,
+      "appliedBalanceDegrees": -0.24122196395067955,
+      "fits": []
+    },
+    {
+      "videoFrame": 168,
+      "videoSeconds": 5.812,
+      "nearestRenderedObservation": 607,
+      "referenceLiftFrame": 78.35271152569625,
+      "appliedBalanceDegrees": -0.21439626648498322,
+      "fits": []
+    },
+    {
+      "videoFrame": 169,
+      "videoSeconds": 5.834,
+      "nearestRenderedObservation": 610,
+      "referenceLiftFrame": 78.5325674485468,
+      "appliedBalanceDegrees": -0.19889268593526582,
+      "fits": []
+    },
+    {
+      "videoFrame": 170,
+      "videoSeconds": 5.867,
+      "nearestRenderedObservation": 614,
+      "referenceLiftFrame": 78.78332093434678,
+      "appliedBalanceDegrees": -0.17727773545930792,
+      "fits": []
+    },
+    {
+      "videoFrame": 171,
+      "videoSeconds": 5.9,
+      "nearestRenderedObservation": 618,
+      "referenceLiftFrame": 79.03631329055568,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": []
+    },
+    {
+      "videoFrame": 172,
+      "videoSeconds": 5.934,
+      "nearestRenderedObservation": 622,
+      "referenceLiftFrame": 79.28557419608302,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": []
+    },
+    {
+      "videoFrame": 173,
+      "videoSeconds": 5.968,
+      "nearestRenderedObservation": 626,
+      "referenceLiftFrame": 79.53408881147412,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": []
+    },
+    {
+      "videoFrame": 174,
+      "videoSeconds": 6.001,
+      "nearestRenderedObservation": 630,
+      "referenceLiftFrame": 79.78334971700143,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": []
+    },
+    {
+      "videoFrame": 175,
+      "videoSeconds": 6.034,
+      "nearestRenderedObservation": 634,
+      "referenceLiftFrame": 80.03111804225618,
+      "appliedBalanceDegrees": -0.15736856927365242,
+      "fits": []
+    },
+    {
+      "videoFrame": 176,
+      "videoSeconds": 6.068,
+      "nearestRenderedObservation": 638,
+      "referenceLiftFrame": 80.28112523791982,
+      "appliedBalanceDegrees": -0.1476492340031059,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.07014126193115389,
+          "geometricTiltDegrees": -0.05594333021674188,
+          "edgeRmsPixels": 0.9813987044334754,
+          "rows": 187
+        }
+      ]
+    },
+    {
+      "videoFrame": 177,
+      "videoSeconds": 6.101,
+      "nearestRenderedObservation": 642,
+      "referenceLiftFrame": 80.52889356317455,
+      "appliedBalanceDegrees": -0.13832257216427227,
+      "fits": []
+    },
+    {
+      "videoFrame": 178,
+      "videoSeconds": 6.134,
+      "nearestRenderedObservation": 646,
+      "referenceLiftFrame": 80.77815446870189,
+      "appliedBalanceDegrees": -0.12924674041312165,
+      "fits": []
+    },
+    {
+      "videoFrame": 179,
+      "videoSeconds": 6.168,
+      "nearestRenderedObservation": 650,
+      "referenceLiftFrame": 81.02666908409292,
+      "appliedBalanceDegrees": -0.12050463700549127,
+      "fits": []
+    },
+    {
+      "videoFrame": 180,
+      "videoSeconds": 6.201,
+      "nearestRenderedObservation": 654,
+      "referenceLiftFrame": 81.272944829075,
+      "appliedBalanceDegrees": -0.11214326287258226,
+      "fits": []
+    },
+    {
+      "videoFrame": 181,
+      "videoSeconds": 6.234,
+      "nearestRenderedObservation": 658,
+      "referenceLiftFrame": 81.52444460501128,
+      "appliedBalanceDegrees": -0.10391476379730942,
+      "fits": []
+    },
+    {
+      "videoFrame": 182,
+      "videoSeconds": 6.268,
+      "nearestRenderedObservation": 662,
+      "referenceLiftFrame": 81.77295922040236,
+      "appliedBalanceDegrees": -0.09609186637038193,
+      "fits": []
+    },
+    {
+      "videoFrame": 183,
+      "videoSeconds": 6.301,
+      "nearestRenderedObservation": 666,
+      "referenceLiftFrame": 82.02147383579339,
+      "appliedBalanceDegrees": -0.08857506453503033,
+      "fits": []
+    },
+    {
+      "videoFrame": 184,
+      "videoSeconds": 6.334,
+      "nearestRenderedObservation": 670,
+      "referenceLiftFrame": 82.27073474132075,
+      "appliedBalanceDegrees": -0.08134316550192823,
+      "fits": []
+    },
+    {
+      "videoFrame": 185,
+      "videoSeconds": 6.368,
+      "nearestRenderedObservation": 674,
+      "referenceLiftFrame": 82.51924935671182,
+      "appliedBalanceDegrees": -0.07443947405570521,
+      "fits": []
+    },
+    {
+      "videoFrame": 186,
+      "videoSeconds": 6.4,
+      "nearestRenderedObservation": 678,
+      "referenceLiftFrame": 82.76776397210286,
+      "appliedBalanceDegrees": -0.06784187820105791,
+      "fits": []
+    },
+    {
+      "videoFrame": 187,
+      "videoSeconds": 6.434,
+      "nearestRenderedObservation": 682,
+      "referenceLiftFrame": 83.01702487763019,
+      "appliedBalanceDegrees": -0.06153194552698134,
+      "fits": []
+    },
+    {
+      "videoFrame": 188,
+      "videoSeconds": 6.467,
+      "nearestRenderedObservation": 686,
+      "referenceLiftFrame": 83.2655394930213,
+      "appliedBalanceDegrees": -0.05554746006146209,
+      "fits": []
+    },
+    {
+      "videoFrame": 189,
+      "videoSeconds": 6.501,
+      "nearestRenderedObservation": 690,
+      "referenceLiftFrame": 83.5148003985486,
+      "appliedBalanceDegrees": -0.04985247894885565,
+      "fits": []
+    },
+    {
+      "videoFrame": 190,
+      "videoSeconds": 6.534,
+      "nearestRenderedObservation": 694,
+      "referenceLiftFrame": 83.76256872380334,
+      "appliedBalanceDegrees": -0.04449677590515091,
+      "fits": []
+    },
+    {
+      "videoFrame": 191,
+      "videoSeconds": 6.567,
+      "nearestRenderedObservation": 698,
+      "referenceLiftFrame": 84.01182962933072,
+      "appliedBalanceDegrees": -0.03941582438765339,
+      "fits": []
+    },
+    {
+      "videoFrame": 192,
+      "videoSeconds": 6.6,
+      "nearestRenderedObservation": 702,
+      "referenceLiftFrame": 84.2573590841765,
+      "appliedBalanceDegrees": -0.03471199153957301,
+      "fits": []
+    },
+    {
+      "videoFrame": 193,
+      "videoSeconds": 6.633,
+      "nearestRenderedObservation": 706,
+      "referenceLiftFrame": 84.50960515024906,
+      "appliedBalanceDegrees": -0.03019064053838795,
+      "fits": []
+    },
+    {
+      "videoFrame": 194,
+      "videoSeconds": 6.667,
+      "nearestRenderedObservation": 710,
+      "referenceLiftFrame": 84.75886605577644,
+      "appliedBalanceDegrees": -0.026032577346274264,
+      "fits": []
+    },
+    {
+      "videoFrame": 195,
+      "videoSeconds": 6.7,
+      "nearestRenderedObservation": 714,
+      "referenceLiftFrame": 85.00738067116743,
+      "appliedBalanceDegrees": -0.022193518639721087,
+      "fits": []
+    },
+    {
+      "videoFrame": 196,
+      "videoSeconds": 6.734,
+      "nearestRenderedObservation": 718,
+      "referenceLiftFrame": 85.25514899642216,
+      "appliedBalanceDegrees": -0.018670706800784077,
+      "fits": []
+    },
+    {
+      "videoFrame": 197,
+      "videoSeconds": 6.768,
+      "nearestRenderedObservation": 722,
+      "referenceLiftFrame": 85.50440990194951,
+      "appliedBalanceDegrees": -0.01543368800133653,
+      "fits": []
+    },
+    {
+      "videoFrame": 198,
+      "videoSeconds": 6.801,
+      "nearestRenderedObservation": 726,
+      "referenceLiftFrame": 85.7514319370679,
+      "appliedBalanceDegrees": -0.012529544558047136,
+      "fits": []
+    },
+    {
+      "videoFrame": 199,
+      "videoSeconds": 6.833,
+      "nearestRenderedObservation": 730,
+      "referenceLiftFrame": 85.99546881164106,
+      "appliedBalanceDegrees": -0.00995746628464761,
+      "fits": []
+    },
+    {
+      "videoFrame": 200,
+      "videoSeconds": 6.867,
+      "nearestRenderedObservation": 734,
+      "referenceLiftFrame": 86.2507000382589,
+      "appliedBalanceDegrees": -0.0075831872888278236,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.14661084985016457,
+          "geometricTiltDegrees": -0.1945297935622409,
+          "edgeRmsPixels": 0.9552901494684616,
+          "rows": 169
+        }
+      ]
+    },
+    {
+      "videoFrame": 201,
+      "videoSeconds": 6.901,
+      "nearestRenderedObservation": 738,
+      "referenceLiftFrame": 86.49996094378618,
+      "appliedBalanceDegrees": -0.005576071612319736,
+      "fits": []
+    },
+    {
+      "videoFrame": 202,
+      "videoSeconds": 6.934,
+      "nearestRenderedObservation": 742,
+      "referenceLiftFrame": 86.74772926904096,
+      "appliedBalanceDegrees": -0.0038861509781501066,
+      "fits": []
+    },
+    {
+      "videoFrame": 203,
+      "videoSeconds": 6.971,
+      "nearestRenderedObservation": 747,
+      "referenceLiftFrame": 87.05967854601826,
+      "appliedBalanceDegrees": -0.0021911691199904253,
+      "fits": []
+    },
+    {
+      "videoFrame": 204,
+      "videoSeconds": 7.003,
+      "nearestRenderedObservation": 750,
+      "referenceLiftFrame": 87.24625108009562,
+      "appliedBalanceDegrees": -0.0014079155792681832,
+      "fits": []
+    },
+    {
+      "videoFrame": 205,
+      "videoSeconds": 7.034,
+      "nearestRenderedObservation": 754,
+      "referenceLiftFrame": 87.49476569548672,
+      "appliedBalanceDegrees": -0.0006325704064012973,
+      "fits": []
+    },
+    {
+      "videoFrame": 206,
+      "videoSeconds": 7.067,
+      "nearestRenderedObservation": 758,
+      "referenceLiftFrame": 87.74328031087776,
+      "appliedBalanceDegrees": -0.0001633208251091642,
+      "fits": []
+    },
+    {
+      "videoFrame": 207,
+      "videoSeconds": 7.107,
+      "nearestRenderedObservation": 763,
+      "referenceLiftFrame": 35.999999999999986,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 208,
+      "videoSeconds": 7.135,
+      "nearestRenderedObservation": 766,
+      "referenceLiftFrame": 36.186572534077335,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 209,
+      "videoSeconds": 7.168,
+      "nearestRenderedObservation": 770,
+      "referenceLiftFrame": 36.432848279059435,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 210,
+      "videoSeconds": 7.204,
+      "nearestRenderedObservation": 774,
+      "referenceLiftFrame": 36.68360176485939,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 211,
+      "videoSeconds": 7.234,
+      "nearestRenderedObservation": 778,
+      "referenceLiftFrame": 36.93286267038673,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 212,
+      "videoSeconds": 7.267,
+      "nearestRenderedObservation": 782,
+      "referenceLiftFrame": 37.18137728577779,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 213,
+      "videoSeconds": 7.3,
+      "nearestRenderedObservation": 786,
+      "referenceLiftFrame": 37.43063819130508,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 214,
+      "videoSeconds": 7.334,
+      "nearestRenderedObservation": 790,
+      "referenceLiftFrame": 37.679152806696145,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 215,
+      "videoSeconds": 7.367,
+      "nearestRenderedObservation": 794,
+      "referenceLiftFrame": 37.92766742208719,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 216,
+      "videoSeconds": 7.4,
+      "nearestRenderedObservation": 798,
+      "referenceLiftFrame": 38.1761820374782,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 217,
+      "videoSeconds": 7.433,
+      "nearestRenderedObservation": 802,
+      "referenceLiftFrame": 38.425442943005535,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 218,
+      "videoSeconds": 7.468,
+      "nearestRenderedObservation": 806,
+      "referenceLiftFrame": 38.67470384853288,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 219,
+      "videoSeconds": 7.5,
+      "nearestRenderedObservation": 810,
+      "referenceLiftFrame": 38.91948701324232,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 220,
+      "videoSeconds": 7.534,
+      "nearestRenderedObservation": 814,
+      "referenceLiftFrame": 39.17173307931493,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 221,
+      "videoSeconds": 7.568,
+      "nearestRenderedObservation": 818,
+      "referenceLiftFrame": 39.42024769470598,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 222,
+      "videoSeconds": 7.601,
+      "nearestRenderedObservation": 822,
+      "referenceLiftFrame": 39.668762310096966,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 223,
+      "videoSeconds": 7.634,
+      "nearestRenderedObservation": 826,
+      "referenceLiftFrame": 39.918023215624345,
+      "appliedBalanceDegrees": 0,
+      "fits": []
+    },
+    {
+      "videoFrame": 224,
+      "videoSeconds": 7.695,
+      "nearestRenderedObservation": 831,
+      "referenceLiftFrame": 40.35311036509275,
+      "appliedBalanceDegrees": -0.02365562943340195,
+      "fits": []
+    },
+    {
+      "videoFrame": 225,
+      "videoSeconds": 7.728,
+      "nearestRenderedObservation": 833,
+      "referenceLiftFrame": 40.60237127062006,
+      "appliedBalanceDegrees": -0.06983981459547507,
+      "fits": []
+    },
+    {
+      "videoFrame": 226,
+      "videoSeconds": 7.763,
+      "nearestRenderedObservation": 835,
+      "referenceLiftFrame": 40.850885886011106,
+      "appliedBalanceDegrees": -0.1237338231469497,
+      "fits": []
+    },
+    {
+      "videoFrame": 227,
+      "videoSeconds": 7.796,
+      "nearestRenderedObservation": 837,
+      "referenceLiftFrame": 41.09940050140215,
+      "appliedBalanceDegrees": -0.14383486756522668,
+      "fits": []
+    },
+    {
+      "videoFrame": 228,
+      "videoSeconds": 7.829,
+      "nearestRenderedObservation": 839,
+      "referenceLiftFrame": 41.34791511679314,
+      "appliedBalanceDegrees": -0.13767170510353016,
+      "fits": []
+    },
+    {
+      "videoFrame": 229,
+      "videoSeconds": 7.863,
+      "nearestRenderedObservation": 841,
+      "referenceLiftFrame": 41.5971760223205,
+      "appliedBalanceDegrees": -0.13149003464645168,
+      "fits": []
+    },
+    {
+      "videoFrame": 230,
+      "videoSeconds": 7.906,
+      "nearestRenderedObservation": 843,
+      "referenceLiftFrame": 41.96957480033892,
+      "appliedBalanceDegrees": -0.12225454495159482,
+      "fits": []
+    },
+    {
+      "videoFrame": 231,
+      "videoSeconds": 7.955,
+      "nearestRenderedObservation": 845,
+      "referenceLiftFrame": 42.34271986849362,
+      "appliedBalanceDegrees": -0.09908612060051743,
+      "fits": []
+    },
+    {
+      "videoFrame": 232,
+      "videoSeconds": 8.024,
+      "nearestRenderedObservation": 848,
+      "referenceLiftFrame": 42.841241679548276,
+      "appliedBalanceDegrees": -0.06648279415754277,
+      "fits": []
+    },
+    {
+      "videoFrame": 233,
+      "videoSeconds": 8.084,
+      "nearestRenderedObservation": 851,
+      "referenceLiftFrame": 43.276328829016705,
+      "appliedBalanceDegrees": -0.10639184688104038,
+      "fits": []
+    },
+    {
+      "videoFrame": 234,
+      "videoSeconds": 8.133,
+      "nearestRenderedObservation": 854,
+      "referenceLiftFrame": 43.64275728594461,
+      "appliedBalanceDegrees": -0.1730818260419193,
+      "fits": []
+    },
+    {
+      "videoFrame": 235,
+      "videoSeconds": 8.166,
+      "nearestRenderedObservation": 856,
+      "referenceLiftFrame": 43.89724222242608,
+      "appliedBalanceDegrees": -0.21939808448154646,
+      "fits": []
+    },
+    {
+      "videoFrame": 236,
+      "videoSeconds": 8.199,
+      "nearestRenderedObservation": 858,
+      "referenceLiftFrame": 44.13978651672661,
+      "appliedBalanceDegrees": -0.28959735276208276,
+      "fits": []
+    },
+    {
+      "videoFrame": 237,
+      "videoSeconds": 8.231,
+      "nearestRenderedObservation": 860,
+      "referenceLiftFrame": 44.39576403348076,
+      "appliedBalanceDegrees": -0.3838994699343118,
+      "fits": []
+    },
+    {
+      "videoFrame": 238,
+      "videoSeconds": 8.263,
+      "nearestRenderedObservation": 862,
+      "referenceLiftFrame": 44.57785882674028,
+      "appliedBalanceDegrees": -0.4509831917711201,
+      "fits": []
+    },
+    {
+      "videoFrame": 239,
+      "videoSeconds": 8.296,
+      "nearestRenderedObservation": 864,
+      "referenceLiftFrame": 44.83159747308547,
+      "appliedBalanceDegrees": -0.5444605090846885,
+      "fits": []
+    },
+    {
+      "videoFrame": 240,
+      "videoSeconds": 8.33,
+      "nearestRenderedObservation": 866,
+      "referenceLiftFrame": 45.08011208847647,
+      "appliedBalanceDegrees": -0.6344350852517446,
+      "fits": []
+    },
+    {
+      "videoFrame": 241,
+      "videoSeconds": 8.362,
+      "nearestRenderedObservation": 868,
+      "referenceLiftFrame": 45.32862670386751,
+      "appliedBalanceDegrees": -0.721092131638602,
+      "fits": []
+    },
+    {
+      "videoFrame": 242,
+      "videoSeconds": 8.394,
+      "nearestRenderedObservation": 870,
+      "referenceLiftFrame": 45.57714131925856,
+      "appliedBalanceDegrees": -0.8077491780254593,
+      "fits": []
+    },
+    {
+      "videoFrame": 243,
+      "videoSeconds": 8.426,
+      "nearestRenderedObservation": 872,
+      "referenceLiftFrame": 45.82640222478586,
+      "appliedBalanceDegrees": -0.8946664557828291,
+      "fits": []
+    },
+    {
+      "videoFrame": 244,
+      "videoSeconds": 8.458,
+      "nearestRenderedObservation": 874,
+      "referenceLiftFrame": 46.073424259904314,
+      "appliedBalanceDegrees": -0.9541133209534162,
+      "fits": []
+    },
+    {
+      "videoFrame": 245,
+      "videoSeconds": 8.506,
+      "nearestRenderedObservation": 877,
+      "referenceLiftFrame": 46.448808198467916,
+      "appliedBalanceDegrees": -0.9485576386626748,
+      "fits": []
+    },
+    {
+      "videoFrame": 246,
+      "videoSeconds": 8.537,
+      "nearestRenderedObservation": 879,
+      "referenceLiftFrame": 46.63463444240897,
+      "appliedBalanceDegrees": -0.9458074102523473,
+      "fits": []
+    },
+    {
+      "videoFrame": 247,
+      "videoSeconds": 8.569,
+      "nearestRenderedObservation": 881,
+      "referenceLiftFrame": 46.88314905780003,
+      "appliedBalanceDegrees": -0.9421293939445595,
+      "fits": []
+    },
+    {
+      "videoFrame": 248,
+      "videoSeconds": 8.602,
+      "nearestRenderedObservation": 883,
+      "referenceLiftFrame": 47.13240996332732,
+      "appliedBalanceDegrees": -0.9103959023100294,
+      "fits": []
+    },
+    {
+      "videoFrame": 249,
+      "videoSeconds": 8.634,
+      "nearestRenderedObservation": 885,
+      "referenceLiftFrame": 47.38092457871838,
+      "appliedBalanceDegrees": -0.8540824904624155,
+      "fits": []
+    },
+    {
+      "videoFrame": 250,
+      "videoSeconds": 8.667,
+      "nearestRenderedObservation": 887,
+      "referenceLiftFrame": 47.62943919410942,
+      "appliedBalanceDegrees": -0.7977690786148046,
+      "fits": []
+    },
+    {
+      "videoFrame": 251,
+      "videoSeconds": 8.699,
+      "nearestRenderedObservation": 889,
+      "referenceLiftFrame": 47.871237198273626,
+      "appliedBalanceDegrees": -0.7429776508711964,
+      "fits": []
+    },
+    {
+      "videoFrame": 252,
+      "videoSeconds": 8.73,
+      "nearestRenderedObservation": 891,
+      "referenceLiftFrame": 48.127214715027776,
+      "appliedBalanceDegrees": -0.6920971696162614,
+      "fits": []
+    },
+    {
+      "videoFrame": 253,
+      "videoSeconds": 8.742,
+      "nearestRenderedObservation": 892,
+      "referenceLiftFrame": 48.18915679634149,
+      "appliedBalanceDegrees": -0.6815298505441413,
+      "fits": []
+    },
+    {
+      "videoFrame": 254,
+      "videoSeconds": 8.766,
+      "nearestRenderedObservation": 895,
+      "referenceLiftFrame": 48.369012719192064,
+      "appliedBalanceDegrees": -0.6508464301058339,
+      "fits": []
+    },
+    {
+      "videoFrame": 255,
+      "videoSeconds": 8.8,
+      "nearestRenderedObservation": 899,
+      "referenceLiftFrame": 48.62424394580989,
+      "appliedBalanceDegrees": -0.6073039828448332,
+      "fits": []
+    },
+    {
+      "videoFrame": 256,
+      "videoSeconds": 8.834,
+      "nearestRenderedObservation": 903,
+      "referenceLiftFrame": 48.873504851337245,
+      "appliedBalanceDegrees": -0.5647800723618661,
+      "fits": []
+    },
+    {
+      "videoFrame": 257,
+      "videoSeconds": 8.868,
+      "nearestRenderedObservation": 907,
+      "referenceLiftFrame": 49.122019466728325,
+      "appliedBalanceDegrees": -0.5704103410804165,
+      "fits": []
+    },
+    {
+      "videoFrame": 258,
+      "videoSeconds": 8.901,
+      "nearestRenderedObservation": 911,
+      "referenceLiftFrame": 49.37128037225565,
+      "appliedBalanceDegrees": -0.6259955230130093,
+      "fits": []
+    },
+    {
+      "videoFrame": 259,
+      "videoSeconds": 8.934,
+      "nearestRenderedObservation": 915,
+      "referenceLiftFrame": 49.61979498764673,
+      "appliedBalanceDegrees": -0.6814142822452203,
+      "fits": []
+    },
+    {
+      "videoFrame": 260,
+      "videoSeconds": 8.967,
+      "nearestRenderedObservation": 919,
+      "referenceLiftFrame": 49.868309603037815,
+      "appliedBalanceDegrees": -0.7368330414774328,
+      "fits": []
+    },
+    {
+      "videoFrame": 261,
+      "videoSeconds": 9.001,
+      "nearestRenderedObservation": 923,
+      "referenceLiftFrame": 50.11682421842884,
+      "appliedBalanceDegrees": -0.7533843832383563,
+      "fits": []
+    },
+    {
+      "videoFrame": 262,
+      "videoSeconds": 9.033,
+      "nearestRenderedObservation": 927,
+      "referenceLiftFrame": 50.366085123956196,
+      "appliedBalanceDegrees": -0.7260404619020052,
+      "fits": []
+    },
+    {
+      "videoFrame": 263,
+      "videoSeconds": 9.067,
+      "nearestRenderedObservation": 931,
+      "referenceLiftFrame": 50.61459973934725,
+      "appliedBalanceDegrees": -0.6987784085936068,
+      "fits": []
+    },
+    {
+      "videoFrame": 264,
+      "videoSeconds": 9.1,
+      "nearestRenderedObservation": 935,
+      "referenceLiftFrame": 50.86386064487455,
+      "appliedBalanceDegrees": -0.671434487257262,
+      "fits": []
+    },
+    {
+      "videoFrame": 265,
+      "videoSeconds": 9.133,
+      "nearestRenderedObservation": 939,
+      "referenceLiftFrame": 51.11237526026563,
+      "appliedBalanceDegrees": -0.6057738075160948,
+      "fits": []
+    },
+    {
+      "videoFrame": 266,
+      "videoSeconds": 9.167,
+      "nearestRenderedObservation": 943,
+      "referenceLiftFrame": 51.36163616579295,
+      "appliedBalanceDegrees": -0.4932574347610616,
+      "fits": []
+    },
+    {
+      "videoFrame": 267,
+      "videoSeconds": 9.2,
+      "nearestRenderedObservation": 947,
+      "referenceLiftFrame": 51.60940449104766,
+      "appliedBalanceDegrees": -0.3814148127410851,
+      "fits": []
+    },
+    {
+      "videoFrame": 268,
+      "videoSeconds": 9.233,
+      "nearestRenderedObservation": 951,
+      "referenceLiftFrame": 51.85866539657503,
+      "appliedBalanceDegrees": -0.2688984399860327,
+      "fits": []
+    },
+    {
+      "videoFrame": 269,
+      "videoSeconds": 9.267,
+      "nearestRenderedObservation": 955,
+      "referenceLiftFrame": 52.10718001196611,
+      "appliedBalanceDegrees": -0.1483696196663392,
+      "fits": []
+    },
+    {
+      "videoFrame": 270,
+      "videoSeconds": 9.3,
+      "nearestRenderedObservation": 959,
+      "referenceLiftFrame": 52.35644091749341,
+      "appliedBalanceDegrees": -0.01643582237073893,
+      "fits": []
+    },
+    {
+      "videoFrame": 271,
+      "videoSeconds": 9.334,
+      "nearestRenderedObservation": 963,
+      "referenceLiftFrame": 52.60495553288445,
+      "appliedBalanceDegrees": 0.11510296355574118,
+      "fits": []
+    },
+    {
+      "videoFrame": 272,
+      "videoSeconds": 9.367,
+      "nearestRenderedObservation": 967,
+      "referenceLiftFrame": 52.85347014827554,
+      "appliedBalanceDegrees": 0.24664174948224377,
+      "fits": []
+    },
+    {
+      "videoFrame": 273,
+      "videoSeconds": 9.4,
+      "nearestRenderedObservation": 971,
+      "referenceLiftFrame": 53.100492183393975,
+      "appliedBalanceDegrees": 0.33357592071065784,
+      "fits": []
+    },
+    {
+      "videoFrame": 274,
+      "videoSeconds": 9.433,
+      "nearestRenderedObservation": 975,
+      "referenceLiftFrame": 53.35124566919392,
+      "appliedBalanceDegrees": 0.3569712209357929,
+      "fits": []
+    },
+    {
+      "videoFrame": 275,
+      "videoSeconds": 9.467,
+      "nearestRenderedObservation": 979,
+      "referenceLiftFrame": 53.59976028458499,
+      "appliedBalanceDegrees": 0.3801576345517794,
+      "fits": []
+    },
+    {
+      "videoFrame": 276,
+      "videoSeconds": 9.5,
+      "nearestRenderedObservation": 983,
+      "referenceLiftFrame": 53.848274899975976,
+      "appliedBalanceDegrees": 0.4033440481677586,
+      "fits": []
+    },
+    {
+      "videoFrame": 277,
+      "videoSeconds": 9.534,
+      "nearestRenderedObservation": 987,
+      "referenceLiftFrame": 54.097535805503334,
+      "appliedBalanceDegrees": 0.43711445048672043,
+      "fits": []
+    },
+    {
+      "videoFrame": 278,
+      "videoSeconds": 9.567,
+      "nearestRenderedObservation": 991,
+      "referenceLiftFrame": 54.3460504208944,
+      "appliedBalanceDegrees": 0.4870907396418639,
+      "fits": []
+    },
+    {
+      "videoFrame": 279,
+      "videoSeconds": 9.6,
+      "nearestRenderedObservation": 995,
+      "referenceLiftFrame": 54.59456503628541,
+      "appliedBalanceDegrees": 0.5370670287969959,
+      "fits": []
+    },
+    {
+      "videoFrame": 280,
+      "videoSeconds": 9.633,
+      "nearestRenderedObservation": 999,
+      "referenceLiftFrame": 54.84307965167649,
+      "appliedBalanceDegrees": 0.5870433179521422,
+      "fits": []
+    },
+    {
+      "videoFrame": 281,
+      "videoSeconds": 9.667,
+      "nearestRenderedObservation": 1003,
+      "referenceLiftFrame": 55.092340557203855,
+      "appliedBalanceDegrees": 0.6609012092550859,
+      "fits": []
+    },
+    {
+      "videoFrame": 282,
+      "videoSeconds": 9.7,
+      "nearestRenderedObservation": 1007,
+      "referenceLiftFrame": 55.34085517259488,
+      "appliedBalanceDegrees": 0.7747457545657137,
+      "fits": []
+    },
+    {
+      "videoFrame": 283,
+      "videoSeconds": 9.733,
+      "nearestRenderedObservation": 1011,
+      "referenceLiftFrame": 55.58936978798592,
+      "appliedBalanceDegrees": 0.8885902998763514,
+      "fits": []
+    },
+    {
+      "videoFrame": 284,
+      "videoSeconds": 9.767,
+      "nearestRenderedObservation": 1015,
+      "referenceLiftFrame": 55.83863069351328,
+      "appliedBalanceDegrees": 1.002776720698434,
+      "fits": []
+    },
+    {
+      "videoFrame": 285,
+      "videoSeconds": 9.801,
+      "nearestRenderedObservation": 1019,
+      "referenceLiftFrame": 56.08714530890431,
+      "appliedBalanceDegrees": 1.092586589813256,
+      "fits": []
+    },
+    {
+      "videoFrame": 286,
+      "videoSeconds": 9.834,
+      "nearestRenderedObservation": 1023,
+      "referenceLiftFrame": 56.33640621443167,
+      "appliedBalanceDegrees": 1.1380268528908932,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.670354442383403,
+          "geometricTiltDegrees": -1.3937844206304435,
+          "edgeRmsPixels": 0.8980449393848748,
+          "rows": 216
+        }
+      ]
+    },
+    {
+      "videoFrame": 287,
+      "videoSeconds": 9.866,
+      "nearestRenderedObservation": 1027,
+      "referenceLiftFrame": 56.57820421859592,
+      "appliedBalanceDegrees": 1.1821066290500364,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5621321019840515,
+          "geometricTiltDegrees": -1.4374983739748313,
+          "edgeRmsPixels": 0.9527897913853679,
+          "rows": 230
+        }
+      ]
+    },
+    {
+      "videoFrame": 288,
+      "videoSeconds": 9.9,
+      "nearestRenderedObservation": 1031,
+      "referenceLiftFrame": 56.83418173535002,
+      "appliedBalanceDegrees": 1.2287713303543089,
+      "fits": []
+    },
+    {
+      "videoFrame": 289,
+      "videoSeconds": 9.932,
+      "nearestRenderedObservation": 1035,
+      "referenceLiftFrame": 57.07597973951432,
+      "appliedBalanceDegrees": 1.2556189015916128,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5809075589501287,
+          "geometricTiltDegrees": -1.5102125872367704,
+          "edgeRmsPixels": 0.8257107504478508,
+          "rows": 212
+        }
+      ]
+    },
+    {
+      "videoFrame": 290,
+      "videoSeconds": 9.967,
+      "nearestRenderedObservation": 1039,
+      "referenceLiftFrame": 57.331210966132176,
+      "appliedBalanceDegrees": 1.244261112007118,
+      "fits": []
+    },
+    {
+      "videoFrame": 291,
+      "videoSeconds": 10.0,
+      "nearestRenderedObservation": 1043,
+      "referenceLiftFrame": 57.579725581523164,
+      "appliedBalanceDegrees": 1.2332022116222192,
+      "fits": []
+    },
+    {
+      "videoFrame": 292,
+      "videoSeconds": 10.034,
+      "nearestRenderedObservation": 1047,
+      "referenceLiftFrame": 57.82898648705053,
+      "appliedBalanceDegrees": 1.2221101013262514,
+      "fits": []
+    },
+    {
+      "videoFrame": 293,
+      "videoSeconds": 10.067,
+      "nearestRenderedObservation": 1051,
+      "referenceLiftFrame": 58.07750110244157,
+      "appliedBalanceDegrees": 1.2198088255172477,
+      "fits": []
+    },
+    {
+      "videoFrame": 294,
+      "videoSeconds": 10.1,
+      "nearestRenderedObservation": 1055,
+      "referenceLiftFrame": 58.3260157178326,
+      "appliedBalanceDegrees": 1.2368320766715328,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5093227778776022,
+          "geometricTiltDegrees": -1.4888379235716989,
+          "edgeRmsPixels": 0.9956971123036416,
+          "rows": 213
+        }
+      ]
+    },
+    {
+      "videoFrame": 295,
+      "videoSeconds": 10.132,
+      "nearestRenderedObservation": 1059,
+      "referenceLiftFrame": 58.56781372199686,
+      "appliedBalanceDegrees": 1.2533952399567851,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.4523065973996223,
+          "geometricTiltDegrees": -1.5053866016406359,
+          "edgeRmsPixels": 0.9547262188105293,
+          "rows": 234
+        }
+      ]
+    },
+    {
+      "videoFrame": 296,
+      "videoSeconds": 10.167,
+      "nearestRenderedObservation": 1063,
+      "referenceLiftFrame": 58.823791238750985,
+      "appliedBalanceDegrees": 1.2709296998544424,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5024778265709275,
+          "geometricTiltDegrees": -1.5229967626212642,
+          "edgeRmsPixels": 0.956454563391832,
+          "rows": 225
+        }
+      ]
+    },
+    {
+      "videoFrame": 297,
+      "videoSeconds": 10.2,
+      "nearestRenderedObservation": 1067,
+      "referenceLiftFrame": 59.068574403460445,
+      "appliedBalanceDegrees": 1.2707183243402342,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.4834130828472492,
+          "geometricTiltDegrees": -1.522827230153949,
+          "edgeRmsPixels": 0.9115352653747575,
+          "rows": 227
+        }
+      ]
+    },
+    {
+      "videoFrame": 298,
+      "videoSeconds": 10.233,
+      "nearestRenderedObservation": 1071,
+      "referenceLiftFrame": 59.32082046953308,
+      "appliedBalanceDegrees": 1.225541053906625,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.6015036485190133,
+          "geometricTiltDegrees": -1.4774657244336042,
+          "edgeRmsPixels": 0.9538270814884892,
+          "rows": 232
+        }
+      ]
+    },
+    {
+      "videoFrame": 299,
+      "videoSeconds": 10.267,
+      "nearestRenderedObservation": 1075,
+      "referenceLiftFrame": 59.57008137506042,
+      "appliedBalanceDegrees": 1.180898425726679,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.589207023689592,
+          "geometricTiltDegrees": -1.4327482963039897,
+          "edgeRmsPixels": 0.9849499950341111,
+          "rows": 237
+        }
+      ]
+    },
+    {
+      "videoFrame": 300,
+      "videoSeconds": 10.3,
+      "nearestRenderedObservation": 1079,
+      "referenceLiftFrame": 59.818595990451435,
+      "appliedBalanceDegrees": 1.1363894581101481,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.5449114086285791,
+          "geometricTiltDegrees": -1.3882758196381315,
+          "edgeRmsPixels": 0.8956216149647159,
+          "rows": 226
+        }
+      ]
+    },
+    {
+      "videoFrame": 301,
+      "videoSeconds": 10.333,
+      "nearestRenderedObservation": 1083,
+      "referenceLiftFrame": 60.067856895978785,
+      "appliedBalanceDegrees": 1.0732965399135679,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.4737054640605192,
+          "geometricTiltDegrees": -1.3252408129360835,
+          "edgeRmsPixels": 0.9724625761464587,
+          "rows": 221
+        }
+      ]
+    },
+    {
+      "videoFrame": 302,
+      "videoSeconds": 10.367,
+      "nearestRenderedObservation": 1087,
+      "referenceLiftFrame": 60.31637151136987,
+      "appliedBalanceDegrees": 0.9612164483721874,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.2615433021761593,
+          "geometricTiltDegrees": -1.2130867309217188,
+          "edgeRmsPixels": 1.012391670464856,
+          "rows": 212
+        }
+      ]
+    },
+    {
+      "videoFrame": 303,
+      "videoSeconds": 10.399,
+      "nearestRenderedObservation": 1091,
+      "referenceLiftFrame": 60.55816951553407,
+      "appliedBalanceDegrees": 0.8521655484941353,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.1257268947729595,
+          "geometricTiltDegrees": -1.1040826338334369,
+          "edgeRmsPixels": 0.9797634056349638,
+          "rows": 235
+        }
+      ]
+    },
+    {
+      "videoFrame": 304,
+      "videoSeconds": 10.434,
+      "nearestRenderedObservation": 1095,
+      "referenceLiftFrame": 60.81340074215193,
+      "appliedBalanceDegrees": 0.737056265289481,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.1937340165787813,
+          "geometricTiltDegrees": -0.9891525188917226,
+          "edgeRmsPixels": 0.9477700980507763,
+          "rows": 223
+        }
+      ]
+    },
+    {
+      "videoFrame": 305,
+      "videoSeconds": 10.467,
+      "nearestRenderedObservation": 1099,
+      "referenceLiftFrame": 61.062661647679285,
+      "appliedBalanceDegrees": 0.6271397966390461,
+      "fits": [
+        {
+          "rasterTiltDegrees": -1.0374331743330865,
+          "geometricTiltDegrees": -0.8794941483484849,
+          "edgeRmsPixels": 0.9517546498003566,
+          "rows": 212
+        }
+      ]
+    },
+    {
+      "videoFrame": 306,
+      "videoSeconds": 10.5,
+      "nearestRenderedObservation": 1103,
+      "referenceLiftFrame": 61.31117626307027,
+      "appliedBalanceDegrees": 0.5249754382518109,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.8598321687299003,
+          "geometricTiltDegrees": -0.7777450032991625,
+          "edgeRmsPixels": 0.940924941642471,
+          "rows": 218
+        }
+      ]
+    },
+    {
+      "videoFrame": 307,
+      "videoSeconds": 10.533,
+      "nearestRenderedObservation": 1107,
+      "referenceLiftFrame": 61.55670571791608,
+      "appliedBalanceDegrees": 0.424038279364699,
+      "fits": []
+    },
+    {
+      "videoFrame": 308,
+      "videoSeconds": 10.566,
+      "nearestRenderedObservation": 1111,
+      "referenceLiftFrame": 61.80223517276189,
+      "appliedBalanceDegrees": 0.32310112047758716,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.531555761293671,
+          "geometricTiltDegrees": -0.5737045092332776,
+          "edgeRmsPixels": 0.9355283570426832,
+          "rows": 228
+        }
+      ]
+    },
+    {
+      "videoFrame": 309,
+      "videoSeconds": 10.6,
+      "nearestRenderedObservation": 1115,
+      "referenceLiftFrame": 62.05746639937973,
+      "appliedBalanceDegrees": 0.23006536124665966,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.24972187087937833,
+          "geometricTiltDegrees": -0.47862282042901333,
+          "edgeRmsPixels": 0.8838377002114928,
+          "rows": 224
+        }
+      ]
+    },
+    {
+      "videoFrame": 310,
+      "videoSeconds": 10.633,
+      "nearestRenderedObservation": 1119,
+      "referenceLiftFrame": 62.30598101477081,
+      "appliedBalanceDegrees": 0.17931867678380103,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.5791389794241593,
+          "geometricTiltDegrees": -0.4261769733156597,
+          "edgeRmsPixels": 0.889956157434366,
+          "rows": 213
+        }
+      ]
+    },
+    {
+      "videoFrame": 311,
+      "videoSeconds": 10.667,
+      "nearestRenderedObservation": 1123,
+      "referenceLiftFrame": 62.554495630161796,
+      "appliedBalanceDegrees": 0.12857199232096128,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.043107548264433644,
+          "geometricTiltDegrees": 0.11531283879425383,
+          "edgeRmsPixels": 0.5959367291905203,
+          "rows": 207
+        },
+        {
+          "rasterTiltDegrees": -0.37045819822954384,
+          "geometricTiltDegrees": -0.37386425093748893,
+          "edgeRmsPixels": 0.9057744363705517,
+          "rows": 199
+        }
+      ]
+    },
+    {
+      "videoFrame": 312,
+      "videoSeconds": 10.701,
+      "nearestRenderedObservation": 1127,
+      "referenceLiftFrame": 62.80375653568916,
+      "appliedBalanceDegrees": 0.07767291541227342,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.4302206511585374,
+          "geometricTiltDegrees": -0.3215340592269982,
+          "edgeRmsPixels": 0.8893051505723998,
+          "rows": 211
+        }
+      ]
+    },
+    {
+      "videoFrame": 313,
+      "videoSeconds": 10.734,
+      "nearestRenderedObservation": 1131,
+      "referenceLiftFrame": 63.05301744121651,
+      "appliedBalanceDegrees": 0.020814678110852625,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.24817236288065997,
+          "geometricTiltDegrees": -0.26335283548685556,
+          "edgeRmsPixels": 0.9443788687184063,
+          "rows": 214
+        }
+      ]
+    },
+    {
+      "videoFrame": 314,
+      "videoSeconds": 10.767,
+      "nearestRenderedObservation": 1135,
+      "referenceLiftFrame": 63.3015320566076,
+      "appliedBalanceDegrees": -0.05786504912196571,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.2712668861467683,
+          "geometricTiltDegrees": -0.18342553465966924,
+          "edgeRmsPixels": 0.8005600963817758,
+          "rows": 211
+        }
+      ]
+    },
+    {
+      "videoFrame": 315,
+      "videoSeconds": 10.8,
+      "nearestRenderedObservation": 1139,
+      "referenceLiftFrame": 63.55004667199863,
+      "appliedBalanceDegrees": -0.13654477635476606,
+      "fits": []
+    },
+    {
+      "videoFrame": 316,
+      "videoSeconds": 10.833,
+      "nearestRenderedObservation": 1143,
+      "referenceLiftFrame": 63.79856128738967,
+      "appliedBalanceDegrees": -0.21522450358756864,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.17436045741148576,
+          "geometricTiltDegrees": -0.024031118976429705,
+          "edgeRmsPixels": 0.7982978471591723,
+          "rows": 194
+        }
+      ]
+    },
+    {
+      "videoFrame": 317,
+      "videoSeconds": 10.867,
+      "nearestRenderedObservation": 1147,
+      "referenceLiftFrame": 64.04707590278066,
+      "appliedBalanceDegrees": -0.28550588976428753,
+      "fits": []
+    },
+    {
+      "videoFrame": 318,
+      "videoSeconds": 10.899,
+      "nearestRenderedObservation": 1151,
+      "referenceLiftFrame": 64.28962019708122,
+      "appliedBalanceDegrees": -0.31902551123662465,
+      "fits": []
+    },
+    {
+      "videoFrame": 319,
+      "videoSeconds": 10.933,
+      "nearestRenderedObservation": 1155,
+      "referenceLiftFrame": 64.54559771383538,
+      "appliedBalanceDegrees": -0.3544016040520492,
+      "fits": []
+    },
+    {
+      "videoFrame": 320,
+      "videoSeconds": 10.967,
+      "nearestRenderedObservation": 1159,
+      "referenceLiftFrame": 64.79411232922646,
+      "appliedBalanceDegrees": -0.38874632389909747,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.339091779135219,
+          "geometricTiltDegrees": 0.15048663325523115,
+          "edgeRmsPixels": 0.7884756378692707,
+          "rows": 207
+        }
+      ]
+    },
+    {
+      "videoFrame": 321,
+      "videoSeconds": 11.0,
+      "nearestRenderedObservation": 1163,
+      "referenceLiftFrame": 65.04262694461745,
+      "appliedBalanceDegrees": -0.42671433403861553,
+      "fits": []
+    },
+    {
+      "videoFrame": 322,
+      "videoSeconds": 11.033,
+      "nearestRenderedObservation": 1167,
+      "referenceLiftFrame": 65.2918878501448,
+      "appliedBalanceDegrees": -0.4823493681523201,
+      "fits": []
+    },
+    {
+      "videoFrame": 323,
+      "videoSeconds": 11.067,
+      "nearestRenderedObservation": 1171,
+      "referenceLiftFrame": 65.54040246553589,
+      "appliedBalanceDegrees": -0.5378178303076109,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.19967276541063714,
+          "geometricTiltDegrees": 0.2990802249098247,
+          "edgeRmsPixels": 0.8736917272279564,
+          "rows": 209
+        }
+      ]
+    },
+    {
+      "videoFrame": 324,
+      "videoSeconds": 11.1,
+      "nearestRenderedObservation": 1175,
+      "referenceLiftFrame": 65.78891708092686,
+      "appliedBalanceDegrees": -0.5932862924628762,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.376051557276488,
+          "geometricTiltDegrees": 0.3541589045786187,
+          "edgeRmsPixels": 0.9941085254962977,
+          "rows": 224
+        }
+      ]
+    },
+    {
+      "videoFrame": 325,
+      "videoSeconds": 11.133,
+      "nearestRenderedObservation": 1179,
+      "referenceLiftFrame": 66.03743169631791,
+      "appliedBalanceDegrees": -0.6537818314336528,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.5494655382101533,
+          "geometricTiltDegrees": 0.4141283957219341,
+          "edgeRmsPixels": 0.8978060485650603,
+          "rows": 213
+        }
+      ]
+    },
+    {
+      "videoFrame": 326,
+      "videoSeconds": 11.168,
+      "nearestRenderedObservation": 1183,
+      "referenceLiftFrame": 66.28669260184526,
+      "appliedBalanceDegrees": -0.7428926051596805,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.5411278412282885,
+          "geometricTiltDegrees": 0.503609746155522,
+          "edgeRmsPixels": 0.8737077318239773,
+          "rows": 221
+        }
+      ]
+    },
+    {
+      "videoFrame": 327,
+      "videoSeconds": 11.201,
+      "nearestRenderedObservation": 1187,
+      "referenceLiftFrame": 66.53595350737257,
+      "appliedBalanceDegrees": -0.8320033788856931,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.44363617175878106,
+          "geometricTiltDegrees": 0.5944580888216198,
+          "edgeRmsPixels": 0.8818332609649889,
+          "rows": 196
+        }
+      ]
+    },
+    {
+      "videoFrame": 328,
+      "videoSeconds": 11.233,
+      "nearestRenderedObservation": 1191,
+      "referenceLiftFrame": 66.78372183262735,
+      "appliedBalanceDegrees": -0.9205805551642776,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.5341607997609198,
+          "geometricTiltDegrees": 0.6847469703010016,
+          "edgeRmsPixels": 0.9673122454986407,
+          "rows": 203
+        }
+      ]
+    },
+    {
+      "videoFrame": 329,
+      "videoSeconds": 11.266,
+      "nearestRenderedObservation": 1195,
+      "referenceLiftFrame": 67.03298273815473,
+      "appliedBalanceDegrees": -0.9972733279750602,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.5235431562316974,
+          "geometricTiltDegrees": 0.7630781379723733,
+          "edgeRmsPixels": 0.8867158337678203,
+          "rows": 205
+        }
+      ]
+    },
+    {
+      "videoFrame": 330,
+      "videoSeconds": 11.3,
+      "nearestRenderedObservation": 1199,
+      "referenceLiftFrame": 67.28149735354575,
+      "appliedBalanceDegrees": -0.9925515502826309,
+      "fits": []
+    },
+    {
+      "videoFrame": 331,
+      "videoSeconds": 11.333,
+      "nearestRenderedObservation": 1203,
+      "referenceLiftFrame": 67.53001196893682,
+      "appliedBalanceDegrees": -0.9878297725902004,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.49721488016509247,
+          "geometricTiltDegrees": 0.7559703013024404,
+          "edgeRmsPixels": 0.9794673366574469,
+          "rows": 208
+        }
+      ]
+    },
+    {
+      "videoFrame": 332,
+      "videoSeconds": 11.367,
+      "nearestRenderedObservation": 1207,
+      "referenceLiftFrame": 67.78001916460046,
+      "appliedBalanceDegrees": -0.9830796358725913,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.6339876981514492,
+          "geometricTiltDegrees": 0.7523708399406327,
+          "edgeRmsPixels": 0.8075449226783549,
+          "rows": 196
+        }
+      ]
+    },
+    {
+      "videoFrame": 333,
+      "videoSeconds": 11.4,
+      "nearestRenderedObservation": 1211,
+      "referenceLiftFrame": 68.02778748985514,
+      "appliedBalanceDegrees": -0.9779996853286933,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.9262289683769561,
+          "geometricTiltDegrees": 0.7484101349673487,
+          "edgeRmsPixels": 1.00197303945872,
+          "rows": 200
+        }
+      ]
+    },
+    {
+      "videoFrame": 334,
+      "videoSeconds": 11.434,
+      "nearestRenderedObservation": 1215,
+      "referenceLiftFrame": 68.2763021052462,
+      "appliedBalanceDegrees": -0.9699478117900231,
+      "fits": []
+    },
+    {
+      "videoFrame": 335,
+      "videoSeconds": 11.467,
+      "nearestRenderedObservation": 1219,
+      "referenceLiftFrame": 68.52481672063719,
+      "appliedBalanceDegrees": -0.961895938251355,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.6363487010694739,
+          "geometricTiltDegrees": 0.7344284275054191,
+          "edgeRmsPixels": 0.9633210522057059,
+          "rows": 188
+        }
+      ]
+    },
+    {
+      "videoFrame": 336,
+      "videoSeconds": 11.501,
+      "nearestRenderedObservation": 1223,
+      "referenceLiftFrame": 68.77407762616454,
+      "appliedBalanceDegrees": -0.9538198849122689,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.46226625706699087,
+          "geometricTiltDegrees": 0.7273910342797768,
+          "edgeRmsPixels": 0.9383193726413185,
+          "rows": 190
+        }
+      ]
+    },
+    {
+      "videoFrame": 337,
+      "videoSeconds": 11.533,
+      "nearestRenderedObservation": 1227,
+      "referenceLiftFrame": 69.0225922415556,
+      "appliedBalanceDegrees": -0.9479029782006028,
+      "fits": []
+    },
+    {
+      "videoFrame": 338,
+      "videoSeconds": 11.567,
+      "nearestRenderedObservation": 1231,
+      "referenceLiftFrame": 69.27185314708298,
+      "appliedBalanceDegrees": -0.963382080433853,
+      "fits": []
+    },
+    {
+      "videoFrame": 339,
+      "videoSeconds": 11.6,
+      "nearestRenderedObservation": 1235,
+      "referenceLiftFrame": 69.52036776247397,
+      "appliedBalanceDegrees": -0.9788148380496333,
+      "fits": []
+    },
+    {
+      "videoFrame": 340,
+      "videoSeconds": 11.633,
+      "nearestRenderedObservation": 1239,
+      "referenceLiftFrame": 69.76888237786503,
+      "appliedBalanceDegrees": -0.9942475956654181,
+      "fits": []
+    },
+    {
+      "videoFrame": 341,
+      "videoSeconds": 11.667,
+      "nearestRenderedObservation": 1243,
+      "referenceLiftFrame": 70.0181432833924,
+      "appliedBalanceDegrees": -1.006571580916729,
+      "fits": []
+    },
+    {
+      "videoFrame": 342,
+      "videoSeconds": 11.7,
+      "nearestRenderedObservation": 1247,
+      "referenceLiftFrame": 70.2666578987834,
+      "appliedBalanceDegrees": -0.9787876469160166,
+      "fits": []
+    },
+    {
+      "videoFrame": 343,
+      "videoSeconds": 11.733,
+      "nearestRenderedObservation": 1251,
+      "referenceLiftFrame": 70.51517251417447,
+      "appliedBalanceDegrees": -0.9510037129152946,
+      "fits": []
+    },
+    {
+      "videoFrame": 344,
+      "videoSeconds": 11.766,
+      "nearestRenderedObservation": 1255,
+      "referenceLiftFrame": 70.76443341970185,
+      "appliedBalanceDegrees": -0.9231363436773338,
+      "fits": []
+    },
+    {
+      "videoFrame": 345,
+      "videoSeconds": 11.8,
+      "nearestRenderedObservation": 1259,
+      "referenceLiftFrame": 71.01294803509283,
+      "appliedBalanceDegrees": -0.8947516208483138,
+      "fits": []
+    },
+    {
+      "videoFrame": 346,
+      "videoSeconds": 11.833,
+      "nearestRenderedObservation": 1263,
+      "referenceLiftFrame": 71.26220894062021,
+      "appliedBalanceDegrees": -0.8553185455938824,
+      "fits": []
+    },
+    {
+      "videoFrame": 347,
+      "videoSeconds": 11.867,
+      "nearestRenderedObservation": 1267,
+      "referenceLiftFrame": 71.51072355601127,
+      "appliedBalanceDegrees": -0.8160035334390169,
+      "fits": []
+    },
+    {
+      "videoFrame": 348,
+      "videoSeconds": 11.9,
+      "nearestRenderedObservation": 1271,
+      "referenceLiftFrame": 71.75998446153858,
+      "appliedBalanceDegrees": -0.7765704581845968,
+      "fits": []
+    },
+    {
+      "videoFrame": 349,
+      "videoSeconds": 11.933,
+      "nearestRenderedObservation": 1275,
+      "referenceLiftFrame": 72.00775278679332,
+      "appliedBalanceDegrees": -0.7372052736558821,
+      "fits": []
+    },
+    {
+      "videoFrame": 350,
+      "videoSeconds": 11.966,
+      "nearestRenderedObservation": 1279,
+      "referenceLiftFrame": 72.25701369232067,
+      "appliedBalanceDegrees": -0.6923632367515117,
+      "fits": []
+    },
+    {
+      "videoFrame": 351,
+      "videoSeconds": 12.0,
+      "nearestRenderedObservation": 1283,
+      "referenceLiftFrame": 72.50552830771169,
+      "appliedBalanceDegrees": -0.6476554574426678,
+      "fits": []
+    },
+    {
+      "videoFrame": 352,
+      "videoSeconds": 12.033,
+      "nearestRenderedObservation": 1287,
+      "referenceLiftFrame": 72.75478921323904,
+      "appliedBalanceDegrees": -0.6028134205382975,
+      "fits": []
+    },
+    {
+      "videoFrame": 353,
+      "videoSeconds": 12.067,
+      "nearestRenderedObservation": 1291,
+      "referenceLiftFrame": 73.00255753849375,
+      "appliedBalanceDegrees": -0.559124551389962,
+      "fits": []
+    },
+    {
+      "videoFrame": 354,
+      "videoSeconds": 12.1,
+      "nearestRenderedObservation": 1295,
+      "referenceLiftFrame": 73.25181844402113,
+      "appliedBalanceDegrees": -0.6005018617075069,
+      "fits": []
+    },
+    {
+      "videoFrame": 355,
+      "videoSeconds": 12.133,
+      "nearestRenderedObservation": 1299,
+      "referenceLiftFrame": 73.50033305941218,
+      "appliedBalanceDegrees": -0.6417552878624226,
+      "fits": []
+    },
+    {
+      "videoFrame": 356,
+      "videoSeconds": 12.167,
+      "nearestRenderedObservation": 1303,
+      "referenceLiftFrame": 73.74884767480322,
+      "appliedBalanceDegrees": -0.6830087140173338,
+      "fits": []
+    },
+    {
+      "videoFrame": 357,
+      "videoSeconds": 12.2,
+      "nearestRenderedObservation": 1307,
+      "referenceLiftFrame": 73.99810858033055,
+      "appliedBalanceDegrees": -0.7243860243348716,
+      "fits": []
+    },
+    {
+      "videoFrame": 358,
+      "videoSeconds": 12.233,
+      "nearestRenderedObservation": 1311,
+      "referenceLiftFrame": 74.24363803517636,
+      "appliedBalanceDegrees": -0.7571769500890089,
+      "fits": []
+    },
+    {
+      "videoFrame": 359,
+      "videoSeconds": 12.267,
+      "nearestRenderedObservation": 1315,
+      "referenceLiftFrame": 74.49588410124899,
+      "appliedBalanceDegrees": -0.7908013506964904,
+      "fits": []
+    },
+    {
+      "videoFrame": 360,
+      "videoSeconds": 12.301,
+      "nearestRenderedObservation": 1319,
+      "referenceLiftFrame": 74.74439871663998,
+      "appliedBalanceDegrees": -0.8239283489281091,
+      "fits": []
+    },
+    {
+      "videoFrame": 361,
+      "videoSeconds": 12.334,
+      "nearestRenderedObservation": 1323,
+      "referenceLiftFrame": 74.99291333203108,
+      "appliedBalanceDegrees": -0.8570553471597429,
+      "fits": []
+    },
+    {
+      "videoFrame": 362,
+      "videoSeconds": 12.367,
+      "nearestRenderedObservation": 1327,
+      "referenceLiftFrame": 75.24217423755843,
+      "appliedBalanceDegrees": -0.8580726522712675,
+      "fits": []
+    },
+    {
+      "videoFrame": 363,
+      "videoSeconds": 12.4,
+      "nearestRenderedObservation": 1331,
+      "referenceLiftFrame": 75.49068885294945,
+      "appliedBalanceDegrees": -0.8581472066558848,
+      "fits": []
+    },
+    {
+      "videoFrame": 364,
+      "videoSeconds": 12.433,
+      "nearestRenderedObservation": 1335,
+      "referenceLiftFrame": 75.73994975847683,
+      "appliedBalanceDegrees": -0.858221984927543,
+      "fits": []
+    },
+    {
+      "videoFrame": 365,
+      "videoSeconds": 12.466,
+      "nearestRenderedObservation": 1339,
+      "referenceLiftFrame": 75.98771808373155,
+      "appliedBalanceDegrees": -0.8582963154251194,
+      "fits": []
+    },
+    {
+      "videoFrame": 366,
+      "videoSeconds": 12.5,
+      "nearestRenderedObservation": 1343,
+      "referenceLiftFrame": 76.23697898925889,
+      "appliedBalanceDegrees": -0.7649776740298503,
+      "fits": []
+    },
+    {
+      "videoFrame": 367,
+      "videoSeconds": 12.535,
+      "nearestRenderedObservation": 1347,
+      "referenceLiftFrame": 76.48549360464995,
+      "appliedBalanceDegrees": -0.6671126184888512,
+      "fits": []
+    },
+    {
+      "videoFrame": 368,
+      "videoSeconds": 12.567,
+      "nearestRenderedObservation": 1351,
+      "referenceLiftFrame": 76.73400822004098,
+      "appliedBalanceDegrees": -0.5692475629478633,
+      "fits": []
+    },
+    {
+      "videoFrame": 369,
+      "videoSeconds": 12.6,
+      "nearestRenderedObservation": 1355,
+      "referenceLiftFrame": 76.98326912556831,
+      "appliedBalanceDegrees": -0.47108861835119836,
+      "fits": []
+    },
+    {
+      "videoFrame": 370,
+      "videoSeconds": 12.633,
+      "nearestRenderedObservation": 1359,
+      "referenceLiftFrame": 77.23178374095941,
+      "appliedBalanceDegrees": -0.4135771121112166,
+      "fits": []
+    },
+    {
+      "videoFrame": 371,
+      "videoSeconds": 12.667,
+      "nearestRenderedObservation": 1363,
+      "referenceLiftFrame": 77.48104464648672,
+      "appliedBalanceDegrees": -0.35881449116686703,
+      "fits": []
+    },
+    {
+      "videoFrame": 372,
+      "videoSeconds": 12.7,
+      "nearestRenderedObservation": 1367,
+      "referenceLiftFrame": 77.72955926187771,
+      "appliedBalanceDegrees": -0.30421583016546694,
+      "fits": []
+    },
+    {
+      "videoFrame": 373,
+      "videoSeconds": 12.733,
+      "nearestRenderedObservation": 1371,
+      "referenceLiftFrame": 77.97807387726881,
+      "appliedBalanceDegrees": -0.2496171691640419,
+      "fits": []
+    },
+    {
+      "videoFrame": 374,
+      "videoSeconds": 12.767,
+      "nearestRenderedObservation": 1375,
+      "referenceLiftFrame": 78.2265884926598,
+      "appliedBalanceDegrees": -0.2252680719327252,
+      "fits": []
+    },
+    {
+      "videoFrame": 375,
+      "videoSeconds": 12.8,
+      "nearestRenderedObservation": 1379,
+      "referenceLiftFrame": 78.47584939818714,
+      "appliedBalanceDegrees": -0.2037817818762688,
+      "fits": []
+    },
+    {
+      "videoFrame": 376,
+      "videoSeconds": 12.834,
+      "nearestRenderedObservation": 1383,
+      "referenceLiftFrame": 78.72511030371452,
+      "appliedBalanceDegrees": -0.18229549181980875,
+      "fits": []
+    },
+    {
+      "videoFrame": 377,
+      "videoSeconds": 12.866,
+      "nearestRenderedObservation": 1387,
+      "referenceLiftFrame": 78.9669083078788,
+      "appliedBalanceDegrees": -0.16145250386084775,
+      "fits": []
+    },
+    {
+      "videoFrame": 378,
+      "videoSeconds": 12.9,
+      "nearestRenderedObservation": 1391,
+      "referenceLiftFrame": 79.2221395344966,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": []
+    },
+    {
+      "videoFrame": 379,
+      "videoSeconds": 12.933,
+      "nearestRenderedObservation": 1395,
+      "referenceLiftFrame": 79.47140044002398,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": []
+    },
+    {
+      "videoFrame": 380,
+      "videoSeconds": 12.968,
+      "nearestRenderedObservation": 1399,
+      "referenceLiftFrame": 79.7191687652787,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": []
+    },
+    {
+      "videoFrame": 381,
+      "videoSeconds": 13.0,
+      "nearestRenderedObservation": 1403,
+      "referenceLiftFrame": 79.96842967080612,
+      "appliedBalanceDegrees": -0.1586,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.2701074098177856,
+          "geometricTiltDegrees": -0.044940750081679005,
+          "edgeRmsPixels": 0.9225842569967794,
+          "rows": 185
+        }
+      ]
+    },
+    {
+      "videoFrame": 382,
+      "videoSeconds": 13.033,
+      "nearestRenderedObservation": 1407,
+      "referenceLiftFrame": 80.21694428619715,
+      "appliedBalanceDegrees": -0.15011479156755708,
+      "fits": []
+    },
+    {
+      "videoFrame": 383,
+      "videoSeconds": 13.067,
+      "nearestRenderedObservation": 1411,
+      "referenceLiftFrame": 80.46545890158814,
+      "appliedBalanceDegrees": -0.14068144526243864,
+      "fits": []
+    },
+    {
+      "videoFrame": 384,
+      "videoSeconds": 13.1,
+      "nearestRenderedObservation": 1415,
+      "referenceLiftFrame": 80.71471980711551,
+      "appliedBalanceDegrees": -0.13152724637076924,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.1815794974190111,
+          "geometricTiltDegrees": -0.07212339917060798,
+          "edgeRmsPixels": 0.9681596939467495,
+          "rows": 185
+        }
+      ]
+    },
+    {
+      "videoFrame": 385,
+      "videoSeconds": 13.133,
+      "nearestRenderedObservation": 1419,
+      "referenceLiftFrame": 80.96398071264285,
+      "appliedBalanceDegrees": -0.12268098424301566,
+      "fits": []
+    },
+    {
+      "videoFrame": 386,
+      "videoSeconds": 13.167,
+      "nearestRenderedObservation": 1423,
+      "referenceLiftFrame": 81.21174903789756,
+      "appliedBalanceDegrees": -0.11419287013036358,
+      "fits": []
+    },
+    {
+      "videoFrame": 387,
+      "videoSeconds": 13.2,
+      "nearestRenderedObservation": 1427,
+      "referenceLiftFrame": 81.46100994342498,
+      "appliedBalanceDegrees": -0.10596063759771764,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.0753691340781436,
+          "geometricTiltDegrees": 0.3107435729210788,
+          "edgeRmsPixels": 0.9575156433951085,
+          "rows": 160
+        }
+      ]
+    },
+    {
+      "videoFrame": 388,
+      "videoSeconds": 13.234,
+      "nearestRenderedObservation": 1431,
+      "referenceLiftFrame": 81.709524558816,
+      "appliedBalanceDegrees": -0.09805960766243206,
+      "fits": []
+    },
+    {
+      "videoFrame": 389,
+      "videoSeconds": 13.267,
+      "nearestRenderedObservation": 1435,
+      "referenceLiftFrame": 81.95803917420699,
+      "appliedBalanceDegrees": -0.09046467331872181,
+      "fits": []
+    },
+    {
+      "videoFrame": 390,
+      "videoSeconds": 13.3,
+      "nearestRenderedObservation": 1439,
+      "referenceLiftFrame": 82.20506120932546,
+      "appliedBalanceDegrees": -0.08321869769068095,
+      "fits": []
+    },
+    {
+      "videoFrame": 391,
+      "videoSeconds": 13.333,
+      "nearestRenderedObservation": 1443,
+      "referenceLiftFrame": 82.45656098526173,
+      "appliedBalanceDegrees": -0.07615207773539703,
+      "fits": []
+    },
+    {
+      "videoFrame": 392,
+      "videoSeconds": 13.367,
+      "nearestRenderedObservation": 1447,
+      "referenceLiftFrame": 82.70507560065275,
+      "appliedBalanceDegrees": -0.06947726857837083,
+      "fits": []
+    },
+    {
+      "videoFrame": 393,
+      "videoSeconds": 13.4,
+      "nearestRenderedObservation": 1451,
+      "referenceLiftFrame": 82.95359021604378,
+      "appliedBalanceDegrees": -0.06310855501291875,
+      "fits": []
+    },
+    {
+      "videoFrame": 394,
+      "videoSeconds": 13.433,
+      "nearestRenderedObservation": 1455,
+      "referenceLiftFrame": 83.20210483143488,
+      "appliedBalanceDegrees": -0.05704593703903947,
+      "fits": []
+    },
+    {
+      "videoFrame": 395,
+      "videoSeconds": 13.467,
+      "nearestRenderedObservation": 1459,
+      "referenceLiftFrame": 83.45136573696222,
+      "appliedBalanceDegrees": -0.05127258878591517,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.008676608832977195,
+          "geometricTiltDegrees": -0.15213202875317164,
+          "edgeRmsPixels": 0.8631344446974687,
+          "rows": 158
+        }
+      ]
+    },
+    {
+      "videoFrame": 396,
+      "videoSeconds": 13.5,
+      "nearestRenderedObservation": 1463,
+      "referenceLiftFrame": 83.69988035235325,
+      "appliedBalanceDegrees": -0.04582308120116738,
+      "fits": []
+    },
+    {
+      "videoFrame": 397,
+      "videoSeconds": 13.533,
+      "nearestRenderedObservation": 1467,
+      "referenceLiftFrame": 83.9483949677443,
+      "appliedBalanceDegrees": -0.04067966920799353,
+      "fits": []
+    },
+    {
+      "videoFrame": 398,
+      "videoSeconds": 13.567,
+      "nearestRenderedObservation": 1471,
+      "referenceLiftFrame": 84.19765587327169,
+      "appliedBalanceDegrees": -0.03582828731389309,
+      "fits": []
+    },
+    {
+      "videoFrame": 399,
+      "videoSeconds": 13.6,
+      "nearestRenderedObservation": 1475,
+      "referenceLiftFrame": 84.44617048866272,
+      "appliedBalanceDegrees": -0.03129798570984961,
+      "fits": []
+    },
+    {
+      "videoFrame": 400,
+      "videoSeconds": 13.633,
+      "nearestRenderedObservation": 1479,
+      "referenceLiftFrame": 84.69468510405378,
+      "appliedBalanceDegrees": -0.02707377969738017,
+      "fits": []
+    },
+    {
+      "videoFrame": 401,
+      "videoSeconds": 13.666,
+      "nearestRenderedObservation": 1483,
+      "referenceLiftFrame": 84.94394600958113,
+      "appliedBalanceDegrees": -0.02314436416230504,
+      "fits": []
+    },
+    {
+      "videoFrame": 402,
+      "videoSeconds": 13.7,
+      "nearestRenderedObservation": 1487,
+      "referenceLiftFrame": 85.19246062497214,
+      "appliedBalanceDegrees": -0.019533268538966028,
+      "fits": []
+    },
+    {
+      "videoFrame": 403,
+      "videoSeconds": 13.733,
+      "nearestRenderedObservation": 1491,
+      "referenceLiftFrame": 85.44172153049945,
+      "appliedBalanceDegrees": -0.016218804565360907,
+      "fits": [
+        {
+          "rasterTiltDegrees": -0.1816114049971654,
+          "geometricTiltDegrees": -0.1863694748940528,
+          "edgeRmsPixels": 0.9817992325541164,
+          "rows": 163
+        }
+      ]
+    },
+    {
+      "videoFrame": 404,
+      "videoSeconds": 13.767,
+      "nearestRenderedObservation": 1495,
+      "referenceLiftFrame": 85.69023614589055,
+      "appliedBalanceDegrees": -0.01322081933115054,
+      "fits": []
+    },
+    {
+      "videoFrame": 405,
+      "videoSeconds": 13.8,
+      "nearestRenderedObservation": 1499,
+      "referenceLiftFrame": 85.93875076128158,
+      "appliedBalanceDegrees": -0.010528929688515574,
+      "fits": []
+    },
+    {
+      "videoFrame": 406,
+      "videoSeconds": 13.833,
+      "nearestRenderedObservation": 1503,
+      "referenceLiftFrame": 86.18726537667264,
+      "appliedBalanceDegrees": -0.00814313563745486,
+      "fits": []
+    },
+    {
+      "videoFrame": 407,
+      "videoSeconds": 13.867,
+      "nearestRenderedObservation": 1507,
+      "referenceLiftFrame": 86.43577999206367,
+      "appliedBalanceDegrees": -0.006063437177968943,
+      "fits": []
+    },
+    {
+      "videoFrame": 408,
+      "videoSeconds": 13.9,
+      "nearestRenderedObservation": 1511,
+      "referenceLiftFrame": 86.68429460745473,
+      "appliedBalanceDegrees": -0.004289834310057345,
+      "fits": [
+        {
+          "rasterTiltDegrees": 0.1391106979716014,
+          "geometricTiltDegrees": -0.19753597804371897,
+          "edgeRmsPixels": 0.8332041958460832,
+          "rows": 161
+        }
+      ]
+    },
+    {
+      "videoFrame": 409,
+      "videoSeconds": 13.933,
+      "nearestRenderedObservation": 1515,
+      "referenceLiftFrame": 86.93355551298207,
+      "appliedBalanceDegrees": -0.0028183810881422374,
+      "fits": []
+    },
+    {
+      "videoFrame": 410,
+      "videoSeconds": 13.967,
+      "nearestRenderedObservation": 1519,
+      "referenceLiftFrame": 87.18281641850945,
+      "appliedBalanceDegrees": -0.0016548646301411823,
+      "fits": []
+    },
+    {
+      "videoFrame": 411,
+      "videoSeconds": 14.0,
+      "nearestRenderedObservation": 1523,
+      "referenceLiftFrame": 87.43133103390048,
+      "appliedBalanceDegrees": -0.0008013869489147726,
+      "fits": []
+    },
+    {
+      "videoFrame": 412,
+      "videoSeconds": 14.033,
+      "nearestRenderedObservation": 1527,
+      "referenceLiftFrame": 87.67984564929151,
+      "appliedBalanceDegrees": -0.0002540048592628684,
+      "fits": []
+    },
+    {
+      "videoFrame": 413,
+      "videoSeconds": 14.067,
+      "nearestRenderedObservation": 1531,
+      "referenceLiftFrame": 87.92910655481889,
+      "appliedBalanceDegrees": -1.2454760286657708e-05,
+      "fits": []
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "status": "awaiting_proposal_approval",
+  "date_local": "2026-10-06",
+  "branch": "codex/pegasoft-concept",
+  "title": "One silver container. One identity.",
+  "summary": "Approve one static identity master, its material roles and a local parametric 3D construction method before production.",
+  "authority": {
+    "implementation_plan": "../../PROPOSAL.md",
+    "locked_prompt_book": "../../ASSET-PROMPTS.md",
+    "color_contract": "../../material-color-contract.json",
+    "checkpoint": "../../CURRENT.md"
+  },
+  "motion_use": "The same rigid, closed-door container moves through lift pickup, camera pivot, trailer support and ship placement. Keep its dimensions, corrugation, material and attachment landmarks consistent; doors do not need animation.",
+  "dimensions": {
+    "type": "40-foot high-cube dry container",
+    "external_meters": { "length": 12.192, "width": 2.438, "height": 2.896 },
+    "source": "https://www.aclcargo.com/shipping-info/containers/",
+    "source_section": "40′ x 9’6″ High-Cube Containers — External Dimensions",
+    "checked_date_local": "2026-10-06",
+    "scope": "Nominal external envelope only; hardware detail and finish remain proposed visual design."
+  },
+  "inputs": [
+    {
+      "id": "C01",
+      "count": 1,
+      "view": "Three-quarter oblique at approximately mid-height, showing the closed double-door end and one full long side, with a small roof edge visible; no overhead perspective.",
+      "purpose": "Establish the silver finish, long-side corrugation, door hardware and corner-casting identity together. The regular container envelope is constructed from dimensions, so separate side/end images are not needed for the proposed method.",
+      "output": "One transparent landscape PNG with the complete silhouette and comfortable margins; final supported canvas size is checked before submission.",
+      "generator": "fal Image 2.5 — openai/gpt-image-2.5/sunburst/text-to-image"
+    }
+  ],
+  "excluded_inputs": ["Overhead/top/roof-only", "Underside", "Additional end/side plates", "Separate hardware images", "Navy/blue variants", "Truck or ship imagery"],
+  "input_change_rule": "If the approved master leaves a necessary detail unresolved, document the specific gap and request approval for that input before generating it.",
+  "materials": [
+    {
+      "part": "Corrugated walls, roof, closed doors and structural frame",
+      "finish": "Cool brushed silver with a restrained satin sheen and fine consistent grain; no mirror finish or warm tint.",
+      "approval": "Silver identity is agreed; this specific finish is proposed for review in the static master."
+    },
+    {
+      "part": "Corner castings, hinges, locking rods and handles",
+      "finish": "Neutral silver/titanium hardware, subtly distinct from the wall finish; readable solid metal geometry.",
+      "approval": "Proposed hardware finish."
+    },
+    {
+      "part": "Door seals",
+      "finish": "Natural dark matte rubber; narrow functional seams.",
+      "approval": "Proposed rubber role; no painted trim or additional colorway."
+    },
+    {
+      "part": "Any explicitly selected painted carbon fittings",
+      "finish": "Pegasoft carbon #11151B, shared satin structural finish wherever used.",
+      "approval": "Color authority is agreed; no carbon-painted component is required by this proposal."
+    }
+  ],
+  "lighting": "Even cool studio lighting with restrained #7BCBFF and #B9E7FF reflections. Blue is illumination, not a new painted panel. Carbon #11151B and porcelain #EDF2F7 are review backgrounds only.",
+  "mandatory_carbon_clause": "All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+  "reviewed_prompt": "The same premium silver 40-foot high-cube ISO shipping container, brushed metal corrugated walls, consistent corner castings and believable steel hardware. Three-quarter oblique at approximately mid-height, showing the closed double-door end and one full long side, with only a small roof edge visible; no overhead/roof-only or underside plate. Maintain nominal external proportions of 12.192 m length, 2.438 m width and 2.896 m height. Corrugated walls, roof, doors and structural frame have cool brushed silver with a restrained satin sheen and fine consistent grain. Corner castings, hinges, locking rods and handles are neutral silver/titanium metal; door seals are natural dark matte rubber. Isolated on transparency with comfortable margin, crisp realistic edges and restrained blue-tinted specular light in #7BCBFF and #B9E7FF. Maintain identical dimensions and structural details across later model views. No text, serial number, logo, baked shadow, yellow/gold glow, dents that change between views or scene background. No additional painted blue or carbon panel is requested. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+  "model_method": {
+    "status": "proposed_requires_explicit_approval",
+    "method": "Local parametric solid geometry in the existing Three.js review runtime, exported as GLB after static-master approval.",
+    "provider": "Local construction; no external 3D generation provider.",
+    "rationale": "A regular container can keep exact proportions, complete surfaces and stable attachment points with one identity reference. Build corrugation and hardware as geometry rather than wrapping image facades around a box.",
+    "construction": [
+      "Build volumetric corrugated panels, roof, floor, end wall, closed doors, frame, corner castings and hardware with consistent thickness and joins.",
+      "Keep casting apertures and door seams as intentional physical details; audit closed solid components across material partitions for defects.",
+      "Derive unseen surfaces from the same dimensions and repeated construction, then show them in model review rather than generating more plates.",
+      "Use procedural brushed-metal material detail fitted to the approved master, without baked camera lighting or generated lettering.",
+      "Keep one named container root, Y-up orientation, X along its length and origin at the base center. Derive pickup and support landmarks from actual geometry."
+    ],
+    "limitation": "The static master guides appearance; it does not recover hidden geometry. Unseen construction and final material parameters require interactive model approval."
+  },
+  "approval_sequence": [
+    "Approve this one-image input set, material roles and local model method; separately authorize the bounded non-lift production allowance.",
+    "Verify current Image 2.5 endpoint, valid output settings, transparency and price; submit one C01 image. Obtain user review on carbon and porcelain before modeling. No automatic variants or retries.",
+    "After static approval, construct the model and present orbit/zoom, both ends, both sides, roof and hardware on both review surfaces. Check dimensions, solid components, surface consistency and usable GLB before final model approval.",
+    "Integrate a separate derivative with the accepted lift. Review actual casting pickup/contact, full load silhouette, settling, camera pivot and genuine forward/reverse restoration; preserve the accepted lift originals.",
+    "Review trailer/deck support transfer and final section framing when their families exist; do not infer their acceptance from the container or diagnostic proxy."
+  ],
+  "production_authorized": false,
+  "spending": {
+    "existing_exception": "Lift-family review only",
+    "requested_batch": "One C01 Image 2.5 master; stop for static review. No automatic correction, additional image, model production or next-family dispatch.",
+    "credit_extension_authorized": false,
+    "price_check": "Pending at the generation gate; no exact credit cap can be promised without a usable meter.",
+    "provider_jobs_submitted": 0
+  },
+  "approval_requested": "Approve the one oblique master, proposed silver/hardware/rubber finishes and local solid-geometry method. Confirm an allowance extension for the single-image batch before any paid generation."
+}

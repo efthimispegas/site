@@ -1,0 +1,98 @@
+{
+  "status": "passed_rendered_camera_stability_and_no_edge_flash",
+  "input_sha256": "1603bf57f5e0b78236912ebba7d9e95a5d64f0901182d7684ff55b1ac1d8db0b",
+  "check_sha256": "1a6a5cfc2e516bcb5b7bfa6f71cff479c8f4b7c8664cf4829ad3260717149c0b",
+  "limits": "Dense camera observations plus the actual vacated right-edge pixels check stability and the reported flash. This does not qualify full reference raster fidelity.",
+  "results": [
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v3-full-forward-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v3-full-forward-normal.webm",
+      "trace_sha256": "a3770d7aa15da88688d25b6902b2735c5beeae1e2632888b4ce4f851e97fd87f",
+      "video_sha256": "9e95304b06394cbbaff86139f31b175dcfce1aad54351af53c3d01d2af5c716f",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 1
+      },
+      "observations": 1079,
+      "reported_interval_observations": 239,
+      "ground_anchor_pixel_span": 2.2737367544323206e-13,
+      "hub_anchor_pixel_span": 1.7053025658242404e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 10,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 1,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 9125,
+      "grounded_container_kept_visible_in_scene": true
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v3-full-forward-quarter.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v3-full-forward-quarter.webm",
+      "trace_sha256": "f8bca2a97049bb855937086a541a5fff54b9a53298724c40e236823ddf74063a",
+      "video_sha256": "d0ecaadc53bf155c88678db6f4d7eb637506a1f41e56395a8d05c02400fa4af8",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 0.25
+      },
+      "observations": 4245,
+      "reported_interval_observations": 955,
+      "ground_anchor_pixel_span": 2.8421709430404007e-13,
+      "hub_anchor_pixel_span": 2.2737367544323206e-13,
+      "camera_roll_degrees": 0,
+      "turn_direction_reversals": 0,
+      "grounded_support_reentries": 0,
+      "near_921_support_outside_frustum": true,
+      "right_edge_raster": {
+        "progress_interval": [
+          0.9,
+          0.937
+        ],
+        "roi": [
+          1158,
+          167,
+          16,
+          400
+        ],
+        "decoded_frames": 41,
+        "foreground_pixels_above_predeclared_8_rgb_tolerance": 0,
+        "max_rgb_difference": 0,
+        "background_rgb": [
+          236,
+          241,
+          247
+        ]
+      },
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "elapsedMs": 36516.200000000004,
+      "grounded_container_kept_visible_in_scene": true
+    }
+  ]
+}

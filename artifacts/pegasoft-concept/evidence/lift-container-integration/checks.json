@@ -1,0 +1,236 @@
+{
+  "status": "retained_head_and_visual_coupling_checks_passed_corner_lock_unresolved",
+  "date_local": "2026-10-07",
+  "inputs": {
+    "liftGLB": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+    "containerGLB": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+    "acceptedLiftJS": "a1cb4c358b961830e2578ca421946ad4e31f5d4b692a033d4295313b816b57c6",
+    "integrationJS": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1",
+    "contactJS": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+    "harness": "b31c7869f5a4344bed8f47624cad385d1a1f2f3ccbe019dd233e3d47788d0924",
+    "checkScript": "c3d62950fea9455415594b3252cf78b7b2a22acfe41f9c9b44c61e88f9c2deab"
+  },
+  "fit": {
+    "length": 12.192,
+    "width": 2.438,
+    "height": 2.896,
+    "scale": 0.225,
+    "yaw": -1.5707963267948966,
+    "scaleBasis": {
+      "reference": "source-sequence/y-070.png at 960×540",
+      "containerEndHeightPixels": 126,
+      "frontTireDiameterPixelsApprox": 51,
+      "approvedFrontTireDiameterModel": 0.264,
+      "targetHeightToTire": 2.4705882352941178,
+      "appliedHeightToTire": 2.468181818181818,
+      "limit": "Raster silhouette ratio; retained lift has no certified SI dimensions."
+    },
+    "containerModelDimensions": [
+      12.192,
+      2.896,
+      2.438
+    ],
+    "containerAxis": "long X meters -> lift Z visual coordinates; front doors face initial camera",
+    "roofLocal": -0.2087719672843814,
+    "actualSpreaderUnderside": -0.23286397755146027,
+    "clippedRoofTriangles": 14180,
+    "contactCount": 0,
+    "contacts": [],
+    "stackCorners": [
+      {
+        "id": "-1_-1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          -1.139
+        ]
+      },
+      {
+        "id": "-1_1",
+        "cornerModel": [
+          -5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          -5.9190000000000005,
+          2.896,
+          1.139
+        ]
+      },
+      {
+        "id": "1_-1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          -1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          -1.139
+        ]
+      },
+      {
+        "id": "1_1",
+        "cornerModel": [
+          5.996,
+          2.896,
+          1.139
+        ],
+        "rimModel": [
+          6.073,
+          2.896,
+          1.139
+        ]
+      }
+    ],
+    "roofWitness": {
+      "headLocal": [
+        0.1314219832420349,
+        -0.23172196745872498,
+        0.3600969910621643
+      ],
+      "roofLocal": [
+        0.1314219832420349,
+        -0.23172196745872498,
+        0.3600969910621643
+      ],
+      "gap": 0
+    },
+    "roofSeatLift": 0.0011420100927352905,
+    "roofSeatMethod": "Head triangles clipped against actual folded roof crease planes; minimum vertical separation solved with no added hardware.",
+    "grabber": {
+      "source": "approved lift GLB; identical head geometry and transforms",
+      "localBounds": {
+        "min": [
+          -0.20140498876571655,
+          -0.23286397755146027,
+          -0.3866550028324127
+        ],
+        "max": [
+          0.1453390121459961,
+          0.1237650141119957,
+          0.38641199469566345
+        ],
+        "size": [
+          0.34674400091171265,
+          0.35662899166345596,
+          0.7730669975280762
+        ]
+      },
+      "addedReachMeshes": 0,
+      "scaleDuringMotion": [
+        1,
+        1,
+        1
+      ],
+      "schema": "Retained closed frame, central yoke/rotator, original braces and feet.",
+      "cornerLockStatus": "unresolved: fixed approved head does not span the 40ft C01 corner castings",
+      "coupling": "Central roof seating and rigid visual parenting only; no four-corner mechanical-lock claim."
+    },
+    "scaleIsUniform": true,
+    "originalContainerMeshes": 197,
+    "pickupCalibration": {
+      "elevationOffset": 1.449128318513214,
+      "contactElevation": 19.302128318513212,
+      "middleAtPickup": 0.3,
+      "lowerStackRoof": 2.0747583706326584,
+      "lowerContainerBase": 7.993605777301127e-15,
+      "clearancePolicy": "Solve boom elevation against the stationary casting plane; no compression or container penetration.",
+      "trajectory": {
+        "backingStartFrame": 52,
+        "backingEndFrame": 80,
+        "backingDistanceLiftUnits": 0.8,
+        "reverseArcFrames": [
+          80,
+          176
+        ],
+        "reverseArcRadiusLiftUnits": 2,
+        "headingChangeDegrees": -70,
+        "retractFrames": [
+          60,
+          104
+        ],
+        "middleAfterRetraction": 0.16
+      },
+      "referenceLimit": "Absolute reach, retreat distance and stack clearance are integration interpretations; original phase/camera/settling sources remain unchanged."
+    }
+  },
+  "checks": {
+    "retainedWorldMatrixComparison": "Accepted lift rebuilt at the derivative applied articulation, chassis and steering pose. This verifies rig preservation, not unchanged trajectory.",
+    "retainedLiftMeshes": 322,
+    "retainedAttributeValues": 1917936,
+    "grabberExactGeometryAndDimensionsPreserved": true,
+    "addedReachMeshes": 0,
+    "headScaleDuringMotion": [
+      1,
+      1,
+      1
+    ],
+    "forwardReverseSamples": 601,
+    "attachedSamples": 300,
+    "maxErrors": {
+      "retainedWorldMatrix": 0,
+      "reverse": 0,
+      "pause": 0,
+      "ownershipJump": 6.798155367234455e-33,
+      "contact": 4.782987168225453e-15,
+      "ram": 3.580361673049448e-15,
+      "supportPenetration": 0,
+      "lowerMovement": 0
+    },
+    "interfaceSolidPrimitives": [],
+    "supportAsset": {
+      "approvedC01CloneMeshes": 197,
+      "static": true
+    },
+    "stackContactChecks": [
+      {
+        "id": "-1_-1",
+        "error": 4.440892098500626e-16,
+        "lowerMetalRaycast": true,
+        "upperMetalRaycast": true
+      },
+      {
+        "id": "-1_1",
+        "error": 4.440892098500626e-16,
+        "lowerMetalRaycast": true,
+        "upperMetalRaycast": true
+      },
+      {
+        "id": "1_-1",
+        "error": 6.661338147750939e-16,
+        "lowerMetalRaycast": true,
+        "upperMetalRaycast": true
+      },
+      {
+        "id": "1_1",
+        "error": 4.440892098500626e-16,
+        "lowerMetalRaycast": true,
+        "upperMetalRaycast": true
+      }
+    ],
+    "castingChecks": {
+      "status": "unresolved_not_qualified",
+      "reason": "Approved fixed head does not span C01 four corner castings",
+      "insertedPins": 0
+    },
+    "bodyEnvelopeTransitionPoses": 15,
+    "bodyEnvelopeIntersections": 0,
+    "containerMeshes": 197,
+    "approvedContainerBytesUnchanged": true,
+    "approvedLiftSourcesUnchanged": true
+  },
+  "limits": [
+    "The nominal C01 dimensions remain in meters; one uniform visual conversion maps them into the existing lift model coordinates.",
+    "Exact approved head dimensions are preserved with zero reach extensions. Central roof seating is visual coupling only; four-corner pickup mechanics remain unresolved.",
+    "Composite overlapping closed primitives are visual mechanism geometry, not manufacturing certification.",
+    "Runtime playback, physical scroll, pause/resume, reverse and affected cab/wheel appearances require rendered evidence. No trailer/deck transfer or final section framing."
+  ]
+}

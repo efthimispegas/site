@@ -1,0 +1,470 @@
+{
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+  "catalog": {
+    "models": [
+      {
+        "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+        "name": "GPT Image 2.5 Sunburst Text to Image",
+        "category": "text-to-image",
+        "description": "OpenAI's precision-focused image model, built for premium visual work, extra fidelity on intricate detail, in exchange for longer generation times.",
+        "tags": [
+          "realism",
+          "typography",
+          "stylized"
+        ]
+      },
+      {
+        "endpoint_id": "openai/gpt-image-2.5/flare/text-to-image",
+        "name": "GPT Image 2.5 Flare Text to Image",
+        "category": "text-to-image",
+        "description": "OpenAI's default image model for most applications. Fast, high-quality generation with natural lighting, rich textures, and support for complex layouts including transparent backgrounds.",
+        "tags": [
+          "realism",
+          "typography",
+          "stylized"
+        ]
+      },
+      {
+        "endpoint_id": "openai/gpt-image-2",
+        "name": "GPT Image 2 API",
+        "category": "text-to-image",
+        "description": "GPT Image 2, OpenAI's latest image model, is capable of creating extremely detailed images with fine typography.",
+        "tags": [
+          "gpt-image-2",
+          "openai",
+          "typography",
+          "chatgpt-images-2"
+        ]
+      }
+    ],
+    "total_shown": 3,
+    "selection_guidance": "Before choosing a model for a new operation, call recommend_model with the user's task and constraints unless the user named a model. Reuse that recommendation for the operation; do not repeatedly request the same recommendation.\nHonor an explicitly requested model; verify its exact endpoint and do not silently substitute it.\nOtherwise use the applicable Agent Lab published pick in recommended_model and model_knowledge. Check the user's inputs and constraints against the current endpoint schema. If the pick is unavailable or cannot meet those constraints, try the next compatible published fallback and explain why. If published guidance is missing or outdated, use search_models and search_docs to evaluate current candidates.\nCatalog order, popularity and release recency are discovery signals, not quality or latency rankings. Fast subject motion describes movement in the scene, not generation latency. Only treat user-requested settings as hard constraints; do not invent an exact resolution or audio requirement to justify switching models.\nLive retrieval does not establish when guidance was authored. Without an update date, freshness is unknown; verify capabilities in current schemas/docs and do not claim the pick is the newest or fastest without evidence. Skills and workflow examples supply production advice, not competing model defaults. Use get_pricing for the actual settings before material spending.",
+    "ranking_note": "Uses Explore's shared discovery order: Trending when browsing a category without query, relevance when searching keywords. List position is not a quality or speed score.",
+    "has_more": true,
+    "next_cursor": "Mg",
+    "hint": "More results available. Call search_models again with this next_cursor to page, or refine your search."
+  },
+  "schema": {
+    "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+    "display_name": "GPT Image 2.5 Sunburst Text to Image",
+    "category": "text-to-image",
+    "description": "OpenAI's precision-focused image model, built for premium visual work, extra fidelity on intricate detail, in exchange for longer generation times.",
+    "input_params": [
+      {
+        "name": "quality",
+        "type": "string",
+        "description": "Quality for the generated image. Higher settings increase detail, latency, and token usage. Use 'auto' to let the model choose.",
+        "required": false,
+        "default": "high",
+        "enum": [
+          "auto",
+          "low",
+          "medium",
+          "high",
+          "xhigh",
+          "max"
+        ]
+      },
+      {
+        "name": "output_format",
+        "type": "string",
+        "description": "Output format for the images",
+        "required": false,
+        "default": "png",
+        "enum": [
+          "jpeg",
+          "png",
+          "webp"
+        ]
+      },
+      {
+        "name": "prompt",
+        "type": "string",
+        "description": "The prompt for image generation",
+        "required": true
+      },
+      {
+        "name": "background",
+        "type": "string",
+        "description": "Background for the generated image",
+        "required": false,
+        "default": "auto",
+        "enum": [
+          "auto",
+          "transparent",
+          "opaque"
+        ]
+      },
+      {
+        "name": "sync_mode",
+        "type": "boolean",
+        "description": "If `True`, the media will be returned as a data URI and the output data won't be available in the request history.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "image_size",
+        "type": "object | string",
+        "description": "The size of the generated image. Supports preset names, explicit {width, height}, or 'auto' to let the model pick the best size. Concrete sizes must have both dimensions as multiples of 16, max edge 3840px, aspect ratio <= 3:1, total pixels between 655,360 and 8,294,400.",
+        "required": false,
+        "default": "landscape_4_3"
+      },
+      {
+        "name": "num_images",
+        "type": "integer",
+        "description": "Number of images to generate",
+        "required": false,
+        "default": 1
+      },
+      {
+        "name": "output_compression",
+        "type": "integer | null",
+        "description": "Compression level from 0 to 100. Only supported when output_format is 'jpeg' or 'webp'.",
+        "required": false
+      }
+    ],
+    "output_fields": [
+      {
+        "name": "images",
+        "type": "array<object>",
+        "description": "The generated images.",
+        "required": true
+      }
+    ],
+    "input_schema": {
+      "required": [
+        "prompt"
+      ],
+      "x-fal-order-properties": [
+        "prompt",
+        "image_size",
+        "background",
+        "quality",
+        "num_images",
+        "output_format",
+        "output_compression",
+        "sync_mode"
+      ],
+      "type": "object",
+      "properties": {
+        "quality": {
+          "enum": [
+            "auto",
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "title": "Quality",
+          "type": "string",
+          "description": "Quality for the generated image. Higher settings increase detail, latency, and token usage. Use 'auto' to let the model choose.",
+          "default": "high"
+        },
+        "output_format": {
+          "enum": [
+            "jpeg",
+            "png",
+            "webp"
+          ],
+          "title": "Output Format",
+          "description": "Output format for the images",
+          "type": "string",
+          "default": "png"
+        },
+        "prompt": {
+          "description": "The prompt for image generation",
+          "maxLength": 32000,
+          "title": "Prompt",
+          "type": "string",
+          "examples": [
+            "create a realistic image taken with iphone at these coordinates 41°43′32″N 49°56′49″W 15 April 1912"
+          ],
+          "minLength": 1
+        },
+        "background": {
+          "enum": [
+            "auto",
+            "transparent",
+            "opaque"
+          ],
+          "title": "Background",
+          "description": "Background for the generated image",
+          "type": "string",
+          "default": "auto"
+        },
+        "sync_mode": {
+          "description": "If `True`, the media will be returned as a data URI and the output data won't be available in the request history.",
+          "title": "Sync Mode",
+          "type": "boolean",
+          "default": false
+        },
+        "image_size": {
+          "description": "The size of the generated image. Supports preset names, explicit {width, height}, or 'auto' to let the model pick the best size. Concrete sizes must have both dimensions as multiples of 16, max edge 3840px, aspect ratio <= 3:1, total pixels between 655,360 and 8,294,400.",
+          "title": "Image Size",
+          "anyOf": [
+            {
+              "x-fal-order-properties": [
+                "width",
+                "height"
+              ],
+              "title": "ImageSize",
+              "properties": {
+                "height": {
+                  "maximum": 14142,
+                  "exclusiveMinimum": 0,
+                  "description": "The height of the generated image.",
+                  "type": "integer",
+                  "title": "Height",
+                  "default": 512
+                },
+                "width": {
+                  "maximum": 14142,
+                  "exclusiveMinimum": 0,
+                  "description": "The width of the generated image.",
+                  "type": "integer",
+                  "title": "Width",
+                  "default": 512
+                }
+              },
+              "type": "object"
+            },
+            {
+              "enum": [
+                "square_hd",
+                "square",
+                "portrait_4_3",
+                "portrait_16_9",
+                "landscape_4_3",
+                "landscape_16_9",
+                "auto"
+              ],
+              "type": "string"
+            }
+          ],
+          "default": "landscape_4_3"
+        },
+        "num_images": {
+          "maximum": 10,
+          "minimum": 1,
+          "description": "Number of images to generate",
+          "type": "integer",
+          "examples": [
+            1
+          ],
+          "title": "Number of Images",
+          "default": 1
+        },
+        "output_compression": {
+          "title": "Output Compression",
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer",
+              "maximum": 100
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Compression level from 0 to 100. Only supported when output_format is 'jpeg' or 'webp'."
+        }
+      },
+      "title": "GPTImage25TextToImageRequest",
+      "description": "GPT Image 2.5 generation inputs, kept separate from GPT Image 2."
+    },
+    "output_schema": {
+      "required": [
+        "images"
+      ],
+      "x-fal-order-properties": [
+        "images"
+      ],
+      "type": "object",
+      "properties": {
+        "images": {
+          "items": {
+            "required": [
+              "url"
+            ],
+            "x-fal-order-properties": [
+              "url",
+              "content_type",
+              "file_name",
+              "file_size",
+              "width",
+              "height"
+            ],
+            "type": "object",
+            "properties": {
+              "height": {
+                "title": "Height",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "The height of the image"
+              },
+              "file_size": {
+                "title": "File Size",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "examples": [
+                  4404019
+                ],
+                "description": "The size of the file in bytes."
+              },
+              "width": {
+                "title": "Width",
+                "anyOf": [
+                  {
+                    "type": "integer"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "description": "The width of the image"
+              },
+              "url": {
+                "title": "Url",
+                "type": "string",
+                "description": "The URL where the file can be downloaded from."
+              },
+              "file_name": {
+                "title": "File Name",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "examples": [
+                  "z9RV14K95DvU.png"
+                ],
+                "description": "The name of the file. It will be auto-generated if not provided."
+              },
+              "content_type": {
+                "title": "Content Type",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "examples": [
+                  "image/png"
+                ],
+                "description": "The mime type of the file."
+              }
+            },
+            "title": "ImageFile"
+          },
+          "title": "Images",
+          "type": "array",
+          "examples": [
+            [
+              {
+                "height": 1024,
+                "width": 1024,
+                "file_name": "EnWrO3XWjPE0nxBDpaQrj.png",
+                "url": "https://v3b.fal.media/files/b/0a869129/EnWrO3XWjPE0nxBDpaQrj.png",
+                "content_type": "image/png"
+              }
+            ]
+          ],
+          "description": "The generated images."
+        }
+      },
+      "title": "ImageResponse"
+    },
+    "selection_guidance": "Before choosing a model for a new operation, call recommend_model with the user's task and constraints unless the user named a model. Reuse that recommendation for the operation; do not repeatedly request the same recommendation.\nHonor an explicitly requested model; verify its exact endpoint and do not silently substitute it.\nOtherwise use the applicable Agent Lab published pick in recommended_model and model_knowledge. Check the user's inputs and constraints against the current endpoint schema. If the pick is unavailable or cannot meet those constraints, try the next compatible published fallback and explain why. If published guidance is missing or outdated, use search_models and search_docs to evaluate current candidates.\nCatalog order, popularity and release recency are discovery signals, not quality or latency rankings. Fast subject motion describes movement in the scene, not generation latency. Only treat user-requested settings as hard constraints; do not invent an exact resolution or audio requirement to justify switching models.\nLive retrieval does not establish when guidance was authored. Without an update date, freshness is unknown; verify capabilities in current schemas/docs and do not claim the pick is the newest or fastest without evidence. Skills and workflow examples supply production advice, not competing model defaults. Use get_pricing for the actual settings before material spending.",
+    "model_knowledge": {
+      "models": [
+        {
+          "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+          "display_name": "GPT Image 2.5 Sunburst Text to Image",
+          "category": "text-to-image",
+          "relevance": null,
+          "insights": []
+        }
+      ],
+      "evidence": {
+        "version": 3,
+        "compiled_at": "2026-10-05T02:00:08.053Z",
+        "window_start": "2026-09-28T00:00:00.000Z",
+        "window_end": "2026-10-05T00:00:00.000Z",
+        "evaluated_at": "2026-10-06T12:26:50.771Z",
+        "latency_definition": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees.",
+        "instructions": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees. Report p50/p90 with their measurement window. Null means unknown, never zero. Trending is the analytics category rank at its source timestamp, not adoption or quality. New means registry publication within 30 days of the response evaluation time, not first usage. Lab recommendations are authored guidance, not measured latency, trending or newness. Use the existing pricing tool for current prices, preserving billing units and required configuration; these observations contain no prices.",
+        "models": [
+          {
+            "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+            "evidence": {
+              "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+              "title": "GPT Image 2.5 Sunburst Text to Image",
+              "category": "text-to-image",
+              "usage_tier": null,
+              "latency": {
+                "p50_ms": null,
+                "p90_ms": null,
+                "sufficient_evidence": false,
+                "latest_request_at": null
+              },
+              "trending": {
+                "category_rank": 7,
+                "computed_at": "2026-10-04T10:04:54.556Z"
+              },
+              "published_at": "2026-09-08T20:11:12.507Z",
+              "is_new": true
+            }
+          }
+        ]
+      },
+      "unavailable_endpoint_ids": [],
+      "stats_available": true,
+      "note": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees. Report p50/p90 with their measurement window. Null means unknown, never zero. Trending is the analytics category rank at its source timestamp, not adoption or quality. New means registry publication within 30 days of the response evaluation time, not first usage. Lab recommendations are authored guidance, not measured latency, trending or newness. Use the existing pricing tool for current prices, preserving billing units and required configuration; these observations contain no prices."
+    }
+  },
+  "pricing_api": {
+    "prices": [
+      {
+        "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+        "unit_price": 1,
+        "unit": "units",
+        "currency": "USD"
+      }
+    ],
+    "next_cursor": null,
+    "has_more": false
+  },
+  "account": {
+    "status": "ready",
+    "checked_at": "2026-10-06T12:26:29.718Z",
+    "message": "No billing restriction was reported for this fal account. Check model pricing before generating; the API checks whether each job is allowed and affordable."
+  },
+  "pricing_page": {
+    "url": "https://fal.ai/models/openai/gpt-image-2.5/sunburst/text-to-image",
+    "size": "2560x1440",
+    "quality": "high",
+    "published_image_charge_usd": 0.05529,
+    "text_input_per_million_usd": 5,
+    "text_output_per_million_usd": 10,
+    "image_output_per_million_usd": 30,
+    "limitation": "Published image-size estimate; token usage and request complexity affect final cost. Pricing API reports USD 1 per generic unit and does not express the configuration total."
+  }
+}

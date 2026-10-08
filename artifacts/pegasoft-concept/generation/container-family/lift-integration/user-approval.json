@@ -1,0 +1,86 @@
+{
+  "status": "user_approved_current_visual_lift_container_integration",
+  "date_local": "2026-10-07",
+  "timezone": "Europe/Athens",
+  "recorded_at_utc": "2026-10-07T12:17:29.180749+00:00",
+  "authority": "Direct user instruction in this chat",
+  "user_quote": "Approved",
+  "branch": "codex/pegasoft-concept",
+  "revision": "camera-v4-fixed-approved-grabber",
+  "review_url": "http://127.0.0.1:8767/review/lift-container.html#viewer",
+  "approved_scope": [
+    "Current rendered lift/C01 visual integration",
+    "Approved grabber schema and exact fixed dimensions, without added reach rails",
+    "Stacked pickup visual sequence, retraction and reverse departure arc",
+    "Stable departure camera and absence of the reported lower-container re-entry"
+  ],
+  "accepted_disclosed_limit": "Central roof seating is a visual coupling. Four-corner mechanical pickup remains unresolved at the exact approved head size. This approval does not turn it into a verified corner-lock mechanism.",
+  "prior_raster_gate": "Historical 290/414 correspondence remains technically unqualified; user approval of this visual slice is recorded separately.",
+  "reviewed_packet": {
+    "path": "generation/container-family/lift-integration/approval-snapshots/review.reviewed-2026-10-07.json",
+    "sha256": "437dbbbe9b08a82f1da7e9a14d9680a153282da7e3e8c6283db7840384a88db3"
+  },
+  "reviewed_manifest": {
+    "path": "generation/container-family/lift-integration/approval-snapshots/integration-manifest.reviewed-2026-10-07.json",
+    "sha256": "739d88dd0569f0c016c10f3f66674033c66e315e3defe81aeeece540cabd9fd3"
+  },
+  "reviewed_inputs": [
+    {
+      "path": "review/lift-container.html",
+      "sha256": "44e39925418d3cc210b8da20d476594e2f36b634872d7e4aa4e191cde698f3db",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.html"
+    },
+    {
+      "path": "review/lift-container.js",
+      "sha256": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container.js"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-contact.js"
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "sha256": "eff3c88fb443f3d8a7107106d4d104999368b8c0cdd0116be456c06022b7e766",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/lift-container-replay.js"
+    },
+    {
+      "path": "review/integration-server.py",
+      "sha256": "57cbe737715a235844b01450abd2ad06a54b391ffeb0e5ae28ac12a945f6af41",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/integration-server.py"
+    },
+    {
+      "path": "generation/container-family/lift-integration/rig-harness.mjs",
+      "sha256": "b31c7869f5a4344bed8f47624cad385d1a1f2f3ccbe019dd233e3d47788d0924",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/rig-harness.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-integration.mjs",
+      "sha256": "c3d62950fea9455415594b3252cf78b7b2a22acfe41f9c9b44c61e88f9c2deab",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-integration.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/measure-rendered-edges.py",
+      "sha256": "564d0e9e7f958a7fe467f96f8b23259023021cf16e4cd8337630370a24dacf68",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/measure-rendered-edges.py"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera.mjs",
+      "sha256": "b48dd817c2813cef77176ca234e8cd9b80c61d13918027548de0570b05ac7629",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-camera.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera-turn.mjs",
+      "sha256": "5cb06960caa6654e7527c645a17c0ff30dcb764decb6743643c9911c1b57be3f",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-camera-turn.mjs"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-rendered-camera.py",
+      "sha256": "b565548c9e150311c48c1183e87939111e4dd71b45eda08d10a614b1837990a5",
+      "retained_snapshot": "generation/container-family/lift-integration/review-inputs/check-rendered-camera.py"
+    }
+  ],
+  "next_review_step": "Prepare minimum truck/deck asset-input and production-method proposal; obtain batch approval before generation.",
+  "provider_jobs_submitted": 0
+}

@@ -1,0 +1,43 @@
+{
+  "status": "authored_external_model_markings",
+  "textures": [
+    {
+      "name": "corner-warning",
+      "width": 256,
+      "height": 256,
+      "purpose": "Diagonal yellow/carbon safety paint on both top front castings; apertures remain open."
+    },
+    {
+      "name": "caution",
+      "width": 512,
+      "height": 512,
+      "purpose": "Left-door caution symbol."
+    },
+    {
+      "name": "information",
+      "width": 256,
+      "height": 256,
+      "purpose": "Left-door blue information sticker."
+    },
+    {
+      "name": "asset-sticker",
+      "width": 1024,
+      "height": 640,
+      "purpose": "Left-door demo asset sticker; decorative bars are not a shipping identifier."
+    },
+    {
+      "name": "door-data",
+      "width": 768,
+      "height": 1280,
+      "purpose": "Right-door identity/type and agreed external dimensions; no registration or load-weight claims."
+    }
+  ],
+  "colors": {
+    "carbon": "#11151B",
+    "silver": "#DCE3EA",
+    "blue": "#147DFF",
+    "safety_yellow": "#F2C230"
+  },
+  "source": "build-markings.py; local fonts retained in review/fonts",
+  "accepted_image_modified": false
+}

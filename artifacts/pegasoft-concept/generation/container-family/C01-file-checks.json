@@ -1,0 +1,77 @@
+{
+  "dimensions": {
+    "width": 2560,
+    "height": 1440
+  },
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_bbox": [
+    0,
+    0,
+    2554,
+    1440
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "transparent_pixels": 1378530,
+  "opaque_pixels": 0,
+  "partially_transparent_pixels": 2307870,
+  "requested_transparency_met": true,
+  "file_integrity": "valid PNG",
+  "visual_acceptance": "pending_user_static_review",
+  "original_unchanged": true,
+  "initial_check_failure": "Requested alpha-extrema range (0,255) assertion failed; raw measurements below are retained.",
+  "alpha_threshold_bboxes": {
+    "8": [
+      89,
+      90,
+      2496,
+      1301
+    ],
+    "32": [
+      89,
+      91,
+      2496,
+      1301
+    ],
+    "64": [
+      90,
+      91,
+      2496,
+      1301
+    ],
+    "128": [
+      90,
+      92,
+      2495,
+      1300
+    ],
+    "200": [
+      90,
+      92,
+      2495,
+      1300
+    ],
+    "250": [
+      91,
+      95,
+      2494,
+      1299
+    ]
+  },
+  "alpha_edge_samples": {
+    "top_mid": 0,
+    "left_mid": 0,
+    "bottom_mid": 1,
+    "right_mid": 0
+  },
+  "alpha_review_note": "Maximum alpha is 254, so no pixel is fully opaque. Low-alpha support reaches canvas edges. Inspect actual carbon/porcelain rendering before static acceptance; do not alter the original or infer clean matte from transparent corners.",
+  "rendered_observation": "At the default review viewport, both carbon and porcelain displays show the full container and no obvious surrounding halo. Full-resolution edge acceptance remains pending user review."
+}

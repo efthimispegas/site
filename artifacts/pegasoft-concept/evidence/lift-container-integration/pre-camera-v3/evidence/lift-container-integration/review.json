@@ -1,0 +1,197 @@
+{
+  "status": "camera_stability_fixed_ready_for_user_review_reference_fidelity_pending",
+  "created_at_utc": "2026-10-06T21:34:57.685593+00:00",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "source_manifest": "generation/container-family/lift-integration/integration-manifest.json",
+  "technical_checks": {
+    "path": "evidence/lift-container-integration/checks.json",
+    "sha256": "2eadfc4b29e2aa8241bee27ecf751b1ccc5afa05f9d074aa35033e9b2a2d56a1",
+    "outcome": "passed: 601 forward + 601 reverse poses; original geometry preserved at applied integration pose, four actual paired stack metal rims, lock contact, fixed lower container, ram endpoints and body exclusions."
+  },
+  "runtime_checks": {
+    "path": "evidence/lift-container-integration/camera-v2-runtime-interactions.json",
+    "sha256": "eb67c2c1feb5b2a34c07c9388239a84f2c81506885604c4f96b9fb2b813f17fa",
+    "outcome": "Passed mid-departure pause/resume, explicit close-up/full restoration, physical forward/reverse scroll and identical restored camera pose."
+  },
+  "rendered_playbacks": [
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-normal.webm",
+      "trace_sha256": "58952469d2d63b85717ec0b9e2d9bc03c776e8c464519ab14e4972ce81f453b6",
+      "video_sha256": "536cac4c1b358d043c91bcf52f7974afea0be8e4ea2c133879b115a7e3d87a59",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 1
+      },
+      "observations": 1078,
+      "elapsedMs": 9124.899999999998,
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "post_contact_observations": 530,
+      "post_contact_camera_distance_span": 0.0,
+      "fov": 12,
+      "load_witnesses_within_viewport": true,
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-quarter.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-quarter.webm",
+      "trace_sha256": "303a143ee3fbe28db8bdf42ec4067e1fbac10ba852be6c13c77c7c709f8d6835",
+      "video_sha256": "e4d7c58b9ba4926a57d1cc632ee74893afb798e05c51d1965b37b192edfdac71",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 0.25
+      },
+      "observations": 4299,
+      "elapsedMs": 36516.399999999994,
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "post_contact_observations": 2116,
+      "post_contact_camera_distance_span": 0.0,
+      "fov": 12,
+      "load_witnesses_within_viewport": true,
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v2-full-reverse-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v2-full-reverse-normal.webm",
+      "trace_sha256": "e1c43e9fc0c649d63f02dd8e7738cb0dfe76cb8870e0e5b76c6f084a62fb2199",
+      "video_sha256": "cbc60d1066081fa22e92b98a7d1a77b7c29afbb136b56da19d29a0014eb5b130",
+      "mode": {
+        "scope": "full",
+        "reverse": true,
+        "speed": 1
+      },
+      "observations": 1073,
+      "elapsedMs": 9125,
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "post_contact_observations": 527,
+      "post_contact_camera_distance_span": 0.0,
+      "fov": 12,
+      "load_witnesses_within_viewport": true,
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    }
+  ],
+  "raster_tracking": {
+    "path": "evidence/lift-container-integration/rendered-edge-measurements.json",
+    "sha256": "6cb399c99baa6813ccfc24be67bbf3285cedeaadb19dc1d100f0bc8e034221bb",
+    "status": "historical_prior_render_unqualified_not_current_render_proof",
+    "paired_frames": 290,
+    "total_frames": 414,
+    "p95_angle_difference_degrees": 0.1612709860226188,
+    "diagnostic": "evidence/lift-container-integration/edge-diagnostic.json",
+    "prior_packet": "evidence/lift-container-integration/pre-camera-fix/evidence/lift-container-integration/review.json"
+  },
+  "reference": {
+    "native_source": "evidence/motion/clips/handoff.mp4",
+    "native_source_sha256": "871ad95426f98d92a463e334c7a4bc5a16953dbea95b99bf1d80b78953f9efbd",
+    "derived_departure": "evidence/lift-container-integration/reference-departure.mp4",
+    "derived_departure_sha256": "6cc7a37e7c3cac3c2be87b27355d9d46206908492bad488644a2c27701be705c",
+    "interval_seconds": [
+      0,
+      6
+    ],
+    "operation": "FFmpeg stream copy, no inserted frames/holds; excludes later truck transfer."
+  },
+  "checks": {
+    "syntax": "passed: three authored viewer modules",
+    "git_diff_check": "passed",
+    "http_bytes": "evidence/lift-container-integration/camera-v2-http-checks.json",
+    "Nx": "No app or Nx target changed; standalone artifact scripts and rendered browser checks only.",
+    "git_delivery": "New integration files are local/untracked; not ignored, staged or committed."
+  },
+  "screenshots": [
+    {
+      "path": "evidence/lift-container-integration/camera-v2-review.jpg",
+      "sha256": "7a023a26739737c4758ef5596cb9ad447728d7ea42e2561d6e84d09a3e47660a",
+      "description": "Actual paused departure in the user-sized viewport."
+    },
+    {
+      "path": "evidence/lift-container-integration/camera-v2-playback-contact-sheet.png",
+      "sha256": "8da364e738738ba2aed8fc040c52d02b7b7724d371f98894fe031e65943eb118",
+      "description": "Extracted quarter-speed canvas frames for composition inspection; temporal camera checks use dense observations."
+    }
+  ],
+  "environment": {
+    "node": "24.19.0",
+    "browser": "Codex in-app browser, actual user-sized viewport",
+    "capture_css_stage": [
+      783,
+      378
+    ],
+    "canvas": [
+      1174,
+      567
+    ],
+    "pixel_ratio": 1.5,
+    "full_camera_vertical_fov": 12,
+    "origin": "http://127.0.0.1:8767",
+    "final_review_stage_css": [
+      783,
+      378
+    ]
+  },
+  "acceptance": {
+    "implementation": "complete",
+    "technical": "passed",
+    "runtime": "passed",
+    "raster_correspondence": "historical partial/unqualified; not rerun for new framing",
+    "visual_reference_fidelity": "pending user review",
+    "user_integration_acceptance": "pending",
+    "deployment": "not requested",
+    "camera_stability": "numerical and rendered runtime checks passed; user review pending"
+  },
+  "retained_diagnostics": [
+    "superseded-small-fit/status.json",
+    "stack-straight/status.json",
+    "arc-left/status.json",
+    "edge-diagnostic.json",
+    "pre-camera-fix/status.json"
+  ],
+  "usage": "evidence/lift-container-integration/usage.json",
+  "checkpoint": {
+    "CURRENT.md": "3ba4eb402f5dccaf84cadeb8fbe0c9957873ff44088c59ea80f6ffb0a833673b",
+    "HANDOFF.md": "52f2c549b2d95ef5668cd7b933242ba8c05add1a7ecf6fe4e80357c89e85094e",
+    "PROPOSAL.md": "c98efcb3a5ec3578e705df19cc1d711d424e3cc1a69d1d1449874502c109724c",
+    "review/index.html": "070540e91586b0b4a6294bb81b32e69f29a0b4ffc752f10b462d8b2f51287593"
+  },
+  "revision": "camera-v2",
+  "camera_checks": {
+    "path": "evidence/lift-container-integration/camera-stability.json",
+    "sha256": "5e26e01aa92ea176c9193e17f46fc607586519a7f9adc592dad0736040efd014",
+    "outcome": "Zero zoom reversals across 961 departure samples; fixed distance in 481 post-contact poses at each of four viewport shapes; exact pause and reverse camera/projection matrices."
+  },
+  "historical_runtime_checks": {
+    "path": "evidence/lift-container-integration/pre-camera-fix/evidence/lift-container-integration/runtime-interactions.json",
+    "scope": "Earlier ownership/cab/wheel checks; geometry and these explicit inspection overrides are unchanged. Prior camera framing superseded."
+  },
+  "rendered_camera_checks": {
+    "path": "evidence/lift-container-integration/camera-v2-rendered-checks.json",
+    "sha256": "aab5f24bc39e1097e563e2f3aff964009cb9ffd1a068b0059c0293d23891c9fe"
+  }
+}

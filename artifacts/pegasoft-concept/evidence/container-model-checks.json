@@ -1,0 +1,242 @@
+{
+  "status": "container_design_accepted_technical_and_runtime_checks_passed",
+  "created_at_utc": "2026-10-06T20:21:10.897544+00:00",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "3b7634c70310a462859aa450213cb642fb793fe1",
+  "working_tree": "Scoped concept artifact changes are uncommitted; unrelated primary checkout preserved.",
+  "environment": {
+    "node": "v24.19.0",
+    "python": "3.12.14",
+    "viewer": "Existing local Three.js runtime, default Codex in-app browser viewport 535 x 788; no viewport override.",
+    "server": "127.0.0.1:8766, concept artifact root, no-cache."
+  },
+  "accepted_model_sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+  "original_static_png_unchanged_sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3",
+  "user_approval": "../generation/container-family/model-approval.json",
+  "geometry_export": {
+    "status": "passed",
+    "checks": "../generation/container-family/model-draft/model-checks.json",
+    "closed_solid_primitives": 197,
+    "triangles": 21012,
+    "external_dimensions_m": {
+      "length": 12.192000002980233,
+      "width": 2.4380000001043083,
+      "height": 2.896000000104308
+    },
+    "casting_rim_witnesses": 8,
+    "attribute_index_readbacks": 718,
+    "embedded_png_readbacks": 7
+  },
+  "rendered_checks": {
+    "status": "passed",
+    "views": [
+      "oblique",
+      "door end",
+      "far end",
+      "left side",
+      "right side",
+      "roof",
+      "underside",
+      "corner detail"
+    ],
+    "surfaces": [
+      "carbon",
+      "porcelain"
+    ],
+    "visual_observation": "Both upper front corner warning patches are visible and casting apertures remain open; three left-door stickers and right-door dimension panel occupy the appropriate doors. All required surfaces inspected.",
+    "input_method": "Genuine held pointer movement/release for orbit; keyboard activation for zoom/reset/surface; native wheel zoom. No animation-state injection.",
+    "interaction_outcomes": {
+      "orbit": true,
+      "reset": true,
+      "keyboardZoom": true,
+      "wheelZoom": true,
+      "surface": true
+    },
+    "browser_observation": "container-model-review/marked/browser-observation.json",
+    "accepted_status_observation": "container-model-review/marked/approval-status-observation.json",
+    "approved_front": "container-model-review/marked/approved-front.jpg",
+    "orbit_issue": "container-model-review/orbit-input-diagnostic.json",
+    "console_errors_or_warnings": []
+  },
+  "source_checks": {
+    "node_syntax": "passed (viewer/factory/exporter)",
+    "git_diff_check": "passed",
+    "new_deliverables_ignored": false,
+    "nx": "Not applicable: standalone artifact factory/exporter/viewer; no application or Nx target changed."
+  },
+  "http_checks": [
+    {
+      "path": "review/container-model.html",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "b7ff1f894a6a02bef6f21a9d46c2eb775c5edc7fd18c4afd2205d7e97aae9324"
+    },
+    {
+      "path": "review/container-model.js",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "4c87998bd195dc25e1681b5d27a37f7a044c083f18e56344c5da1fbf99f5bc3f"
+    },
+    {
+      "path": "review/index.html",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "9793adea4763f1eb633a60636cff92f9af48530cb16f8c8a0e443a03beadc06d"
+    },
+    {
+      "path": "review/container.html",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "d38f112e07ed91cabdaeeffcd51316deb667ec9cd64cb71a4abf9d8b867db712"
+    },
+    {
+      "path": "review/container-plan.html",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "36cacdf9b130ca98ed16dea81921ee4e968b825de143ac1da332382e5da37156"
+    },
+    {
+      "path": "review/fonts/manrope.ttf",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+    },
+    {
+      "path": "review/fonts/dmsans.ttf",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+    },
+    {
+      "path": "review/fonts/ibmplexmono.ttf",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46"
+    },
+    {
+      "path": "review/vendor/three/build/three.module.js",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "d835eab0b3bca3fdfd51e2ce7d06911f4a089b08db73cc3cd70fe5e3005a623f"
+    },
+    {
+      "path": "review/vendor/three/build/three.core.js",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "283be43b2229e15f46dac84cd19354ede5f06cac7ffb185e765cfcfb2c1eec90"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "a2d45c28c56774cc789b99154e914c34db3197f9ea2b89fee27600cc2509b14f"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/controls/OrbitControls.js",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "c5d5a92da069a9316344b327772486d6c1b78982ad4f2a83b9832e0a47219edd"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/environments/RoomEnvironment.js",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "c83d34dd5ec39ced21367a7571675cdaf9de1b35685c44437f86516b89a830f2"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/container-family/model-draft/model-checks.json",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "48d6609187180aac511dbb6b50fa66a7b4e5317e268df9031a3a4667f26ceab0"
+    },
+    {
+      "path": "generation/container-family/model-draft/model-manifest.json",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "f09efb8dd2e1e105ac089b601612c3cbf1e2c66f9f0ea76150a5b60049400993"
+    },
+    {
+      "path": "generation/container-family/model-approval.json",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "659ca9d042f96631e0ad5549e7129bbc128ec57ccbec92cab14784ef9ab94444"
+    },
+    {
+      "path": "generation/container-family/markings-authorization.json",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "4a03e7f319bb7ddad4e6be5f4c591b631b86a7c55e16ca7908e0f7259436125f"
+    },
+    {
+      "path": "generation/container-family/C01-silver-oblique-original.png",
+      "http_status": 200,
+      "matches_local_bytes": true,
+      "sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3"
+    }
+  ],
+  "usage_snapshot": "container-model-review/usage-snapshot.json",
+  "provider_jobs_in_model_batch": 0,
+  "actual_model_batch_credit_spend": null,
+  "acceptance_limits": [
+    "Design/model acceptance is not manufacturing certification of composite corner casting assemblies.",
+    "Pickup/contact, loaded settling, camera pivot, support handoff and section framing retain separate motion/section review."
+  ],
+  "next_action": "Integrate the production container with the accepted lift in a separate derivative. Preserve the locked rig/motion; review contact and connected settling before transport handoff.",
+  "hashes": {
+    "CURRENT.md": "e489f94236c095b07138080e2df268708047bced6e3140405c0f5584ffc4b6fb",
+    "HANDOFF.md": "98435d436a2f4fdd2318a1be6e724a219acf1fd9a31619d529da2d7c7c2986bc",
+    "PROPOSAL.md": "531bdd3929985b420b8f3f2d46683285df499cc88f8a13afadd6c1b835745183",
+    "evidence/container-model-review/marked/approval-status-observation.json": "3d321a57c16eaf8af35d4f6522c11422434019b25a9d76c6794745dfdb024f6c",
+    "evidence/container-model-review/marked/approved-front.jpg": "cf807c3db119f25bf70d8754a84485629d51d90dd03ad5787525edc03b233108",
+    "evidence/container-model-review/marked/browser-observation.json": "6b94f8d84613a73d319184d41d52af49ca2623fa1fd48d9bf3b5d9b3c84ffb0c",
+    "evidence/container-model-review/marked/corner-detail.jpg": "db617849c1eb82806be003e998110f826029066d023f3c91583cb999322d9dc3",
+    "evidence/container-model-review/marked/door-end.jpg": "65d1e6e349b613d54a0a3c358cd570e2591ed7d33947e0506158241875764ed4",
+    "evidence/container-model-review/marked/far-end.jpg": "cab2e2c3f327c9dc468acf0b7f23f70908e8c27bcc8ac3e90ad45a3001056fec",
+    "evidence/container-model-review/marked/left-side.jpg": "a34678e34821411cab916da40f4597abc53eaabef3a656afb29c0c3d3029c4eb",
+    "evidence/container-model-review/marked/oblique.jpg": "152cfb049d46d1d819508c36860f13fe70fdd2760235ecee57943efc8bb55757",
+    "evidence/container-model-review/marked/porcelain-door-end.jpg": "2af11e49fe56de4b58dfb216c81da97051bafa5fea6ca01369e438d250ce0cc7",
+    "evidence/container-model-review/marked/right-side.jpg": "3a32077a56c9d6e2f902085134f8f20ba1a06dd8ac4b50a47bc1fb819796be81",
+    "evidence/container-model-review/marked/roof.jpg": "a3f33d032e8bd0ae512ef307500e9d578cb78f36e055a688035bfb59900e94a2",
+    "evidence/container-model-review/marked/underside.jpg": "c21746551f76fa50c9cf8be24f79aceb2ee8d497c6c8b7fde62c075f1d13593b",
+    "evidence/container-model-review/orbit-input-diagnostic.json": "5342f9ce4114b949135062455586754a05073a3b8d92fd44d0ae4e82586c0024",
+    "evidence/container-model-review/usage-snapshot.json": "2170d0c606a4555a0fb958871fa8dd4cd070388024b80999b41e44df3e2d203d",
+    "generation/container-family/C01-manifest.json": "81e699e79bed9fd48418989c204568d344a2c6ab8c1ab7e5af18995b54b17c1d",
+    "generation/container-family/markings-authorization.json": "4a03e7f319bb7ddad4e6be5f4c591b631b86a7c55e16ca7908e0f7259436125f",
+    "generation/container-family/model-approval.json": "659ca9d042f96631e0ad5549e7129bbc128ec57ccbec92cab14784ef9ab94444",
+    "generation/container-family/model-draft/C01-container.glb": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+    "generation/container-family/model-draft/build-markings.py": "8513afffd83d7e767fa8f937b3f0bf665f4c3b753225591b0502370bfc4f6ded",
+    "generation/container-family/model-draft/build-model.mjs": "269c3700f8a3e631ad104ead1504c73716d75ce3a61eb662eb27732bbd4f2252",
+    "generation/container-family/model-draft/container-model.mjs": "7192ddf102782a81beec487b3526433dcb4aeb035b3bb34832bd7ede87b4184e",
+    "generation/container-family/model-draft/markings/asset-sticker.png": "0e13a95bae75874f2c6ab6cd407bad5bde9f9e61e52d3d456690c7d42deaf29e",
+    "generation/container-family/model-draft/markings/asset-sticker.rgba": "243d3e79212dcb4d970b81ac3ee7a8b4f20b13a960c93bbff13e8127850994b4",
+    "generation/container-family/model-draft/markings/caution.png": "ca0d9b42266f26cebee5e941282e1b7489af7ab44f5f87758e09c9fc2683c26c",
+    "generation/container-family/model-draft/markings/caution.rgba": "8d1967bc0cf0cacaa57f07ce7809fc08f30d6f348b22fa856fd494f960f87605",
+    "generation/container-family/model-draft/markings/corner-warning.png": "85c9602049b402e769718dc3d8d6f5f3290067c6127fc933df05e7d3a7e75bb9",
+    "generation/container-family/model-draft/markings/corner-warning.rgba": "4c5c2325bccdbca51b2a434b09b77d9fa169bc1ce8bdce9a1ca93246f767c395",
+    "generation/container-family/model-draft/markings/door-data.png": "2482098cf4474db09d39051b1e3bb3e86c3d9f6a4c7f3ea1238ef6a12622cb08",
+    "generation/container-family/model-draft/markings/door-data.rgba": "3ec569230d6276830947b3038589ba9d554c8a451635594580028ea2e4a1a4ea",
+    "generation/container-family/model-draft/markings/information.png": "21ca5fe6652f0163e8717c9a960b0ff7a073bc65c0e74de9c0c2ad206e6ba04e",
+    "generation/container-family/model-draft/markings/information.rgba": "5481a0287c67224b48f16a487cbfcfa43dea729e4950de4f6b82ef8557fb914e",
+    "generation/container-family/model-draft/markings/manifest.json": "a993de00e89ab128e694d602dffb5345a66b9b1a14d040ec20ba41fc83b89184",
+    "generation/container-family/model-draft/model-checks.json": "48d6609187180aac511dbb6b50fa66a7b4e5317e268df9031a3a4667f26ceab0",
+    "generation/container-family/model-draft/model-manifest.json": "f09efb8dd2e1e105ac089b601612c3cbf1e2c66f9f0ea76150a5b60049400993",
+    "material-color-contract.json": "fe7be1ebbc4f5c070df208937101fda17113f05f92e09b7d9b05a9e9151bfb29",
+    "review/container-model.html": "b7ff1f894a6a02bef6f21a9d46c2eb775c5edc7fd18c4afd2205d7e97aae9324",
+    "review/container-model.js": "4c87998bd195dc25e1681b5d27a37f7a044c083f18e56344c5da1fbf99f5bc3f",
+    "review/container-plan.html": "36cacdf9b130ca98ed16dea81921ee4e968b825de143ac1da332382e5da37156",
+    "review/container.html": "d38f112e07ed91cabdaeeffcd51316deb667ec9cd64cb71a4abf9d8b867db712",
+    "review/index.html": "9793adea4763f1eb633a60636cff92f9af48530cb16f8c8a0e443a03beadc06d"
+  }
+}

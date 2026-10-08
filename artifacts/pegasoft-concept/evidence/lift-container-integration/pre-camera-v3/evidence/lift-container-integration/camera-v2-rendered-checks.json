@@ -1,0 +1,88 @@
+{
+  "status": "passed_actual_canvas_camera_stability",
+  "input_sha256": "708ecd5292132110b8598a47d84234952e27f0e71675d0b5a6fc3619bd7e551f",
+  "playbacks": [
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-normal.webm",
+      "trace_sha256": "58952469d2d63b85717ec0b9e2d9bc03c776e8c464519ab14e4972ce81f453b6",
+      "video_sha256": "536cac4c1b358d043c91bcf52f7974afea0be8e4ea2c133879b115a7e3d87a59",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 1
+      },
+      "observations": 1078,
+      "elapsedMs": 9124.899999999998,
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "post_contact_observations": 530,
+      "post_contact_camera_distance_span": 0.0,
+      "fov": 12,
+      "load_witnesses_within_viewport": true,
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-quarter.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v2-full-forward-quarter.webm",
+      "trace_sha256": "303a143ee3fbe28db8bdf42ec4067e1fbac10ba852be6c13c77c7c709f8d6835",
+      "video_sha256": "e4d7c58b9ba4926a57d1cc632ee74893afb798e05c51d1965b37b192edfdac71",
+      "mode": {
+        "scope": "full",
+        "reverse": false,
+        "speed": 0.25
+      },
+      "observations": 4299,
+      "elapsedMs": 36516.399999999994,
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "post_contact_observations": 2116,
+      "post_contact_camera_distance_span": 0.0,
+      "fov": 12,
+      "load_witnesses_within_viewport": true,
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    },
+    {
+      "trace": "evidence/lift-container-integration/playback/C01-camera-v2-full-reverse-normal.json",
+      "video": "evidence/lift-container-integration/playback/C01-camera-v2-full-reverse-normal.webm",
+      "trace_sha256": "e1c43e9fc0c649d63f02dd8e7738cb0dfe76cb8870e0e5b76c6f084a62fb2199",
+      "video_sha256": "cbc60d1066081fa22e92b98a7d1a77b7c29afbb136b56da19d29a0014eb5b130",
+      "mode": {
+        "scope": "full",
+        "reverse": true,
+        "speed": 1
+      },
+      "observations": 1073,
+      "elapsedMs": 9125,
+      "canvas": {
+        "width": 1174,
+        "height": 567
+      },
+      "post_contact_observations": 527,
+      "post_contact_camera_distance_span": 0.0,
+      "fov": 12,
+      "load_witnesses_within_viewport": true,
+      "rendered_inputs": [
+        "review/lift-container.html",
+        "review/lift-container.js",
+        "review/lift-container-contact.js",
+        "review/lift-container-replay.js"
+      ]
+    }
+  ],
+  "visual_inspection": "Actual forward playback, paused departure view and extracted quarter-speed frames inspected. Camera telemetry verifies constant distance; it is distinct from independent raster-edge fidelity."
+}

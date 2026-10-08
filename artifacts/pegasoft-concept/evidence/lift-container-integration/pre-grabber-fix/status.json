@@ -1,0 +1,25 @@
+{
+  "status": "historical_camera_v3_before_user_grabber_dimension_amendment",
+  "created_utc": "2026-10-07T11:54:05.060195+00:00",
+  "user_finding": "Added four long reach rails do not match the approved head family; keep exact approved grabber dimensions.",
+  "camera_evidence": "C01-camera-v3 playbacks retained in original playback directory; numerical camera checks passed with the rejected long-rail geometry.",
+  "invalid_proof": "camera-v3-review-921.jpg and last runtime observation show 59 percent due concurrent user interaction; not a 92.1 percent proof. camera-turn-diagnostic.json is intermediate, not final authority.",
+  "preserved_paths": [
+    "review/lift-container.js",
+    "review/lift-container-contact.js",
+    "review/lift-container.html",
+    "review/lift-container-replay.js",
+    "review/integration-server.py",
+    "generation/container-family/lift-integration/check-integration.mjs",
+    "generation/container-family/lift-integration/check-camera-turn.mjs",
+    "generation/container-family/lift-integration/check-rendered-camera.py",
+    "generation/container-family/lift-integration/rig-harness.mjs",
+    "evidence/lift-container-integration/checks.json",
+    "evidence/lift-container-integration/camera-stability.json",
+    "evidence/lift-container-integration/camera-turn-stability.json",
+    "evidence/lift-container-integration/camera-v3-rendered-checks.json",
+    "evidence/lift-container-integration/camera-v3-runtime-interactions.json",
+    "evidence/lift-container-integration/camera-v3-review-921.jpg",
+    "evidence/lift-container-integration/camera-turn-diagnostic.json"
+  ]
+}

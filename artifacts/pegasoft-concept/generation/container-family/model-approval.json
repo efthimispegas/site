@@ -1,0 +1,153 @@
+{
+  "status": "user_accepted_container_model_design",
+  "recorded_at_utc": "2026-10-06T20:19:09.776335+00:00",
+  "date_local": "2026-10-06",
+  "branch": "codex/pegasoft-concept",
+  "user_statement": "The generated design is approved",
+  "context": "User reviewed container-model.html after the yellow/black corner stripe and door marking amendment.",
+  "scope": [
+    "C01 local silver container model design with both upper front warning faces, left-door stickers and right-door demo identity/dimensions.",
+    "Nominal external dimensions 12.192 x 2.438 x 2.896 m."
+  ],
+  "accepted_glb_sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+  "accepted_static_master_sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3",
+  "reviewed_inputs": [
+    {
+      "reviewed_file": "evidence/container-model-review/marked/browser-observation.json",
+      "sha256": "6b94f8d84613a73d319184d41d52af49ca2623fa1fd48d9bf3b5d9b3c84ffb0c",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/browser-observation.json"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/corner-detail.jpg",
+      "sha256": "db617849c1eb82806be003e998110f826029066d023f3c91583cb999322d9dc3",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/corner-detail.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/door-end.jpg",
+      "sha256": "65d1e6e349b613d54a0a3c358cd570e2591ed7d33947e0506158241875764ed4",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/door-end.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/far-end.jpg",
+      "sha256": "cab2e2c3f327c9dc468acf0b7f23f70908e8c27bcc8ac3e90ad45a3001056fec",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/far-end.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/left-side.jpg",
+      "sha256": "a34678e34821411cab916da40f4597abc53eaabef3a656afb29c0c3d3029c4eb",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/left-side.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/oblique.jpg",
+      "sha256": "152cfb049d46d1d819508c36860f13fe70fdd2760235ecee57943efc8bb55757",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/oblique.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/porcelain-door-end.jpg",
+      "sha256": "2af11e49fe56de4b58dfb216c81da97051bafa5fea6ca01369e438d250ce0cc7",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/porcelain-door-end.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/right-side.jpg",
+      "sha256": "3a32077a56c9d6e2f902085134f8f20ba1a06dd8ac4b50a47bc1fb819796be81",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/right-side.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/roof.jpg",
+      "sha256": "a3f33d032e8bd0ae512ef307500e9d578cb78f36e055a688035bfb59900e94a2",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/roof.jpg"
+    },
+    {
+      "reviewed_file": "evidence/container-model-review/marked/underside.jpg",
+      "sha256": "c21746551f76fa50c9cf8be24f79aceb2ee8d497c6c8b7fde62c075f1d13593b",
+      "retained_copy": "model-approved-inputs/evidence/container-model-review/marked/underside.jpg"
+    },
+    {
+      "reviewed_file": "generation/container-family/C01-silver-oblique-original.png",
+      "sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3",
+      "retained_copy": "model-approved-inputs/generation/container-family/C01-silver-oblique-original.png"
+    },
+    {
+      "reviewed_file": "generation/container-family/markings-authorization.json",
+      "sha256": "4a03e7f319bb7ddad4e6be5f4c591b631b86a7c55e16ca7908e0f7259436125f",
+      "retained_copy": "model-approved-inputs/generation/container-family/markings-authorization.json"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/C01-container.glb"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/build-markings.py",
+      "sha256": "8513afffd83d7e767fa8f937b3f0bf665f4c3b753225591b0502370bfc4f6ded",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/build-markings.py"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/build-model.mjs",
+      "sha256": "269c3700f8a3e631ad104ead1504c73716d75ce3a61eb662eb27732bbd4f2252",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/build-model.mjs"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/container-model.mjs",
+      "sha256": "7192ddf102782a81beec487b3526433dcb4aeb035b3bb34832bd7ede87b4184e",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/container-model.mjs"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/markings/asset-sticker.png",
+      "sha256": "0e13a95bae75874f2c6ab6cd407bad5bde9f9e61e52d3d456690c7d42deaf29e",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/markings/asset-sticker.png"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/markings/caution.png",
+      "sha256": "ca0d9b42266f26cebee5e941282e1b7489af7ab44f5f87758e09c9fc2683c26c",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/markings/caution.png"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/markings/corner-warning.png",
+      "sha256": "85c9602049b402e769718dc3d8d6f5f3290067c6127fc933df05e7d3a7e75bb9",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/markings/corner-warning.png"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/markings/door-data.png",
+      "sha256": "2482098cf4474db09d39051b1e3bb3e86c3d9f6a4c7f3ea1238ef6a12622cb08",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/markings/door-data.png"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/markings/information.png",
+      "sha256": "21ca5fe6652f0163e8717c9a960b0ff7a073bc65c0e74de9c0c2ad206e6ba04e",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/markings/information.png"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/markings/manifest.json",
+      "sha256": "a993de00e89ab128e694d602dffb5345a66b9b1a14d040ec20ba41fc83b89184",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/markings/manifest.json"
+    },
+    {
+      "reviewed_file": "generation/container-family/model-draft/model-checks.json",
+      "sha256": "48d6609187180aac511dbb6b50fa66a7b4e5317e268df9031a3a4667f26ceab0",
+      "retained_copy": "model-approved-inputs/generation/container-family/model-draft/model-checks.json"
+    },
+    {
+      "reviewed_file": "material-color-contract.json",
+      "sha256": "fe7be1ebbc4f5c070df208937101fda17113f05f92e09b7d9b05a9e9151bfb29",
+      "retained_copy": "model-approved-inputs/material-color-contract.json"
+    },
+    {
+      "reviewed_file": "review/container-model.html",
+      "sha256": "009ea2a73e0b074740f72d3d64d75ab31f7f445d72f5dc4283dae4dec360a296",
+      "retained_copy": "model-approved-inputs/review/container-model.html"
+    },
+    {
+      "reviewed_file": "review/container-model.js",
+      "sha256": "ca6b3b3fbd41fb1966ceb46ab7d366b1d1a3df6355b579f96d271a42478fb2fc",
+      "retained_copy": "model-approved-inputs/review/container-model.js"
+    }
+  ],
+  "technical_checks": "model-draft/model-checks.json",
+  "rendered_evidence": "../../evidence/container-model-review/marked/browser-observation.json",
+  "acceptance_limits": [
+    "Design/model acceptance is not manufacturing certification of composite corner casting assemblies.",
+    "Pickup/contact, loaded settling, camera pivot, support handoff and section framing retain separate motion/section review."
+  ],
+  "next_action": "Integrate the production container with the accepted lift in a separate derivative. Preserve the locked rig/motion; review contact and connected settling before transport handoff."
+}
