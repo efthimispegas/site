@@ -1,0 +1,26 @@
+{
+  "status": "proposed_placement_awaiting_T01_review",
+  "wordmark": "PEGASOFT Solutions",
+  "font": "Manrope upright 650, licensed local font",
+  "color": "#B9E7FF",
+  "canvas": [
+    3072,
+    1024
+  ],
+  "physical_surface": "visible left cab door, below side window",
+  "placements": [
+    {
+      "text": "PEGASOFT",
+      "center_x": 2670,
+      "baseline_y": 516,
+      "font_size": 30
+    },
+    {
+      "text": "Solutions",
+      "center_x": 2670,
+      "baseline_y": 538,
+      "font_size": 16
+    }
+  ],
+  "application": "Separate transparent SVG lettering; preserve generated PNG bytes. Same physical door placement persists into later views. Front lettering has a separate physical front panel."
+}

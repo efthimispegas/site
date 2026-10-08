@@ -1,0 +1,88 @@
+{
+  "revision": "truck-solid-v2",
+  "status": "technical_and_manual_runtime_checks_passed_user_appearance_review_pending",
+  "branch": "codex/pegasoft-concept",
+  "model_sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+  "viewport": [
+    597,
+    788
+  ],
+  "checks": {
+    "closedPrimitives": 698,
+    "rigPoses": 175,
+    "tireContacts": 12,
+    "C01RimContacts": 4,
+    "genuineKeyboardAndButtonControls": true,
+    "cameraUnchangedThroughPartInputs": true,
+    "orbitAndZoomInverseRestore": true,
+    "browserErrors": []
+  },
+  "changes": [
+    "Compact front side glazing and opaque sleeper shell",
+    "Rounded roof and visor; flush shared carbon/blue paint",
+    "Recessed steps, door seams, sculpted grille nose and honeycomb insert",
+    "Lens/projector assemblies, vented wheels, fine paint/rubber and brushed metal normal maps",
+    "Curved mudguards, connected air-spring supports, slotted fifth wheel and bearing skid",
+    "Ackermann front steering and attached flexible service lines",
+    "Level-ground studio shadows and tight tire contact patches"
+  ],
+  "screenshots": [
+    {
+      "path": "evidence/truck-model-review-v2/cab-final.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/wheel-final.png",
+      "sha256": "308c1e5b94f70bde8c0726072ef292e0d94162f4d40e9654b5a670b6a1a31871"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/suspension-final.png",
+      "sha256": "d3197813c5a22fed29384f69c98d98c1b88c2f1134fa014610d01bc51623785c"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/coupling-final.png",
+      "sha256": "de86bffb941a559a9b75af2b8d376b2a74a301a7caceb59b62294d32a68da5b6"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/side-final.png",
+      "sha256": "d51d1fee6b9f44760b2a639ec89b3ad933672d32b4f17edf1bdda500aad36969"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/support-final.png",
+      "sha256": "29ebaa2783a92288d255b8fe16f54d4795888483d13211fa70153710e6ccd4ac"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/loaded-oblique-final.png",
+      "sha256": "12fab701d89d8265c6e9f51d00f3717cc11679f3aba152ad22576089994d55f0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-positive.png",
+      "sha256": "a134cf021fa1e040bdbad9021a9206562f7958271142eb4d645b813d89a86f09"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-negative.png",
+      "sha256": "da23eadbc66c5fdaf8c59787f1fd2a78cddf1104a4db4c19452a255fdb76b757"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/front-final.png",
+      "sha256": "aa64b871ff2886a533f4390cc69d27357ff1f93706ddfc8cf89b34881d85528a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/upper-final.png",
+      "sha256": "3c74d7722df87e3cdba64fd345d11d076c0ccdd117feb3dbf95a9973612bca22"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/review-ready.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    }
+  ],
+  "limits": [
+    "Appearance is a procedural local reconstruction requiring user comparison with the accepted family; no visual acceptance claimed.",
+    "175 poses establish level-ground contact and attachment constraints, not a tire-force, suspension-travel or road-kinematics simulation.",
+    "Pointer dragging remains unconfirmed; explicit camera buttons are verified.",
+    "Transient module load stall recovered on reload without a captured browser exception.",
+    "No lift handoff or road/camera integration in this revision."
+  ],
+  "historical_rejected_v1": "generation/truck-family/model-revisions/v1-rejected/rejection.json",
+  "paid_jobs_this_revision": 0
+}

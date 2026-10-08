@@ -1,0 +1,145 @@
+{
+  "status": "user_approved_generated_static_family_as_supplied",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "user_quote": "It does not matter, I checked the generated images and theyb are approved. Proceed with them",
+  "accepted": [
+    "T01 side identity and external door lettering",
+    "T02 upper original with oblique angle",
+    "T03 front original with visible trailer offset"
+  ],
+  "limits": "User acceptance overrides proposed angle-correction jobs. Original images retained; model remains one coherent coupled vehicle. New front vector lettering placement remains inspectable in model review.",
+  "image_jobs_completed": 3,
+  "automatic_retries": 0,
+  "variants": 0,
+  "next": "Build the approved local solid geometry/GLB model; interactive model review before lift handoff and road motion.",
+  "frozen_context_inputs": [
+    {
+      "path": "generation/truck-family/T01/T01-branding.svg",
+      "sha256": "9a006b9b4e57b207670e1b09cf7bc0ea129011bcee46b828d7af8248c6c0488c"
+    },
+    {
+      "path": "generation/truck-family/T01/T01-side-original.png",
+      "sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5"
+    },
+    {
+      "path": "generation/truck-family/T01/alpha-analysis.json",
+      "sha256": "9fffd3a7ac89f10aff6d37c257db25fb82afdb0087d0bb600fb1599cc70ecba0"
+    },
+    {
+      "path": "generation/truck-family/T01/branding-placements.json",
+      "sha256": "3e3f85a17ec16bb1ecbd4c815ea1522d2c8116a134a9c04d7b81ab7e4d50135a"
+    },
+    {
+      "path": "generation/truck-family/T01/input.json",
+      "sha256": "d21fcd932b1a3817f551cb16092cb6fd64be28b58283991f17820eddfaf23808"
+    },
+    {
+      "path": "generation/truck-family/T01/manifest.json",
+      "sha256": "38536876ca74f39337b9c6baff94451d2cda80ce9cb41db82cf4bcaa7d5364c1"
+    },
+    {
+      "path": "generation/truck-family/T01/provider-response.json",
+      "sha256": "ad291761dbce19be9cfc027c8ccac6a7e6fc4adad6778106933c4455f8520037"
+    },
+    {
+      "path": "generation/truck-family/T01/static-approval.json",
+      "sha256": "cb44ad84e0acaba8f0af6c0629a1e3ec8deb98a9ced152666cb9b6c797cfb73b"
+    },
+    {
+      "path": "generation/truck-family/T01/submission.json",
+      "sha256": "32f76c37afab456043f5a2cebfade9881a6c32046c17d84228421829aae7bcf0"
+    },
+    {
+      "path": "generation/truck-family/T02/T02-upper-original.png",
+      "sha256": "25cb04bd4494d27bf8b2d331d5bf25e304386d00c700f5cda8daf6fb9841d3e0"
+    },
+    {
+      "path": "generation/truck-family/T02/alpha-analysis.json",
+      "sha256": "5033446ca59669daba8964694246e3416cb11074c4d86b7ece264e058cc17abc"
+    },
+    {
+      "path": "generation/truck-family/T02/input.json",
+      "sha256": "09a54a1c246a80f38c9aabc34cf8fd394f8a503646c82c39c9afdde8cd784ca0"
+    },
+    {
+      "path": "generation/truck-family/T02/provider-response.json",
+      "sha256": "fb5a97ec4931cd27792ea240ac6bad3ca59bd2e8fa6b92a8de0bf16747d1f2e5"
+    },
+    {
+      "path": "generation/truck-family/T02/submission.json",
+      "sha256": "c95a16905d4398b615b33afeabfb060b3c533604fdf83be9b235ca897da76454"
+    },
+    {
+      "path": "generation/truck-family/T03/T03-branding.svg",
+      "sha256": "78e8171467bd98caa3daa8f6dc801a2c589bb729b4d29fc1c0cbce52850a37eb"
+    },
+    {
+      "path": "generation/truck-family/T03/T03-front-original.png",
+      "sha256": "7ba46d456abfe37287848c9bc50ce23f3fb745bbecbe57918de8bec2dbc5e66c"
+    },
+    {
+      "path": "generation/truck-family/T03/alpha-analysis.json",
+      "sha256": "4acce9efa7d3297ae45e8483b65165197d686e8d0fca5c98d867e99d4cced412"
+    },
+    {
+      "path": "generation/truck-family/T03/branding-placements.json",
+      "sha256": "8a9a40c19c3eeef0d298d259c79198db8846d11de847716ccb1bdff0e929ab1d"
+    },
+    {
+      "path": "generation/truck-family/T03/input.json",
+      "sha256": "4e9d8cd1632c98178c2fc44ab32ac159263965f509be5e561aacf04400bb94de"
+    },
+    {
+      "path": "generation/truck-family/T03/provider-pending.json",
+      "sha256": "9277ef61836be94f3464d92f6dc76c98d646f78a7b9919b542c1df52f8e8d624"
+    },
+    {
+      "path": "generation/truck-family/T03/provider-response.json",
+      "sha256": "5fb318fcff0e47d547a763918a0803280115a8d90561c464e320a8005d10bf38"
+    },
+    {
+      "path": "generation/truck-family/T03/submission.json",
+      "sha256": "d779d2b93c393ec9ac91152b7b760383e07d6f0d92e631de19f7ef464ee4c922"
+    },
+    {
+      "path": "generation/truck-family/input-proposal.json",
+      "sha256": "e4236e4595970b4b9beae7944b5443bb19463cbf9cbb3bd8615bfcff801bfff8"
+    },
+    {
+      "path": "generation/truck-family/proposal-approval.json",
+      "sha256": "428208776e2c5347ca13cfbbb850c07d6f27a7536883c0ffb7c409b1165e1e02"
+    },
+    {
+      "path": "references/truck.jpg",
+      "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4"
+    },
+    {
+      "path": "review/truck-review.js",
+      "sha256": "477010bc5c725f65d83a8e03be392815ea087f4c1a91a8a0533c27d9715e0435"
+    },
+    {
+      "path": "review/truck.html",
+      "sha256": "d82af994fd4e13daa0223a0d298b41c4964e2ee42464c6106f8e19a4648fc186"
+    }
+  ],
+  "reviewed_inputs": [
+    {
+      "path": "generation/truck-family/T01/T01-branding.svg",
+      "sha256": "9a006b9b4e57b207670e1b09cf7bc0ea129011bcee46b828d7af8248c6c0488c"
+    },
+    {
+      "path": "generation/truck-family/T01/T01-side-original.png",
+      "sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5"
+    },
+    {
+      "path": "generation/truck-family/T02/T02-upper-original.png",
+      "sha256": "25cb04bd4494d27bf8b2d331d5bf25e304386d00c700f5cda8daf6fb9841d3e0"
+    },
+    {
+      "path": "generation/truck-family/T03/T03-front-original.png",
+      "sha256": "7ba46d456abfe37287848c9bc50ce23f3fb745bbecbe57918de8bec2dbc5e66c"
+    }
+  ],
+  "evidence_basis": "Direct user statement that they checked and approved generated images. Presentation documents and receipts are frozen context, not independently user-reviewed artifacts."
+}

@@ -1,0 +1,157 @@
+{
+  "status": "25_HTTP_files_match_local_packet",
+  "branch": "codex/pegasoft-concept",
+  "HTTP": [
+    {
+      "path": "review/truck-model.html",
+      "status": 200,
+      "sha256": "d69f57e48f7a8edc24f400e26461b78df7cb05928b4471f2393a0319785770d2",
+      "bytes": 7362
+    },
+    {
+      "path": "review/truck-model.js",
+      "status": 200,
+      "sha256": "11f8f14ef206a5cf24303ceece9ed1fb13861c6875a968ed4af3ce27ed1b417c",
+      "bytes": 7624
+    },
+    {
+      "path": "review/truck.html",
+      "status": 200,
+      "sha256": "660f93b3d93a5d579c686428486e6924c4b7d06e557e082f791522acb8d75654",
+      "bytes": 9445
+    },
+    {
+      "path": "review/truck-review.js",
+      "status": 200,
+      "sha256": "477010bc5c725f65d83a8e03be392815ea087f4c1a91a8a0533c27d9715e0435",
+      "bytes": 3949
+    },
+    {
+      "path": "review/truck-plan.html",
+      "status": 200,
+      "sha256": "e4e9395789389a1bcdb96410168f859219d91fbf6636df9f26ab0349eb5d3ee6",
+      "bytes": 24195
+    },
+    {
+      "path": "review/index.html",
+      "status": 200,
+      "sha256": "4fb0627744a67f7966965502a7bd97629a17358e1969faa4a99bb33c8a297652",
+      "bytes": 15192
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "status": 200,
+      "sha256": "dc82cf79bfaf6bc69a34eca6f83186118cb7e86c737ff592bd16154d921154e0",
+      "bytes": 833468
+    },
+    {
+      "path": "generation/truck-family/model-draft/model-checks.json",
+      "status": 200,
+      "sha256": "153f5b233d91e61ce622b5af86baeff04923eb3e26cf44e24ecd998a38076313",
+      "bytes": 287155
+    },
+    {
+      "path": "generation/truck-family/model-draft/manifest.json",
+      "status": 200,
+      "sha256": "f2557e146d43f6f03c3e42bdf666a0b43b08c0e31403e87cc29e8b3f3f713fef",
+      "bytes": 5814
+    },
+    {
+      "path": "generation/truck-family/family-manifest.json",
+      "status": 200,
+      "sha256": "079fb253cbe9c9a5ae2122b54a3313c4c27b9db417ad7f5473b1c42df2fec141",
+      "bytes": 3804
+    },
+    {
+      "path": "generation/truck-family/static-family-approval.json",
+      "status": 200,
+      "sha256": "944f79623adc40beff0e010190c126409690cd6dbf8e170c00019b2064c825a4",
+      "bytes": 5976
+    },
+    {
+      "path": "generation/truck-family/T01/T01-side-original.png",
+      "status": 200,
+      "sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5",
+      "bytes": 2571042
+    },
+    {
+      "path": "generation/truck-family/T02/T02-upper-original.png",
+      "status": 200,
+      "sha256": "25cb04bd4494d27bf8b2d331d5bf25e304386d00c700f5cda8daf6fb9841d3e0",
+      "bytes": 2760673
+    },
+    {
+      "path": "generation/truck-family/T03/T03-front-original.png",
+      "status": 200,
+      "sha256": "7ba46d456abfe37287848c9bc50ce23f3fb745bbecbe57918de8bec2dbc5e66c",
+      "bytes": 3115110
+    },
+    {
+      "path": "generation/truck-family/T01/T01-branding.svg",
+      "status": 200,
+      "sha256": "9a006b9b4e57b207670e1b09cf7bc0ea129011bcee46b828d7af8248c6c0488c",
+      "bytes": 454
+    },
+    {
+      "path": "generation/truck-family/T03/T03-branding.svg",
+      "status": 200,
+      "sha256": "78e8171467bd98caa3daa8f6dc801a2c589bb729b4d29fc1c0cbce52850a37eb",
+      "bytes": 455
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "status": 200,
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "bytes": 2174140
+    },
+    {
+      "path": "evidence/truck-model-checks.json",
+      "status": 200,
+      "sha256": "f9ac13f18f6f05a53206e5776cad53e25a9a4ffc33575a5e4cbaac26ab5cfdbe",
+      "bytes": 1776
+    },
+    {
+      "path": "evidence/truck-family-checks.json",
+      "status": 200,
+      "sha256": "a9f7e8e3c7cf9caa996dccfaab9e9e28f832d521d88f3b61efc2bd7587bdbe35",
+      "bytes": 2198
+    },
+    {
+      "path": "CURRENT.md",
+      "status": 200,
+      "sha256": "fe5d437bd2a39021f0d9af9831e921c6417689328873dbaf130549b941595cc4",
+      "bytes": 1625
+    },
+    {
+      "path": "HANDOFF.md",
+      "status": 200,
+      "sha256": "895b091955d814861c13c6ef38637e9fba457fe1bd8ad33e4d529b749ecbbafa",
+      "bytes": 820
+    },
+    {
+      "path": "review/vendor/three/build/three.module.js",
+      "status": 200,
+      "sha256": "d835eab0b3bca3fdfd51e2ce7d06911f4a089b08db73cc3cd70fe5e3005a623f",
+      "bytes": 631039
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/controls/OrbitControls.js",
+      "status": 200,
+      "sha256": "c5d5a92da069a9316344b327772486d6c1b78982ad4f2a83b9832e0a47219edd",
+      "bytes": 38781
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "status": 200,
+      "sha256": "a2d45c28c56774cc789b99154e914c34db3197f9ea2b89fee27600cc2509b14f",
+      "bytes": 114883
+    },
+    {
+      "path": "review/fonts/manrope.ttf",
+      "status": 200,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "bytes": 164700
+    }
+  ],
+  "geometry_and_runtime_checks": "evidence/truck-model-checks.json"
+}

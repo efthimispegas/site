@@ -1,0 +1,144 @@
+{
+  "status": "T01_file_provenance_and_actual_browser_checks_passed_identity_approval_pending",
+  "revision": "T01-side-generated-v1",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+  "request_id": "01a116b2-b795-73a0-993e-18e5cd56c986",
+  "approved_prompt_and_settings_match": true,
+  "exact_reference_uploaded": true,
+  "completed_images": 1,
+  "submission_attempts": 1,
+  "remaining_approved_image_jobs": 2,
+  "provider_original_preserved": true,
+  "image_size": [
+    3072,
+    1024
+  ],
+  "image_mode": "RGBA",
+  "alpha_analysis": "generation/truck-family/T01/alpha-analysis.json",
+  "alpha_note": "Original max alpha 254 retained; transparent pixels and rendered background openings checked. Low nonzero alpha extends beyond the solid silhouette; raw bytes unchanged.",
+  "external_lettering": "Separate Manrope 650 SVG, visible left door, #B9E7FF; actual page overlay verified.",
+  "accepted_lift_container_inputs_unchanged": 11,
+  "locked_prompt_book_unchanged": true,
+  "source_syntax": "passed node --check",
+  "http": [
+    {
+      "path": "review/truck.html",
+      "status": 200,
+      "sha256": "f5301656e1348516232c08f460d359474ba5f780803e1de1fc61d0cc278d3de7",
+      "served_bytes_match": true
+    },
+    {
+      "path": "review/truck-review.js",
+      "status": 200,
+      "sha256": "42a06ea418b5463ddc201d5239e0442d917d9ba3585fee92a936a980ad42af2d",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/T01/T01-side-original.png",
+      "status": 200,
+      "sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/T01/T01-branding.svg",
+      "status": 200,
+      "sha256": "9a006b9b4e57b207670e1b09cf7bc0ea129011bcee46b828d7af8248c6c0488c",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/T01/input.json",
+      "status": 200,
+      "sha256": "d21fcd932b1a3817f551cb16092cb6fd64be28b58283991f17820eddfaf23808",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/T01/provider-response.json",
+      "status": 200,
+      "sha256": "ad291761dbce19be9cfc027c8ccac6a7e6fc4adad6778106933c4455f8520037",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/T01/submission.json",
+      "status": 200,
+      "sha256": "32f76c37afab456043f5a2cebfade9881a6c32046c17d84228421829aae7bcf0",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/T01/branding-placements.json",
+      "status": 200,
+      "sha256": "3e3f85a17ec16bb1ecbd4c815ea1522d2c8116a134a9c04d7b81ab7e4d50135a",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/reference-upload.json",
+      "status": 200,
+      "sha256": "56d89e1121f1029b8b0e4e173527239ec04a64554bf67c08859aee59207b0d99",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/provider-preflight.json",
+      "status": 200,
+      "sha256": "793a4a53d14bb40e3077e43294d60135fa64abbcb9d87c6b10626e45e915501c",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/proposal-approval.json",
+      "status": 200,
+      "sha256": "428208776e2c5347ca13cfbbb850c07d6f27a7536883c0ffb7c409b1165e1e02",
+      "served_bytes_match": true
+    },
+    {
+      "path": "generation/truck-family/input-proposal.json",
+      "status": 200,
+      "sha256": "e4236e4595970b4b9beae7944b5443bb19463cbf9cbb3bd8615bfcff801bfff8",
+      "served_bytes_match": true
+    },
+    {
+      "path": "references/truck.jpg",
+      "status": 200,
+      "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4",
+      "served_bytes_match": true
+    },
+    {
+      "path": "review/fonts/manrope.ttf",
+      "status": 200,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "served_bytes_match": true
+    }
+  ],
+  "browser": {
+    "path": "evidence/truck-generation-review/browser-observation.json",
+    "sha256": "133d1485c5a03e2210715710a8b7178f07cdc52b5910db044f148cfa8fb3ffc8",
+    "actual_viewport": [
+      597,
+      788
+    ],
+    "surfaces": "Carbon and porcelain actual screenshots inspected",
+    "cab_detail": "Full cab visible; no front clipping",
+    "branding_toggle": "Clicked off; keyboard Return on; original unchanged",
+    "horizontal_overflow": false
+  },
+  "screenshots": [
+    {
+      "path": "evidence/truck-generation-review/overview.png",
+      "sha256": "71919d6df55b9c70a1aae03f924dc9b1a2bcbc5152c281708702a8bd49b00fa6"
+    },
+    {
+      "path": "evidence/truck-generation-review/carbon.png",
+      "sha256": "c8a0f985e0dace01dd7b882e825dc6b7bcdd28ba9ed7b5c30c8a660e9abf6e38"
+    },
+    {
+      "path": "evidence/truck-generation-review/porcelain.png",
+      "sha256": "71919d6df55b9c70a1aae03f924dc9b1a2bcbc5152c281708702a8bd49b00fa6"
+    },
+    {
+      "path": "evidence/truck-generation-review/cab-detail.png",
+      "sha256": "5386673641ac80804e89ab1f1a833b2c0ca448fd770fd5f940a9d214977a1d93"
+    }
+  ],
+  "visual_review_point": "Narrow front-grille return visible; side identity and paint/lettering require user acceptance before T02/T03.",
+  "no_model_produced": true,
+  "Nx": "Standalone asset review only; no app target changed."
+}

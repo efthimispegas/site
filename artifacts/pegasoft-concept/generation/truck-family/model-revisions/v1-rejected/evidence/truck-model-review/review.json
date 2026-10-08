@@ -1,0 +1,87 @@
+{
+  "status": "awaiting_user_model_visual_review",
+  "review_url": "http://127.0.0.1:8767/review/truck-model.html#viewer",
+  "branch": "codex/pegasoft-concept",
+  "revision": "truck-solid-v1",
+  "model": {
+    "path": "generation/truck-family/model-draft/T01-truck.glb",
+    "sha256": "dc82cf79bfaf6bc69a34eca6f83186118cb7e86c737ff592bd16154d921154e0",
+    "bytes": 833468,
+    "triangles": 81908
+  },
+  "checks": {
+    "path": "evidence/truck-model-checks.json",
+    "sha256": "f9ac13f18f6f05a53206e5776cad53e25a9a4ffc33575a5e4cbaac26ab5cfdbe"
+  },
+  "delivery": {
+    "path": "evidence/truck-model-review/delivery-checks.json",
+    "sha256": "3ec321c7216877c7ba540d0fcd379b76fe2899d216eca4d33b46ae97e97d3d4d"
+  },
+  "manifest": {
+    "path": "generation/truck-family/model-draft/manifest.json",
+    "sha256": "f2557e146d43f6f03c3e42bdf666a0b43b08c0e31403e87cc29e8b3f3f713fef"
+  },
+  "screenshots": [
+    {
+      "path": "evidence/truck-model-review/articulated-porcelain.png",
+      "sha256": "962d27c73f1c3b552abf79bb33b4c727e8186aded59badfa6dcae0d4017f5765"
+    },
+    {
+      "path": "evidence/truck-model-review/cab-porcelain.png",
+      "sha256": "a56486018004ddd788bb7a52fc7b33adca4b62c5c1d0da7e3e8cad9b52d67597"
+    },
+    {
+      "path": "evidence/truck-model-review/cab.png",
+      "sha256": "69ae960a4171da7c2782941367fbadda241b0c79268723ee12781e4a2959d551"
+    },
+    {
+      "path": "evidence/truck-model-review/front.png",
+      "sha256": "56c189bb3c48a538576ac1568b69f04ac344b2dbcb527b18ac70d323285b443a"
+    },
+    {
+      "path": "evidence/truck-model-review/loaded-oblique.png",
+      "sha256": "4aa59ca78bdc6d751efebd449cc388c998a39d2903f444f2f580fb258880b2b3"
+    },
+    {
+      "path": "evidence/truck-model-review/loaded-side.png",
+      "sha256": "6bd3c63f1a00150cf4cb8c504783e5450762f38d85ee02017e49cb029151b5a1"
+    },
+    {
+      "path": "evidence/truck-model-review/oblique.png",
+      "sha256": "baa79cf34b60bfff7d0f19a5cf442ec14990fcc911b77b2dc4ef5923771c5e27"
+    },
+    {
+      "path": "evidence/truck-model-review/rear.png",
+      "sha256": "c70a877746d9223a2b93280d5b14f696da1c418b84a0f6ad8b600c9806ec2f84"
+    },
+    {
+      "path": "evidence/truck-model-review/review-ready.png",
+      "sha256": "82266a8079ab2855382880f86309f3c334c298a5ea009683d258be9b96e646b3"
+    },
+    {
+      "path": "evidence/truck-model-review/side.png",
+      "sha256": "efd4c86cfdf36fde2377f8c82e936eee4813be796aa1bdce321bd38def6cd208"
+    },
+    {
+      "path": "evidence/truck-model-review/support.png",
+      "sha256": "571f6b22541c3fca8dbb4444d1ff8554da5fe9ae48c55aa982ce3658701d3200"
+    },
+    {
+      "path": "evidence/truck-model-review/underside.png",
+      "sha256": "baa3be30c38e7b076539928b8cbbbcd9cd2341ff5dc2b20bf2a0e82d324b7d6e"
+    },
+    {
+      "path": "evidence/truck-model-review/upper.png",
+      "sha256": "3d4fb7497c1fb08a183717c0a7d8ba8524063f5f6c2ba9ea98d9721d4a74e18f"
+    },
+    {
+      "path": "evidence/truck-model-review/wheel.png",
+      "sha256": "561c3a43c7a64c8a545e04b4d73d143c07a686b37120324885ea53a870a16cf1"
+    }
+  ],
+  "next": "User reviews cab, finish, glazing, wheels, chassis and C01 seating. Model approval before lift handoff and road motion.",
+  "final_usage": {
+    "path": "evidence/truck-model-review/usage-final.json",
+    "sha256": "641f56aa35635e5d2970f5502625c20cce4ac45a865734c0d30dc5d344894d19"
+  }
+}

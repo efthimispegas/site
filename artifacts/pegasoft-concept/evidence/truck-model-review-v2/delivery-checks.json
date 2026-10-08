@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "protectedReviewedInputs": [
+    "review/lift-container.html",
+    "review/lift-container.js",
+    "review/lift-container-contact.js",
+    "review/lift-container-replay.js",
+    "review/integration-server.py",
+    "generation/container-family/lift-integration/rig-harness.mjs",
+    "generation/container-family/lift-integration/check-integration.mjs",
+    "generation/container-family/lift-integration/measure-rendered-edges.py",
+    "generation/container-family/lift-integration/check-camera.mjs",
+    "generation/container-family/lift-integration/check-camera-turn.mjs",
+    "generation/container-family/lift-integration/check-rendered-camera.py",
+    "generation/truck-family/T01/T01-branding.svg",
+    "generation/truck-family/T01/T01-side-original.png",
+    "generation/truck-family/T02/T02-upper-original.png",
+    "generation/truck-family/T03/T03-front-original.png"
+  ],
+  "files": [
+    {
+      "path": "review/truck-model.html",
+      "sha256": "20097935005a449fd76b3162ffb0af6571f2c1bd72069444cc4792f8041c4eb0",
+      "bytes": 7647,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "review/truck-model.js",
+      "sha256": "1d0b5c8c40a6a86bc1992ec207e0992462a57ed4e13fa14f3e1f46c00674bb3d",
+      "bytes": 9573,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32",
+      "bytes": 28659,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/build-model.mjs",
+      "sha256": "ec6a5d64a1c86fc770eeaa029a254f0b9f47f73c79b31a25134dbc4a1be0c297",
+      "bytes": 15689,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "bytes": 4287352,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/model-checks.json",
+      "sha256": "9b7924eeed510b072722b741a7ee8076e920be45e6c9c3f609802d93b9e9c062",
+      "bytes": 606133,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "bytes": 2174140,
+      "httpBytesMatch": true
+    }
+  ]
+}

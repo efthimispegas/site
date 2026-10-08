@@ -1,0 +1,26 @@
+{
+  "date_local": "2026-10-07",
+  "scope": "Truck input/material/model-method proposal only",
+  "preflight": {
+    "ordinaryUsageAllowed": true,
+    "primaryUsedPercent": 39,
+    "weeklyUsedPercent": 6,
+    "currentCreditBalance": null
+  },
+  "execution": {
+    "delegatedAgents": 0,
+    "providerJobsSubmitted": 0,
+    "paidModelJobsSubmitted": 0,
+    "providerReads": [
+      "account status",
+      "two endpoint schemas",
+      "one batched pricing lookup"
+    ]
+  },
+  "after_execution": {
+    "ordinaryUsageAllowed": true,
+    "primaryUsedPercent": 48,
+    "weeklyUsedPercent": 7,
+    "currentCreditBalance": null
+  }
+}

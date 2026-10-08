@@ -1,0 +1,126 @@
+{
+  "status": "user_approved_truck_model_v2",
+  "revision": "truck-solid-v2",
+  "branch": "codex/pegasoft-concept",
+  "date_local": "2026-10-08",
+  "review_url": "http://127.0.0.1:8767/review/truck-model.html#viewer",
+  "model": {
+    "path": "generation/truck-family/model-draft/T01-truck.glb",
+    "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+    "bytes": 4287352,
+    "triangles": 254656
+  },
+  "static_family": "generation/truck-family/static-family-approval.json",
+  "geometry_checks": "generation/truck-family/model-draft/model-checks.json",
+  "runtime_checks": "evidence/truck-model-review-v2/review.json",
+  "inputs": [
+    {
+      "path": "review/truck-model.html",
+      "sha256": "20097935005a449fd76b3162ffb0af6571f2c1bd72069444cc4792f8041c4eb0",
+      "bytes": 7647,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "review/truck-model.js",
+      "sha256": "1d0b5c8c40a6a86bc1992ec207e0992462a57ed4e13fa14f3e1f46c00674bb3d",
+      "bytes": 9573,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32",
+      "bytes": 28659,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/build-model.mjs",
+      "sha256": "ec6a5d64a1c86fc770eeaa029a254f0b9f47f73c79b31a25134dbc4a1be0c297",
+      "bytes": 15689,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "bytes": 4287352,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/truck-family/model-draft/model-checks.json",
+      "sha256": "9b7924eeed510b072722b741a7ee8076e920be45e6c9c3f609802d93b9e9c062",
+      "bytes": 606133,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "bytes": 2174140,
+      "httpBytesMatch": true
+    },
+    {
+      "path": "evidence/truck-model-review-v2/browser-observation.json",
+      "sha256": "27f50e63d30978bcbb3b9b010fde4f5f5d87841611e07fc80b8db182d4f08dc9"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/usage-final.json",
+      "sha256": "dd2c6ff74194877ce1db826aaf3ed2eac336c08090da443933f23d559c382c0a"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "evidence/truck-model-review-v2/cab-final.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/wheel-final.png",
+      "sha256": "308c1e5b94f70bde8c0726072ef292e0d94162f4d40e9654b5a670b6a1a31871"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/suspension-final.png",
+      "sha256": "d3197813c5a22fed29384f69c98d98c1b88c2f1134fa014610d01bc51623785c"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/coupling-final.png",
+      "sha256": "de86bffb941a559a9b75af2b8d376b2a74a301a7caceb59b62294d32a68da5b6"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/side-final.png",
+      "sha256": "d51d1fee6b9f44760b2a639ec89b3ad933672d32b4f17edf1bdda500aad36969"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/support-final.png",
+      "sha256": "29ebaa2783a92288d255b8fe16f54d4795888483d13211fa70153710e6ccd4ac"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/loaded-oblique-final.png",
+      "sha256": "12fab701d89d8265c6e9f51d00f3717cc11679f3aba152ad22576089994d55f0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-positive.png",
+      "sha256": "a134cf021fa1e040bdbad9021a9206562f7958271142eb4d645b813d89a86f09"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-negative.png",
+      "sha256": "da23eadbc66c5fdaf8c59787f1fd2a78cddf1104a4db4c19452a255fdb76b757"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/front-final.png",
+      "sha256": "aa64b871ff2886a533f4390cc69d27357ff1f93706ddfc8cf89b34881d85528a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/upper-final.png",
+      "sha256": "3c74d7722df87e3cdba64fd345d11d076c0ccdd117feb3dbf95a9973612bca22"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/review-ready.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    }
+  ],
+  "provider_jobs_for_model": 0,
+  "historical_rejected_v1": "generation/truck-family/model-revisions/v1-rejected/rejection.json",
+  "limits": [
+    "Cab geometry and finish accepted by user on 2026-10-08; retain reviewed snapshots.",
+    "Level-ground pose constraints verified; vehicle travel, tire forces, suspension travel and road camera await next phase.",
+    "Pointer dragging unconfirmed; manual buttons verified."
+  ],
+  "user_approval": "generation/truck-family/model-draft/user-approval.json"
+}

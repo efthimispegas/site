@@ -1,0 +1,25 @@
+{
+  "native_clip": "evidence/motion/clips/handoff.mp4",
+  "sha256": "871ad95426f98d92a463e334c7a4bc5a16953dbea95b99bf1d80b78953f9efbd",
+  "frames": [
+    {
+      "path": "evidence/truck-proposal/reference-handoff-10s.png",
+      "time_seconds": 10
+    },
+    {
+      "path": "evidence/truck-proposal/reference-handoff-14s.png",
+      "time_seconds": 14
+    }
+  ],
+  "operation": "FFmpeg one-frame extraction at source timestamps; no synthetic asset generation",
+  "observation": "Tractor faces image right and supports C01 on a three-axle trailer. Reference spreader geometry is not substituted for the accepted compact Pegasoft head.",
+  "dimensions_source": "https://www.krone-trailer.com/fileadmin/media/downloads/EN/Container_Chassis/Datenblaetter/Box_Liner/Box_Liner_SDC_27_eL40_GB.pdf",
+  "role": "Native handoff orientation/chassis context only; supplied truck.jpg now controls truck design identity.",
+  "identity_reference": {
+    "path": "references/truck.jpg",
+    "original_path": "/Users/whiskey/Work/site/docs/references/truck.jpg",
+    "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4",
+    "copy_identical": true
+  },
+  "requirements_amendment": "evidence/truck-proposal/requirements-amendment.json"
+}

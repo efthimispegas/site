@@ -1,0 +1,294 @@
+{
+  "schema_version": 2,
+  "status": "awaiting_reference_redesign_and_three_image_allowance_approval",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "title": "The reference truck. In Pegasoft.",
+  "summary": "Preserve truck.jpg cab identity; specify carbon and blue accents, an empty 40ft container chassis and three generated views for handoff and road continuity.",
+  "authority": {
+    "plan": "../../PROPOSAL.md",
+    "locked_prompt_book": "../../ASSET-PROMPTS.md",
+    "color_contract": "../../material-color-contract.json",
+    "accepted_lift_container": "../container-family/lift-integration/user-approval.json",
+    "user_amendment": "../../evidence/truck-proposal/requirements-amendment.json"
+  },
+  "motion_use": [
+    "Right-side entry with the cab facing right in the handoff side view; position the empty trailer beneath C01.",
+    "Lower the existing C01 onto four matching support planes, transfer ownership without a world-pose jump, then release the accepted compact head.",
+    "Depart through the side-to-overhead camera change; separate wheels and tractor/trailer yaw follow the coded road curve and central vertical lane.",
+    "The next ship-deck placement uses the same C01 identity and will have its own input/model proposal."
+  ],
+  "inputs": [
+    {
+      "id": "T01",
+      "view_key": "side",
+      "count": 1,
+      "view": "Complete tractor and empty chassis, strict left-side view, facing right",
+      "purpose": "The side handoff establishes reference cab identity, Pegasoft paint placement and the full chassis silhouette.",
+      "generator": "openai/gpt-image-2.5/sunburst/edit",
+      "settings": {
+        "image_size": {
+          "width": 3072,
+          "height": 1024
+        },
+        "quality": "high",
+        "background": "transparent",
+        "output_format": "png",
+        "num_images": 1
+      },
+      "reference_rule": "T01: exact truck.jpg CDN upload URL. T02/T03: exact accepted T01 URL and original truck.jpg URL in image_urls. Retain IDs and hashes; never supply the schematic as a design reference.",
+      "prompt": "Use the supplied truck.jpg as the vehicle identity reference. Preserve its tall rounded high-roof cab-over silhouette, roof visor, broad dark windshield, paired vertical mirror housings, wide stacked grille with horizontal metal ribs, angular inset headlamps, stepped bumper, contoured doors, wheel arches, access steps and lower side fairing. Keep the two-axle tractor with single front tires and dual rear tires, coupled to the same three-axle trailer identity. Replace the photograph's blue body with satin Pegasoft carbon #11151B, adding one controlled Pegasoft blue #147DFF painted shoulder band around the rear door pillars and roof visor, plus a lower side-fairing and bumper return accent. Keep these exact physical accents coherent across the family. Use neutral brushed silver/titanium grille ribs, rims and fittings, natural matte black rubber, clear lightly cool-tinted glass with a single coherent interior, restrained #7BCBFF rim lighting and #B9E7FF pale practical reflections. Functional clear-white headlamps, amber indicators and red rear lamps only. Remove the source cargo box and its markings: show an empty full-length fixed 40-foot skeletal container chassis with two longitudinal load-bearing I-beams, crossmembers, four corner support/lock pads, fifth-wheel/kingpin connection, two stowed landing legs, side guards and three separate trailer axles. The chassis supports an existing 12.192 m long by 2.438 m wide container; use approximately 12.435 m frame length and approximately 1.35 m support-plane height as visual targets. The final supports will match the exact approved C01 model. Preserve realistic cab-to-trailer proportions, one tire/rim design and consistent axle counts. Remove Scania/manufacturer branding, insignia, registration, stripes and source text. Leave clean front grille and door label areas for external Pegasoft vector lettering. Render one complete vehicle on a transparent canvas with comfortable margins, cool even photographic studio lighting and crisp alpha edges. No cargo, people, scene, road, sky, sunset, warm decorative paint, logos, generated lettering, motion blur or baked shadow. Render a strict orthographic left-side view, cab pointing to image right, trailer extending to image left. Keep all wheels, mirrors, cab roof and the complete empty trailer in frame. No perspective foreshortening or camera tilt. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "stage": "Generate from the exact supplied truck.jpg reference; then stop for identity and accent approval."
+    },
+    {
+      "id": "T02",
+      "view_key": "upper",
+      "count": 1,
+      "view": "Complete tractor and empty chassis, straight-down upper view, cab to the right",
+      "purpose": "The side-to-upper camera transition and road journey expose the roof, fifth wheel, rails and chassis footprint.",
+      "generator": "openai/gpt-image-2.5/sunburst/edit",
+      "settings": {
+        "image_size": {
+          "width": 3072,
+          "height": 1024
+        },
+        "quality": "high",
+        "background": "transparent",
+        "output_format": "png",
+        "num_images": 1
+      },
+      "reference_rule": "T01: exact truck.jpg CDN upload URL. T02/T03: exact accepted T01 URL and original truck.jpg URL in image_urls. Retain IDs and hashes; never supply the schematic as a design reference.",
+      "prompt": "Use the supplied truck.jpg as the vehicle identity reference. Preserve its tall rounded high-roof cab-over silhouette, roof visor, broad dark windshield, paired vertical mirror housings, wide stacked grille with horizontal metal ribs, angular inset headlamps, stepped bumper, contoured doors, wheel arches, access steps and lower side fairing. Keep the two-axle tractor with single front tires and dual rear tires, coupled to the same three-axle trailer identity. Replace the photograph's blue body with satin Pegasoft carbon #11151B, adding one controlled Pegasoft blue #147DFF painted shoulder band around the rear door pillars and roof visor, plus a lower side-fairing and bumper return accent. Keep these exact physical accents coherent across the family. Use neutral brushed silver/titanium grille ribs, rims and fittings, natural matte black rubber, clear lightly cool-tinted glass with a single coherent interior, restrained #7BCBFF rim lighting and #B9E7FF pale practical reflections. Functional clear-white headlamps, amber indicators and red rear lamps only. Remove the source cargo box and its markings: show an empty full-length fixed 40-foot skeletal container chassis with two longitudinal load-bearing I-beams, crossmembers, four corner support/lock pads, fifth-wheel/kingpin connection, two stowed landing legs, side guards and three separate trailer axles. The chassis supports an existing 12.192 m long by 2.438 m wide container; use approximately 12.435 m frame length and approximately 1.35 m support-plane height as visual targets. The final supports will match the exact approved C01 model. Preserve realistic cab-to-trailer proportions, one tire/rim design and consistent axle counts. Remove Scania/manufacturer branding, insignia, registration, stripes and source text. Leave clean front grille and door label areas for external Pegasoft vector lettering. Render one complete vehicle on a transparent canvas with comfortable margins, cool even photographic studio lighting and crisp alpha edges. No cargo, people, scene, road, sky, sunset, warm decorative paint, logos, generated lettering, motion blur or baked shadow. Using the approved T01 image and the original truck.jpg as identity references, render the identical full vehicle in a strict straight-down orthographic upper view, nose to image right. Show the cab roof, the physical blue roof-band returns, mirrors, coupling, two chassis rails, crossmembers, four corner support pads and trailer wheel positions. The full chassis is empty and visible; do not invent a roof over it. No roof lettering, perspective tilt, underside, extra wheels or duplicated parts. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "stage": "Generate after T01 acceptance; review with T03 as one coherent static family."
+    },
+    {
+      "id": "T03",
+      "view_key": "front",
+      "count": 1,
+      "view": "Same coupled truck, strict centered front view",
+      "purpose": "The road/camera change needs a consistent cab-front silhouette, glazing, grille, mirrors and accent returns.",
+      "generator": "openai/gpt-image-2.5/sunburst/edit",
+      "settings": {
+        "image_size": {
+          "width": 1536,
+          "height": 2048
+        },
+        "quality": "high",
+        "background": "transparent",
+        "output_format": "png",
+        "num_images": 1
+      },
+      "reference_rule": "T01: exact truck.jpg CDN upload URL. T02/T03: exact accepted T01 URL and original truck.jpg URL in image_urls. Retain IDs and hashes; never supply the schematic as a design reference.",
+      "prompt": "Use the supplied truck.jpg as the vehicle identity reference. Preserve its tall rounded high-roof cab-over silhouette, roof visor, broad dark windshield, paired vertical mirror housings, wide stacked grille with horizontal metal ribs, angular inset headlamps, stepped bumper, contoured doors, wheel arches, access steps and lower side fairing. Keep the two-axle tractor with single front tires and dual rear tires, coupled to the same three-axle trailer identity. Replace the photograph's blue body with satin Pegasoft carbon #11151B, adding one controlled Pegasoft blue #147DFF painted shoulder band around the rear door pillars and roof visor, plus a lower side-fairing and bumper return accent. Keep these exact physical accents coherent across the family. Use neutral brushed silver/titanium grille ribs, rims and fittings, natural matte black rubber, clear lightly cool-tinted glass with a single coherent interior, restrained #7BCBFF rim lighting and #B9E7FF pale practical reflections. Functional clear-white headlamps, amber indicators and red rear lamps only. Remove the source cargo box and its markings: show an empty full-length fixed 40-foot skeletal container chassis with two longitudinal load-bearing I-beams, crossmembers, four corner support/lock pads, fifth-wheel/kingpin connection, two stowed landing legs, side guards and three separate trailer axles. The chassis supports an existing 12.192 m long by 2.438 m wide container; use approximately 12.435 m frame length and approximately 1.35 m support-plane height as visual targets. The final supports will match the exact approved C01 model. Preserve realistic cab-to-trailer proportions, one tire/rim design and consistent axle counts. Remove Scania/manufacturer branding, insignia, registration, stripes and source text. Leave clean front grille and door label areas for external Pegasoft vector lettering. Render one complete vehicle on a transparent canvas with comfortable margins, cool even photographic studio lighting and crisp alpha edges. No cargo, people, scene, road, sky, sunset, warm decorative paint, logos, generated lettering, motion blur or baked shadow. Using the approved T01 image and the original truck.jpg as identity references, render the identical truck in a strict centered orthographic front view, facing the camera directly. Preserve the exact high-roof contour, visor, wide windshield, paired stacked mirrors, grille ribs, headlamps, bumper, front-wheel stance and blue accent returns. The same empty trailer stays attached directly behind the cab, with natural occlusion; do not fan it sideways merely to reveal it. Keep the complete visible silhouette in frame, no yaw, camera roll, cargo or second truck. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "stage": "Generate after T01 acceptance; review with T02 as one coherent static family."
+    }
+  ],
+  "excluded_inputs": [
+    "Underside plates",
+    "Standalone wheel, interior or mechanical-detail plates",
+    "Extra oblique, rear or opposite-side generated plates without a demonstrated gap",
+    "Loaded-truck image: reuse the approved C01 GLB",
+    "Ship, ocean, video, variants and automatic retries"
+  ],
+  "input_change_rule": "The user requires side, upper and front generated inputs. This truck-specific upper-view amendment supersedes the older prohibition for truck; other family scope and frozen book bytes are preserved. Record and approve any extra input before production.",
+  "materials": [
+    {
+      "part": "Cab paint, chassis, trailer beams and painted structural parts",
+      "finish": "Shared satin Pegasoft carbon #11151B with consistent fine grain; body styling remains for static review."
+    },
+    {
+      "part": "Cab shoulder/visor band and lower fairing/bumper returns",
+      "finish": "Satin Pegasoft blue #147DFF, matching the physical panel layout across all three views. Proposed placements for review; no arbitrary grey-blue paint."
+    },
+    {
+      "part": "Rims, exposed fasteners, coupling and lock hardware",
+      "finish": "Neutral brushed silver/titanium, compatible with C01 hardware; no chrome mirror finish."
+    },
+    {
+      "part": "Tires, seals and hoses",
+      "finish": "Natural dark matte rubber with physical tire tread; a distinct rubber material, not structural paint."
+    },
+    {
+      "part": "Windshield and side windows",
+      "finish": "Clear lightly cool-tinted glass, continuous real depth and one shared cab interior."
+    },
+    {
+      "part": "Practical lamps",
+      "finish": "Clear-white headlights, restrained amber indicators and red rear lamps. Functional lighting only; these non-carbon roles are proposed for approval."
+    }
+  ],
+  "mandatory_carbon_clause": "All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+  "dimensions": {
+    "C01_external_meters": {
+      "length": 12.192,
+      "width": 2.438,
+      "height": 2.896
+    },
+    "C01_top_casting_centers_meters": {
+      "longitudinal_span": 11.992,
+      "transverse_span": 2.278,
+      "usage": "Plan footprint; final trailer support seats must use the actual bottom-casting mesh/rim contact, not a roof coordinate."
+    },
+    "support_rule": "Use the four approved C01 bottom-casting hole centers for the support footprint and actual closed bottom-rim mesh for seating. Never estimate contact from a generated image or a roof landmark.",
+    "chassis_proposed_meters": {
+      "length": 12.435,
+      "kingpin_to_rear": 11.275,
+      "axle_spread": [
+        1.41,
+        1.31
+      ],
+      "fifth_wheel_height": 1.15,
+      "neck_height": 0.2,
+      "initial_support_plane_height": 1.35
+    },
+    "source": "https://www.krone-trailer.com/fileadmin/media/downloads/EN/Container_Chassis/Datenblaetter/Box_Liner/Box_Liner_SDC_27_eL40_GB.pdf",
+    "source_date": "Manufacturer drawing issue 05/2021; consulted 2026-10-07",
+    "source_scope": "Chassis topology and visual dimensional reference only. Retain C01 exact casting coordinates; no OEM replica or engineering qualification.",
+    "tractor_visual_target": {
+      "type": "2-axle cab-over tractor",
+      "wheelbase_meters": 3.8,
+      "cab_height_meters": 3.75,
+      "status": "Initial modeling targets only. Prioritize truck.jpg shape; calibrate proportions against the accepted generated family. No dimensions were recovered from the single photo."
+    },
+    "C01_bottom_castings": [
+      {
+        "id": "corner_casting_-1_-1_-1",
+        "hole_center_meters": [
+          -5.996,
+          0,
+          -1.139
+        ],
+        "support_rim_landmark_meters": [
+          -5.9190000000000005,
+          -5.215405884939628e-11,
+          -1.139
+        ]
+      },
+      {
+        "id": "corner_casting_-1_-1_1",
+        "hole_center_meters": [
+          -5.996,
+          0,
+          1.139
+        ],
+        "support_rim_landmark_meters": [
+          -5.9190000000000005,
+          -5.215405884939628e-11,
+          1.139
+        ]
+      },
+      {
+        "id": "corner_casting_1_-1_-1",
+        "hole_center_meters": [
+          5.996,
+          0,
+          -1.139
+        ],
+        "support_rim_landmark_meters": [
+          6.073,
+          -5.215405884939628e-11,
+          -1.139
+        ]
+      },
+      {
+        "id": "corner_casting_1_-1_1",
+        "hole_center_meters": [
+          5.996,
+          0,
+          1.139
+        ],
+        "support_rim_landmark_meters": [
+          6.073,
+          -5.215405884939628e-11,
+          1.139
+        ]
+      }
+    ]
+  },
+  "model_method": {
+    "proposed": "Local dimensioned Three.js solid geometry and GLB export, using the accepted C01 construction approach and lift cab/wheel construction patterns.",
+    "provider": "No image-to-3D provider job proposed. Static images are design references.",
+    "assemblies": [
+      "Shaped closed cab body/roof, mirrors, grille, steps and fenders",
+      "Clear glass panes, one frame, shared seats/steering/console/interior",
+      "Two independent tractor axles; six physical tires including dual rear tires",
+      "Fifth wheel, kingpin, rigid I-beam trailer, crossmembers and two stowed landing legs",
+      "Three separate trailer axles, six physical tires, guards and practical lamps",
+      "Four supports aligned to the existing C01 casting geometry"
+    ],
+    "motion_controls": [
+      "Tractor translation/yaw and front steering",
+      "Trailer articulation around fifth wheel",
+      "Separate wheel rotation derived from travel and tire radius",
+      "C01 ownership support transfer and release",
+      "One deterministic side-to-overhead camera trajectory"
+    ],
+    "geometry_rules": "Closed solids for structural components; intentional window/frame openings; real glass depth; physical tire/rim/tread surfaces. Match accepted image styling before model acceptance.",
+    "scale_rule": "Build in meters, then apply one common conversion into the accepted integration scene. Never rescale C01 or the approved head to fit the truck.",
+    "method_limit": "Method remains proposed for approval; the schematic diagrams are design intent only and no truck GLB is produced in this phase.",
+    "reference_rule": "Shape the cab to the accepted truck.jpg-derived side/upper/front family, including roof contour, sculpted grille, mirror stacks, wheel arches and coherent glazing. Do not accept a generic box cab."
+  },
+  "handoff_contract": {
+    "baseline": "Preserve camera-v4 accepted lift/container inputs.",
+    "support_before_release": true,
+    "world_pose_on_ownership_change": "Must be continuous at full precision; wheel/chassis/roof planes tested through forward, pause and reverse.",
+    "fixed_grabber_limit": "Retain accepted central roof visual coupling; do not add reach rails or change head dimensions during lowering/release.",
+    "later_truck_checks": [
+      "Four C01/trailer rim contacts and no container/body intersections",
+      "Fixed C01 dimensions and model identity through lift/trailer ownership",
+      "Normal/quarter playback, pause/resume and reverse physical scroll",
+      "Side-to-overhead camera stability, wheel travel and tractor/trailer articulation",
+      "Cab/interior/tire continuity through the actual required views"
+    ]
+  },
+  "provider_preflight": "../../evidence/truck-proposal/provider-preflight.json",
+  "spending": {
+    "account_status": "ready as of current read-only account check; job affordability not established",
+    "requested_allowance": "At most three Image 2.5 single-image edit jobs: T01 side first; T02 upper and T03 front only after T01 acceptance. Zero automatic retries or variants.",
+    "price_observed": {
+      "unit_price": 1,
+      "unit": "units",
+      "currency": "USD",
+      "endpoints": [
+        "openai/gpt-image-2.5/sunburst/text-to-image",
+        "openai/gpt-image-2.5/sunburst/edit"
+      ]
+    },
+    "price_limit": "Read-only provider response reports USD 1 per billing unit and omits units per configured image. Reliable batch total or credit cap remains unavailable; do not infer USD 3 for three images.",
+    "allowance_authorized": false,
+    "jobs_submitted": 0,
+    "stop_after": "T01 identity/accent review, then the complete three-view static-family review. Model and motion reviews follow separately."
+  },
+  "approval_requested": "Approve the reference-based cab, proposed Pegasoft accent/branding placements, full container chassis, required side/upper/front input manifest, local model method and bounded three-image allowance. First production is T01 only; stop for its static review.",
+  "revision": "truck-reference-redesign-v2",
+  "identity_reference": {
+    "path": "../../references/truck.jpg",
+    "original_path": "/Users/whiskey/Work/site/docs/references/truck.jpg",
+    "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4",
+    "scope": "Cab silhouette, proportion, roof, windshield, mirror stacks, grille, lamps, steps, wheel arches, tractor stance and wheel arrangement. Replace source branding, palette, cargo and environment.",
+    "visible_features": [
+      "Tall rounded high-roof cab-over body with a short front overhang",
+      "Roof visor, broad dark windshield and paired vertical mirror housings",
+      "Stacked wide grille with horizontal neutral-metal ribs",
+      "Angular inset headlamps and stepped lower bumper",
+      "Contoured door, rear cab pillar and lower side fairing",
+      "Two tractor axles, single front tires and dual rear tires; three trailer axles"
+    ],
+    "inferred_features": "Opposite side, roof details and hidden chassis are consistent reconstructions, not measurements from the single photograph."
+  },
+  "branding": {
+    "carbon": "#11151B",
+    "accent": "#147DFF",
+    "rim_light": "#7BCBFF",
+    "wordmark_color": "#B9E7FF",
+    "wordmark": "PEGASOFT Solutions",
+    "font": "Manrope upright 650",
+    "application": "Vector/decal lettering after image generation, before the presented static-family approval. Remove source manufacturer names, insignia and registration; leave clean physical label areas.",
+    "proposed_physical_placements": [
+      "Both cab doors: compact pale-blue wordmark on the carbon door below the side window",
+      "Front: pale-blue wordmark on the clean upper grille panel",
+      "Same painted blue shoulder band follows the rear door pillar and roof visor; a blue lower fairing/bumper accent returns around the front"
+    ],
+    "continuity": "Accent paint and decals occupy the same physical panels in all three views. Upper view shows actual roof-band returns; do not add lettering on the roof."
+  }
+}

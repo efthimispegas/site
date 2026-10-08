@@ -1,0 +1,27 @@
+{
+  "status": "static_family_user_approved_as_supplied",
+  "approval": "generation/truck-family/static-family-approval.json",
+  "manifest": {
+    "path": "generation/truck-family/family-manifest.json",
+    "sha256": "079fb253cbe9c9a5ae2122b54a3313c4c27b9db417ad7f5473b1c42df2fec141"
+  },
+  "checks": {
+    "path": "evidence/truck-family-checks.json",
+    "sha256": "a9f7e8e3c7cf9caa996dccfaab9e9e28f832d521d88f3b61efc2bd7587bdbe35"
+  },
+  "screenshots": [
+    {
+      "path": "evidence/truck-family-review/front.png",
+      "sha256": "687bf35a0bec8ad2ad409d4e5d5778540ecca6fc1f36e13ded14e475d17aafaf"
+    },
+    {
+      "path": "evidence/truck-family-review/side.png",
+      "sha256": "9459ab54ca3bad16bf26de42901e48e745fcb738c403a359100e3bb386a94f03"
+    },
+    {
+      "path": "evidence/truck-family-review/upper.png",
+      "sha256": "5034543022d636cc62b95fcb54bcf0faa983be1e9e0084f596dccaf6e30a5852"
+    }
+  ],
+  "next": "http://127.0.0.1:8767/review/truck-model.html#viewer"
+}

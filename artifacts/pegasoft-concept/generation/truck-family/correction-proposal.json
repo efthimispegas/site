@@ -1,0 +1,54 @@
+{
+  "status": "superseded_user_accepted_original_images_no_corrections",
+  "date_local": "2026-10-07",
+  "approved_jobs_used": 3,
+  "originals_preserved": true,
+  "new_requested_jobs": 2,
+  "automatic_retries": 0,
+  "model_production": "deferred pending accepted static family",
+  "price_limit": "Saved current provider quote is USD 1/billing unit; configured-image units and total remain unknown. Refresh before new paid work.",
+  "inputs": [
+    {
+      "id": "T02-correction",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+      "references": [
+        "https://v3b.fal.media/files/b/0aad70c7/lKSsGVSsUzE2ZrNHxAIC8_39k7wZqq.png",
+        "https://v3b.fal.media/files/b/0aad6ea9/uxaZOEErai9FUqGCUMGHB_JEKRVdGF.png",
+        "https://v3b.fal.media/files/b/0aad6e9e/Gn1VBDejwgsq37pQ0Mz2k_truck.jpg"
+      ],
+      "settings": {
+        "image_size": {
+          "width": 3072,
+          "height": 1024
+        },
+        "quality": "high",
+        "background": "transparent",
+        "output_format": "png",
+        "num_images": 1
+      },
+      "prompt": "Correct only the camera view of the supplied upper truck candidate, using the accepted T01 and original truck.jpg for identity. Keep the same carbon/blue high-roof cab, mirrors, roof-band returns, empty 40ft skeletal chassis, four supports, crossmembers, wheels, metals and coupling. Render the complete straight aligned truck in an exact 90-degree straight-down orthographic plan view, nose to image right. Both vehicle sides must be symmetrical about the horizontal long axis. Only roof and top surfaces are visible: no wheel rim circles, cab door faces, grille face or side guard faces. Tires appear as top tread footprints at correct axle positions, not sideways circles. No yaw, perspective, tilt, roll or underside. Keep realistic proportions, generous complete-silhouette margins and clear alpha edges. No cargo, scene, baked glow/shadow, logos or generated text. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors."
+    },
+    {
+      "id": "T03-correction",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+      "references": [
+        "https://v3b.fal.media/files/b/0aad70d0/vopzvq4SMrhdsfzqWR6gm_1Jw89vEn.png",
+        "https://v3b.fal.media/files/b/0aad6ea9/uxaZOEErai9FUqGCUMGHB_JEKRVdGF.png",
+        "https://v3b.fal.media/files/b/0aad6e9e/Gn1VBDejwgsq37pQ0Mz2k_truck.jpg"
+      ],
+      "settings": {
+        "image_size": {
+          "width": 1536,
+          "height": 2048
+        },
+        "quality": "high",
+        "background": "transparent",
+        "output_format": "png",
+        "num_images": 1
+      },
+      "prompt": "Correct only the alignment/camera view of the supplied front truck candidate, using accepted T01 and original truck.jpg for identity. Preserve the exact frontal cab, roof contour, visor, blue paint returns, glazing, mirror stacks, lamp arrangement, sculpted grille, rims and bumper. Center the cab on the image vertical centerline. Put the entire empty 40ft trailer directly behind the cab on the identical centerline, with tractor and trailer perfectly straight. In this exact orthographic front view, natural cab occlusion hides the long trailer side: remove the fanned-out trailer, exposed left side wheel row and angled side guards. Do not shorten the trailer or remove its real attachment; place it behind the cab. No yaw, camera tilt, roll, perspective or second truck. Preserve transparent background, full visible silhouette, margin, materials and cool studio lighting. No cargo, scene, baked glow/shadow, logos or generated text. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors."
+    }
+  ],
+  "requested_new_jobs": 0,
+  "superseded_by": "static-family-approval.json"
+}

@@ -1,0 +1,30 @@
+{
+  "recorded_at_utc": "2026-10-07 20:08:34 UTC",
+  "ordinaryUsageAllowed": true,
+  "rateLimits": {
+    "codex": {
+      "limitId": "codex",
+      "limitName": null,
+      "normalModelSlug": null,
+      "primary": {
+        "usedPercent": 26,
+        "windowDurationMins": 300,
+        "resetsAt": 1791416560
+      },
+      "secondary": {
+        "usedPercent": 17,
+        "windowDurationMins": 10080,
+        "resetsAt": 1791977110
+      },
+      "credits": {
+        "hasCredits": true,
+        "unlimited": false,
+        "balance": "1403.8605995000"
+      },
+      "individualLimit": null,
+      "spendControlReached": false,
+      "planType": "team",
+      "rateLimitReachedType": null
+    }
+  }
+}

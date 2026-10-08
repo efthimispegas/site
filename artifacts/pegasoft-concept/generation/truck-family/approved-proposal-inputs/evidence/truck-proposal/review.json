@@ -1,0 +1,123 @@
+{
+  "status": "awaiting_reference_truck_redesign_approval",
+  "revision": "truck-reference-redesign-v2",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "review_url": "http://127.0.0.1:8767/review/truck-plan.html#design",
+  "inputs": [
+    {
+      "path": "PROPOSAL.md",
+      "sha256": "b61d637bbfb8cde31afd1e35fea3a338b22fef3a4121f9f3a36f4c66ffd52b3f"
+    },
+    {
+      "path": "review/truck-plan.html",
+      "sha256": "60fed68c9822746e60f3087e63187ffb152229467f08a07633350ec75e5aa608"
+    },
+    {
+      "path": "review/truck-plan.js",
+      "sha256": "3177c89ed6eb71d479cd32f98cc50bf8a1e7651518b89bc254e274ef7c388032"
+    },
+    {
+      "path": "generation/truck-family/input-proposal.json",
+      "sha256": "ad9b66348f998d268412418d54eac4684be7ce38587556ee904a9732f4f41be6"
+    },
+    {
+      "path": "references/truck.jpg",
+      "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4"
+    },
+    {
+      "path": "review/truck-family/side.svg",
+      "sha256": "cabbcb66ff03f6939fc823a6dc8cabe85ab0962acfc0b1abeaf33c37d9d66a3d"
+    },
+    {
+      "path": "review/truck-family/upper.svg",
+      "sha256": "a515bb9f1754a4e4edb96c091eabc295f90bf9555bd4bb03955d13d085b2376a"
+    },
+    {
+      "path": "review/truck-family/front.svg",
+      "sha256": "74440946d32e5fe257bc0f828756cb16a51110673d71e99b6d9cdff13db83b74"
+    },
+    {
+      "path": "material-color-contract.json",
+      "sha256": "fe7be1ebbc4f5c070df208937101fda17113f05f92e09b7d9b05a9e9151bfb29"
+    },
+    {
+      "path": "ASSET-PROMPTS.md",
+      "sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e"
+    },
+    {
+      "path": "evidence/truck-proposal/requirements-amendment.json",
+      "sha256": "92e6d79210a2fb561015392b3010d0bfc5839e15c4d23fd4b9d210aba144e09f"
+    },
+    {
+      "path": "evidence/truck-proposal/provider-preflight.json",
+      "sha256": "b4661197374f1fb2f066661f9c0d033a88365a5e41f51019f99adb80b87b13c5"
+    },
+    {
+      "path": "evidence/truck-proposal/reference.json",
+      "sha256": "2b7f5b4459385da273d8b2e50a5680b6341eec44fd94b4df3fe5f71954bdf8e6"
+    },
+    {
+      "path": "evidence/truck-proposal/reference-handoff-10s.png",
+      "sha256": "d35430c7cb19fdd35144b3090f55fc7c0edaa1f6723e56bdd4ce18f695960b5a"
+    },
+    {
+      "path": "evidence/truck-proposal/reference-handoff-14s.png",
+      "sha256": "fd0fc23e77a10f832cbbaab9dabfebf19b3397b1aa571f29dc97c569497fa4d0"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/container-family/C01-silver-oblique-original.png",
+      "sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3"
+    }
+  ],
+  "checks": {
+    "path": "evidence/truck-proposal-checks.json",
+    "sha256": "ad323e40031bc084992ce4098386ee1deb1cbfccc9aab4e748d8561fed89d642",
+    "outcome": "reference_redesign_proposal_source_http_and_actual_browser_checks_passed"
+  },
+  "screenshots": [
+    {
+      "path": "evidence/truck-proposal/overview.png",
+      "sha256": "6f38e6e0378eb58c84c8ebee72f2744a1ebf12e578c0c99288741ae3233241da"
+    },
+    {
+      "path": "evidence/truck-proposal/side-fit.png",
+      "sha256": "6f38e6e0378eb58c84c8ebee72f2744a1ebf12e578c0c99288741ae3233241da"
+    },
+    {
+      "path": "evidence/truck-proposal/upper.png",
+      "sha256": "ee09bea937e428b692726e3c9673a51ee4cab58ca0d213fc9d5f361505c2cff6"
+    },
+    {
+      "path": "evidence/truck-proposal/front.png",
+      "sha256": "acc94a8e906dca791fad2ff41ae241530c6e58f2bfc4d18567974a903cac8735"
+    }
+  ],
+  "browser": {
+    "path": "evidence/truck-proposal/browser-observation.json",
+    "sha256": "8f18caa2a84b16240156a27f03c5700a5be71c2095763ed747c97d7e573560af"
+  },
+  "approval_requested": "Approve the reference-based cab, proposed Pegasoft accent/branding placements, full container chassis, required side/upper/front input manifest, local model method and bounded three-image allowance. First production is T01 only; stop for its static review.",
+  "production": {
+    "uploads": 0,
+    "jobs_submitted": 0,
+    "allowance_authorized": false,
+    "model_produced": false
+  },
+  "accepted_baseline": "generation/container-family/lift-integration/user-approval.json",
+  "usage": {
+    "path": "evidence/truck-proposal/usage.json",
+    "sha256": "18b5b33db4efd2257039767aba087cc039f5bec17cee6f66bdac1c3f14d79d67"
+  },
+  "superseded_proposal": "evidence/truck-proposal/superseded-two-view/snapshot.json",
+  "checkpoint": {
+    "CURRENT.md": "f82835457ca598e0b13c796a15ee92ea3a53357af1b1c85d408be404c44283fa",
+    "HANDOFF.md": "6e8cc59f9fd2bfff454a075c09ed84ddf42fcaf56a77088f5f6a8fc1823f34b5",
+    "review/index.html": "885c792c32c5f6fb4bd4bb3cd4eb33d59c68340c2b158222a1d08b269e02e007"
+  },
+  "delivery": "Local worktree artifacts; not staged or committed. Reference copy and truck artifacts are untracked, not ignored."
+}

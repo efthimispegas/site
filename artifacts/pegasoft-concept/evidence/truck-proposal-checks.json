@@ -1,0 +1,196 @@
+{
+  "status": "reference_redesign_proposal_source_http_and_actual_browser_checks_passed",
+  "revision": "truck-reference-redesign-v2",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "checks": {
+    "required_generated_views": [
+      "side",
+      "upper",
+      "front"
+    ],
+    "reference_copy_identical": true,
+    "reference_anchored_edit_prompts": true,
+    "edit_settings_supported_by_saved_schema": true,
+    "all_canvas_constraints": true,
+    "mandatory_carbon_clause_in_all_prompts": true,
+    "exact_prompts_match_page": true,
+    "truck_upper_scope_amendment_recorded": true,
+    "locked_prompt_book_unchanged": true,
+    "C01_actual_bottom_casting_spans_meters": [
+      11.992,
+      2.278
+    ],
+    "bottom_rim_landmarks_match_model": true,
+    "accepted_integration_inputs_unchanged": 11,
+    "SVG_XML": "passed",
+    "script_syntax": "passed",
+    "http": [
+      {
+        "path": "PROPOSAL.md",
+        "status": 200,
+        "sha256": "b61d637bbfb8cde31afd1e35fea3a338b22fef3a4121f9f3a36f4c66ffd52b3f",
+        "served_bytes_match": true
+      },
+      {
+        "path": "review/truck-plan.html",
+        "status": 200,
+        "sha256": "60fed68c9822746e60f3087e63187ffb152229467f08a07633350ec75e5aa608",
+        "served_bytes_match": true
+      },
+      {
+        "path": "review/truck-plan.js",
+        "status": 200,
+        "sha256": "3177c89ed6eb71d479cd32f98cc50bf8a1e7651518b89bc254e274ef7c388032",
+        "served_bytes_match": true
+      },
+      {
+        "path": "generation/truck-family/input-proposal.json",
+        "status": 200,
+        "sha256": "ad9b66348f998d268412418d54eac4684be7ce38587556ee904a9732f4f41be6",
+        "served_bytes_match": true
+      },
+      {
+        "path": "references/truck.jpg",
+        "status": 200,
+        "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4",
+        "served_bytes_match": true
+      },
+      {
+        "path": "review/truck-family/side.svg",
+        "status": 200,
+        "sha256": "cabbcb66ff03f6939fc823a6dc8cabe85ab0962acfc0b1abeaf33c37d9d66a3d",
+        "served_bytes_match": true
+      },
+      {
+        "path": "review/truck-family/upper.svg",
+        "status": 200,
+        "sha256": "a515bb9f1754a4e4edb96c091eabc295f90bf9555bd4bb03955d13d085b2376a",
+        "served_bytes_match": true
+      },
+      {
+        "path": "review/truck-family/front.svg",
+        "status": 200,
+        "sha256": "74440946d32e5fe257bc0f828756cb16a51110673d71e99b6d9cdff13db83b74",
+        "served_bytes_match": true
+      },
+      {
+        "path": "material-color-contract.json",
+        "status": 200,
+        "sha256": "fe7be1ebbc4f5c070df208937101fda17113f05f92e09b7d9b05a9e9151bfb29",
+        "served_bytes_match": true
+      },
+      {
+        "path": "ASSET-PROMPTS.md",
+        "status": 200,
+        "sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e",
+        "served_bytes_match": true
+      },
+      {
+        "path": "evidence/truck-proposal/requirements-amendment.json",
+        "status": 200,
+        "sha256": "92e6d79210a2fb561015392b3010d0bfc5839e15c4d23fd4b9d210aba144e09f",
+        "served_bytes_match": true
+      },
+      {
+        "path": "evidence/truck-proposal/provider-preflight.json",
+        "status": 200,
+        "sha256": "b4661197374f1fb2f066661f9c0d033a88365a5e41f51019f99adb80b87b13c5",
+        "served_bytes_match": true
+      }
+    ],
+    "browser": {
+      "actual_viewport": [
+        597,
+        788
+      ],
+      "side_upper_front_controls": "passed through actual clicks",
+      "keyboard": "Shift+Tab and Return selects Upper view",
+      "C01_fit": "side screenshot visibly loaded; upper toggle caption verified",
+      "front_fit_control": "disabled to preserve natural front occlusion",
+      "horizontal_overflow": false,
+      "source_and_C01_images_loaded": true,
+      "embedded_SVG": "Native AX and screenshots verified; read-only cross-document DOM telemetry unavailable"
+    }
+  },
+  "input_hashes": [
+    {
+      "path": "PROPOSAL.md",
+      "sha256": "b61d637bbfb8cde31afd1e35fea3a338b22fef3a4121f9f3a36f4c66ffd52b3f"
+    },
+    {
+      "path": "review/truck-plan.html",
+      "sha256": "60fed68c9822746e60f3087e63187ffb152229467f08a07633350ec75e5aa608"
+    },
+    {
+      "path": "review/truck-plan.js",
+      "sha256": "3177c89ed6eb71d479cd32f98cc50bf8a1e7651518b89bc254e274ef7c388032"
+    },
+    {
+      "path": "generation/truck-family/input-proposal.json",
+      "sha256": "ad9b66348f998d268412418d54eac4684be7ce38587556ee904a9732f4f41be6"
+    },
+    {
+      "path": "references/truck.jpg",
+      "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4"
+    },
+    {
+      "path": "review/truck-family/side.svg",
+      "sha256": "cabbcb66ff03f6939fc823a6dc8cabe85ab0962acfc0b1abeaf33c37d9d66a3d"
+    },
+    {
+      "path": "review/truck-family/upper.svg",
+      "sha256": "a515bb9f1754a4e4edb96c091eabc295f90bf9555bd4bb03955d13d085b2376a"
+    },
+    {
+      "path": "review/truck-family/front.svg",
+      "sha256": "74440946d32e5fe257bc0f828756cb16a51110673d71e99b6d9cdff13db83b74"
+    },
+    {
+      "path": "material-color-contract.json",
+      "sha256": "fe7be1ebbc4f5c070df208937101fda17113f05f92e09b7d9b05a9e9151bfb29"
+    },
+    {
+      "path": "ASSET-PROMPTS.md",
+      "sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e"
+    },
+    {
+      "path": "evidence/truck-proposal/requirements-amendment.json",
+      "sha256": "92e6d79210a2fb561015392b3010d0bfc5839e15c4d23fd4b9d210aba144e09f"
+    },
+    {
+      "path": "evidence/truck-proposal/provider-preflight.json",
+      "sha256": "b4661197374f1fb2f066661f9c0d033a88365a5e41f51019f99adb80b87b13c5"
+    }
+  ],
+  "browser": {
+    "path": "evidence/truck-proposal/browser-observation.json",
+    "sha256": "8f18caa2a84b16240156a27f03c5700a5be71c2095763ed747c97d7e573560af"
+  },
+  "screenshots": [
+    {
+      "path": "evidence/truck-proposal/overview.png",
+      "sha256": "6f38e6e0378eb58c84c8ebee72f2744a1ebf12e578c0c99288741ae3233241da"
+    },
+    {
+      "path": "evidence/truck-proposal/side-fit.png",
+      "sha256": "6f38e6e0378eb58c84c8ebee72f2744a1ebf12e578c0c99288741ae3233241da"
+    },
+    {
+      "path": "evidence/truck-proposal/upper.png",
+      "sha256": "ee09bea937e428b692726e3c9673a51ee4cab58ca0d213fc9d5f361505c2cff6"
+    },
+    {
+      "path": "evidence/truck-proposal/front.png",
+      "sha256": "acc94a8e906dca791fad2ff41ae241530c6e58f2bfc4d18567974a903cac8735"
+    }
+  ],
+  "production": {
+    "uploads": 0,
+    "jobs_submitted": 0,
+    "allowance_authorized": false,
+    "model_produced": false
+  },
+  "acceptance": "Design-direction/input/material/method and three-image allowance review pending. Schematics are design intent; no generated truck asset acceptance.",
+  "Nx": "Standalone review artifacts only; no app target changed."
+}

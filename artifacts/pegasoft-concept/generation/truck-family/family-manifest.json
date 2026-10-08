@@ -1,0 +1,98 @@
+{
+  "status": "user_approved_static_family_as_supplied",
+  "branch": "codex/pegasoft-concept",
+  "date_local": "2026-10-07",
+  "images": [
+    {
+      "id": "T01",
+      "status": "user_approved_original",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+      "request_id": "01a116b2-b795-73a0-993e-18e5cd56c986",
+      "provider_original_url": "https://v3b.fal.media/files/b/0aad6ea9/uxaZOEErai9FUqGCUMGHB_JEKRVdGF.png",
+      "original": {
+        "path": "generation/truck-family/T01/T01-side-original.png",
+        "sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5",
+        "size": [
+          3072,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "input": {
+        "path": "generation/truck-family/T01/input.json",
+        "sha256": "d21fcd932b1a3817f551cb16092cb6fd64be28b58283991f17820eddfaf23808"
+      },
+      "provider_response": "generation/truck-family/T01/provider-response.json",
+      "alpha_analysis": "generation/truck-family/T01/alpha-analysis.json",
+      "alpha_unchanged": true,
+      "static_approval": "generation/truck-family/static-family-approval.json"
+    },
+    {
+      "id": "T02",
+      "status": "user_approved_original",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+      "request_id": "01a11705-4c89-7a60-b0fd-b9ef642a44ee",
+      "provider_original_url": "https://v3b.fal.media/files/b/0aad70c7/lKSsGVSsUzE2ZrNHxAIC8_39k7wZqq.png",
+      "original": {
+        "path": "generation/truck-family/T02/T02-upper-original.png",
+        "sha256": "25cb04bd4494d27bf8b2d331d5bf25e304386d00c700f5cda8daf6fb9841d3e0",
+        "size": [
+          3072,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "input": {
+        "path": "generation/truck-family/T02/input.json",
+        "sha256": "09a54a1c246a80f38c9aabc34cf8fd394f8a503646c82c39c9afdde8cd784ca0"
+      },
+      "provider_response": "generation/truck-family/T02/provider-response.json",
+      "alpha_analysis": "generation/truck-family/T02/alpha-analysis.json",
+      "alpha_unchanged": true,
+      "static_approval": "generation/truck-family/static-family-approval.json"
+    },
+    {
+      "id": "T03",
+      "status": "user_approved_original",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+      "request_id": "01a11706-ba6e-79a2-8a59-00344cd14fdd",
+      "provider_original_url": "https://v3b.fal.media/files/b/0aad70d0/vopzvq4SMrhdsfzqWR6gm_1Jw89vEn.png",
+      "original": {
+        "path": "generation/truck-family/T03/T03-front-original.png",
+        "sha256": "7ba46d456abfe37287848c9bc50ce23f3fb745bbecbe57918de8bec2dbc5e66c",
+        "size": [
+          1536,
+          2048
+        ],
+        "mode": "RGBA"
+      },
+      "input": {
+        "path": "generation/truck-family/T03/input.json",
+        "sha256": "4e9d8cd1632c98178c2fc44ab32ac159263965f509be5e561aacf04400bb94de"
+      },
+      "provider_response": "generation/truck-family/T03/provider-response.json",
+      "alpha_analysis": "generation/truck-family/T03/alpha-analysis.json",
+      "alpha_unchanged": true,
+      "static_approval": "generation/truck-family/static-family-approval.json"
+    }
+  ],
+  "accepted_angle_limits": {
+    "T02": "Oblique upper angle, visible wheel faces",
+    "T03": "Front cab with trailer visibly offset to the left"
+  },
+  "branding": {
+    "T01": "T01/T01-branding.svg, accepted with side master",
+    "T02": "No roof lettering",
+    "T03": "T03/T03-branding.svg, front placement available for model review"
+  },
+  "approval": "static-family-approval.json",
+  "allowance": {
+    "approved_image_jobs": 3,
+    "used_image_jobs": 3,
+    "remaining_image_jobs": 0,
+    "automatic_retries": 0,
+    "variants": 0,
+    "model_provider_jobs": 0
+  },
+  "next": "Interactive local model review before lift/road integration."
+}

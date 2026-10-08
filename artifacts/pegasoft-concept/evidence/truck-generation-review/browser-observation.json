@@ -1,0 +1,234 @@
+{
+  "revision": "T01-side-generated-v1",
+  "observations": [
+    {
+      "brandingHidden": false,
+      "buttons": [
+        {
+          "name": "Carbon",
+          "pressed": "true"
+        },
+        {
+          "name": "Porcelain",
+          "pressed": "false"
+        },
+        {
+          "name": "Cab detail",
+          "pressed": "false"
+        },
+        {
+          "name": "Pegasoft lettering",
+          "pressed": "true"
+        }
+      ],
+      "caption": "Carbon / complete vehicle / external Pegasoft lettering shown.",
+      "horizontalOverflow": false,
+      "image": {
+        "height": 1024,
+        "loaded": true,
+        "width": 3072
+      },
+      "referenceLoaded": true,
+      "stageClass": "stage",
+      "url": "http://127.0.0.1:8767/review/truck.html#asset",
+      "viewport": [
+        597,
+        788
+      ],
+      "wordmarkFont": "Manrope, Arial, sans-serif"
+    },
+    {
+      "brandingHidden": false,
+      "buttons": [
+        {
+          "name": "Carbon",
+          "pressed": "false"
+        },
+        {
+          "name": "Porcelain",
+          "pressed": "true"
+        },
+        {
+          "name": "Cab detail",
+          "pressed": "true"
+        },
+        {
+          "name": "Pegasoft lettering",
+          "pressed": "true"
+        }
+      ],
+      "caption": "Porcelain / cab detail / external Pegasoft lettering shown.",
+      "horizontalOverflow": false,
+      "image": {
+        "height": 1024,
+        "loaded": true,
+        "width": 3072
+      },
+      "referenceLoaded": true,
+      "stageClass": "stage paper detail",
+      "url": "http://127.0.0.1:8767/review/truck.html#asset",
+      "viewport": [
+        597,
+        788
+      ],
+      "wordmarkFont": "Manrope, Arial, sans-serif"
+    },
+    {
+      "brandingHidden": true,
+      "buttons": [
+        {
+          "name": "Carbon",
+          "pressed": "false"
+        },
+        {
+          "name": "Porcelain",
+          "pressed": "true"
+        },
+        {
+          "name": "Cab detail",
+          "pressed": "true"
+        },
+        {
+          "name": "Pegasoft lettering",
+          "pressed": "false"
+        }
+      ],
+      "caption": "Porcelain / cab detail / original generated PNG without lettering.",
+      "horizontalOverflow": false,
+      "image": {
+        "height": 1024,
+        "loaded": true,
+        "width": 3072
+      },
+      "referenceLoaded": true,
+      "stageClass": "stage paper detail",
+      "url": "http://127.0.0.1:8767/review/truck.html#asset",
+      "viewport": [
+        597,
+        788
+      ],
+      "wordmarkFont": "Manrope, Arial, sans-serif",
+      "interaction": "Click hides external lettering"
+    },
+    {
+      "brandingHidden": false,
+      "buttons": [
+        {
+          "name": "Carbon",
+          "pressed": "false"
+        },
+        {
+          "name": "Porcelain",
+          "pressed": "true"
+        },
+        {
+          "name": "Cab detail",
+          "pressed": "true"
+        },
+        {
+          "name": "Pegasoft lettering",
+          "pressed": "true"
+        }
+      ],
+      "caption": "Porcelain / cab detail / external Pegasoft lettering shown.",
+      "horizontalOverflow": false,
+      "image": {
+        "height": 1024,
+        "loaded": true,
+        "width": 3072
+      },
+      "referenceLoaded": true,
+      "stageClass": "stage paper detail",
+      "url": "http://127.0.0.1:8767/review/truck.html#asset",
+      "viewport": [
+        597,
+        788
+      ],
+      "wordmarkFont": "Manrope, Arial, sans-serif",
+      "interaction": "Keyboard Return restores external lettering"
+    },
+    {
+      "brandingHidden": false,
+      "buttons": [
+        {
+          "name": "Carbon",
+          "pressed": "true"
+        },
+        {
+          "name": "Porcelain",
+          "pressed": "false"
+        },
+        {
+          "name": "Cab detail",
+          "pressed": "false"
+        },
+        {
+          "name": "Pegasoft lettering",
+          "pressed": "true"
+        }
+      ],
+      "caption": "Carbon / complete vehicle / external Pegasoft lettering shown.",
+      "horizontalOverflow": false,
+      "image": {
+        "height": 1024,
+        "loaded": true,
+        "width": 3072
+      },
+      "referenceLoaded": true,
+      "stageClass": "stage",
+      "url": "http://127.0.0.1:8767/review/truck.html#asset",
+      "viewport": [
+        597,
+        788
+      ],
+      "wordmarkFont": "Manrope, Arial, sans-serif"
+    },
+    {
+      "brandingHidden": false,
+      "buttons": [
+        {
+          "name": "Carbon",
+          "pressed": "false"
+        },
+        {
+          "name": "Porcelain",
+          "pressed": "true"
+        },
+        {
+          "name": "Cab detail",
+          "pressed": "false"
+        },
+        {
+          "name": "Pegasoft lettering",
+          "pressed": "true"
+        }
+      ],
+      "caption": "Porcelain / complete vehicle / external Pegasoft lettering shown.",
+      "horizontalOverflow": false,
+      "image": {
+        "height": 1024,
+        "loaded": true,
+        "width": 3072
+      },
+      "referenceLoaded": true,
+      "stageClass": "stage paper",
+      "url": "http://127.0.0.1:8767/review/truck.html#asset",
+      "viewport": [
+        597,
+        788
+      ],
+      "wordmarkFont": "Manrope, Arial, sans-serif"
+    }
+  ],
+  "visualInspection": {
+    "carbonAndPorcelain": "Vehicle legible on both surfaces; alpha openings expose the selected background.",
+    "cabDetail": "Full cab visible; supplied roof/visor/mirrors/door/arch/fairing family retained.",
+    "branding": "Separate Manrope lettering placed below the left cab window; toggles without changing PNG bytes.",
+    "reviewPoint": "Narrow front-grille return visible in the side profile; user identity approval pending."
+  },
+  "screenshots": [
+    "carbon.png",
+    "porcelain.png",
+    "cab-detail.png"
+  ]
+}

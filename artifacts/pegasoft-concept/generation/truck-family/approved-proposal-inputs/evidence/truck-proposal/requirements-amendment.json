@@ -1,0 +1,29 @@
+{
+  "status": "user_directed_scope_amendment",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "user_instruction": "The truck must follow the asset provided in references/truck.jpg. It must follow the pegasoft accent. It must have a chassis to support the container once it is loaded. The truck asset family must comply to the requirement of having the truck side, upper and front view generated for the journey after the container handoff. Proceed with the truck redesign around the given asset and reference guidelines for approval.",
+  "required_generated_views": [
+    "side",
+    "upper",
+    "front"
+  ],
+  "exception": "Permit the requested truck upper view; preserve the locked prompt-book snapshot and exclusions for other families.",
+  "reference": {
+    "path": "../../references/truck.jpg",
+    "original_path": "/Users/whiskey/Work/site/docs/references/truck.jpg",
+    "sha256": "c12729631d8ef7938663f5bdadafef6dea27bcabb9e0fc8c355ea14ddd8b46e4",
+    "scope": "Cab silhouette, proportion, roof, windshield, mirror stacks, grille, lamps, steps, wheel arches, tractor stance and wheel arrangement. Replace source branding, palette, cargo and environment.",
+    "visible_features": [
+      "Tall rounded high-roof cab-over body with a short front overhang",
+      "Roof visor, broad dark windshield and paired vertical mirror housings",
+      "Stacked wide grille with horizontal neutral-metal ribs",
+      "Angular inset headlamps and stepped lower bumper",
+      "Contoured door, rear cab pillar and lower side fairing",
+      "Two tractor axles, single front tires and dual rear tires; three trailer axles"
+    ],
+    "inferred_features": "Opposite side, roof details and hidden chassis are consistent reconstructions, not measurements from the single photograph."
+  },
+  "proposal_status": "Design direction, input manifest, model method and three-job allowance presented for approval; no provider upload/job or truck model produced.",
+  "superseded_proposal": "superseded-two-view/snapshot.json"
+}

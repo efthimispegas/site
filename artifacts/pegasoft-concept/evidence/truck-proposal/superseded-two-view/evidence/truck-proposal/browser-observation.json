@@ -1,0 +1,58 @@
+{
+  "status": "passed_actual_browser_controls_keyboard_and_fit_diagrams",
+  "url": "http://127.0.0.1:8767/review/truck-plan.html",
+  "observations": [
+    {
+      "loadVisible": "visible",
+      "overflow": false,
+      "pressed": "true",
+      "sideVisible": "block",
+      "view": "loaded",
+      "viewport": [
+        597,
+        788
+      ]
+    },
+    {
+      "overflow": false,
+      "pressed": "true",
+      "sideVisible": "none",
+      "supportVisible": "block",
+      "view": "supports",
+      "viewport": [
+        597,
+        788
+      ]
+    },
+    {
+      "pressed": "true",
+      "state": "Same C01 · 12.192 m length and 2.896 m height; no rescaling to fit the truck.",
+      "view": "keyboard-loaded"
+    },
+    {
+      "horizontalOverflow": false,
+      "images": [
+        {
+          "complete": true,
+          "height": 488,
+          "source": "../evidence/truck-proposal/reference-handoff-10s.png",
+          "width": 960
+        },
+        {
+          "complete": true,
+          "height": 1440,
+          "source": "../generation/container-family/C01-silver-oblique-original.png",
+          "width": 2560
+        }
+      ],
+      "loadedState": "Same C01 · 12.192 m length and 2.896 m height; no rescaling to fit the truck.",
+      "view": "final",
+      "viewport": [
+        597,
+        788
+      ]
+    }
+  ],
+  "viewportNote": "Actual user-sized 597x788 browser. No viewport override applied.",
+  "screenshot": "evidence/truck-proposal/overview.png"
+}

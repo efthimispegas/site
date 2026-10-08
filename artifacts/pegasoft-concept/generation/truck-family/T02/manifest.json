@@ -1,0 +1,24 @@
+{
+  "id": "T02",
+  "status": "user_approved_original",
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+  "request_id": "01a11705-4c89-7a60-b0fd-b9ef642a44ee",
+  "provider_original_url": "https://v3b.fal.media/files/b/0aad70c7/lKSsGVSsUzE2ZrNHxAIC8_39k7wZqq.png",
+  "original": {
+    "path": "generation/truck-family/T02/T02-upper-original.png",
+    "sha256": "25cb04bd4494d27bf8b2d331d5bf25e304386d00c700f5cda8daf6fb9841d3e0",
+    "size": [
+      3072,
+      1024
+    ],
+    "mode": "RGBA"
+  },
+  "input": {
+    "path": "generation/truck-family/T02/input.json",
+    "sha256": "09a54a1c246a80f38c9aabc34cf8fd394f8a503646c82c39c9afdde8cd784ca0"
+  },
+  "provider_response": "generation/truck-family/T02/provider-response.json",
+  "alpha_analysis": "generation/truck-family/T02/alpha-analysis.json",
+  "alpha_unchanged": true,
+  "static_approval": "generation/truck-family/static-family-approval.json"
+}

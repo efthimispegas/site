@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "status": "awaiting_proposal_and_two_image_allowance_approval",
+  "date_local": "2026-10-07",
+  "branch": "codex/pegasoft-concept",
+  "title": "One truck. Sized for C01.",
+  "summary": "Review two required image inputs, shared material roles and a local dimensioned solid-geometry model method.",
+  "authority": {
+    "plan": "../../PROPOSAL.md",
+    "locked_prompt_book": "../../ASSET-PROMPTS.md",
+    "color_contract": "../../material-color-contract.json",
+    "accepted_lift_container": "../container-family/lift-integration/user-approval.json"
+  },
+  "motion_use": [
+    "Right-side entry with the cab facing right in the handoff side view; position the empty trailer beneath C01.",
+    "Lower the existing C01 onto four matching support planes, transfer ownership without a world-pose jump, then release the accepted compact head.",
+    "Depart through the side-to-overhead camera change; separate wheels and tractor/trailer yaw follow the coded road curve and central vertical lane.",
+    "The next ship-deck placement uses the same C01 identity and will have its own input/model proposal."
+  ],
+  "inputs": [
+    {
+      "id": "T01",
+      "count": 1,
+      "view": "Tractor-only front/left three-quarter oblique, facing right",
+      "purpose": "Resolve cab-front shape, glazing volume, interior visibility, mirrors, wheel arches, chassis and fifth wheel at useful detail.",
+      "generator": "openai/gpt-image-2.5/sunburst/text-to-image",
+      "settings": {
+        "image_size": {
+          "width": 2560,
+          "height": 1440
+        },
+        "quality": "high",
+        "background": "transparent",
+        "output_format": "png",
+        "num_images": 1
+      },
+      "prompt": "A premium modern black cab-over semi-truck tractor, carbon-painted body and structural chassis, restrained cool-blue reflections, realistic black tires, neutral brushed-silver/titanium fittings and authentic commercial vehicle proportions. Clean contemporary cab, clear continuous windshield and side glazing with one consistent interior. Two tractor axles, single front wheels and dual rear tires; matching mirrors, wheel arches, lamp arrangement and body seams. Cool even studio illumination. Complete silhouette with comfortable margins, isolated on transparent background. No logos, lettering, people, background, baked shadow, motion blur or warm decorative trim. Functional clear-white headlamps, restrained amber indicators and red rear lamps only. Front three-quarter oblique of the tractor alone, nose pointing to image right. Show the cab front and its full left side, roof edge, front and rear wheels, chassis and fifth-wheel coupling. This is the tractor component of the same container-hauling truck family; omit the trailer and cargo for this close identity input. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "stage": "Generate first, then stop for identity review."
+    },
+    {
+      "id": "T02",
+      "count": 1,
+      "view": "Complete tractor and empty 40ft skeletal chassis, strict left-side view, facing right",
+      "purpose": "Establish full-length proportions, tractor/trailer coupling, three trailer axles and deck support layout. Derive from the accepted T01 identity.",
+      "generator": "openai/gpt-image-2.5/sunburst/edit",
+      "settings": {
+        "image_size": {
+          "width": 3072,
+          "height": 1024
+        },
+        "quality": "high",
+        "background": "transparent",
+        "output_format": "png",
+        "num_images": 1
+      },
+      "reference_rule": "Use the exact approved T01 output URL in image_urls; no provider call until T01 acceptance.",
+      "prompt": "Use the approved T01 tractor reference unchanged in identity. Render a strict left-side view with the tractor nose facing image right, now coupled to an empty fixed 40-foot skeletal container chassis. Keep the same cab, glazing, mirrors, body seams, materials, wheel design and two-axle tractor arrangement. The chassis has two longitudinal I-beams, crossmembers, four container supports, fifth-wheel/kingpin coupling, two stowed landing legs, side guards and three separate trailer axles. It is long enough for the existing 12.192 m by 2.438 m container; the container is absent. Trailer proportions: approximately 12.435 m frame length, 11.275 m kingpin-to-rear length, 1.410/1.310 m trailer axle spacing and approximately 1.35 m support plane. Tractor wheelbase is approximately 3.8 m as a proposed visual target. Preserve authentic full-length proportions and generous clear space around the complete vehicle. A premium modern black cab-over semi-truck tractor, carbon-painted body and structural chassis, restrained cool-blue reflections, realistic black tires, neutral brushed-silver/titanium fittings and authentic commercial vehicle proportions. Clean contemporary cab, clear continuous windshield and side glazing with one consistent interior. Two tractor axles, single front wheels and dual rear tires; matching mirrors, wheel arches, lamp arrangement and body seams. Cool even studio illumination. Complete silhouette with comfortable margins, isolated on transparent background. No logos, lettering, people, background, baked shadow, motion blur or warm decorative trim. Functional clear-white headlamps, restrained amber indicators and red rear lamps only. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "stage": "Generate after T01 acceptance, then review the completed static set before modeling."
+    }
+  ],
+  "excluded_inputs": [
+    "Generated overhead/roof-only and underside plates",
+    "Standalone wheel, interior or mechanical-detail plates",
+    "Separate rear/opposite-side plates without a demonstrated gap",
+    "Loaded-truck image: reuse the approved C01 GLB in the model",
+    "Ship, ocean, video or extra variants in this batch"
+  ],
+  "input_change_rule": "Document a specific unresolved model feature and obtain approval before adding any view/component image.",
+  "materials": [
+    {
+      "part": "Cab paint, chassis, trailer beams and painted structural parts",
+      "finish": "Shared satin Pegasoft carbon #11151B with consistent fine grain; body styling remains for static review."
+    },
+    {
+      "part": "Rims, exposed fasteners, coupling and lock hardware",
+      "finish": "Neutral brushed silver/titanium, compatible with C01 hardware; no chrome mirror finish."
+    },
+    {
+      "part": "Tires, seals and hoses",
+      "finish": "Natural dark matte rubber with physical tire tread; a distinct rubber material, not structural paint."
+    },
+    {
+      "part": "Windshield and side windows",
+      "finish": "Clear lightly cool-tinted glass, continuous real depth and one shared cab interior."
+    },
+    {
+      "part": "Practical lamps",
+      "finish": "Clear-white headlights, restrained amber indicators and red rear lamps. Functional lighting only; these non-carbon roles are proposed for approval."
+    }
+  ],
+  "mandatory_carbon_clause": "All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+  "dimensions": {
+    "C01_external_meters": {
+      "length": 12.192,
+      "width": 2.438,
+      "height": 2.896
+    },
+    "C01_top_casting_centers_meters": {
+      "longitudinal_span": 11.992,
+      "transverse_span": 2.278
+    },
+    "support_rule": "Bind four trailer support/lock centers to the approved C01 geometry, not a generated-image estimate. Recompute rim contacts from its actual mesh.",
+    "chassis_proposed_meters": {
+      "length": 12.435,
+      "kingpin_to_rear": 11.275,
+      "axle_spread": [
+        1.41,
+        1.31
+      ],
+      "fifth_wheel_height": 1.15,
+      "neck_height": 0.2,
+      "initial_support_plane_height": 1.35
+    },
+    "source": "https://www.krone-trailer.com/fileadmin/media/downloads/EN/Container_Chassis/Datenblaetter/Box_Liner/Box_Liner_SDC_27_eL40_GB.pdf",
+    "source_date": "Manufacturer drawing issue 05/2021; consulted 2026-10-07",
+    "source_scope": "Chassis topology and visual dimensional reference only. Retain C01 exact casting coordinates; no OEM replica or engineering qualification.",
+    "tractor_visual_target": {
+      "type": "2-axle cab-over tractor",
+      "wheelbase_meters": 3.8,
+      "cab_height_meters": 3.75,
+      "status": "Proposed modeling targets, not dimensions recovered from the video."
+    }
+  },
+  "model_method": {
+    "proposed": "Local dimensioned Three.js solid geometry and GLB export, using the accepted C01 construction approach and lift cab/wheel construction patterns.",
+    "provider": "No image-to-3D provider job proposed. Static images are design references.",
+    "assemblies": [
+      "Shaped closed cab body/roof, mirrors, grille, steps and fenders",
+      "Clear glass panes, one frame, shared seats/steering/console/interior",
+      "Two independent tractor axles; six physical tires including dual rear tires",
+      "Fifth wheel, kingpin, rigid I-beam trailer, crossmembers and two stowed landing legs",
+      "Three separate trailer axles, six physical tires, guards and practical lamps",
+      "Four supports aligned to the existing C01 casting geometry"
+    ],
+    "motion_controls": [
+      "Tractor translation/yaw and front steering",
+      "Trailer articulation around fifth wheel",
+      "Separate wheel rotation derived from travel and tire radius",
+      "C01 ownership support transfer and release",
+      "One deterministic side-to-overhead camera trajectory"
+    ],
+    "geometry_rules": "Closed solids for structural components; intentional window/frame openings; real glass depth; physical tire/rim/tread surfaces. Match accepted image styling before model acceptance.",
+    "scale_rule": "Build in meters, then apply one common conversion into the accepted integration scene. Never rescale C01 or the approved head to fit the truck.",
+    "method_limit": "Cab styling requires custom shaped geometry and a dedicated interactive review; this proposal does not approve a generic box cab."
+  },
+  "handoff_contract": {
+    "baseline": "Preserve camera-v4 accepted lift/container inputs.",
+    "support_before_release": true,
+    "world_pose_on_ownership_change": "Must be continuous at full precision; wheel/chassis/roof planes tested through forward, pause and reverse.",
+    "fixed_grabber_limit": "Retain accepted central roof visual coupling; do not add reach rails or change head dimensions during lowering/release.",
+    "later_truck_checks": [
+      "Four C01/trailer rim contacts and no container/body intersections",
+      "Fixed C01 dimensions and model identity through lift/trailer ownership",
+      "Normal/quarter playback, pause/resume and reverse physical scroll",
+      "Side-to-overhead camera stability, wheel travel and tractor/trailer articulation",
+      "Cab/interior/tire continuity through the actual required views"
+    ]
+  },
+  "provider_preflight": "../../evidence/truck-proposal/provider-preflight.json",
+  "spending": {
+    "account_status": "ready as of current read-only account check; job affordability not established",
+    "requested_allowance": "At most two Image 2.5 single-image jobs: T01 first; T02 only after T01 acceptance. Zero automatic retries or variants.",
+    "price_observed": {
+      "unit_price": 1,
+      "unit": "units",
+      "currency": "USD",
+      "endpoints": [
+        "openai/gpt-image-2.5/sunburst/text-to-image",
+        "openai/gpt-image-2.5/sunburst/edit"
+      ]
+    },
+    "price_limit": "Provider response does not expose billing units per configured image. A reliable total price or Codex-credit cap is unavailable; do not call this USD 2 for two images.",
+    "allowance_authorized": false,
+    "jobs_submitted": 0,
+    "stop_after": "T01 identity review, then T02 static-set review; separate model and motion approvals follow."
+  },
+  "approval_requested": "Approve the two inputs, proposed material roles, local model method and bounded two-image allowance. This permits T01 first; stop for its static review before T02 or modeling."
+}

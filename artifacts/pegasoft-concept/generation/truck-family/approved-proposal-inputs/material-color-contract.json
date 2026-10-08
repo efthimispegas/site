@@ -1,0 +1,68 @@
+{
+  "status": "agreed_color_authority",
+  "date_local": "2026-10-05",
+  "authority": "Direct user clarification: carbon is agreed; align graphite/carbon across every asset to be produced",
+  "scope": "All future image/video prompts, model materials, local repairs and section assets in Pegasoft Concept",
+  "dark_paint": {
+    "token": "pegasoft_carbon",
+    "srgb": "#11151B",
+    "terms": [
+      "carbon",
+      "carbon black",
+      "black carbon chassis",
+      "dark graphite",
+      "graphite boom",
+      "graphite casing",
+      "graphite hull",
+      "graphite structural details"
+    ],
+    "rule": "Use one agreed carbon paint color; graphite describes a surface appearance, not another palette color."
+  },
+  "non_palette_draft_values": [
+    "#202A36",
+    "#26303C"
+  ],
+  "families": {
+    "jet": "Use carbon paint for any authorized future carbon/graphite refinement. Preserve approved lacquer appearance and existing accepted images; no additional jet work scheduled.",
+    "lift": "Unify original and repaired carbon boom, casing, chassis, spreader and stair/landing frames. Preserve separate blue, metal, rubber and glass.",
+    "containers": "Apply carbon only to explicitly selected dark carbon/graphite paint or fittings. Preserve agreed silver identity concept and separately selected navy/blue containers.",
+    "truck": "Use carbon for dark tractor/chassis, structural paint and any graphite parts. Preserve separately reviewed blue, metal, rubber and glass.",
+    "freight_ship": "Use carbon for the graphite hull portions and painted carbon structures. Preserve separately reviewed steel-blue hull portions and silver/navy/blue deck containers.",
+    "editorial_architecture": "Use carbon for authored carbon/graphite surfaces; preserve natural silver/titanium and approved blue lighting.",
+    "atmosphere": "Ocean, clouds, lighting and shadows keep their scene palette; do not treat them as painted carbon surfaces."
+  },
+  "blue_accent_roles": {
+    "#147DFF": "Pegasoft blue / active and designed accent",
+    "#7BCBFF": "Sky blue / rim light",
+    "#B9E7FF": "Champagne blue / practical light and cool highlights"
+  },
+  "surface_policy": [
+    "Base color does not lock roughness, metalness, normal texture or coat. Agree these in the relevant physical material review.",
+    "Glossy jet lacquer, satin structural paint, brushed metal and rubber retain their distinct physical properties.",
+    "Parts intended to share one carbon finish must share material settings and texture density; do not introduce color variants to compensate for lighting.",
+    "Rendered highlights and shadows naturally vary around the agreed base color."
+  ],
+  "production_rules": [
+    "Read PROPOSAL.md and this contract before every family or asset production batch.",
+    "Resolve carbon/graphite wording in the locked prompt book to #11151B by including the mandatory prompt clause below in every relevant reviewed generator prompt.",
+    "Include exact material-role mapping in each family proposal; review genuinely unspecified non-carbon paints/finishes before generation.",
+    "Reject unapproved graphite/dark-paint hex additions; show carbon/porcelain review before acceptance.",
+    "Preserve earlier approved assets, requests, manifests and GLBs. Their existing values are provenance, not future instructions."
+  ],
+  "mandatory_prompt_clause": "All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+  "locked_prompt_book": "ASSET-PROMPTS.md remains unchanged; PROPOSAL.md and this contract supply the binding exact-color interpretation for future execution.",
+  "new_generation_authorized_by_this_contract": false,
+  "surface_contracts": {
+    "lift": "generation/lift-family/material-contract.proposed.json"
+  },
+  "current_status": "CURRENT.md",
+  "safety_marking_roles": {
+    "container_front_corner_warning": {
+      "yellow_srgb": "#F2C230",
+      "black_srgb": "#11151B",
+      "scope": "Both upper front corner casting faces and the left-door caution symbol only; authored local model markings, preserve casting apertures.",
+      "authority": "Direct user amendment 2026-10-06: yellow/black stripes at top left/right container corners of front side.",
+      "other_surfaces": "Preserve agreed silver/titanium, blue and rubber roles."
+    }
+  }
+}

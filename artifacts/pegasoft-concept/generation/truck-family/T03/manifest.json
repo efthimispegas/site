@@ -1,0 +1,24 @@
+{
+  "id": "T03",
+  "status": "user_approved_original",
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+  "request_id": "01a11706-ba6e-79a2-8a59-00344cd14fdd",
+  "provider_original_url": "https://v3b.fal.media/files/b/0aad70d0/vopzvq4SMrhdsfzqWR6gm_1Jw89vEn.png",
+  "original": {
+    "path": "generation/truck-family/T03/T03-front-original.png",
+    "sha256": "7ba46d456abfe37287848c9bc50ce23f3fb745bbecbe57918de8bec2dbc5e66c",
+    "size": [
+      1536,
+      2048
+    ],
+    "mode": "RGBA"
+  },
+  "input": {
+    "path": "generation/truck-family/T03/input.json",
+    "sha256": "4e9d8cd1632c98178c2fc44ab32ac159263965f509be5e561aacf04400bb94de"
+  },
+  "provider_response": "generation/truck-family/T03/provider-response.json",
+  "alpha_analysis": "generation/truck-family/T03/alpha-analysis.json",
+  "alpha_unchanged": true,
+  "static_approval": "generation/truck-family/static-family-approval.json"
+}

@@ -1,0 +1,64 @@
+{
+  "status": "file_provenance_and_browser_checks_passed_static_family_user_approved",
+  "branch": "codex/pegasoft-concept",
+  "date_local": "2026-10-07",
+  "jobs": [
+    {
+      "id": "T01",
+      "request_id": "01a116b2-b795-73a0-993e-18e5cd56c986",
+      "prompt_settings_references_match_approved": true,
+      "output_sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5",
+      "dimensions": [
+        3072,
+        1024
+      ],
+      "RGBA_alpha_preserved": true,
+      "receipt_recipe_available": true,
+      "receipt_bound_to_submission": true
+    },
+    {
+      "id": "T02",
+      "request_id": "01a11705-4c89-7a60-b0fd-b9ef642a44ee",
+      "prompt_settings_references_match_approved": true,
+      "output_sha256": "25cb04bd4494d27bf8b2d331d5bf25e304386d00c700f5cda8daf6fb9841d3e0",
+      "dimensions": [
+        3072,
+        1024
+      ],
+      "RGBA_alpha_preserved": true,
+      "receipt_recipe_available": true,
+      "receipt_bound_to_submission": true
+    },
+    {
+      "id": "T03",
+      "request_id": "01a11706-ba6e-79a2-8a59-00344cd14fdd",
+      "prompt_settings_references_match_approved": true,
+      "output_sha256": "7ba46d456abfe37287848c9bc50ce23f3fb745bbecbe57918de8bec2dbc5e66c",
+      "dimensions": [
+        1536,
+        2048
+      ],
+      "RGBA_alpha_preserved": true,
+      "receipt_recipe_available": false,
+      "receipt_bound_to_submission": true
+    }
+  ],
+  "approved_image_jobs_used": 3,
+  "remaining_image_jobs": 0,
+  "automatic_retries": 0,
+  "variants": 0,
+  "original_photo_and_frozen_prompt_book_unchanged": true,
+  "T01_approval_snapshots_verified": 28,
+  "family_context_snapshots_verified": 27,
+  "accepted_lift_inputs_unchanged": 11,
+  "actual_browser_viewport": [
+    597,
+    788
+  ],
+  "family_controls_verified": true,
+  "user_acceptance": "generation/truck-family/static-family-approval.json",
+  "angle_contract": "T02 oblique and T03 offset technically differ from originally requested orthographic angles; user approved exact originals as supplied. No correction requested.",
+  "model_provider_jobs": 0,
+  "browser_evidence": "evidence/truck-family-review/browser-observation.json",
+  "browser_records_verified": 5
+}

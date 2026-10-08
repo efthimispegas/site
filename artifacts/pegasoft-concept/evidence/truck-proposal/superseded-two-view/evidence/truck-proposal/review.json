@@ -1,0 +1,63 @@
+{
+  "status": "awaiting_truck_proposal_approval",
+  "revision": "truck-input-plan-v1",
+  "branch": "codex/pegasoft-concept",
+  "date_local": "2026-10-07",
+  "review_url": "http://127.0.0.1:8767/review/truck-plan.html",
+  "inputs": [
+    {
+      "path": "review/truck-plan.html",
+      "sha256": "09d01392716f98ce690b9c78f9fc3c79b79f55e73f8717a6489b79501d76e0e8"
+    },
+    {
+      "path": "generation/truck-family/input-proposal.json",
+      "sha256": "0796630e933b2f2894b772b349c0afb88524f616aac7cc5d98fe7bab5088cfec"
+    },
+    {
+      "path": "material-color-contract.json",
+      "sha256": "fe7be1ebbc4f5c070df208937101fda17113f05f92e09b7d9b05a9e9151bfb29"
+    },
+    {
+      "path": "ASSET-PROMPTS.md",
+      "sha256": "23e16e8f4385dab8eaa24747c69ee5d925646f6ac3597b662e75c90c8921353e"
+    },
+    {
+      "path": "evidence/truck-proposal/provider-preflight.json",
+      "sha256": "b4661197374f1fb2f066661f9c0d033a88365a5e41f51019f99adb80b87b13c5"
+    },
+    {
+      "path": "evidence/truck-proposal/reference.json",
+      "sha256": "deca880c8b3ea3dced06d692a2465d4e8581e34c1a01f4303b1ea3dbc424b1bd"
+    },
+    {
+      "path": "evidence/truck-proposal/reference-handoff-10s.png",
+      "sha256": "d35430c7cb19fdd35144b3090f55fc7c0edaa1f6723e56bdd4ce18f695960b5a"
+    },
+    {
+      "path": "evidence/truck-proposal/reference-handoff-14s.png",
+      "sha256": "fd0fc23e77a10f832cbbaab9dabfebf19b3397b1aa571f29dc97c569497fa4d0"
+    }
+  ],
+  "checks": {
+    "path": "evidence/truck-proposal-checks.json",
+    "sha256": "2692046ef36f37c31c03057e0865c1ca423177657331a1a3e545a8ceefb67eec",
+    "outcome": "passed current inputs, real browser controls/keyboard and actual layout"
+  },
+  "screenshot": {
+    "path": "evidence/truck-proposal/overview.png",
+    "sha256": "28eee7310b9f91ef46e4b9ffffcb41b287e92c354b4ff36c87cef6aa78e273f6"
+  },
+  "approval_requested": "Approve the two inputs, proposed material roles, local model method and bounded two-image allowance. This permits T01 first; stop for its static review before T02 or modeling.",
+  "production": {
+    "jobs_submitted": 0,
+    "allowance_authorized": false,
+    "model_produced": false
+  },
+  "accepted_baseline": "generation/container-family/lift-integration/user-approval.json",
+  "usage": "evidence/truck-proposal/usage.json",
+  "checkpoint": {
+    "CURRENT.md": "fdec233cbec3ce25e06c507ff096dc41e76bd7a0f01281530186f19cab234fdf",
+    "HANDOFF.md": "29bae83ef082d187ede103d3934fccd5527c72c7e28e68be9f77f392027b0840",
+    "review/index.html": "27a82fe3b226e3e6c6b8bf931ecf70fabc28e4d6ebb605bfb70f59f287b4f38c"
+  }
+}

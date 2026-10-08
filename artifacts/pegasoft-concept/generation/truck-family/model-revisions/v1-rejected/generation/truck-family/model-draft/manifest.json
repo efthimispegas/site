@@ -1,0 +1,147 @@
+{
+  "status": "interactive_truck_model_review_pending_user_acceptance",
+  "revision": "truck-solid-v1",
+  "branch": "codex/pegasoft-concept",
+  "date_local": "2026-10-07",
+  "review_url": "http://127.0.0.1:8767/review/truck-model.html#viewer",
+  "model": {
+    "path": "generation/truck-family/model-draft/T01-truck.glb",
+    "sha256": "dc82cf79bfaf6bc69a34eca6f83186118cb7e86c737ff592bd16154d921154e0",
+    "bytes": 833468,
+    "triangles": 81908
+  },
+  "static_family": "generation/truck-family/static-family-approval.json",
+  "geometry_checks": "generation/truck-family/model-draft/model-checks.json",
+  "runtime_checks": "evidence/truck-model-checks.json",
+  "inputs": [
+    {
+      "path": "evidence/truck-model-review/browser-observation.json",
+      "sha256": "702c50625542788282e46ca00b419cd050e47a501fc87e33eee7653ea213a910"
+    },
+    {
+      "path": "evidence/truck-model-review/pointer-automation.json",
+      "sha256": "72db77641d42c129a1fb1a98f88cbb65de3c9a16474fcb70e3fd2d393c3fda09"
+    },
+    {
+      "path": "evidence/truck-model-review/pointer-observations.json",
+      "sha256": "0f92e6cc992dd0e05cc346e683c9a1bb4e391e52e3e7ab8189def2da1d53099f"
+    },
+    {
+      "path": "evidence/truck-model-review/usage.json",
+      "sha256": "5380620e572adef584177c22ec8f9a4fa391f08dd11b51d9849f63907a04275a"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/truck-family/family-manifest.json",
+      "sha256": "079fb253cbe9c9a5ae2122b54a3313c4c27b9db417ad7f5473b1c42df2fec141"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "dc82cf79bfaf6bc69a34eca6f83186118cb7e86c737ff592bd16154d921154e0"
+    },
+    {
+      "path": "generation/truck-family/model-draft/build-model.mjs",
+      "sha256": "39f7df8da11ca3e099172a538f402038b649738466df281b39eca0f2410b582b"
+    },
+    {
+      "path": "generation/truck-family/model-draft/build-wordmark.py",
+      "sha256": "dc2f30b33fd4ef7be45ea073d8aacc078a7c71cc5512572b2cbb478a9443d3b9"
+    },
+    {
+      "path": "generation/truck-family/model-draft/model-checks.json",
+      "sha256": "153f5b233d91e61ce622b5af86baeff04923eb3e26cf44e24ecd998a38076313"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "8664e1e7692516316c55e999fe6ba66264658856379a5ee741dd4c990f20f017"
+    },
+    {
+      "path": "generation/truck-family/model-draft/wordmark.png",
+      "sha256": "f62adb1a259778be46f2fe0581ff244bcc857db6413f99ffa515015e8842bb3b"
+    },
+    {
+      "path": "generation/truck-family/model-draft/wordmark.rgba",
+      "sha256": "66c0d1649fa21434d859230d180ab6cdd6e0b2d21a046d931cc83a0b45810643"
+    },
+    {
+      "path": "generation/truck-family/static-family-approval.json",
+      "sha256": "944f79623adc40beff0e010190c126409690cd6dbf8e170c00019b2064c825a4"
+    },
+    {
+      "path": "review/truck-model.html",
+      "sha256": "d69f57e48f7a8edc24f400e26461b78df7cb05928b4471f2393a0319785770d2"
+    },
+    {
+      "path": "review/truck-model.js",
+      "sha256": "11f8f14ef206a5cf24303ceece9ed1fb13861c6875a968ed4af3ce27ed1b417c"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "evidence/truck-model-review/articulated-porcelain.png",
+      "sha256": "962d27c73f1c3b552abf79bb33b4c727e8186aded59badfa6dcae0d4017f5765"
+    },
+    {
+      "path": "evidence/truck-model-review/cab-porcelain.png",
+      "sha256": "a56486018004ddd788bb7a52fc7b33adca4b62c5c1d0da7e3e8cad9b52d67597"
+    },
+    {
+      "path": "evidence/truck-model-review/cab.png",
+      "sha256": "69ae960a4171da7c2782941367fbadda241b0c79268723ee12781e4a2959d551"
+    },
+    {
+      "path": "evidence/truck-model-review/front.png",
+      "sha256": "56c189bb3c48a538576ac1568b69f04ac344b2dbcb527b18ac70d323285b443a"
+    },
+    {
+      "path": "evidence/truck-model-review/loaded-oblique.png",
+      "sha256": "4aa59ca78bdc6d751efebd449cc388c998a39d2903f444f2f580fb258880b2b3"
+    },
+    {
+      "path": "evidence/truck-model-review/loaded-side.png",
+      "sha256": "6bd3c63f1a00150cf4cb8c504783e5450762f38d85ee02017e49cb029151b5a1"
+    },
+    {
+      "path": "evidence/truck-model-review/oblique.png",
+      "sha256": "baa79cf34b60bfff7d0f19a5cf442ec14990fcc911b77b2dc4ef5923771c5e27"
+    },
+    {
+      "path": "evidence/truck-model-review/rear.png",
+      "sha256": "c70a877746d9223a2b93280d5b14f696da1c418b84a0f6ad8b600c9806ec2f84"
+    },
+    {
+      "path": "evidence/truck-model-review/review-ready.png",
+      "sha256": "82266a8079ab2855382880f86309f3c334c298a5ea009683d258be9b96e646b3"
+    },
+    {
+      "path": "evidence/truck-model-review/side.png",
+      "sha256": "efd4c86cfdf36fde2377f8c82e936eee4813be796aa1bdce321bd38def6cd208"
+    },
+    {
+      "path": "evidence/truck-model-review/support.png",
+      "sha256": "571f6b22541c3fca8dbb4444d1ff8554da5fe9ae48c55aa982ce3658701d3200"
+    },
+    {
+      "path": "evidence/truck-model-review/underside.png",
+      "sha256": "baa3be30c38e7b076539928b8cbbbcd9cd2341ff5dc2b20bf2a0e82d324b7d6e"
+    },
+    {
+      "path": "evidence/truck-model-review/upper.png",
+      "sha256": "3d4fb7497c1fb08a183717c0a7d8ba8524063f5f6c2ba9ea98d9721d4a74e18f"
+    },
+    {
+      "path": "evidence/truck-model-review/wheel.png",
+      "sha256": "561c3a43c7a64c8a545e04b4d73d143c07a686b37120324885ea53a870a16cf1"
+    }
+  ],
+  "provider_jobs_for_model": 0,
+  "limits": [
+    "Cab geometry and finish are a local reconstruction requiring user visual review.",
+    "Pointer drag automation unconfirmed; explicit orbit and zoom buttons verified.",
+    "Lift ownership transfer, wheel travel and road/camera trajectory await model acceptance.",
+    "Existing exact head and camera-v4 remain unchanged."
+  ]
+}

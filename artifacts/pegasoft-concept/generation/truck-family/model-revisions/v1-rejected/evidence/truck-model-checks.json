@@ -1,0 +1,57 @@
+{
+  "status": "geometry_and_runtime_button_checks_passed_pointer_drag_unconfirmed_user_model_review_pending",
+  "branch": "codex/pegasoft-concept",
+  "revision": "truck-solid-v1",
+  "model_sha256": "dc82cf79bfaf6bc69a34eca6f83186118cb7e86c737ff592bd16154d921154e0",
+  "solid_primitives": 1273,
+  "triangles": 81908,
+  "closed_positive_primitives": true,
+  "exported_attribute_readbacks": 5054,
+  "embedded_maps": [
+    {
+      "name": "external_Pegasoft_Manrope_650",
+      "size": [
+        1024,
+        256
+      ],
+      "pixels_verified": true
+    },
+    {
+      "name": "approved_roof_carbon_blue_paint",
+      "size": [
+        256,
+        1
+      ],
+      "pixels_verified": true
+    }
+  ],
+  "C01_model_bytes_unchanged": true,
+  "accepted_lift_inputs_unchanged": 11,
+  "four_rim_contacts": true,
+  "cab_C01_and_trailer_AABB_clearance_at_minus10_zero_plus10": true,
+  "actual_browser_viewport": [
+    597,
+    788
+  ],
+  "browser_records": 21,
+  "named_views": [
+    "oblique",
+    "side",
+    "front",
+    "upper",
+    "rear",
+    "under",
+    "cab",
+    "wheel",
+    "seat"
+  ],
+  "keyboard_steering_articulation_rotation": true,
+  "explicit_orbit_and_zoom_controls": true,
+  "inverse_orbit_zoom_restore_pose": true,
+  "camera_unchanged_by_parts_and_background": true,
+  "no_horizontal_overflow": true,
+  "pointer_drag": "Unconfirmed after three attempts; no further similar attempts. See pointer-automation.json.",
+  "visual_inspection": "Rendered cab, glazing, lettering, wheels, chassis, seated C01, front, roof, rear and underside inspected. User appearance acceptance pending; no source-exact visual qualification claimed.",
+  "model_manifest": "generation/truck-family/model-draft/manifest.json",
+  "next": "User model review before lift/road integration."
+}

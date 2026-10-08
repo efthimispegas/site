@@ -1,0 +1,9 @@
+{
+  "status": "pointer_drag_not_confirmed_after_three_attempts",
+  "failure": "Two native tab.drag gestures and one held-pointer CDP gesture left the camera pose unchanged. No console errors; hit testing confirms the canvas received the tested location.",
+  "attempted_changes": "No asset geometry changes were made to address this test. Added explicit orbit buttons within the required keyboard/touch inspection controls.",
+  "evidence": "pointer-observations.json, copied from returned browser observations",
+  "hypothesis": "Cannot distinguish in-app pointer forwarding from OrbitControls pointer handling from the available observation.",
+  "recommended_next_step": "Use verified orbit buttons for this review; confirm normal pointer dragging manually before any production viewer integration.",
+  "retry_policy": "No further similar pointer automation attempts in this turn."
+}

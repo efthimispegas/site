@@ -1,0 +1,231 @@
+{
+  "revision": "truck-reference-redesign-v2",
+  "scope": "Actual browser review of design proposal and controls; no generated truck or motion/model acceptance",
+  "crossDocumentTelemetryLimit": "The read-only DOM scope does not expose object.contentDocument. Raw svgLoaded=false and absent containerVisibility do not diagnose the rendered SVG. Native AX and actual screenshots verify the embedded side/upper/front documents and visible fit.",
+  "observations": [
+    {
+      "buttons": [
+        {
+          "pressed": "true",
+          "view": "side"
+        },
+        {
+          "pressed": "false",
+          "view": "upper"
+        },
+        {
+          "pressed": "false",
+          "view": "front"
+        }
+      ],
+      "caption": "Side / reference cab identity and full-length container chassis.",
+      "horizontalOverflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "source": "../references/truck.jpg"
+        },
+        {
+          "loaded": true,
+          "source": "../generation/container-family/C01-silver-oblique-original.png"
+        }
+      ],
+      "loadDisabled": false,
+      "svgLoaded": false,
+      "url": "http://127.0.0.1:8767/review/truck-plan.html#design",
+      "view": "truck-family/side.svg",
+      "viewport": [
+        597,
+        788
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "pressed": "false",
+          "view": "side"
+        },
+        {
+          "pressed": "true",
+          "view": "upper"
+        },
+        {
+          "pressed": "false",
+          "view": "front"
+        }
+      ],
+      "caption": "Upper / coherent roof, chassis rails and four support positions.",
+      "horizontalOverflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "source": "../references/truck.jpg"
+        },
+        {
+          "loaded": true,
+          "source": "../generation/container-family/C01-silver-oblique-original.png"
+        }
+      ],
+      "loadDisabled": false,
+      "svgLoaded": false,
+      "url": "http://127.0.0.1:8767/review/truck-plan.html#design",
+      "view": "truck-family/upper.svg",
+      "viewport": [
+        597,
+        788
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "pressed": "false",
+          "view": "side"
+        },
+        {
+          "pressed": "true",
+          "view": "upper"
+        },
+        {
+          "pressed": "false",
+          "view": "front"
+        }
+      ],
+      "caption": "Upper / coherent roof, chassis rails and four support positions. C01 shown at its fixed proportions.",
+      "horizontalOverflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "source": "../references/truck.jpg"
+        },
+        {
+          "loaded": true,
+          "source": "../generation/container-family/C01-silver-oblique-original.png"
+        }
+      ],
+      "loadDisabled": false,
+      "svgLoaded": false,
+      "url": "http://127.0.0.1:8767/review/truck-plan.html#design",
+      "view": "truck-family/upper.svg",
+      "viewport": [
+        597,
+        788
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "pressed": "false",
+          "view": "side"
+        },
+        {
+          "pressed": "false",
+          "view": "upper"
+        },
+        {
+          "pressed": "true",
+          "view": "front"
+        }
+      ],
+      "caption": "Front / the same high-roof cab, grille, lamps and accent returns.",
+      "horizontalOverflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "source": "../references/truck.jpg"
+        },
+        {
+          "loaded": true,
+          "source": "../generation/container-family/C01-silver-oblique-original.png"
+        }
+      ],
+      "loadDisabled": true,
+      "svgLoaded": false,
+      "url": "http://127.0.0.1:8767/review/truck-plan.html#design",
+      "view": "truck-family/front.svg",
+      "viewport": [
+        597,
+        788
+      ]
+    },
+    {
+      "buttons": [
+        {
+          "pressed": "false",
+          "view": "side"
+        },
+        {
+          "pressed": "true",
+          "view": "upper"
+        },
+        {
+          "pressed": "false",
+          "view": "front"
+        }
+      ],
+      "caption": "Upper / coherent roof, chassis rails and four support positions.",
+      "horizontalOverflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "source": "../references/truck.jpg"
+        },
+        {
+          "loaded": true,
+          "source": "../generation/container-family/C01-silver-oblique-original.png"
+        }
+      ],
+      "loadDisabled": false,
+      "svgLoaded": false,
+      "url": "http://127.0.0.1:8767/review/truck-plan.html#design",
+      "view": "truck-family/upper.svg",
+      "viewport": [
+        597,
+        788
+      ],
+      "interaction": "Keyboard Shift+Tab then Return from front selects upper"
+    },
+    {
+      "buttons": [
+        {
+          "pressed": "true",
+          "view": "side"
+        },
+        {
+          "pressed": "false",
+          "view": "upper"
+        },
+        {
+          "pressed": "false",
+          "view": "front"
+        }
+      ],
+      "caption": "Side / reference cab identity and full-length container chassis. C01 shown at its fixed proportions.",
+      "horizontalOverflow": false,
+      "images": [
+        {
+          "loaded": true,
+          "source": "../references/truck.jpg"
+        },
+        {
+          "loaded": true,
+          "source": "../generation/container-family/C01-silver-oblique-original.png"
+        }
+      ],
+      "loadDisabled": false,
+      "svgLoaded": false,
+      "url": "http://127.0.0.1:8767/review/truck-plan.html#design",
+      "view": "truck-family/side.svg",
+      "viewport": [
+        597,
+        788
+      ],
+      "interaction": "Final side fit preview"
+    }
+  ],
+  "finalNativeAX": "Browser tab: 1, Title: \"Pegasoft / Reference truck redesign\", URL: \"http://127.0.0.1:8767/review/truck-plan.html#design\".\n1 AXWebArea Pegasoft / Reference truck redesign, URL: 127.0.0.1:8767/review/truck-plan.html#design\n\t2 container\n\t\t3 link Description: pegasoft, Value: 127.0.0.1:8767/review/index.html\n\t\t4 text Truck / Reference redesign\n\t\t5 link Description: Review direction ↓, Value: 127.0.0.1:8767/review/truck-plan.html#design\n\t6 container\n\t\t7 text TRUCK FAMILY · REVISED FOR APPROVAL\n\t\t8 heading The reference truck. In Pegasoft., Value: 1\n\t\t\t9 text The reference truck.\n\t\t\t10 text In Pegasoft.\n\t\t11 text The tall cab, sculpted grille and stance from your truck.jpg. Pegasoft carbon and blue, a full container chassis, and one consistent design across side, upper and front views. Design proposal · 3 required generated views · generation pending\n\t\t12 container Same form. Pegasoft finish., ID: design\n\t\t\t13 heading Same form. Pegasoft finish., Value: 2, ID: design-title\n\t\t\t\t14 text Same form. Pegasoft finish.\n\t\t\t15 container Truck design view\n\t\t\t\t16 checkbox Side view, Value: 1\n\t\t\t\t17 checkbox Upper view, Value: 0\n\t\t\t\t18 checkbox Front view, Value: 0\n\t\t\t19 container Description: Schematic side design direction, ID: design-preview\n\t\t\t\t154 AXWebArea Side design direction, URL: 127.0.0.1:8767/review/truck-family/side.svg\n\t\t\t\t\t155 container Side design direction Reference-shaped high-roof carbon cab with blue shoulder and fairing accents, attached to an empty full-length skeletal container chassis., Help: Reference-shaped high-roof carbon cab with blue shoulder and fairing accents, attached to an empty full-length skeletal container chassis.\n\t\t\t22 container Container fit\n\t\t\t\t23 checkbox Hide C01 fit, Value: 1, ID: load-toggle\n\t\t\t\t24 text Schematic preview · not a generated asset or an approved model\n\t\t\t156 text Side / reference cab identity and full-length container chassis. C01 shown at its fixed proportions.\n\t\t\t26 text Carbon #11151B Pegasoft blue #147DFF Brushed silver / titanium Pale-blue lettering #B9E7FF\n\t\t27 container The supplied identity anchor.\n\t\t\t28 heading The supplied identity anchor., Value: 2, ID: source-title\n\t\t\t\t29 text The supplied identity anchor.\n\t\t\t30 container\n\t\t\t\t31 image Supplied blue high-roof Scania cab-over tractor and container trailer, shown from the front and side\n\t\t\t\t32 text Exact supplied truck.jpg · preserved unchanged. Vehicle form guides the redesign; source cargo, branding and environment are replaced.\n\t\t\t33 text PRESERVE THE VEHICLE SHAPE\n\t\t\t34 content list\n\t\t\t\t35 container\n\t\t\t\t\t36 AXListMarker • \n\t\t\t\t\t37 text Tall rounded high-roof cab, roof visor and broad windshield.\n\t\t\t\t38 container\n\t\t\t\t\t39 AXListMarker • \n\t\t\t\t\t40 text Split mirror housings, sculpted doors, wheel arches and steps.\n\t\t\t\t41 container\n\t\t\t\t\t42 AXListMarker • \n\t\t\t\t\t43 text Wide stacked grille, angular lamps and stepped bumper.\n\t\t\t\t44 container\n\t\t\t\t\t45 AXListMarker • \n\t\t\t\t\t46 text Two tractor axles, dual rear tires and a three-axle trailer.\n\t\t\t47 text Carbon carries the body and chassis. A blue shoulder band follows the rear cab pillars and visor; a lower blue fairing accent returns around the bumper.\n\t\t\t48 container\n\t\t\t\t49 text Clean front and door label areas receive the exact  PEGASOFT Solutions  wordmark as vector lettering. Its placement stays fixed across the three views.\n\t\t\t50 text The opposite side, hidden chassis and roof details need coherent reconstruction; the single photo does not measure them.\n\t\t51 container A chassis that carries C01.\n\t\t\t52 heading A chassis that carries C01., Value: 2, ID: fit-title\n\t\t\t\t53 text A chassis that carries C01.\n\t\t\t54 text FULL 40 FT SKELETAL TRAILER\n\t\t\t55 heading Rails. Crossmembers. Four supports., Value: 3\n\t\t\t\t56 text Rails. Crossmembers. Four supports.\n\t\t\t57 container\n\t\t\t\t58 text Two load-bearing longitudinal beams, crossmembers, kingpin and fifth wheel, stowed landing legs, side guards and three trailer axles. The existing container stays at  12.192 × 2.438 × 2.896 m .\n\t\t\t59 container\n\t\t\t\t60 text Support centers follow its  11.992 × 2.278 m  casting footprint. Final seating uses the actual bottom-casting rims; the load transfers only after all four supports meet C01.\n\t\t\t61 container\n\t\t\t\t62 text Initial chassis targets: 12.435 m frame and 1.35 m support plane. \n\t\t\t\t63 link Description: Manufacturer dimensional reference, Value: krone-trailer.com/fileadmin/media/downloads/EN/Container_Chassis/Datenblaetter/Box_Liner/Box_Liner_SDC_27_eL40_GB.pdf\n\t\t\t\t64 text , issue 05/2021; visual guide, with C01 mesh contact controlling the final fit.\n\t\t\t65 container\n\t\t\t\t66 image Approved long silver C01 shipping container\n\t\t\t\t67 text The accepted C01 is reused. Cab proportions and chassis fit must suit the container; its scale and identity stay fixed.\n\t\t68 container Three views. One physical design.\n\t\t\t69 heading Three views. One physical design., Value: 2, ID: inputs-title\n\t\t\t\t70 text Three views. One physical design.\n\t\t\t71 text Each generated view resolves a part of the journey: side for the handoff, upper for the road pivot, front for the changing camera angle. T01 establishes the design; the upper and front derive from that accepted image and your original reference.\n\t\t\t72 container\n\t\t\t\t73 text T01 / SIDE\n\t\t\t\t74 heading Complete tractor and empty chassis, strict left-side view, facing right, Value: 3\n\t\t\t\t\t75 text Complete tractor and empty chassis, strict left-side view, facing right\n\t\t\t\t76 text The side handoff establishes reference cab identity, Pegasoft paint placement and the full chassis silhouette. 3072 × 1024 · transparent PNG · high · one image Generate from the exact supplied truck.jpg reference; then stop for identity and accent approval.\n\t\t\t\t77 button (collapsed) Exact generation prompt, Secondary Actions: Expand\n\t\t\t\t\t78 text Exact generation prompt\n\t\t\t79 container\n\t\t\t\t80 text T02 / UPPER\n\t\t\t\t81 heading Complete tractor and empty chassis, straight-down upper view, cab to the right, Value: 3\n\t\t\t\t\t82 text Complete tractor and empty chassis, straight-down upper view, cab to the right\n\t\t\t\t83 text The side-to-upper camera transition and road journey expose the roof, fifth wheel, rails and chassis footprint. 3072 × 1024 · transparent PNG · high · one image Generate after T01 acceptance; review with T03 as one coherent static family.\n\t\t\t\t84 button (collapsed) Exact generation prompt, Secondary Actions: Expand\n\t\t\t\t\t85 text Exact generation prompt\n\t\t\t86 container\n\t\t\t\t87 text T03 / FRONT\n\t\t\t\t88 heading Same coupled truck, strict centered front view, Value: 3\n\t\t\t\t\t89 text Same coupled truck, strict centered front view\n\t\t\t\t90 text The road/camera change needs a consistent cab-front silhouette, glazing, grille, mirrors and accent returns. 1536 × 2048 · transparent PNG · high · one image Generate after T01 acceptance; review with T02 as one coherent static family.\n\t\t\t\t91 button (collapsed) Exact generation prompt, Secondary Actions: Expand\n\t\t\t\t\t92 text Exact generation prompt\n\t\t\t93 text Your required upper view is included as a truck-specific amendment. No underside, extra oblique, detail plates or automatic variants are scheduled. Loaded-truck imagery uses the existing C01 model.\n\t\t94 container One material family.\n\t\t\t95 heading One material family., Value: 2, ID: material-title\n\t\t\t\t96 text One material family.\n\t\t\t97 table\n\t\t\t\t98 row\n\t\t\t\t\t99 cell\n\t\t\t\t\t\t100 text Cab / chassis\n\t\t\t\t\t101 cell\n\t\t\t\t\t\t102 text Satin carbon #11151B. Shared structural finish and fine grain; shaped cab surfaces follow the supplied photo.\n\t\t\t\t103 row\n\t\t\t\t\t104 cell\n\t\t\t\t\t\t105 text Blue accents\n\t\t\t\t\t106 cell\n\t\t\t\t\t\t107 text #147DFF on the agreed shoulder/visor and lower fairing/bumper returns. Painted accent geometry matches in side, upper and front.\n\t\t\t\t108 row\n\t\t\t\t\t109 cell\n\t\t\t\t\t\t110 text Metal / rubber\n\t\t\t\t\t111 cell\n\t\t\t\t\t\t112 text Neutral brushed silver/titanium fittings and rims. Matte tires, seals and hoses remain distinct from painted structure.\n\t\t\t\t113 row\n\t\t\t\t\t114 cell\n\t\t\t\t\t\t115 text Glazing\n\t\t\t\t\t116 cell\n\t\t\t\t\t\t117 text Clear lightly cool-tinted glass, real depth and one consistent cab interior.\n\t\t\t\t118 row\n\t\t\t\t\t119 cell\n\t\t\t\t\t\t120 text Wordmark / lamps\n\t\t\t\t\t121 cell\n\t\t\t\t\t\t122 text Pale-blue Manrope lettering applied externally. Clear-white headlights, functional amber indicators and red rear lamps.\n\t\t123 container The model follows the accepted family.\n\t\t\t124 heading The model follows the accepted family., Value: 2, ID: method-title\n\t\t\t\t125 text The model follows the accepted family.\n\t\t\t126 heading Dimensioned solid geometry, Value: 3\n\t\t\t\t127 text Dimensioned solid geometry\n\t\t\t128 text Proposed local Three.js / GLB construction, using the accepted C01 and lift construction methods. Shape the cab from all three approved truck views: roof contour, grille recesses, mirror stacks, arches, clear glazing and interior.\n\t\t\t129 text Keep tractor, trailer, front steering and wheels independent. Build in meters, with one shared conversion into the lift scene. Review orbit, zoom, cab detail and the required journey views before integration.\n\t\t\t130 heading A continuous handoff, Value: 3\n\t\t\t\t131 text A continuous handoff\n\t\t\t132 text Lower the same C01 onto four supports, establish its load-bearing contact, transfer ownership without a pose jump, then release and retract the accepted fixed grabber.\n\t\t\t133 text Signed travel drives wheel rotation. The fifth wheel drives trailer articulation; one reversible camera trajectory follows side → upper and the road curve.\n\t\t\t134 text Preserve the accepted compact head and camera. Its existing roof coupling is a visual convention; no extending fingers are added.\n\t\t\t135 content list\n\t\t\t\t136 container\n\t\t\t\t\t137 text 01 · Direction Approve this reference-based design, three inputs, material placements and proposed method.\n\t\t\t\t138 container\n\t\t\t\t\t139 text 02 · Side identity Generate T01 from truck.jpg. Stop for cab, accent and chassis review.\n\t\t\t\t140 container\n\t\t\t\t\t141 text 03 · Family Generate T02 upper and T03 front from accepted T01; review identity and branding together.\n\t\t\t\t142 container\n\t\t\t\t\t143 text 04 · Model & motion Build and review the interactive model, then integrate the handoff and road journey.\n\t\t144 container Ready for design-direction approval.\n\t\t\t145 heading Ready for design-direction approval., Value: 2, ID: decision-title\n\t\t\t\t146 text Ready for design-direction approval.\n\t\t\t147 container\n\t\t\t\t148 text Review the photo-derived cab, Pegasoft accent placements, supporting chassis and required side / upper / front family. Proposed allowance:  three single-image Image 2.5 edit jobs , with T01 first and no automatic retries or variants.\n\t\t\t149 text No truck generation, provider upload or model production has started. The saved provider check reports USD 1 per billing unit but does not specify units per configured image; a reliable batch total is unavailable. Recheck availability and pricing before production.\n\t\t\t150 link Description: Input manifest & exact prompts ↗, Value: 127.0.0.1:8767/generation/truck-family/input-proposal.json\n\t\t\t151 link Description: Recorded requirements ↗, Value: 127.0.0.1:8767/evidence/truck-proposal/requirements-amendment.json\n\t\t\t152 link Description: Accepted lift / C01 ↗, Value: 127.0.0.1:8767/review/lift-container.html#viewer\n\t153 text codex/pegasoft-concept · Truck reference redesign · Accepted lift and C01 preserved\n\nThe focused UI element is 23 checkbox Hide C01 fit, Value: 1, ID: load-toggle",
+  "screenshots": [
+    "side-fit.png",
+    "upper.png",
+    "front.png"
+  ]
+}

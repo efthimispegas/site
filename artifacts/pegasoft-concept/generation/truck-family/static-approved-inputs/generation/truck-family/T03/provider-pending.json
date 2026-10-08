@@ -1,0 +1,31 @@
+{
+  "status": "processing",
+  "request_id": "01a11706-ba6e-79a2-8a59-00344cd14fdd",
+  "queue_status": "IN_PROGRESS",
+  "poll_after_seconds": 10,
+  "polling_hint": "Wait poll_after_seconds before calling check_job with the same request_id and status_url. This interval is not an ETA. Report meaningful status changes rather than repeating unchanged progress. Do not submit another job to check progress.",
+  "status_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a11706-ba6e-79a2-8a59-00344cd14fdd/status",
+  "response_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a11706-ba6e-79a2-8a59-00344cd14fdd",
+  "cancel_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a11706-ba6e-79a2-8a59-00344cd14fdd/cancel",
+  "waited_seconds": 45,
+  "recipe": {
+    "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+    "input": {
+      "image_size": {
+        "width": 1536,
+        "height": 2048
+      },
+      "quality": "high",
+      "background": "transparent",
+      "output_format": "png",
+      "num_images": 1,
+      "prompt": "Use the supplied truck.jpg as the vehicle identity reference. Preserve its tall rounded high-roof cab-over silhouette, roof visor, broad dark windshield, paired vertical mirror housings, wide stacked grille with horizontal metal ribs, angular inset headlamps, stepped bumper, contoured doors, wheel arches, access steps and lower side fairing. Keep the two-axle tractor with single front tires and dual rear tires, coupled to the same three-axle trailer identity. Replace the photograph's blue body with satin Pegasoft carbon #11151B, adding one controlled Pegasoft blue #147DFF painted shoulder band around the rear door pillars and roof visor, plus a lower side-fairing and bumper return accent. Keep these exact physical accents coherent across the family. Use neutral brushed silver/titanium grille ribs, rims and fittings, natural matte black rubber, clear lightly cool-tinted glass with a single coherent interior, restrained #7BCBFF rim lighting and #B9E7FF pale practical reflections. Functional clear-white headlamps, amber indicators and red rear lamps only. Remove the source cargo box and its markings: show an empty full-length fixed 40-foot skeletal container chassis with two longitudinal load-bearing I-beams, crossmembers, four corner support/lock pads, fifth-wheel/kingpin connection, two stowed landing legs, side guards and three separate trailer axles. The chassis supports an existing 12.192 m long by 2.438 m wide container; use approximately 12.435 m frame length and approximately 1.35 m support-plane height as visual targets. The final supports will match the exact approved C01 model. Preserve realistic cab-to-trailer proportions, one tire/rim design and consistent axle counts. Remove Scania/manufacturer branding, insignia, registration, stripes and source text. Leave clean front grille and door label areas for external Pegasoft vector lettering. Render one complete vehicle on a transparent canvas with comfortable margins, cool even photographic studio lighting and crisp alpha edges. No cargo, people, scene, road, sky, sunset, warm decorative paint, logos, generated lettering, motion blur or baked shadow. Using the approved T01 image and the original truck.jpg as identity references, render the identical truck in a strict centered orthographic front view, facing the camera directly. Preserve the exact high-roof contour, visor, wide windshield, paired stacked mirrors, grille ribs, headlamps, bumper, front-wheel stance and blue accent returns. The same empty trailer stays attached directly behind the cab, with natural occlusion; do not fan it sideways merely to reveal it. Keep the complete visible silhouette in frame, no yaw, camera roll, cargo or second truck. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "image_urls": [
+        "https://v3b.fal.media/files/b/0aad6ea9/uxaZOEErai9FUqGCUMGHB_JEKRVdGF.png",
+        "https://v3b.fal.media/files/b/0aad6e9e/Gn1VBDejwgsq37pQ0Mz2k_truck.jpg"
+      ]
+    },
+    "note": "These are the submitted inputs, not resolved server defaults. For a variation, copy them and change only requested fields; reuse returned_seed when supported by the schema. Source URLs may expire."
+  },
+  "hint": "The job is still running \u2014 expected for video, 3D, training, or a busy queue. Do NOT call run_model again (that starts a new, billable job). Poll check_job with status_url, then call get_job_result with response_url once queue_status is COMPLETED."
+}
