@@ -1,0 +1,37 @@
+{
+  "status": "processing",
+  "request_id": "01a12038-d510-7310-bdc3-5a086a4b1a33",
+  "queue_status": "IN_PROGRESS",
+  "poll_after_seconds": 10,
+  "polling_hint": "Wait poll_after_seconds before calling check_job with the same request_id and status_url. This interval is not an ETA. Report meaningful status changes rather than repeating unchanged progress. Do not submit another job to check progress.",
+  "status_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a12038-d510-7310-bdc3-5a086a4b1a33/status",
+  "response_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a12038-d510-7310-bdc3-5a086a4b1a33",
+  "cancel_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a12038-d510-7310-bdc3-5a086a4b1a33/cancel",
+  "waited_seconds": 45,
+  "recipe": {
+    "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+    "input": {
+      "prompt": "Reference roles: images 1 and 2 define the vessel geometry and deck arrangement only; ignore their ocean, wake, webpage copy, icons and rainbow colors. Image 3 defines silver C01. Images 4, 5 and 6 define Pegasoft material and lighting treatment only; do not copy vehicle or aircraft components into the ship. Generate one complete vessel by itself, not a collage or multi-view sheet. Follow the reference main fore-to-aft bay layout and the narrower forward cargo area near the pointed bow. Create one photorealistic modern container freight ship following the supplied walkthrough vessel: long low hull, pointed bow, stern bridge and orderly longitudinal deck bays. Match the supplied ship reference in hull length-to-beam (approximately 5:1 in the near-overhead full-vessel frame), bow/stern contours, freeboard, stern-bridge footprint and height, deck coverage, cargo bay count and spacing. Do not use an arbitrary 120 m by 18 m hull or a short, wide toy silhouette. Preserve the approved lift, truck and jet family treatment: shared Pegasoft carbon #11151B, restrained blue #147DFF accents, natural brushed metal, clear glass and credible physical surface detail. Keep the reference geometry distinct from the Pegasoft palette. Keep the full stern-to-bow silhouette visible with comfortable margin. Use satin marine-painted Pegasoft carbon #11151B for the main hull and painted structure; use a restrained #147DFF blue waterline band and selected deck-fitting accents. The bridge housing is cool porcelain #EDF2F7 with carbon window frames, clear lightly cool-tinted glazing and a coherent interior. Use neutral brushed silver/titanium rails, ladders, lashing hardware, anchors and fittings. Keep natural metal highlights and controlled cool studio light; no plastic-looking smoothing, toy proportions, exaggerated bevels or block cab substitute. Arrange consistent silver, deep navy #061E3B and restrained blue #147DFF 40-foot container stacks in regular fore-to-aft bays. Preserve the supplied approved silver C01 identity, corrugation, roof proportions and corner construction for one centered longitudinal anchor container on the deck. Keep bridge, hull, deck hardware and bay layout coherent across every family view. Include credible hatch coamings, narrow walkways, lashing bridges, fine railings and bow/stern equipment. Leave clean hull areas for externally applied Pegasoft lettering. Isolate the complete vessel on transparency: no water, wake, clouds, ground plane, people, logos, generated text, registration, baked shadows, decorative orange/gold/purple or bright rainbow containers. Elevated bow-quarter oblique; full vessel, bow toward lower right, stern bridge visible. This is a three-quarter view, not a straight-down overhead or roof-only plate. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "image_urls": [
+        "https://v3b.fal.media/files/b/0aadad08/Cyg6HI-gJ7v6E7LLv5_mH_ship-native-228.jpg",
+        "https://v3b.fal.media/files/b/0aadad08/AeEfPlnSIlMOS0IFUWv8M_cue_0025.jpg",
+        "https://v3b.fal.media/files/b/0aadad08/JNVmYDIko6CUBCTdmNFN2_C01-silver-oblique-original.png",
+        "https://v3b.fal.media/files/b/0aadad08/n2Hh_34JyZL1ka-lq04U9_lift-left.png",
+        "https://v3b.fal.media/files/b/0aadad09/FCYNKrtbo456GtBbT9Pwh_T01-side-original.png",
+        "https://v3b.fal.media/files/b/0aadad09/W8ef2azA1w4BzQ3HNkVLf_jet-front-left.png"
+      ],
+      "image_size": {
+        "width": 3072,
+        "height": 2048
+      },
+      "quality": "high",
+      "num_images": 1,
+      "background": "transparent",
+      "output_format": "png",
+      "sync_mode": false,
+      "enable_safety_checker": true
+    },
+    "note": "These are the submitted inputs, not resolved server defaults. For a variation, copy them and change only requested fields; reuse returned_seed when supported by the schema. Source URLs may expire."
+  },
+  "hint": "The job is still running — expected for video, 3D, training, or a busy queue. Do NOT call run_model again (that starts a new, billable job). Poll check_job with status_url, then call get_job_result with response_url once queue_status is COMPLETED."
+}

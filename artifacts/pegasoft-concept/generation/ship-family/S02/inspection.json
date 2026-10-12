@@ -1,0 +1,30 @@
+{
+  "status": "awaiting_personal_static_family_review",
+  "date_local": "2026-10-09",
+  "request_id": "01a12111-c4f2-7050-9cb8-a937f4c40b1a",
+  "identity_source": "generation/ship-family/S01/S01-oblique-original.png",
+  "observed": [
+    "Complete port-side-like profile with bow right and stern bridge left",
+    "Six visible cargo groups; five main double-height near-side stacks and shorter forward group",
+    "Near-side order follows S01: navy/silver, silver/blue, navy/silver, navy/blue, silver/navy, single forward navy face",
+    "Carbon hull, blue waterline/funnel/accent fittings, porcelain bridge, clear-looking glazing, metal railings and hardware",
+    "Orange safety lifeboat, funnel exhausts, antenna mast, anchors and winches retained"
+  ],
+  "findings": [
+    {
+      "id": "S02-side-angle",
+      "severity": "view_angle",
+      "observation": "Visible roof planes indicate a slightly elevated side view; a perfectly level orthographic elevation is not established.",
+      "required_action": "Present original for user family/angle review; no automatic angle-correction job."
+    }
+  ],
+  "unverified": [
+    "Exact physical dimensions and reconstructed beam",
+    "Hidden cross-deck arrangement from this side projection",
+    "C01 support footprint and volumetric model fidelity"
+  ],
+  "original_modifications": "None",
+  "user_approval": null,
+  "jobs_submitted": 1,
+  "automatic_retries": 0
+}

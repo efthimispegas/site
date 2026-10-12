@@ -1,0 +1,45 @@
+{
+  "date_local": "2026-10-09",
+  "authority": "Direct user instruction",
+  "requirements": [
+    "Match reference ship dimensions/proportions: length, width and related geometry.",
+    "Match Pegasoft accent across approved lift, truck and jet.",
+    "Inspect every generated ship asset for realism."
+  ],
+  "reference_measurement": {
+    "frame": "evidence/ship-proposal/reference/probe-228.jpg",
+    "source_seconds": 228,
+    "image_size_pixels": [
+      640,
+      325
+    ],
+    "approximate_hull_bounds_pixels": {
+      "left": 302,
+      "right": 340,
+      "stern_y": 78,
+      "bow_y": 267
+    },
+    "projected_length_pixels": 189,
+    "projected_beam_pixels": 38,
+    "projected_length_to_beam": 4.974,
+    "interpretation": "Approximately 5:1 in this near-overhead source frame. Manual screen estimate excludes wake; not a recovered engineering dimension. Other frames may have perspective foreshortening.",
+    "generation_rule": "Match the reference silhouette and bay arrangement; aim at approximately 5:1 length-to-beam in the model overhead inspection, not the old 120/18 target. Resolve final metric length/beam around exact C01 dimensions without stretching cargo."
+  },
+  "style_reference_pins": [
+    {
+      "path": "generation/lift-family/lift-left.png",
+      "sha256": "7d7556d96c9bfefd6521ac50049e146bd65ecb532b4e335e662ef06b3d982b46"
+    },
+    {
+      "path": "generation/truck-family/T01/T01-side-original.png",
+      "sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5"
+    },
+    {
+      "path": "generation/jet-family/jet-front-left.png",
+      "sha256": "19ed99040bca69559f41dc2bc6ab7013849a62a4a7c6a6ef3848457973121d3f"
+    }
+  ],
+  "previous_proposal_snapshot": "revisions/initial-proposal",
+  "generation_submitted": 0,
+  "approval_status": "Additional constraints recorded; direction/generation gate remains pending."
+}

@@ -1,0 +1,170 @@
+{
+  "status": "passed",
+  "branch": "codex/pegasoft-concept",
+  "inputs": {
+    "ids": [
+      "S01",
+      "S02"
+    ],
+    "one_transparent_image_each": true,
+    "carbon_clause_exact": true,
+    "submitted_jobs": 0,
+    "future_S01_reference_explicit": true
+  },
+  "reference_provenance": {
+    "source": "/Users/whiskey/Work/site/docs/references/reference_walkthrough.mov",
+    "source_sha256": "90d94411a0989e010354abc3c2e205fcdfcc0c291b6d87e1f53caf1ee8ec2f07",
+    "clip": "evidence/ship-proposal/reference/road-to-ship.mp4",
+    "clip_sha256": "8fd47aaed3e8ca6d4ae82d152650e04840bdf518577951587557dd57ddcc560b",
+    "window_seconds": [
+      180,
+      232
+    ],
+    "observations": [
+      {
+        "source_seconds": [
+          180,
+          194
+        ],
+        "event": "Ship deck and ocean rise beneath the road; truck/container stays on the central vertical axis."
+      },
+      {
+        "source_seconds": [
+          194,
+          206
+        ],
+        "event": "Road clears to a close overhead deck composition. Container bays align fore-to-aft."
+      },
+      {
+        "source_seconds": [
+          206,
+          218
+        ],
+        "event": "Continuous pullback reveals hull, bow downward, stern bridge and surrounding ocean."
+      },
+      {
+        "source_seconds": [
+          218,
+          232
+        ],
+        "event": "Heading and capability groups overlay while the ship keeps receding on axis."
+      }
+    ],
+    "timing_note": "Source timestamps identify observed scroll-recording landmarks, not physical speed or prescribed new story percentages."
+  },
+  "reference_pins": [
+    {
+      "path": "watch/watch-d77vvrqa/frames/cue_0025.jpg",
+      "sha256": "152b8a01736eef3f9e1215e8b8d6a9031a002fc16195e92af43abfbf96814a52"
+    },
+    {
+      "path": "generation/container-family/C01-silver-oblique-original.png",
+      "sha256": "d0bdb3677754fb45921a032abead17cb73be9ee227bfb3170a1bcd5da7e519e3"
+    },
+    {
+      "path": "watch/watch-d77vvrqa/frames/cue_0025.jpg",
+      "sha256": "152b8a01736eef3f9e1215e8b8d6a9031a002fc16195e92af43abfbf96814a52"
+    }
+  ],
+  "preserved_runtime_pins": [
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "cc5a8c846343891a860406ec3679def0a74b4436806809e624619dcd24d33776"
+    },
+    {
+      "path": "review/lift-container.js",
+      "sha256": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65"
+    },
+    {
+      "path": "review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    }
+  ],
+  "preserved_approval_pin_count": 32,
+  "accepted_handoff_html_and_runtime_unchanged_from_HEAD": true,
+  "locked_prompt_and_color_bytes_unchanged": true,
+  "http": [
+    {
+      "url": "http://127.0.0.1:8767/evidence/ship-proposal/reference/choreography.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/evidence/ship-proposal/reference/road-to-ship.mp4",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/input-proposal.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/watch/watch-d77vvrqa/frames/cue_0025.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/review/handoff.html#viewer",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/review/index.html",
+      "status": 200
+    }
+  ],
+  "documentation_limits": {
+    "current_words": 161,
+    "handoff_words": 98
+  },
+  "scope": "Static proposal only; no ship model, motion, production or paid generation checks asserted.",
+  "dimension_and_realism_amendment": {
+    "status": "passed",
+    "dimensions": "Arbitrary 120/18 target withdrawn; approximate projected reference ratio ~5:1; absolute values not supplied.",
+    "style_reference_pins": [
+      {
+        "path": "generation/lift-family/lift-left.png",
+        "sha256": "7d7556d96c9bfefd6521ac50049e146bd65ecb532b4e335e662ef06b3d982b46"
+      },
+      {
+        "path": "generation/truck-family/T01/T01-side-original.png",
+        "sha256": "4d8cad47445b2aaab4d3e2faa10299474c196c926d3308e1b03c4bce3c4747e5"
+      },
+      {
+        "path": "generation/jet-family/jet-front-left.png",
+        "sha256": "19ed99040bca69559f41dc2bc6ab7013849a62a4a7c6a6ef3848457973121d3f"
+      }
+    ],
+    "each_prompt_matches_HTML": true,
+    "per_image_checks_defined": true,
+    "preserved_approval_pins": 32
+  }
+}

@@ -1,0 +1,1944 @@
+{
+  "status": "technical_checks_passed_user_model_review_pending",
+  "units": "meters",
+  "dimensions": {
+    "length": 110,
+    "beam": 13.4,
+    "deckHeight": 6.6,
+    "container": [
+      12.192,
+      2.896,
+      2.438
+    ],
+    "bayPitch": 13.8,
+    "bayCenters": [
+      -32.5,
+      -18.7,
+      -4.9,
+      8.9,
+      22.7,
+      36.5
+    ],
+    "columnCenters": [
+      3.807,
+      1.269,
+      -1.269,
+      -3.807
+    ],
+    "cargoBase": 6.92,
+    "hero": {
+      "bay": 2,
+      "column": 2,
+      "tier": 1,
+      "position": [
+        -4.9,
+        9.816,
+        -1.269
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "boundingBox": {
+    "min": [
+      -55.08000183105469,
+      -1.355531096458435,
+      -6.74399995803833
+    ],
+    "max": [
+      55.01753616333008,
+      28.31599998474121,
+      6.74399995803833
+    ]
+  },
+  "closedSolidCount": 10136,
+  "componentRoleChecks": {
+    "closed_shaped_carbon_hull": {
+      "components": 1,
+      "triangles": 172,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "closed_blue_waterline_band": {
+      "components": 1,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "steel_main_deck": {
+      "components": 1,
+      "triangles": 84,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "continuous_deck_rail": {
+      "components": 40,
+      "triangles": 1280,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "deck_rail_stanchion": {
+      "components": 130,
+      "triangles": 4160,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "hull_plate_vertical_seam": {
+      "components": 24,
+      "triangles": 288,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "hull_plate_longitudinal_weld": {
+      "components": 6,
+      "triangles": 72,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "recessed_hull_port": {
+      "components": 16,
+      "triangles": 1024,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "port_rim": {
+      "components": 16,
+      "triangles": 6144,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "hull_access_ladder": {
+      "components": 8,
+      "triangles": 256,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "hull_access_rung": {
+      "components": 72,
+      "triangles": 2304,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "raised_hatch_coaming": {
+      "components": 6,
+      "triangles": 72,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "hatch_cover_panel": {
+      "components": 24,
+      "triangles": 288,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lower_cargo_corner_seat": {
+      "components": 96,
+      "triangles": 1152,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_closed_envelope": {
+      "components": 43,
+      "triangles": 516,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_vertical_corrugation": {
+      "components": 4042,
+      "triangles": 48504,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_side_rail": {
+      "components": 172,
+      "triangles": 2064,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_corner_post": {
+      "components": 172,
+      "triangles": 2064,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_roof_rib": {
+      "components": 2021,
+      "triangles": 24252,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_door": {
+      "components": 172,
+      "triangles": 2064,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_door_lock": {
+      "components": 344,
+      "triangles": 11008,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_door_hinge": {
+      "components": 516,
+      "triangles": 6192,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_casting": {
+      "components": 344,
+      "triangles": 4128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_casting_aperture": {
+      "components": 344,
+      "triangles": 4128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_corner_warning": {
+      "components": 344,
+      "triangles": 4128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lashing_bridge_platform": {
+      "components": 6,
+      "triangles": 72,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lashing_bridge_column": {
+      "components": 36,
+      "triangles": 432,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lashing_diagonal": {
+      "components": 36,
+      "triangles": 1152,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lashing_bridge_rail": {
+      "components": 24,
+      "triangles": 768,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lashing_bridge_rail_post": {
+      "components": 60,
+      "triangles": 1920,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lashing_ladder": {
+      "components": 24,
+      "triangles": 768,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lashing_ladder_rung": {
+      "components": 96,
+      "triangles": 3072,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "cargo_lashing_tie": {
+      "components": 22,
+      "triangles": 704,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "blue_tensioner": {
+      "components": 22,
+      "triangles": 1408,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "C01_intertier_seat": {
+      "components": 4,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_front_wall": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_rear_wall": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_side_wall": {
+      "components": 2,
+      "triangles": 24,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_internal_floor": {
+      "components": 4,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "stern_service_balcony": {
+      "components": 6,
+      "triangles": 72,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "balcony_side_rail": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "balcony_stanchion": {
+      "components": 30,
+      "triangles": 960,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "balcony_stern_rail": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "balcony_structural_column": {
+      "components": 4,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "balcony_diagonal_support": {
+      "components": 6,
+      "triangles": 192,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_service_window": {
+      "components": 18,
+      "triangles": 216,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_service_glass": {
+      "components": 18,
+      "triangles": 216,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_service_ladder": {
+      "components": 4,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_service_rung": {
+      "components": 46,
+      "triangles": 1472,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_vent_frame": {
+      "components": 4,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_vent_louver": {
+      "components": 40,
+      "triangles": 480,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "external_bridge_pipe": {
+      "components": 4,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "pipe_bracket": {
+      "components": 16,
+      "triangles": 192,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "stern_service_stair_tread": {
+      "components": 24,
+      "triangles": 288,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "stern_stair_stringer": {
+      "components": 4,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "stern_stair_handrail": {
+      "components": 4,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "aft_service_cabinet": {
+      "components": 4,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "aft_cabinet_handle": {
+      "components": 4,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "funnel_plate_seam": {
+      "components": 2,
+      "triangles": 24,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "wheelhouse_floor": {
+      "components": 1,
+      "triangles": 20,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "wheelhouse_lower_porcelain_skirt": {
+      "components": 1,
+      "triangles": 20,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "wheelhouse_roof": {
+      "components": 1,
+      "triangles": 20,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "solid_clear_wheelhouse_window": {
+      "components": 41,
+      "triangles": 492,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "wheelhouse_window_mullion": {
+      "components": 41,
+      "triangles": 1312,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "wheelhouse_sill": {
+      "components": 41,
+      "triangles": 1312,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "wheelhouse_header": {
+      "components": 41,
+      "triangles": 1312,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "front_bridge_plate_seam": {
+      "components": 3,
+      "triangles": 36,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_forward_balcony": {
+      "components": 2,
+      "triangles": 24,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "forward_balcony_rail": {
+      "components": 4,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "forward_balcony_post": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "forward_bridge_window": {
+      "components": 6,
+      "triangles": 72,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_access_door": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_door_window": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_control_console": {
+      "components": 5,
+      "triangles": 60,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_console_screen": {
+      "components": 5,
+      "triangles": 60,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_seat_pedestal": {
+      "components": 5,
+      "triangles": 320,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_seat": {
+      "components": 5,
+      "triangles": 60,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_seat_back": {
+      "components": 5,
+      "triangles": 60,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_chair_arm": {
+      "components": 10,
+      "triangles": 320,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_chart_table": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "chart_table_leg": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_roof_rail": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_roof_stanchion": {
+      "components": 30,
+      "triangles": 960,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "carbon_funnel": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "blue_funnel_panel": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "funnel_exhaust_cap": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "curved_exhaust_pipe": {
+      "components": 4,
+      "triangles": 1200,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "exhaust_dark_mouth": {
+      "components": 4,
+      "triangles": 256,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "exhaust_lip": {
+      "components": 4,
+      "triangles": 1536,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_tapered_mast": {
+      "components": 1,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_platform": {
+      "components": 3,
+      "triangles": 36,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_platform_rail": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_rail_post": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_antenna_arm": {
+      "components": 3,
+      "triangles": 96,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_navigation_light": {
+      "components": 6,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_wire_aerial": {
+      "components": 6,
+      "triangles": 192,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_ladder": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_signal_rung": {
+      "components": 35,
+      "triangles": 1120,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "radar_scanner": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bridge_guyed_antenna": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "radar_dome": {
+      "components": 2,
+      "triangles": 576,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "antenna_guy": {
+      "components": 4,
+      "triangles": 128,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "enclosed_safety_lifeboat": {
+      "components": 1,
+      "triangles": 288,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lifeboat_window_band": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lifeboat_glass": {
+      "components": 3,
+      "triangles": 36,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lifeboat_cradle": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lifeboat_davit": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lifeboat_davit_overhang": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "lifeboat_attached_cable": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_tapered_mast": {
+      "components": 1,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_platform": {
+      "components": 3,
+      "triangles": 36,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_platform_rail": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_rail_post": {
+      "components": 12,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_antenna_arm": {
+      "components": 3,
+      "triangles": 96,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_navigation_light": {
+      "components": 6,
+      "triangles": 384,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_wire_aerial": {
+      "components": 6,
+      "triangles": 192,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_ladder": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_rung": {
+      "components": 25,
+      "triangles": 800,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "windlass_foundation": {
+      "components": 4,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "windlass_bearing": {
+      "components": 8,
+      "triangles": 96,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "windlass_drum": {
+      "components": 4,
+      "triangles": 256,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "windlass_flange": {
+      "components": 8,
+      "triangles": 512,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "windlass_motor": {
+      "components": 4,
+      "triangles": 256,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bollard_foot": {
+      "components": 8,
+      "triangles": 96,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bollard_post": {
+      "components": 16,
+      "triangles": 1024,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "bollard_cap": {
+      "components": 16,
+      "triangles": 1024,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "anchor_hawse_recess": {
+      "components": 2,
+      "triangles": 24,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "anchor_hawse_lip": {
+      "components": 2,
+      "triangles": 768,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "anchor_shank": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "anchor_crown": {
+      "components": 2,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "anchor_fluke": {
+      "components": 4,
+      "triangles": 48,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "foredeck_anchor_chain_path": {
+      "components": 2,
+      "triangles": 664,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "anchor_chain_link": {
+      "components": 28,
+      "triangles": 10752,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "stern_propeller_shaft": {
+      "components": 1,
+      "triangles": 64,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "propeller_shaft_strut": {
+      "components": 1,
+      "triangles": 32,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "propeller_hub": {
+      "components": 1,
+      "triangles": 288,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "swept_propeller_blade": {
+      "components": 4,
+      "triangles": 1184,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "stern_rudder_blade": {
+      "components": 1,
+      "triangles": 12,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    },
+    "rudder_stock": {
+      "components": 1,
+      "triangles": 32,
+      "invalidEdges": 0,
+      "degenerateTriangles": 0
+    }
+  },
+  "triangles": 176784,
+  "meshCount": 13,
+  "cargoCount": 44,
+  "mainBayCrossDeckColumns": 4,
+  "cargo": [
+    {
+      "bay": 0,
+      "column": 0,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -32.5,
+        6.92,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 0,
+      "column": 0,
+      "tier": 1,
+      "material": "Cargo_deep_navy",
+      "position": [
+        -32.5,
+        9.815999999999999,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 0,
+      "column": 1,
+      "tier": 0,
+      "material": "Cargo_deep_navy",
+      "position": [
+        -32.5,
+        6.92,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 0,
+      "column": 1,
+      "tier": 1,
+      "material": "Pegasoft_blue",
+      "position": [
+        -32.5,
+        9.815999999999999,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 0,
+      "column": 2,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        -32.5,
+        6.92,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 0,
+      "column": 2,
+      "tier": 1,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -32.5,
+        9.815999999999999,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 0,
+      "column": 3,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -32.5,
+        6.92,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 0,
+      "column": 3,
+      "tier": 1,
+      "material": "Pegasoft_blue",
+      "position": [
+        -32.5,
+        9.815999999999999,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 0,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        -18.7,
+        6.92,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 0,
+      "tier": 1,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -18.7,
+        9.815999999999999,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 1,
+      "tier": 0,
+      "material": "Cargo_deep_navy",
+      "position": [
+        -18.7,
+        6.92,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 1,
+      "tier": 1,
+      "material": "Pegasoft_blue",
+      "position": [
+        -18.7,
+        9.815999999999999,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 2,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -18.7,
+        6.92,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 2,
+      "tier": 1,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -18.7,
+        9.815999999999999,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 3,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        -18.7,
+        6.92,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 1,
+      "column": 3,
+      "tier": 1,
+      "material": "Cargo_deep_navy",
+      "position": [
+        -18.7,
+        9.815999999999999,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 2,
+      "column": 0,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -4.9,
+        6.92,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 2,
+      "column": 0,
+      "tier": 1,
+      "material": "Cargo_deep_navy",
+      "position": [
+        -4.9,
+        9.815999999999999,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 2,
+      "column": 1,
+      "tier": 0,
+      "material": "Cargo_deep_navy",
+      "position": [
+        -4.9,
+        6.92,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 2,
+      "column": 1,
+      "tier": 1,
+      "material": "Pegasoft_blue",
+      "position": [
+        -4.9,
+        9.815999999999999,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 2,
+      "column": 2,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        -4.9,
+        6.92,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 2,
+      "column": 2,
+      "tier": 1,
+      "material": "exact_C01_GLB",
+      "position": [
+        -4.9,
+        9.815999999999999,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": true
+    },
+    {
+      "bay": 2,
+      "column": 3,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        -4.9,
+        6.92,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 2,
+      "column": 3,
+      "tier": 1,
+      "material": "Cargo_deep_navy",
+      "position": [
+        -4.9,
+        9.815999999999999,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 0,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        8.9,
+        6.92,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 0,
+      "tier": 1,
+      "material": "Cargo_deep_navy",
+      "position": [
+        8.9,
+        9.815999999999999,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 1,
+      "tier": 0,
+      "material": "Cargo_deep_navy",
+      "position": [
+        8.9,
+        6.92,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 1,
+      "tier": 1,
+      "material": "Cargo_satin_silver",
+      "position": [
+        8.9,
+        9.815999999999999,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 2,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        8.9,
+        6.92,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 2,
+      "tier": 1,
+      "material": "Pegasoft_blue",
+      "position": [
+        8.9,
+        9.815999999999999,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 3,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        8.9,
+        6.92,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 3,
+      "column": 3,
+      "tier": 1,
+      "material": "Cargo_deep_navy",
+      "position": [
+        8.9,
+        9.815999999999999,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 0,
+      "tier": 0,
+      "material": "Cargo_deep_navy",
+      "position": [
+        22.7,
+        6.92,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 0,
+      "tier": 1,
+      "material": "Cargo_satin_silver",
+      "position": [
+        22.7,
+        9.815999999999999,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 1,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        22.7,
+        6.92,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 1,
+      "tier": 1,
+      "material": "Pegasoft_blue",
+      "position": [
+        22.7,
+        9.815999999999999,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 2,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        22.7,
+        6.92,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 2,
+      "tier": 1,
+      "material": "Cargo_satin_silver",
+      "position": [
+        22.7,
+        9.815999999999999,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 3,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        22.7,
+        6.92,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 4,
+      "column": 3,
+      "tier": 1,
+      "material": "Cargo_deep_navy",
+      "position": [
+        22.7,
+        9.815999999999999,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 5,
+      "column": 0,
+      "tier": 0,
+      "material": "Cargo_deep_navy",
+      "position": [
+        36.5,
+        6.92,
+        3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 5,
+      "column": 1,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        36.5,
+        6.92,
+        1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 5,
+      "column": 2,
+      "tier": 0,
+      "material": "Pegasoft_blue",
+      "position": [
+        36.5,
+        6.92,
+        -1.269
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    },
+    {
+      "bay": 5,
+      "column": 3,
+      "tier": 0,
+      "material": "Cargo_satin_silver",
+      "position": [
+        36.5,
+        6.92,
+        -3.807
+      ],
+      "dimensions": [
+        12.192,
+        2.896,
+        2.438
+      ],
+      "hero": false
+    }
+  ],
+  "heroSupportChecks": [
+    {
+      "id": "corner_casting_-1_-1_-1",
+      "seatedPoint": [
+        -10.819,
+        9.815999999947847,
+        -2.408
+      ],
+      "supportHeight": 9.816,
+      "verticalGapMeters": -5.215405884939628e-11,
+      "seatBounds": {
+        "min": [
+          -11.026000000000002,
+          9.766,
+          -2.518
+        ],
+        "max": [
+          -10.766,
+          9.816,
+          -2.298
+        ]
+      },
+      "exportedSeatBounds": {
+        "min": [
+          -11.026000022888184,
+          9.765999794006348,
+          -2.5179998874664307
+        ],
+        "max": [
+          -10.765999794006348,
+          9.815999984741211,
+          -2.2980000972747803
+        ]
+      },
+      "exportedSeatGapMeters": 1.52066359504488e-8
+    },
+    {
+      "id": "corner_casting_-1_-1_1",
+      "seatedPoint": [
+        -10.819,
+        9.815999999947847,
+        -0.1299999999999999
+      ],
+      "supportHeight": 9.816,
+      "verticalGapMeters": -5.215405884939628e-11,
+      "seatBounds": {
+        "min": [
+          -11.026000000000002,
+          9.766,
+          -0.23999999999999988
+        ],
+        "max": [
+          -10.766,
+          9.816,
+          -0.019999999999999893
+        ]
+      },
+      "exportedSeatBounds": {
+        "min": [
+          -11.026000022888184,
+          9.765999794006348,
+          -0.23999999463558197
+        ],
+        "max": [
+          -10.765999794006348,
+          9.815999984741211,
+          -0.020000001415610313
+        ]
+      },
+      "exportedSeatGapMeters": 1.52066359504488e-8
+    },
+    {
+      "id": "corner_casting_1_-1_-1",
+      "seatedPoint": [
+        1.173,
+        9.815999999947847,
+        -2.408
+      ],
+      "supportHeight": 9.816,
+      "verticalGapMeters": -5.215405884939628e-11,
+      "seatBounds": {
+        "min": [
+          0.9660000000000001,
+          9.766,
+          -2.518
+        ],
+        "max": [
+          1.226,
+          9.816,
+          -2.298
+        ]
+      },
+      "exportedSeatBounds": {
+        "min": [
+          0.9660000205039978,
+          9.765999794006348,
+          -2.5179998874664307
+        ],
+        "max": [
+          1.2259999513626099,
+          9.815999984741211,
+          -2.2980000972747803
+        ]
+      },
+      "exportedSeatGapMeters": 1.52066359504488e-8
+    },
+    {
+      "id": "corner_casting_1_-1_1",
+      "seatedPoint": [
+        1.173,
+        9.815999999947847,
+        -0.1299999999999999
+      ],
+      "supportHeight": 9.816,
+      "verticalGapMeters": -5.215405884939628e-11,
+      "seatBounds": {
+        "min": [
+          0.9660000000000001,
+          9.766,
+          -0.23999999999999988
+        ],
+        "max": [
+          1.226,
+          9.816,
+          -0.019999999999999893
+        ]
+      },
+      "exportedSeatBounds": {
+        "min": [
+          0.9660000205039978,
+          9.765999794006348,
+          -0.23999999463558197
+        ],
+        "max": [
+          1.2259999513626099,
+          9.815999984741211,
+          -0.020000001415610313
+        ]
+      },
+      "exportedSeatGapMeters": 1.52066359504488e-8
+    }
+  ],
+  "heroScale": [
+    1,
+    1,
+    1
+  ],
+  "glbBytes": 11313040,
+  "glbSha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13",
+  "exportedAttributeReadbacks": 52,
+  "staticPins": {
+    "S01": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+    "S02": "12214f7b811466e305de8c6f56bac812b402aeeeba71c33eef0c95056e97cf81"
+  },
+  "C01Sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+  "acceptedTransportPins": [
+    {
+      "path": "review/lift-container.html",
+      "sha256": "44e39925418d3cc210b8da20d476594e2f36b634872d7e4aa4e191cde698f3db"
+    },
+    {
+      "path": "review/lift-container.js",
+      "sha256": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65"
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "sha256": "eff3c88fb443f3d8a7107106d4d104999368b8c0cdd0116be456c06022b7e766"
+    },
+    {
+      "path": "review/integration-server.py",
+      "sha256": "57cbe737715a235844b01450abd2ad06a54b391ffeb0e5ae28ac12a945f6af41"
+    },
+    {
+      "path": "generation/container-family/lift-integration/rig-harness.mjs",
+      "sha256": "b31c7869f5a4344bed8f47624cad385d1a1f2f3ccbe019dd233e3d47788d0924"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-integration.mjs",
+      "sha256": "c3d62950fea9455415594b3252cf78b7b2a22acfe41f9c9b44c61e88f9c2deab"
+    },
+    {
+      "path": "generation/container-family/lift-integration/measure-rendered-edges.py",
+      "sha256": "564d0e9e7f958a7fe467f96f8b23259023021cf16e4cd8337630370a24dacf68"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera.mjs",
+      "sha256": "b48dd817c2813cef77176ca234e8cd9b80c61d13918027548de0570b05ac7629"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera-turn.mjs",
+      "sha256": "5cb06960caa6654e7527c645a17c0ff30dcb764decb6743643c9911c1b57be3f"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-rendered-camera.py",
+      "sha256": "b565548c9e150311c48c1183e87939111e4dd71b45eda08d10a614b1837990a5"
+    },
+    {
+      "path": "review/truck-model.html",
+      "sha256": "20097935005a449fd76b3162ffb0af6571f2c1bd72069444cc4792f8041c4eb0"
+    },
+    {
+      "path": "review/truck-model.js",
+      "sha256": "1d0b5c8c40a6a86bc1992ec207e0992462a57ed4e13fa14f3e1f46c00674bb3d"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32"
+    },
+    {
+      "path": "generation/truck-family/model-draft/build-model.mjs",
+      "sha256": "ec6a5d64a1c86fc770eeaa029a254f0b9f47f73c79b31a25134dbc4a1be0c297"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/truck-family/model-draft/model-checks.json",
+      "sha256": "9b7924eeed510b072722b741a7ee8076e920be45e6c9c3f609802d93b9e9c062"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/browser-observation.json",
+      "sha256": "27f50e63d30978bcbb3b9b010fde4f5f5d87841611e07fc80b8db182d4f08dc9"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/usage-final.json",
+      "sha256": "dd2c6ff74194877ce1db826aaf3ed2eac336c08090da443933f23d559c382c0a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/cab-final.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/wheel-final.png",
+      "sha256": "308c1e5b94f70bde8c0726072ef292e0d94162f4d40e9654b5a670b6a1a31871"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/suspension-final.png",
+      "sha256": "d3197813c5a22fed29384f69c98d98c1b88c2f1134fa014610d01bc51623785c"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/coupling-final.png",
+      "sha256": "de86bffb941a559a9b75af2b8d376b2a74a301a7caceb59b62294d32a68da5b6"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/side-final.png",
+      "sha256": "d51d1fee6b9f44760b2a639ec89b3ad933672d32b4f17edf1bdda500aad36969"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/support-final.png",
+      "sha256": "29ebaa2783a92288d255b8fe16f54d4795888483d13211fa70153710e6ccd4ac"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/loaded-oblique-final.png",
+      "sha256": "12fab701d89d8265c6e9f51d00f3717cc11679f3aba152ad22576089994d55f0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-positive.png",
+      "sha256": "a134cf021fa1e040bdbad9021a9206562f7958271142eb4d645b813d89a86f09"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-negative.png",
+      "sha256": "da23eadbc66c5fdaf8c59787f1fd2a78cddf1104a4db4c19452a255fdb76b757"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/front-final.png",
+      "sha256": "aa64b871ff2886a533f4390cc69d27357ff1f93706ddfc8cf89b34881d85528a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/upper-final.png",
+      "sha256": "3c74d7722df87e3cdba64fd345d11d076c0ccdd117feb3dbf95a9973612bca22"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/review-ready.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    }
+  ],
+  "sourceHashes": {
+    "ship-model.mjs": "7e334520ea61643c0a1605e1a757b2b26d69cd5c8900297c16d5df41ab232b88",
+    "build-model.mjs": "9bed8205b6a7ca0e4d8971df60b58b1f21c091ba4ef82bad8ff123fc7a113e17"
+  },
+  "acceptanceLimits": [
+    "Authoring dimensions derive from the unchanged C01 metric footprint and accepted six-bay identity; they are not surveyed dimensions of a real ship.",
+    "Closed primitive tests do not certify a Boolean union or marine engineering. Hull ports are recessed surface fittings, not Boolean apertures.",
+    "One exact accepted C01 is loaded separately at an existing inner-column upper-tier seat. Its longitudinal alignment is retained; centering the later camera is a motion task.",
+    "43 background containers share detailed closed solid assemblies; they are family cargo, not copies of the exact hero GLB.",
+    "Static shape and material fidelity need personal review. Road/deck transition, water, wake, cloud, camera journey and production are deferred."
+  ]
+}

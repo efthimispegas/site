@@ -1,0 +1,105 @@
+{
+  "status": "passed_technical_and_preservation_checks",
+  "branch": "codex/pegasoft-concept",
+  "one_completed_job": true,
+  "image": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      3072,
+      2048
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      3058,
+      2048
+    ],
+    "transparent_pixels": 4179741,
+    "partly_transparent_pixels": 2111715,
+    "opaque_pixels": 0,
+    "canvas_edge_clearance": {
+      "left": 0,
+      "top": 0,
+      "right": 14,
+      "bottom": 0
+    },
+    "scope": "Format/alpha/canvas check only. Perspective image cannot establish exact physical dimensions.",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "alpha_threshold_bounds": {
+      "1": [
+        0,
+        0,
+        3058,
+        2048
+      ],
+      "32": [
+        70,
+        59,
+        3033,
+        2000
+      ],
+      "128": [
+        71,
+        80,
+        3032,
+        1999
+      ],
+      "200": [
+        72,
+        83,
+        3032,
+        1999
+      ],
+      "250": [
+        73,
+        102,
+        3029,
+        1999
+      ]
+    },
+    "pixels_alpha_at_least_250": 1928977
+  },
+  "original_sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+  "approved_manifest_sha_verified": true,
+  "conditioning_references_verified": 6,
+  "exact_carbon_clause_verified": true,
+  "preserved_approval_pins": 32,
+  "locked_prompt_and_color_unchanged": true,
+  "http": [
+    {
+      "url": "http://127.0.0.1:8767/evidence/ship-proposal/reference/ship-native-228.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/S01/S01-oblique-original.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/S01/request.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/proposal-approval.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/provider-preflight.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/review/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/review/ship-plan.html#design",
+      "status": 200
+    }
+  ],
+  "local_font_served": true,
+  "served_review_matches_disk": true,
+  "limits": "Reference layout remains unresolved; format/provenance checks do not qualify proportions, realism, C01 continuity or model/motion."
+}

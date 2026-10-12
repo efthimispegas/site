@@ -1,0 +1,27 @@
+{
+  "status": "user_approved_exact_S01_static_identity_as_supplied",
+  "date_local": "2026-10-09",
+  "branch": "codex/pegasoft-concept",
+  "authority": "Direct user instruction",
+  "user_quote": "Approved. Proceed with generation of S01 assets based on this exact Static identity review",
+  "accepted_master": {
+    "request_id": "01a12038-d510-7310-bdc3-5a086a4b1a33",
+    "endpoint_id": "openai/gpt-image-2.5/sunburst/edit",
+    "output_url": "https://v3b.fal.media/files/b/0aadad14/njuMjgchYkYKN470_1Sm5_NBD6EqZs.png",
+    "path": "generation/ship-family/S01/S01-oblique-original.png",
+    "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+    "bytes": 6555871,
+    "modifications": "None; original CDN output preserved."
+  },
+  "accepted_review_html": {
+    "path": "generation/ship-family/S01/accepted-static-review.html",
+    "sha256": "bd8937d47ffc0d0dc365a47d664794296aa0f6c31ecdc40da2fc7975a3652676"
+  },
+  "accepted_scope": [
+    "Exact S01 hull, bridge, six cargo groups, four-across main bays, paint placement and material finish",
+    "Original output as supplied, including existing alpha presentation"
+  ],
+  "superseded_finding": "The user accepts the presented four-across cargo layout. Do not revise it to five-across during dependent generation.",
+  "authorized_next": "Generate the planned matching S02 port-side image from this exact master; stop for coherent family review.",
+  "limits": "No overhead/underside/additional views, automatic retries or model production. Physical metric geometry and C01 footprint remain later model checks."
+}

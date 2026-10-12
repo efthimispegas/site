@@ -1,0 +1,104 @@
+{
+  "status": "user_approved_S01_S02_static_family",
+  "date_local": "2026-10-09",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5b54c5a1c3fcacd4ebb0958e9d0dd40de7",
+  "preview": "http://127.0.0.1:8767/review/ship.html#asset",
+  "accepted_identity": "../../generation/ship-family/S01/static-identity-approval.json",
+  "request_id": "01a12111-c4f2-7050-9cb8-a937f4c40b1a",
+  "reviewed_inputs": [
+    {
+      "path": "review/ship.html",
+      "sha256": "7271eddda6230cf96721445de8254465596d542ae46a32c226da9a9f10eabf68"
+    },
+    {
+      "path": "generation/ship-family/family-manifest.json",
+      "sha256": "3379bf67a26c1d34f362e995c0fce80cb1f156322f0b01ef58d3a660ade5a153"
+    },
+    {
+      "path": "generation/ship-family/S01/static-identity-approval.json",
+      "sha256": "3fb8b2a9d087d6aadd29b5624d9f8eced8621ef902e6ceb6f12098a48ade7d9f"
+    },
+    {
+      "path": "generation/ship-family/S01/accepted-static-review.html",
+      "sha256": "bd8937d47ffc0d0dc365a47d664794296aa0f6c31ecdc40da2fc7975a3652676"
+    },
+    {
+      "path": "generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85"
+    },
+    {
+      "path": "generation/ship-family/S02-provider-preflight.json",
+      "sha256": "578fa67438c750cececbe5131823dcfb352b1de47159e8eb795cbd52a16e881b"
+    },
+    {
+      "path": "generation/ship-family/S02/request.json",
+      "sha256": "a8d15991be523c66f5eeccfa8906dd4baaaa42f38a4b95d2880350b0a2252c73"
+    },
+    {
+      "path": "generation/ship-family/S02/result.json",
+      "sha256": "526b4de8ddfb50589c50afb5a9482ec93a3086910f7f327fa523b1ced74eabf9"
+    },
+    {
+      "path": "generation/ship-family/S02/original-provenance.json",
+      "sha256": "911355521cec5d079d8445505f7d9badf91f96714f47f7eb2e21292c93219cb7"
+    },
+    {
+      "path": "generation/ship-family/S02/S02-side-original.png",
+      "sha256": "12214f7b811466e305de8c6f56bac812b402aeeeba71c33eef0c95056e97cf81"
+    },
+    {
+      "path": "generation/ship-family/S02/alpha-analysis.json",
+      "sha256": "cb154b0dae5179052502cdd0c634c461918cc02b62b2a56d681ef84f67017441"
+    },
+    {
+      "path": "generation/ship-family/S02/inspection.json",
+      "sha256": "e18f3d981d675cbe5e08efc485e68bd27de88a2ecc93234251b32b93f9162ebb"
+    },
+    {
+      "path": "evidence/ship-family-review/checks.json",
+      "sha256": "d1485df7ab6da27bcf13df3c2b27035e6ee6ad1855113c05b93ab04ba63c6955"
+    },
+    {
+      "path": "evidence/ship-family-review/browser-checks.json",
+      "sha256": "abad783e852385dba16bae05f586cb809e74ff18a931a92cce2843359013919c"
+    },
+    {
+      "path": "evidence/ship-family-review/S01-carbon.png",
+      "sha256": "b60405c046aaa437755da10da647111bf8af0516b760aa900b7ee0c35745e82a"
+    },
+    {
+      "path": "evidence/ship-family-review/S02-carbon.png",
+      "sha256": "f75e217179ab00787557046b040206caf5d6ab2f9d4c89ebc3c3501b9a56bb85"
+    },
+    {
+      "path": "evidence/ship-family-review/S02-porcelain.png",
+      "sha256": "5c40c51184719e9c1f03ceece8a57c267fd1319add140f67379a424b4d085475"
+    },
+    {
+      "path": "evidence/ship-family-review/mobile.png",
+      "sha256": "673139b511b8fb3a63a9035a41173320aaa894c75358d4c30ebd0f5ce8c94e5a"
+    }
+  ],
+  "checks": [
+    "checks.json",
+    "browser-checks.json"
+  ],
+  "S02_inspection": "../../generation/ship-family/S02/inspection.json",
+  "generation": {
+    "family_jobs_completed": 2,
+    "S02_jobs": 1,
+    "retries": 0,
+    "extra_views": 0,
+    "model_built": false
+  },
+  "user_approval": null,
+  "finding": "S02 is slightly elevated with visible roof planes; perfectly level orthographic framing unqualified.",
+  "resume": "Obtain coherent family/side-angle review before local model construction. No automatic angle corrections.",
+  "limits": [
+    "Both provider originals retained byte-for-byte.",
+    "Exact metric hull/beam and C01 footprint require later model checks.",
+    "No ship model, section motion, production or deployment work."
+  ],
+  "S02_approval": "../../generation/ship-family/S02/static-family-approval.json"
+}

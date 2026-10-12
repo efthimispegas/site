@@ -1,0 +1,95 @@
+{
+  "status": "user_approved_ship_model",
+  "branch": "codex/pegasoft-concept",
+  "units": "meters",
+  "method": "Local shaped closed solid geometry; material-batched static background assembly. No model generation provider.",
+  "model": "S01-ship.glb",
+  "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13",
+  "bytes": 11313040,
+  "authored_dimensions": {
+    "length": 110,
+    "beam": 13.4,
+    "deckHeight": 6.6,
+    "container": [
+      12.192,
+      2.896,
+      2.438
+    ],
+    "bayPitch": 13.8,
+    "bayCenters": [
+      -32.5,
+      -18.7,
+      -4.9,
+      8.9,
+      22.7,
+      36.5
+    ],
+    "columnCenters": [
+      3.807,
+      1.269,
+      -1.269,
+      -3.807
+    ],
+    "cargoBase": 6.92,
+    "hero": {
+      "bay": 2,
+      "column": 2,
+      "tier": 1,
+      "position": [
+        -4.9,
+        9.816,
+        -1.269
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "hero_companion": {
+    "path": "../../container-family/model-draft/C01-container.glb",
+    "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+    "translation": [
+      -4.9,
+      9.816,
+      -1.269
+    ],
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ],
+    "role": "Persistent accepted C01; loaded separately so journey ownership can transfer without regenerating its geometry."
+  },
+  "metric_basis": {
+    "main_cargo_span_m": 81.19200000000001,
+    "longitudinal_bay_gap_m": 1.608,
+    "cross_deck_columns": 4,
+    "cross_deck_gap_m": 0.1,
+    "side_walkway_m": 1.6739999999999995,
+    "stern_clearance_from_cargo_m": 16.404,
+    "bow_clearance_from_cargo_m": 12.404
+  },
+  "geometry_checks": "model-checks.json",
+  "runtime_packet": "../../../evidence/ship-model-review/review.json",
+  "static_approvals": [
+    "../S01/static-identity-approval.json",
+    "../S02/static-family-approval.json"
+  ],
+  "acceptance_limits": [
+    "Authoring dimensions derive from the unchanged C01 metric footprint and accepted six-bay identity; they are not surveyed dimensions of a real ship.",
+    "Closed primitive tests do not certify a Boolean union or marine engineering. Hull ports are recessed surface fittings, not Boolean apertures.",
+    "One exact accepted C01 is loaded separately at an existing inner-column upper-tier seat. Its longitudinal alignment is retained; centering the later camera is a motion task.",
+    "43 background containers share detailed closed solid assemblies; they are family cargo, not copies of the exact hero GLB.",
+    "Ship model visual approval recorded. Road/deck, ocean/wake, camera and content integration awaits separate personal review; clouds and production remain deferred."
+  ],
+  "production_ready": false,
+  "provider_jobs_in_model_batch": 0,
+  "approval": "../model-approval.json"
+}

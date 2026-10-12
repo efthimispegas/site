@@ -1,0 +1,61 @@
+{
+  "format": "PNG",
+  "mode": "RGBA",
+  "size": [
+    3072,
+    2048
+  ],
+  "alpha_bbox": [
+    0,
+    0,
+    3058,
+    2048
+  ],
+  "transparent_pixels": 4179741,
+  "partly_transparent_pixels": 2111715,
+  "opaque_pixels": 0,
+  "canvas_edge_clearance": {
+    "left": 0,
+    "top": 0,
+    "right": 14,
+    "bottom": 0
+  },
+  "scope": "Format/alpha/canvas check only. Perspective image cannot establish exact physical dimensions.",
+  "alpha_extrema": [
+    0,
+    254
+  ],
+  "alpha_threshold_bounds": {
+    "1": [
+      0,
+      0,
+      3058,
+      2048
+    ],
+    "32": [
+      70,
+      59,
+      3033,
+      2000
+    ],
+    "128": [
+      71,
+      80,
+      3032,
+      1999
+    ],
+    "200": [
+      72,
+      83,
+      3032,
+      1999
+    ],
+    "250": [
+      73,
+      102,
+      3029,
+      1999
+    ]
+  },
+  "pixels_alpha_at_least_250": 1928977
+}

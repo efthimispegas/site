@@ -1,0 +1,18 @@
+{
+  "status": "user_approved_direction_method_and_bounded_generation",
+  "date_local": "2026-10-09",
+  "branch": "codex/pegasoft-concept",
+  "authority": "Direct user instruction",
+  "user_quote": "Approved. Proceed with the generation",
+  "accepted_input_proposal": {
+    "path": "generation/ship-family/approved-input-proposal.json",
+    "sha256": "87d67defbbc6a0840c0996bc049aceaf3ef3d61ba3d119e2ac1983fade2be888"
+  },
+  "constraints": [
+    "Match reference ship proportions and unchanged C01 scale",
+    "Match approved Pegasoft lift/truck/jet material family",
+    "Review realism for each output"
+  ],
+  "allowance": "Two single-image inputs; S01 first, user static identity review before S02. No retries or variants.",
+  "limits": "Direction approval does not accept generated output or authorize model production."
+}

@@ -1,0 +1,102 @@
+{
+  "status": "awaiting_personal_S01_identity_review_with_reference_finding",
+  "date_local": "2026-10-09",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5b54c5a1c3fcacd4ebb0958e9d0dd40de7",
+  "preview": "http://127.0.0.1:8767/review/ship.html#asset",
+  "request_id": "01a12038-d510-7310-bdc3-5a086a4b1a33",
+  "checks": [
+    "checks.json",
+    "browser-checks.json"
+  ],
+  "inspection": "../../generation/ship-family/S01/inspection.json",
+  "reviewed_inputs": [
+    {
+      "path": "review/ship.html",
+      "sha256": "bd8937d47ffc0d0dc365a47d664794296aa0f6c31ecdc40da2fc7975a3652676"
+    },
+    {
+      "path": "generation/ship-family/approved-input-proposal.json",
+      "sha256": "87d67defbbc6a0840c0996bc049aceaf3ef3d61ba3d119e2ac1983fade2be888"
+    },
+    {
+      "path": "generation/ship-family/approved-direction.html",
+      "sha256": "fcca02e5e58755ec968346c2262cb615f58c8e7c23d9de92abd82272722e450c"
+    },
+    {
+      "path": "generation/ship-family/proposal-approval.json",
+      "sha256": "a8b277b9d10408354dc40d1963135b5b7ff4b13371cd8775b3eda631b57294e8"
+    },
+    {
+      "path": "generation/ship-family/provider-preflight.json",
+      "sha256": "aaf1e72c370e23229ed8531ae79fe847538866342054ac877a536d0798cd8501"
+    },
+    {
+      "path": "generation/ship-family/reference-uploads.json",
+      "sha256": "0ce5c3632ca21b097a1ffd30ae33d5d552483ca2b3550f31d4635da6b50d4b98"
+    },
+    {
+      "path": "generation/ship-family/S01/request.json",
+      "sha256": "8c49fdb749ed7cd6f5645a1aa7c173e8cac1946a1906b52103a3b4b71ee10e3f"
+    },
+    {
+      "path": "generation/ship-family/S01/job.json",
+      "sha256": "5a2c17dbe3624c37c1b30314d9e0108a9dbdfff41d431be6b789f9f32a3997f2"
+    },
+    {
+      "path": "generation/ship-family/S01/result.json",
+      "sha256": "8268c1dbb8cc76496df37ffb84a095c7ceea36eb00c18003165b29b4e12e2424"
+    },
+    {
+      "path": "generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85"
+    },
+    {
+      "path": "generation/ship-family/S01/original-provenance.json",
+      "sha256": "4a6c3dca2d84daecdb7800177e494266794e1acc6106127586e388d552337a9e"
+    },
+    {
+      "path": "generation/ship-family/S01/alpha-analysis.json",
+      "sha256": "bce028aa78ba454cee22cef2dcc556e1f302ea91ba46033e6ad3729c2578b343"
+    },
+    {
+      "path": "generation/ship-family/S01/inspection.json",
+      "sha256": "5fe2ca1a9c4a78bdf7bce3081cd40dbd38e5a9006bbea72a030c7481abf05f52"
+    },
+    {
+      "path": "evidence/ship-static-review/checks.json",
+      "sha256": "8ff6c712add79a4fff6d89f91e90d4dc7a4423fbb62d2ab2b78778d184276de5"
+    },
+    {
+      "path": "evidence/ship-static-review/browser-checks.json",
+      "sha256": "ff12768fc648c9c3f2e397c116258d116d098df578aa00e0879518f22ee4ef81"
+    },
+    {
+      "path": "evidence/ship-static-review/carbon.png",
+      "sha256": "2eef961cab9c152d9705367172dbdd3df69795fb137476bbe953adffb4e5191d"
+    },
+    {
+      "path": "evidence/ship-static-review/porcelain.png",
+      "sha256": "ef81c5d0b9527903b0a2af5a5bdb762ab75a02b19cc071944513052f930f1487"
+    },
+    {
+      "path": "evidence/ship-static-review/mobile.png",
+      "sha256": "7a1a71b9251cbf206d4dccacedca2647016240c627cab0203c08c283e229eb76"
+    }
+  ],
+  "generation": {
+    "completed_jobs": 1,
+    "output_images": 1,
+    "retries": 0,
+    "S02_submitted": false,
+    "model_built": false
+  },
+  "user_approval": null,
+  "finding": "Main cargo bays appear four across versus reference five.",
+  "resume": "Settle S01 identity/deck layout before S02; no automatic corrective generation.",
+  "limits": [
+    "Original output retained without editing.",
+    "Exact metric vessel dimensions and C01 footprint are unverified.",
+    "No model, section motion, production or deployment work."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "status": "awaiting_personal_identity_review_with_reference_finding",
+  "date_local": "2026-10-09",
+  "request_id": "01a12038-d510-7310-bdc3-5a086a4b1a33",
+  "inspected_original": "generation/ship-family/S01/S01-oblique-original.png",
+  "observed": [
+    "Long pointed-bow hull and separate stern bridge",
+    "Six main fore-to-aft cargo groups; silver/navy/blue deck family",
+    "Detailed railings, lashing hardware, winches, anchors, bridge glazing and natural metal/reflections",
+    "Carbon hull and blue waterline treatment present"
+  ],
+  "findings": [
+    {
+      "id": "S01-deck-width",
+      "severity": "reference_fidelity",
+      "observation": "Main rows appear four containers across; the reference shows five.",
+      "status": "unresolved",
+      "required_action": "Settle cross-deck layout against source before dependent S02/model work."
+    },
+    {
+      "id": "S01-alpha",
+      "severity": "presentation",
+      "observation": "All foreground alpha is at most 254, with very low alpha haze at canvas edges. The alpha>=128 vessel bounds have 71/80/40/49 px clear margins.",
+      "status": "original_preserved_for_surface_review",
+      "required_action": "Inspect carbon and porcelain backgrounds; no cleanup performed."
+    }
+  ],
+  "unverified": [
+    "True length/beam in metric units; oblique perspective cannot establish exact dimensions",
+    "Exact C01 identity/footprint on deck before reuse of its approved model",
+    "Cross-view consistency, model geometry and motion"
+  ],
+  "references": [
+    "evidence/ship-proposal/reference/ship-native-228.jpg",
+    "watch/watch-d77vvrqa/frames/cue_0025.jpg"
+  ],
+  "user_approval": null,
+  "jobs_submitted": 1,
+  "retries": 0,
+  "dependent_jobs_submitted": 0
+}

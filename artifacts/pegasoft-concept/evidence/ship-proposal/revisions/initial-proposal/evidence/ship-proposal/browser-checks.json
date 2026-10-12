@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "desktop": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "scrollWidth": 1280,
+    "imagesLoaded": true,
+    "referenceVideoDuration": 52
+  },
+  "mobile": {
+    "viewport": [
+      375,
+      812
+    ],
+    "scrollWidth": 375,
+    "overflowElements": []
+  },
+  "interaction": {
+    "reviewAnchor": true,
+    "promptDisclosure": true,
+    "scopeAnchor": true
+  },
+  "visualInspection": [
+    "desktop hero and schematic",
+    "desktop expanded prompt",
+    "mobile hero",
+    "mobile review scope"
+  ],
+  "screenshots": [
+    "desktop.png",
+    "inputs-desktop.png",
+    "mobile.png",
+    "mobile-scope.png"
+  ],
+  "limits": "Static proposal only; no ship animation or model exists."
+}

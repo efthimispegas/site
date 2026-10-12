@@ -1,0 +1,36 @@
+{
+  "status": "available",
+  "windows": [
+    {
+      "window": "rateLimits.primary",
+      "usedPercent": 18,
+      "remainingPercent": 82,
+      "windowDurationMins": 300,
+      "resetsAt": 1791552294
+    },
+    {
+      "window": "rateLimits.secondary",
+      "usedPercent": 53,
+      "remainingPercent": 47,
+      "windowDurationMins": 10080,
+      "resetsAt": 1791977110
+    },
+    {
+      "window": "rateLimitsByLimitId.codex.primary",
+      "usedPercent": 18,
+      "remainingPercent": 82,
+      "windowDurationMins": 300,
+      "resetsAt": 1791552294
+    },
+    {
+      "window": "rateLimitsByLimitId.codex.secondary",
+      "usedPercent": 53,
+      "remainingPercent": 47,
+      "windowDurationMins": 10080,
+      "resetsAt": 1791977110
+    }
+  ],
+  "date_local": "2026-10-09",
+  "stage": "after ship-proposal execution batch",
+  "policy_threshold_reached": false
+}

@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "desktop": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "scrollWidth": 1280,
+    "originalImageLoaded": [
+      3072,
+      2048
+    ],
+    "referenceImageLoaded": [
+      3016,
+      1532
+    ]
+  },
+  "mobile": {
+    "viewport": [
+      375,
+      812
+    ],
+    "scrollWidth": 375,
+    "stageWidth": 335,
+    "fullVesselVisible": true
+  },
+  "interaction": {
+    "carbonClick": true,
+    "porcelainClick": true,
+    "keyboardEnter": true
+  },
+  "visualInspection": [
+    "original master at full image view",
+    "complete vessel on carbon and porcelain",
+    "mobile review"
+  ],
+  "screenshots": [
+    "carbon.png",
+    "porcelain.png",
+    "mobile.png"
+  ],
+  "limits": "Proposal-generated static identity is not accepted; cross-deck layout finding unresolved. No exact metric geometry, model or motion verified."
+}

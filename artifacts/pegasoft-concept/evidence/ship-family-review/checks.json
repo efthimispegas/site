@@ -1,0 +1,79 @@
+{
+  "status": "passed_technical_and_preservation_checks",
+  "S01_accepted_sha256_verified": true,
+  "S02_one_completed_job": true,
+  "S02_sole_identity_source_verified": true,
+  "original_output_sha256_verified": true,
+  "S02_image": {
+    "format": "PNG",
+    "mode": "RGBA",
+    "size": [
+      3072,
+      1024
+    ],
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "transparent_pixels": 1899684,
+    "partly_transparent_pixels": 1246044,
+    "opaque_pixels": 0,
+    "alpha_128_bbox": [
+      51,
+      109,
+      3029,
+      841
+    ],
+    "core_canvas_clearance": {
+      "left": 51,
+      "top": 109,
+      "right": 43,
+      "bottom": 183
+    },
+    "scope": "Format/alpha/canvas check; not physical dimension or fidelity proof."
+  },
+  "exact_carbon_clause_verified": true,
+  "preserved_approval_pins": 32,
+  "locked_prompt_and_color_unchanged": true,
+  "http": [
+    {
+      "url": "http://127.0.0.1:8767/evidence/ship-proposal/reference/ship-native-228.jpg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/S01/S01-oblique-original.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/S01/static-identity-approval.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/S02-provider-preflight.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/S02/S02-side-original.png",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/S02/request.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/generation/ship-family/proposal-approval.json",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/review/index.html",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:8767/review/ship-plan.html#design",
+      "status": 200
+    }
+  ],
+  "served_review_matches_disk": true,
+  "local_font_served": true,
+  "limits": "S02 angle and family fidelity remain for personal review; no metric geometry/model/motion proof."
+}

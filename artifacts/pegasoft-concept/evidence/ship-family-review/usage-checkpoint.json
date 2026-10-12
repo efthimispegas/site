@@ -1,0 +1,21 @@
+{
+  "date_local": "2026-10-09",
+  "stage": "after S02 generation and static family packaging",
+  "windows": [
+    {
+      "limitId": "codex",
+      "window": "primary",
+      "usedPercent": 7,
+      "windowDurationMins": 300,
+      "resetsAt": 1791574019
+    },
+    {
+      "limitId": "codex",
+      "window": "secondary",
+      "usedPercent": 56,
+      "windowDurationMins": 10080,
+      "resetsAt": 1791977110
+    }
+  ],
+  "threshold_reached": false
+}

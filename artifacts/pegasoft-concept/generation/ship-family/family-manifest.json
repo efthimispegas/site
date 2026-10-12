@@ -1,0 +1,33 @@
+{
+  "status": "static_family_and_ship_model_user_accepted_integration_review_pending",
+  "date_local": "2026-10-10",
+  "branch": "codex/pegasoft-concept",
+  "identity_authority": "generation/ship-family/S01/static-identity-approval.json",
+  "assets": [
+    {
+      "id": "S01",
+      "path": "generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+      "request_id": "01a12038-d510-7310-bdc3-5a086a4b1a33",
+      "status": "user_approved_exact_identity_as_supplied"
+    },
+    {
+      "id": "S02",
+      "path": "generation/ship-family/S02/S02-side-original.png",
+      "sha256": "12214f7b811466e305de8c6f56bac812b402aeeeba71c33eef0c95056e97cf81",
+      "request_id": "01a12111-c4f2-7050-9cb8-a937f4c40b1a",
+      "status": "user_approved_as_supplied",
+      "approval": "generation/ship-family/S02/static-family-approval.json"
+    }
+  ],
+  "jobs_completed": 2,
+  "automatic_retries": 0,
+  "variants": 0,
+  "model_built": true,
+  "next": "Personal road-to-deck, vessel pullback, ocean/wake and content review. Stop before cloud/jet connection.",
+  "model_review": "review/ship-model.html#viewer",
+  "model_manifest": "generation/ship-family/model-draft/model-manifest.json",
+  "model_approval": "generation/ship-family/model-approval.json",
+  "integration_review": "review/ship-integration.html#viewer",
+  "water_plate": "generation/ship-family/water-plate/manifest.json"
+}

@@ -1,0 +1,21 @@
+{
+  "date_local": "2026-10-09",
+  "stage": "after S01 generation and static review packaging",
+  "windows": [
+    {
+      "limitId": "codex",
+      "window": "primary",
+      "usedPercent": 31,
+      "windowDurationMins": 300,
+      "resetsAt": 1791552294
+    },
+    {
+      "limitId": "codex",
+      "window": "secondary",
+      "usedPercent": 55,
+      "windowDurationMins": 10080,
+      "resetsAt": 1791977110
+    }
+  ],
+  "threshold_reached": false
+}

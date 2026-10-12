@@ -1,0 +1,26 @@
+{
+  "status": "historical_superseded_before_dimension_amendment",
+  "captured_inputs": [
+    {
+      "path": "evidence/ship-proposal/browser-checks.json",
+      "sha256": "2b845d125aa1882e81c68f62d8a08c2baf5232481c37556d858fc28dcc12e381"
+    },
+    {
+      "path": "evidence/ship-proposal/checks.json",
+      "sha256": "4a551763cd938ca42f0801ae3c723c496d6e2211ea332c82031615a783b1a511"
+    },
+    {
+      "path": "evidence/ship-proposal/review.json",
+      "sha256": "56be906e5248d9558717f301f932066fa570976b1340c8aaf6dce693a0187c22"
+    },
+    {
+      "path": "review/ship-plan.html",
+      "sha256": "5e4e9dcbe176ba47dda65c371ab8ff89b1eaa49bd690728b35bd896e9d1dccfb"
+    },
+    {
+      "path": "generation/ship-family/input-proposal.json",
+      "sha256": "e31555b7083d6f6a780c349351905913c32afe15570f90709ac29c000e6cd9fa"
+    }
+  ],
+  "note": "Resolve historical packet input paths against this snapshot for old HTML/manifest/checks; unchanged source/screenshot files remain in original locations."
+}

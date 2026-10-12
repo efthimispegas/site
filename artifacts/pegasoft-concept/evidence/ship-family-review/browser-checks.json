@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "desktop": {
+    "viewport": [
+      597,
+      788
+    ],
+    "scrollWidth": 597
+  },
+  "mobile": {
+    "viewport": [
+      375,
+      812
+    ],
+    "scrollWidth": 375
+  },
+  "images": {
+    "S01": [
+      3072,
+      2048
+    ],
+    "S02": [
+      3072,
+      1024
+    ],
+    "bothLoaded": true
+  },
+  "interaction": {
+    "masterClick": true,
+    "sideKeyboardEnter": true,
+    "carbonKeyboardEnter": true,
+    "porcelainClick": true,
+    "downloadLinkTracksView": true,
+    "onlySelectedImageVisible": true
+  },
+  "visualInspection": [
+    "unchanged S01 master",
+    "S02 on carbon and porcelain",
+    "mobile side review"
+  ],
+  "screenshots": [
+    "S01-carbon.png",
+    "S02-carbon.png",
+    "S02-porcelain.png",
+    "mobile.png"
+  ],
+  "limits": "S01 identity accepted. S02 side is slightly elevated; family/angle acceptance and metric model checks remain pending."
+}

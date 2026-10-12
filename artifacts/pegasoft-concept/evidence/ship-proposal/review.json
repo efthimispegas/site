@@ -1,0 +1,76 @@
+{
+  "status": "user_approved_direction_method_and_bounded_generation",
+  "date_local": "2026-10-09",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5b54c5a1c3fcacd4ebb0958e9d0dd40de7",
+  "preview": "http://127.0.0.1:8767/review/ship-plan.html#design",
+  "requested_decision": [
+    "Ship identity, material-role placement and proposed non-carbon bridge/blue accents",
+    "Two-image input manifest and exact prompts",
+    "Local solid-geometry/GLB model method and metric scale rule",
+    "Road-to-deck, pullback, wake and later cloud/jet motion contract"
+  ],
+  "delivered": [
+    "Reference clip and bounded choreography landmarks",
+    "Two exact image prompts and material roles",
+    "Metric solid-model and road/deck/camera contracts",
+    "Desktop/mobile inspection and disclosure navigation"
+  ],
+  "checks": [
+    "checks.json",
+    "browser-checks.json"
+  ],
+  "reviewed_inputs": [
+    {
+      "path": "review/ship-plan.html",
+      "sha256": "fcca02e5e58755ec968346c2262cb615f58c8e7c23d9de92abd82272722e450c"
+    },
+    {
+      "path": "generation/ship-family/input-proposal.json",
+      "sha256": "87d67defbbc6a0840c0996bc049aceaf3ef3d61ba3d119e2ac1983fade2be888"
+    },
+    {
+      "path": "evidence/ship-proposal/checks.json",
+      "sha256": "41cb94ab4a70ec5ce93c85419588a1980ed1ccd680e53b2e97108d7d8b0c69fc"
+    },
+    {
+      "path": "evidence/ship-proposal/browser-checks.json",
+      "sha256": "03a127448c9d588af1a3dfbba89040fad34dabf514359ade58e158b35fbac2a8"
+    },
+    {
+      "path": "evidence/ship-proposal/requirements-amendment.json",
+      "sha256": "03c91bc8d9e1912b8ac2dbe190469ad4eea22df2567698b78c8ba85b1765d7e0"
+    },
+    {
+      "path": "evidence/ship-proposal/reference/choreography.json",
+      "sha256": "18d47f034efdf5eb533278042aad6ae20f0156bc0257404565fb253a73497456"
+    },
+    {
+      "path": "evidence/ship-proposal/reference/road-to-ship.mp4",
+      "sha256": "8fd47aaed3e8ca6d4ae82d152650e04840bdf518577951587557dd57ddcc560b"
+    },
+    {
+      "path": "evidence/ship-proposal/dimensions-amendment.png",
+      "sha256": "0ad2efe9a2ced826de1fa35f4c2e415663be1d1a427dbd9702bf40dba0236e75"
+    },
+    {
+      "path": "evidence/ship-proposal/dimensions-and-realism.png",
+      "sha256": "9bf3ccc8d3cbfbfbe869afc96446edb519f69814c8c7e3c9f1aab13e5971d24f"
+    }
+  ],
+  "generation_jobs_submitted": 0,
+  "ship_model_built": false,
+  "user_approval": "../../generation/ship-family/proposal-approval.json",
+  "stop_condition": "Direction accepted. S01 generation running; identity review before S02.",
+  "limits": [
+    "Schematic is not a generated asset.",
+    "Reference projected proportions are approximate; absolute vessel measurements are not supplied.",
+    "No paid generation, model, animation or production authorization inferred."
+  ],
+  "resume": "After direction/method approval, verify provider schema/price and bounded allowance; generate S01 and stop for identity review.",
+  "requirements_amendment": "requirements-amendment.json",
+  "approved_input_snapshots": {
+    "review/ship-plan.html": "generation/ship-family/approved-direction.html",
+    "generation/ship-family/input-proposal.json": "generation/ship-family/approved-input-proposal.json"
+  }
+}

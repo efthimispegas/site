@@ -1,0 +1,187 @@
+{
+  "status": "runtime_and_geometry_verified_personal_visual_review_pending",
+  "date_local": "2026-10-09",
+  "branch": "codex/pegasoft-concept",
+  "review_url": "http://127.0.0.1:8767/review/ship-model.html#viewer",
+  "reviewed_inputs": [
+    {
+      "path": "review/ship-model.html",
+      "sha256": "68a23c12cc8b7340fd77fde05f8ca4f118c9421a4844566fc5c1dcebc96a6672"
+    },
+    {
+      "path": "review/ship-model.js",
+      "sha256": "b6c589d45955864ac8ded31c4349e7bc358cc546b9b016f9d64f9b225bcc022f"
+    },
+    {
+      "path": "generation/ship-family/model-draft/ship-model.mjs",
+      "sha256": "7e334520ea61643c0a1605e1a757b2b26d69cd5c8900297c16d5df41ab232b88"
+    },
+    {
+      "path": "generation/ship-family/model-draft/build-model.mjs",
+      "sha256": "9bed8205b6a7ca0e4d8971df60b58b1f21c091ba4ef82bad8ff123fc7a113e17"
+    },
+    {
+      "path": "generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "generation/ship-family/model-draft/model-checks.json",
+      "sha256": "68c23d0eeb290ed08ae051ec52d1e3324b5dfe8d46de15fbfee677c382cdf37c"
+    },
+    {
+      "path": "generation/ship-family/model-draft/model-manifest.json",
+      "sha256": "317164c5db8326544b22b7b990f995921ca13189357b33e8f55ba91a1545b102"
+    },
+    {
+      "path": "generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85"
+    },
+    {
+      "path": "generation/ship-family/S02/S02-side-original.png",
+      "sha256": "12214f7b811466e305de8c6f56bac812b402aeeeba71c33eef0c95056e97cf81"
+    },
+    {
+      "path": "generation/ship-family/S01/static-identity-approval.json",
+      "sha256": "3fb8b2a9d087d6aadd29b5624d9f8eced8621ef902e6ceb6f12098a48ade7d9f"
+    },
+    {
+      "path": "generation/ship-family/S02/static-family-approval.json",
+      "sha256": "d50687a2ead1b959f3574a7e27d17f2e29819d156025df504c5f769cdd67d75f"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "review/vendor/three/build/three.module.js",
+      "sha256": "d835eab0b3bca3fdfd51e2ce7d06911f4a089b08db73cc3cd70fe5e3005a623f"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "sha256": "a2d45c28c56774cc789b99154e914c34db3197f9ea2b89fee27600cc2509b14f"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/controls/OrbitControls.js",
+      "sha256": "c5d5a92da069a9316344b327772486d6c1b78982ad4f2a83b9832e0a47219edd"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/environments/RoomEnvironment.js",
+      "sha256": "c83d34dd5ec39ced21367a7571675cdaf9de1b35685c44437f86516b89a830f2"
+    }
+  ],
+  "checks": {
+    "closed_solid_components": 10136,
+    "closed_component_boundary_or_winding_failures": 0,
+    "degenerate_triangles": 0,
+    "C01_scale": [
+      1,
+      1,
+      1
+    ],
+    "C01_actual_support_rims": 4,
+    "actual_exported_seat_max_gap_m": 1.52066359504488e-08,
+    "accepted_transport_pins_preserved": 32,
+    "named_views_rendered": [
+      "oblique",
+      "side",
+      "starboard",
+      "bow",
+      "stern",
+      "upper",
+      "under",
+      "bridge",
+      "foredeck",
+      "cargo",
+      "propeller"
+    ],
+    "idle_camera_stable": true,
+    "native_drag_changes_camera": true,
+    "native_wheel_changes_camera": true,
+    "keyboard_zoom_changes_camera": true,
+    "surface_control": "carbon and porcelain checked",
+    "mobile_375_layout_overflow_px": 0,
+    "console_errors": [],
+    "source_syntax": "node --check passed"
+  },
+  "render_measurements": {
+    "viewport_desktop": [
+      1280,
+      720
+    ],
+    "viewport_mobile": [
+      375,
+      812
+    ],
+    "assembled_meshes": 210,
+    "render_draw_calls_max": 419,
+    "render_triangles_max": 394848,
+    "ship_glb_bytes": 11313040,
+    "note": "Renderer counters include transmission passes. These are complexity measurements, not frame-rate or representative-device performance qualification."
+  },
+  "evidence": [
+    {
+      "path": "evidence/ship-model-review/bow-desktop.png",
+      "sha256": "ce672cd1ec1c8c18922428783c7145715d0f21f39f8d981d4ec14430cc0c662e"
+    },
+    {
+      "path": "evidence/ship-model-review/bridge-desktop.png",
+      "sha256": "4ba3ca4bce9ce5ed6187cbfecd561515cdb8ac26496e3968d6d667735232d109"
+    },
+    {
+      "path": "evidence/ship-model-review/cargo-desktop.png",
+      "sha256": "02e9c2beddcdad34023fe6f14883e6ef9215d46a560af4fb28c9333902391da7"
+    },
+    {
+      "path": "evidence/ship-model-review/foredeck-desktop.png",
+      "sha256": "18e8597aee5b14d25ecb655922328fb1bf93674795fc12ebecc720056447300a"
+    },
+    {
+      "path": "evidence/ship-model-review/mobile-375.png",
+      "sha256": "a9534f9409e6924a345ca146796206e421c4b020a40e898aa48f35ce60ff4662"
+    },
+    {
+      "path": "evidence/ship-model-review/oblique-desktop.png",
+      "sha256": "d1be5de35fb28827db1b42f9144bc77c61544e0c012c4f58c5858d5bd29e8215"
+    },
+    {
+      "path": "evidence/ship-model-review/propeller-desktop.png",
+      "sha256": "1413c70d9435c2f018c4a86b67bc050fb673612ef242f025a21b3e002a8a6e0f"
+    },
+    {
+      "path": "evidence/ship-model-review/review-open.png",
+      "sha256": "af477851b78be7b2dcc76819870a59ba594065b0ced28f7c9956702e552de432"
+    },
+    {
+      "path": "evidence/ship-model-review/side-desktop.png",
+      "sha256": "c5b99767d35148d6150a525fdb3a04d6fbfd440c0449f5a68e0c565727e4d38f"
+    },
+    {
+      "path": "evidence/ship-model-review/starboard-desktop.png",
+      "sha256": "518e9bdb2d066bd9b96fee06dec539449cbaf6d6e4dc6792f04bd1322fc3a4c5"
+    },
+    {
+      "path": "evidence/ship-model-review/stern-desktop.png",
+      "sha256": "a147a949800bbc04b50c7c4491328b2698ce9e00adffe923b0f8078beaf12311"
+    },
+    {
+      "path": "evidence/ship-model-review/under-desktop.png",
+      "sha256": "555bf609b22d03ccde87e6e50871017f0aa7abfba8e229b984ec77634cafdc88"
+    },
+    {
+      "path": "evidence/ship-model-review/upper-desktop.png",
+      "sha256": "4c7bdf22843963ecdeaf7085f5db7d52ecf76dea7c599cb1d9f5ccb92d8eda9c"
+    }
+  ],
+  "observations": "runtime-observations.json",
+  "interactions": "interaction-checks.json",
+  "acceptance_limits": [
+    "Authoring dimensions derive from the unchanged C01 metric footprint and accepted six-bay identity; they are not surveyed dimensions of a real ship.",
+    "Closed primitive tests do not certify a Boolean union or marine engineering. Hull ports are recessed surface fittings, not Boolean apertures.",
+    "One exact accepted C01 is loaded separately at an existing inner-column upper-tier seat. Its longitudinal alignment is retained; centering the later camera is a motion task.",
+    "43 background containers share detailed closed solid assemblies; they are family cargo, not copies of the exact hero GLB.",
+    "Static shape and material fidelity need personal review. Road/deck transition, water, wake, cloud, camera journey and production are deferred."
+  ],
+  "unresolved_failures": [],
+  "next": "Stop for personal model review; road/deck, camera journey, water/wake, cloud plates and production deferred.",
+  "verification": "Final review HTML reloaded after documentation/link updates; model GLB and viewer JavaScript unchanged from the 11-view capture. Final review-open proof matches current inputs."
+}
