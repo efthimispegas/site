@@ -1,0 +1,379 @@
+{
+  "date_local": "2026-10-10",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted ship static/model/integration work; no push. Source pins identify this review independently of the base commit.",
+  "review": "review/ship-integration.html#viewer",
+  "ship_model_approval": "generation/ship-family/model-approval.json",
+  "reference": {
+    "source": "/Users/whiskey/Work/site/docs/references/reference_walkthrough.mov",
+    "source_sha256": "90d94411a0989e010354abc3c2e205fcdfcc0c291b6d87e1f53caf1ee8ec2f07",
+    "clip": "evidence/ship-proposal/reference/road-to-ship.mp4",
+    "clip_sha256": "8fd47aaed3e8ca6d4ae82d152650e04840bdf518577951587557dd57ddcc560b",
+    "window_seconds": [
+      180,
+      232
+    ],
+    "observations": [
+      {
+        "source_seconds": [
+          180,
+          194
+        ],
+        "event": "Ship deck and ocean rise beneath the road; truck/container stays on the central vertical axis."
+      },
+      {
+        "source_seconds": [
+          194,
+          206
+        ],
+        "event": "Road clears to a close overhead deck composition. Container bays align fore-to-aft."
+      },
+      {
+        "source_seconds": [
+          206,
+          218
+        ],
+        "event": "Continuous pullback reveals hull, bow downward, stern bridge and surrounding ocean."
+      },
+      {
+        "source_seconds": [
+          218,
+          232
+        ],
+        "event": "Heading and capability groups overlay while the ship keeps receding on axis."
+      }
+    ],
+    "timing_note": "Source timestamps identify observed scroll-recording landmarks, not physical speed or prescribed new story percentages."
+  },
+  "status": "historical_superseded_by_shared_fifth_motion",
+  "requested_amendment": "Bottom-quarter paired entries, larger section headings across the storyline, section title rising from bottom centre with more separation, moving fifth block stopping at the bow, equal vertical entry speed, matching transparent styling, and 4% extra final pullback duration/scroll room.",
+  "changes": [
+    "Section title enters from bottom centre at 60%, with an 18%-of-stage gap before paired blocks.",
+    "Both paired rows enter independently through bottom-quarter centres and rise at the same vertical pace; row spacing reduced 20%.",
+    "Fifth block rises from bottom centre at 84% with the same vertical entry speed, then holds relative to the projected bow. Styling stays transparent like the paired blocks.",
+    "Final 84\u2013100% pullback gains 0.88s and proportional scroll distance: 4% of original whole-story duration, with opening pace and camera geometry preserved.",
+    "All built storyline chapter headings use the shared larger hierarchy; block-title sizes preserved. Responsive reading widths accommodate larger road/services headings.",
+    "Uniform generated ocean, accepted geometry and media preserved. No provider jobs."
+  ],
+  "timeline": {
+    "road": [
+      0,
+      0.12
+    ],
+    "chapter_edge": [
+      0.12,
+      0.44
+    ],
+    "support_transfer": 0.44,
+    "camera_pullback": [
+      0.38,
+      1
+    ],
+    "copy_entry": 0.6,
+    "normal_duration_seconds": 22.88,
+    "final_pullback_extra_seconds": 0.88,
+    "final_pullback_extra_scroll_percent_of_original_story": 4,
+    "fifth_entry": 0.84,
+    "fifth_hold": "When the upward trajectory meets the projected nose plus safety gap; thereafter attached relative to the nose."
+  },
+  "inputs": [
+    {
+      "path": "review/ship-integration.html",
+      "sha256": "7adad257ba03465a96387f0cdfaa7a2a7f006b64290c5164217225edd5963908"
+    },
+    {
+      "path": "review/ship-integration.js",
+      "sha256": "2197efbca616d8295a8912a933ec7b573b29c793cbaef60414bd0bbdb0f4a04f"
+    },
+    {
+      "path": "review/ship-integration-sequence.js",
+      "sha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112"
+    },
+    {
+      "path": "review/ship-road.js",
+      "sha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "486dd2d236bac33b9db928f3fb95d40846011bc31daff3be5d8c3aa1958f0427"
+    },
+    {
+      "path": "review/ship-surface.js",
+      "sha256": "d72880b88ccb459a2e614bc3ccd620e4f6d4085ddadcf56fbfae1fd65fe30d67"
+    },
+    {
+      "path": "review/ship-capture-server.py",
+      "sha256": "ac4af7f6ce31c1584c343eb52baa3b129a115b58ac1a164b0efcd0d3b86ff838"
+    },
+    {
+      "path": "generation/ship-family/model-approval.json",
+      "sha256": "ac2118fba2b0776284b8023549921a8f6efb130b639a91a433f5ca4d908f5f53"
+    },
+    {
+      "path": "generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "39330c7e5285869d89b318414de9ccd72c2a57272c27d3062260f572b80a244c"
+    },
+    {
+      "path": "generation/ship-family/water-plate/ocean-still.png",
+      "sha256": "a6f27769e170185b94d02d47c1dd665594e5b1cf45a0a0dd7b74cab64350deaa"
+    },
+    {
+      "path": "generation/ship-family/water-plate/ocean-motion.mp4",
+      "sha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912"
+    },
+    {
+      "path": "review/story-typography.css",
+      "sha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a"
+    },
+    {
+      "path": "review/handoff.html",
+      "sha256": "2bd404e479abf47b7e289e94f45e4f5e2e940f1ea497eeae607b876eb51aeb17"
+    },
+    {
+      "path": "review/jet-transition.html",
+      "sha256": "a7a0ba0bdb9de4714839e2bf830b43b81497ee708cc67be139651b4869c1824e"
+    }
+  ],
+  "generation": {
+    "manifest": "generation/ship-family/water-plate/manifest.json",
+    "still_request_id": "01a124fc-a537-7e83-9eee-bc6841752c16",
+    "video_request_id": "01a12504-63d9-7260-bf1a-ffef17112f6b",
+    "actual_media": {
+      "duration_seconds": 8.041667,
+      "width": 1178,
+      "height": 786,
+      "codec": "h264",
+      "audio_streams": 0
+    }
+  },
+  "history": "Previous uniform-water packet and recordings: before-bottom-quarter-content and playback/before-bottom-quarter-content. Intermediate superseded recordings remain in labeled playback/before-* folders.",
+  "limits": [
+    "Personal realism, wake fitting and content acceptance pending.",
+    "Generated water is an artistic compositing plate, not physical fluid simulation.",
+    "Production and representative-device performance unqualified; local render ticks are not device benchmarks.",
+    "Draft factual copy; cloud/jet integration deferred."
+  ],
+  "checks": {
+    "source_syntax": "pass: ship-content.js, ship-integration.js and ship-integration-sequence.js; git diff --check",
+    "accepted_inputs_unchanged": {
+      "status": "pass",
+      "count": 41,
+      "packet": "evidence/ship-integration/preservation-checks.json"
+    },
+    "generated_originals_unchanged": true,
+    "content_runtime": {
+      "status": "pass",
+      "dom_observations": [
+        {
+          "path": "evidence/ship-integration/content-final-desktop.json",
+          "sha256": "33dc469ebb2cb651058117892fb33011ee65217d7ae67a93a3407ae830b23509",
+          "heading_px": 64.0,
+          "block_px": 35.84,
+          "bottom_entry": true,
+          "row_gap_stage_heights": 0.528,
+          "fifth_transparent": true,
+          "fifth_held_at_nose": true,
+          "fifth_final_fully_in_stage": true
+        },
+        {
+          "path": "evidence/ship-integration/content-final-mobile.json",
+          "sha256": "b9fcff86002ca3ebc5e8ec6b2fcd9d5d553d2c8c573b40fe576d44b080c98137",
+          "heading_px": 40.0,
+          "block_px": 22.0,
+          "bottom_entry": true,
+          "row_gap_stage_heights": 0.528,
+          "fifth_transparent": true,
+          "fifth_held_at_nose": true,
+          "fifth_final_fully_in_stage": true
+        }
+      ],
+      "fifth_shared_vertical_speed": true,
+      "native_scroll_forward_reverse": true,
+      "preserved_pins": 41,
+      "water_and_generated_originals_unchanged": true,
+      "existing_story_html_changes": "stylesheet import only; responsive heading widths in shared stylesheet",
+      "limits": "Native DOM measurements and screenshots supplement personal motion review; no visual acceptance claimed."
+    },
+    "water_checks_reused": "ship-water.js and ship-surface.js unchanged from the uniform-water revision; original-media hashes unchanged. Prior water-only checks remain valid.",
+    "visual_inspection": "Desktop/mobile title, paired rows and transparent fifth block inspected. Live normal playback frames at approximately 69% and 93% inspected. Services, road and trust headings inspected at both widths. Personal acceptance pending.",
+    "genuine_playback": {
+      "status": "pass",
+      "runs": [
+        {
+          "path": "evidence/ship-integration/playback/before-fifth-shared-motion/ship-forward-normal-1791649673430.json",
+          "sha256": "183159bd608ccd5573227090cc5531377257f45672633632f3f6aa0df83153ac",
+          "direction": "forward",
+          "speed": 1,
+          "scope": "full",
+          "viewport": {
+            "width": 1214,
+            "height": 698
+          },
+          "frames": 1937,
+          "range": [
+            0,
+            1
+          ],
+          "elapsed_seconds": 22.86639999999106,
+          "pose_matrix_residual_max": 1.4210854715202004e-14,
+          "seat_rim_residual_m_max": 6.35544258880362e-14,
+          "camera_orientation_delta_max": 0.0,
+          "constant_C01_world_scale": [
+            0.7164220893068571,
+            0.7164220893068572,
+            0.7164220893068571
+          ],
+          "monotonic_camera_distance": true,
+          "tail_camera_keeps_receding": true,
+          "median_rendered_tick_seconds": 0.00839999999999418
+        },
+        {
+          "path": "evidence/ship-integration/playback/before-fifth-shared-motion/ship-forward-quarter-1791649773307.json",
+          "sha256": "01df51a7d13071261176eeb3b2a4012417c870b080f9b835592c475c1e8c3fa0",
+          "direction": "forward",
+          "speed": 0.25,
+          "scope": "boundary",
+          "viewport": {
+            "width": 1214,
+            "height": 698
+          },
+          "frames": 1465,
+          "range": [
+            0.31,
+            0.53
+          ],
+          "elapsed_seconds": 19.34689999999403,
+          "pose_matrix_residual_max": 1.4210854715202004e-14,
+          "seat_rim_residual_m_max": 6.35544258880362e-14,
+          "camera_orientation_delta_max": 0.0,
+          "constant_C01_world_scale": [
+            0.7164220893068571,
+            0.7164220893068572,
+            0.7164220893068571
+          ],
+          "monotonic_camera_distance": true,
+          "tail_camera_keeps_receding": false,
+          "median_rendered_tick_seconds": 0.008900000000023283
+        },
+        {
+          "path": "evidence/ship-integration/playback/before-fifth-shared-motion/ship-reverse-normal-1791649731100.json",
+          "sha256": "6e0d61dbd3ae1ddfe28f671a0e8f9d76ddaad48e764db8a5bac8df3183c9d315",
+          "direction": "reverse",
+          "speed": 1,
+          "scope": "full",
+          "viewport": {
+            "width": 1214,
+            "height": 698
+          },
+          "frames": 1920,
+          "range": [
+            1,
+            0
+          ],
+          "elapsed_seconds": 22.87379999999702,
+          "pose_matrix_residual_max": 1.4210854715202004e-14,
+          "seat_rim_residual_m_max": 6.35544258880362e-14,
+          "camera_orientation_delta_max": 0.0,
+          "constant_C01_world_scale": [
+            0.7164220893068571,
+            0.7164220893068572,
+            0.7164220893068571
+          ],
+          "monotonic_camera_distance": true,
+          "tail_camera_keeps_receding": true,
+          "median_rendered_tick_seconds": 0.00839999999999418
+        }
+      ],
+      "limits": "Browser render-tick intervals are this host/run only; they do not establish representative-device or production performance. Mathematical pose/support checks supplement personal playback review."
+    },
+    "console": "No captured warnings or errors: console-final.json",
+    "final_tail_duration": "pass: opening progression 1/22 per second; final 84\u2013100% 1/27.5 per second in both normal forward/reverse recordings. 0.88 seconds and 4% original scroll length added."
+  },
+  "screenshots": [
+    "evidence/ship-integration/content-review-desktop.png",
+    "evidence/ship-integration/fifth-matching-desktop.png",
+    "evidence/ship-integration/fifth-matching-mobile.png",
+    "evidence/ship-integration/scroll-final-mobile.png",
+    "evidence/ship-integration/services-heading-desktop.png",
+    "evidence/ship-integration/services-heading-mobile.png",
+    "evidence/ship-integration/road-heading-desktop.png",
+    "evidence/ship-integration/road-heading-mobile.png",
+    "evidence/ship-integration/trust-heading-desktop.png",
+    "evidence/ship-integration/trust-heading-mobile.png",
+    "evidence/ship-integration/normal-title-entry.png",
+    "evidence/ship-integration/normal-content-motion.png",
+    "evidence/ship-integration/review-open-final.png"
+  ],
+  "user_accepted": false,
+  "evidence_inputs": [
+    {
+      "path": "evidence/ship-integration/content-review-desktop.png",
+      "sha256": "9763fffbfed114e7073dfa2faf0826ecdb7f73839d0ed857d05ac5dbb98fa49d"
+    },
+    {
+      "path": "evidence/ship-integration/fifth-matching-desktop.png",
+      "sha256": "dae95d522b12b9c600a7ca57c4f03fd1bad4f945a083e1819d30f6ea32547154"
+    },
+    {
+      "path": "evidence/ship-integration/fifth-matching-mobile.png",
+      "sha256": "af990f7025272864f9626bfc7466bb9f4b497d8415e37e76b2bd800258e26ff4"
+    },
+    {
+      "path": "evidence/ship-integration/scroll-final-mobile.png",
+      "sha256": "6527de41ebeb5b20a2782c6343b6246ad59a3199347860efeca80b139ec1db45"
+    },
+    {
+      "path": "evidence/ship-integration/services-heading-desktop.png",
+      "sha256": "237fe2532add26c70b475c4b4c146bfbc2d938cb0b646b0ec59740b0c9950433"
+    },
+    {
+      "path": "evidence/ship-integration/services-heading-mobile.png",
+      "sha256": "d73126c238f7ca17e965fc3dcc9cdfe465d8c694179bc8c8e20cb11a1d89b901"
+    },
+    {
+      "path": "evidence/ship-integration/road-heading-desktop.png",
+      "sha256": "8c5073996096b3ddc91ae41fe3a72838e40db2eea036d623e32f071d4ae7ebf2"
+    },
+    {
+      "path": "evidence/ship-integration/road-heading-mobile.png",
+      "sha256": "c91e271ca0fb2712cc5f859f8fe0eaf8863bda6a17b677a713346e74b826e37e"
+    },
+    {
+      "path": "evidence/ship-integration/trust-heading-desktop.png",
+      "sha256": "ada3af87cef8d2d33f10e1915cbe170ef5f5eb73f9d05b92eb5d03e30f86b9d7"
+    },
+    {
+      "path": "evidence/ship-integration/trust-heading-mobile.png",
+      "sha256": "11a82275986038781a6efeb13d6682dfe0cb61aeb33b5950b4a1fd3b56fe2d81"
+    },
+    {
+      "path": "evidence/ship-integration/normal-title-entry.png",
+      "sha256": "fad5e42aeb7ccbda572428bf4b9ccf7f01ba1bab39987d62dccd2211d4f87337"
+    },
+    {
+      "path": "evidence/ship-integration/normal-content-motion.png",
+      "sha256": "36367169f1f09ea9e2b2e432dd2340ebd8841c9b827eac73e68fe8b4947ac212"
+    },
+    {
+      "path": "evidence/ship-integration/review-open-final.png",
+      "sha256": "a77d5eb268a4cb516e325c0036a1308bdaec7354a39052cf011ddca128dd37c7"
+    }
+  ]
+}

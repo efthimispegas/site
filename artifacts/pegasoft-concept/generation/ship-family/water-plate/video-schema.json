@@ -1,0 +1,817 @@
+{
+  "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+  "display_name": "Seedance 2.5 Image to Video",
+  "category": "image-to-video",
+  "description": "Dreamina Seedance 2.5 animates a single still into a native 30-second clip at up to 720p, extending one frame into continuous, coherent motion without the drift or stitching of shorter multi-clip workflows.",
+  "input_params": [
+    {
+      "name": "resolution",
+      "type": "string",
+      "description": "Video resolution - 480p for faster generation, 720p for balance, 1080p for high quality.",
+      "required": false,
+      "default": "720p",
+      "enum": [
+        "480p",
+        "720p",
+        "1080p"
+      ]
+    },
+    {
+      "name": "end_image_url",
+      "type": "string | null",
+      "description": "The URL of the image to use as the last frame of the video. When provided, the generated video will transition from the starting image to this ending image. Supported formats: JPEG, PNG, WebP. Max 30 MB.",
+      "required": false
+    },
+    {
+      "name": "generate_audio",
+      "type": "boolean",
+      "description": "Whether to generate synchronized audio for the video, including sound effects, ambient sounds, and lip-synced speech. The cost of video generation is the same regardless of whether audio is generated or not.",
+      "required": false,
+      "default": true
+    },
+    {
+      "name": "end_user_id",
+      "type": "string | null",
+      "description": "The unique user ID of the end user.",
+      "required": false
+    },
+    {
+      "name": "bitrate_mode",
+      "type": "string",
+      "description": "Output bitrate mode. 'high' requests a higher-quality, larger-file encode from the model; 'standard' uses the default bitrate.",
+      "required": false,
+      "default": "standard",
+      "enum": [
+        "standard",
+        "high"
+      ]
+    },
+    {
+      "name": "image_url",
+      "type": "string",
+      "description": "The URL of the starting frame image to animate. Supported formats: JPEG, PNG, WebP. Max 30 MB.",
+      "required": true
+    },
+    {
+      "name": "aspect_ratio",
+      "type": "string",
+      "description": "The aspect ratio of the generated video. Always \"auto\" for image-to-video",
+      "required": false,
+      "default": "auto"
+    },
+    {
+      "name": "codec",
+      "type": "string",
+      "description": "'auto' retains default video codec behaviour; 'H264' uses H.264; 'H265' uses H.265.",
+      "required": false,
+      "default": "auto",
+      "enum": [
+        "auto",
+        "H264",
+        "H265"
+      ]
+    },
+    {
+      "name": "duration",
+      "type": "string",
+      "description": "Duration of the video in seconds. Supports 4 to 30 seconds, or auto to let the model decide based on the prompt.",
+      "required": false,
+      "default": "auto",
+      "enum": [
+        "auto",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30"
+      ]
+    },
+    {
+      "name": "draft",
+      "type": "boolean",
+      "description": "Generate a draft preview at 480p, overriding resolution. Returns a draft_id for completing the draft at 1080p within seven days.",
+      "required": false,
+      "default": false
+    },
+    {
+      "name": "prompt",
+      "type": "string | null",
+      "description": "The text prompt describing the desired motion and action for the video.",
+      "required": false
+    }
+  ],
+  "output_fields": [
+    {
+      "name": "draft_id",
+      "type": "string | null",
+      "description": "The draft ID, or null when draft mode is disabled. Complete this draft within seven days using the same account.",
+      "required": false
+    },
+    {
+      "name": "seed",
+      "type": "integer",
+      "description": "The seed used for generation.",
+      "required": true
+    },
+    {
+      "name": "video",
+      "type": "object",
+      "description": "The generated video file.",
+      "required": true
+    }
+  ],
+  "input_schema": {
+    "properties": {
+      "resolution": {
+        "description": "Video resolution - 480p for faster generation, 720p for balance, 1080p for high quality.",
+        "default": "720p",
+        "enum": [
+          "480p",
+          "720p",
+          "1080p"
+        ],
+        "type": "string",
+        "title": "Resolution"
+      },
+      "end_image_url": {
+        "description": "The URL of the image to use as the last frame of the video. When provided, the generated video will transition from the starting image to this ending image. Supported formats: JPEG, PNG, WebP. Max 30 MB.",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "End Image Url"
+      },
+      "generate_audio": {
+        "description": "Whether to generate synchronized audio for the video, including sound effects, ambient sounds, and lip-synced speech. The cost of video generation is the same regardless of whether audio is generated or not.",
+        "default": true,
+        "type": "boolean",
+        "title": "Generate Audio"
+      },
+      "end_user_id": {
+        "description": "The unique user ID of the end user.",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "End User Id"
+      },
+      "bitrate_mode": {
+        "description": "Output bitrate mode. 'high' requests a higher-quality, larger-file encode from the model; 'standard' uses the default bitrate.",
+        "default": "standard",
+        "examples": [
+          "standard"
+        ],
+        "enum": [
+          "standard",
+          "high"
+        ],
+        "type": "string",
+        "title": "Bitrate Mode"
+      },
+      "image_url": {
+        "description": "The URL of the starting frame image to animate. Supported formats: JPEG, PNG, WebP. Max 30 MB.",
+        "examples": [
+          "https://v3b.fal.media/files/b/0a8eba37/Cqg-4Uwzyz4DELfceT1CF_a17e588773ec45b1a9e6f100a787b80b.jpg"
+        ],
+        "type": "string",
+        "title": "Image Url"
+      },
+      "aspect_ratio": {
+        "description": "The aspect ratio of the generated video. Always \"auto\" for image-to-video",
+        "default": "auto",
+        "const": "auto",
+        "type": "string",
+        "title": "Aspect Ratio"
+      },
+      "codec": {
+        "description": "'auto' retains default video codec behaviour; 'H264' uses H.264; 'H265' uses H.265.",
+        "default": "auto",
+        "examples": [
+          "auto",
+          "H264",
+          "H265"
+        ],
+        "enum": [
+          "auto",
+          "H264",
+          "H265"
+        ],
+        "type": "string",
+        "title": "Codec"
+      },
+      "duration": {
+        "description": "Duration of the video in seconds. Supports 4 to 30 seconds, or auto to let the model decide based on the prompt.",
+        "default": "auto",
+        "enum": [
+          "auto",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25",
+          "26",
+          "27",
+          "28",
+          "29",
+          "30"
+        ],
+        "type": "string",
+        "title": "Duration"
+      },
+      "draft": {
+        "description": "Generate a draft preview at 480p, overriding resolution. Returns a draft_id for completing the draft at 1080p within seven days.",
+        "default": false,
+        "type": "boolean",
+        "title": "Draft"
+      },
+      "prompt": {
+        "description": "The text prompt describing the desired motion and action for the video.",
+        "examples": [
+          "An octopus finds a football in the ocean and excitedly calls its octopus friends to come and play. Cut scene to an octopus football game under the sea."
+        ],
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Prompt"
+      }
+    },
+    "x-fal-order-properties": [
+      "prompt",
+      "image_url",
+      "end_image_url",
+      "resolution",
+      "draft",
+      "duration",
+      "aspect_ratio",
+      "generate_audio",
+      "bitrate_mode",
+      "codec",
+      "end_user_id"
+    ],
+    "type": "object",
+    "title": "Seedance2I2VInput",
+    "required": [
+      "image_url"
+    ]
+  },
+  "output_schema": {
+    "properties": {
+      "draft_id": {
+        "description": "The draft ID, or null when draft mode is disabled. Complete this draft within seven days using the same account.",
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "title": "Draft Id"
+      },
+      "seed": {
+        "description": "The seed used for generation.",
+        "examples": [
+          42
+        ],
+        "type": "integer",
+        "title": "Seed"
+      },
+      "video": {
+        "properties": {
+          "file_name": {
+            "description": "The name of the file. It will be auto-generated if not provided.",
+            "examples": [
+              "z9RV14K95DvU.png"
+            ],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Name"
+          },
+          "file_size": {
+            "description": "The size of the file in bytes.",
+            "examples": [
+              4404019
+            ],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Size"
+          },
+          "url": {
+            "description": "The URL where the file can be downloaded from.",
+            "type": "string",
+            "title": "Url"
+          },
+          "content_type": {
+            "description": "The mime type of the file.",
+            "examples": [
+              "image/png"
+            ],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Type"
+          }
+        },
+        "x-fal-order-properties": [
+          "url",
+          "content_type",
+          "file_name",
+          "file_size"
+        ],
+        "type": "object",
+        "title": "File",
+        "required": [
+          "url"
+        ],
+        "examples": [
+          {
+            "url": "https://storage.googleapis.com/falserverless/example_outputs/bytedance/seedance_2/output.mp4"
+          }
+        ],
+        "description": "The generated video file."
+      }
+    },
+    "x-fal-order-properties": [
+      "video",
+      "seed",
+      "draft_id"
+    ],
+    "type": "object",
+    "title": "Seedance2VideoOutput",
+    "required": [
+      "video",
+      "seed"
+    ]
+  },
+  "exact_input_schema": {
+    "$ref": "#/components/schemas/Seedance25ImageToVideoInput"
+  },
+  "exact_output_schema": {
+    "$ref": "#/components/schemas/Seedance25ImageToVideoOutput"
+  },
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization",
+        "description": "Fal Key"
+      }
+    },
+    "schemas": {
+      "QueueStatus": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "IN_QUEUE",
+              "IN_PROGRESS",
+              "COMPLETED"
+            ]
+          },
+          "request_id": {
+            "type": "string",
+            "description": "The request id."
+          },
+          "response_url": {
+            "type": "string",
+            "description": "The response url."
+          },
+          "status_url": {
+            "type": "string",
+            "description": "The status url."
+          },
+          "cancel_url": {
+            "type": "string",
+            "description": "The cancel url."
+          },
+          "logs": {
+            "type": "object",
+            "description": "The logs.",
+            "additionalProperties": true
+          },
+          "metrics": {
+            "type": "object",
+            "description": "The metrics.",
+            "additionalProperties": true
+          },
+          "queue_position": {
+            "type": "integer",
+            "description": "The queue position."
+          }
+        },
+        "required": [
+          "status",
+          "request_id"
+        ]
+      },
+      "Seedance25ImageToVideoInput": {
+        "properties": {
+          "resolution": {
+            "description": "Video resolution - 480p for faster generation, 720p for balance, 1080p for high quality.",
+            "default": "720p",
+            "enum": [
+              "480p",
+              "720p",
+              "1080p"
+            ],
+            "type": "string",
+            "title": "Resolution"
+          },
+          "end_image_url": {
+            "description": "The URL of the image to use as the last frame of the video. When provided, the generated video will transition from the starting image to this ending image. Supported formats: JPEG, PNG, WebP. Max 30 MB.",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End Image Url"
+          },
+          "generate_audio": {
+            "description": "Whether to generate synchronized audio for the video, including sound effects, ambient sounds, and lip-synced speech. The cost of video generation is the same regardless of whether audio is generated or not.",
+            "default": true,
+            "type": "boolean",
+            "title": "Generate Audio"
+          },
+          "end_user_id": {
+            "description": "The unique user ID of the end user.",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "End User Id"
+          },
+          "bitrate_mode": {
+            "description": "Output bitrate mode. 'high' requests a higher-quality, larger-file encode from the model; 'standard' uses the default bitrate.",
+            "default": "standard",
+            "examples": [
+              "standard"
+            ],
+            "enum": [
+              "standard",
+              "high"
+            ],
+            "type": "string",
+            "title": "Bitrate Mode"
+          },
+          "image_url": {
+            "description": "The URL of the starting frame image to animate. Supported formats: JPEG, PNG, WebP. Max 30 MB.",
+            "examples": [
+              "https://v3b.fal.media/files/b/0a8eba37/Cqg-4Uwzyz4DELfceT1CF_a17e588773ec45b1a9e6f100a787b80b.jpg"
+            ],
+            "type": "string",
+            "title": "Image Url"
+          },
+          "aspect_ratio": {
+            "description": "The aspect ratio of the generated video. Always \"auto\" for image-to-video",
+            "default": "auto",
+            "const": "auto",
+            "type": "string",
+            "title": "Aspect Ratio"
+          },
+          "codec": {
+            "description": "'auto' retains default video codec behaviour; 'H264' uses H.264; 'H265' uses H.265.",
+            "default": "auto",
+            "examples": [
+              "auto",
+              "H264",
+              "H265"
+            ],
+            "enum": [
+              "auto",
+              "H264",
+              "H265"
+            ],
+            "type": "string",
+            "title": "Codec"
+          },
+          "duration": {
+            "description": "Duration of the video in seconds. Supports 4 to 30 seconds, or auto to let the model decide based on the prompt.",
+            "default": "auto",
+            "enum": [
+              "auto",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12",
+              "13",
+              "14",
+              "15",
+              "16",
+              "17",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30"
+            ],
+            "type": "string",
+            "title": "Duration"
+          },
+          "draft": {
+            "description": "Generate a draft preview at 480p, overriding resolution. Returns a draft_id for completing the draft at 1080p within seven days.",
+            "default": false,
+            "type": "boolean",
+            "title": "Draft"
+          },
+          "prompt": {
+            "description": "The text prompt describing the desired motion and action for the video.",
+            "examples": [
+              "An octopus finds a football in the ocean and excitedly calls its octopus friends to come and play. Cut scene to an octopus football game under the sea."
+            ],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt"
+          }
+        },
+        "x-fal-order-properties": [
+          "prompt",
+          "image_url",
+          "end_image_url",
+          "resolution",
+          "draft",
+          "duration",
+          "aspect_ratio",
+          "generate_audio",
+          "bitrate_mode",
+          "codec",
+          "end_user_id"
+        ],
+        "type": "object",
+        "title": "Seedance2I2VInput",
+        "required": [
+          "image_url"
+        ]
+      },
+      "Seedance25ImageToVideoOutput": {
+        "properties": {
+          "draft_id": {
+            "description": "The draft ID, or null when draft mode is disabled. Complete this draft within seven days using the same account.",
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Draft Id"
+          },
+          "seed": {
+            "description": "The seed used for generation.",
+            "examples": [
+              42
+            ],
+            "type": "integer",
+            "title": "Seed"
+          },
+          "video": {
+            "examples": [
+              {
+                "url": "https://storage.googleapis.com/falserverless/example_outputs/bytedance/seedance_2/output.mp4"
+              }
+            ],
+            "description": "The generated video file.",
+            "$ref": "#/components/schemas/File"
+          }
+        },
+        "x-fal-order-properties": [
+          "video",
+          "seed",
+          "draft_id"
+        ],
+        "type": "object",
+        "title": "Seedance2VideoOutput",
+        "required": [
+          "video",
+          "seed"
+        ]
+      },
+      "File": {
+        "properties": {
+          "file_name": {
+            "description": "The name of the file. It will be auto-generated if not provided.",
+            "examples": [
+              "z9RV14K95DvU.png"
+            ],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Name"
+          },
+          "file_size": {
+            "description": "The size of the file in bytes.",
+            "examples": [
+              4404019
+            ],
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "File Size"
+          },
+          "url": {
+            "description": "The URL where the file can be downloaded from.",
+            "type": "string",
+            "title": "Url"
+          },
+          "content_type": {
+            "description": "The mime type of the file.",
+            "examples": [
+              "image/png"
+            ],
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Content Type"
+          }
+        },
+        "x-fal-order-properties": [
+          "url",
+          "content_type",
+          "file_name",
+          "file_size"
+        ],
+        "type": "object",
+        "title": "File",
+        "required": [
+          "url"
+        ]
+      }
+    }
+  },
+  "openapi_version": "3.0.4",
+  "selection_guidance": "Before choosing a model for a new operation, call recommend_model with the user's task and constraints unless the user named a model or explicitly requested a model set/comparison. Reuse that recommendation for the operation; do not repeatedly request the same recommendation.\nFor an explicit set/comparison, use list_model_sets to resolve the requested operation and sets, then use its exact returned endpoint IDs within the user's requested scope. Read each selected model's live schema and applicable published guidance, build its input from the user's brief and references, and preserve required settings. Explain incompatible or unavailable members instead of silently replacing them, approximating settings, or running the rest of a large set. Set membership is discovery, never authorization or proof of task fit.\nHonor an explicitly requested model; verify its exact endpoint and do not silently substitute it.\nCopy endpoint_id exactly from the live catalog. Namespaces and versions vary by provider: never add or change a provider prefix, invent an endpoint from a model name, or reuse a guessed alias. When a named model is missing or unavailable, search_models can resolve current catalog matches; explain any mismatch with the requested endpoint before choosing a replacement. An unavailable endpoint alone does not establish that the user connected the wrong account.\nOtherwise use current applicable published guidance in recommended_model and model_knowledge after checking the user's real sources, required capabilities and scoped budget. Follow the next compatible published fallback and explain why. If published guidance is missing or outdated, use search_models and search_docs to evaluate current candidates. A new endpoint can qualify without adoption statistics, but recency alone does not establish quality. Do not submit a choice with decision_status needs_input, no_compatible_candidate or evidence_unavailable. A workflow_needed result needs a verified dependent plan before spend.\nWith draft_inspection_required, draft_candidate establishes technical/reference fit only. Generate a draft only within existing user authorization and the checked budget, then inspect it against original conditioning sources before dependent generation or approval. Preservation stays unverified; a draft candidate is not a final recommended_model or permission to spend.\nCatalog order, popularity and release recency are discovery signals, not quality or latency rankings. Fast subject motion describes movement in the scene, not generation latency. Only treat user-requested settings as hard constraints; do not invent an exact resolution or audio requirement to justify switching models.\nLive retrieval does not establish when guidance was authored. Without an update date, freshness is unknown; verify capabilities in current schemas/docs and do not claim the pick is the newest or fastest without evidence. Skills and workflow examples supply production advice, not competing model defaults. Prefer current published task/domain guidance over bundled family rankings. Use get_pricing for the actual settings before material spending. Cost estimates preserve units and cover only known quantities, not final billing guarantees. Pass the optional decision_id to run_model, submit_job or each applicable batch item; it links observations and is never authorization.",
+  "knowledge_status": "complete",
+  "knowledge_retrieval": {
+    "fetched_at": "2026-10-10T08:41:07.531Z",
+    "warnings": []
+  },
+  "model_knowledge": {
+    "models": [
+      {
+        "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+        "display_name": "Seedance 2.5 Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": [
+          {
+            "kind": "default_pick",
+            "body": "Take over for 16-30s takes, exact 720p/1080p, and fast subject motion longer than 10s.",
+            "source": "curated",
+            "task": {
+              "name": "Image to video",
+              "category": "image-to-video"
+            },
+            "rank": 2
+          }
+        ]
+      }
+    ],
+    "evidence": {
+      "version": 3,
+      "compiled_at": "2026-10-05T02:00:08.053Z",
+      "window_start": "2026-09-28T00:00:00.000Z",
+      "window_end": "2026-10-05T00:00:00.000Z",
+      "evaluated_at": "2026-10-10T08:41:07.847Z",
+      "latency_definition": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees.",
+      "instructions": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees. Report p50/p90 with their measurement window. Null means unknown, never zero. Trending is the analytics category rank at its source timestamp, not adoption or quality. New means registry publication within 30 days of the response evaluation time, not first usage. Lab recommendations are authored guidance, not measured latency, trending or newness. Use the existing pricing tool for current prices, preserving billing units and required configuration; these observations contain no prices.",
+      "models": [
+        {
+          "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+          "evidence": {
+            "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+            "title": "Seedance 2.5 Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 7,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-08-07T06:14:59.326Z",
+            "is_new": false
+          }
+        }
+      ]
+    },
+    "unavailable_endpoint_ids": [],
+    "stats_available": true,
+    "note": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees. Report p50/p90 with their measurement window. Null means unknown, never zero. Trending is the analytics category rank at its source timestamp, not adoption or quality. New means registry publication within 30 days of the response evaluation time, not first usage. Lab recommendations are authored guidance, not measured latency, trending or newness. Use the existing pricing tool for current prices, preserving billing units and required configuration; these observations contain no prices."
+  }
+}

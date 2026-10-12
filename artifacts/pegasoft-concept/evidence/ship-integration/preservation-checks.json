@@ -1,0 +1,169 @@
+{
+  "status": "pass",
+  "pins": [
+    {
+      "path": "review/lift-container.html",
+      "sha256": "44e39925418d3cc210b8da20d476594e2f36b634872d7e4aa4e191cde698f3db"
+    },
+    {
+      "path": "review/lift-container.js",
+      "sha256": "581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65"
+    },
+    {
+      "path": "review/lift-container-replay.js",
+      "sha256": "eff3c88fb443f3d8a7107106d4d104999368b8c0cdd0116be456c06022b7e766"
+    },
+    {
+      "path": "review/integration-server.py",
+      "sha256": "57cbe737715a235844b01450abd2ad06a54b391ffeb0e5ae28ac12a945f6af41"
+    },
+    {
+      "path": "generation/container-family/lift-integration/rig-harness.mjs",
+      "sha256": "b31c7869f5a4344bed8f47624cad385d1a1f2f3ccbe019dd233e3d47788d0924"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-integration.mjs",
+      "sha256": "c3d62950fea9455415594b3252cf78b7b2a22acfe41f9c9b44c61e88f9c2deab"
+    },
+    {
+      "path": "generation/container-family/lift-integration/measure-rendered-edges.py",
+      "sha256": "564d0e9e7f958a7fe467f96f8b23259023021cf16e4cd8337630370a24dacf68"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera.mjs",
+      "sha256": "b48dd817c2813cef77176ca234e8cd9b80c61d13918027548de0570b05ac7629"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-camera-turn.mjs",
+      "sha256": "5cb06960caa6654e7527c645a17c0ff30dcb764decb6743643c9911c1b57be3f"
+    },
+    {
+      "path": "generation/container-family/lift-integration/check-rendered-camera.py",
+      "sha256": "b565548c9e150311c48c1183e87939111e4dd71b45eda08d10a614b1837990a5"
+    },
+    {
+      "path": "review/truck-model.html",
+      "sha256": "20097935005a449fd76b3162ffb0af6571f2c1bd72069444cc4792f8041c4eb0"
+    },
+    {
+      "path": "review/truck-model.js",
+      "sha256": "1d0b5c8c40a6a86bc1992ec207e0992462a57ed4e13fa14f3e1f46c00674bb3d"
+    },
+    {
+      "path": "generation/truck-family/model-draft/truck-model.mjs",
+      "sha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32"
+    },
+    {
+      "path": "generation/truck-family/model-draft/build-model.mjs",
+      "sha256": "ec6a5d64a1c86fc770eeaa029a254f0b9f47f73c79b31a25134dbc4a1be0c297"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/truck-family/model-draft/model-checks.json",
+      "sha256": "9b7924eeed510b072722b741a7ee8076e920be45e6c9c3f609802d93b9e9c062"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/browser-observation.json",
+      "sha256": "27f50e63d30978bcbb3b9b010fde4f5f5d87841611e07fc80b8db182d4f08dc9"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/usage-final.json",
+      "sha256": "dd2c6ff74194877ce1db826aaf3ed2eac336c08090da443933f23d559c382c0a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/cab-final.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/wheel-final.png",
+      "sha256": "308c1e5b94f70bde8c0726072ef292e0d94162f4d40e9654b5a670b6a1a31871"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/suspension-final.png",
+      "sha256": "d3197813c5a22fed29384f69c98d98c1b88c2f1134fa014610d01bc51623785c"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/coupling-final.png",
+      "sha256": "de86bffb941a559a9b75af2b8d376b2a74a301a7caceb59b62294d32a68da5b6"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/side-final.png",
+      "sha256": "d51d1fee6b9f44760b2a639ec89b3ad933672d32b4f17edf1bdda500aad36969"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/support-final.png",
+      "sha256": "29ebaa2783a92288d255b8fe16f54d4795888483d13211fa70153710e6ccd4ac"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/loaded-oblique-final.png",
+      "sha256": "12fab701d89d8265c6e9f51d00f3717cc11679f3aba152ad22576089994d55f0"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-positive.png",
+      "sha256": "a134cf021fa1e040bdbad9021a9206562f7958271142eb4d645b813d89a86f09"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/articulation-negative.png",
+      "sha256": "da23eadbc66c5fdaf8c59787f1fd2a78cddf1104a4db4c19452a255fdb76b757"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/front-final.png",
+      "sha256": "aa64b871ff2886a533f4390cc69d27357ff1f93706ddfc8cf89b34881d85528a"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/upper-final.png",
+      "sha256": "3c74d7722df87e3cdba64fd345d11d076c0ccdd117feb3dbf95a9973612bca22"
+    },
+    {
+      "path": "evidence/truck-model-review-v2/review-ready.png",
+      "sha256": "41072ae5ef4f5026f1635fa62afce948bd268c6c72387d7c55cc99e1e0bf48c0"
+    },
+    {
+      "path": "generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85"
+    },
+    {
+      "path": "generation/ship-family/S02/S02-side-original.png",
+      "sha256": "12214f7b811466e305de8c6f56bac812b402aeeeba71c33eef0c95056e97cf81"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "cc5a8c846343891a860406ec3679def0a74b4436806809e624619dcd24d33776"
+    },
+    {
+      "path": "review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    }
+  ]
+}

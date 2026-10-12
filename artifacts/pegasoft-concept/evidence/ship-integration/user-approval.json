@@ -1,0 +1,101 @@
+{
+  "status": "user_approved",
+  "date_local": "2026-10-10",
+  "authority": "Direct user approval",
+  "user_quote": "This journey step is approved. Proceed with the next integration step",
+  "branch": "codex/pegasoft-concept",
+  "scope": "Road-to-ship journey, uniform generated water compositing, shared storyline heading hierarchy and final fifth-block shared-speed bottom-centre animation.",
+  "accepted_packet": {
+    "path": "evidence/ship-integration/approved-review-input.json",
+    "sha256": "958f50f141c6d415fab488113008796231959057a7049bac7a774b077494457b"
+  },
+  "inputs": [
+    {
+      "path": "review/ship-integration.html",
+      "sha256": "7a4365470e49f61d756d7497f770fc35f17c131ff087a55efba4921fdf4b6700"
+    },
+    {
+      "path": "review/ship-integration.js",
+      "sha256": "948e4ab5f031b6afe644be4e3489c446ab9f3e0cf3e8955bb91e1fca8f901023"
+    },
+    {
+      "path": "review/ship-integration-sequence.js",
+      "sha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112"
+    },
+    {
+      "path": "review/ship-road.js",
+      "sha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "486dd2d236bac33b9db928f3fb95d40846011bc31daff3be5d8c3aa1958f0427"
+    },
+    {
+      "path": "review/ship-surface.js",
+      "sha256": "d72880b88ccb459a2e614bc3ccd620e4f6d4085ddadcf56fbfae1fd65fe30d67"
+    },
+    {
+      "path": "review/ship-capture-server.py",
+      "sha256": "ac4af7f6ce31c1584c343eb52baa3b129a115b58ac1a164b0efcd0d3b86ff838"
+    },
+    {
+      "path": "generation/ship-family/model-approval.json",
+      "sha256": "ac2118fba2b0776284b8023549921a8f6efb130b639a91a433f5ca4d908f5f53"
+    },
+    {
+      "path": "generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "5a086e337aca97dbc4fe1dbb0ccd8f8e75935c54e31a90195a6561ebe9a1bbdd"
+    },
+    {
+      "path": "generation/ship-family/water-plate/ocean-still.png",
+      "sha256": "a6f27769e170185b94d02d47c1dd665594e5b1cf45a0a0dd7b74cab64350deaa"
+    },
+    {
+      "path": "generation/ship-family/water-plate/ocean-motion.mp4",
+      "sha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912"
+    },
+    {
+      "path": "review/story-typography.css",
+      "sha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a"
+    },
+    {
+      "path": "review/handoff.html",
+      "sha256": "2bd404e479abf47b7e289e94f45e4f5e2e940f1ea497eeae607b876eb51aeb17"
+    },
+    {
+      "path": "review/jet-transition.html",
+      "sha256": "a7a0ba0bdb9de4714839e2bf830b43b81497ee708cc67be139651b4869c1824e"
+    }
+  ],
+  "evidence_inputs": [
+    {
+      "path": "evidence/ship-integration/fifth-shared-desktop.png",
+      "sha256": "c456476e540971ec477051dfd3ea966f79e4cf06074d24a61e8a34820adbf0d5"
+    },
+    {
+      "path": "evidence/ship-integration/fifth-shared-mobile.png",
+      "sha256": "3a2c43480cc66ca5fa999c1c6b1c4290f625bb15a8cde92fb5a9f66c37c9d6e3"
+    }
+  ],
+  "next_authorized_step": "Ship \u2192 layered clouds \u2192 existing J02 crossing \u2192 trust integration, subject to the existing selected atmosphere/static/video gates.",
+  "limits": [
+    "No production website or public release approval.",
+    "No new jet assets or modifications to accepted vehicle geometry."
+  ]
+}

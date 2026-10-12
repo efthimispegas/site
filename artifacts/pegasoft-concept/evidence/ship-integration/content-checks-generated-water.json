@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "checks": {
+    "camera_hold_until_38": true,
+    "copy_visibility_after_60": true,
+    "desktop": {
+      "fifth_centred_below_bow_and_fits": true,
+      "pair_boxes_clear_hull": true,
+      "title_font_px": "35.84px"
+    },
+    "mobile": {
+      "fifth_centred_below_bow_and_fits": true,
+      "pair_boxes_clear_hull": true,
+      "title_font_px": "22px"
+    },
+    "native_scroll_reverse_to_75_then_forward_to_81_25": true
+  },
+  "limits": "DOM text boxes and captured transforms checked at final desktop/mobile; screenshots and personal review assess visual readability."
+}

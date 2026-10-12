@@ -1,0 +1,29 @@
+{
+  "ordinaryUsageAllowed": true,
+  "rateLimits": {
+    "primary": {
+      "usedPercent": 27,
+      "windowDurationMins": 300,
+      "resetsAt": 1791595178
+    },
+    "secondary": {
+      "usedPercent": 63,
+      "windowDurationMins": 10080,
+      "resetsAt": 1791977110
+    }
+  },
+  "rateLimitsByLimitId": {
+    "codex": {
+      "primary": {
+        "usedPercent": 27,
+        "windowDurationMins": 300,
+        "resetsAt": 1791595178
+      },
+      "secondary": {
+        "usedPercent": 63,
+        "windowDurationMins": 10080,
+        "resetsAt": 1791977110
+      }
+    }
+  }
+}

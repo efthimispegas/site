@@ -1,0 +1,774 @@
+{
+  "task": "Generate an 8-second image-to-video clip of natural dark blue open-ocean water viewed straight down from a stationary drone. Photorealistic waves and reflected daylight. No ship, objects or camera movement. Use the project's specified bytedance/seedance-2.5/image-to-video endpoint, at 720p with audio disabled.",
+  "decision_id": "88b4b4df-bd96-4d69-b397-0ecd0489da80",
+  "decision_summary": {
+    "policy_version": "fit-first-v1",
+    "knowledge_status": "complete",
+    "recommended_endpoint_ids": [
+      "bytedance/seedance-2.5/image-to-video"
+    ],
+    "draft_candidate_endpoint_ids": [],
+    "selection_bases": [
+      "explicit_choice"
+    ],
+    "decision_statuses": [
+      "selected"
+    ],
+    "rejected_candidate_count": 0,
+    "unresolved_candidate_count": 0
+  },
+  "interpreted_task": {
+    "category": "image-to-video",
+    "operation": "Image-to-video",
+    "source_basis": "task_text",
+    "requirements": {
+      "duration_seconds": 8
+    }
+  },
+  "knowledge_status": "complete",
+  "knowledge_retrieval": {
+    "initial": "complete",
+    "enrichment": "complete"
+  },
+  "routing_status": "complete",
+  "routing_source": "published_guidance",
+  "flow_redirects": [],
+  "routing_warnings": [],
+  "results": [
+    {
+      "label": "Image-to-video",
+      "decision_status": "selected",
+      "selection_basis": "explicit_choice",
+      "plan_kind": "single_endpoint",
+      "fit_candidates": [
+        {
+          "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+          "display_name": "Seedance 2.5 Image to Video",
+          "description": "Dreamina Seedance 2.5 animates a single still into a native 30-second clip at up to 720p, extending one frame into continuous, coherent motion without the drift or stitching of shorter multi-clip workflows.",
+          "category": "image-to-video",
+          "fit_status": "pass",
+          "fit_checks": [
+            {
+              "requirement": "duration_seconds",
+              "status": "pass",
+              "basis": "Current input schema field duration"
+            }
+          ]
+        }
+      ],
+      "tip": "Agent Lab published pick #2 for image-to-video, after checking requested capabilities. This rank is curated guidance, not a measured speed or quality score. Use exact schema fields; do not assume shared parameters such as strength.",
+      "models": [
+        {
+          "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+          "display_name": "Seedance 2.5 Image to Video",
+          "description": "Dreamina Seedance 2.5 animates a single still into a native 30-second clip at up to 720p, extending one frame into continuous, coherent motion without the drift or stitching of shorter multi-clip workflows.",
+          "category": "image-to-video",
+          "rank": 1
+        }
+      ],
+      "recommended_model": {
+        "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+        "display_name": "Seedance 2.5 Image to Video",
+        "description": "Dreamina Seedance 2.5 animates a single still into a native 30-second clip at up to 720p, extending one frame into continuous, coherent motion without the drift or stitching of shorter multi-clip workflows.",
+        "category": "image-to-video",
+        "reason": "Agent Lab published pick #2 for image-to-video, after checking requested capabilities. This rank is curated guidance, not a measured speed or quality score.",
+        "selection_basis": "explicit_choice",
+        "fit_checks": [
+          {
+            "requirement": "duration_seconds",
+            "status": "pass",
+            "basis": "Current input schema field duration"
+          }
+        ],
+        "guidance": "Take over for 16-30s takes, exact 720p/1080p, and fast subject motion longer than 10s."
+      }
+    }
+  ],
+  "applicable_claims": [
+    {
+      "rank": 1,
+      "body": "Default for one starting still or a first-and-last-frame pair (image_url plus optional end_image_url) at 480P/768P, up to 15s.",
+      "claim_id": "dad7d0sregj292e8nm80",
+      "domain": null,
+      "task": {
+        "id": "dad79b4regj2f7u8g8q0",
+        "name": "Image to video",
+        "category": "image-to-video"
+      },
+      "source": "curated",
+      "published_at": "2026-09-04T07:42:59.384Z",
+      "updated_at": "2026-09-04T07:42:59.335Z",
+      "evidence_basis": null,
+      "sample_size": null,
+      "confidence": null,
+      "endpoint_id": "minimax/h3-max/image-to-video"
+    },
+    {
+      "rank": 2,
+      "body": "Take over for 16-30s takes, exact 720p/1080p, and fast subject motion longer than 10s.",
+      "claim_id": "dad7d0sregj292e8nm8g",
+      "domain": null,
+      "task": {
+        "id": "dad79b4regj2f7u8g8q0",
+        "name": "Image to video",
+        "category": "image-to-video"
+      },
+      "source": "curated",
+      "published_at": "2026-09-04T07:42:59.386Z",
+      "updated_at": "2026-09-04T07:42:59.335Z",
+      "evidence_basis": null,
+      "sample_size": null,
+      "confidence": null,
+      "endpoint_id": "bytedance/seedance-2.5/image-to-video"
+    },
+    {
+      "rank": 3,
+      "body": "Single-image fast subject motion up to 10s. Set fps to 50; 720p/1080p only.",
+      "claim_id": "dad7d0sregj292e8nm90",
+      "domain": null,
+      "task": {
+        "id": "dad79b4regj2f7u8g8q0",
+        "name": "Image to video",
+        "category": "image-to-video"
+      },
+      "source": "curated",
+      "published_at": "2026-09-04T07:42:59.388Z",
+      "updated_at": "2026-09-04T07:42:59.335Z",
+      "evidence_basis": null,
+      "sample_size": null,
+      "confidence": null,
+      "endpoint_id": "lightricks/ltx-2.5/image-to-video/pro"
+    },
+    {
+      "rank": 4,
+      "body": "The exact 2K/4K route for takes up to 15s, and the fallback when H3 Max can't serve a request.",
+      "claim_id": "dad7d0sregj292e8nma0",
+      "domain": null,
+      "task": {
+        "id": "dad79b4regj2f7u8g8q0",
+        "name": "Image to video",
+        "category": "image-to-video"
+      },
+      "source": "curated",
+      "published_at": "2026-09-04T07:42:59.389Z",
+      "updated_at": "2026-09-04T07:42:59.335Z",
+      "evidence_basis": null,
+      "sample_size": null,
+      "confidence": null,
+      "endpoint_id": "minimax/h3/image-to-video"
+    },
+    {
+      "rank": 5,
+      "body": "Fallback when another primary model can't take the request's inputs.",
+      "claim_id": "dad7d0sregj292e8nmag",
+      "domain": null,
+      "task": {
+        "id": "dad79b4regj2f7u8g8q0",
+        "name": "Image to video",
+        "category": "image-to-video"
+      },
+      "source": "curated",
+      "published_at": "2026-09-04T07:42:59.391Z",
+      "updated_at": "2026-09-04T07:42:59.335Z",
+      "evidence_basis": null,
+      "sample_size": null,
+      "confidence": null,
+      "endpoint_id": "alibaba/wan-3.0-prime/image-to-video"
+    },
+    {
+      "endpoint_id": "bytedance/seedance-2.5/reference-to-video",
+      "kind": "weakness",
+      "body": "For image inputs with faces, the model tends to reject the generations quite a bit, prefer to use other models of with same quality when it comes to using human faces",
+      "source": "curated",
+      "task": null,
+      "rank": null
+    },
+    {
+      "endpoint_id": "lightricks/ltx-2.5/image-to-video/pro",
+      "kind": "weakness",
+      "body": "No reference-to-video endpoint, 10 second Pro ceiling, 720p/1080p only (no 480P/768P).",
+      "source": "curated",
+      "task": null,
+      "rank": null
+    },
+    {
+      "endpoint_id": "minimax/h3-max/reference-to-video",
+      "kind": "weakness",
+      "body": "Does not accept explicit document or webpage URL inputs; route those to alibaba/wan-3.0-prime/reference-to-video.",
+      "source": "curated",
+      "task": null,
+      "rank": null
+    }
+  ],
+  "candidates": [
+    {
+      "endpoint_id": "fal-ai/vidu/q4/image-to-video",
+      "display_name": "Vidu Q4",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "fal-ai/vidu/q4/reference-to-video",
+      "display_name": "Vidu Q4 Reference to Video",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "fal-ai/kandinsky6-pro/image-to-video",
+      "display_name": "Kandinsky 6.0 Pro",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "fal-ai/kandinsky6-lite/image-to-video",
+      "display_name": "Kandinsky 6.0 Lite",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "xai/grok-imagine-video/v1.5/lite/image-to-video",
+      "display_name": "Grok Imagine Video 1.5 Lite Image to Video",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "bytedance/seedance-2.5/reference-to-video",
+      "display_name": "Seedance 2.5 Reference to Video",
+      "category": "image-to-video",
+      "discovery_source": "published_task_guidance"
+    },
+    {
+      "endpoint_id": "lightricks/ltx-2.5/image-to-video/pro",
+      "category": "image-to-video",
+      "discovery_source": "published_task_guidance"
+    },
+    {
+      "endpoint_id": "minimax/h3-max/reference-to-video",
+      "display_name": "H3 Max Reference to Video",
+      "category": "image-to-video",
+      "discovery_source": "published_task_guidance"
+    },
+    {
+      "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+      "category": "image-to-video",
+      "discovery_source": "published_task_guidance"
+    },
+    {
+      "endpoint_id": "minimax/h3-max/image-to-video",
+      "category": "image-to-video",
+      "discovery_source": "published_task_guidance"
+    },
+    {
+      "endpoint_id": "minimax/h3/image-to-video",
+      "category": "image-to-video",
+      "discovery_source": "published_task_guidance"
+    },
+    {
+      "endpoint_id": "alibaba/wan-3.0-prime/image-to-video",
+      "category": "image-to-video",
+      "discovery_source": "published_task_guidance"
+    },
+    {
+      "endpoint_id": "bytedance/seedance-2.5/us/image-to-video",
+      "display_name": "Seedance 2.5 US Image to Video",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "bytedance/seedance-2.0/us/image-to-video",
+      "display_name": "Seedance 2.0 US Image to Video",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "bytedance/seedance-2.0/mini/image-to-video",
+      "display_name": "Seedance 2.0 Mini Image to Video",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    },
+    {
+      "endpoint_id": "bytedance/seedance-2.0/image-to-video",
+      "display_name": "Seedance 2 Image to Video",
+      "category": "image-to-video",
+      "discovery_source": "catalog_candidate"
+    }
+  ],
+  "model_knowledge": {
+    "models": [
+      {
+        "endpoint_id": "bytedance/seedance-2.5/reference-to-video",
+        "display_name": "Seedance 2.5 Reference to Video",
+        "category": "image-to-video",
+        "relevance": 0.4841269841269841,
+        "insights": [
+          {
+            "kind": "weakness",
+            "body": "For image inputs with faces, the model tends to reject the generations quite a bit, prefer to use other models of with same quality when it comes to using human faces",
+            "source": "curated",
+            "task": null,
+            "rank": null
+          }
+        ]
+      },
+      {
+        "endpoint_id": "lightricks/ltx-2.5/image-to-video/pro",
+        "display_name": "LTX 2.5 Image to Video Pro",
+        "category": "image-to-video",
+        "relevance": 0.4765625,
+        "insights": [
+          {
+            "kind": "default_pick",
+            "body": "Single-image fast subject motion up to 10s. Set fps to 50; 720p/1080p only.",
+            "source": "curated",
+            "task": {
+              "name": "Image to video",
+              "category": "image-to-video"
+            },
+            "rank": 3
+          },
+          {
+            "kind": "weakness",
+            "body": "No reference-to-video endpoint, 10 second Pro ceiling, 720p/1080p only (no 480P/768P).",
+            "source": "curated",
+            "task": null,
+            "rank": null
+          }
+        ]
+      },
+      {
+        "endpoint_id": "minimax/h3-max/reference-to-video",
+        "display_name": "H3 Max Reference to Video",
+        "category": "image-to-video",
+        "relevance": 0.4552238805970149,
+        "insights": [
+          {
+            "kind": "weakness",
+            "body": "Does not accept explicit document or webpage URL inputs; route those to alibaba/wan-3.0-prime/reference-to-video.",
+            "source": "curated",
+            "task": null,
+            "rank": null
+          }
+        ]
+      },
+      {
+        "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+        "display_name": "Seedance 2.5 Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": [
+          {
+            "kind": "default_pick",
+            "body": "Take over for 16-30s takes, exact 720p/1080p, and fast subject motion longer than 10s.",
+            "source": "curated",
+            "task": {
+              "name": "Image to video",
+              "category": "image-to-video"
+            },
+            "rank": 2
+          }
+        ]
+      },
+      {
+        "endpoint_id": "minimax/h3-max/image-to-video",
+        "display_name": "H3 Max Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": [
+          {
+            "kind": "default_pick",
+            "body": "Default for one starting still or a first-and-last-frame pair (image_url plus optional end_image_url) at 480P/768P, up to 15s.",
+            "source": "curated",
+            "task": {
+              "name": "Image to video",
+              "category": "image-to-video"
+            },
+            "rank": 1
+          }
+        ]
+      },
+      {
+        "endpoint_id": "minimax/h3/image-to-video",
+        "display_name": "MiniMax H3 Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": [
+          {
+            "kind": "default_pick",
+            "body": "The exact 2K/4K route for takes up to 15s, and the fallback when H3 Max can't serve a request.",
+            "source": "curated",
+            "task": {
+              "name": "Image to video",
+              "category": "image-to-video"
+            },
+            "rank": 4
+          }
+        ]
+      },
+      {
+        "endpoint_id": "alibaba/wan-3.0-prime/image-to-video",
+        "display_name": "Wan 3.0 Prime",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": [
+          {
+            "kind": "default_pick",
+            "body": "Fallback when another primary model can't take the request's inputs.",
+            "source": "curated",
+            "task": {
+              "name": "Image to video",
+              "category": "image-to-video"
+            },
+            "rank": 5
+          }
+        ]
+      },
+      {
+        "endpoint_id": "bytedance/seedance-2.5/us/image-to-video",
+        "display_name": "Seedance 2.5 US Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "bytedance/seedance-2.0/us/image-to-video",
+        "display_name": "Seedance 2.0 US Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "bytedance/seedance-2.0/mini/image-to-video",
+        "display_name": "Seedance 2.0 Mini Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "bytedance/seedance-2.0/image-to-video",
+        "display_name": "Seedance 2 Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "fal-ai/vidu/q4/image-to-video",
+        "display_name": "Vidu Q4",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "fal-ai/vidu/q4/reference-to-video",
+        "display_name": "Vidu Q4 Reference to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "fal-ai/kandinsky6-pro/image-to-video",
+        "display_name": "Kandinsky 6.0 Pro",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "fal-ai/kandinsky6-lite/image-to-video",
+        "display_name": "Kandinsky 6.0 Lite",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      },
+      {
+        "endpoint_id": "xai/grok-imagine-video/v1.5/lite/image-to-video",
+        "display_name": "Grok Imagine Video 1.5 Lite Image to Video",
+        "category": "image-to-video",
+        "relevance": null,
+        "insights": []
+      }
+    ],
+    "evidence": {
+      "version": 3,
+      "compiled_at": "2026-10-05T02:00:08.053Z",
+      "window_start": "2026-09-28T00:00:00.000Z",
+      "window_end": "2026-10-05T00:00:00.000Z",
+      "evaluated_at": "2026-10-10T08:41:40.250Z",
+      "latency_definition": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees.",
+      "instructions": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees. Report p50/p90 with their measurement window. Null means unknown, never zero. Trending is the analytics category rank at its source timestamp, not adoption or quality. New means registry publication within 30 days of the response evaluation time, not first usage. Lab recommendations are authored guidance, not measured latency, trending or newness. Use the existing pricing tool for current prices, preserving billing units and required configuration; these observations contain no prices.",
+      "models": [
+        {
+          "endpoint_id": "bytedance/seedance-2.5/reference-to-video",
+          "evidence": {
+            "endpoint_id": "bytedance/seedance-2.5/reference-to-video",
+            "title": "Seedance 2.5 Reference to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 5,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-08-07T06:15:04.332Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "lightricks/ltx-2.5/image-to-video/pro",
+          "evidence": {
+            "endpoint_id": "lightricks/ltx-2.5/image-to-video/pro",
+            "title": "LTX 2.5 Image to Video Pro",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 72,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-08-11T19:06:40.878Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "minimax/h3-max/reference-to-video",
+          "evidence": {
+            "endpoint_id": "minimax/h3-max/reference-to-video",
+            "title": "H3 Max Reference to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 3,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-08-31T20:32:22.303Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+          "evidence": {
+            "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+            "title": "Seedance 2.5 Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 7,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-08-07T06:14:59.326Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "minimax/h3-max/image-to-video",
+          "evidence": {
+            "endpoint_id": "minimax/h3-max/image-to-video",
+            "title": "H3 Max Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 2,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-08-26T20:25:10.052Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "minimax/h3/image-to-video",
+          "evidence": {
+            "endpoint_id": "minimax/h3/image-to-video",
+            "title": "MiniMax H3 Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 13,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-07-31T06:13:24.781Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "alibaba/wan-3.0-prime/image-to-video",
+          "evidence": {
+            "endpoint_id": "alibaba/wan-3.0-prime/image-to-video",
+            "title": "Wan 3.0 Prime",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 43,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-08-24T06:03:16.474Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "bytedance/seedance-2.5/us/image-to-video",
+          "evidence": {
+            "endpoint_id": "bytedance/seedance-2.5/us/image-to-video",
+            "title": "Seedance 2.5 US Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 44,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-09-19T03:09:15.218Z",
+            "is_new": true
+          }
+        },
+        {
+          "endpoint_id": "bytedance/seedance-2.0/us/image-to-video",
+          "evidence": {
+            "endpoint_id": "bytedance/seedance-2.0/us/image-to-video",
+            "title": "Seedance 2.0 US Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 88,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-09-15T20:39:01.294Z",
+            "is_new": true
+          }
+        },
+        {
+          "endpoint_id": "bytedance/seedance-2.0/mini/image-to-video",
+          "evidence": {
+            "endpoint_id": "bytedance/seedance-2.0/mini/image-to-video",
+            "title": "Seedance 2.0 Mini Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 53,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-06-24T11:19:18.937Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "bytedance/seedance-2.0/image-to-video",
+          "evidence": {
+            "endpoint_id": "bytedance/seedance-2.0/image-to-video",
+            "title": "Seedance 2 Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 10,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-04-01T18:47:20.614Z",
+            "is_new": false
+          }
+        },
+        {
+          "endpoint_id": "fal-ai/vidu/q4/image-to-video",
+          "evidence": null
+        },
+        {
+          "endpoint_id": "fal-ai/vidu/q4/reference-to-video",
+          "evidence": null
+        },
+        {
+          "endpoint_id": "fal-ai/kandinsky6-pro/image-to-video",
+          "evidence": null
+        },
+        {
+          "endpoint_id": "fal-ai/kandinsky6-lite/image-to-video",
+          "evidence": null
+        },
+        {
+          "endpoint_id": "xai/grok-imagine-video/v1.5/lite/image-to-video",
+          "evidence": {
+            "endpoint_id": "xai/grok-imagine-video/v1.5/lite/image-to-video",
+            "title": "Grok Imagine Video 1.5 Lite Image to Video",
+            "category": "image-to-video",
+            "usage_tier": null,
+            "latency": {
+              "p50_ms": null,
+              "p90_ms": null,
+              "sufficient_evidence": false,
+              "latest_request_at": null
+            },
+            "trending": {
+              "category_rank": 39,
+              "computed_at": "2026-10-04T10:04:54.556Z"
+            },
+            "published_at": "2026-10-01T20:37:27.180Z",
+            "is_new": true
+          }
+        }
+      ]
+    },
+    "unavailable_endpoint_ids": [],
+    "stats_available": true,
+    "note": "Successful execution observations in milliseconds; mixed workloads; excludes queue/startup; not runtime guarantees. Report p50/p90 with their measurement window. Null means unknown, never zero. Trending is the analytics category rank at its source timestamp, not adoption or quality. New means registry publication within 30 days of the response evaluation time, not first usage. Lab recommendations are authored guidance, not measured latency, trending or newness. Use the existing pricing tool for current prices, preserving billing units and required configuration; these observations contain no prices."
+  },
+  "ranking_note": "The models list preserves the Platform API's Explore discovery order: Trending for browsing, relevance for keyword searches. Its rank is a list position, not a quality score. Fresh published task/domain routing determines the curated starting pick. Legacy default_pick rows in model_knowledge are unscoped advice, not applicable routing ranks. Candidates labelled recent_catalog use acknowledged server publication-date order; current_catalog is ordinary discovery when Recent cannot be confirmed. Neither recency nor missing statistics establishes quality or latency.",
+  "next_steps": "Honor an explicitly requested model; verify its exact endpoint and do not silently substitute it.\nCopy endpoint_id exactly from the live catalog. Namespaces and versions vary by provider: never add or change a provider prefix, invent an endpoint from a model name, or reuse a guessed alias. When a named model is missing or unavailable, search_models can resolve current catalog matches; explain any mismatch with the requested endpoint before choosing a replacement. An unavailable endpoint alone does not establish that the user connected the wrong account.\nOtherwise use current applicable published guidance in recommended_model and model_knowledge after checking the user's real sources, required capabilities and scoped budget. Follow the next compatible published fallback and explain why. If published guidance is missing or outdated, use search_models and search_docs to evaluate current candidates. A new endpoint can qualify without adoption statistics, but recency alone does not establish quality. Do not submit a choice with decision_status needs_input, no_compatible_candidate or evidence_unavailable. A workflow_needed result needs a verified dependent plan before spend.\nWith draft_inspection_required, draft_candidate establishes technical/reference fit only. Generate a draft only within existing user authorization and the checked budget, then inspect it against original conditioning sources before dependent generation or approval. Preservation stays unverified; a draft candidate is not a final recommended_model or permission to spend.\nCatalog order, popularity and release recency are discovery signals, not quality or latency rankings. Fast subject motion describes movement in the scene, not generation latency. Only treat user-requested settings as hard constraints; do not invent an exact resolution or audio requirement to justify switching models.\nLive retrieval does not establish when guidance was authored. Without an update date, freshness is unknown; verify capabilities in current schemas/docs and do not claim the pick is the newest or fastest without evidence. Skills and workflow examples supply production advice, not competing model defaults. Prefer current published task/domain guidance over bundled family rankings. Use get_pricing for the actual settings before material spending. Cost estimates preserve units and cover only known quantities, not final billing guarantees. Pass the optional decision_id to run_model, submit_job or each applicable batch item; it links observations and is never authorization. Inspect get_model_schema, then use run_model or submit_job and present completed media."
+}

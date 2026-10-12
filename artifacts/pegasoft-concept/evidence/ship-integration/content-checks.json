@@ -1,0 +1,29 @@
+{
+  "status": "pass",
+  "dom_observations": [
+    {
+      "path": "evidence/ship-integration/fifth-shared-desktop.json",
+      "sha256": "46acfd8b5ff1d7c143c4bb9c8b708411a363e2102ba6faac498979c1403b344b",
+      "entry": 0.9353204112590596,
+      "all_five_equal_vertical_displacement": true,
+      "centre_x": 0.5,
+      "shared_row_spacing": 0.528,
+      "no_hold_or_background": true
+    },
+    {
+      "path": "evidence/ship-integration/fifth-shared-mobile.json",
+      "sha256": "0bab8950d3eae468000d0720e3d1c178ff340a97f36104f25fffca9b520f9289",
+      "entry": 0.9266862016181938,
+      "all_five_equal_vertical_displacement": true,
+      "centre_x": 0.5,
+      "shared_row_spacing": 0.528,
+      "no_hold_or_background": true
+    }
+  ],
+  "native_scroll_reverse_forward": [
+    0.9700243226600984,
+    0.9900366379310344
+  ],
+  "unchanged": "First four desktop blocks, camera, ship and cargo matrices identical to previous rendered final trace. 41 accepted input pins checked.",
+  "limits": "Personal animation review pending."
+}

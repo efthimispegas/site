@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "dom_observations": [
+    {
+      "path": "evidence/ship-integration/content-final-desktop.json",
+      "sha256": "33dc469ebb2cb651058117892fb33011ee65217d7ae67a93a3407ae830b23509",
+      "heading_px": 64.0,
+      "block_px": 35.84,
+      "bottom_entry": true,
+      "row_gap_stage_heights": 0.528,
+      "fifth_transparent": true,
+      "fifth_held_at_nose": true,
+      "fifth_final_fully_in_stage": true
+    },
+    {
+      "path": "evidence/ship-integration/content-final-mobile.json",
+      "sha256": "b9fcff86002ca3ebc5e8ec6b2fcd9d5d553d2c8c573b40fe576d44b080c98137",
+      "heading_px": 40.0,
+      "block_px": 22.0,
+      "bottom_entry": true,
+      "row_gap_stage_heights": 0.528,
+      "fifth_transparent": true,
+      "fifth_held_at_nose": true,
+      "fifth_final_fully_in_stage": true
+    }
+  ],
+  "fifth_shared_vertical_speed": true,
+  "native_scroll_forward_reverse": true,
+  "preserved_pins": 41,
+  "water_and_generated_originals_unchanged": true,
+  "existing_story_html_changes": "stylesheet import only; responsive heading widths in shared stylesheet",
+  "limits": "Native DOM measurements and screenshots supplement personal motion review; no visual acceptance claimed."
+}

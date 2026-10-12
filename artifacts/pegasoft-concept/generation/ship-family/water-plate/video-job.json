@@ -1,0 +1,25 @@
+{
+  "status": "submitted",
+  "recipe": {
+    "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+    "input": {
+      "image_url": "https://v3b.fal.media/files/b/0aadcc4e/tj4LtOnGUVu27HO-jlnBk_TNjDioKb.png",
+      "prompt": "A locked straight-down drone camera records natural deep navy ocean water and the existing ship wake, with absolutely no camera movement, zoom, exposure changes, or vessel appearing. Preserve the first frame composition and water palette. Real irregular overlapping wind chop and gentle swells flow continuously with different sizes and directions. Broken daylight reflections move smoothly over wave faces, never blink or sparkle rhythmically. White foam eddies deform, disperse and renew naturally: compressed bow wash at the lower centre flows backwards upwards along the two hull-side channels, then expands into a turbulent stern trail toward the top. The invisible vessel remains at exactly the same footprint; only realistic water moves. Restrained photographic hydrodynamics, no organized sine waves, repetitive pulsing, graphic lines, fabric texture, or staged synchronized ripples. Continuous natural movement, suitable for a seamless loop. No objects, text, land or horizon.",
+      "duration": "8",
+      "resolution": "720p",
+      "aspect_ratio": "auto",
+      "generate_audio": false,
+      "codec": "H264",
+      "bitrate_mode": "high"
+    },
+    "note": "These are the submitted inputs, not resolved server defaults. For a variation, copy them and change only requested fields; reuse returned_seed when supported by the schema. Source URLs may expire."
+  },
+  "request_id": "01a12504-63d9-7260-bf1a-ffef17112f6b",
+  "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+  "status_url": "https://queue.fal.run/bytedance/seedance-2.5/requests/01a12504-63d9-7260-bf1a-ffef17112f6b/status",
+  "response_url": "https://queue.fal.run/bytedance/seedance-2.5/requests/01a12504-63d9-7260-bf1a-ffef17112f6b",
+  "cancel_url": "https://queue.fal.run/bytedance/seedance-2.5/requests/01a12504-63d9-7260-bf1a-ffef17112f6b/cancel",
+  "poll_after_seconds": 20,
+  "polling_hint": "Wait poll_after_seconds before calling check_job with the same request_id and status_url. This interval is not an ETA. Report meaningful status changes rather than repeating unchanged progress. Do not submit another job to check progress.",
+  "hint": "Job submitted. Use check_job with status_url to check status, then get_job_result with response_url when it completes."
+}

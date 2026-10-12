@@ -1,0 +1,26 @@
+{
+  "status": "submitted",
+  "recipe": {
+    "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+    "input": {
+      "prompt": "Create a photorealistic drone photograph looking EXACTLY straight down at natural open-ocean water, a WATER-AND-WAKE compositing plate. Wide landscape frame. Real deep Atlantic navy-blue water, subtle cool blue reflected daylight, irregular overlapping wind chop and rounded swells at different scales, short broken sun-glint streaks across gently sloped wave faces, darker troughs, delicate occasional foam. Real photographic marine hydrodynamics, not a flat illustration, shader noise, repeated ripples, blue fabric, straight drawn lines, storm seas or glitter. The plate includes water displaced by an invisible freight vessel so a separate approved vessel model can be composited over it. Vessel axis vertical, bow down; hypothetical 110m length, 13.4m beam in a field 270m wide by 180m tall. Its stern corresponds to x50% y19.4% and its pointed bow x50% y80.6%. Show ONLY the water: absolutely no ship or other objects. Water fills the central vessel footprint too. A modest compressed bow foam crescent near x50% y80.6%, irregular slender turbulent water flowing back up both hull-side positions roughly x47.5% and x52.5%, widening natural broken whitewater wash trailing upwards from the stern y19.4% toward the top edge. Subtle broad divergent wave ridges blend into the irregular surrounding ocean; no razor-straight V lines. Preserve restrained navy marine photography, believable small-scale foam eddies and clear physical depth. Entire frame is water, no horizon, land, clouds, shadows of aircraft, human subjects, text, marks, branding, borders, empty areas or transparency. Locked orthographic-looking overhead composition suitable for an unobtrusive website background behind a separate 3D vessel.",
+      "image_size": {
+        "width": 1536,
+        "height": 1024
+      },
+      "quality": "high",
+      "num_images": 1,
+      "background": "opaque",
+      "output_format": "png"
+    },
+    "note": "These are the submitted inputs, not resolved server defaults. For a variation, copy them and change only requested fields; reuse returned_seed when supported by the schema. Source URLs may expire."
+  },
+  "request_id": "01a124fc-a537-7e83-9eee-bc6841752c16",
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+  "status_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a124fc-a537-7e83-9eee-bc6841752c16/status",
+  "response_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a124fc-a537-7e83-9eee-bc6841752c16",
+  "cancel_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a124fc-a537-7e83-9eee-bc6841752c16/cancel",
+  "poll_after_seconds": 20,
+  "polling_hint": "Wait poll_after_seconds before calling check_job with the same request_id and status_url. This interval is not an ETA. Report meaningful status changes rather than repeating unchanged progress. Do not submit another job to check progress.",
+  "hint": "Job submitted. Use check_job with status_url to check status, then get_job_result with response_url when it completes."
+}

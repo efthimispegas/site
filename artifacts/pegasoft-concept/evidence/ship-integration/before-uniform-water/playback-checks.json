@@ -1,0 +1,90 @@
+{
+  "status": "pass",
+  "runs": [
+    {
+      "path": "evidence/ship-integration/playback/ship-forward-normal-1791629405331.json",
+      "sha256": "a3a989f3a736c12642939891776504cf9ef36990d92b2c98a9127f37a508cab1",
+      "direction": "forward",
+      "speed": 1,
+      "scope": "full",
+      "viewport": {
+        "width": 1214,
+        "height": 698
+      },
+      "frames": 1777,
+      "range": [
+        0,
+        1
+      ],
+      "elapsed_seconds": 21.990900000002977,
+      "pose_matrix_residual_max": 1.4210854715202004e-14,
+      "seat_rim_residual_m_max": 6.35544258880362e-14,
+      "camera_orientation_delta_max": 0.0,
+      "constant_C01_world_scale": [
+        0.7164220893068571,
+        0.7164220893068572,
+        0.7164220893068571
+      ],
+      "monotonic_camera_distance": true,
+      "tail_camera_keeps_receding": true,
+      "median_rendered_tick_seconds": 0.008400000000001455
+    },
+    {
+      "path": "evidence/ship-integration/playback/ship-forward-quarter-1791629503076.json",
+      "sha256": "b2a6a75eaab028721e2802dfeaec46bad93b6ac5bebc8cb8fbae0fcec8a9df68",
+      "direction": "forward",
+      "speed": 0.25,
+      "scope": "boundary",
+      "viewport": {
+        "width": 1214,
+        "height": 698
+      },
+      "frames": 1487,
+      "range": [
+        0.31,
+        0.53
+      ],
+      "elapsed_seconds": 19.34310000001191,
+      "pose_matrix_residual_max": 1.4210854715202004e-14,
+      "seat_rim_residual_m_max": 6.35544258880362e-14,
+      "camera_orientation_delta_max": 0.0,
+      "constant_C01_world_scale": [
+        0.7164220893068571,
+        0.7164220893068572,
+        0.7164220893068571
+      ],
+      "monotonic_camera_distance": true,
+      "tail_camera_keeps_receding": false,
+      "median_rendered_tick_seconds": 0.009200000000011642
+    },
+    {
+      "path": "evidence/ship-integration/playback/ship-reverse-normal-1791629457364.json",
+      "sha256": "f1bf7af1b6bc2ce4b3f1e829be17b3c52c96910d4eeae602d10525cd9cef0030",
+      "direction": "reverse",
+      "speed": 1,
+      "scope": "full",
+      "viewport": {
+        "width": 1214,
+        "height": 698
+      },
+      "frames": 1871,
+      "range": [
+        1,
+        0
+      ],
+      "elapsed_seconds": 22.00970000000298,
+      "pose_matrix_residual_max": 1.4210854715202004e-14,
+      "seat_rim_residual_m_max": 6.35544258880362e-14,
+      "camera_orientation_delta_max": 0.0,
+      "constant_C01_world_scale": [
+        0.7164220893068571,
+        0.7164220893068572,
+        0.7164220893068571
+      ],
+      "monotonic_camera_distance": true,
+      "tail_camera_keeps_receding": true,
+      "median_rendered_tick_seconds": 0.00839999999999418
+    }
+  ],
+  "limits": "Browser render-tick intervals are this host/run only; they do not establish representative-device or production performance. Mathematical pose/support checks supplement personal playback review."
+}

@@ -1,0 +1,9 @@
+/* Story section headings share weight, rhythm and a scale above their block titles.
+   Narrow road columns and the services rail retain responsive reading widths. */
+:root{--story-heading-weight:750;--story-heading-line:1.03;--story-heading-tracking:-.04em;--story-heading-wide:clamp(40px,5vw,64px);--story-heading-column:clamp(26px,3.8vw,48px);--story-heading-rail:clamp(24px,3.2vw,40px)}
+#ship-copy h2,#road-copy h2,#services-overlay h2,.trust h2{font-weight:var(--story-heading-weight);line-height:var(--story-heading-line);letter-spacing:var(--story-heading-tracking)}
+#ship-copy h2{font-size:var(--story-heading-wide)}
+#road-copy h2{font-size:var(--story-heading-column)}
+#services-overlay h2{font-size:var(--story-heading-rail)}
+.trust h2{font-size:6.4cqw}
+@media(max-width:760px){#ship-copy h2{font-size:40px}#road-copy h2{font-size:24px;left:3%;width:34%}#services-overlay h2{font-size:24px}#services-rail>div{flex-basis:64%}}

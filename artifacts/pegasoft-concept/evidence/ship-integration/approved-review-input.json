@@ -1,0 +1,317 @@
+{
+  "date_local": "2026-10-10",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted ship static/model/integration work; no push. Source pins identify this review independently of the base commit.",
+  "review": "review/ship-integration.html#viewer",
+  "ship_model_approval": "generation/ship-family/model-approval.json",
+  "reference": {
+    "source": "/Users/whiskey/Work/site/docs/references/reference_walkthrough.mov",
+    "source_sha256": "90d94411a0989e010354abc3c2e205fcdfcc0c291b6d87e1f53caf1ee8ec2f07",
+    "clip": "evidence/ship-proposal/reference/road-to-ship.mp4",
+    "clip_sha256": "8fd47aaed3e8ca6d4ae82d152650e04840bdf518577951587557dd57ddcc560b",
+    "window_seconds": [
+      180,
+      232
+    ],
+    "observations": [
+      {
+        "source_seconds": [
+          180,
+          194
+        ],
+        "event": "Ship deck and ocean rise beneath the road; truck/container stays on the central vertical axis."
+      },
+      {
+        "source_seconds": [
+          194,
+          206
+        ],
+        "event": "Road clears to a close overhead deck composition. Container bays align fore-to-aft."
+      },
+      {
+        "source_seconds": [
+          206,
+          218
+        ],
+        "event": "Continuous pullback reveals hull, bow downward, stern bridge and surrounding ocean."
+      },
+      {
+        "source_seconds": [
+          218,
+          232
+        ],
+        "event": "Heading and capability groups overlay while the ship keeps receding on axis."
+      }
+    ],
+    "timing_note": "Source timestamps identify observed scroll-recording landmarks, not physical speed or prescribed new story percentages."
+  },
+  "status": "fifth_shared_motion_revision_pending_user_review",
+  "requested_amendment": "Supersede every earlier fifth-block motion rule. Animate it as the next row at the same upward speed as the other blocks, entering through bottom centre without a hold.",
+  "changes": [
+    "Fifth block now uses the same row-position and entry calculation as the paired blocks.",
+    "Its horizontal centre remains at 50%; its vertical movement continues at the same speed with no nose clamp or hold.",
+    "Transparent styling, other four blocks, typography, camera, water, models and extended final pullback remain unchanged."
+  ],
+  "timeline": {
+    "road": [
+      0,
+      0.12
+    ],
+    "chapter_edge": [
+      0.12,
+      0.44
+    ],
+    "support_transfer": 0.44,
+    "camera_pullback": [
+      0.38,
+      1
+    ],
+    "copy_entry": 0.6,
+    "normal_duration_seconds": 22.88,
+    "final_pullback_extra_seconds": 0.88,
+    "final_pullback_extra_scroll_percent_of_original_story": 4,
+    "fifth_entry": "Third-row entry derived from the shared row spacing, heading height and viewport."
+  },
+  "inputs": [
+    {
+      "path": "review/ship-integration.html",
+      "sha256": "7a4365470e49f61d756d7497f770fc35f17c131ff087a55efba4921fdf4b6700"
+    },
+    {
+      "path": "review/ship-integration.js",
+      "sha256": "948e4ab5f031b6afe644be4e3489c446ab9f3e0cf3e8955bb91e1fca8f901023"
+    },
+    {
+      "path": "review/ship-integration-sequence.js",
+      "sha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112"
+    },
+    {
+      "path": "review/ship-road.js",
+      "sha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "486dd2d236bac33b9db928f3fb95d40846011bc31daff3be5d8c3aa1958f0427"
+    },
+    {
+      "path": "review/ship-surface.js",
+      "sha256": "d72880b88ccb459a2e614bc3ccd620e4f6d4085ddadcf56fbfae1fd65fe30d67"
+    },
+    {
+      "path": "review/ship-capture-server.py",
+      "sha256": "ac4af7f6ce31c1584c343eb52baa3b129a115b58ac1a164b0efcd0d3b86ff838"
+    },
+    {
+      "path": "generation/ship-family/model-approval.json",
+      "sha256": "ac2118fba2b0776284b8023549921a8f6efb130b639a91a433f5ca4d908f5f53"
+    },
+    {
+      "path": "generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "5a086e337aca97dbc4fe1dbb0ccd8f8e75935c54e31a90195a6561ebe9a1bbdd"
+    },
+    {
+      "path": "generation/ship-family/water-plate/ocean-still.png",
+      "sha256": "a6f27769e170185b94d02d47c1dd665594e5b1cf45a0a0dd7b74cab64350deaa"
+    },
+    {
+      "path": "generation/ship-family/water-plate/ocean-motion.mp4",
+      "sha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912"
+    },
+    {
+      "path": "review/story-typography.css",
+      "sha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a"
+    },
+    {
+      "path": "review/handoff.html",
+      "sha256": "2bd404e479abf47b7e289e94f45e4f5e2e940f1ea497eeae607b876eb51aeb17"
+    },
+    {
+      "path": "review/jet-transition.html",
+      "sha256": "a7a0ba0bdb9de4714839e2bf830b43b81497ee708cc67be139651b4869c1824e"
+    }
+  ],
+  "generation": {
+    "manifest": "generation/ship-family/water-plate/manifest.json",
+    "still_request_id": "01a124fc-a537-7e83-9eee-bc6841752c16",
+    "video_request_id": "01a12504-63d9-7260-bf1a-ffef17112f6b",
+    "actual_media": {
+      "duration_seconds": 8.041667,
+      "width": 1178,
+      "height": 786,
+      "codec": "h264",
+      "audio_streams": 0
+    }
+  },
+  "history": "Superseded nose-hold packet and source snapshots: evidence/ship-integration/before-fifth-shared-motion. Its recordings are in playback/before-fifth-shared-motion.",
+  "limits": [
+    "Personal realism, wake fitting and content acceptance pending.",
+    "Generated water is an artistic compositing plate, not physical fluid simulation.",
+    "Production and representative-device performance unqualified; local render ticks are not device benchmarks.",
+    "Draft factual copy; cloud/jet integration deferred."
+  ],
+  "checks": {
+    "source_syntax": "pass: ship-content.js, ship-integration.js and ship-integration-sequence.js; git diff --check",
+    "accepted_inputs_unchanged": {
+      "status": "pass",
+      "count": 41,
+      "packet": "evidence/ship-integration/preservation-checks.json"
+    },
+    "generated_originals_unchanged": true,
+    "water_checks_reused": "ship-water.js and ship-surface.js unchanged from the uniform-water revision; original-media hashes unchanged. Prior water-only checks remain valid.",
+    "visual_inspection": "Revised fifth block inspected on desktop/mobile and in native reverse/forward scrolling. Existing typography and ocean evidence reused with unchanged sources. Personal acceptance pending.",
+    "console": "No captured warnings or errors: console-final.json",
+    "final_tail_duration": "pass: opening progression 1/22 per second; final 84\u2013100% 1/27.5 per second in both normal forward/reverse recordings. 0.88 seconds and 4% original scroll length added.",
+    "fifth_shared_motion": "Desktop DOM traces pass: equal vertical displacement across all five blocks, shared row spacing, horizontal centre 50%, no hold; first four blocks and camera identical to previous final desktop trace.",
+    "genuine_playback": {
+      "status": "pass",
+      "runs": [
+        {
+          "path": "evidence/ship-integration/playback/ship-forward-normal-1791650789943.json",
+          "sha256": "cd704d3e4a4fc6037bc9bc4d7acf6c03ad79222770e6d15f581a276be0fbb767",
+          "direction": "forward",
+          "speed": 1,
+          "scope": "full",
+          "viewport": {
+            "width": 1214,
+            "height": 698
+          },
+          "frames": 1580,
+          "range": [
+            0,
+            1
+          ],
+          "elapsed_seconds": 22.86529999999106,
+          "pose_matrix_residual_max": 1.4210854715202004e-14,
+          "seat_rim_residual_m_max": 6.35544258880362e-14,
+          "camera_orientation_delta_max": 0.0,
+          "constant_C01_world_scale": [
+            0.7164220893068571,
+            0.7164220893068572,
+            0.7164220893068571
+          ],
+          "monotonic_camera_distance": true,
+          "tail_camera_keeps_receding": true,
+          "median_rendered_tick_seconds": 0.016599999999998546
+        },
+        {
+          "path": "evidence/ship-integration/playback/ship-forward-quarter-1791650872302.json",
+          "sha256": "826b2514ae0bd8e1b845b28f00d71e0240ff4d88be8b2caf5142bca7f066d0f1",
+          "direction": "forward",
+          "speed": 0.25,
+          "scope": "boundary",
+          "viewport": {
+            "width": 1214,
+            "height": 698
+          },
+          "frames": 1211,
+          "range": [
+            0.31,
+            0.53
+          ],
+          "elapsed_seconds": 19.355699999994044,
+          "pose_matrix_residual_max": 1.4210854715202004e-14,
+          "seat_rim_residual_m_max": 6.35544258880362e-14,
+          "camera_orientation_delta_max": 0.0,
+          "constant_C01_world_scale": [
+            0.7164220893068571,
+            0.7164220893068572,
+            0.7164220893068571
+          ],
+          "monotonic_camera_distance": true,
+          "tail_camera_keeps_receding": false,
+          "median_rendered_tick_seconds": 0.016600000000005822
+        },
+        {
+          "path": "evidence/ship-integration/playback/ship-reverse-normal-1791650846104.json",
+          "sha256": "ade0294202ceda038e198b4ec28ac237abbe24e442bbc55a6b8494adc0ed6d48",
+          "direction": "reverse",
+          "speed": 1,
+          "scope": "full",
+          "viewport": {
+            "width": 1214,
+            "height": 698
+          },
+          "frames": 1579,
+          "range": [
+            1,
+            0
+          ],
+          "elapsed_seconds": 22.88059999999404,
+          "pose_matrix_residual_max": 1.4210854715202004e-14,
+          "seat_rim_residual_m_max": 6.35544258880362e-14,
+          "camera_orientation_delta_max": 0.0,
+          "constant_C01_world_scale": [
+            0.7164220893068571,
+            0.7164220893068572,
+            0.7164220893068571
+          ],
+          "monotonic_camera_distance": true,
+          "tail_camera_keeps_receding": true,
+          "median_rendered_tick_seconds": 0.016599999999991268
+        }
+      ],
+      "limits": "Browser render-tick intervals are this host/run only; they do not establish representative-device or production performance. Mathematical pose/support checks supplement personal playback review."
+    },
+    "content_runtime": {
+      "status": "pass",
+      "dom_observations": [
+        {
+          "path": "evidence/ship-integration/fifth-shared-desktop.json",
+          "sha256": "46acfd8b5ff1d7c143c4bb9c8b708411a363e2102ba6faac498979c1403b344b",
+          "entry": 0.9353204112590596,
+          "all_five_equal_vertical_displacement": true,
+          "centre_x": 0.5,
+          "shared_row_spacing": 0.528,
+          "no_hold_or_background": true
+        },
+        {
+          "path": "evidence/ship-integration/fifth-shared-mobile.json",
+          "sha256": "0bab8950d3eae468000d0720e3d1c178ff340a97f36104f25fffca9b520f9289",
+          "entry": 0.9266862016181938,
+          "all_five_equal_vertical_displacement": true,
+          "centre_x": 0.5,
+          "shared_row_spacing": 0.528,
+          "no_hold_or_background": true
+        }
+      ],
+      "native_scroll_reverse_forward": [
+        0.9700243226600984,
+        0.9900366379310344
+      ],
+      "unchanged": "First four desktop blocks, camera, ship and cargo matrices identical to previous rendered final trace. 41 accepted input pins checked.",
+      "limits": "Personal animation review pending."
+    }
+  },
+  "screenshots": [
+    "evidence/ship-integration/fifth-shared-desktop.png",
+    "evidence/ship-integration/fifth-shared-mobile.png"
+  ],
+  "user_accepted": false,
+  "evidence_inputs": [
+    {
+      "path": "evidence/ship-integration/fifth-shared-desktop.png",
+      "sha256": "c456476e540971ec477051dfd3ea966f79e4cf06074d24a61e8a34820adbf0d5"
+    },
+    {
+      "path": "evidence/ship-integration/fifth-shared-mobile.png",
+      "sha256": "3a2c43480cc66ca5fa999c1c6b1c4290f625bb15a8cde92fb5a9f66c37c9d6e3"
+    }
+  ]
+}

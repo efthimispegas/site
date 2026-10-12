@@ -1,0 +1,36 @@
+{
+  "status": "completed",
+  "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+  "request_id": "01a12504-63d9-7260-bf1a-ffef17112f6b",
+  "response_url": "https://queue.fal.run/bytedance/seedance-2.5/requests/01a12504-63d9-7260-bf1a-ffef17112f6b",
+  "result": {
+    "video": {
+      "url": "https://v3b.fal.media/files/b/0aadcc9b/9rSrIrAxF54jtLvzUx8GO_video.mp4",
+      "content_type": "video/mp4",
+      "file_name": "video.mp4",
+      "file_size": 16729264
+    },
+    "seed": 1217156992,
+    "draft_id": null
+  },
+  "media": [
+    {
+      "url": "https://v3b.fal.media/files/b/0aadcc9b/9rSrIrAxF54jtLvzUx8GO_video.mp4",
+      "json_path": "result.video.url",
+      "output_path": "/video/url",
+      "media_type": "video",
+      "content_type": "video/mp4",
+      "file_name": "video.mp4",
+      "reference": {
+        "$fal_ref": {
+          "kind": "job",
+          "endpoint_id": "bytedance/seedance-2.5/image-to-video",
+          "request_id": "01a12504-63d9-7260-bf1a-ffef17112f6b",
+          "response_url": "https://queue.fal.run/bytedance/seedance-2.5/requests/01a12504-63d9-7260-bf1a-ffef17112f6b",
+          "output_path": "/video/url"
+        }
+      }
+    }
+  ],
+  "display_hint": "Present completed media to the user. Forward attached image content blocks to the host's image display helper (for example, image(block)); do not stringify image blocks as text. For Markdown previews use previews[].preview_url, and separately link original_url as the full-resolution file. If no preview is available, show a clearly labeled original-file link. Do not claim a preview rendered unless it is visible. Video, audio and 3D URLs are original result files, not queue URLs."
+}
