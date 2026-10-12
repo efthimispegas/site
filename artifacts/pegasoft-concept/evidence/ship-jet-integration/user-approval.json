@@ -1,0 +1,37 @@
+{
+  "status": "user_approved_connected_motion",
+  "date_local": "2026-10-11",
+  "authority": "Direct user message in this task",
+  "user_quote": "The overall motion is approved. Clear to proceed to next review phase",
+  "scope": "Connected ship \u2192 clouds \u2192 J02 \u2192 trust motion, including trailing-flap reveal and shadow restricted to new chapter. Approved numerical shadow preset recorded separately.",
+  "shadow_approval": "generation/jet-family/shadow-measurements-approval.json",
+  "inputs": [
+    {
+      "path": "review/ship-jet-integration.html",
+      "sha256": "321af8f69643f0ea65007744eb3447ada961c8cc83fa9569d922c79035fea08b"
+    },
+    {
+      "path": "review/ship-jet-integration.js",
+      "sha256": "80ff6e3a9ff7acdb69cfd7276db2616fea88359730aaac3f100a6fd249b77a75"
+    },
+    {
+      "path": "review/ship-jet-sequence.js",
+      "sha256": "40460b95375a2b2a7e9ad257993a76e20830ed561a553147501a5b0c7fef04c0"
+    },
+    {
+      "path": "review/jet-crossing.js",
+      "sha256": "57d28597e2b085668664b3c76478f96e2f48e12c15b5741734873c521f0d7795"
+    },
+    {
+      "path": "generation/jet-family/shadow-measurements-approval.json",
+      "sha256": "d589ae739d69b0aed2f3bdb7063e2a9187242b6eb31f82cc85593aadb8aeb49a"
+    }
+  ],
+  "post_approval_changes": "Defaults/persistence and revision loading bind the exact approved numerical preset. Accepted motion remains unchanged. Status text links next review.",
+  "does_not_approve": [
+    "Factual testimonials or partner relationships",
+    "Trust/partners layout in the next review",
+    "Full website, production or release"
+  ],
+  "next_review": "review/trust-partners.html#viewer"
+}

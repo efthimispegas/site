@@ -1,0 +1,184 @@
+{
+  "status": "user_approved_connected_motion",
+  "date_local": "2026-10-11",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push.",
+  "review": "review/ship-jet-integration.html#viewer",
+  "scope": "Correct the connected chapter reveal to the trailing wing/flap edges; restrict jet shadow to revealed trust surface, with nose/forward wings over clouds and ocean.",
+  "inputs": [
+    {
+      "path": "review/ship-jet-integration.html",
+      "sha256": "d39e9c4487a8a4200880222c1d062c5bfe3cd5b6d936d94955a72dfca39a8083"
+    },
+    {
+      "path": "review/ship-jet-integration.js",
+      "sha256": "80ff6e3a9ff7acdb69cfd7276db2616fea88359730aaac3f100a6fd249b77a75"
+    },
+    {
+      "path": "review/ship-jet-sequence.js",
+      "sha256": "40460b95375a2b2a7e9ad257993a76e20830ed561a553147501a5b0c7fef04c0"
+    },
+    {
+      "path": "review/jet-crossing.js",
+      "sha256": "57d28597e2b085668664b3c76478f96e2f48e12c15b5741734873c521f0d7795"
+    }
+  ],
+  "reused_inputs": "preservation-20261011.json",
+  "timing": {
+    "cloud_seconds": 16,
+    "jet_start_seconds": 14,
+    "jet_seconds": 12,
+    "total_seconds": 26,
+    "overlap_seconds": 2,
+    "authority": "User approved connected timing on 11 October; no measured reference duration claim."
+  },
+  "checks": {
+    "syntax": "node --check passed for modified jet-crossing.js; git diff --check passed. Unique IDs and local HTML links passed.",
+    "normal_crossing": {
+      "frames": 514,
+      "range": [
+        0.53846154,
+        1
+      ],
+      "jet_monotonic": true,
+      "full_reveal_at_end": true
+    },
+    "reverse": {
+      "frames": 1246,
+      "end": 0,
+      "jet_monotonic": true
+    },
+    "quarter_speed": {
+      "frames": 1262,
+      "range": [
+        0.69230769,
+        1
+      ],
+      "observed_rate": 0.009611870347404234,
+      "expected_rate": 0.009615384615384616
+    },
+    "mask_and_shadow": "Rendered chapter and shadow receiver use identical stage-space wing polygon. Aircraft and shadow carrier transforms identical. Blur/offset/size applied inside clipped receiver, so shadow cannot enter cloud/sea side.",
+    "controls": "Earlier control stress evidence retained under its original input pins. New live adjustment/Reset check restores all six 11 October measurements and holds progress; receiver/chapter clips match.",
+    "physical_scroll": "Native down/up progressed 69.2\u201376.4\u201369.2% continuously through wing reveal.",
+    "responsive": "375\u00d7812 mobile wing reveal inspected; same receiver mask; no document overflow; viewport reset.",
+    "reduced_motion": "Both aircraft and shadow receiver hidden; trust fully exposed.",
+    "preservation": "20 prior approved inputs unchanged; exact newly approved shadow numbers update canonical preset and both review defaults. Controller motion unchanged.",
+    "pose": "3003 width/height/progress cases passed unchanged translation/scale, boundary continuity and complete endpoints.",
+    "console": "No warnings/errors in final runtime.",
+    "shadow_20261011": "shadow-20261011-reset.json: new defaults match canonical approval, inverse-scale offset/blur retained. Versioned module/fetch prevents stale preview preset loading.",
+    "isolated_preset": "Native adjustment/Reset also restores all six new values in retained isolated review; shadow-20261011-isolated-reset.json."
+  },
+  "layout": "New connected trust adapts to pinned-stage height and stacks on mobile. Isolated crossing geometry and shared typography remain unchanged; shadow defaults updated by explicit numerical approval.",
+  "evidence": [
+    {
+      "path": "evidence/ship-jet-integration/wing-console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-corrected-review.png",
+      "sha256": "821ade141824dc137f3ae41f559aeb3542ac8c54113eb2f3d49ca9b245991b0e"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-forward.json",
+      "sha256": "800fb7ced41d6be7f4bd6baba2ad4801a19cf7417c959c12c74c93c5f570bdc4"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-mobile.json",
+      "sha256": "46292253a4351cbad9d2f46636e551c3b03f88e6d7b8d809d97a35e5f19286f1"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-mobile.png",
+      "sha256": "3052c42a3c9900fdea2b4b373d0babcb5fdde87836686c53e322a150f63b9241"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-pose-checks.json",
+      "sha256": "70b818076235dc40ec042eb8008a741e5bfdded10c70ae69511c61d5f57d3bef"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-preservation.json",
+      "sha256": "3f1d16ad2100aa94758025e7484641f355feb2e598dfdfa537bd7ff82029f455"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-quarter-speed.json",
+      "sha256": "62a5aeaec144c805f49c55956d8bb14e6f5cbb31d704d304d3d51790df215005"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-receiver-controls.json",
+      "sha256": "001f9f622d5eb382ab95c8931a4ae532842703f78e18e04636f5954fba99a92a"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-reduced.json",
+      "sha256": "43c344bc110dfeba0cbaf48e2d03fc5aef58e0544629b38487aef4cdba204e1c"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-reveal-runtime.json",
+      "sha256": "364a8902c55243d2545309c3b5ec2dd6640146b553b6304f575038448ac789b9"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-reveal.png",
+      "sha256": "278b1f1ebfe9455a72fb0d3c93295260abda5ef20b13bc7ecb9a3bb15d572768"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-reverse.json",
+      "sha256": "c0ad9f43a1810906e6f4fe153a981fa8e7ab0e474f65bb6a90a16f840f3c0b92"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-scroll.json",
+      "sha256": "d15dc2efdb625d0921d349aa40ce462d0aef8ad12f400c53213e292b3147572e"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-shadow-late.png",
+      "sha256": "8ccbd5c03dcfcb1ad3b50441adbc7e74457d18e6304ba3117002ea5229f0fdbf"
+    },
+    {
+      "path": "evidence/ship-jet-integration/wing-usage.json",
+      "sha256": "876369d72763e4d75c8d7650b6fcedf4bf67462800c043521227c5f62cf36d76"
+    },
+    {
+      "path": "evidence/ship-jet-integration/user-approval.json",
+      "sha256": "1fa4398774e70b0a1afbfb0439550b94cd55578931bdf045c0a73e1bf78ea1eb"
+    },
+    {
+      "path": "evidence/ship-jet-integration/preservation-20261011.json",
+      "sha256": "dc11a48680593ecd7bd2c1ab769a7f5d00d4c88f7ce59661deb01bca78a1b9c0"
+    },
+    {
+      "path": "evidence/ship-jet-integration/shadow-20261011-reset.json",
+      "sha256": "25f1bf918babd89c3ee28128d0fb45b22272fbad08bc920e76a5387b1e356540"
+    },
+    {
+      "path": "evidence/ship-jet-integration/shadow-20261011-reset.png",
+      "sha256": "1fb96bd9b21917cedd9120cdce3bb7425394859821cb559ec90773af21cc150e"
+    },
+    {
+      "path": "evidence/ship-jet-integration/shadow-20261011-isolated-reset.json",
+      "sha256": "3a3df132e883f32a7586cfec30e5f9dd21780a2c4e71975cc5a348cb8c2a21c9"
+    }
+  ],
+  "generation": {
+    "new_jobs": 0,
+    "source_media_edits": 0
+  },
+  "user_accepted_connected_integration": true,
+  "next_action": "Proceed to loader/globe scope and live opening review. Trust/partners belongs to final content group.",
+  "limits": [
+    "Motion accepted by user; reference choreography does not establish measured parity.",
+    "Reference landmarks establish choreography, not measured parity.",
+    "Existing draft trust content remains; factual copy and production deferred.",
+    "Native editor control inputs hold progress. Earlier locator-driven pre-scroll remains documented in historical packet; general auto-scroll immunity is not claimed."
+  ],
+  "revision": "trailing-wing-reveal-and-shadow-receiver",
+  "reveal": {
+    "profile": "Opaque J02 trailing wing/flap landmarks with small inboard inset to conceal seam",
+    "shadow_receiver": "Same stage polygon as trust, applied outside the filtered/offset/scaled shadow",
+    "previous_world": "Nose and leading wings retain cloud/ship/ocean behind them"
+  },
+  "history": [
+    "before-wing-reveal/ preserves the superseded initial implementation and packet. Original forward/reverse/pose evidence predates the corrected reveal and remains historical.",
+    "before-shadow-20261011 retains pre-preset packet/pins. Wing playback/geometry evidence uses prior shadow numerics; new preset independently verified through Reset without changing motion.",
+    "before-review-order-amendment preserves approved HTML/packet before review-queue crosslinks and footer status changed. Motion code/assets/settings remain unchanged; user-approval.json stays immutable."
+  ],
+  "approval": "user-approval.json",
+  "review_order_amendment": "evidence/review-order-amendment.json"
+}

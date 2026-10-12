@@ -1,0 +1,160 @@
+{
+  "status": "ready_for_personal_review",
+  "date_local": "2026-10-11",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push.",
+  "review": "review/ship-jet-integration.html#viewer",
+  "scope": "Approved ship/clouds into exact J02 crossing/shadow and existing draft trust reveal.",
+  "inputs": [
+    {
+      "path": "review/ship-jet-integration.html",
+      "sha256": "2d23caa731975e8fd167b440249be1b9f6a90d03d0373e251d7f3ed597037483"
+    },
+    {
+      "path": "review/ship-jet-integration.js",
+      "sha256": "ac4cf53394dc579f08e323e89b108964629d3ff1c84b4e0b137ab8d592aee8e1"
+    },
+    {
+      "path": "review/ship-jet-sequence.js",
+      "sha256": "40460b95375a2b2a7e9ad257993a76e20830ed561a553147501a5b0c7fef04c0"
+    },
+    {
+      "path": "review/jet-crossing.js",
+      "sha256": "dcbda5a964e07c5c3b4a13cfa2e9d30671cdd65c2caa0a769732345bc376fe67"
+    }
+  ],
+  "reused_inputs": "preservation.json",
+  "timing": {
+    "cloud_seconds": 16,
+    "jet_start_seconds": 14,
+    "jet_seconds": 12,
+    "total_seconds": 26,
+    "overlap_seconds": 2,
+    "authority": "Proposed connected timing; reference establishes event order, not measured duration."
+  },
+  "checks": {
+    "syntax": "Three new JS modules passed node --check; git diff --check passed.",
+    "html": "Unique IDs and all local src/href links resolve.",
+    "normal_playback": {
+      "rendered_samples": 2221,
+      "range": [
+        0,
+        1
+      ],
+      "camera_distance_monotonic": true,
+      "jet_x_monotonic": true,
+      "camera_quaternion_drift": 0,
+      "support_gap_max": 0
+    },
+    "reverse_playback": {
+      "rendered_samples": 2314,
+      "end": 0,
+      "camera_distance_monotonic": true,
+      "jet_x_monotonic": true,
+      "quaternion_drift": 0
+    },
+    "quarter_speed": {
+      "range": [
+        0.53846154,
+        0.749187501538482
+      ],
+      "observed_progress_per_second": 0.00961538461538555,
+      "expected": 0.009615384615384616
+    },
+    "physical_scroll": "Native down/up on desktop and mobile; returned continuously along same jet/reveal path.",
+    "pose": "12 desktop/mobile exact isolated-formula cases, reveal endpoints passed.",
+    "shadow": "Native X field changed to 25 and Reset restored all exact approved values without changing progress. Native toggle close/open retained progress. Scene-pixel inverse-scale math and rendered JSON payload checked. Copy button reported success; browser clipboard readback was empty.",
+    "editor_note": "Locator pre-scroll moved progress before the first editor click. Repeated native AX toggles and actual editing held progress; no general control auto-scroll immunity claimed.",
+    "reduced_motion": "Static full trust, hidden aircraft, playback/progress disabled; restored normal preview.",
+    "responsive": "375\u00d7812 mobile trust copy readable at 12 px; no document horizontal overflow. Lower trust line fits mobile and restored desktop stage. Native mobile reverse/forward scrolling checked; viewport override reset.",
+    "console": "No error/warning entries.",
+    "preservation": "16 accepted cloud/content/camera/media input pins unchanged. Additional reused jet/shadow/model inputs recorded in preservation.json."
+  },
+  "layout": "New connected trust layout adapts to pinned-stage height and stacks copy on mobile; isolated accepted crossing and shared typography sources unchanged.",
+  "evidence": [
+    {
+      "path": "evidence/ship-jet-integration/connected-review.png",
+      "sha256": "7fe9ea179d0fdfe774ecfadc2efefee65579e1655cafa7a5966e11b9a1561952"
+    },
+    {
+      "path": "evidence/ship-jet-integration/console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/ship-jet-integration/desktop-trust.json",
+      "sha256": "a939804d65ff2f9aa4180bddcc7fec24eea9c7d39e2df14af72b6c463d1b5d7b"
+    },
+    {
+      "path": "evidence/ship-jet-integration/forward.json",
+      "sha256": "148bb09b6e846c45aabf96db0be8107343f688e86bad20568f39b70c47190003"
+    },
+    {
+      "path": "evidence/ship-jet-integration/mobile-scroll.json",
+      "sha256": "f9f7f6fc2209337fa110587e49b8709420189e7b9f139268dbc231763188a46e"
+    },
+    {
+      "path": "evidence/ship-jet-integration/mobile-trust.json",
+      "sha256": "90c7f1538e42e9fdb8c3ffaff1bb4bef72a216940967aff619c8c56de37802ff"
+    },
+    {
+      "path": "evidence/ship-jet-integration/mobile-trust.png",
+      "sha256": "41fdf4ad6f6d7983245340de5b6334da0409c9656b9ff91d6d4ee4354c342de7"
+    },
+    {
+      "path": "evidence/ship-jet-integration/overlap.png",
+      "sha256": "6dd5c69862ba05106f9f58647b8a8acf45228c8092757260f2970c1d358875dd"
+    },
+    {
+      "path": "evidence/ship-jet-integration/pose-checks.json",
+      "sha256": "07476cbbd4d3ce4760843d0f35417570c0155b6428e6eaf7355c9a82e2d7d28a"
+    },
+    {
+      "path": "evidence/ship-jet-integration/preservation.json",
+      "sha256": "cb9ebbb23b232fcbff005215e4e6de830b589090c45dfd84331c52113e8a312b"
+    },
+    {
+      "path": "evidence/ship-jet-integration/quarter-speed.json",
+      "sha256": "c2a4423453ad36b1ef219185b677963cb34be1a9a3d2eef45c9c1e5f80c4dc0d"
+    },
+    {
+      "path": "evidence/ship-jet-integration/reduced-motion.json",
+      "sha256": "9c719a483c045ce9ec8bc2838e815405f7b65cc9852dbfa892e14a96785d3fde"
+    },
+    {
+      "path": "evidence/ship-jet-integration/reverse.json",
+      "sha256": "b7f910ebfdd84aebba02ba0cf0185a1c6acb50af2c8182d0bb2f39fca1af6b43"
+    },
+    {
+      "path": "evidence/ship-jet-integration/scroll.json",
+      "sha256": "2aab496e9714cbe8db7ceb04840bcb3dc241aa401052f015193a1e6db2c9fda0"
+    },
+    {
+      "path": "evidence/ship-jet-integration/shadow-controls.json",
+      "sha256": "7236b1b57f3e4baf631e0e2416587012e9ecccde5260df59640fa2c8e45dc849"
+    },
+    {
+      "path": "evidence/ship-jet-integration/trust-reveal.png",
+      "sha256": "818ce08b6dbb0524cd6cf073cd0975b2b1d25b4f89f09c2a9e983e387d51b012"
+    },
+    {
+      "path": "evidence/ship-jet-integration/trust.png",
+      "sha256": "1f6caf5c7383957410397d89e1b79ad734c94bd9f99c936e61e86b1e728d6622"
+    },
+    {
+      "path": "evidence/ship-jet-integration/usage.json",
+      "sha256": "dfa4ade084893226700fb4144dc1fa2c4944c33326779a199b4003a814b8b043"
+    }
+  ],
+  "generation": {
+    "new_jobs": 0,
+    "source_media_edits": 0
+  },
+  "user_accepted_connected_integration": false,
+  "next_action": "Personal review of connected timing, ship/cloud/jet overlap, trust reveal and editor controls.",
+  "limits": [
+    "No measured source parity, production release or representative-device performance claim.",
+    "Trust uses existing draft copy; testimonials, logos and factual content deferred.",
+    "Initial forward/reverse/quarter traces predate only the trust responsive CSS correction; motion sources unchanged. Corrected rendered layout evidence captured afterwards."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "status": "selected_cloud_subset_pending_user_approval",
+  "date_local": "2026-10-10",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push. Exact source pins identify the proposed review.",
+  "review": "review/ship-jet-plan.html#inputs",
+  "ship_journey_approval": "evidence/ship-integration/user-approval.json",
+  "scope": "Next ship/cloud/jet integration choreography and minimum selected cloud still batch.",
+  "inputs": [
+    {
+      "path": "review/ship-jet-plan.html",
+      "sha256": "974b181af3d493230a18e61c090265e4287f72f33b4681fd506ad6ace82ceb03"
+    },
+    {
+      "path": "review/ship-jet-plan.js",
+      "sha256": "bddfb43d216262278ca1bffa43844e1de2fe5ae91410e774fa11555d36dda4c9"
+    },
+    {
+      "path": "generation/cloud-family/input-proposal.json",
+      "sha256": "22eb90a1003986b3dc04e05498cc0afa254b007196e2acd456dd0106c6dba215"
+    },
+    {
+      "path": "generation/cloud-family/image-schema.json",
+      "sha256": "4452d77cca3f02c48c0610c3ad32b8d95137deab9788bafa336f0f5712cb59b5"
+    },
+    {
+      "path": "generation/cloud-family/pricing.json",
+      "sha256": "555d62fb1ba58a0652d7461d09069cdab746bcfccff42000d6bb2e9f67607b9f"
+    },
+    {
+      "path": "evidence/ship-jet-proposal/reference/choreography.json",
+      "sha256": "964aa3d51ca82be835f12a424f118d319208cbb320a0e6348c3af0c444c21173"
+    }
+  ],
+  "checks": [
+    "source-checks.json",
+    "runtime-checks.json"
+  ],
+  "screenshots": [
+    "desktop.png",
+    "mobile.png"
+  ],
+  "generation": {
+    "submitted_jobs": 0,
+    "proposed_static_jobs": 3,
+    "video_selected": false,
+    "retry_or_extra_variants": false
+  },
+  "implementation_state": "Reviewable input/choreography proposal. Connected motion waits for reviewed atmosphere inputs.",
+  "next_action": "Obtain selected subset approval, generate only K01\u2013K03, show static review on carbon/porcelain, then implement connected motion.",
+  "limitations": [
+    "No connected motion parity or cloud realism acceptance is claimed.",
+    "Source wall-time pauses do not define new story speed or scroll intervals.",
+    "Factual trust content and full website/public release remain deferred."
+  ],
+  "evidence_inputs": [
+    {
+      "path": "evidence/ship-jet-proposal/desktop.png",
+      "sha256": "4bafff3efa7a1df9ed05b8ce664e8c6d4b096c0e51e8130bf96db12a7bb60f45"
+    },
+    {
+      "path": "evidence/ship-jet-proposal/mobile.png",
+      "sha256": "1dc53fb43ff6fb7fafc114d2a5dff34cbebd4caaebc0ce309b9c331a64a55689"
+    },
+    {
+      "path": "evidence/ship-jet-proposal/source-checks.json",
+      "sha256": "561104131e988773804da7adaab5bf0f3496d1d2104ad57b9cb61f8b6de087a3"
+    },
+    {
+      "path": "evidence/ship-jet-proposal/runtime-checks.json",
+      "sha256": "0868524d226fdf971dc7d89204be3938f5d1ad9d46cc4a4501095a9dc48ed10f"
+    },
+    {
+      "path": "evidence/ship-jet-proposal/usage.json",
+      "sha256": "096eef6c8a876d3c902af9922a8247a4d7c402e86e0cc03a81f2c7b9e3468eac"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "checked_at_utc": {
+    "current_time": "2026-10-11 10:56:35 UTC"
+  },
+  "start": {
+    "available": true,
+    "windows": [
+      {
+        "path": "limits.codex.primary.usedPercent",
+        "value": 1
+      },
+      {
+        "path": "limits.codex.primary.windowDurationMins",
+        "value": 300
+      },
+      {
+        "path": "limits.codex.primary.resetsAt",
+        "value": 1791728550
+      },
+      {
+        "path": "limits.codex.secondary.usedPercent",
+        "value": 0
+      },
+      {
+        "path": "limits.codex.secondary.windowDurationMins",
+        "value": 10080
+      },
+      {
+        "path": "limits.codex.secondary.resetsAt",
+        "value": 1792315350
+      }
+    ]
+  },
+  "end": {
+    "available": true,
+    "windows": [
+      {
+        "path": "limits.codex.primary.usedPercent",
+        "value": 16
+      },
+      {
+        "path": "limits.codex.primary.windowDurationMins",
+        "value": 300
+      },
+      {
+        "path": "limits.codex.primary.resetsAt",
+        "value": 1791728550
+      },
+      {
+        "path": "limits.codex.secondary.usedPercent",
+        "value": 2
+      },
+      {
+        "path": "limits.codex.secondary.windowDurationMins",
+        "value": 10080
+      },
+      {
+        "path": "limits.codex.secondary.resetsAt",
+        "value": 1792315350
+      }
+    ]
+  },
+  "new_generation_jobs": 0
+}

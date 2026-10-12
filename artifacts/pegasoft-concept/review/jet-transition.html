@@ -27,7 +27,7 @@ button:hover{border-color:var(--ice)}button:disabled{opacity:.45;cursor:default}
 .trust-foot{grid-column:1/-1;font:500 1.55cqw Manrope;margin-top:1.5cqw;color:var(--deep)}
 .aircraft{position:absolute;inset:0 auto auto 0;width:100%;aspect-ratio:16/9;transform-origin:0 0;will-change:transform;pointer-events:none;container-type:inline-size}
 .aircraft img{position:relative;z-index:1;width:100%;height:100%;display:block;object-fit:contain}
-.shadow-wrap{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform,opacity;filter:blur(3.31px);opacity:.3027}
+.shadow-wrap{position:absolute;inset:0;transform-origin:50% 50%;will-change:transform,opacity;filter:blur(6.72px);opacity:.4103}
 .shadow-shape{position:absolute;inset:0;background:var(--deep);mask:url('../generation/jet-family/J02-overhead.png') center/100% 100% no-repeat}
 .stage.gentle .aircraft{opacity:0}.stage.gentle .trust{clip-path:inset(0)!important}
 .stage.gentle .trust{transition:opacity 160ms var(--ease-out)}
@@ -42,7 +42,7 @@ body{padding-bottom:320px}body.editor-hidden{padding-bottom:0}.editor-hidden .sh
 @media(max-width:600px){.review-bar{padding:12px 16px}.intro,.notes{padding:20px 16px}.review-top{gap:6px}.controls{gap:6px}button,select{font-size:13px;padding:6px 9px}.progress-label{margin-left:0;min-width:200px}.reduce{margin-left:0}.intro h1{font-size:26px}.trust p{font-size:1.6cqw}.stage-label{font-size:1.55cqw}}
 @media(max-width:500px){.shadow-fields{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 12px}.shadow-editor{padding:10px 14px}.shadow-metrics{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.stage .aircraft{opacity:0}.stage .trust{clip-path:inset(0)!important}}
-</style></head><body>
+</style><link rel="stylesheet" href="story-typography.css"></head><body>
 <header class="review-bar" id="review-bar"><div class="review-top"><div class="brand">pegasoft</div><span class="status">Jet transition · Shadow approved</span><a href="jet-views.html?revision=20261004-static">Approved static family ↗</a></div>
 <div class="controls"><button class="primary" id="play">Play crossing</button><button id="pause">Pause</button><button id="reverse">Reverse</button><button id="reset">Reset</button>
 <label>Speed <select id="speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label>
@@ -56,12 +56,12 @@ body{padding-bottom:320px}body.editor-hidden{padding-bottom:0}.editor-hidden .sh
 </div><aside class="shadow-editor" id="shadow-editor" aria-label="Dynamic shadow editor">
 <div class="editor-title"><h2>Dynamic shadow</h2><label><input type="checkbox" id="shadow-visible" checked>Visible</label></div>
 <div class="shadow-fields" id="shadow-fields">
-<div class="shadow-field"><label for="shadow-x">X · px <input id="shadow-x" data-shadow="x" type="number" min="-500" max="500" step=".01" value="19.18" aria-label="Shadow transform X in pixels"></label><input data-slider="x" type="range" min="-500" max="500" step=".01" value="19.18" aria-label="Shadow X slider"></div>
-<div class="shadow-field"><label for="shadow-y">Y · px <input id="shadow-y" data-shadow="y" type="number" min="-500" max="500" step=".01" value="-13.22" aria-label="Shadow transform Y in pixels"></label><input data-slider="y" type="range" min="-500" max="500" step=".01" value="-13.22" aria-label="Shadow Y slider"></div>
-<div class="shadow-field"><label for="shadow-width">Width · % <input id="shadow-width" data-shadow="width" type="number" min="10" max="250" step=".01" value="113.05" aria-label="Shadow width percent"></label><input data-slider="width" type="range" min="10" max="250" step=".01" value="113.05" aria-label="Shadow width slider"></div>
+<div class="shadow-field"><label for="shadow-x">X · px <input id="shadow-x" data-shadow="x" type="number" min="-500" max="500" step=".01" value="-8.04" aria-label="Shadow transform X in pixels"></label><input data-slider="x" type="range" min="-500" max="500" step=".01" value="-8.04" aria-label="Shadow X slider"></div>
+<div class="shadow-field"><label for="shadow-y">Y · px <input id="shadow-y" data-shadow="y" type="number" min="-500" max="500" step=".01" value="6.59" aria-label="Shadow transform Y in pixels"></label><input data-slider="y" type="range" min="-500" max="500" step=".01" value="6.59" aria-label="Shadow Y slider"></div>
+<div class="shadow-field"><label for="shadow-width">Width · % <input id="shadow-width" data-shadow="width" type="number" min="10" max="250" step=".01" value="105.64" aria-label="Shadow width percent"></label><input data-slider="width" type="range" min="10" max="250" step=".01" value="105.64" aria-label="Shadow width slider"></div>
 <div class="shadow-field"><label for="shadow-height">Height · % <input id="shadow-height" data-shadow="height" type="number" min="10" max="250" step=".01" value="109.2" aria-label="Shadow height percent"></label><input data-slider="height" type="range" min="10" max="250" step=".01" value="109.2" aria-label="Shadow height slider"></div>
-<div class="shadow-field"><label for="shadow-blur">Blur · px <input id="shadow-blur" data-shadow="blur" type="number" min="0" max="160" step=".01" value="3.31" aria-label="Shadow blur in pixels"></label><input data-slider="blur" type="range" min="0" max="160" step=".01" value="3.31" aria-label="Shadow blur slider"></div>
-<div class="shadow-field"><label for="shadow-opacity">Opacity · % <input id="shadow-opacity" data-shadow="opacity" type="number" min="0" max="100" step=".01" value="30.27" aria-label="Shadow opacity percent"></label><input data-slider="opacity" type="range" min="0" max="100" step=".01" value="30.27" aria-label="Shadow opacity slider"></div>
+<div class="shadow-field"><label for="shadow-blur">Blur · px <input id="shadow-blur" data-shadow="blur" type="number" min="0" max="160" step=".01" value="6.72" aria-label="Shadow blur in pixels"></label><input data-slider="blur" type="range" min="0" max="160" step=".01" value="6.72" aria-label="Shadow blur slider"></div>
+<div class="shadow-field"><label for="shadow-opacity">Opacity · % <input id="shadow-opacity" data-shadow="opacity" type="number" min="0" max="100" step=".01" value="41.03" aria-label="Shadow opacity percent"></label><input data-slider="opacity" type="range" min="0" max="100" step=".01" value="41.03" aria-label="Shadow opacity slider"></div>
 </div>
 <p class="shadow-metrics" id="shadow-metrics"></p>
 <div class="editor-actions"><button id="shadow-reset">Reset shadow</button><button id="shadow-copy">Copy measurements</button><output id="shadow-message" role="status" aria-live="polite"></output></div>
@@ -79,7 +79,7 @@ const stage=document.querySelector('#stage'),chapter=document.querySelector('#ch
 let p=0,mode='scroll',direction=1,last=null,raf=null,w=1,h=1,travel=1,pinTop=1,start=0,scrollIntentUntil=0;const clamp=x=>Math.max(0,Math.min(1,x));
 function gentle(){return media.matches||reduce.checked}
 const shadow=document.querySelector('#shadow'),shadowMetrics=document.querySelector('#shadow-metrics'),shadowJson=document.querySelector('#shadow-json'),shadowMessage=document.querySelector('#shadow-message'),visible=document.querySelector('#shadow-visible');
-const shadowDefaults={x:19.18,y:-13.22,width:113.05,height:109.2,blur:3.31,opacity:30.27,visible:true},shadowKey='pegasoft-concept.jet-shadow.v2-approved';let settings={...shadowDefaults};
+const shadowDefaults={x:-8.04,y:6.59,width:105.64,height:109.2,blur:6.72,opacity:41.03,visible:true},shadowKey='pegasoft-concept.jet-shadow.v3-approved-20261011';let settings={...shadowDefaults};
 try{const saved=JSON.parse(localStorage.getItem(shadowKey));if(saved){for(const key of Object.keys(shadowDefaults)){if(key==='visible'){if(typeof saved.visible==='boolean')settings.visible=saved.visible}else{const field=document.querySelector('[data-shadow="'+key+'"]');if(Number.isFinite(saved[key])&&saved[key]>=Number(field.min)&&saved[key]<=Number(field.max))settings[key]=saved[key]}}}}catch{}
 function syncShadowFields(){for(const field of document.querySelectorAll('input[data-shadow],input[data-slider]'))field.value=settings[field.dataset.shadow||field.dataset.slider];visible.checked=settings.visible}
 function saveShadow(){try{localStorage.setItem(shadowKey,JSON.stringify(settings))}catch{shadowMessage.textContent='Local saving unavailable; copy the settings.'}}

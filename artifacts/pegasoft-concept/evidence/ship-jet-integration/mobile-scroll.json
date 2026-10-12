@@ -1,0 +1,486 @@
+{
+  "reverse": {
+    "camera": [
+      407.4677491394291,
+      2140.9280700464924,
+      254.91463735895888
+    ],
+    "cargoMatrix": [
+      0.24503080924462303,
+      0,
+      0.673216542107907,
+      0,
+      0,
+      0.7164220893068572,
+      0,
+      0,
+      -0.673216542107907,
+      0,
+      0.24503080924462303,
+      0,
+      406.3887119690196,
+      0.9671698205642576,
+      249.29186100353533,
+      1
+    ],
+    "cargoRoofNDC": [
+      0.021711915958483513,
+      0.06295570542614437,
+      0.9821654709735214
+    ],
+    "cargoScale": [
+      0.7164220893068571,
+      0.7164220893068572,
+      0.7164220893068571
+    ],
+    "cloudProgress": 1,
+    "clouds": [
+      {
+        "arrival": 1,
+        "centre": [
+          -0.21999999999999997,
+          -0.12
+        ],
+        "density": 1,
+        "densityWeight": 1,
+        "id": "K01",
+        "opacity": 1,
+        "overrides": {},
+        "softness": 0.13,
+        "width": 1.85
+      },
+      {
+        "arrival": 1,
+        "centre": [
+          0.18,
+          0.3
+        ],
+        "density": 0.8,
+        "densityWeight": 0.44,
+        "id": "K02",
+        "opacity": 0.65,
+        "overrides": {},
+        "softness": 0.65,
+        "width": 1.4
+      },
+      {
+        "arrival": 1,
+        "centre": [
+          1.2,
+          1.22
+        ],
+        "density": 0.94,
+        "densityWeight": 1,
+        "id": "K03",
+        "opacity": 1,
+        "overrides": {},
+        "softness": 0.45,
+        "width": 1.95
+      }
+    ],
+    "contentTravel": 0.8,
+    "copyLayout": {
+      "entry": 0.6,
+      "items": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.686338102808691,
+          "height": 90,
+          "hullGap": 12,
+          "originCentre": 83.25,
+          "side": "left",
+          "visible": true,
+          "width": 133,
+          "x": 16.567277946934695,
+          "y": -503.08
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.686338102808691,
+          "height": 90,
+          "hullGap": 12,
+          "originCentre": 249.75,
+          "side": "right",
+          "visible": true,
+          "width": 133,
+          "x": 183.2327247744247,
+          "y": -503.08
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7869686910439851,
+          "height": 83,
+          "hullGap": 12,
+          "originCentre": 83.25,
+          "side": "left",
+          "visible": true,
+          "width": 80,
+          "x": 69.84727794693471,
+          "y": -313.19007999999997
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7869686910439851,
+          "height": 95,
+          "hullGap": 12,
+          "originCentre": 249.75,
+          "side": "right",
+          "visible": true,
+          "width": 80,
+          "x": 183.2327247744247,
+          "y": -313.19007999999997
+        },
+        {
+          "animated": true,
+          "entry": 0.8875992792792793,
+          "height": 62,
+          "hullGap": 12,
+          "originCentre": 166.5,
+          "side": "centre",
+          "visible": true,
+          "width": 173,
+          "x": 80,
+          "y": -123.30016
+        }
+      ],
+      "rowEntries": [
+        0.686338102808691,
+        0.7869686910439851
+      ],
+      "rowSpacing": 0.42768,
+      "titleGap": 79.92,
+      "titleY": -310.79999999999995,
+      "visible": true
+    },
+    "cutNDC": 1.4,
+    "distance": 2142.265984798042,
+    "drawCalls": 0,
+    "hullScreen": {
+      "bottom": 260.85069533084624,
+      "left": 161.7672779469347,
+      "right": 171.2327247744247,
+      "top": 183.15073382305147
+    },
+    "jet": {
+      "center": {
+        "x": 201.5091675165486,
+        "y": 208.78
+      },
+      "edge": 201.37246084128688,
+      "footprint": {
+        "height": 233.94685849441004,
+        "width": 430.568862072333
+      },
+      "gentle": false,
+      "progress": 0.47913780275041046,
+      "reveal": 0.6047221046284891,
+      "scale": 1.1437413408251231,
+      "shadow": {
+        "blur": 3.31,
+        "height": 109.2,
+        "opacity": 30.27,
+        "visible": true,
+        "width": 113.05,
+        "x": 19.18,
+        "y": -13.22
+      },
+      "x": -8.103765730834416,
+      "y": 114.88147504834706
+    },
+    "jetProgress": 0.47913780275041046,
+    "owner": "deck",
+    "ownershipMatrixResidual": 3.3306690738754696e-16,
+    "phase": "Jet crossing · trust reveal",
+    "progress": 0.7596020628078818,
+    "pull": 1,
+    "quaternion": [
+      -0.6960159711688423,
+      0.12284918251990212,
+      0.12272639472104932,
+      0.696712335380147
+    ],
+    "roadVisible": false,
+    "seaY": -5.8503027812797965,
+    "shipMatrix": [
+      0.24503080924462303,
+      0,
+      0.673216542107907,
+      0,
+      0,
+      0.7164220893068572,
+      0,
+      0,
+      -0.673216542107907,
+      0,
+      0.24503080924462303,
+      0,
+      406.7350511423833,
+      -6.065229408071854,
+      252.9015661567955,
+      1
+    ],
+    "shipPosition": [
+      406.7350511423833,
+      -6.065229408071854,
+      252.9015661567955
+    ],
+    "sourceProgress": 1,
+    "sourceShipProgress": 1,
+    "supportGap": 0,
+    "target": [
+      406.7350511423833,
+      -1.3368436186466397,
+      252.9015661567955
+    ],
+    "time": 19.749653633004925,
+    "travel": 241.14767526068815,
+    "truckVisible": false,
+    "wipe": 1
+  },
+  "forward": {
+    "camera": [
+      407.4677491394291,
+      2140.9280700464924,
+      254.91463735895888
+    ],
+    "cargoMatrix": [
+      0.24503080924462303,
+      0,
+      0.673216542107907,
+      0,
+      0,
+      0.7164220893068572,
+      0,
+      0,
+      -0.673216542107907,
+      0,
+      0.24503080924462303,
+      0,
+      406.3887119690196,
+      0.9671698205642576,
+      249.29186100353533,
+      1
+    ],
+    "cargoRoofNDC": [
+      0.021711915958483513,
+      0.06295570542614437,
+      0.9821654709735214
+    ],
+    "cargoScale": [
+      0.7164220893068571,
+      0.7164220893068572,
+      0.7164220893068571
+    ],
+    "cloudProgress": 1,
+    "clouds": [
+      {
+        "arrival": 1,
+        "centre": [
+          -0.21999999999999997,
+          -0.12
+        ],
+        "density": 1,
+        "densityWeight": 1,
+        "id": "K01",
+        "opacity": 1,
+        "overrides": {},
+        "softness": 0.13,
+        "width": 1.85
+      },
+      {
+        "arrival": 1,
+        "centre": [
+          0.18,
+          0.3
+        ],
+        "density": 0.8,
+        "densityWeight": 0.44,
+        "id": "K02",
+        "opacity": 0.65,
+        "overrides": {},
+        "softness": 0.65,
+        "width": 1.4
+      },
+      {
+        "arrival": 1,
+        "centre": [
+          1.2,
+          1.22
+        ],
+        "density": 0.94,
+        "densityWeight": 1,
+        "id": "K03",
+        "opacity": 1,
+        "overrides": {},
+        "softness": 0.45,
+        "width": 1.95
+      }
+    ],
+    "contentTravel": 0.8,
+    "copyLayout": {
+      "entry": 0.6,
+      "items": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.686338102808691,
+          "height": 90,
+          "hullGap": 12,
+          "originCentre": 83.25,
+          "side": "left",
+          "visible": true,
+          "width": 133,
+          "x": 16.567277946934695,
+          "y": -503.08
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.686338102808691,
+          "height": 90,
+          "hullGap": 12,
+          "originCentre": 249.75,
+          "side": "right",
+          "visible": true,
+          "width": 133,
+          "x": 183.2327247744247,
+          "y": -503.08
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7869686910439851,
+          "height": 83,
+          "hullGap": 12,
+          "originCentre": 83.25,
+          "side": "left",
+          "visible": true,
+          "width": 80,
+          "x": 69.84727794693471,
+          "y": -313.19007999999997
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7869686910439851,
+          "height": 95,
+          "hullGap": 12,
+          "originCentre": 249.75,
+          "side": "right",
+          "visible": true,
+          "width": 80,
+          "x": 183.2327247744247,
+          "y": -313.19007999999997
+        },
+        {
+          "animated": true,
+          "entry": 0.8875992792792793,
+          "height": 62,
+          "hullGap": 12,
+          "originCentre": 166.5,
+          "side": "centre",
+          "visible": true,
+          "width": 173,
+          "x": 80,
+          "y": -123.30016
+        }
+      ],
+      "rowEntries": [
+        0.686338102808691,
+        0.7869686910439851
+      ],
+      "rowSpacing": 0.42768,
+      "titleGap": 79.92,
+      "titleY": -310.79999999999995,
+      "visible": true
+    },
+    "cutNDC": 1.4,
+    "distance": 2142.265984798042,
+    "drawCalls": 0,
+    "hullScreen": {
+      "bottom": 260.85069533084624,
+      "left": 161.7672779469347,
+      "right": 171.2327247744247,
+      "top": 183.15073382305147
+    },
+    "jet": {
+      "center": {
+        "x": 616.915,
+        "y": 208.78
+      },
+      "edge": 619.3800000000001,
+      "footprint": {
+        "height": 265.908825,
+        "width": 489.39345
+      },
+      "gentle": false,
+      "progress": 1,
+      "reveal": 1,
+      "scale": 1.3,
+      "shadow": {
+        "blur": 3.31,
+        "height": 109.2,
+        "opacity": 30.27,
+        "visible": true,
+        "width": 113.05,
+        "x": 19.18,
+        "y": -13.22
+      },
+      "x": 381.285,
+      "y": 100.246875
+    },
+    "jetProgress": 1,
+    "owner": "deck",
+    "ownershipMatrixResidual": 3.3306690738754696e-16,
+    "phase": "Trust chapter",
+    "progress": 1,
+    "pull": 1,
+    "quaternion": [
+      -0.6960159711688423,
+      0.12284918251990212,
+      0.12272639472104932,
+      0.696712335380147
+    ],
+    "roadVisible": false,
+    "seaY": -5.8503027812797965,
+    "shipMatrix": [
+      0.24503080924462303,
+      0,
+      0.673216542107907,
+      0,
+      0,
+      0.7164220893068572,
+      0,
+      0,
+      -0.673216542107907,
+      0,
+      0.24503080924462303,
+      0,
+      406.7350511423833,
+      -6.065229408071854,
+      252.9015661567955,
+      1
+    ],
+    "shipPosition": [
+      406.7350511423833,
+      -6.065229408071854,
+      252.9015661567955
+    ],
+    "sourceProgress": 1,
+    "sourceShipProgress": 1,
+    "supportGap": 0,
+    "target": [
+      406.7350511423833,
+      -1.3368436186466397,
+      252.9015661567955
+    ],
+    "time": 26,
+    "travel": 241.14767526068815,
+    "truckVisible": false,
+    "wipe": 1
+  }
+}

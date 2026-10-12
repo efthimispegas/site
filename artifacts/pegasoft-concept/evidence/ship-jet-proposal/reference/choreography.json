@@ -1,0 +1,95 @@
+{
+  "status": "observed_reference_order_integration_not_calibrated",
+  "source": "/Users/whiskey/Work/site/docs/references/reference_walkthrough.mov",
+  "source_sha256": "90d94411a0989e010354abc3c2e205fcdfcc0c291b6d87e1f53caf1ee8ec2f07",
+  "clip": "evidence/ship-jet-proposal/reference/ship-cloud-jet.mp4",
+  "clip_sha256": "cdb78b6c170c856f4e3e90ec9950c285abd76b2f177940271dbfc804932b312e",
+  "source_window_seconds": [
+    230,
+    278
+  ],
+  "clip_seconds": 48,
+  "frame_samples": [
+    {
+      "source_seconds": 230,
+      "name": "Ship content",
+      "observation": "Ship stays on the central vertical axis; fifth content block is below the bow.",
+      "path": "evidence/ship-jet-proposal/reference/frame-230.jpg",
+      "sha256": "8a56aecc0f1db8363e54250e2d1333c736ba99fc1a6db4231cf9f0e42ee6f031"
+    },
+    {
+      "source_seconds": 234,
+      "name": "First veil",
+      "observation": "A left-side translucent veil overlaps the still-visible ship and last block.",
+      "path": "evidence/ship-jet-proposal/reference/frame-234.jpg",
+      "sha256": "ddca0e847779752d64a211c5e7c61b1186db72712f4fe251700508ac9550ddcf"
+    },
+    {
+      "source_seconds": 238,
+      "name": "Cloud banks",
+      "observation": "Dense upper-left and bottom/right masses frame a central sea/ship gap.",
+      "path": "evidence/ship-jet-proposal/reference/frame-238.jpg",
+      "sha256": "2f8cc030eb35f9108a1c37efd0ddea5de95298cc4cf548993c64612c74d5c904"
+    },
+    {
+      "source_seconds": 242,
+      "name": "Jet entrance",
+      "observation": "Jet nose is at the left boundary while distant ship remains visible through the gap.",
+      "path": "evidence/ship-jet-proposal/reference/frame-242.jpg",
+      "sha256": "e24dca1f33f7623ae1f9274708dae1901e922cc75d17893b75aba7f4ef4d6816"
+    },
+    {
+      "source_seconds": 246,
+      "name": "Crossing overlap",
+      "observation": "Jet nose moves right across clouds before the main trust reveal.",
+      "path": "evidence/ship-jet-proposal/reference/frame-246.jpg",
+      "sha256": "67e5c38da2e31292df60b873916ca57c3478a9d92f3f9bca4b9266c66f7b6c3f"
+    },
+    {
+      "source_seconds": 250,
+      "name": "Trust reveal",
+      "observation": "Wing/fuselage crossing reveals porcelain trust from the left; cloud field remains on the right.",
+      "path": "evidence/ship-jet-proposal/reference/frame-250.jpg",
+      "sha256": "06661b4ae945b6c7d919f8d8cd794ce55f4d57acb243719a051796d27c2973c0"
+    },
+    {
+      "source_seconds": 274,
+      "name": "Tail exit",
+      "observation": "Trust is exposed; aircraft tail exits right.",
+      "path": "evidence/ship-jet-proposal/reference/frame-274.jpg",
+      "sha256": "c77c28e36d9e3d84b00b4a3266c9b0c205f0ffdc8fef53e1328b5ad93df94b8c"
+    }
+  ],
+  "estimated_event_brackets_seconds": {
+    "cloud_veil_onset": [
+      230,
+      234
+    ],
+    "jet_nose_entry": [
+      238,
+      242
+    ],
+    "trust_reveal": [
+      246,
+      250
+    ],
+    "tail_exiting": [
+      270,
+      278
+    ]
+  },
+  "measurement_limits": "4-second sampled landmarks establish brackets and event order. Source wall time includes manual scrolling/pauses; it does not establish animation duration, easing, or new scroll progress.",
+  "integration_contract": {
+    "entry": "Exact approved ship endpoint; fixed orientation; no cut or camera reset.",
+    "overlap": "Cloud/ship retreat and jet entry overlap; do not require full ship concealment before aircraft entry.",
+    "exit": "Accepted J02 wing/fuselage trust mask and exact preset shadow, with full rightward aircraft exit.",
+    "scroll_start_px": null,
+    "scroll_end_px": null,
+    "pin_interval_px": null,
+    "normalized_position_scale": null,
+    "cloud_opacity_curve": null,
+    "occlusion_thresholds": null,
+    "easing": null,
+    "status": "Unset until selected cloud static outputs are approved and composed."
+  }
+}
