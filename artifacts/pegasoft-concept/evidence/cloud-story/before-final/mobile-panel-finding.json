@@ -1,0 +1,11 @@
+{
+  "failure": "Native details summary stayed collapsed during mobile click checks.",
+  "attempts": [
+    "Original synchronous focus-scroll restore",
+    "Deferred requestAnimationFrame restore",
+    "Reload and repeat native click"
+  ],
+  "evidence": "Final mobile checks replace the earlier collapsed controls-mobile screenshot.",
+  "hypothesis": "Default summary activation and sticky scroll layout interacted during click dispatch.",
+  "resolution": "Replace native details default action with an explicit aria-expanded toggle and controlled hidden panel; rerun mobile and control checks."
+}

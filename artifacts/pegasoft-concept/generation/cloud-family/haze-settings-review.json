@@ -1,0 +1,49 @@
+{
+  "status": "user_reviewed_settings",
+  "date_local": "2026-10-11",
+  "user_quote": "Reviewed with notes\nFirst veil haze density at 77%, edge softness 112%\nCloud banks haze density 82%, edge softness 52%",
+  "presets": {
+    "veil": {
+      "density": 0.77,
+      "softness": 1.12
+    },
+    "banks": {
+      "density": 0.82,
+      "softness": 0.52
+    }
+  },
+  "scope": "Independent First veil and Cloud banks settings; combined motion still needs review.",
+  "reviewed_inputs": [
+    {
+      "path": "review/cloud-treatment.html",
+      "sha256": "b8247197b4d5c1eb8558dc56fdf6de00f5b6138649d685efd1bad2de5d8d1b1b"
+    },
+    {
+      "path": "review/cloud-treatment.js",
+      "sha256": "ae295adffd126102308393f0f1d8d0f5d2e2f387af93508f5533fd0c15bfd348"
+    },
+    {
+      "path": "generation/cloud-family/haze-treatment.json",
+      "sha256": "d05fc847ebca8c6d74b115f01703c3e9010e6ce6545054fd43ed588cbbad98a0"
+    },
+    {
+      "path": "generation/cloud-family/shape-approval.json",
+      "sha256": "fc07edfa4877ee1f4acb2d9b80afe6d93f9a0e1efa34d927e467d0fa2d46f666"
+    },
+    {
+      "id": "K01",
+      "path": "generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "id": "K02",
+      "path": "generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "id": "K03",
+      "path": "generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    }
+  ]
+}

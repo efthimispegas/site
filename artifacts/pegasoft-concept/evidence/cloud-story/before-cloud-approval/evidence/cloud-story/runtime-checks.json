@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "source_preservation": "26 original cloud, approved ship and proposal reuse pins matched.",
+    "syntax": "Four new/revised JavaScript modules passed node --check.",
+    "independent_controls": "All 9 native keyboard sliders changed only their owning overrides; reset restored 82%/52%/100% for all clouds. Story progress unchanged.",
+    "static_presets": "First veil 77%/112% and banks 82%/52% independent state/reset passed.",
+    "scroll": "Physical scroll down increased progress; up returned to starting progress.",
+    "playback": "Normal forward and reverse reached both endpoints; all rendered observations showed monotonic camera retreat/return, identical quaternion, zero support gap.",
+    "quarter_speed": "Native quarter-speed playback advanced .382275 over 24.4703 seconds, consistent with 16-second normal duration.",
+    "responsive": "375\u00d7812 mobile and 1280\u00d7900 desktop visually inspected; expanded mobile controls fit with no horizontal overflow. Viewport override reset.",
+    "console": "No warnings/errors.",
+    "visual": "Cloud passage and complete ocean inspected during ordinary playback and at veil/bank boundaries; old completed deck-wipe clipping removed only in this new slice."
+  },
+  "forward_observations": 904,
+  "reverse_observations": 1498,
+  "evidence_method": "DOM-derived summary over every genuine playback observation; every tenth observation retained. Native control and physical scroll snapshots.",
+  "limits": [
+    "No representative-device performance or user acceptance claimed.",
+    "Reverse/quarter traces predate the final control-click correction; motion sequence and layer mathematics unchanged. Final forward, controls, scroll and responsive checks use final controller."
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "status": "combined_clouds_and_content_user_approved",
+  "date_local": "2026-10-10",
+  "branch": "codex/pegasoft-concept",
+  "approval": "batch-approval.json",
+  "approved_proposal": "input-proposal.json",
+  "review": "review/clouds.html#assets",
+  "jobs_submitted": 3,
+  "jobs_completed": 3,
+  "retries": 0,
+  "video_jobs": 0,
+  "assets": [
+    {
+      "id": "K01",
+      "role": "Upper-left bank",
+      "path": "generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+      "request_id": "01a12764-8b02-7932-80b8-772c58b0ef07",
+      "original_url": "https://v3b.fal.media/files/b/0aaddc12/wFMC5hh4z6l8VmJ7VJK0d_6C4D0AVI.png",
+      "request_input": "K01/request-input.json",
+      "recipe_receipt": "K01/provider-receipt.json",
+      "library_receipt": "K01/library-receipt.json",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "status": "shape_approved_density_pending"
+    },
+    {
+      "id": "K02",
+      "role": "Lower-left veil",
+      "path": "generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+      "request_id": "01a12764-06ca-7581-8000-0601e8b73906",
+      "original_url": "https://v3b.fal.media/files/b/0aaddc0f/R4WS1d9pB3B6ZdveqbA8h_trZHSuPF.png",
+      "request_input": "K02/request-input.json",
+      "recipe_receipt": "K02/provider-receipt.json",
+      "library_receipt": "K02/library-receipt.json",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "status": "shape_approved_density_pending"
+    },
+    {
+      "id": "K03",
+      "role": "Bottom-right bank",
+      "path": "generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401",
+      "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+      "request_id": "01a12765-114f-7743-bd1a-783b51fd616d",
+      "original_url": "https://v3b.fal.media/files/b/0aaddc16/5rEpSSa6bYKDul4AfGEUR_lDmwmlyd.png",
+      "request_input": "K03/request-input.json",
+      "recipe_receipt": "K03/provider-receipt.json",
+      "library_receipt": "K03/library-receipt.json",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "status": "shape_approved_density_pending"
+    }
+  ],
+  "image_checks": "evidence/cloud-static-review/image-checks.json",
+  "visual_findings": [
+    "K01 and K03 are dense, irregular cool-white cloud banks with shaped internal volume.",
+    "K02 is a smaller irregular mass but visually denser than the intended thin wispy veil; review suitability before integration.",
+    "Maximum 1/255 alpha residue on some canvas edges; originals preserved without cleanup."
+  ],
+  "accepted_reuse_pins_unchanged": [
+    {
+      "path": "review/ship-integration.html",
+      "sha256": "7a4365470e49f61d756d7497f770fc35f17c131ff087a55efba4921fdf4b6700"
+    },
+    {
+      "path": "review/ship-integration.js",
+      "sha256": "948e4ab5f031b6afe644be4e3489c446ab9f3e0cf3e8955bb91e1fca8f901023"
+    },
+    {
+      "path": "generation/jet-family/J02-overhead.png",
+      "sha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8"
+    },
+    {
+      "path": "generation/jet-family/shadow-measurements-approval.json",
+      "sha256": "4314dbfabc7569ef79b12785913cdccae1ce3e21521fa0f5a567f34b82444c9c"
+    },
+    {
+      "path": "review/jet-transition.html",
+      "sha256": "a7a0ba0bdb9de4714839e2bf830b43b81497ee708cc67be139651b4869c1824e"
+    }
+  ],
+  "limits": [
+    "No corrections, regeneration or variants.",
+    "No motion integration or cloud-video generation.",
+    "Static family user acceptance remains pending."
+  ],
+  "shape_approval": "shape-approval.json",
+  "density_review": "review/cloud-treatment.html",
+  "live_review": "review/cloud-story.html#viewer",
+  "haze_settings_review": "haze-settings-review.json",
+  "story_approval": "cloud-story-approval.json"
+}

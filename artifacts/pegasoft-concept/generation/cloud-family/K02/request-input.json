@@ -1,0 +1,14 @@
+{
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+  "input": {
+    "prompt": "One naturally irregular high-altitude cloud mass seen from directly above, pale cool white and silver-blue, realistic soft vapor edges and subtle internal volume. Isolated on a transparent canvas with large clear margins and no cut-off feathering. Consistent soft upper-left illumination, photographic aerial realism, no sky gradient, sun, aircraft, ocean, ground, text or purple/gold tones. Small wispy foreground mass: a thin irregular vapor veil with translucent broken tendrils and readable natural density, not a uniform opacity sheet. Keep it entirely inside the canvas; position its coded entry from the lower left after compositing. Match the same aerial scale, cool-white/silver-blue vapor palette and upper-left lighting across the selected set. Render only one separate cloud mass, no multi-view or contact sheet. Atmosphere retains its natural scene palette; no painted surfaces are requested. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+    "image_size": {
+      "width": 1536,
+      "height": 1024
+    },
+    "background": "transparent",
+    "quality": "high",
+    "output_format": "png",
+    "num_images": 1
+  }
+}

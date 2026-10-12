@@ -1,0 +1,83 @@
+{
+  "status": "passed_format_and_usable_transparency_with_edge_residue_disclosed",
+  "images": [
+    {
+      "id": "K01",
+      "mode": "RGBA",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_min_max": [
+        0,
+        254
+      ],
+      "outer_edge_max_alpha": 1,
+      "visible_bounds_alpha_gt8": [
+        92,
+        118,
+        1470,
+        939
+      ],
+      "zero_alpha_fraction": 0.5580387115478516,
+      "alpha_0_or_1_fraction": 0.5742454528808594,
+      "intermediate_alpha_fraction": 0.4256477355957031,
+      "near_opaque_fraction": 0.0001068115234375,
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "id": "K02",
+      "mode": "RGBA",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_min_max": [
+        0,
+        254
+      ],
+      "outer_edge_max_alpha": 1,
+      "visible_bounds_alpha_gt8": [
+        234,
+        245,
+        1360,
+        918
+      ],
+      "zero_alpha_fraction": 0.7587865193684896,
+      "alpha_0_or_1_fraction": 0.7854703267415365,
+      "intermediate_alpha_fraction": 0.21413612365722656,
+      "near_opaque_fraction": 0.0003935496012369792,
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "id": "K03",
+      "mode": "RGBA",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_min_max": [
+        0,
+        254
+      ],
+      "outer_edge_max_alpha": 1,
+      "visible_bounds_alpha_gt8": [
+        97,
+        167,
+        1474,
+        924
+      ],
+      "zero_alpha_fraction": 0.5630919138590494,
+      "alpha_0_or_1_fraction": 0.6192429860432943,
+      "intermediate_alpha_fraction": 0.3806927998860677,
+      "near_opaque_fraction": 6.421407063802083e-05,
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    }
+  ],
+  "initial_check": {
+    "result": "strict_all_edges_zero_failed",
+    "finding": "Provider originals contain maximum alpha 1/255 at some outer edges; no cleanup performed.",
+    "interpretation": "No visible cloud content touches the border at alpha >8; review faint edge residue on contrasting backgrounds."
+  },
+  "limitation": "Statistics prove RGBA dimensions and margins, not realism or user acceptance."
+}

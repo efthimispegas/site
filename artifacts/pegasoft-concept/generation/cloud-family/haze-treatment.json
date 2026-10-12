@@ -1,0 +1,106 @@
+{
+  "status": "user_approved_per_cloud_story_settings",
+  "authority": "User approved cloud shapes and requested vast hazy/foggy opacity treatment.",
+  "date_local": "2026-10-11",
+  "core_opacity_weight": 0.72,
+  "halo_opacity_weight": 0.54,
+  "core_blur_width_fraction": 0.016,
+  "halo_blur_width_fraction": 0.048,
+  "halo_scale": 1.12,
+  "moments": {
+    "banks": {
+      "K01": {
+        "center": [
+          -0.22,
+          -0.12
+        ],
+        "width": 1.85,
+        "density_weight": 1,
+        "raw_opacity": 1
+      },
+      "K02": {
+        "center": [
+          0.18,
+          0.3
+        ],
+        "width": 1.4,
+        "density_weight": 0.44,
+        "raw_opacity": 1
+      },
+      "K03": {
+        "center": [
+          1.2,
+          1.22
+        ],
+        "width": 1.95,
+        "density_weight": 1,
+        "raw_opacity": 1
+      }
+    },
+    "veil": {
+      "K01": {
+        "center": [
+          -0.48,
+          0.3
+        ],
+        "width": 1.9,
+        "density_weight": 0.4,
+        "raw_opacity": 0.55
+      },
+      "K02": {
+        "center": [
+          0.13,
+          0.32
+        ],
+        "width": 1.8,
+        "density_weight": 0.48,
+        "raw_opacity": 1
+      },
+      "K03": {
+        "center": [
+          1.72,
+          1.45
+        ],
+        "width": 2,
+        "density_weight": 0.34,
+        "raw_opacity": 0.55
+      }
+    }
+  },
+  "units": "Centres/width are fractions of the viewport, isotropic original 3:2 image aspect preserved. Blur scales with viewport width for matching responsive apparent density.",
+  "limits": [
+    "Static density study; positions are proposed composition, not measured production trajectory.",
+    "Original PNGs and RGB colour values unchanged; live opacity and isotropic blur produce diffuse sampling.",
+    "No new provider jobs or video."
+  ],
+  "presets": {
+    "veil": {
+      "density": 0.77,
+      "softness": 1.12
+    },
+    "banks": {
+      "density": 0.82,
+      "softness": 0.52
+    }
+  },
+  "settings_review": "haze-settings-review.json",
+  "cloud_presets": {
+    "K01": {
+      "density": 1,
+      "softness": 0.13,
+      "opacity": 1
+    },
+    "K02": {
+      "density": 0.8,
+      "softness": 0.65,
+      "opacity": 0.65
+    },
+    "K03": {
+      "density": 0.94,
+      "softness": 0.45,
+      "opacity": 1
+    }
+  },
+  "story_approval": "cloud-story-approval.json",
+  "presets_scope": "Earlier veil/bank values are retained for the static treatment comparison. Connected story uses approved per-cloud presets throughout."
+}

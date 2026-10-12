@@ -1,0 +1,63 @@
+{
+  "status": "completed",
+  "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+  "request_id": "01a12764-8b02-7932-80b8-772c58b0ef07",
+  "status_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a12764-8b02-7932-80b8-772c58b0ef07/status",
+  "response_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a12764-8b02-7932-80b8-772c58b0ef07",
+  "cancel_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a12764-8b02-7932-80b8-772c58b0ef07/cancel",
+  "recipe": {
+    "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+    "input": {
+      "prompt": "One naturally irregular high-altitude cloud mass seen from directly above, pale cool white and silver-blue, realistic soft vapor edges and subtle internal volume. Isolated on a transparent canvas with large clear margins and no cut-off feathering. Consistent soft upper-left illumination, photographic aerial realism, no sky gradient, sun, aircraft, ocean, ground, text or purple/gold tones. Wide left-edge mass: broad, dense, naturally lobed volume with a softly broken inner boundary. Keep the cloud entirely inside the canvas; position its coded entry from the upper left after compositing. Match the same aerial scale, cool-white/silver-blue vapor palette and upper-left lighting across the selected set. Render only one separate cloud mass, no multi-view or contact sheet. Atmosphere retains its natural scene palette; no painted surfaces are requested. All painted carbon or graphite surfaces use Pegasoft carbon #11151B as their shared base paint color. Graphite describes the material appearance; do not introduce a separate grey-blue paint variant. Preserve the separately approved blue, brushed silver/titanium, rubber and glass material roles. Natural highlights and shadows come from lighting, not different paint colors.",
+      "image_size": {
+        "width": 1536,
+        "height": 1024
+      },
+      "background": "transparent",
+      "quality": "high",
+      "output_format": "png",
+      "num_images": 1
+    },
+    "note": "These are the submitted inputs, not resolved server defaults. For a variation, copy them and change only requested fields; reuse returned_seed when supported by the schema. Source URLs may expire."
+  },
+  "result": {
+    "images": [
+      {
+        "url": "https://v3b.fal.media/files/b/0aaddc12/wFMC5hh4z6l8VmJ7VJK0d_6C4D0AVI.png",
+        "content_type": "image/png",
+        "file_name": "wFMC5hh4z6l8VmJ7VJK0d_6C4D0AVI.png",
+        "file_size": null,
+        "width": null,
+        "height": null
+      }
+    ]
+  },
+  "media": [
+    {
+      "url": "https://v3b.fal.media/files/b/0aaddc12/wFMC5hh4z6l8VmJ7VJK0d_6C4D0AVI.png",
+      "json_path": "result.images[0].url",
+      "output_path": "/images/0/url",
+      "media_type": "image",
+      "content_type": "image/png",
+      "file_name": "wFMC5hh4z6l8VmJ7VJK0d_6C4D0AVI.png",
+      "reference": {
+        "$fal_ref": {
+          "kind": "job",
+          "endpoint_id": "openai/gpt-image-2.5/sunburst/text-to-image",
+          "request_id": "01a12764-8b02-7932-80b8-772c58b0ef07",
+          "response_url": "https://queue.fal.run/openai/gpt-image-2.5/requests/01a12764-8b02-7932-80b8-772c58b0ef07",
+          "output_path": "/images/0/url"
+        }
+      }
+    }
+  ],
+  "display_hint": "Present completed media to the user. Forward attached image content blocks to the host's image display helper (for example, image(block)); do not stringify image blocks as text. For Markdown previews use previews[].preview_url, and separately link original_url as the full-resolution file. If no preview is available, show a clearly labeled original-file link. Do not claim a preview rendered unless it is visible. Video, audio and 3D URLs are original result files, not queue URLs.",
+  "previews": [
+    {
+      "original_url": "https://v3b.fal.media/files/b/0aaddc12/wFMC5hh4z6l8VmJ7VJK0d_6C4D0AVI.png",
+      "preview_url": "https://refinery.fal.media/url/https%3A%2F%2Fv3b.fal.media%2Ffiles%2Fb%2F0aaddc12%2FwFMC5hh4z6l8VmJ7VJK0d_6C4D0AVI.png/tr:w-768,h-768,c-at_max,q-75/preview.webp",
+      "mime_type": "image/webp",
+      "max_dimension": 768
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "native_controls": [
+    {
+      "filters": [
+        "blur(18.8417px)",
+        "blur(18.8417px)",
+        "blur(18.8417px)"
+      ],
+      "loaded": true,
+      "state": {
+        "density": 0.76,
+        "moment": "banks",
+        "softness": 1,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    },
+    {
+      "filters": [
+        "none",
+        "none",
+        "none"
+      ],
+      "state": {
+        "density": 0.76,
+        "moment": "banks",
+        "softness": 1,
+        "treatment": "original",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    },
+    {
+      "reference": "../evidence/ship-jet-proposal/reference/frame-238.jpg",
+      "state": {
+        "density": 0.76,
+        "moment": "veil",
+        "softness": 1,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    },
+    {
+      "background": "porcelain",
+      "coreOpacity": "0.288",
+      "state": {
+        "density": 1,
+        "moment": "veil",
+        "softness": 2,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    },
+    {
+      "background": "sea",
+      "state": {
+        "density": 0.76,
+        "moment": "banks",
+        "softness": 1,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    }
+  ],
+  "mobile": {
+    "filters": [
+      "blur(5.52px)",
+      "blur(5.52px)",
+      "blur(5.52px)"
+    ],
+    "loaded": true,
+    "scrollWidth": 375,
+    "state": {
+      "density": 0.76,
+      "moment": "banks",
+      "softness": 1,
+      "treatment": "diffuse",
+      "viewport": [
+        345,
+        198.6015625
+      ]
+    },
+    "width": 375
+  },
+  "console": [],
+  "scope": "Static appearance/interaction review only; no connected animation parity claim."
+}

@@ -1,0 +1,110 @@
+{
+  "status": "cloud_shapes_approved_haze_revision_pending_user_review",
+  "date_local": "2026-10-10",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted, no push; exact source pins identify review.",
+  "review": "review/cloud-treatment.html#viewer",
+  "shape_approval": "generation/cloud-family/shape-approval.json",
+  "scope": "Only vast hazy/foggy appearance and coverage; preserve shapes, source colours and all accepted transport inputs.",
+  "method": "Live isotropic scale/position, viewport-scaled alpha sampling blur, separate broad halo and opacity. No PNG editing or RGB adjustment.",
+  "context": "Captured approved ship endpoint, used only for static compositing comparison; not connected motion evidence.",
+  "inputs": [
+    {
+      "path": "review/cloud-treatment.html",
+      "sha256": "b8247197b4d5c1eb8558dc56fdf6de00f5b6138649d685efd1bad2de5d8d1b1b"
+    },
+    {
+      "path": "review/cloud-treatment.js",
+      "sha256": "ae295adffd126102308393f0f1d8d0f5d2e2f387af93508f5533fd0c15bfd348"
+    },
+    {
+      "path": "generation/cloud-family/haze-treatment.json",
+      "sha256": "d05fc847ebca8c6d74b115f01703c3e9010e6ce6545054fd43ed588cbbad98a0"
+    },
+    {
+      "path": "generation/cloud-family/shape-approval.json",
+      "sha256": "fc07edfa4877ee1f4acb2d9b80afe6d93f9a0e1efa34d927e467d0fa2d46f666"
+    },
+    {
+      "id": "K01",
+      "path": "generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "id": "K02",
+      "path": "generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "id": "K03",
+      "path": "generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    }
+  ],
+  "evidence_inputs": [
+    {
+      "path": "evidence/cloud-treatment/approved-ship-context.png",
+      "sha256": "882f34057136e785aaa7aaa5e000c771f237241a5afa378602b23c2c5dad8657"
+    },
+    {
+      "path": "evidence/cloud-treatment/context-capture.json",
+      "sha256": "c908db643654280b9470b082a1b86dc06fa9ad7a771afd4dcda9266053ee7ee2"
+    },
+    {
+      "path": "evidence/cloud-treatment/runtime-checks.json",
+      "sha256": "53fd46c06615d4e2a149df6cf4a32a70376f69e40dbdf1db1ca3d52110b82ab6"
+    },
+    {
+      "path": "evidence/cloud-treatment/diffuse-desktop.png",
+      "sha256": "9d8aa16669c55d8d72080bfd05d2851ed221e7900a2cd44b0ac328b3dddcb903"
+    },
+    {
+      "path": "evidence/cloud-treatment/original-desktop.png",
+      "sha256": "d32303409088f295fb8f71deebab0a16548e26f235572ecfbcc998a1841f013c"
+    },
+    {
+      "path": "evidence/cloud-treatment/veil-desktop.png",
+      "sha256": "53d43b41d1faaf4cb5fa591d6d59476cb2c22c6e28d5984c6bd90410062bc67c"
+    },
+    {
+      "path": "evidence/cloud-treatment/mobile.png",
+      "sha256": "d97ad1c57e3c3232ed1db5055924177642ac61d1a2967a6159b10fe326254516"
+    },
+    {
+      "path": "evidence/cloud-treatment/usage.json",
+      "sha256": "8f4689d9ffab603e9e56698ab7890a6cf67fbd02af5f6324fb2527a988fb45ba"
+    },
+    {
+      "path": "evidence/cloud-treatment/diffuse-default.png",
+      "sha256": "b9e953eb93dcd954e9a1bea91a20d3f72294ee84b5c1fba3a3a1d75e6d528c31"
+    }
+  ],
+  "checks": {
+    "source_preservation": "Three cloud PNGs, 18 approved ship inputs and all proposal reuse pins unchanged.",
+    "syntax": "node --check cloud-treatment.js passed",
+    "native_controls": "Original/diffuse, veil/banks, density/softness keyboard controls, porcelain background and reset passed.",
+    "responsive": "Desktop and 375\u00d7812 mobile inspected; no overflow; responsive blur scaling retained.",
+    "console": "No warnings/errors",
+    "local_links": "All present"
+  },
+  "reference_landmarks": {
+    "veil": "evidence/ship-jet-proposal/reference/frame-238.jpg",
+    "banks": "evidence/ship-jet-proposal/reference/frame-242.jpg"
+  },
+  "history": {
+    "prior_static_sources": "evidence/cloud-treatment/before-treatment/",
+    "prior_manifest": "evidence/cloud-treatment/original-manifest.json"
+  },
+  "generation": {
+    "new_jobs": 0,
+    "source_png_edits": 0,
+    "video_jobs": 0
+  },
+  "user_accepted_appearance": false,
+  "next_action": "Review haze appearance, then integrate approved cloud treatment into continuous ship/J02/trust motion; retain approved camera and shadow/editor.",
+  "limits": [
+    "Exact reference opacity parity is not independently established.",
+    "No connected sequence, animation performance or production acceptance is claimed."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "native_presets": [
+    {
+      "background": "sea",
+      "settings": {
+        "density": 0.82,
+        "moment": "banks",
+        "softness": 0.52,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    },
+    {
+      "settings": {
+        "density": 0.77,
+        "moment": "veil",
+        "softness": 1.12,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    },
+    {
+      "reset": "veil",
+      "settings": {
+        "density": 0.77,
+        "moment": "veil",
+        "softness": 1.12,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    },
+    {
+      "reset": "banks",
+      "settings": {
+        "density": 0.82,
+        "moment": "banks",
+        "softness": 0.52,
+        "treatment": "diffuse",
+        "viewport": [
+          1177.609375,
+          677.8984375
+        ]
+      }
+    }
+  ],
+  "scope": "Reviewed independent state selection and current-moment reset"
+}

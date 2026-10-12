@@ -1,0 +1,170 @@
+{
+  "status": "connected_ship_cloud_motion_pending_user_review",
+  "date_local": "2026-10-11",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push. Exact input pins identify this review.",
+  "review": "review/cloud-story.html#viewer",
+  "scope": "Continue late approved live ship/water pullback into combined K01\u2013K03 cloud veil/banks; separate haze, edges and opacity controls for each layer.",
+  "authority": [
+    "User reviewed veil 77%/112% and banks 82%/52%.",
+    "User requested combined assets during scrolling and camera pullback plus per-cloud controls."
+  ],
+  "inputs": [
+    {
+      "path": "review/cloud-story.html",
+      "sha256": "dbb70ecd37a5a7a1a30eefb264bfc4d248ce2a6f188ed6b662748dedd0051dd7"
+    },
+    {
+      "path": "review/cloud-story.js",
+      "sha256": "d15d9b4a40821088ab417ce9734e7c9712ed958e696d247573b4c450b9ee0676"
+    },
+    {
+      "path": "review/cloud-story-sequence.js",
+      "sha256": "e07f174e77ba727e0d806416a93b979383c2cf7e2b6b1917f2c67061f6dea16e"
+    },
+    {
+      "path": "review/cloud-story-layers.js",
+      "sha256": "67f3acaef9ca4e01bd2130d7e4f7498fbacf4664073c557e2c72785578dde5c8"
+    },
+    {
+      "path": "generation/cloud-family/haze-treatment.json",
+      "sha256": "068f718d0f21cd4afdf7807592b9987a022056e28262b8f68c0ec640c672320b"
+    },
+    {
+      "path": "generation/cloud-family/haze-settings-review.json",
+      "sha256": "acd51259b167c6d9a6bbe524d8f587d2cf5724639411082383fd9f074098aa55"
+    },
+    {
+      "path": "generation/cloud-family/shape-approval.json",
+      "sha256": "fc07edfa4877ee1f4acb2d9b80afe6d93f9a0e1efa34d927e467d0fa2d46f666"
+    },
+    {
+      "path": "review/ship-integration-sequence.js",
+      "sha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112"
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "5a086e337aca97dbc4fe1dbb0ccd8f8e75935c54e31a90195a6561ebe9a1bbdd"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "486dd2d236bac33b9db928f3fb95d40846011bc31daff3be5d8c3aa1958f0427"
+    },
+    {
+      "path": "review/ship-surface.js",
+      "sha256": "d72880b88ccb459a2e614bc3ccd620e4f6d4085ddadcf56fbfae1fd65fe30d67"
+    },
+    {
+      "path": "review/story-typography.css",
+      "sha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a"
+    },
+    {
+      "path": "generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "path": "generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "path": "generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    }
+  ],
+  "accepted_asset_authority": "evidence/ship-integration/user-approval.json",
+  "evidence_inputs": [
+    {
+      "path": "evidence/cloud-story/control-checks.json",
+      "sha256": "79fccf61e71cfbf7522193f70276b6d54f1a6b6c8e75ea2a2c9adbbe07302172"
+    },
+    {
+      "path": "evidence/cloud-story/scroll-checks.json",
+      "sha256": "2d24abfbecf5d5bd463ffc5a3b3fe3a5c5a12bb2d798eed62ab0315378b17b9d"
+    },
+    {
+      "path": "evidence/cloud-story/normal-forward.json",
+      "sha256": "d05f845115310adc055c34c97acc253f0e763aa7de886da22b51332992375468"
+    },
+    {
+      "path": "evidence/cloud-story/normal-reverse.json",
+      "sha256": "71dcda9b3b2510a35dd9b0683843c4944695ea9277181c73ce4dc5138ebd813d"
+    },
+    {
+      "path": "evidence/cloud-story/quarter-speed.json",
+      "sha256": "d583e75848d6772da1379158d2c4cf12575f489c6fe0c88d7862369e2fb8d05f"
+    },
+    {
+      "path": "evidence/cloud-story/mobile-checks.json",
+      "sha256": "f909e118c7e3815e6efa3d451f1d95e70b7b6b9ff67b35eebf1e13ec03d04dda"
+    },
+    {
+      "path": "evidence/cloud-story/preservation-checks.json",
+      "sha256": "eb3b13188b191f4c2513be1c7bd0ef99e3eb8728d5ebb3f284377f93ec1d1d09"
+    },
+    {
+      "path": "evidence/cloud-story/runtime-checks.json",
+      "sha256": "76cca591f1ecad1da98bdf278b77f56387810c655a58de5f81011d39a46a3902"
+    },
+    {
+      "path": "evidence/cloud-story/controls-desktop.png",
+      "sha256": "60d36e419cec6861a7adf19e6a6752b6141dfe8ef4ebd6649b52536b07b8b8a6"
+    },
+    {
+      "path": "evidence/cloud-story/controls-mobile.png",
+      "sha256": "30f14d12d6b3902b22ab9d7b81b520fa7774a46797985205e01eeacd01bbbb1d"
+    },
+    {
+      "path": "evidence/cloud-story/review-default.png",
+      "sha256": "2852d8e16a23ca450cc01da1ab9c467c86d1222782f680e98ddb7d6e701ba147"
+    },
+    {
+      "path": "evidence/cloud-story/normal-veil.png",
+      "sha256": "922df66ef22b59b4cd0df4975cfe4f585c00619f49da7de6f84c7b307b37c1fc"
+    },
+    {
+      "path": "evidence/cloud-story/banks-default.png",
+      "sha256": "14dd1105295dc008a383e25eee8bca774caecceb4dea6ebdec9d8af7139b5329"
+    },
+    {
+      "path": "evidence/cloud-story/usage.json",
+      "sha256": "a6819df5c382149b1e02fb761ed60db399cf8e81df00ae1c904ddcf1d76e010f"
+    }
+  ],
+  "checks": {
+    "source_preservation": "26 original cloud, approved ship and proposal reuse pins matched.",
+    "syntax": "Four new/revised JavaScript modules passed node --check.",
+    "independent_controls": "All 9 native keyboard sliders changed only their owning overrides; reset restored 82%/52%/100% for all clouds. Story progress unchanged.",
+    "static_presets": "First veil 77%/112% and banks 82%/52% independent state/reset passed.",
+    "scroll": "Physical scroll down increased progress; up returned to starting progress.",
+    "playback": "Normal forward and reverse reached both endpoints; all rendered observations showed monotonic camera retreat/return, identical quaternion, zero support gap.",
+    "quarter_speed": "Native quarter-speed playback advanced .382275 over 24.4703 seconds, consistent with 16-second normal duration.",
+    "responsive": "375\u00d7812 mobile and 1280\u00d7900 desktop visually inspected; expanded mobile controls fit with no horizontal overflow. Viewport override reset.",
+    "console": "No warnings/errors.",
+    "visual": "Cloud passage and complete ocean inspected during ordinary playback and at veil/bank boundaries; old completed deck-wipe clipping removed only in this new slice."
+  },
+  "generation": {
+    "new_jobs": 0,
+    "png_edits": 0,
+    "video_jobs": 0
+  },
+  "timing": {
+    "duration_seconds": 16,
+    "source_ship_progress": [
+      0.84,
+      1
+    ],
+    "first_veil": 0.4,
+    "cloud_banks": 1,
+    "final_camera_distance_factor": 4,
+    "orientation": "Inherited accepted quaternion; fixed throughout."
+  },
+  "user_accepted_connected_motion": false,
+  "next_action": "Personal review of combined cloud coverage, camera retreat and per-cloud controls. Then connect approved J02 with exact shadow/editor and trust reveal.",
+  "limits": [
+    "Proposed timing/composition, not measured reference opacity or full-motion parity.",
+    "No J02/trust connection, production release, performance or new visual acceptance claim.",
+    "Untouched parameters interpolate through reviewed presets; manual overrides hold across progress until Reset."
+  ],
+  "history": "before-final/ contains superseded diagnostic traces and mobile click finding."
+}

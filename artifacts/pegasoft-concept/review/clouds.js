@@ -1,0 +1,5 @@
+const carbon=document.querySelector('#carbon'),porcelain=document.querySelector('#porcelain');
+function background(light){document.body.classList.toggle('porcelain',light);carbon.setAttribute('aria-pressed',String(!light));porcelain.setAttribute('aria-pressed',String(light));document.body.dataset.background=light?'porcelain':'carbon';}
+carbon.onclick=()=>background(false);porcelain.onclick=()=>background(true);background(false);
+const roles={K01:'Upper-left bank',K02:'Lower-left veil',K03:'Bottom-right bank'};
+for(const button of document.querySelectorAll('[data-cloud]'))button.onclick=()=>{const id=button.dataset.cloud;const src=`../generation/cloud-family/${id}/${id}.png`;document.querySelector('#selected-cloud').src=src;document.querySelector('#selected-cloud').alt=`Full-size ${id} ${roles[id].toLowerCase()}`;document.querySelector('#selected-title').textContent=`${id} · ${roles[id]}`;document.querySelector('#selected-original').href=src;for(const peer of document.querySelectorAll('[data-cloud]'))peer.setAttribute('aria-pressed',String(peer===button));};

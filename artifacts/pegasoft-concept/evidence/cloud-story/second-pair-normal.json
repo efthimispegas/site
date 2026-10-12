@@ -1,0 +1,5490 @@
+{
+  "cameraRetreat": true,
+  "end": 1,
+  "frames": 948,
+  "hiddenVisibleBox": false,
+  "inward": [
+    {
+      "end": 350.21181983549764,
+      "index": 2,
+      "monotonic": true,
+      "start": 212.990786897517
+    },
+    {
+      "end": 703.7881844426778,
+      "index": 3,
+      "monotonic": true,
+      "start": 841.009216504518
+    }
+  ],
+  "method": "Native normal-speed Play; DOM summaries of all rendered observations",
+  "rise": true,
+  "sameQuaternion": true,
+  "samples": [
+    {
+      "camera": [
+        391.88178996752345,
+        415.6645031336763,
+        212.09256647360587
+      ],
+      "clouds": [
+        {
+          "arrival": 0,
+          "centre": [
+            -1.1,
+            -0.8
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0,
+          "centre": [
+            -0.85,
+            0.75
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0,
+          "centre": [
+            2.5,
+            2
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9746887602231468,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 237.2516756243695,
+          "y": 242.68
+        },
+        {
+          "animated": true,
+          "close": 0.9746887602231468,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 736.748345799247,
+          "y": 242.68
+        },
+        {
+          "animated": true,
+          "close": 0.15477896945318026,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 212.990786897517,
+          "y": 541.20064
+        },
+        {
+          "animated": true,
+          "close": 0.15477896945318026,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 841.009216504518,
+          "y": 541.20064
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 839.72128
+        }
+      ],
+      "distance": 417.0015552530832,
+      "dt": 0,
+      "elapsed": 0.002700000005960419,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 839.72128
+      },
+      "progress": 0,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        392.1170084923071,
+        418.3188371114154,
+        212.73882405908628
+      ],
+      "clouds": [
+        {
+          "arrival": 0.03029152199074076,
+          "centre": [
+            -1.0972357749938966,
+            -0.7950957298278809
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.03029152199074076,
+          "centre": [
+            -0.8456307411193847,
+            0.7480828762054443
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.03029152199074076,
+          "centre": [
+            2.4965224266052246,
+            1.9975478649139404
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9807558641869548,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 238.01014745399385,
+          "y": 226.53875000000025
+        },
+        {
+          "animated": true,
+          "close": 0.9807558641869548,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 735.989873966616,
+          "y": 226.53875000000025
+        },
+        {
+          "animated": true,
+          "close": 0.1731936696661233,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 215.35156533930393,
+          "y": 525.0593900000002
+        },
+        {
+          "animated": true,
+          "close": 0.1731936696661233,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 838.6484384434051,
+          "y": 525.0593900000002
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 823.5800300000002
+        }
+      ],
+      "distance": 419.65589055798984,
+      "dt": 0.011,
+      "elapsed": 0.25270000000596043,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 823.5800300000002
+      },
+      "progress": 0.015625000000000003,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        392.3527344092228,
+        422.1826545852017,
+        213.3864756929924
+      ],
+      "clouds": [
+        {
+          "arrival": 0.11216507826953132,
+          "centre": [
+            -1.0892345523817493,
+            -0.7809000122902001
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.11216507826953132,
+          "centre": [
+            -0.8329836473130873,
+            0.7425336411679873
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.11216507826953132,
+          "centre": [
+            2.486456372351233,
+            1.9904500061451
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9858445857483532,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 238.79028982717708,
+          "y": 210.39104349999988
+        },
+        {
+          "animated": true,
+          "close": 0.9858445857483532,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 735.2097315081207,
+          "y": 210.39104349999988
+        },
+        {
+          "animated": true,
+          "close": 0.1925646309062257,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 217.8623036319108,
+          "y": 508.91168349999987
+        },
+        {
+          "animated": true,
+          "close": 0.1925646309062257,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 836.1377005355045,
+          "y": 508.91168349999987
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 807.4323234999999
+        }
+      ],
+      "distance": 423.5197099636855,
+      "dt": 0.01,
+      "elapsed": 0.5028000000059606,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 807.4323234999999
+      },
+      "progress": 0.03125625000000001,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        392.58877520414853,
+        427.2411448213121,
+        214.03499244712103
+      ],
+      "clouds": [
+        {
+          "arrival": 0.2319873066404806,
+          "centre": [
+            -1.0764463369707538,
+            -0.7582112430126274
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.2319873066404806,
+          "centre": [
+            -0.812770016502159,
+            0.7336643949958452
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.2319873066404806,
+          "centre": [
+            2.4703679723180447,
+            1.9791056215063136
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.990005126559984,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 239.5900679921018,
+          "y": 194.24979350000012
+        },
+        {
+          "animated": true,
+          "close": 0.990005126559984,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 734.4099531803307,
+          "y": 194.24979350000012
+        },
+        {
+          "animated": true,
+          "close": 0.21282921239427385,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 220.5206295928609,
+          "y": 492.7704335000001
+        },
+        {
+          "animated": true,
+          "close": 0.21282921239427385,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 833.479374958744,
+          "y": 492.7704335000001
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 791.2910735000002
+        }
+      ],
+      "distance": 428.57820272904206,
+      "dt": 0.01,
+      "elapsed": 0.7528000000059606,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 791.2910735000002
+      },
+      "progress": 0.04688125000000003,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        392.8243689039596,
+        433.4586990497567,
+        214.68228081751764
+      ],
+      "clouds": [
+        {
+          "arrival": 0.3756713519259262,
+          "centre": [
+            -1.059381352087422,
+            -0.7279346569292968
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.3756713519259262,
+          "centre": [
+            -0.785796330718828,
+            0.7218290022541797
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.3756713519259262,
+          "centre": [
+            2.448899120368047,
+            1.9639673284646484
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9932937452881296,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 240.40437976885852,
+          "y": 178.16665200000003
+        },
+        {
+          "animated": true,
+          "close": 0.9932937452881296,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 733.5956411701083,
+          "y": 178.16665200000003
+        },
+        {
+          "animated": true,
+          "close": 0.23386558603885904,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 223.31578490602345,
+          "y": 476.687292
+        },
+        {
+          "animated": true,
+          "close": 0.23386558603885904,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 830.6842200239419,
+          "y": 476.687292
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 775.2079320000001
+        }
+      ],
+      "distance": 434.7957600662652,
+      "dt": 0.009099999999999909,
+      "elapsed": 1.0019000000059604,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 775.2079320000001
+      },
+      "progress": 0.062450000000000026,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        393.0716437827091,
+        441.219992693054,
+        215.3616629632803
+      ],
+      "clouds": [
+        {
+          "arrival": 0.5375934364571759,
+          "centre": [
+            -1.0373506817235487,
+            -0.6888479837030701
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.5375934364571759,
+          "centre": [
+            -0.7509736582081897,
+            0.7065496663566546
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.5375934364571759,
+          "centre": [
+            2.4211831157167225,
+            1.9444239918515351
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9959028784360432,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 241.27301491397895,
+          "y": 161.3151870000001
+        },
+        {
+          "animated": true,
+          "close": 0.9959028784360432,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 732.7270057117784,
+          "y": 161.3151870000001
+        },
+        {
+          "animated": true,
+          "close": 0.25675066892275766,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 226.39851873187203,
+          "y": 459.8358270000001
+        },
+        {
+          "animated": true,
+          "close": 0.25675066892275766,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 827.6014865855913,
+          "y": 459.8358270000001
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 758.3564670000001
+        }
+      ],
+      "distance": 442.557057590211,
+      "dt": 0.021,
+      "elapsed": 1.2629000000059605,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 758.3564670000001
+      },
+      "progress": 0.0787625,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        393.3370187271293,
+        450.9324877933313,
+        216.09077463076383
+      ],
+      "clouds": [
+        {
+          "arrival": 0.7066986862280092,
+          "centre": [
+            -1.009602543283776,
+            -0.639617415503473
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.7066986862280092,
+          "centre": [
+            -0.7071136974485486,
+            0.6873049896968122
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.7066986862280092,
+          "centre": [
+            2.386274167357008,
+            1.9198087077517365
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9978582923279588,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 242.21724930748303,
+          "y": 143.26281300000002
+        },
+        {
+          "animated": true,
+          "close": 0.9978582923279588,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 731.7827709149252,
+          "y": 143.26281300000002
+        },
+        {
+          "animated": true,
+          "close": 0.28214747882524316,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 229.8709722669685,
+          "y": 441.78345300000007
+        },
+        {
+          "animated": true,
+          "close": 0.28214747882524316,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 824.1290334509791,
+          "y": 441.78345300000007
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 740.3040930000001
+        }
+      ],
+      "distance": 452.2695575467379,
+      "dt": 0.009599999999999907,
+      "elapsed": 1.5425000000059603,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 740.3040930000001
+      },
+      "progress": 0.0962375,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        393.5837530380293,
+        461.223737673622,
+        216.76867157856623
+      ],
+      "clouds": [
+        {
+          "arrival": 0.8434217474454571,
+          "centre": [
+            -0.9805400030809582,
+            -0.5880548441758935
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.8434217474454571,
+          "centre": [
+            -0.6611761339021597,
+            0.6671487118142129
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.8434217474454571,
+          "centre": [
+            2.34971161677927,
+            1.8940274220879467
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9990134843147884,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 243.1033793000795,
+          "y": 126.50819549999994
+        },
+        {
+          "animated": true,
+          "close": 0.9990134843147884,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 730.8966404952638,
+          "y": 126.50819549999994
+        },
+        {
+          "animated": true,
+          "close": 0.30645694192878525,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 233.2449713383702,
+          "y": 425.0288355
+        },
+        {
+          "animated": true,
+          "close": 0.30645694192878525,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 820.7550347340407,
+          "y": 425.0288355
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 723.5494755
+        }
+      ],
+      "distance": 462.5608125726556,
+      "dt": 0.009099999999999909,
+      "elapsed": 1.8020000000059604,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 723.5494755
+      },
+      "progress": 0.11245624999999998,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        393.84091085069326,
+        473.2179651471331,
+        217.47520686209683
+      ],
+      "clouds": [
+        {
+          "arrival": 0.948272744711082,
+          "centre": [
+            -0.9474669249428204,
+            -0.5293768023179071
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.948272744711082,
+          "centre": [
+            -0.6088993329741355,
+            0.6442109318151819
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.948272744711082,
+          "centre": [
+            2.308103550734516,
+            1.8646884011589535
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9996782000360273,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 244.0337603561208,
+          "y": 109.0756455000002
+        },
+        {
+          "animated": true,
+          "close": 0.9996782000360273,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 729.9662589516969,
+          "y": 109.0756455000002
+        },
+        {
+          "animated": true,
+          "close": 0.33242089933949376,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 236.9018378002509,
+          "y": 407.5962855000002
+        },
+        {
+          "animated": true,
+          "close": 0.33242089933949376,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 817.0981686201374,
+          "y": 407.5962855000002
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 706.1169255000002
+        }
+      ],
+      "distance": 474.5550460432829,
+      "dt": 0.00890000000000009,
+      "elapsed": 2.07200000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 706.1169255000002
+      },
+      "progress": 0.12933124999999995,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        394.0804645475568,
+        485.533145166752,
+        218.13337523497648
+      ],
+      "clouds": [
+        {
+          "arrival": 0.9967728851759258,
+          "centre": [
+            -0.9145977530803812,
+            -0.47106052965874073
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 0.9967728851759258,
+          "centre": [
+            -0.5569448355141509,
+            0.6214145706847805
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 0.9967728851759258,
+          "centre": [
+            2.2667520119398343,
+            1.8355302648293703
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9999395895118276,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 244.90707263279847,
+          "y": 92.8633740000001
+        },
+        {
+          "animated": true,
+          "close": 0.9999395895118276,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 729.0929461915184,
+          "y": 92.8633740000001
+        },
+        {
+          "animated": true,
+          "close": 0.35710418244500103,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 240.42798726912665,
+          "y": 391.3840140000001
+        },
+        {
+          "animated": true,
+          "close": 0.35710418244500103,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 813.5720194535218,
+          "y": 391.3840140000001
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 689.904654
+        }
+      ],
+      "distance": 486.8702322204944,
+      "dt": 0.01059999999999991,
+      "elapsed": 2.3231000000059603,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 689.904654
+      },
+      "progress": 0.14502499999999988,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        394.328045282841,
+        499.3952989922504,
+        218.81359771466168
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.879036331631642,
+            -0.4079676851529131
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            -0.5007348467725953,
+            0.5967510041961388
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            2.222013449472066,
+            1.8039838425764565
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 0.9999993698320252,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 245.81895824693032,
+          "y": 76.13458250000016
+        },
+        {
+          "animated": true,
+          "close": 0.9999993698320252,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 728.1810600573139,
+          "y": 76.13458250000016
+        },
+        {
+          "animated": true,
+          "close": 0.38303540956181,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 244.18286864855975,
+          "y": 374.65522250000015
+        },
+        {
+          "animated": true,
+          "close": 0.38303540956181,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 809.8171383626184,
+          "y": 374.65522250000015
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 673.1758625000002
+        }
+      ],
+      "distance": 500.73239297707255,
+      "dt": 0.009,
+      "elapsed": 2.582200000005961,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 673.1758625000002
+      },
+      "progress": 0.16121874999999977,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        394.6057158807121,
+        516.2845752011951,
+        219.57649141235905
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.8378406410228914,
+            -0.33487855665351685
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            -0.4356190777458605,
+            0.568179799419102
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            2.1701866128997667,
+            1.7674392783267583
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 246.8577620442908,
+          "y": 57.40427600000043
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 727.1422556626762,
+          "y": 57.40427600000043
+        },
+        {
+          "animated": true,
+          "close": 0.4125225666528586,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 248.513086281592,
+          "y": 355.92491600000045
+        },
+        {
+          "animated": true,
+          "close": 0.4125225666528586,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 805.4869210229315,
+          "y": 355.92491600000045
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 654.4455560000006
+        }
+      ],
+      "distance": 517.621677630659,
+      "dt": 0.019099999999999458,
+      "elapsed": 2.87230000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 654.4455560000006
+      },
+      "progress": 0.1793499999999997,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        394.9615263633801,
+        539.9481457791767,
+        220.5540726790947
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.7841006290627901,
+            -0.23953337414365972
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            -0.3506751878734423,
+            0.5309085008016124
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            2.1025782107564135,
+            1.7197666870718298
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 248.2041039671218,
+          "y": 33.45066100000035
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 725.7959129656882,
+          "y": 33.45066100000035
+        },
+        {
+          "animated": true,
+          "close": 0.4507440552211188,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 254.21707407706768,
+          "y": 331.9713010000003
+        },
+        {
+          "animated": true,
+          "close": 0.4507440552211188,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 799.7829335552958,
+          "y": 331.9713010000003
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 630.4919410000005
+        }
+      ],
+      "distance": 541.2852600404308,
+      "dt": 0.010099999999999457,
+      "elapsed": 3.24330000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 630.4919410000005
+      },
+      "progress": 0.20253749999999968,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        395.3460152841531,
+        567.9927381614821,
+        221.61044730694897
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.7263799025906224,
+            -0.13712563362852337
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            -0.25943920086904815,
+            0.4908763840547864
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            2.0299618129365893,
+            1.6685628168142617
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 249.65477758106385,
+          "y": 7.624661000000444
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 724.3452385175971,
+          "y": 7.624661000000444
+        },
+        {
+          "animated": true,
+          "close": 0.49231999291558853,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 260.5317191341329,
+          "y": 306.1453010000005
+        },
+        {
+          "animated": true,
+          "close": 0.49231999291558853,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 793.4682887915598,
+          "y": 306.1453010000005
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 604.6659410000004
+        }
+      ],
+      "distance": 569.3298664450383,
+      "dt": 0.009899999999999637,
+      "elapsed": 3.64330000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 604.6659410000004
+      },
+      "progress": 0.2275374999999996,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        395.7121841596296,
+        597.0053595547979,
+        222.6164880240277
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.6733568107022154,
+            -0.04305240608457572
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            -0.1756285072389856,
+            0.4541023041966978
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.9632553424963357,
+            1.621526203042288
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 251.01240588252847,
+          "y": -16.916495499999698
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 722.9876094354831,
+          "y": -16.916495499999698
+        },
+        {
+          "animated": true,
+          "close": 0.531888753962505,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 266.6413022192443,
+          "y": 281.6041445000003
+        },
+        {
+          "animated": true,
+          "close": 0.531888753962505,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 787.3587059282338,
+          "y": 281.6041445000003
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 580.1247845000003
+        }
+      ],
+      "distance": 598.3425023446708,
+      "dt": 0.02,
+      "elapsed": 4.02340000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 580.1247845000003
+      },
+      "progress": 0.2512937499999996,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        396.0887794562723,
+        629.0996510887401,
+        223.65117509782635
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.622452138683331,
+            0.04726233459409013
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            -0.09516628372526514,
+            0.4187974510223102
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.8992139809241904,
+            1.576368832702955
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 252.36866039489064,
+          "y": -42.10330199999949
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 721.6313541432634,
+          "y": -42.10330199999949
+        },
+        {
+          "animated": true,
+          "close": 0.5722596972057483,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 272.968937548948,
+          "y": 256.41733800000054
+        },
+        {
+          "animated": true,
+          "close": 0.5722596972057483,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 781.0310707706516,
+          "y": 256.41733800000054
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 554.9379780000005
+        }
+      ],
+      "distance": 630.4368099257653,
+      "dt": 0.020100000000000364,
+      "elapsed": 4.4135000000059605,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 554.9379780000005
+      },
+      "progress": 0.27567499999999956,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        396.48551830692026,
+        665.2834632630259,
+        224.741206131402
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.5746071875514537,
+            0.13214853821516293
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            -0.01954039322649126,
+            0.3856146623340727
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.839021945629248,
+            1.5339257308924186
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 253.7411083698348,
+          "y": -68.58140849999903
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 720.2589053791486,
+          "y": -68.58140849999903
+        },
+        {
+          "animated": true,
+          "close": 0.6141111515759897,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 279.62362855929246,
+          "y": 229.939231500001
+        },
+        {
+          "animated": true,
+          "close": 0.6141111515759897,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 774.3763798841117,
+          "y": 229.939231500001
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 528.459871500001
+        }
+      ],
+      "distance": 666.620640191965,
+      "dt": 0.020099999999999455,
+      "elapsed": 4.8236000000059605,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 528.459871500001
+      },
+      "progress": 0.30130624999999933,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        396.89268806676534,
+        704.8360990557915,
+        225.8598958524612
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.5336429100976269,
+            0.2048270949880815
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.04520959371665434,
+            0.35720395377738634
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.787486241735724,
+            1.4975864525059592
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 255.0804283925287,
+          "y": -95.69870849999889
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 718.9195845863353,
+          "y": -95.69870849999889
+        },
+        {
+          "animated": true,
+          "close": 0.6559938794560839,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 286.3758944762692,
+          "y": 202.8219315000011
+        },
+        {
+          "animated": true,
+          "close": 0.6559938794560839,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 767.6241140377862,
+          "y": 202.8219315000011
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 501.3425715000011
+        }
+      ],
+      "distance": 706.1732957610565,
+      "dt": 0.02,
+      "elapsed": 5.24360000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 501.3425715000011
+      },
+      "progress": 0.32755624999999916,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        397.30953266765545,
+        747.7392146765471,
+        227.0051669808284
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.5023589344787608,
+            0.26033092269897296
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.09465845840453946,
+            0.33550700294494695
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.748128982086183,
+            1.4698345386505136
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 256.3732766661286,
+          "y": -123.40354999999892
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 717.626735569336,
+          "y": -123.40354999999892
+        },
+        {
+          "animated": true,
+          "close": 0.6973936588304642,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 293.1389171632886,
+          "y": 175.1170900000011
+        },
+        {
+          "animated": true,
+          "close": 0.6973936588304642,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 760.8610913696468,
+          "y": 175.1170900000011
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 473.6377300000011
+        }
+      ],
+      "distance": 749.0764328333789,
+      "dt": 0.029,
+      "elapsed": 5.67270000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 473.6377300000011
+      },
+      "progress": 0.35437499999999894,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        397.7290484823876,
+        793.2458386804597,
+        228.15777720890907
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.4839332702226262,
+            0.29302161734695353
+          ],
+          "density": 1,
+          "densityWeight": 0.4,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.9
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.12378289545455869,
+            0.32272791321891814
+          ],
+          "density": 0.8,
+          "densityWeight": 0.48,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.8
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.724948307699433,
+            1.453489191326523
+          ],
+          "density": 0.94,
+          "densityWeight": 0.34,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 2
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 257.591992987185,
+          "y": -151.23106499999875
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 716.4080185475061,
+          "y": -151.23106499999875
+        },
+        {
+          "animated": true,
+          "close": 0.7372017655905364,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 299.72487163761195,
+          "y": 147.28957500000126
+        },
+        {
+          "animated": true,
+          "close": 0.7372017655905364,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 754.2751368657827,
+          "y": 147.28957500000126
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 445.8102150000012
+        }
+      ],
+      "distance": 794.583079590613,
+      "dt": 0.03,
+      "elapsed": 6.1037000000059605,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 445.8102150000012
+      },
+      "progress": 0.38131249999999894,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        398.13880604152536,
+        839.8166281942786,
+        229.28357685009107
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.4798767217119532,
+            0.29980085815007823
+          ],
+          "density": 1,
+          "densityWeight": 0.4002844883570312,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.899976292636914
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.13002370736308594,
+            0.3199905170547656
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4799810341095313,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.7998103410953126
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.7197534434239063,
+            1.4498909461298046
+          ],
+          "density": 0.94,
+          "densityWeight": 0.3403129371927343,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.999976292636914
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 258.70267511590987,
+          "y": -178.3612779999989
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 715.29733578013,
+          "y": -178.3612779999989
+        },
+        {
+          "animated": true,
+          "close": 0.7739762257981679,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 305.88341846200944,
+          "y": 120.1593620000011
+        },
+        {
+          "animated": true,
+          "close": 0.7739762257981679,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 748.1165899712663,
+          "y": 120.1593620000011
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 418.6800020000011
+        }
+      ],
+      "distance": 841.1538923898362,
+      "dt": 0.030100000000000363,
+      "elapsed": 6.523900000005961,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 418.6800020000011
+      },
+      "progress": 0.40757499999999885,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        398.5677422559921,
+        890.6701092292519,
+        230.4620694137248
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.47744637238850707,
+            0.295874909242973
+          ],
+          "density": 1,
+          "densityWeight": 0.4058929867957529,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8995089177670208
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.13049108223297942,
+            0.31980356710680824
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4796071342136165,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.7960713421361647
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.714892744777014,
+            1.4477410217282949
+          ],
+          "density": 0.94,
+          "densityWeight": 0.3464822854753282,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9995089177670209
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 259.7830273484399,
+          "y": -206.71176949999892
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 714.2169829263873,
+          "y": -206.71176949999892
+        },
+        {
+          "animated": true,
+          "close": 0.8099445045306163,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 311.9811341069707,
+          "y": 91.80887050000106
+        },
+        {
+          "animated": true,
+          "close": 0.8099445045306163,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 742.0188742150691,
+          "y": 91.80887050000106
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 390.3295105000011
+        }
+      ],
+      "distance": 892.0073988515608,
+      "dt": 0.019100000000000363,
+      "elapsed": 6.963000000005961,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 390.3295105000011
+      },
+      "progress": 0.4350187499999989,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        399.0286329274478,
+        947.5361379271956,
+        231.72835612638656
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.4716430297208599,
+            0.2865002787798507
+          ],
+          "density": 1,
+          "densityWeight": 0.4192853160287848,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8983928903309344
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.1316071096690654,
+            0.31935715613237387
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4787143122647477,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.7871431226474768
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.7032860594417198,
+            1.442607295522299
+          ],
+          "density": 0.94,
+          "densityWeight": 0.36121384763166325,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9983928903309347
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 260.8539606867879,
+          "y": -237.12188449999843
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 713.1460489722431,
+          "y": -237.12188449999843
+        },
+        {
+          "animated": true,
+          "close": 0.8454100789282917,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 318.0745235346137,
+          "y": 61.398755500001585
+        },
+        {
+          "animated": true,
+          "close": 0.8454100789282917,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 735.9254846312284,
+          "y": 61.398755500001585
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 359.91939550000166
+        }
+      ],
+      "distance": 948.8734559825308,
+      "dt": 0.021,
+      "elapsed": 7.434000000005961,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 359.91939550000166
+      },
+      "progress": 0.4644562499999987,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        399.4893974109738,
+        1006.49950014436,
+        232.99429614056092
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.4629106697493346,
+            0.2723941588258483
+          ],
+          "density": 1,
+          "densityWeight": 0.43943691596307394,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8967135903364103
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.13328640966358948,
+            0.3186854361345642
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4773708722691284,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.773708722691284
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.6858213394986692,
+            1.4348825155474882
+          ],
+          "density": 0.94,
+          "densityWeight": 0.3833806075593813,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9967135903364104
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 261.83676668339945,
+          "y": -267.47389099999856
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 712.163242410509,
+          "y": -267.47389099999856
+        },
+        {
+          "animated": true,
+          "close": 0.877305743978136,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 323.6366974544909,
+          "y": 31.046749000001455
+        },
+        {
+          "animated": true,
+          "close": 0.877305743978136,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 730.3633105236472,
+          "y": 31.046749000001455
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 329.5673890000015
+        }
+      ],
+      "distance": 1007.836847681388,
+      "dt": 0.01,
+      "elapsed": 7.904100000005961,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 329.5673890000015
+      },
+      "progress": 0.49383749999999854,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        399.9409271104848,
+        1066.139336363418,
+        234.2348637941803
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.45187493800211986,
+            0.25456720754188594
+          ],
+          "density": 1,
+          "densityWeight": 0.4649039892258773,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8945913342311769
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.1354086657688231,
+            0.3178365336924708
+          ],
+          "density": 0.8,
+          "densityWeight": 0.47567306738494153,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.7567306738494153
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.6637498760042395,
+            1.4251201374634137
+          ],
+          "density": 0.94,
+          "densityWeight": 0.41139438814846496,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.994591334231177
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 262.7203955270687,
+          "y": -297.17379099999823
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 711.2796130587446,
+          "y": -297.17379099999823
+        },
+        {
+          "animated": true,
+          "close": 0.9049132762444326,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 328.53151699888986,
+          "y": 1.3468490000017823
+        },
+        {
+          "animated": true,
+          "close": 0.9049132762444326,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 725.4684907705266,
+          "y": 1.3468490000017823
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 299.8674890000018
+        }
+      ],
+      "distance": 1067.476713720377,
+      "dt": 0.01,
+      "elapsed": 8.364100000005962,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 299.8674890000018
+      },
+      "progress": 0.5225874999999983,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        400.43160183684415,
+        1132.8112439118297,
+        235.58298152514988
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.4375131839639952,
+            0.2313674510187615
+          ],
+          "density": 1,
+          "densityWeight": 0.49804649854462646,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8918294584546145
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.13817054154538555,
+            0.31673178338184577
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4734635667636915,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.7346356676369157
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.6350263679279904,
+            1.4124155088912265
+          ],
+          "density": 0.94,
+          "densityWeight": 0.4478511483990891,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9918294584546143
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 263.5981937193528,
+          "y": -329.40463899999753
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 710.401814361719,
+          "y": -329.40463899999753
+        },
+        {
+          "animated": true,
+          "close": 0.9306810968006234,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 333.19355155851974,
+          "y": -30.883998999997516
+        },
+        {
+          "animated": true,
+          "close": 0.9306810968006234,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 720.806455962381,
+          "y": -30.883998999997516
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 267.63664100000256
+        }
+      ],
+      "distance": 1134.1486546047563,
+      "dt": 0.009199999999998909,
+      "elapsed": 8.86330000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 267.63664100000256
+      },
+      "progress": 0.5537874999999979,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        400.93460391503,
+        1202.9161733784345,
+        236.96496837690435
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.4206827231117349,
+            0.2041797834881872
+          ],
+          "density": 1,
+          "densityWeight": 0.5368860235883041,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8885928313676412
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.1414071686323587,
+            0.3154371325470565
+          ],
+          "density": 0.8,
+          "densityWeight": 0.47087426509411306,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.7087426509411303
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.60136544622347,
+            1.3975270242911502
+          ],
+          "density": 0.94,
+          "densityWeight": 0.49057462594713447,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.988592831367641
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 264.4163551209059,
+          "y": -362.40381049999746
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 709.5836524897163,
+          "y": -362.40381049999746
+        },
+        {
+          "animated": true,
+          "close": 0.9524738230068556,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 337.2438777162695,
+          "y": -63.88317049999745
+        },
+        {
+          "animated": true,
+          "close": 0.9524738230068556,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 716.756129532649,
+          "y": -63.88317049999745
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 234.63746950000257
+        }
+      ],
+      "distance": 1204.2536191238405,
+      "dt": 0.011,
+      "elapsed": 9.37440000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 234.63746950000257
+      },
+      "progress": 0.5857312499999977,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        401.4567777304119,
+        1277.2835671056398,
+        238.39962914369664
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.40145721881062374,
+            0.17312319961716147
+          ],
+          "density": 1,
+          "densityWeight": 0.5812525719754837,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.884895619002043
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.14510438099795697,
+            0.3139582476008172
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4679164952016344,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.6791649520163443
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.5629144376212474,
+            1.3805198474093978
+          ],
+          "density": 0.94,
+          "densityWeight": 0.539377829173032,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.984895619002043
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 265.1861932525188,
+          "y": -396.6232604999974
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 708.8138139154391,
+          "y": -396.6232604999974
+        },
+        {
+          "animated": true,
+          "close": 0.9702311249519476,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 340.67066591906985,
+          "y": -98.1026204999974
+        },
+        {
+          "animated": true,
+          "close": 0.9702311249519476,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 713.3293410355061,
+          "y": -98.1026204999974
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 200.41801950000269
+        }
+      ],
+      "distance": 1278.621050034758,
+      "dt": 0.029899999999999635,
+      "elapsed": 9.90440000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 200.41801950000269
+      },
+      "progress": 0.6188562499999977,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        401.95979178192863,
+        1350.1638178160931,
+        239.7816488919071
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.38173281960139294,
+            0.14126070858686562
+          ],
+          "density": 1,
+          "densityWeight": 0.6267704163044777,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.88110246530796
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.1488975346920398,
+            0.31244098612318405
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4648819722463681,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.6488197224636816
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.523465639202786,
+            1.3630713404166168
+          ],
+          "density": 0.94,
+          "densityWeight": 0.5894474579349255,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.98110246530796
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 265.85843680779726,
+          "y": -429.5578669999973
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 708.1415699736141,
+          "y": -429.5578669999973
+        },
+        {
+          "animated": true,
+          "close": 0.9828793308668202,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 343.2499584215625,
+          "y": -131.0372269999973
+        },
+        {
+          "animated": true,
+          "close": 0.9828793308668202,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 710.7500482437465,
+          "y": -131.0372269999973
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 167.48341300000277
+        }
+      ],
+      "distance": 1351.501337185352,
+      "dt": 0.01,
+      "elapsed": 10.41450000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 167.48341300000277
+      },
+      "progress": 0.6507374999999975,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        402.4631395573011,
+        1424.0198114792972,
+        241.16458553887583
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.36128517117458786,
+            0.1082298918974112
+          ],
+          "density": 1,
+          "densityWeight": 0.6739572972894126,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8771702252258824
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.15282977477411772,
+            0.31086809009035293
+          ],
+          "density": 0.8,
+          "densityWeight": 0.46173618018070584,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.6173618018070584
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.4825703423491756,
+            1.3449830360390584
+          ],
+          "density": 0.94,
+          "densityWeight": 0.6413530270183538,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9771702252258825
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 266.4695465991251,
+          "y": -462.4924734999972
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 707.5304598308927,
+          "y": -462.4924734999972
+        },
+        {
+          "animated": true,
+          "close": 0.9915417949940734,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 345.1756988143261,
+          "y": -163.97183349999722
+        },
+        {
+          "animated": true,
+          "close": 0.9915417949940734,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 708.8243075613053,
+          "y": -163.97183349999722
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 134.5488065000028
+        }
+      ],
+      "distance": 1425.3573677765685,
+      "dt": 0.019900000000001455,
+      "elapsed": 10.92460000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 134.5488065000028
+      },
+      "progress": 0.6826187499999974,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        402.9963361249962,
+        1502.9383990393444,
+        242.62953106874875
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.33936682045102917,
+            0.07282332534397024
+          ],
+          "density": 1,
+          "densityWeight": 0.7245381066514711,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.872955157779044
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.15704484222095594,
+            0.3091820631116176
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4583641262232353,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.5836412622323526
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.4387336409020584,
+            1.3255937257836028
+          ],
+          "density": 0.94,
+          "densityWeight": 0.6969919173166182,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.972955157779044
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 267.05622549926613,
+          "y": -497.3640299999969
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 706.9437805934051,
+          "y": -497.3640299999969
+        },
+        {
+          "animated": true,
+          "close": 0.996973927657259,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 346.5915532522271,
+          "y": -198.84338999999687
+        },
+        {
+          "animated": true,
+          "close": 0.996973927657259,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 707.4084528220072,
+          "y": -198.84338999999687
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 99.67725000000314
+        }
+      ],
+      "distance": 1504.2759947959255,
+      "dt": 0.02,
+      "elapsed": 11.46470000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 99.67725000000314
+      },
+      "progress": 0.716374999999997,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        403.52965837836985,
+        1582.2244668171172,
+        244.09482191718564
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.3177179894437409,
+            0.03785213679373539
+          ],
+          "density": 1,
+          "densityWeight": 0.774496947437521,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8687919210468733
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.16120807895312675,
+            0.3075167684187493
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4550335368374986,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.550335368374986
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.3954359788874815,
+            1.306442836815617
+          ],
+          "density": 0.94,
+          "densityWeight": 0.751946642181273,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9687919210468732
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 267.58675007955696,
+          "y": -532.2355864999968
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 706.4132557080582,
+          "y": -532.2355864999968
+        },
+        {
+          "animated": true,
+          "close": 0.9994166809948282,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 347.49686834979036,
+          "y": -233.71494649999676
+        },
+        {
+          "animated": true,
+          "close": 0.9994166809948282,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 706.5031374344487,
+          "y": -233.71494649999676
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 64.80569350000326
+        }
+      ],
+      "distance": 1583.5621022167488,
+      "dt": 0.02,
+      "elapsed": 12.00480000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 64.80569350000326
+      },
+      "progress": 0.7501312499999967,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        404.06297294717433,
+        1661.488066424968,
+        245.56009165244205
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.2968942796746995,
+            0.004213836397591542
+          ],
+          "density": 1,
+          "densityWeight": 0.8225516622891549,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.864787361475904
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.16521263852409623,
+            0.3059149445903615
+          ],
+          "density": 0.8,
+          "densityWeight": 0.451829889180723,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.51829889180723
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.353788559349399,
+            1.288021862789157
+          ],
+          "density": 0.94,
+          "densityWeight": 0.8048068285180704,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9647873614759035
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 268.06655215646833,
+          "y": -567.107142999996
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 705.933453355256,
+          "y": -567.107142999996
+        },
+        {
+          "animated": true,
+          "close": 0.9999913799068436,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 348.06521977838986,
+          "y": -268.58650299999596
+        },
+        {
+          "animated": true,
+          "close": 0.9999913799068436,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 705.934785733287,
+          "y": -268.58650299999596
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": 29.934137000004057
+        }
+      ],
+      "distance": 1662.825741456416,
+      "dt": 0.030600000000000363,
+      "elapsed": 12.54490000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": 29.934137000004057
+      },
+      "progress": 0.7838874999999963,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        404.6251586594723,
+        1744.59999508097,
+        247.1046842025205
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.2764434703852908,
+            -0.028822086300684054
+          ],
+          "density": 1,
+          "densityWeight": 0.8697458375724059,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.860854513535633
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.16914548646436714,
+            0.30434180541425315
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4486836108285063,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.4868361082850627
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.3128869407705817,
+            1.269930762263911
+          ],
+          "density": 0.94,
+          "densityWeight": 0.8567204213296464,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9608545135356328
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 268.52285906264933,
+          "y": -603.8769104999958
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 705.4771461866942,
+          "y": -603.8769104999958
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 348.52285906264933,
+          "y": -305.35627049999584
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 705.4771461866942,
+          "y": -305.35627049999584
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": -6.83563049999583
+        }
+      ],
+      "distance": 1745.9377116683995,
+      "dt": 0.009399999999999636,
+      "elapsed": 13.11440000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": -6.83563049999583
+      },
+      "progress": 0.819481249999996,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        405.19806386704306,
+        1828.3621086612811,
+        248.67872832380976
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.25784628101007995,
+            -0.058863699906793854
+          ],
+          "density": 1,
+          "densityWeight": 0.9126624284382768,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.857278130963477
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.1727218690365231,
+            0.30291125238539074
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4458225047707816,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.4582250477078154
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.27569256202016,
+            1.2534794024319935
+          ],
+          "density": 0.94,
+          "densityWeight": 0.9039286712821046,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9572781309634768
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 268.94079262874106,
+          "y": -641.3698059999958
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 705.0592123802871,
+          "y": -641.3698059999958
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 348.94079262874106,
+          "y": -342.8491659999959
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 705.0592123802871,
+          "y": -342.8491659999959
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": -44.32852599999586
+        }
+      ],
+      "distance": 1829.699867129785,
+      "dt": 0.02,
+      "elapsed": 13.695100000005962,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": -44.32852599999586
+      },
+      "progress": 0.8557749999999961,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        405.7798096146482,
+        1911.939244484191,
+        250.2770616292182
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.2419857283166831,
+            -0.08448459271920417
+          ],
+          "density": 1,
+          "densityWeight": 0.9492637038845774,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.8542280246762852
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.17577197532371475,
+            0.30169120987051407
+          ],
+          "density": 0.8,
+          "densityWeight": 0.44338241974102816,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.4338241974102817
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.2439714566333662,
+            1.239448913510912
+          ],
+          "density": 0.94,
+          "densityWeight": 0.9441900742730353,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.954228024676285
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 269.32132984475265,
+          "y": -679.4760689999955
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 704.6786749454624,
+          "y": -679.4760689999955
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 349.32132984475265,
+          "y": -380.95542899999555
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 704.6786749454624,
+          "y": -380.95542899999555
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": -82.43478899999553
+        }
+      ],
+      "distance": 1913.2770447412804,
+      "dt": 0.020100000000000364,
+      "elapsed": 14.28530000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": -82.43478899999553
+      },
+      "progress": 0.8926624999999957,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        406.38030427241506,
+        1996.0762992167429,
+        251.92690714193603
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.22958095100007744,
+            -0.10452307915372104
+          ],
+          "density": 1,
+          "densityWeight": 0.9778901130767444,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.851842490576938
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.17815750942306202,
+            0.30073699623077516
+          ],
+          "density": 0.8,
+          "densityWeight": 0.4414739924615504,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.4147399246155037
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.2191619020001547,
+            1.2284754566539149
+          ],
+          "density": 0.94,
+          "densityWeight": 0.9756791243844188,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.9518424905769376
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 269.67224967357527,
+          "y": -718.8607189999956
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 704.327754914858,
+          "y": -718.8607189999956
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 349.67224967357527,
+          "y": -420.3400789999956
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 704.327754914858,
+          "y": -420.3400789999956
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": -121.81943899999555
+        }
+      ],
+      "distance": 1997.414141542377,
+      "dt": 0.03020000000000073,
+      "elapsed": 14.895300000005962,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": -121.81943899999555
+      },
+      "progress": 0.9307874999999958,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        406.95044452405153,
+        2073.3984133113477,
+        253.49335460922964
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.2222670765349027,
+            -0.1163377994436186
+          ],
+          "density": 1,
+          "densityWeight": 0.9947682849194552,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.850435976256712
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.17956402374328792,
+            0.3001743905026848
+          ],
+          "density": 0.8,
+          "densityWeight": 0.44034878100536967,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.4034878100536965
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.2045341530698055,
+            1.2220054907808755
+          ],
+          "density": 0.94,
+          "densityWeight": 0.9942451134114008,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.950435976256712
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 269.96964804359357,
+          "y": -756.3148754999952
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 704.0303563738329,
+          "y": -756.3148754999952
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 349.96964804359357,
+          "y": -457.7942354999952
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 704.0303563738329,
+          "y": -457.7942354999952
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": -159.27359549999517
+        }
+      ],
+      "distance": 2074.736294298055,
+      "dt": 0.03,
+      "elapsed": 15.47540000000596,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": -159.27359549999517
+      },
+      "progress": 0.9670437499999954,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    },
+    {
+      "camera": [
+        407.4677491394291,
+        2140.928070046492,
+        254.91463735895888
+      ],
+      "clouds": [
+        {
+          "arrival": 1,
+          "centre": [
+            -0.21999999999999997,
+            -0.12
+          ],
+          "density": 1,
+          "densityWeight": 1,
+          "id": "K01",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.13,
+          "width": 1.85
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            0.18,
+            0.3
+          ],
+          "density": 0.8,
+          "densityWeight": 0.44,
+          "id": "K02",
+          "opacity": 0.65,
+          "overrides": {},
+          "softness": 0.65,
+          "width": 1.4
+        },
+        {
+          "arrival": 1,
+          "centre": [
+            1.2,
+            1.22
+          ],
+          "density": 0.94,
+          "densityWeight": 1,
+          "id": "K03",
+          "opacity": 1,
+          "overrides": {},
+          "softness": 0.45,
+          "width": 1.95
+        }
+      ],
+      "copy": [
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 360,
+          "x": 270.21181983549764,
+          "y": -790.3599999999999
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.6865127254340131,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 360,
+          "x": 703.7881844426778,
+          "y": -790.3599999999999
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 333.5,
+          "side": "left",
+          "visible": true,
+          "width": 280,
+          "x": 350.21181983549764,
+          "y": -491.83935999999994
+        },
+        {
+          "animated": true,
+          "close": 1,
+          "entry": 0.7871433136693072,
+          "height": 143,
+          "hullGap": 29.348,
+          "originCentre": 1000.5,
+          "side": "right",
+          "visible": true,
+          "width": 280,
+          "x": 703.7881844426778,
+          "y": -491.83935999999994
+        },
+        {
+          "animated": true,
+          "entry": 0.8877739019046014,
+          "height": 90,
+          "hullGap": 29.348,
+          "originCentre": 667,
+          "side": "centre",
+          "visible": true,
+          "width": 360,
+          "x": 487,
+          "y": -193.31871999999993
+        }
+      ],
+      "distance": 2142.2659847980412,
+      "dt": 0.03,
+      "elapsed": 16.015500000005957,
+      "fifth": {
+        "animated": true,
+        "entry": 0.8877739019046014,
+        "height": 90,
+        "hullGap": 29.348,
+        "originCentre": 667,
+        "side": "centre",
+        "visible": true,
+        "width": 360,
+        "x": 487,
+        "y": -193.31871999999993
+      },
+      "progress": 1,
+      "quaternion": [
+        -0.6960159711688434,
+        0.12284918251989536,
+        0.12272639472104256,
+        0.6967123353801482
+      ],
+      "supportGap": 0
+    }
+  ],
+  "stage": {
+    "height": 698,
+    "width": 1334
+  },
+  "start": 0
+}

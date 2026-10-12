@@ -1,0 +1,101 @@
+{
+  "date_local": "2026-10-10",
+  "status": "historical_static_checks_shapes_now_approved_density_revision_required",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "review": "review/clouds.html#assets",
+  "manifest": "generation/cloud-family/manifest.json",
+  "user_accepted": false,
+  "generation": {
+    "jobs": 3,
+    "completed": 3,
+    "retries": 0,
+    "video_jobs": 0
+  },
+  "checks": {
+    "formats": "RGBA,1536\u00d71024,usable alpha and content margins; edge alpha residue disclosed",
+    "runtime": "Native background switches and all three inspector selections; loaded originals; responsive mobile without overflow; console clean",
+    "syntax": "node --check review/clouds.js passed",
+    "local_links": "passed",
+    "approved_proposal_bytes": "unchanged",
+    "accepted_ship_jet_shadow_inputs": "unchanged"
+  },
+  "visual_findings": [
+    "K01 and K03 are dense, irregular cool-white cloud banks with shaped internal volume.",
+    "K02 is a smaller irregular mass but visually denser than the intended thin wispy veil; review suitability before integration.",
+    "Maximum 1/255 alpha residue on some canvas edges; originals preserved without cleanup."
+  ],
+  "inputs": [
+    {
+      "path": "review/clouds.html",
+      "sha256": "38cccbe51f8359013f86e313f16bb29530e6d67c64d713474fdfefa583dabf51"
+    },
+    {
+      "path": "review/clouds.js",
+      "sha256": "5ead25a589626057e4937b8bcfc8b714c42eceadc6b5ee3197439ffba073c141"
+    },
+    {
+      "path": "generation/cloud-family/manifest.json",
+      "sha256": "ca3577b8842960841f43a0344b28c5ce550d9b658373e862c1457685a1bde55c"
+    },
+    {
+      "path": "generation/cloud-family/batch-approval.json",
+      "sha256": "b54bbf2cbb87618f75a8878e5bdb0030a7b1fda0fa8f8c1feee473c7f84e8069"
+    },
+    {
+      "path": "generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "path": "generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "path": "generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    }
+  ],
+  "evidence_inputs": [
+    {
+      "path": "evidence/cloud-static-review/image-checks.json",
+      "sha256": "14b2c3a87d4ac4c62c358b8ae4625dc76b1d1f30db9e8bc241ca4231a1275d13"
+    },
+    {
+      "path": "evidence/cloud-static-review/runtime-checks.json",
+      "sha256": "2ccc571bca037afeb8aa0799ce4a17ba08603f8a0008abc88afca71610221a37"
+    },
+    {
+      "path": "evidence/cloud-static-review/carbon-desktop.png",
+      "sha256": "a4d227ce446fa71fa9b88950ce54baf79bbf6227ccf6c89b8918e8fb192a90e5"
+    },
+    {
+      "path": "evidence/cloud-static-review/porcelain-desktop.png",
+      "sha256": "f917c34cd3e89afe515c35ae8872b71d7eb543775c40e9a7bfa27eba71662e53"
+    },
+    {
+      "path": "evidence/cloud-static-review/mobile.png",
+      "sha256": "e9d8dc15ff9a8e1d7804245493232e5be356ca638cf1266222ed9d33d5f13192"
+    },
+    {
+      "path": "evidence/cloud-static-review/K02-porcelain.png",
+      "sha256": "858fb6e163f164cf902b2d454f229d8065e77fd72de7eef7a11442fff210ad56"
+    },
+    {
+      "path": "evidence/cloud-static-review/final-desktop.png",
+      "sha256": "793e93aefed55020b3ec25b2191385176cb40280d495f2327179a1b3905374c5"
+    },
+    {
+      "path": "evidence/cloud-static-review/usage.json",
+      "sha256": "9d722862371a193432615be280733224046136931665a8c434dc867557851919"
+    }
+  ],
+  "limits": [
+    "No cloud corrections or motion/video integration.",
+    "Visual suitability and realism require user acceptance."
+  ],
+  "next_action": "Review K01\u2013K03 static family; if accepted, calibrate connected cloud/ship/jet motion using preserved assets.",
+  "shape_approval": "generation/cloud-family/shape-approval.json",
+  "current_review": "review/cloud-treatment.html#viewer",
+  "historical_inputs_preserved": "evidence/cloud-treatment/before-treatment/",
+  "original_manifest_preserved": "evidence/cloud-treatment/original-manifest.json"
+}

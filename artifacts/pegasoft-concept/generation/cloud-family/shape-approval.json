@@ -1,0 +1,25 @@
+{
+  "status": "user_approved_shapes_density_revision_required",
+  "date_local": "2026-10-10",
+  "user_quote": "K0x assets are approved shape wise and the only mismatch is the opacity of the clouds based on the reference. The generated cloud assets should not be very compact and dense. Instead they should be vast and opaque/hazy/foggy like in the reference",
+  "scope": "K01\u2013K03 silhouettes approved. Density/opacity/spatial haze treatment requires revision; no final cloud appearance acceptance inferred.",
+  "assets": [
+    {
+      "id": "K01",
+      "path": "generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "id": "K02",
+      "path": "generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "id": "K03",
+      "path": "generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    }
+  ],
+  "source_editing": "Preserve original PNG bytes; adjust live composition treatment for review.",
+  "new_generation_jobs": 0
+}

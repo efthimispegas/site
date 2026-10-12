@@ -1,0 +1,116 @@
+{
+  "status": "user_reviewed_presets_applied_combined_motion_available",
+  "date_local": "2026-10-11",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted, no push; exact source pins identify review.",
+  "review": "review/cloud-treatment.html#viewer",
+  "shape_approval": "generation/cloud-family/shape-approval.json",
+  "scope": "Only vast hazy/foggy appearance and coverage; preserve shapes, source colours and all accepted transport inputs.",
+  "method": "Live isotropic scale/position, viewport-scaled alpha sampling blur, separate broad halo and opacity. No PNG editing or RGB adjustment.",
+  "context": "Captured approved ship endpoint, used only for static compositing comparison; not connected motion evidence.",
+  "inputs": [
+    {
+      "path": "review/cloud-treatment.html",
+      "sha256": "942503033cfd4fc102ee133dd6e736537123a3f939a66b145cf491065b3fb505"
+    },
+    {
+      "path": "review/cloud-treatment.js",
+      "sha256": "8a1554d7ca32795bc37bf8ab5a1f32a99e2abe579a9dc9b1cca288333e3e14dd"
+    },
+    {
+      "path": "generation/cloud-family/haze-treatment.json",
+      "sha256": "068f718d0f21cd4afdf7807592b9987a022056e28262b8f68c0ec640c672320b"
+    },
+    {
+      "path": "generation/cloud-family/shape-approval.json",
+      "sha256": "fc07edfa4877ee1f4acb2d9b80afe6d93f9a0e1efa34d927e467d0fa2d46f666"
+    },
+    {
+      "path": "generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "path": "generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "path": "generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    },
+    {
+      "path": "generation/cloud-family/haze-settings-review.json",
+      "sha256": "acd51259b167c6d9a6bbe524d8f587d2cf5724639411082383fd9f074098aa55"
+    }
+  ],
+  "checks": {
+    "native_presets": "Veil 77% / 112%; banks 82% / 52%; selection and current-moment Reset verified.",
+    "source_preservation": "All three cloud PNGs and accepted ship/jet reuse pins unchanged.",
+    "syntax": "node --check passed; unchanged rendering method uses prior historical responsive proofs."
+  },
+  "reference_landmarks": {
+    "veil": "evidence/ship-jet-proposal/reference/frame-238.jpg",
+    "banks": "evidence/ship-jet-proposal/reference/frame-242.jpg"
+  },
+  "history": {
+    "prior_static_sources": "evidence/cloud-treatment/before-treatment/",
+    "prior_manifest": "evidence/cloud-treatment/original-manifest.json",
+    "before_reviewed_presets": "evidence/cloud-treatment/before-reviewed-presets/"
+  },
+  "generation": {
+    "new_jobs": 0,
+    "source_png_edits": 0,
+    "video_jobs": 0
+  },
+  "user_accepted_appearance": false,
+  "next_action": "Review combined live ship/cloud scroll motion in review/cloud-story.html#viewer",
+  "limits": [
+    "Exact reference opacity parity is not independently established.",
+    "No connected sequence, animation performance or production acceptance is claimed."
+  ],
+  "historical_evidence_inputs": [
+    {
+      "path": "evidence/cloud-treatment/approved-ship-context.png",
+      "sha256": "882f34057136e785aaa7aaa5e000c771f237241a5afa378602b23c2c5dad8657"
+    },
+    {
+      "path": "evidence/cloud-treatment/context-capture.json",
+      "sha256": "c908db643654280b9470b082a1b86dc06fa9ad7a771afd4dcda9266053ee7ee2"
+    },
+    {
+      "path": "evidence/cloud-treatment/runtime-checks.json",
+      "sha256": "53fd46c06615d4e2a149df6cf4a32a70376f69e40dbdf1db1ca3d52110b82ab6"
+    },
+    {
+      "path": "evidence/cloud-treatment/diffuse-desktop.png",
+      "sha256": "9d8aa16669c55d8d72080bfd05d2851ed221e7900a2cd44b0ac328b3dddcb903"
+    },
+    {
+      "path": "evidence/cloud-treatment/original-desktop.png",
+      "sha256": "d32303409088f295fb8f71deebab0a16548e26f235572ecfbcc998a1841f013c"
+    },
+    {
+      "path": "evidence/cloud-treatment/veil-desktop.png",
+      "sha256": "53d43b41d1faaf4cb5fa591d6d59476cb2c22c6e28d5984c6bd90410062bc67c"
+    },
+    {
+      "path": "evidence/cloud-treatment/mobile.png",
+      "sha256": "d97ad1c57e3c3232ed1db5055924177642ac61d1a2967a6159b10fe326254516"
+    },
+    {
+      "path": "evidence/cloud-treatment/usage.json",
+      "sha256": "8f4689d9ffab603e9e56698ab7890a6cf67fbd02af5f6324fb2527a988fb45ba"
+    },
+    {
+      "path": "evidence/cloud-treatment/diffuse-default.png",
+      "sha256": "b9e953eb93dcd954e9a1bea91a20d3f72294ee84b5c1fba3a3a1d75e6d528c31"
+    }
+  ],
+  "evidence_inputs": [
+    {
+      "path": "evidence/cloud-treatment/runtime-checks.json",
+      "sha256": "4189cd546ab9f3cfaf565625fdd70ccae2cebd86f9ea13a29341346d99f4f668"
+    }
+  ],
+  "user_reviewed_settings": true
+}
