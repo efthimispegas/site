@@ -1,0 +1,18 @@
+{
+  "status": "user_requested_review_reorder",
+  "date_local": "2026-10-11",
+  "authority": "Direct user message",
+  "user_quote": "You can move the testimonials-partners section step to a separate review with the rest of website sections that do not have animations or objects. Those sections will be reviewed last. Then proceed with the next review item",
+  "effect": "Review order changes only; website section order unchanged. Retain trust/partners draft without layout acceptance.",
+  "motion_first": [
+    "Loader/globe opening",
+    "Hero exit/outcome transition",
+    "Remaining editorial motion effects",
+    "Closing CTA/footer object effects"
+  ],
+  "review_last": "review/content-sections.html",
+  "retained_trust_layout": "review/trust-partners.html#viewer",
+  "next_item": "review/hero-plan.html#design",
+  "accepted_motion": "evidence/ship-jet-integration/user-approval.json",
+  "factual_content": "All unsupplied facts remain pending."
+}

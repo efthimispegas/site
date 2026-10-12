@@ -1,9 +1,11 @@
 # Pegasoft Concept checkpoint
 
 - **Workspace:** `/Users/whiskey/.codex/worktrees/pegasoft-concept/site`; branch `codex/pegasoft-concept`; preview 8767.
-- **Accepted:** L01/C01, T01 and [connected journey](review/handoff.html#viewer). Approval is recorded in the [packet](evidence/handoff-review/review.json). Approved geometry, finish, lettering and compact grabber remain intact.
-- **Motion:** lift/grabber hold after seating; truck alone departs. Reverse 25–35%; seating 45–55%; departure 60%. Road pace stays 15% lower and constant from 63–100%. Overhead approach shortened four points; zoom 84–87.2%, turn 83–93%, central-lane content from 91%, straight travel 93–100%. First headings share the runway position. Left title passes through the middle near 95%, pins near the top around 97%; spaced right title/description groups continue rising. No content fade.
-- **Checks:** 32 approval pins, geometry/contact/camera, normal/reverse/quarter playback, native scroll and served source pass. Historical inputs/diagnostics remain archived.
-- **Commits:** container/pickup `09983d87`; truck `f5dbc9b0`; journey `1cefbd0c`; final documentation follows in Git history.
-- **Stop:** accepted checkpoint saved locally. No production integration, later phases or push authorized.
-- **Limits:** visual roof coupling; physical pickup unresolved. Tire scrub/suspension excluded; copy remains draft.
+- **Accepted:** transport, ship, [cloud/content passage](evidence/cloud-story/review.json) and [ship → clouds → J02 motion](evidence/ship-jet-integration/user-approval.json). Preserve assets, camera, choreography and controls.
+- **Locked controls:** K01 100/13/100%, K02 80/65/65%, K03 94/45/100% haze/edges/opacity. [Shadow](generation/jet-family/shadow-measurements-approval.json): X −8.04 px, Y 6.59 px, width 105.64%, height 109.2%, blur 6.72 px, opacity 41.03%.
+- **Accepted opening:** [loader/globe and city routes](evidence/hero-opening/user-approval.json), including all exact [controls](generation/hero-globe/approved-controls-20261012.json). Preserve its renderer, camera and defaults.
+- **Paused by user:** [hero → outcome](review/hero-outcome.html#viewer). Current parallax rejected; slice is not ready or accepted. Draft halves horizon to 10–27%, advances content toward 34% and adds rolling counters. Counter appearance is unapproved. [Pause record](evidence/hero-outcome/amendment-20261012/pause-checkpoint.json) identifies partial checks and remaining verification. Preserve all current WIP.
+- **Review order:** remaining objects/animations first. [Trust/partners and content-only sections](review/content-sections.html) remain in the final group; website order unchanged.
+- **Resume:** wait for explicit instruction; revisit/fix horizon reference fidelity, then finish affected counter/scroll/mobile checks. After acceptance: editorial/CTA/footer effects, final content group, app assembly and website acceptance.
+- **Deferred:** real company facts, navigation destinations, full assembly and production/release.
+- **Git:** approved ship/cloud/J02/opening milestones committed separately. Paused outcome and deferred trust/partners layout remain local WIP; nothing pushed. No new paid generation.

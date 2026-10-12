@@ -1,7 +1,5 @@
-# Pegasoft Concept handoff
+# Resume checkpoint
 
-Use `/Users/whiskey/.codex/worktrees/pegasoft-concept/site`, branch `codex/pegasoft-concept`, preview 8767. Read [CURRENT](CURRENT.md) and the accepted [packet](evidence/handoff-review/review.json).
+Use `/Users/whiskey/.codex/worktrees/pegasoft-concept/site`, branch `codex/pegasoft-concept`, preview 8767. Read [CURRENT](CURRENT.md).
 
-User approved the checkpoint and grouped commits. Lift/grabber stay fixed after seating; truck alone departs. Zoom 84–87.2%, turn 83–93%, content from 91%, straight central travel 93–100%. Both first headings align; left passes through the middle then pins around 97%; spaced right title/description groups keep rising. Preserve approved assets and lower steady road pace.
-
-Geometry, 32 approval pins, normal/reverse/quarter playback, native scroll and source checks pass. Stop here after saving the grouped commits. Production, physical pickup, tire/suspension dynamics and final copy require later instructions.
+User paused work and rejected current hero/outcome parallax. Preserve WIP; do not continue without explicit resumption. [Pause record](evidence/hero-outcome/amendment-20261012/pause-checkpoint.json) owns current hashes, partial checks and outstanding verification. Draft requests: halve horizon to 10–27%, reveal content near 34%, use rolling digit counters. Normal/reverse and fractional glyph samples exist; amended quarter/physical-scroll/mobile checks remain incomplete. On resumption, first revisit the supplied horizon reference and fix the rejected merge. Then verify affected counters/interactions before personal review. Keep accepted opening and transport/ship/cloud/J02 inputs fixed. Content-only sections remain last; app assembly/release deferred. Approved milestones committed separately; paused outcome/deferred layout remain uncommitted. No push or paid jobs.

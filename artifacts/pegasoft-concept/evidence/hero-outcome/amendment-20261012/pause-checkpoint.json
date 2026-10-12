@@ -1,0 +1,80 @@
+{
+  "date_local": "2026-10-12",
+  "status": "paused_by_user",
+  "source": "Pause here - the parallax effect is not ready and looks bad. At this point I want a status update of the entire plan",
+  "branch": "codex/pegasoft-concept",
+  "current_inputs": [
+    {
+      "path": "review/hero-outcome.html",
+      "sha256": "671387daa1d21f83ca1ffe104dac3b1820492b798d310f02b3aa4b1c877fc22b"
+    },
+    {
+      "path": "review/hero-outcome.css",
+      "sha256": "5aae0095ee913d4941ec7d090ef6d999f31fa4c22dc79090012aae80130e1c28"
+    },
+    {
+      "path": "review/hero-outcome.js",
+      "sha256": "eb45a6354bad36dc1c4587d098545154185bb28fe1696b5e5c74522475523599"
+    },
+    {
+      "path": "review/hero-outcome-sequence.js",
+      "sha256": "8dbd46047118174b1eaea57bb00670aa0017495fb6f9a292d2a66a9df27e848f"
+    },
+    {
+      "path": "review/hero-odometer.js",
+      "sha256": "21dbab14304355c8459986649ffee63cb0f40e0f2697c3ba668c6c18d5c878aa"
+    }
+  ],
+  "completed_amendments": [
+    "Attempted 10\u201327% horizon span, half of prior 10\u201344% span",
+    "Attempted layered/masked parallax and content visibility around 34%",
+    "Independent rolling digit columns and counter spring added"
+  ],
+  "review_outcome": "User rejects the current parallax; this slice is not ready or accepted. Counter implementation has not received separate user approval.",
+  "checks_performed": [
+    "Node syntax checks during amendment",
+    "1001 phase-state and 120 spring samples passed in sequence-counter-checks.json",
+    "Current normal/reverse playback captured",
+    "Desktop boundaries and fractional rolling glyphs inspected",
+    "Reduced counters verified at exact settled values"
+  ],
+  "outstanding_checks": [
+    "Amended quarter-speed full pass",
+    "Amended physical scrolling and mobile verification",
+    "Complete current-input acceptance packet"
+  ],
+  "resume": "Wait for explicit user resumption. First revisit the supplied horizon parallax reference and fix the rejected section boundary/merge; retain requested shorter duration and ~34% entry. Then recheck rolling counters and affected interaction/viewports before review.",
+  "preserve": "Keep the accepted loader/globe settings, city geometry and all accepted transport/ship/cloud/jet work. No commits, push or paid generation.",
+  "git_delivery": {
+    "authorization": "User requested committing approved work in separate conventional commits",
+    "approved_feature_commits": [
+      {
+        "commit": "25a964d6bbd0e025d085c36bff5069508f2e27ca",
+        "title": "feat(concept): Add approved ship family and model",
+        "files": 101
+      },
+      {
+        "commit": "411974aa38d07c081e5778ce2458e34214749da3",
+        "title": "feat(concept): Add approved road-to-ship integration",
+        "files": 216
+      },
+      {
+        "commit": "b8668f12193ecdc701055a6cfddeba1a71d360c0",
+        "title": "feat(concept): Add approved cloud passage and content motion",
+        "files": 113
+      },
+      {
+        "commit": "6efbb11d5d2d223e5025901d3c315c96384a3aaa",
+        "title": "feat(concept): Add approved ship-to-jet transition",
+        "files": 74
+      },
+      {
+        "commit": "ed3944349f5754e31399a1804358c48116308c81",
+        "title": "feat(concept): Add approved globe and loader opening",
+        "files": 141
+      }
+    ],
+    "excluded": "All hero/outcome and odometer source/runtime evidence, plus trust/partners layout/evidence remain uncommitted. This file commits pause metadata only.",
+    "push": false
+  }
+}
