@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "approvedOpening": {
+    "ringEnd": 1.64,
+    "markStart": 1.21,
+    "pulseStart": 1.34,
+    "apertureStart": 1.7,
+    "apertureDuration": 1.13,
+    "headlineStart": 2.1,
+    "headlineDuration": 0.72
+  },
+  "approvedGlobe": {
+    "speed": 1.52,
+    "dots": 1.5,
+    "rim": 0.48,
+    "arcs": 1.21
+  },
+  "cities": 13,
+  "connections": [
+    {
+      "route": "New York → Paris",
+      "height": 0.20152421175665822,
+      "minimum_radius": 1.0140000000000002,
+      "endpoints": "exact city position at shared node radius 1.014"
+    },
+    {
+      "route": "Tokyo → Los Angeles",
+      "height": 0.3,
+      "minimum_radius": 1.014,
+      "endpoints": "exact city position at shared node radius 1.014"
+    },
+    {
+      "route": "Barcelona → Paris",
+      "height": 0.035,
+      "minimum_radius": 1.014,
+      "endpoints": "exact city position at shared node radius 1.014"
+    },
+    {
+      "route": "Milan → Athens",
+      "height": 0.050469290849648886,
+      "minimum_radius": 1.0139999999999998,
+      "endpoints": "exact city position at shared node radius 1.014"
+    },
+    {
+      "route": "Paris → New Delhi",
+      "height": 0.22745313067299885,
+      "minimum_radius": 1.014,
+      "endpoints": "exact city position at shared node radius 1.014"
+    },
+    {
+      "route": "London → Moscow",
+      "height": 0.08632919731067293,
+      "minimum_radius": 1.014,
+      "endpoints": "exact city position at shared node radius 1.014"
+    },
+    {
+      "route": "Tokyo → Dubai",
+      "height": 0.274047785651569,
+      "minimum_radius": 1.014,
+      "endpoints": "exact city position at shared node radius 1.014"
+    },
+    {
+      "route": "Abu Dhabi → Berlin",
+      "height": 0.1600471914799616,
+      "minimum_radius": 1.014,
+      "endpoints": "exact city position at shared node radius 1.014"
+    }
+  ],
+  "opening": "monotonic reveal and cleared loader endpoint passed"
+}

@@ -1,0 +1,62 @@
+{
+  "date_local": "2026-10-12",
+  "source": "Direct user approval: Approved",
+  "status": "user_approved",
+  "scope": "Reviewed loader/globe opening, exact approved track/globe controls and amended eight city connections.",
+  "review": "review/hero-opening.html#viewer",
+  "reviewed_inputs": [
+    {
+      "path": "review/hero-opening.html",
+      "sha256": "b8ab18b2bb6636e78c5836dc3ebc02317c69e2dbaec94e0e35a34b37daaaebb8"
+    },
+    {
+      "path": "review/hero-opening.css",
+      "sha256": "3efdb026b97947c23fb23ed6252fc8cba261cfb25d55b3c0cd212c724135a92a"
+    },
+    {
+      "path": "review/hero-opening.js",
+      "sha256": "f59f2c10af051c97939b611f722b01e3d17c00577de319f9ee2834579c79c91d"
+    },
+    {
+      "path": "review/hero-opening-sequence.js",
+      "sha256": "698073d719c2abe9851c39f6557a25a15fb94be62e12b2a69dd613ecc63cea53"
+    },
+    {
+      "path": "review/hero-globe.js",
+      "sha256": "63aa0fcfbb5bbdb4ff2e171b22ad1d7921a5bfce6a655c13068ee7f270280078"
+    },
+    {
+      "path": "generation/hero-globe/land-dots.json",
+      "sha256": "fde256e72478e84644af31cda26572accb312363b4e8fb3622f98b5068741433"
+    },
+    {
+      "path": "generation/hero-globe/ne_110m_land.geojson",
+      "sha256": "9e0729ee253ca7d7a5c4ae9395fb1902264c5377c52e224d13dd85010e2835d9"
+    },
+    {
+      "path": "generation/hero-globe/build-land-dots.py",
+      "sha256": "d6e999a8f76a6d1b11f06f9ef7657bfc7d935b4ec88945ba566a609ff87bde73"
+    },
+    {
+      "path": "generation/hero-globe/provenance.json",
+      "sha256": "714569792820ac905ec23dfcfe9ae4b4f18288134240ca31fc355c0d49948c62"
+    },
+    {
+      "path": "review/hero-city-routes.js",
+      "sha256": "e1dfba26c50536cd5ad860779a4005aa1d3d949e4d88da1147562068624d748e"
+    },
+    {
+      "path": "generation/hero-globe/city-source.json",
+      "sha256": "d22cfa7f51418bae7583fd8f8cb9a4151ff14e82174b67dc31123b2ed86affa9"
+    },
+    {
+      "path": "generation/hero-globe/approved-controls-20261012.json",
+      "sha256": "5bd1eb5200752b1ce4e210c133996ba3a2d89f85b870671d512aed21e3f3a121"
+    }
+  ],
+  "controls": "generation/hero-globe/approved-controls-20261012.json",
+  "evidence": "evidence/hero-opening/city-amendment-20261012/",
+  "measured_reference_parity": false,
+  "next_item": "Hero exit/outcome integration",
+  "limits": "Personal acceptance of this isolated slice; no full website, production, or measured reference-parity claim."
+}

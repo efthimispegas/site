@@ -1,0 +1,162 @@
+{
+  "status": "ready_for_scope_review",
+  "date_local": "2026-10-11",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push.",
+  "review": "review/hero-plan.html#design",
+  "scope": "Package the next loader/globe object and opening-motion review under existing procedural method; defer content-only sections to final group.",
+  "inputs": [
+    {
+      "path": "review/hero-plan.html",
+      "sha256": "72e0f21533412cfdc2e58b4780c5bbbac1024445e6aab6d7be4394a44ac937cb"
+    },
+    {
+      "path": "review/hero-plan.js",
+      "sha256": "47f5a22a972f6943629865e82ec445227cd7602e2e19466fe9c5d407740685c1"
+    },
+    {
+      "path": "review/section-plan.css",
+      "sha256": "fc3f0d290fb34a810d787f2b14b812e2ae0dd68c0f5d6696b3c763dcd9155f86"
+    },
+    {
+      "path": "review/content-sections.html",
+      "sha256": "860c104dc8dfa93397e4ccb759a8eee10eb459bfb55d9366c62125a3f9dc25bb"
+    },
+    {
+      "path": "evidence/hero-review-plan/scope.json",
+      "sha256": "7c3ab3d87fcf33f1cd306513f72ddd8ba2b39ced2668b9134aefec63cb2dedaa"
+    },
+    {
+      "path": "evidence/review-order-amendment.json",
+      "sha256": "3e2e516a8aa5082664a375c42eff56c8bb5d22ae8d56b2a2b5ddc9081b6a4bbc"
+    }
+  ],
+  "references": [
+    {
+      "id": "loader",
+      "source": "loader",
+      "start_s": 0,
+      "end_s": 2.89,
+      "driver": "time",
+      "clip": {
+        "path": "evidence/motion/clips/loader.mp4",
+        "sha256": "9fb80b2a8d6a7a9e49b86d89631d6da97ed19abef0993227c03cde6e830e2315"
+      },
+      "frames": 174,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-entry",
+      "source": "hero",
+      "start_s": 0,
+      "end_s": 5,
+      "driver": "time/pointer",
+      "clip": {
+        "path": "evidence/motion/clips/hero-entry.mp4",
+        "sha256": "d133d433632da547748939e7437b2e9fed735e9f6ecfd5a3a21fb402a3312ca3"
+      },
+      "frames": 300,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-hover",
+      "source": "hero",
+      "start_s": 5,
+      "end_s": 9.5,
+      "driver": "pointer/time",
+      "clip": {
+        "path": "evidence/motion/clips/hero-hover.mp4",
+        "sha256": "757f1a6dbfe2af5e01ec20a5bed42dfa88cfdd66ac2ab4e04a74e4aef4ac4418"
+      },
+      "frames": 270,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-exit",
+      "source": "hero",
+      "start_s": 9.5,
+      "end_s": 14.24,
+      "driver": "scroll",
+      "clip": {
+        "path": "evidence/motion/clips/hero-exit.mp4",
+        "sha256": "0da779920a9ae8b818bf7af0a9135c6fb473fd92a72c335ad2bc0817dd9cc7f7"
+      },
+      "frames": 285,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    }
+  ],
+  "implementation_complete": false,
+  "user_accepted_motion": false,
+  "checks": {
+    "syntax": "node --check hero-plan.js passed; git diff --check passed.",
+    "preservation": "preservation.json passed",
+    "runtime": "Reference playback reaches end, native restart returns paused time zero, Pause holds, Enter selects hero clip, other selectors update source/caption/pressed state. Desktop/mobile inspected; 3/1 columns and no horizontal overflow. Final content group rendered and inspected.",
+    "console": [],
+    "source": "Unique IDs, local files and anchor destinations passed for all new/affected pages."
+  },
+  "next_action": "Execute the bounded isolated loader/globe build: independently adjustable ring/pulse/aperture, dotted geography, raised arcs, blue limb, rotation and entrance; verify and present for motion review.",
+  "limits": [
+    "This is a reference/method/scope review, not a rendered or accepted globe.",
+    "No generation selected or executed.",
+    "Final company/location/editorial facts remain deferred to content group."
+  ],
+  "evidence": [
+    {
+      "path": "evidence/hero-review-plan/scope.json",
+      "sha256": "7c3ab3d87fcf33f1cd306513f72ddd8ba2b39ced2668b9134aefec63cb2dedaa"
+    },
+    {
+      "path": "evidence/hero-review-plan/preservation.json",
+      "sha256": "125decf46971ef9a4c946a955b282e628662f6f47d50b80edfaaffbce9d11208"
+    },
+    {
+      "path": "evidence/hero-review-plan/reference-controls.json",
+      "sha256": "0f8db617497cc439e81556e558d4407f8b7904580d24d2dada48e36fdc73f69c"
+    },
+    {
+      "path": "evidence/hero-review-plan/clip-selection.json",
+      "sha256": "13555a3afbcf29256ecd13bb08fc4bfe40c81c73efe7cc207e7bdbfc8ce3a919"
+    },
+    {
+      "path": "evidence/hero-review-plan/responsive.json",
+      "sha256": "391c5e27dbd740f3fdc6bf0421c26d61a26ecaaae1d7bf5a46ee1b72ae492208"
+    },
+    {
+      "path": "evidence/hero-review-plan/source-checks.json",
+      "sha256": "912d88055a2a5a61c96de3ad887b73d14c6ee0c93db1703d98e36c90dfd9ae98"
+    },
+    {
+      "path": "evidence/hero-review-plan/console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/hero-review-plan/desktop.png",
+      "sha256": "931981abc8677162d100ddc835b8eda4093f572a45fc1209ad88639f0236b0ce"
+    },
+    {
+      "path": "evidence/hero-review-plan/mobile.png",
+      "sha256": "3b5e71793a914745f8d7a2f4dcff9b76f9cb2da243198fcb73802975e87d89a4"
+    },
+    {
+      "path": "evidence/hero-review-plan/reference-desktop.png",
+      "sha256": "43b0083ea9cae84b30b97bc40426d45acb928c4997bbd1b89e4da93929523396"
+    },
+    {
+      "path": "evidence/hero-review-plan/final-content-group.png",
+      "sha256": "fdeeb3edec3eefe3f6ef09fe7a3ab26fc547b9235d8a959d6116a2f3f573a7bd"
+    },
+    {
+      "path": "evidence/hero-review-plan/review-ready.png",
+      "sha256": "f89899a9e059346cb45bae32e32305511e315077f4f4b73af91bd286a20b0f95"
+    },
+    {
+      "path": "evidence/hero-review-plan/usage.json",
+      "sha256": "ac58c1d675f558d69c0156a118d1977230364609306e8e3f20295a2bb974fa63"
+    }
+  ]
+}

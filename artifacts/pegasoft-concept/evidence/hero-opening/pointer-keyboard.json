@@ -1,0 +1,113 @@
+{
+  "keyboard": {
+    "focusVisible": true,
+    "focused": "Talk with usTalk with us↗",
+    "motion": {
+      "aperture": 1,
+      "apertureRadiusPx": 676.881,
+      "body": 1,
+      "cta": 1,
+      "frame": 9570,
+      "geometry": {
+        "camera": {
+          "aspect": 1.9670225809747623,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "height": 611.6875,
+        "landPoints": 4118,
+        "rotationRadians": -0.4215143749999796,
+        "width": 1203.203125
+      },
+      "lines": [
+        1,
+        1,
+        1
+      ],
+      "openingTime": 3.8,
+      "phase": "Hero · rotating globe",
+      "reduced": false,
+      "rotationTime": 19.13943,
+      "running": false,
+      "sceneTime": 19.13943,
+      "wallTimestampMs": 81806
+    },
+    "rollTransform": "matrix(1, 0, 0, 1, 0, -10.9674)"
+  },
+  "pointer": {
+    "borderColor": "rgb(123, 203, 255)",
+    "hover": true,
+    "motion": {
+      "aperture": 1,
+      "apertureRadiusPx": 676.881,
+      "body": 1,
+      "cta": 1,
+      "frame": 9570,
+      "geometry": {
+        "camera": {
+          "aspect": 1.9670225809747623,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "height": 611.6875,
+        "landPoints": 4118,
+        "rotationRadians": -0.4215143749999796,
+        "width": 1203.203125
+      },
+      "lines": [
+        1,
+        1,
+        1
+      ],
+      "openingTime": 3.8,
+      "phase": "Hero · rotating globe",
+      "reduced": false,
+      "rotationTime": 19.13943,
+      "running": false,
+      "sceneTime": 19.13943,
+      "wallTimestampMs": 81806
+    },
+    "status": "Talk with us — destination in final content review."
+  },
+  "leave": {
+    "borderColor": "rgba(255, 255, 255, 0.15)",
+    "hover": false,
+    "motion": {
+      "aperture": 1,
+      "apertureRadiusPx": 676.881,
+      "body": 1,
+      "cta": 1,
+      "frame": 9615,
+      "geometry": {
+        "camera": {
+          "aspect": 1.9670225809747623,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "height": 611.6875,
+        "landPoints": 4118,
+        "rotationRadians": -0.41230687499997976,
+        "width": 1203.203125
+      },
+      "lines": [
+        1,
+        1,
+        1
+      ],
+      "openingTime": 3.8,
+      "phase": "Hero · rotating globe",
+      "reduced": false,
+      "rotationTime": 19.50773,
+      "running": true,
+      "sceneTime": 19.50773,
+      "wallTimestampMs": 83087
+    }
+  },
+  "note": "Pointer/keyboard action did not alter elapsed opening/rotation state while paused; CSS enter/leave inspected separately from live globe."
+}

@@ -1,0 +1,48 @@
+{
+  "status": "passed",
+  "playback": [
+    {
+      "mode": "normal",
+      "samples": 76,
+      "opening_range": [
+        0.0167,
+        3.8
+      ],
+      "observed_elapsed_time_ratio": 1.0016,
+      "camera_envelopes": 1,
+      "rotation": "linear .025 rad per accumulated scene second",
+      "phases": [
+        "Radar recession",
+        "Pulse \u2192 aperture",
+        "Headline entrance",
+        "Hero \u00b7 rotating globe"
+      ]
+    },
+    {
+      "mode": "quarter",
+      "samples": 332,
+      "opening_range": [
+        0.00835,
+        3.8
+      ],
+      "observed_elapsed_time_ratio": 0.2497,
+      "camera_envelopes": 1,
+      "rotation": "linear .025 rad per accumulated scene second",
+      "phases": [
+        "Radar recession",
+        "Pulse \u2192 aperture",
+        "Headline entrance",
+        "Hero \u00b7 rotating globe"
+      ]
+    }
+  ],
+  "responsive": "320/390/768: no document horizontal overflow; narrow CTA/footer separated. Desktop 1280 inspected.",
+  "controls": "Final current-build pause held scene/rotation; previous/next frame steps differ by exactly 1/60 opening second. Extended aperture start/duration and restore defaults worked.",
+  "reduced_motion": "Readable hero, loader cleared, globe held; preview branch tested. OS preference not changed.",
+  "input": "Keyboard focus visible; CTA rollover and pointer leave inspected separately from rotation.",
+  "reference": "Hero entrance selector updates local native video source and pressed state.",
+  "console_errors": [],
+  "geography": "4118 land dots; local source/derived hashes agree with provenance.",
+  "visual_review": "Agent inspected consecutive normal-playback frames and boundary captures, plus desktop/tablet/mobile/reduced motion. Personal acceptance pending.",
+  "focus_resize_regression": "passed: scene and hero overflow clip; both internal scroll offsets zero after keyboard focus, 320px resize and browser viewport restoration. Stage/hero top differ only by border."
+}

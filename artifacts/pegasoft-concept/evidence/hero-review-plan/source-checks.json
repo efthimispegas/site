@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "html": [
+    {
+      "file": "review/hero-plan.html",
+      "unique_ids": true,
+      "local_links_and_anchors": true
+    },
+    {
+      "file": "review/content-sections.html",
+      "unique_ids": true,
+      "local_links_and_anchors": true
+    },
+    {
+      "file": "review/trust-partners.html",
+      "unique_ids": true,
+      "local_links_and_anchors": true
+    },
+    {
+      "file": "review/ship-jet-integration.html",
+      "unique_ids": true,
+      "local_links_and_anchors": true
+    },
+    {
+      "file": "review/index.html",
+      "unique_ids": true,
+      "local_links_and_anchors": true
+    }
+  ],
+  "syntax": "node --check review/hero-plan.js passed; git diff --check passed",
+  "checkpoint_words": {
+    "CURRENT": 157,
+    "HANDOFF": 89
+  }
+}

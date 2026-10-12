@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "checks": {
+    "normal": {
+      "status": "passed",
+      "samples": 79,
+      "end_s": 3.8,
+      "camera_envelopes": 1,
+      "rotation_multiplier": 1.52,
+      "city_nodes": 13,
+      "routes": 8
+    },
+    "quarter": {
+      "status": "passed",
+      "samples": 332,
+      "end_s": 3.8,
+      "camera_envelopes": 1,
+      "rotation_multiplier": 1.52,
+      "city_nodes": 13,
+      "routes": 8
+    },
+    "pause": "passed",
+    "restore_approved_defaults": "passed",
+    "reduced_motion": "passed",
+    "mobile_390": "passed; rendered reduced-motion inspection, readable copy, no page overflow",
+    "reload_approved_defaults": "passed",
+    "console": "no warnings or errors",
+    "visual_inspection": "Normal playback frames at radar, pulse, aperture and full hero; mobile full hero inspected. Personal acceptance remains separate."
+  },
+  "limits": "Normal playback includes one pause/resume. Quarter playback includes reduced-motion check and resume; no injected app state or fake clock. Camera checks apply within each unchanged viewport."
+}

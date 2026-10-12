@@ -1,0 +1,558 @@
+{
+  "status": "user_approved",
+  "date_local": "2026-10-12",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push. Existing unrelated WIP preserved.",
+  "review": "review/hero-opening.html#viewer",
+  "scope": "Isolated live loader/globe opening only. Hero exit/outcome integration follows personal acceptance; content-only sections reviewed last.",
+  "implementation_complete": true,
+  "user_accepted_motion": true,
+  "measured_reference_parity": false,
+  "method": "Local Three.js 0.182.0 procedural sphere, pinned Natural Earth land polygons/dots; no generated raster globe or paid provider jobs.",
+  "drivers": {
+    "opening": "Elapsed time: ring recession, mark fade, nested pulse disks, aperture and staggered content. Separate track controls.",
+    "globe": "Accumulated elapsed scene time with independent rotation speed; fixed viewport camera. No moving-bounds fitting.",
+    "pointer": "CSS pointer/focus enter and leave; no timeline mutation.",
+    "reduced_motion": "Expose readable full hero and hold globe; shared OS-preference/preview state."
+  },
+  "defaults": {
+    "ring_end_s": 1.64,
+    "mark_fade_start_s": 1.21,
+    "pulse_start_s": 1.34,
+    "aperture_start_s": 1.7,
+    "aperture_duration_s": 1.13,
+    "headline_start_s": 2.1,
+    "headline_duration_s": 0.72,
+    "opening_end_s": 3.8,
+    "rotation_rad_per_s": 0.038000000000000006,
+    "desktop_center": [
+      0.925,
+      0.5
+    ],
+    "desktop_radius_per_height": 0.52,
+    "mobile_center": [
+      0.63,
+      0.3
+    ],
+    "mobile_radius_per_height": 0.32,
+    "globe_controls": {
+      "speed": 1.52,
+      "dots": 1.5,
+      "rim": 0.48,
+      "arcs": 1.21
+    },
+    "base_rotation_rad_per_s": 0.025
+  },
+  "inputs": [
+    {
+      "path": "review/hero-opening.html",
+      "sha256": "72ac90e0c9582beb907709b2924d2719e0f9f0dce8399f08c1a10e5f0f40a89c"
+    },
+    {
+      "path": "review/hero-opening.css",
+      "sha256": "3efdb026b97947c23fb23ed6252fc8cba261cfb25d55b3c0cd212c724135a92a"
+    },
+    {
+      "path": "review/hero-opening.js",
+      "sha256": "f59f2c10af051c97939b611f722b01e3d17c00577de319f9ee2834579c79c91d"
+    },
+    {
+      "path": "review/hero-opening-sequence.js",
+      "sha256": "698073d719c2abe9851c39f6557a25a15fb94be62e12b2a69dd613ecc63cea53"
+    },
+    {
+      "path": "review/hero-globe.js",
+      "sha256": "63aa0fcfbb5bbdb4ff2e171b22ad1d7921a5bfce6a655c13068ee7f270280078"
+    },
+    {
+      "path": "generation/hero-globe/land-dots.json",
+      "sha256": "fde256e72478e84644af31cda26572accb312363b4e8fb3622f98b5068741433"
+    },
+    {
+      "path": "generation/hero-globe/ne_110m_land.geojson",
+      "sha256": "9e0729ee253ca7d7a5c4ae9395fb1902264c5377c52e224d13dd85010e2835d9"
+    },
+    {
+      "path": "generation/hero-globe/build-land-dots.py",
+      "sha256": "d6e999a8f76a6d1b11f06f9ef7657bfc7d935b4ec88945ba566a609ff87bde73"
+    },
+    {
+      "path": "generation/hero-globe/provenance.json",
+      "sha256": "714569792820ac905ec23dfcfe9ae4b4f18288134240ca31fc355c0d49948c62"
+    },
+    {
+      "path": "review/hero-city-routes.js",
+      "sha256": "e1dfba26c50536cd5ad860779a4005aa1d3d949e4d88da1147562068624d748e"
+    },
+    {
+      "path": "generation/hero-globe/city-source.json",
+      "sha256": "d22cfa7f51418bae7583fd8f8cb9a4151ff14e82174b67dc31123b2ed86affa9"
+    },
+    {
+      "path": "generation/hero-globe/approved-controls-20261012.json",
+      "sha256": "5bd1eb5200752b1ce4e210c133996ba3a2d89f85b870671d512aed21e3f3a121"
+    }
+  ],
+  "references": [
+    {
+      "id": "loader",
+      "source": "loader",
+      "start_s": 0,
+      "end_s": 2.89,
+      "driver": "time",
+      "clip": {
+        "path": "evidence/motion/clips/loader.mp4",
+        "sha256": "9fb80b2a8d6a7a9e49b86d89631d6da97ed19abef0993227c03cde6e830e2315"
+      },
+      "frames": 174,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-entry",
+      "source": "hero",
+      "start_s": 0,
+      "end_s": 5,
+      "driver": "time/pointer",
+      "clip": {
+        "path": "evidence/motion/clips/hero-entry.mp4",
+        "sha256": "d133d433632da547748939e7437b2e9fed735e9f6ecfd5a3a21fb402a3312ca3"
+      },
+      "frames": 300,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-hover",
+      "source": "hero",
+      "start_s": 5,
+      "end_s": 9.5,
+      "driver": "pointer/time",
+      "clip": {
+        "path": "evidence/motion/clips/hero-hover.mp4",
+        "sha256": "757f1a6dbfe2af5e01ec20a5bed42dfa88cfdd66ac2ab4e04a74e4aef4ac4418"
+      },
+      "frames": 270,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    }
+  ],
+  "checks": {
+    "source": "city-amendment-20261012/source-checks.json passed",
+    "geometry": "city-amendment-20261012/geometry-checks.json passed; all endpoints match city vectors, arcs outside sphere",
+    "runtime": "city-amendment-20261012/runtime-checks.json passed; normal/quarter playback, pause, restore, reload, mobile and reduced motion",
+    "preservation": "city-amendment-20261012/preservation.json: 22 approved pins unchanged",
+    "console": "city-amendment-20261012/console.json empty"
+  },
+  "limits": [
+    "Opening control values, globe appearance and amended city connections are user approved. Exact reference parity remains unmeasured.",
+    "Pointer/focus implementation inspected; exact reference rollover parity remains a calibration item.",
+    "Illustrative unlabeled arcs are not Pegasoft office/client routes. Final facts/copy/destinations remain gated.",
+    "No hero exit scroll, outcome section, Nx app assembly or production deployment in this slice.",
+    "Responsive snapshots are not representative-device performance measurements."
+  ],
+  "next_action": "Hero exit/outcome integration is the next review item. Preserve this accepted opening, settings, city geometry and fixed camera.",
+  "new_paid_generation_jobs": 0,
+  "evidence": [
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/geometry-checks.json",
+      "sha256": "193b0a3cdd9c7fecc57d30bff92fd939f69bda104b88db32b05d2b0eb9ebf713"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/mobile-reduced.png",
+      "sha256": "19cc99d0f545b5c0ca5fb79e7a980970ae1f517b1ef186ed8a579c4c728c5bfc"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/mobile.json",
+      "sha256": "ca1b817bfacfc25bce928a814d6b0ec5f933332dd70d0f7cdd885bac8f3584a5"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-0.png",
+      "sha256": "dd87ea2a9a816628336967b43e1133ce2930f11e99e052f80f849a2d03b6d624"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-1.png",
+      "sha256": "10b0333944d2b81eb0946eb95435b5fa92c6c01fea8bf0e208233540add9099a"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-10.png",
+      "sha256": "961ffe0bac512ad393410adc45ee445c880582b774982678709674953984b180"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-11.png",
+      "sha256": "a9c7116446248191dcf15086b2be52d392b12388c584072dc03f0affacef089d"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-12.png",
+      "sha256": "b78bc8be4f70ceb9ade36345d20ac91a84e0a9e8af1b72280d8ca45fc41099b9"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-13.png",
+      "sha256": "0087ccd59fd9aafefcb34d72b0b01343f66bf210e5313e2c416324af8ed93afc"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-14.png",
+      "sha256": "329786e1aefbb5f359ae2889a29d0ba18fd6d044827adfac96b349acce7e6a7f"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-15.png",
+      "sha256": "5b3248448740ae33ab74a2472c6ca0de6e3880f1c3388e522a74f3ea03579630"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-16.png",
+      "sha256": "8969677331444f98ef74f3a1c4666a42fcd10741be6f786a5e58b4e39eb45fea"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-17.png",
+      "sha256": "cd0e3da5649283c53bffe7ec4df9799e76a2bf5f671e7ec1ed36c1ee1cfeeef3"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-18.png",
+      "sha256": "e8cbe4391ce08fec62e5912096c1388c6be1793689eb61ff84c5321bda6ecb85"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-19.png",
+      "sha256": "bead61745e9586c79b1147597d5f9097606d8f7320569ff389987849efaeb178"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-2.png",
+      "sha256": "c787f88b11ef2ac37cfa1a20188cc046e587b7939e6694cf01def7a7fe26f998"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-20.png",
+      "sha256": "aa317d11bcbab66d32e9bf910e46c9d79f90b7f8bf6967176f8724074c4e8328"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-21.png",
+      "sha256": "486725c63ce9500239b49c758f07f1dff1824a600d10f1f37b6b88b7c01c3b4f"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-22.png",
+      "sha256": "918a40eadca174ecf1e2b36332ad122cc10a2ce514d4ec88bb1932a4b4a565ff"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-23.png",
+      "sha256": "ee933b638c9f86e38054df2b6fb77ce8cddc6341300603314bdbb23b4907afac"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-24.png",
+      "sha256": "70239ecee644530a4ca14076426dd2461afbfa6c49bfa8bc927ef4615fa09b9e"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-25.png",
+      "sha256": "9821631391014271f1d8c306a41d46db70e1eaa18f4d0f3dc1d643dcf27c0466"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-26.png",
+      "sha256": "cfe43c2f5e887131f0714798e660958248bc1ff81c1200795857f3a75dae1161"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-27.png",
+      "sha256": "9d78ffa640607fff28516b7d197b2a68f0444a79a83cd7e8d645978c9ed5d659"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-28.png",
+      "sha256": "e187ade8b98809a92fdd7285b19f5f3bf3d8d1b1ba875a170a03deedf882357b"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-29.png",
+      "sha256": "d8c4bbbdf18cb4aa105300ee6a20161d381477548742562c82aaf67615c2a5d9"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-3.png",
+      "sha256": "ecd0cf13b73187810289ff26a307ff6ccc1e3123be32fab4e312b6c8a66a3e8a"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-30.png",
+      "sha256": "688faa4db24719dea769c5cecbca2c0dc9abb1b64ad92cbc54e0821f725416ab"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-31.png",
+      "sha256": "4847528840a7943a6b7285f460fba02685f8a4688d09880ed850910857da9a72"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-32.png",
+      "sha256": "eb4e5c5a8fe52d54b20927fe16e5749b570f52fea24eb8755891181e6a092c69"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-33.png",
+      "sha256": "cbf569a950e65a61047df6750624fffb82e636180c5b4062e5d67593cf1fef4a"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-34.png",
+      "sha256": "4f7c3a30f8dcc5e05b0b505a9ca54f754650e871c65bab828d0048107ef27bea"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-35.png",
+      "sha256": "5cbaebf340ac8f63b27aeadac5c8ac4052c4f07f116f87e3310eb8ea700ea919"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-36.png",
+      "sha256": "a0e5b84a5878316c448b8ceb58b98447ad1f58ac7853b21e161bd99c8922250d"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-37.png",
+      "sha256": "1fb8574fee8af460208042a8d649529c81dd62caff1d4a6ead5c3059b8303145"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-38.png",
+      "sha256": "626f5bec2c4747d94ae265571d2ac5e98af98abb38b90caf9a3cd648b034ef94"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-39.png",
+      "sha256": "37b9da9323107c27ce543aace6c6ba49367ce86646831d856250399ea9edd6e7"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-4.png",
+      "sha256": "ea43920b56efd3f6143516574cb5d62f2d60fe9dbe6353bd4bdfc6d67a4f69b4"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-40.png",
+      "sha256": "8f8bb8367f6dd214609e1383c1e870d8f8b461ef5ee298dbd2b703ce3567d8f1"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-41.png",
+      "sha256": "c22066c8bc1bb679057085b0065b8aea699c0493f71a85b751d62b41df8a99f6"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-42.png",
+      "sha256": "62c77ab77437a34d147851d3e6566ff112aa08391d72ccdab3461459c7e474f0"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-5.png",
+      "sha256": "0e4c7ea150fbe940a59023f8db3fcef0d79a1a64003a3949a075f45942d474c1"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-6.png",
+      "sha256": "6a3650f1dbb4cee9b60938d1445d2331a17c4ac76f26e9e42a246fcded901344"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-7.png",
+      "sha256": "9c42cddb241634e142afd37fd6aaac4dab30170c470fcb506a1ca368f922b49d"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-8.png",
+      "sha256": "b3d0994c2778014475734f98d4db4665f73fc8b31ed21332cb53b3a0ca7c6aba"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-9.png",
+      "sha256": "c6b352c8c8b97b4f57dd1bc516ab1c691decb88afd5562345b097c50a05e0ee1"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-capture-map.json",
+      "sha256": "7e32c4fc04ffd6eb3427fb9cc448f1120da17a5c1e333fa0d35f0261b95aa6bd"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/normal-playback.json",
+      "sha256": "79bad1de85c1e914cbff56288ee245ceb60e32bf99c8a04bb7846fcce95edae3"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/pause.json",
+      "sha256": "31aa369aa799c08830cffcff7e8f21f5410dc8f2b2b3edc931282c6fc5511923"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/preservation.json",
+      "sha256": "ab86bfb35e571ee6489c1e8a59199116b6ed138d6ee7b5884b350935d178c25e"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/quarter-playback.json",
+      "sha256": "48a874c13d16482b5075c4b251843579abc4b9c1ce33d1a90896c0152138f6a8"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/reduced.json",
+      "sha256": "843ccdc45b3c07df5898f24b43ac90f6672fa110d695b0447be033a4a9e6dc2b"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/restored-controls.json",
+      "sha256": "c3b9b023ba13cd1a0803ada303ffa619ac5af1886d662a29592759109879bae1"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/review-ready.json",
+      "sha256": "51e89764f43c8fef8f0956e333eb4ddb8be996f125af612efff6eff93eea7a9c"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/review-ready.png",
+      "sha256": "2d65c2068b79a4aebb4b9cbaf79b017d2fddf455c4ce392a465161e7646a0f73"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/runtime-checks.json",
+      "sha256": "6522733034f14fb2067c50f66fcce5610d99587697c2edb35dfcb7a965cb73c9"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/source-checks.json",
+      "sha256": "59fd631a9ea615f0115991fec861e4b2938712af9ef574247bbad50a57681657"
+    },
+    {
+      "path": "evidence/hero-opening/city-amendment-20261012/usage.json",
+      "sha256": "1cf8a6e79005b751ce3d5ebf34ed80d0a6fba40e90bafd9e9316c19f4b2e6a48"
+    },
+    {
+      "path": "evidence/hero-opening/user-approval.json",
+      "sha256": "1d32bafd9e194cc47dc919b03ac010044575f1c37c4b7c5d7e2fbc047f4359bc"
+    },
+    {
+      "path": "evidence/hero-opening/approved-20261012.png",
+      "sha256": "467ae0188ba43c0988166d7f1af43eee85a9a6bfae108764c23aaa9ed2aad7f6"
+    }
+  ],
+  "reference_frame_notes": {
+    "reference": "loader 0.5s rings/central mark; 1.7s large outer disk/central dark disk; hero-entry 3.5s large right cropped sphere, land dots and raised arcs.",
+    "composition": "Reference landmass/body reaches top/bottom; draft desktop radius .52H, centre .925W/.50H; horizontal nav is the agreed change. These are draft composition parameters, not a dense normalized fit."
+  },
+  "evidence_reuse": "Prior responsive/focus/interaction checks are historical baseline evidence only. CSS, fonts, geography polygons and clipping remain unchanged. New timeline/globe settings and city routes have current playback/geometry/mobile evidence in city-amendment-20261012. No exact reference parity or personal acceptance inferred.",
+  "reference_frames": [
+    {
+      "path": "evidence/hero-opening/reference/hero-3.5.png",
+      "sha256": "3dbbe6ed16990ab6498afbc5a1b0ab9739312d616df4c4a39117f54b26b9d926"
+    },
+    {
+      "path": "evidence/hero-opening/reference/loader-0.5.png",
+      "sha256": "d936d81cc094f68f9e114530a6b741c8b648a319c264685c2d5920e7e2416f51"
+    },
+    {
+      "path": "evidence/hero-opening/reference/loader-1.7.png",
+      "sha256": "05166b2f14992a5bbbdb5d1da9a76cb80354e7bc2530d1e28607669cff7d2b4b"
+    }
+  ],
+  "user_accepted_control_values": true,
+  "user_accepted_city_amendment": true,
+  "approval": "generation/hero-globe/approved-controls-20261012.json",
+  "city_connections": {
+    "source": "generation/hero-globe/city-source.json",
+    "definition": "review/hero-city-routes.js",
+    "cities": 13,
+    "routes": 8,
+    "endpoint_radius": 1.014,
+    "choices": {
+      "Japan": "Tokyo",
+      "India": "New Delhi",
+      "Russia": "Moscow"
+    }
+  },
+  "historical_evidence": [
+    {
+      "path": "evidence/hero-opening/console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/hero-opening/controls.json",
+      "sha256": "056fa6b8f8ee9fd07c156aa07814300e3d2517794b3000276b267bd4778958c3"
+    },
+    {
+      "path": "evidence/hero-opening/desktop-reduced.png",
+      "sha256": "693a689eba23110797343160490702e2e2feaef2554cf2d4bba5f8451e3c48ab"
+    },
+    {
+      "path": "evidence/hero-opening/focus-resize-regression.json",
+      "sha256": "776578a15d731a29f08d0e11359fc292a75967ad20dd99aa989afd9b1a3bc58b"
+    },
+    {
+      "path": "evidence/hero-opening/frame-controls-final.json",
+      "sha256": "348ffd04d42f04764311c72c9525de1047da4f718895e3dff85290a1255d9092"
+    },
+    {
+      "path": "evidence/hero-opening/mobile-320.png",
+      "sha256": "f146a6e51732110e940f64b5cd21c795bd5adeda5b6faaa151fc9fb07d405f3a"
+    },
+    {
+      "path": "evidence/hero-opening/mobile-reduced.png",
+      "sha256": "37b8660228975271da7665040d164e1508b06baa485fd0a998c1b8937466ba3c"
+    },
+    {
+      "path": "evidence/hero-opening/normal-0.5.png",
+      "sha256": "37476582d945b654ff17593dfd0094c66f34caab9b5e138a3a77edb5d8618036"
+    },
+    {
+      "path": "evidence/hero-opening/normal-1.7.png",
+      "sha256": "0d31c0ac59658dd2f2a62e0380f025c0e2efbfe20cdbd8e793867b0394c98c8d"
+    },
+    {
+      "path": "evidence/hero-opening/normal-2.25.png",
+      "sha256": "c3bfc0d7412d27db41d10f8390045f4c6cdc5e42b642f46140e579b88097ef07"
+    },
+    {
+      "path": "evidence/hero-opening/normal-2.8.png",
+      "sha256": "ad5611ea9dd466470903bb1528a27d2c2b7daf7ca3455b5968024a5667da08ac"
+    },
+    {
+      "path": "evidence/hero-opening/normal-3.8.png",
+      "sha256": "bc71625c6468981507000f6c001049ca8880d6c432c72d93b24b56a7dd1b7710"
+    },
+    {
+      "path": "evidence/hero-opening/normal-capture-map.json",
+      "sha256": "28a7c843e6f3d3fea47d5fe3aeed6d96fa69b82df4042a1aae1ab084ae019878"
+    },
+    {
+      "path": "evidence/hero-opening/normal-playback.json",
+      "sha256": "d1f81e1e880d4a0f39590bdc12b4c0a4cd4ab3d1f49c5b0a1849cc71ab69b24f"
+    },
+    {
+      "path": "evidence/hero-opening/pointer-keyboard.json",
+      "sha256": "432a73e458c6b5434c0064c0cddf93fa8d7036a8c3daa4112ebdca19973b7e29"
+    },
+    {
+      "path": "evidence/hero-opening/preservation.json",
+      "sha256": "b590c8d09be8b3f03d68b1c821e1487fde7b66fbcbc380a3ce3562690f13e8e1"
+    },
+    {
+      "path": "evidence/hero-opening/quarter-playback.json",
+      "sha256": "d877328cede452d2eb46764a303710ac1854cebc4392f414c6083e073f5e5945"
+    },
+    {
+      "path": "evidence/hero-opening/reduced-motion.json",
+      "sha256": "76b984b925ec1976d9613835a808cd3867f1a9ba90427d1a57660c404f56d5d5"
+    },
+    {
+      "path": "evidence/hero-opening/reference-controls.json",
+      "sha256": "3563b3524ff9348f6fe2e669b7b9cd9ee0bdfb672e61ff844663629fbbcac995"
+    },
+    {
+      "path": "evidence/hero-opening/responsive-320.json",
+      "sha256": "49dc42b8442e02ae6c6a9094d0a8ebffbf2af338b61819198cc8db917df7c218"
+    },
+    {
+      "path": "evidence/hero-opening/responsive-390.json",
+      "sha256": "305b51d4180baeb1fd69b7280446bb4c62a7f0d4fecd9d9b63d8f4d82e9c4eac"
+    },
+    {
+      "path": "evidence/hero-opening/responsive-768.json",
+      "sha256": "46221d547ec5f06356bc32996d9fd3776fdc41ff10474d2162708683812cb12f"
+    },
+    {
+      "path": "evidence/hero-opening/review-ready.json",
+      "sha256": "b6e2e5904b8eb3ab483540778b6ccbfe2f086a13665499c5ce6601322bd87c0d"
+    },
+    {
+      "path": "evidence/hero-opening/review-ready.png",
+      "sha256": "cb3f4a682e4be83a5b76463b1aff3eb597a8cdbbe958c0e305d22558c8429c3d"
+    },
+    {
+      "path": "evidence/hero-opening/runtime-checks.json",
+      "sha256": "88cf30aa82be02550995418d18adaca33679d57b0bfab2a8eb291275439c0e51"
+    },
+    {
+      "path": "evidence/hero-opening/sequence-checks.json",
+      "sha256": "fdee945bb95f262c32527dd5586624a48e8e8ed190d35d6ad15fbb4ccd4fe7e2"
+    },
+    {
+      "path": "evidence/hero-opening/source-checks.json",
+      "sha256": "39504c543e89bc1896cd999a7508210b9559cb158da7f6277032a5b289196e5c"
+    },
+    {
+      "path": "evidence/hero-opening/tablet-complete.png",
+      "sha256": "e990fe1a5d38788ec5a1c71f317c4fdf5ce42e49b08e6cc90d1497fec2e3b222"
+    },
+    {
+      "path": "evidence/hero-opening/usage.json",
+      "sha256": "15baff1381d898f0145bba4f75d8bc9107d256dbdcf2705ca639d429ae1cf326"
+    }
+  ],
+  "historical_packet": "evidence/hero-opening/before-city-amendment-20261012/evidence/hero-opening/review.json",
+  "user_approval": "evidence/hero-opening/user-approval.json",
+  "post_approval_change": "Review header/footer status labels only; motion, geometry and controls unchanged. Approval record retains the exact reviewed input hashes."
+}

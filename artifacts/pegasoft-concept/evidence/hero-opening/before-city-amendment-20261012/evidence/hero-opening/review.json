@@ -1,0 +1,276 @@
+{
+  "status": "ready_for_personal_motion_review",
+  "date_local": "2026-10-11",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push. Existing unrelated WIP preserved.",
+  "review": "review/hero-opening.html#viewer",
+  "scope": "Isolated live loader/globe opening only. Hero exit/outcome integration follows personal acceptance; content-only sections reviewed last.",
+  "implementation_complete": true,
+  "user_accepted_motion": false,
+  "measured_reference_parity": false,
+  "method": "Local Three.js 0.182.0 procedural sphere, pinned Natural Earth land polygons/dots; no generated raster globe or paid provider jobs.",
+  "drivers": {
+    "opening": "Elapsed time: ring recession, mark fade, nested pulse disks, aperture and staggered content. Separate track controls.",
+    "globe": "Accumulated elapsed scene time with independent rotation speed; fixed viewport camera. No moving-bounds fitting.",
+    "pointer": "CSS pointer/focus enter and leave; no timeline mutation.",
+    "reduced_motion": "Expose readable full hero and hold globe; shared OS-preference/preview state."
+  },
+  "defaults": {
+    "ring_end_s": 1.45,
+    "mark_fade_start_s": 1.05,
+    "pulse_start_s": 1.45,
+    "aperture_start_s": 1.78,
+    "aperture_duration_s": 1.12,
+    "headline_start_s": 2.1,
+    "headline_duration_s": 0.72,
+    "opening_end_s": 3.8,
+    "rotation_rad_per_s": 0.025,
+    "desktop_center": [
+      0.925,
+      0.5
+    ],
+    "desktop_radius_per_height": 0.52,
+    "mobile_center": [
+      0.63,
+      0.3
+    ],
+    "mobile_radius_per_height": 0.32
+  },
+  "inputs": [
+    {
+      "path": "review/hero-opening.html",
+      "sha256": "6a22dc14e619634ad3f636dd40de0690076292f22bf35461bb3f6fe2a76c2c3f"
+    },
+    {
+      "path": "review/hero-opening.css",
+      "sha256": "3efdb026b97947c23fb23ed6252fc8cba261cfb25d55b3c0cd212c724135a92a"
+    },
+    {
+      "path": "review/hero-opening.js",
+      "sha256": "9fba8cd4527922bf8b6c45a6f64d8502bf296252bee063227ea53e2d3826bd4e"
+    },
+    {
+      "path": "review/hero-opening-sequence.js",
+      "sha256": "6952e28900bde7e73fe3ae830438846ae40e152fcd9be0e430080180c6d9e811"
+    },
+    {
+      "path": "review/hero-globe.js",
+      "sha256": "f8eca5119146d5414ad83fb392d16e22ed07c196e206442596c603fc2e868f99"
+    },
+    {
+      "path": "generation/hero-globe/land-dots.json",
+      "sha256": "fde256e72478e84644af31cda26572accb312363b4e8fb3622f98b5068741433"
+    },
+    {
+      "path": "generation/hero-globe/ne_110m_land.geojson",
+      "sha256": "9e0729ee253ca7d7a5c4ae9395fb1902264c5377c52e224d13dd85010e2835d9"
+    },
+    {
+      "path": "generation/hero-globe/build-land-dots.py",
+      "sha256": "d6e999a8f76a6d1b11f06f9ef7657bfc7d935b4ec88945ba566a609ff87bde73"
+    },
+    {
+      "path": "generation/hero-globe/provenance.json",
+      "sha256": "714569792820ac905ec23dfcfe9ae4b4f18288134240ca31fc355c0d49948c62"
+    }
+  ],
+  "references": [
+    {
+      "id": "loader",
+      "source": "loader",
+      "start_s": 0,
+      "end_s": 2.89,
+      "driver": "time",
+      "clip": {
+        "path": "evidence/motion/clips/loader.mp4",
+        "sha256": "9fb80b2a8d6a7a9e49b86d89631d6da97ed19abef0993227c03cde6e830e2315"
+      },
+      "frames": 174,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-entry",
+      "source": "hero",
+      "start_s": 0,
+      "end_s": 5,
+      "driver": "time/pointer",
+      "clip": {
+        "path": "evidence/motion/clips/hero-entry.mp4",
+        "sha256": "d133d433632da547748939e7437b2e9fed735e9f6ecfd5a3a21fb402a3312ca3"
+      },
+      "frames": 300,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-hover",
+      "source": "hero",
+      "start_s": 5,
+      "end_s": 9.5,
+      "driver": "pointer/time",
+      "clip": {
+        "path": "evidence/motion/clips/hero-hover.mp4",
+        "sha256": "757f1a6dbfe2af5e01ec20a5bed42dfa88cfdd66ac2ab4e04a74e4aef4ac4418"
+      },
+      "frames": 270,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    }
+  ],
+  "checks": {
+    "source": "source-checks.json passed",
+    "sequence": "sequence-checks.json passed",
+    "runtime": "runtime-checks.json passed",
+    "preservation": "preservation.json: 22 pinned accepted inputs unchanged",
+    "console": "console.json empty",
+    "focus_resize": "focus-resize-regression.json passed; clip prevents internal scene scrolling."
+  },
+  "limits": [
+    "Draft timing/geometry based on bounded source-window inspection; numeric peak candidates are not production easing specifications.",
+    "Pointer/focus implementation inspected; exact reference rollover parity remains a calibration item.",
+    "Illustrative unlabeled arcs are not Pegasoft office/client routes. Final facts/copy/destinations remain gated.",
+    "No hero exit scroll, outcome section, Nx app assembly or production deployment in this slice.",
+    "Responsive snapshots are not representative-device performance measurements."
+  ],
+  "next_action": "User reviews/amends the live opening. After acceptance, build hero exit/outcome integration.",
+  "new_paid_generation_jobs": 0,
+  "evidence": [
+    {
+      "path": "evidence/hero-opening/console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/hero-opening/controls.json",
+      "sha256": "056fa6b8f8ee9fd07c156aa07814300e3d2517794b3000276b267bd4778958c3"
+    },
+    {
+      "path": "evidence/hero-opening/desktop-reduced.png",
+      "sha256": "693a689eba23110797343160490702e2e2feaef2554cf2d4bba5f8451e3c48ab"
+    },
+    {
+      "path": "evidence/hero-opening/focus-resize-regression.json",
+      "sha256": "776578a15d731a29f08d0e11359fc292a75967ad20dd99aa989afd9b1a3bc58b"
+    },
+    {
+      "path": "evidence/hero-opening/frame-controls-final.json",
+      "sha256": "348ffd04d42f04764311c72c9525de1047da4f718895e3dff85290a1255d9092"
+    },
+    {
+      "path": "evidence/hero-opening/mobile-320.png",
+      "sha256": "f146a6e51732110e940f64b5cd21c795bd5adeda5b6faaa151fc9fb07d405f3a"
+    },
+    {
+      "path": "evidence/hero-opening/mobile-reduced.png",
+      "sha256": "37b8660228975271da7665040d164e1508b06baa485fd0a998c1b8937466ba3c"
+    },
+    {
+      "path": "evidence/hero-opening/normal-0.5.png",
+      "sha256": "37476582d945b654ff17593dfd0094c66f34caab9b5e138a3a77edb5d8618036"
+    },
+    {
+      "path": "evidence/hero-opening/normal-1.7.png",
+      "sha256": "0d31c0ac59658dd2f2a62e0380f025c0e2efbfe20cdbd8e793867b0394c98c8d"
+    },
+    {
+      "path": "evidence/hero-opening/normal-2.25.png",
+      "sha256": "c3bfc0d7412d27db41d10f8390045f4c6cdc5e42b642f46140e579b88097ef07"
+    },
+    {
+      "path": "evidence/hero-opening/normal-2.8.png",
+      "sha256": "ad5611ea9dd466470903bb1528a27d2c2b7daf7ca3455b5968024a5667da08ac"
+    },
+    {
+      "path": "evidence/hero-opening/normal-3.8.png",
+      "sha256": "bc71625c6468981507000f6c001049ca8880d6c432c72d93b24b56a7dd1b7710"
+    },
+    {
+      "path": "evidence/hero-opening/normal-capture-map.json",
+      "sha256": "28a7c843e6f3d3fea47d5fe3aeed6d96fa69b82df4042a1aae1ab084ae019878"
+    },
+    {
+      "path": "evidence/hero-opening/normal-playback.json",
+      "sha256": "d1f81e1e880d4a0f39590bdc12b4c0a4cd4ab3d1f49c5b0a1849cc71ab69b24f"
+    },
+    {
+      "path": "evidence/hero-opening/pointer-keyboard.json",
+      "sha256": "432a73e458c6b5434c0064c0cddf93fa8d7036a8c3daa4112ebdca19973b7e29"
+    },
+    {
+      "path": "evidence/hero-opening/preservation.json",
+      "sha256": "b590c8d09be8b3f03d68b1c821e1487fde7b66fbcbc380a3ce3562690f13e8e1"
+    },
+    {
+      "path": "evidence/hero-opening/quarter-playback.json",
+      "sha256": "d877328cede452d2eb46764a303710ac1854cebc4392f414c6083e073f5e5945"
+    },
+    {
+      "path": "evidence/hero-opening/reduced-motion.json",
+      "sha256": "76b984b925ec1976d9613835a808cd3867f1a9ba90427d1a57660c404f56d5d5"
+    },
+    {
+      "path": "evidence/hero-opening/reference-controls.json",
+      "sha256": "3563b3524ff9348f6fe2e669b7b9cd9ee0bdfb672e61ff844663629fbbcac995"
+    },
+    {
+      "path": "evidence/hero-opening/responsive-320.json",
+      "sha256": "49dc42b8442e02ae6c6a9094d0a8ebffbf2af338b61819198cc8db917df7c218"
+    },
+    {
+      "path": "evidence/hero-opening/responsive-390.json",
+      "sha256": "305b51d4180baeb1fd69b7280446bb4c62a7f0d4fecd9d9b63d8f4d82e9c4eac"
+    },
+    {
+      "path": "evidence/hero-opening/responsive-768.json",
+      "sha256": "46221d547ec5f06356bc32996d9fd3776fdc41ff10474d2162708683812cb12f"
+    },
+    {
+      "path": "evidence/hero-opening/review-ready.json",
+      "sha256": "b6e2e5904b8eb3ab483540778b6ccbfe2f086a13665499c5ce6601322bd87c0d"
+    },
+    {
+      "path": "evidence/hero-opening/review-ready.png",
+      "sha256": "cb3f4a682e4be83a5b76463b1aff3eb597a8cdbbe958c0e305d22558c8429c3d"
+    },
+    {
+      "path": "evidence/hero-opening/runtime-checks.json",
+      "sha256": "88cf30aa82be02550995418d18adaca33679d57b0bfab2a8eb291275439c0e51"
+    },
+    {
+      "path": "evidence/hero-opening/sequence-checks.json",
+      "sha256": "fdee945bb95f262c32527dd5586624a48e8e8ed190d35d6ad15fbb4ccd4fe7e2"
+    },
+    {
+      "path": "evidence/hero-opening/source-checks.json",
+      "sha256": "39504c543e89bc1896cd999a7508210b9559cb158da7f6277032a5b289196e5c"
+    },
+    {
+      "path": "evidence/hero-opening/tablet-complete.png",
+      "sha256": "e990fe1a5d38788ec5a1c71f317c4fdf5ce42e49b08e6cc90d1497fec2e3b222"
+    },
+    {
+      "path": "evidence/hero-opening/usage.json",
+      "sha256": "15baff1381d898f0145bba4f75d8bc9107d256dbdcf2705ca639d429ae1cf326"
+    }
+  ],
+  "reference_frame_notes": {
+    "reference": "loader 0.5s rings/central mark; 1.7s large outer disk/central dark disk; hero-entry 3.5s large right cropped sphere, land dots and raised arcs.",
+    "composition": "Reference landmass/body reaches top/bottom; draft desktop radius .52H, centre .925W/.50H; horizontal nav is the agreed change. These are draft composition parameters, not a dense normalized fit."
+  },
+  "evidence_reuse": "Normal/quarter timeline and geometry remain identical across the later CSS-only responsive/focus-scroll fixes. Current focus/resize and restored-view captures verify the changed clipping. Superseded typography/calibration screenshots are archived.",
+  "reference_frames": [
+    {
+      "path": "evidence/hero-opening/reference/hero-3.5.png",
+      "sha256": "3dbbe6ed16990ab6498afbc5a1b0ab9739312d616df4c4a39117f54b26b9d926"
+    },
+    {
+      "path": "evidence/hero-opening/reference/loader-0.5.png",
+      "sha256": "d936d81cc094f68f9e114530a6b741c8b648a319c264685c2d5920e7e2416f51"
+    },
+    {
+      "path": "evidence/hero-opening/reference/loader-1.7.png",
+      "sha256": "05166b2f14992a5bbbdb5d1da9a76cb80354e7bc2530d1e28607669cff7d2b4b"
+    }
+  ]
+}

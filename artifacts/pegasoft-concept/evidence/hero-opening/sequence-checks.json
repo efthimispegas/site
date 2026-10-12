@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "settings": {
+        "ringEnd": 1.45,
+        "markStart": 1.05,
+        "pulseStart": 1.45,
+        "apertureStart": 1.78,
+        "apertureDuration": 1.12,
+        "headlineStart": 2.1,
+        "headlineDuration": 0.72
+      },
+      "end": 3.8,
+      "checks": "monotonic aperture/headline, full corner clearance, loader layers clear, all content complete"
+    },
+    {
+      "settings": {
+        "ringEnd": 1.45,
+        "markStart": 1.05,
+        "pulseStart": 1.45,
+        "apertureStart": 2.6,
+        "apertureDuration": 1.7,
+        "headlineStart": 3,
+        "headlineDuration": 1.3
+      },
+      "end": 4.95,
+      "checks": "monotonic aperture/headline, full corner clearance, loader layers clear, all content complete"
+    }
+  ],
+  "reduced": "readable hero at time zero",
+  "note": "Sequence contracts, not visual acceptance"
+}

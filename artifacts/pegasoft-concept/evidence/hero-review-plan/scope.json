@@ -1,0 +1,211 @@
+{
+  "status": "next_object_motion_scope",
+  "method": "Already agreed live/procedural graphics; no new generated globe/radar imagery or video.",
+  "reference_windows": [
+    {
+      "id": "loader",
+      "source": "loader",
+      "start_s": 0,
+      "end_s": 2.89,
+      "driver": "time",
+      "clip": {
+        "path": "evidence/motion/clips/loader.mp4",
+        "sha256": "9fb80b2a8d6a7a9e49b86d89631d6da97ed19abef0993227c03cde6e830e2315"
+      },
+      "frames": 174,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-entry",
+      "source": "hero",
+      "start_s": 0,
+      "end_s": 5,
+      "driver": "time/pointer",
+      "clip": {
+        "path": "evidence/motion/clips/hero-entry.mp4",
+        "sha256": "d133d433632da547748939e7437b2e9fed735e9f6ecfd5a3a21fb402a3312ca3"
+      },
+      "frames": 300,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-hover",
+      "source": "hero",
+      "start_s": 5,
+      "end_s": 9.5,
+      "driver": "pointer/time",
+      "clip": {
+        "path": "evidence/motion/clips/hero-hover.mp4",
+        "sha256": "757f1a6dbfe2af5e01ec20a5bed42dfa88cfdd66ac2ab4e04a74e4aef4ac4418"
+      },
+      "frames": 270,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    },
+    {
+      "id": "hero-exit",
+      "source": "hero",
+      "start_s": 9.5,
+      "end_s": 14.24,
+      "driver": "scroll",
+      "clip": {
+        "path": "evidence/motion/clips/hero-exit.mp4",
+        "sha256": "0da779920a9ae8b818bf7af0a9135c6fb473fd92a72c335ad2bc0817dd9cc7f7"
+      },
+      "frames": 285,
+      "cadence": "60/1",
+      "limits": "Recorded wall time / peak-change candidates do not set production easing or scroll duration."
+    }
+  ],
+  "source_contracts": [
+    {
+      "id": "loader",
+      "driver": "time",
+      "reference_window_s": [
+        0,
+        2.89
+      ],
+      "reference_source": "loader",
+      "numeric_event_candidates": [
+        {
+          "frame": 90,
+          "source_pts_s": 1.5,
+          "center_mad": 3.85650634765625
+        },
+        {
+          "frame": 111,
+          "source_pts_s": 1.85,
+          "center_mad": 12.203208923339844
+        },
+        {
+          "frame": 162,
+          "source_pts_s": 2.7,
+          "center_mad": 2.016221046447754
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Concentric ring recession, mark fade, nested pulse disks, expanding aperture and staggered headline must be separately timed.",
+        "Use dedicated loader PTS; clip onset is relative and ends before every entrance necessarily finishes."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "hero-entry",
+      "driver": "time/pointer",
+      "reference_window_s": [
+        0,
+        5
+      ],
+      "reference_source": "hero",
+      "numeric_event_candidates": [
+        {
+          "frame": 100,
+          "source_pts_s": 1.666667,
+          "center_mad": 4.211764812469482
+        },
+        {
+          "frame": 123,
+          "source_pts_s": 2.05,
+          "center_mad": 9.007843017578125
+        },
+        {
+          "frame": 180,
+          "source_pts_s": 3.0,
+          "center_mad": 1.6629233360290527
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Maintain globe dots, raised arcs and entry overlap; apply typed horizontal-nav changes."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "hero-hover",
+      "driver": "pointer/time",
+      "reference_window_s": [
+        5,
+        9.5
+      ],
+      "reference_source": "hero",
+      "numeric_event_candidates": [],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Measure pointer enter/leave and link/CTA response separately from globe rotation."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    },
+    {
+      "id": "hero-exit",
+      "driver": "scroll",
+      "reference_window_s": [
+        9.5,
+        14.24
+      ],
+      "reference_source": "hero",
+      "numeric_event_candidates": [
+        {
+          "frame": 652,
+          "source_pts_s": 10.866667,
+          "center_mad": 18.82085609436035
+        },
+        {
+          "frame": 826,
+          "source_pts_s": 13.766667,
+          "center_mad": 2.9458110332489014
+        },
+        {
+          "frame": 849,
+          "source_pts_s": 14.15,
+          "center_mad": 2.620142698287964
+        }
+      ],
+      "scroll_start_px": null,
+      "scroll_end_px": null,
+      "pin_interval_px": null,
+      "normalized_geometry_curve": [],
+      "easing": null,
+      "constraints": [
+        "Text exits before atmospheric blue-to-porcelain wipe completes; fit globe scale and mask separately."
+      ],
+      "status": "reference indexed; dense geometry/driver fit and rendered visual approval pending"
+    }
+  ],
+  "owned_build": "Future isolated loader/globe opening draft only; accepted transport and other app implementations excluded.",
+  "tracks": [
+    "Concentric ring recession",
+    "Central mark fade",
+    "Nested pulse disks",
+    "Expanding aperture",
+    "Staggered content entrance",
+    "Dotted globe body / raised arcs / limb light",
+    "Calm globe rotation",
+    "Separate pointer/focus response"
+  ],
+  "current_generation_jobs": 0,
+  "fit_status": "Normalized geometry, durations, easing and scroll boundaries remain unset until live draft calibration. Existing indexed candidates are not claimed as fits.",
+  "next_build_checks": [
+    "Normal playback and transition edges",
+    "Quarter speed / frame inspection / pause / restart",
+    "Pointer enter and leave independent of globe time",
+    "Fixed camera envelope with no dynamic bounds refit",
+    "Desktop/mobile viewport fit",
+    "Reduced motion exposes readable hero",
+    "Later hero exit / outcome has separate native forward/reverse scroll gate"
+  ]
+}
