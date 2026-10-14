@@ -1,74 +1,53 @@
 # Pegasoft Concept application
 
-Stage: controller/lifecycle review, before full transport and homepage assembly.
+Vanilla HTML/CSS/JavaScript, Vite and Nx, with the approved Three.js revision 182.
+React/Next.js and additional animation frameworks are not required by this app.
 
-The accepted cloud revision is recorded. Scene loading, a reusable controller,
-inspection playback/scroll controls and lifecycle ownership are now separate modules.
-The review includes a Remount scene button below the viewer.
+The homepage assembles the loader/globe, outcome, lift/container/truck, highway,
+ship/water, clouds/jet, Trusted testimonials, partners, editorial, CTA and footer.
+Use [CURRENT](../../artifacts/pegasoft-concept/CURRENT.md) for the active review gate
+and [PROPOSAL](../../artifacts/pegasoft-concept/PROPOSAL.md) for scope and constraints.
+The newer content layouts remain pending personal visual acceptance. Testimonial
+and partner identities are fictional placeholders. Company facts/legal details and
+submission endpoints are unconfirmed; contact forms only validate local drafts.
 
-The production controller accepts explicit `root`, `stage` and asset references.
-Call `mount()` once, `update({progress,reducedMotion})` for story state,
-`resize({width,height})` for the measured viewport, `tick(timestampMs)` for the
-independent water clock, and `render()` from the single caller-owned frame loop.
-Call `dispose()` on removal. It does not create a frame loop or ResizeObserver and
-can run without inspection controls. Create a fresh controller for remounting;
-the inspection adapter owns that replacement and cleans up its controls/observer.
-
-Cloud-motion amendment: the user requested uninterrupted K01–K03 travel.
-The app now follows steady-distance cloud paths and continues their clock through
-the jet reveal. Appearance presets, assets and non-cloud choreography remain fixed.
-The origin/veil/bank route is retained, with travel timing redistributed along its
-distance. The bank position remains at the original 16-second milestone.
-
-Run from the workspace root:
+Run from the workspace root with the pinned Node/pnpm toolchain:
 
 ```sh
 pnpm nx run @site/pegasoft-concept:dev
 pnpm nx run @site/pegasoft-concept:build
 pnpm nx run @site/pegasoft-concept:preview
-pnpm nx run-many -p @site/pegasoft-concept -t lint test build
-pnpm nx run @site/pegasoft-concept:review-check
-pnpm nx run @site/pegasoft-concept:review-motion
-pnpm nx run @site/pegasoft-concept:cloud-review-check
-pnpm nx run @site/pegasoft-concept:controller-reference
-pnpm nx run @site/pegasoft-concept:controller-review-check
-pnpm nx run @site/pegasoft-concept:controller-motion
-pnpm nx run @site/pegasoft-concept:controller-lifecycle
+pnpm nx run-many --targets=build,lint,test --projects=@site/pegasoft-concept
 ```
 
-Development: `http://127.0.0.1:8770/`. Production-build review: `http://127.0.0.1:8771/review/ship-jet-integration.html#viewer`.
+Development: `http://127.0.0.1:8770/`.
+Production-build review: `http://127.0.0.1:8771/`.
+Build output: `dist/apps/pegasoft-concept`.
+Vite preview is a local review server, not production hosting.
 
-The pilot keeps the approved review layout and rendering. Its links to historical
-evidence use the original local server at port 8767; those files are not bundled.
-Browser comparison checks require that server, both Vite servers and installed Google Chrome.
-Vite preview is a local inspection server, not the production hosting service.
+Diagnostic entry points share the production controllers and assets:
 
-`baseline-manifest.json` records the input closure, byte hashes and allowed packaging
-transformations. Build verifies it before bundling. `runtime-amendments.json` pins
-the three user-requested cloud amendments and added motion module separately;
-all other inputs still require their original hashes. The checked-in runtime assets are
-byte-identical copies. The vendor license and used font licenses are retained.
+- `/review/ship-jet-integration.html#viewer`
+- `/review/loader.html#viewer`
+- `/review/footer-particles.html#viewer`
 
-`controller-refactor-manifest.json` pins the accepted cloud revision and the exact
-controller extraction inputs/outputs. Rendered parity is checked against the frozen
-accepted build at port 8772. That server verifies hashes and reuses frozen runtime
-assets; reference builds and recordings are not included in the app bundle.
+`src/journey-host.js` owns scrolling and the single application frame scheduler.
+Chapter controllers expose mount, update, resize, tick/render and dispose operations.
+Opening/globe time, scroll progress, media time and pointer effects remain separate
+inputs. The content controller owns native navigation, dialogs and local form drafts.
+The partner wall receives frame time from the existing scheduler; its stationary
+column hit surfaces retain hover through gaps and raised artwork edges.
 
-`tools/package-reviewed-slice.mjs` initially packages the input closure. An explicit
-`--refresh-packaging` verifies frozen source hashes before refreshing derivatives;
-never use it to overwrite future controller work. It now refuses regeneration
-while runtime amendments exist. The baseline verifier is a
-packaging-stage contract and must be replaced with corresponding parity checks
-when controller refactoring is authorized.
+Build checks the baseline, homepage and commissioned-amendment manifests before
+bundling. Runtime assets, licenses and source snapshots preserve their bytes;
+`.gitattributes` prevents line-ending normalization from invalidating those hashes.
+Do not regenerate frozen packaging inputs over later controller or content work.
+Historical evidence is outside the production bundle and retains its own source
+commit, configuration and acceptance limits. Earlier packaging comparison tasks
+may intentionally reject later commissioned changes; use the evidence packet for
+the relevant review stage rather than treating historical checks as current gates.
 
-The shared stylesheet is embedded at its original position because Vite's CSS
-extraction otherwise changes the accepted cascade. Renderer settings, Three.js
-revision 182, motion equations, presets, asset bytes and CSS declarations remain
-unchanged except the explicitly requested cloud-position travel. No React/Next.js
-code or new animation framework is required. `review-check` records the original
-packaging parity and is expected to reject the intentional cloud-position changes;
-use `cloud-review-check` for the amended trajectory and unaffected-field comparison.
-
-Initialization, cancellation, disposal/remount and isolated frame ownership are
-checked at this gate. Full transport coordination and website acceptance remain
-pending; no vehicle rig geometry or approved motion has been redesigned.
+Build/lint/tests establish technical checks, not visual acceptance or deployment.
+Whole-site qualification and release remain separate gates. Preserve the approved
+object geometry, camera/motion behavior, cloud/shadow presets and recorded fixed
+lift-grabber pickup limitation unless the user authorizes a specific change.

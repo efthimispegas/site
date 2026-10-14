@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-06",
+  "date": "2026-10-14",
   "authority": "User: entire reference content is placeholder and must be replaced",
   "mandatory_action": "Replace all reference website content with approved Pegasoft content before full-site approval or release",
   "acceptance": "No borrowed reference copy, company claims, relationships, contacts or links in any rendered Pegasoft route or interaction state",
@@ -14,7 +14,7 @@
         "menu copy",
         "accessibility labels"
       ],
-      "status": "draft"
+      "status": "chapter destinations/mobile menu implemented for review; final destinations/copy pending"
     },
     {
       "section": "loader/hero",
@@ -28,7 +28,7 @@
         "network artwork",
         "news/utility strip"
       ],
-      "status": "draft; real HQ list needed"
+      "status": "motion and current headline/CTAs accepted; removed utility captions; final company copy remains content review"
     },
     {
       "section": "outcome/metrics",
@@ -39,7 +39,7 @@
         "image",
         "about link"
       ],
-      "status": "motion paused by user; current parallax rejected and requires revision; real metrics, final copy and image selection deferred",
+      "status": "motion and once-only counters accepted; all demo values remain illustrative pending verification",
       "review": "review/hero-outcome.html#viewer"
     },
     {
@@ -62,7 +62,7 @@
         "links",
         "truck artwork"
       ],
-      "status": "six tech capabilities proposed, unapproved"
+      "status": "accepted motion; six capability labels remain draft content for final review"
     },
     {
       "section": "road/reliability",
@@ -97,7 +97,7 @@
         "attribution/roles",
         "portraits"
       ],
-      "status": "connected motion approved; trust layout deferred to final content review; real testimonial evidence needed",
+      "status": "approved design implemented: native DriftWall with stable column hover; fictional cards inside Trusted reveal; personal acceptance and real content pending",
       "review": "review/trust-partners.html#viewer",
       "review_group": "review/content-sections.html"
     },
@@ -109,7 +109,7 @@
         "company names",
         "links"
       ],
-      "status": "layout deferred to final content review; approved relationships needed",
+      "status": "approved design implemented: native DriftWall with stable column hover; fictional cards inside Trusted reveal; personal acceptance and real content pending",
       "review": "review/trust-partners.html#partners",
       "review_group": "review/content-sections.html"
     },
@@ -136,7 +136,7 @@
         "answers",
         "contact prompt/link"
       ],
-      "status": "draft"
+      "status": "six draft answer rows and native keyboard accordion ready for review"
     },
     {
       "section": "closing CTA",
@@ -166,7 +166,7 @@
         "particle wordmark",
         "payment assertions"
       ],
-      "status": "real company details needed; omit unsupported payment claims"
+      "status": "particle/marquee motion accepted; office/legal/contact/social details unconfirmed"
     },
     {
       "section": "contact",
@@ -182,7 +182,7 @@
         "submission destinations",
         "privacy links"
       ],
-      "status": "tab audiences accepted; fields/endpoint unapproved"
+      "status": "fields approved for interactive local-only prototype; shared draft values and validation implemented; recipient/privacy/endpoint pending"
     },
     {
       "section": "cookies",
@@ -194,7 +194,7 @@
         "actual tracker inventory",
         "reopen label"
       ],
-      "status": "draft; describe actual implemented choices only"
+      "status": "necessary-only preference dialog implemented for current no-optional-tracker inventory; legal/future tracker decisions pending"
     }
   ],
   "final_checks": [
@@ -206,5 +206,7 @@
     "verify destinations and submission behavior",
     "obtain final user review"
   ],
-  "current_asset_status": "CURRENT.md"
+  "current_asset_status": "CURRENT.md",
+  "currentReview": "http://127.0.0.1:8771/?revision=content-review-20261014#trust-evidence",
+  "motionApproval": "evidence/website-motion/20261014/all-amendments-approved/user-approval.json"
 }
