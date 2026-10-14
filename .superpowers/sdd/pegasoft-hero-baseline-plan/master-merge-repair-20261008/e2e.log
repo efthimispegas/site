@@ -1,0 +1,54 @@
+
+> nx run @site/pegasoft-e2e:e2e --retries=0 --reporter=line,json --max-failures=3 --output=/tmp/pegasoft-repair-e2e-chrome
+
+> playwright test --retries=0 --reporter=line,json --max-failures=3 --output=/tmp/pegasoft-repair-e2e-chrome
+
+(node:81785) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:81791) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:81792) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:81798) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[32m✔ test-contract provenance excludes mutable sprint summaries but keeps normative contracts [90m(0.745375ms)[39m[39m
+[32m✔ execution records genuine cell assertions and continues [90m(0.200667ms)[39m[39m
+[32m✔ explicit predicate timeout becomes a cell assertion while test timeout stays fatal [90m(0.335875ms)[39m[39m
+[32m✔ execution stops after timeout and persists fatal result [90m(0.185417ms)[39m[39m
+[32m✔ execution stops after page closure and persists fatal result [90m(0.136125ms)[39m[39m
+[32m✔ execution stops after context closure and persists fatal result [90m(0.066042ms)[39m[39m
+[32m✔ execution stops after abort and persists fatal result [90m(0.09075ms)[39m[39m
+[32m✔ execution stops after filesystem I/O and persists fatal result [90m(0.070334ms)[39m[39m
+[32m✔ execution stops after unknown programming error and persists fatal result [90m(0.068834ms)[39m[39m
+[32m✔ resource cleanup closes open page and context [90m(0.18375ms)[39m[39m
+
+Running 156 tests using 1 worker
+
+[32m✔ resource cleanup has a short independent deadline [90m(17.744042ms)[39m[39m
+[32m✔ attempt creation rejects reuse and pre-existing evidence [90m(9.6725ms)[39m[39m
+(node:81803) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/156] [chromium] › src/hero-alternatives.spec.ts:266:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable
+[32m✔ validator accepts a complete synthetic packet without current-input checks [90m(747.205167ms)[39m[39m
+[32m✔ validator rejects missing and duplicate shard IDs [90m(213.275417ms)[39m[39m
+[32m✔ validator rejects mixed plan/run provenance [90m(141.078708ms)[39m[39m
+[32m✔ validator rejects missing, corrupt, and hash-mismatched PNG evidence [90m(264.589709ms)[39m[39m
+[32m✔ validator rejects signature-only PNGs and reused or noncanonical image paths [90m(199.845292ms)[39m[39m
+[32m✔ validator rejects a valid non-PNG stored at a canonical PNG path [90m(88.757834ms)[39m[39m
+[32m✔ validator rejects missing and duplicate cell IDs and changed N/A category [90m(90.203584ms)[39m[39m
+[32m✔ validator rejects target, rendered, and field-clock predicate failures [90m(1184.346583ms)[39m[39m
+[32m✔ validator rejects contract, scroll, first-eligible, and restored-clock failures [90m(1541.753917ms)[39m[39m
+[32m✔ validator rejects reordered IDs, cross-shard reassignment, and changed N/A [90m(120.616042ms)[39m[39m
+[2/156] [chromium] › src/hero-alternatives.spec.ts:290:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable
+[32m✔ validator rejects mixed attempts and malformed committed/restoration evidence [90m(600.1745ms)[39m[39m
+[32m✔ validator rejects packet accounting other than 360/336/24 [90m(108.350083ms)[39m[39m
+[32m✔ validator independently rejects stale build provenance [90m(2.582083ms)[39m[39m
+[32m✔ validator independently rejects stale implementation provenance [90m(1.668708ms)[39m[39m
+[32m✔ validator independently rejects stale testContract provenance [90m(1.534333ms)[39m[39m
+[32m✔ validator independently rejects stale reference provenance [90m(1.627417ms)[39m[39m
+[32m✔ validator independently rejects stale runnerConfig provenance [90m(2.39325ms)[39m[39m

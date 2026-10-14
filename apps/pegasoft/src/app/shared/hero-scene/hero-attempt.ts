@@ -1,18 +1,10 @@
 export const HERO_LOADING_DEADLINE_MS = 15_000;
 
 export type HeroAttemptState =
-  | 'initializing'
-  | 'loading-resources'
-  | 'frame-pending'
-  | 'ready'
-  | 'fallback';
+  'initializing' | 'loading-resources' | 'frame-pending' | 'ready' | 'fallback';
 
 export type HeroAttemptEvent =
-  | 'canvas-created'
-  | 'resources-ready'
-  | 'frame-applied'
-  | 'fatal'
-  | 'deadline';
+  'canvas-created' | 'resources-ready' | 'frame-applied' | 'fatal' | 'deadline';
 
 /** Attempts are one-way: fallback is useful UI, never renderer readiness. */
 export function advanceHeroAttempt(

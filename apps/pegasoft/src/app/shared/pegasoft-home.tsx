@@ -780,7 +780,9 @@ export function PegasoftHome() {
                     className={heroStyles.flowHeader}
                     type="button"
                     onClick={() => jumpToFlowStep(index)}
-                    aria-current={heroJourney.stepIndex === index ? 'step' : undefined}
+                    aria-current={
+                      heroJourney.stepIndex === index ? 'step' : undefined
+                    }
                     aria-expanded={heroJourney.stepIndex === index}
                     aria-controls={`hero-flow-description-${index + 1}`}
                   >

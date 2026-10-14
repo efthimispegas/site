@@ -1,0 +1,97 @@
+
+> nx run @site/pegasoft-e2e:e2e --grep=delayed essential|never-resolving|expired loading|ready scene survives|successful capability probe --max-failures=1 --retries=0 --reporter=line --trace=retain-on-failure --output=/tmp/pegasoft-repair-e2e-pass2
+
+> playwright test --grep="delayed essential|never-resolving|expired loading|ready scene survives|successful capability probe" --max-failures=1 --retries=0 --reporter=line --trace=retain-on-failure --output=/tmp/pegasoft-repair-e2e-pass2
+
+(node:73356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:73372) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:73373) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:73379) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[32m✔ test-contract provenance excludes mutable sprint summaries but keeps normative contracts [90m(0.669666ms)[39m[39m
+[32m✔ execution records genuine cell assertions and continues [90m(0.19025ms)[39m[39m
+[32m✔ explicit predicate timeout becomes a cell assertion while test timeout stays fatal [90m(0.319125ms)[39m[39m
+[32m✔ execution stops after timeout and persists fatal result [90m(0.182666ms)[39m[39m
+[32m✔ execution stops after page closure and persists fatal result [90m(0.139166ms)[39m[39m
+[32m✔ execution stops after context closure and persists fatal result [90m(0.072584ms)[39m[39m
+[32m✔ execution stops after abort and persists fatal result [90m(0.084459ms)[39m[39m
+[32m✔ execution stops after filesystem I/O and persists fatal result [90m(0.081041ms)[39m[39m
+[32m✔ execution stops after unknown programming error and persists fatal result [90m(0.078958ms)[39m[39m
+[32m✔ resource cleanup closes open page and context [90m(0.176042ms)[39m[39m
+
+Running 10 tests using 1 worker
+
+[32m✔ resource cleanup has a short independent deadline [90m(14.332333ms)[39m[39m
+[32m✔ attempt creation rejects reuse and pre-existing evidence [90m(7.971667ms)[39m[39m
+(node:73384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/10] [chromium] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render
+[32m✔ validator accepts a complete synthetic packet without current-input checks [90m(787.548042ms)[39m[39m
+[32m✔ validator rejects missing and duplicate shard IDs [90m(88.865917ms)[39m[39m
+[32m✔ validator rejects mixed plan/run provenance [90m(96.865417ms)[39m[39m
+[32m✔ validator rejects missing, corrupt, and hash-mismatched PNG evidence [90m(270.602458ms)[39m[39m
+[32m✔ validator rejects signature-only PNGs and reused or noncanonical image paths [90m(172.752125ms)[39m[39m
+[32m✔ validator rejects a valid non-PNG stored at a canonical PNG path [90m(90.175917ms)[39m[39m
+[32m✔ validator rejects missing and duplicate cell IDs and changed N/A category [90m(120.001041ms)[39m[39m
+[32m✔ validator rejects target, rendered, and field-clock predicate failures [90m(1246.703958ms)[39m[39m
+[32m✔ validator rejects contract, scroll, first-eligible, and restored-clock failures [90m(1448.934833ms)[39m[39m
+[32m✔ validator rejects reordered IDs, cross-shard reassignment, and changed N/A [90m(90.383583ms)[39m[39m
+[32m✔ validator rejects mixed attempts and malformed committed/restoration evidence [90m(428.721708ms)[39m[39m
+[32m✔ validator rejects packet accounting other than 360/336/24 [90m(85.222875ms)[39m[39m
+[32m✔ validator independently rejects stale build provenance [90m(1.974ms)[39m[39m
+[32m✔ validator independently rejects stale implementation provenance [90m(1.363042ms)[39m[39m
+[32m✔ validator independently rejects stale testContract provenance [90m(1.501541ms)[39m[39m
+[32m✔ validator independently rejects stale reference provenance [90m(1.423625ms)[39m[39m
+[32m✔ validator independently rejects stale runnerConfig provenance [90m(9.474833ms)[39m[39m
+[2/10] [chromium] › src/hero-alternatives.spec.ts:462:5 › never-resolving essential resources reach useful fallback at the finite deadline
+[3/10] [chromium] › src/hero-alternatives.spec.ts:544:5 › expired loading deadline is checked on resume when its timer was throttled
+[4/10] [chromium] › src/hero-alternatives.spec.ts:604:5 › ready scene survives the loading deadline and settles reduced motion
+[5/10] [chromium] › src/hero-alternatives.spec.ts:733:5 › successful capability probe with failed actual Canvas selects fallback
+[WebServer] [browser] THREE.WebGLRenderer: Error creating WebGL context. 
+[WebServer]     at HeroScene.useCallback[createRenderer] (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+[WebServer]   213 |       attemptStartedAt.current ??= performance.now();
+[WebServer]   214 |       try {
+[WebServer] > 215 |         return new WebGLRenderer({
+[WebServer]       |                ^
+[WebServer]   216 |           ...defaults,
+[WebServer]   217 |           alpha: true,
+[WebServer]   218 |           antialias: true, (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+
+[WebServer] [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+(node:73814) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/10] [Mobile Chrome] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render
+[7/10] [Mobile Chrome] › src/hero-alternatives.spec.ts:462:5 › never-resolving essential resources reach useful fallback at the finite deadline
+[8/10] [Mobile Chrome] › src/hero-alternatives.spec.ts:544:5 › expired loading deadline is checked on resume when its timer was throttled
+[9/10] [Mobile Chrome] › src/hero-alternatives.spec.ts:604:5 › ready scene survives the loading deadline and settles reduced motion
+[10/10] [Mobile Chrome] › src/hero-alternatives.spec.ts:733:5 › successful capability probe with failed actual Canvas selects fallback
+[WebServer] [browser] THREE.WebGLRenderer: Error creating WebGL context. 
+[WebServer]     at HeroScene.useCallback[createRenderer] (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+[WebServer]   213 |       attemptStartedAt.current ??= performance.now();
+[WebServer]   214 |       try {
+[WebServer] > 215 |         return new WebGLRenderer({
+[WebServer]       |                ^
+[WebServer]   216 |           ...defaults,
+[WebServer]   217 |           alpha: true,
+[WebServer]   218 |           antialias: true, (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+
+[WebServer] [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+  10 passed (2.2m)
+
+
+
+ NX   Successfully ran target e2e for project @site/pegasoft-e2e
+
+

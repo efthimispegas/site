@@ -1,0 +1,35 @@
+{
+  "status": "approved-by-user",
+  "advisory": "GHSA-vfj7-8cjw-p6xm",
+  "cve": "CVE-2026-93687",
+  "package": "braces@3.0.3",
+  "severity": "high",
+  "upstreamPatchedVersion": null,
+  "upstream": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+  "retainedRawAudit": "audit.json",
+  "productionDependencyAudit": "production-audit.json",
+  "productionAuditCounts": {
+    "critical": 0,
+    "high": 0,
+    "moderate": 0
+  },
+  "remainingPaths": "Nx Next -> React/module-federation/webpack tooling -> http-proxy-middleware or chokidar -> braces",
+  "risk": "Deeply nested brace patterns can exhaust recursive walkers and terminate the Node process. A development-dependency classification is not a general exploitability guarantee.",
+  "proposedSetting": {
+    "file": "package.json",
+    "path": "pnpm.auditConfig.ignoreCves",
+    "value": [
+      "CVE-2026-93687"
+    ]
+  },
+  "limits": [
+    "Ignore only this CVE; retain unchanged raw full audit and the separate production audit.",
+    "Keep the CI high-severity gate for all other advisories. No test assertion or timing budget changes.",
+    "Review by 2026-10-28 or when an upstream fix is published; remove the exception when a compatible fix is adopted.",
+    "Merge only if all remaining verification gates pass. Do not push or deploy."
+  ],
+  "approvalRequiredBecause": "The existing canonical maintenance gate prohibits ignoring this finding or finalizing a merge while the required security gate fails.",
+  "approvedAtDate": "2026-10-14",
+  "approval": "Direct user reply: Approve the narrow temporary exception",
+  "implementationNote": "Verified against the installed pnpm 10.8.1 audit handler: it reads rootProjectManifest.pnpm.auditConfig, not the newer YAML setting."
+}

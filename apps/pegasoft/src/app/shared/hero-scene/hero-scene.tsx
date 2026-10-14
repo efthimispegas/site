@@ -343,7 +343,15 @@ export function HeroScene({
               // R3F measures this wrapper for camera/backing size; CSS independently
               // displays the canvas at 100lvh, just as the source does.
               style={{ width: '100vw', height: canvasSize?.height ?? '100vh' }}
-              frameloop={snapshot.motion === 'full' ? 'always' : 'demand'}
+              // Await essential resources without continuously rendering an
+              // unfinished scene. Readiness still requires a real completed
+              // frame after resources-ready starts the render loop.
+              frameloop={
+                snapshot.motion === 'full' &&
+                (attemptState === 'frame-pending' || attemptState === 'ready')
+                  ? 'always'
+                  : 'demand'
+              }
               shadows
               camera={{
                 position: [-80, HERO_CAMERA_SOURCE.baseY, 15],

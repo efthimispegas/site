@@ -14,49 +14,32 @@
     "affected": "nx affected -t lint test typecheck build"
   },
   "private": true,
-  "packageManager": "pnpm@10.8.1",
-  "engines": {
-    "node": "^24.19.0",
-    "pnpm": "10.8.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "brace-expansion@1": "1.1.18",
-      "brace-expansion@2": "2.1.4",
-      "brace-expansion@5": "5.0.9",
-      "browserslist@4": "4.28.7",
-      "fast-uri@3": "3.1.6",
-      "js-yaml@4": "4.3.2",
-      "less@4": "4.9.1"
-    }
-  },
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "animejs": "^4.4.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.18.0",
-    "next": "~16.3.4",
+    "next": "~16.3.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "three": "~0.182.0"
+    "three": "~0.185.1"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
     "@eslint/js": "^9.8.0",
-    "@next/eslint-plugin-next": "^16.3.4",
-    "@nx/devkit": "23.2.0",
-    "@nx/eslint": "23.2.0",
-    "@nx/eslint-plugin": "23.2.0",
-    "@nx/js": "23.2.0",
-    "@nx/next": "23.2.0",
-    "@nx/playwright": "23.2.0",
-    "@nx/vitest": "23.2.0",
-    "@nx/workspace": "23.2.0",
+    "@nx/devkit": "22.7.12",
+    "@nx/eslint": "22.7.12",
+    "@nx/eslint-plugin": "22.7.12",
+    "@nx/js": "22.7.12",
+    "@nx/next": "22.7.12",
+    "@nx/playwright": "22.7.12",
+    "@nx/vitest": "22.7.12",
+    "@nx/workspace": "22.7.12",
     "@playwright/test": "^1.36.0",
     "@swc-node/register": "~1.11.1",
     "@swc/cli": "~0.8.0",
-    "@swc/core": "~1.15.5",
+    "@swc/core": "~1.15.47",
     "@swc/helpers": "~0.5.18",
     "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "^6.9.1",
@@ -67,22 +50,38 @@
     "@types/three": "~0.182.0",
     "@vitest/coverage-v8": "~4.1.0",
     "eslint": "^9.8.0",
-    "eslint-config-next": "^16.3.4",
     "eslint-config-prettier": "^10.0.0",
-    "eslint-plugin-import": "2.31.0",
+    "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.1",
-    "eslint-plugin-playwright": "^2.10.4",
+    "eslint-plugin-playwright": "^2.11.0",
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "7.1.1",
-    "jsdom": "^30.0.1",
-    "nx": "23.2.0",
-    "prettier": "~3.8.4",
-    "sharp": "0.35.4",
+    "jsdom": "^29.1.1",
+    "nx": "22.7.12",
+    "prettier": "~3.9.6",
+    "sharp": "^0.35.5",
     "tslib": "^2.3.0",
-    "typescript": "6.0.3",
+    "typescript": "~5.9.2",
     "typescript-eslint": "^8.61.1",
-    "vite": "^8.2.2",
+    "vite": "^8.0.0",
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "~4.1.0"
+  },
+  "packageManager": "pnpm@10.8.1",
+  "engines": {
+    "node": "^24.19.0",
+    "pnpm": "10.8.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "nx>axios": "^1.20.0",
+      "nx>brace-expansion": "^5.0.11",
+      "nx>smol-toml": "^1.7.1"
+    },
+    "auditConfig": {
+      "ignoreCves": [
+        "CVE-2026-93687"
+      ]
+    }
   }
 }

@@ -20,7 +20,10 @@ export function HeroGroundShadow({
         transparent
         depthWrite={false}
         toneMapped={false}
-        uniforms={{ shadowColor: { value: shadowColor }, opacity: { value: opacity } }}
+        uniforms={{
+          shadowColor: { value: shadowColor },
+          opacity: { value: opacity },
+        }}
         vertexShader={`
           varying vec2 vUv;
           void main() {

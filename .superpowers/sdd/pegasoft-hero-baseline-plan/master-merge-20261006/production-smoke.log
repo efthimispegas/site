@@ -1,0 +1,48 @@
+
+> nx run @site/pegasoft-e2e:hero-production-smoke
+
+> playwright test --config=playwright.s7.config.ts
+
+(node:20410) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20410) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:20417) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:20418) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:20424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2mRunning [22m4[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:20425) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20425) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/4] [desktop-chrome] › src/hero-production-smoke.spec.ts:3:5 › shipping build renders an ordinary usable hero
+[1A[2K[2/4] [desktop-chrome] › src/hero-production-smoke.spec.ts:22:5 › shipping build handles an actual canvas context loss with useful fallback
+[1A[2K(node:20450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20450) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[3/4] [mobile-chrome] › src/hero-production-smoke.spec.ts:3:5 › shipping build renders an ordinary usable hero
+[1A[2K[4/4] [mobile-chrome] › src/hero-production-smoke.spec.ts:22:5 › shipping build handles an actual canvas context loss with useful fallback
+[1A[2K[32m  4 passed[39m[2m (14.0s)[22m
+
+
+
+ NX   Successfully ran target hero-production-smoke for project @site/pegasoft-e2e
+
+

@@ -1,0 +1,167 @@
+{
+  "frozen-install": {
+    "command": [
+      "pnpm",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 0.57
+  },
+  "core-checks": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run-many",
+      "--targets=typecheck,lint,test",
+      "--skipNxCache",
+      "--parallel=2"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 6.67
+  },
+  "build": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run-many",
+      "--targets=build",
+      "--projects=@site/pegasoft,@site/individual",
+      "--skipNxCache",
+      "--parallel=1"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 11.71
+  },
+  "measurement": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-measurement-test"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 1.03
+  },
+  "s7-harness": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-s7-harness-test"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 5.14
+  },
+  "capture-contracts": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-capture-contract-test"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 2.84
+  },
+  "clock-fixtures": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-capture-clock-test"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 2.81
+  },
+  "production-smoke": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-production-smoke"
+    ],
+    "exitCode": 0,
+    "durationSeconds": 13.58
+  },
+  "before-final-e2e": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:e2e",
+      "--skipNxCache",
+      "--retries=0",
+      "--reporter=line,json",
+      "--trace=retain-on-failure",
+      "--output=/tmp/pegasoft-repair-e2e-full"
+    ],
+    "exitCode": 1,
+    "durationSeconds": 4640.69
+  },
+  "before-final-individual-e2e": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/individual-e2e:e2e",
+      "--skipNxCache",
+      "--retries=0",
+      "--reporter=line"
+    ],
+    "exitCode": 1,
+    "durationSeconds": 5.62
+  },
+  "e2e": {
+    "status": "interrupted-by-user",
+    "exitCode": 130,
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:e2e",
+      "--skipNxCache",
+      "--retries=0",
+      "--reporter=line,json",
+      "--max-failures=3"
+    ],
+    "browserChannel": "chrome",
+    "aggregateResultAvailable": false,
+    "resume": "Rerun the complete suite; the interrupted log is not acceptance."
+  },
+  "individual-e2e": {
+    "status": "not-rerun-after-fix",
+    "resume": "Rerun after the entrance-opacity wait change."
+  },
+  "final-types-lint": {
+    "status": "passed",
+    "projects": [
+      "@site/pegasoft-e2e",
+      "@site/individual-e2e"
+    ],
+    "lintErrors": 0,
+    "lintWarnings": 39,
+    "log": "final-types-lint.log"
+  },
+  "format": {
+    "status": "write-completed-final-check-pending",
+    "log": "format-write.log"
+  },
+  "browser-localhost": {
+    "status": "passed",
+    "routes": [
+      "http://127.0.0.1:4330/",
+      "http://127.0.0.1:4330/services",
+      "http://127.0.0.1:4331/",
+      "http://127.0.0.1:4331/work"
+    ],
+    "browserConsoleErrors": [],
+    "limits": "Rendered/runtime and genuine navigation verification only; no hero visual acceptance.",
+    "httpLog": "localhost-http.json",
+    "screenshots": [
+      "pegasoft-localhost.jpg",
+      "pegasoft-services.jpg",
+      "individual-localhost.jpg",
+      "individual-work.jpg"
+    ]
+  }
+}

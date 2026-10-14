@@ -1,0 +1,70 @@
+
+> nx run @site/individual-e2e:e2e --retries=0 --reporter=line,json
+
+> playwright test --retries=0 --reporter=line,json
+
+(node:90756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:90766) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:90767) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:90775) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 8 tests using 5 workers
+
+(node:90786) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:90787) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:90783) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+(node:90784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:90785) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/8] [chromium] › src/individual.spec.ts:26:5 › mobile layout avoids horizontal overflow
+[2/8] [chromium] › src/individual.spec.ts:36:5 › homepage has no serious or critical accessibility violations
+[3/8] [chromium] › src/individual.spec.ts:4:5 › homepage presents the provisional individual brand
+[4/8] [Mobile Chrome] › src/individual.spec.ts:4:5 › homepage presents the provisional individual brand
+[5/8] [chromium] › src/individual.spec.ts:14:5 › work pages use concept portfolio language
+[6/8] [Mobile Chrome] › src/individual.spec.ts:36:5 › homepage has no serious or critical accessibility violations
+(node:90809) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:90810) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[WebServer] (node:90811) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[7/8] [Mobile Chrome] › src/individual.spec.ts:26:5 › mobile layout avoids horizontal overflow
+[8/8] [Mobile Chrome] › src/individual.spec.ts:14:5 › work pages use concept portfolio language
+[WebServer] [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[WebServer] (node:90820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+  8 passed (8.8s)
+
+
+
+ NX   Successfully ran target e2e for project @site/individual-e2e
+
+

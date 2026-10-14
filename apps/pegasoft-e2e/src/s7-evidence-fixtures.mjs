@@ -91,7 +91,11 @@ export async function syntheticPacket(root) {
         },
       };
       const rawImages = [];
-      for (let repetition = 1; repetition <= S7_CAPTURE_REPETITIONS; repetition += 1) {
+      for (
+        let repetition = 1;
+        repetition <= S7_CAPTURE_REPETITIONS;
+        repetition += 1
+      ) {
         const imagePath = `${plan.runDir}/images/${shard.id}/${id.replaceAll('/', '--')}--repeat-${repetition}.png`;
         await mkdir(resolve(root, imagePath, '..'), { recursive: true });
         await writeFile(resolve(root, imagePath), PNG);

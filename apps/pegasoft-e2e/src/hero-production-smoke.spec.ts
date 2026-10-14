@@ -13,13 +13,19 @@ test('shipping build renders an ordinary usable hero', async ({ page }) => {
   await expect
     .poll(() => shell.getAttribute('data-hero-attempt-state'))
     .toMatch(/^(ready|fallback)$/u);
-  await expect(page.getByRole('heading', { name: /the new standard\s+in product delivery/i })).toBeVisible();
+  await expect(
+    page.getByRole('heading', {
+      name: /the new standard\s+in product delivery/i,
+    }),
+  ).toBeVisible();
   await expect(page.locator('header.pegasoft-header')).toBeVisible();
   await expect(shell).toHaveAttribute('data-loader-cleared', 'true');
   expect(runtimeErrors).toEqual([]);
 });
 
-test('shipping build handles an actual canvas context loss with useful fallback', async ({ page }) => {
+test('shipping build handles an actual canvas context loss with useful fallback', async ({
+  page,
+}) => {
   await page.goto('/');
   const shell = page.locator('[data-hero-shell]');
   await expect(shell).toHaveAttribute('data-hero-attempt-state', 'ready');
@@ -31,7 +37,9 @@ test('shipping build handles an actual canvas context loss with useful fallback'
       .getExtension('WEBGL_lose_context')!
       .loseContext();
   });
-  await expect(shell).toHaveAttribute('data-hero-attempt-state', 'fallback', { timeout: 1_000 });
+  await expect(shell).toHaveAttribute('data-hero-attempt-state', 'fallback', {
+    timeout: 1_000,
+  });
   const fallbackShapes = shell.locator('[data-hero-fallback-shape]');
   await expect(fallbackShapes).toHaveCount(4);
   await expect(fallbackShapes.first()).toBeVisible();

@@ -368,8 +368,7 @@ test.describe('Phase 19 hero performance probe', () => {
       if (probe.supported.lcp) {
         new PerformanceObserver((list) => {
           const entry = list.getEntries().at(-1) as
-            | LargestContentfulPaintEntry
-            | undefined;
+            LargestContentfulPaintEntry | undefined;
 
           if (entry) {
             probe.lcp = {
@@ -949,8 +948,7 @@ test.describe('Phase 19 hero performance probe', () => {
           };
         });
         const navigation = performance.getEntriesByType('navigation').at(-1) as
-          | PerformanceNavigationTiming
-          | undefined;
+          PerformanceNavigationTiming | undefined;
         const resourceEntries = performance.getEntriesByType(
           'resource',
         ) as PerformanceResourceTiming[];

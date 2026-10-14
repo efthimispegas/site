@@ -18,7 +18,10 @@ export default defineConfig({
   workers: 1,
   reporter: [
     ['line'],
-    ['json', { outputFile: 'test-output/playwright/s7-production-results.json' }],
+    [
+      'json',
+      { outputFile: 'test-output/playwright/s7-production-results.json' },
+    ],
   ],
   use: { baseURL, trace: 'on-first-retry' },
   webServer: {
@@ -28,7 +31,13 @@ export default defineConfig({
     cwd: appRoot,
   },
   projects: [
-    { name: 'desktop-chrome', use: { ...devices['Desktop Chrome'], channel: 'chrome', baseURL } },
-    { name: 'mobile-chrome', use: { ...devices['Pixel 5'], channel: 'chrome', baseURL } },
+    {
+      name: 'desktop-chrome',
+      use: { ...devices['Desktop Chrome'], channel: 'chrome', baseURL },
+    },
+    {
+      name: 'mobile-chrome',
+      use: { ...devices['Pixel 5'], channel: 'chrome', baseURL },
+    },
   ],
 });

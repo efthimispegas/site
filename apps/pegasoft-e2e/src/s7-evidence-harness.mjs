@@ -15,8 +15,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import sharp from 'sharp';
 
 export const S7_EVIDENCE_SCHEMA_VERSION = 1;
-export const S7_RESTORATION_CONTRACT =
-  'restoration-reachability-amendment-v1';
+export const S7_RESTORATION_CONTRACT = 'restoration-reachability-amendment-v1';
 export const S7_CAPTURE_REPETITIONS = 2;
 export const workspaceRoot = resolve(
   dirname(fileURLToPath(import.meta.url)),
@@ -35,9 +34,7 @@ export function loadRepairMatrixContract() {
   return matrixContractPromise;
 }
 
-const IMPLEMENTATION_ROOTS = [
-  'apps/pegasoft/src/app/shared/hero-scene',
-];
+const IMPLEMENTATION_ROOTS = ['apps/pegasoft/src/app/shared/hero-scene'];
 const IMPLEMENTATION_FILES = [
   'apps/pegasoft/src/app/shared/pegasoft-home.tsx',
   'apps/pegasoft/src/app/shared/pegasoft-home.module.css',
@@ -111,7 +108,11 @@ async function hashFileSet(paths, root) {
   }
   return {
     sha256: sha256(
-      files.map(({ path, bytes, sha256: digest }) => `${path}\0${bytes}\0${digest}\n`).join(''),
+      files
+        .map(
+          ({ path, bytes, sha256: digest }) => `${path}\0${bytes}\0${digest}\n`,
+        )
+        .join(''),
     ),
     files,
   };
@@ -122,10 +123,7 @@ async function hashGroup(paths, root) {
 }
 
 async function hashBuild(buildRoot, root) {
-  const files = await walkFiles(
-    buildRoot,
-    (path) => !path.includes('/cache/'),
-  );
+  const files = await walkFiles(buildRoot, (path) => !path.includes('/cache/'));
   assert(files.length > 0, `diagnostics build is empty: ${buildRoot}`);
   return hashFileSet(files, root);
 }
@@ -162,10 +160,7 @@ export async function cellAssertion(operation) {
     ) {
       throw error;
     }
-    throw new CellAssertionError(
-      message,
-      { cause: error },
-    );
+    throw new CellAssertionError(message, { cause: error });
   }
 }
 
@@ -203,7 +198,8 @@ export async function executeShardCells({
       await persist({ results: [...results], fatal: null });
     } catch (error) {
       const errorKind = classifyExecutionError(error, fatalContext());
-      const errorMessage = error instanceof Error ? error.message : String(error);
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
       if (errorKind === 'fatal-runner') {
         const fatal = { cellId: cell.id, errorKind, error: errorMessage };
         await persist({ results: [...results], fatal });
@@ -238,7 +234,11 @@ async function withinCleanupDeadline(operation, label, timeoutMs) {
   }
 }
 
-export async function closeShardResources({ page, context, timeoutMs = 5_000 }) {
+export async function closeShardResources({
+  page,
+  context,
+  timeoutMs = 5_000,
+}) {
   const failures = [];
   if (page && !page.isClosed()) {
     await withinCleanupDeadline(() => page.close(), 'page', timeoutMs).catch(
@@ -246,19 +246,30 @@ export async function closeShardResources({ page, context, timeoutMs = 5_000 }) 
     );
   }
   if (context) {
-    await withinCleanupDeadline(() => context.close(), 'context', timeoutMs).catch(
-      (error) => failures.push(error),
-    );
+    await withinCleanupDeadline(
+      () => context.close(),
+      'context',
+      timeoutMs,
+    ).catch((error) => failures.push(error));
   }
-  if (failures.length > 0) throw new AggregateError(failures, 'resource cleanup failed');
+  if (failures.length > 0)
+    throw new AggregateError(failures, 'resource cleanup failed');
 }
 
-export async function beginEvidenceAttempt(runDir, providedPlan, { resume = false } = {}) {
+export async function beginEvidenceAttempt(
+  runDir,
+  providedPlan,
+  { resume = false } = {},
+) {
   const plan = providedPlan ?? (await loadEvidencePlan(runDir));
   if (resume) {
     const attempt = await loadEvidenceAttempt(runDir);
     assert.equal(attempt.schemaVersion, S7_EVIDENCE_SCHEMA_VERSION);
-    assert.equal(attempt.runId, plan.runId, 'resume refused: attempt runId differs from plan');
+    assert.equal(
+      attempt.runId,
+      plan.runId,
+      'resume refused: attempt runId differs from plan',
+    );
     assert.equal(
       attempt.planHash,
       plan.planHash,
@@ -270,7 +281,11 @@ export async function beginEvidenceAttempt(runDir, providedPlan, { resume = fals
     const target = resolve(runDir, directory);
     try {
       const entries = await readdir(target);
-      assert.equal(entries.length, 0, `fresh attempt refused: ${directory} is not empty`);
+      assert.equal(
+        entries.length,
+        0,
+        `fresh attempt refused: ${directory} is not empty`,
+      );
     } catch (error) {
       if (error?.code !== 'ENOENT') throw error;
     }
@@ -371,12 +386,19 @@ export async function createEvidencePlan({
 export async function loadEvidencePlan(runDir) {
   const plan = JSON.parse(await readFile(resolve(runDir, 'plan.json'), 'utf8'));
   const { planHash, ...unsigned } = plan;
-  assert.equal(planHash, sha256(JSON.stringify(unsigned)), 'plan hash mismatch');
+  assert.equal(
+    planHash,
+    sha256(JSON.stringify(unsigned)),
+    'plan hash mismatch',
+  );
   return plan;
 }
 
 async function validateFileGroup(group, root, label) {
-  assert(group && Array.isArray(group.files), `missing ${label} provenance group`);
+  assert(
+    group && Array.isArray(group.files),
+    `missing ${label} provenance group`,
+  );
   const current = await hashFileSet(
     group.files.map(({ path }) => resolve(root, path)),
     root,
@@ -403,35 +425,74 @@ async function assertPng(path) {
     .raw()
     .toBuffer({ resolveWithObject: true });
   assert.equal(decoded.info.format, 'raw');
-  assert(decoded.info.width > 0 && decoded.info.height > 0, `empty PNG: ${path}`);
+  assert(
+    decoded.info.width > 0 && decoded.info.height > 0,
+    `empty PNG: ${path}`,
+  );
 }
 
 function assertCommittedFrame(expected, result) {
   const record = result.observed?.appliedFrame;
   const frame = record?.frame;
-  assert(Number.isInteger(frame?.frameId) && frame.frameId > 0, `${expected.id} invalid frame ID`);
-  assert(Number.isFinite(result.observed?.renderedAtMs) && result.observed.renderedAtMs > 0, `${expected.id} invalid render timestamp`);
+  assert(
+    Number.isInteger(frame?.frameId) && frame.frameId > 0,
+    `${expected.id} invalid frame ID`,
+  );
+  assert(
+    Number.isFinite(result.observed?.renderedAtMs) &&
+      result.observed.renderedAtMs > 0,
+    `${expected.id} invalid render timestamp`,
+  );
   assert(Number.isFinite(frame.target), `${expected.id} invalid target`);
-  assert(Number.isFinite(frame.rendered?.value), `${expected.id} invalid rendered value`);
+  assert(
+    Number.isFinite(frame.rendered?.value),
+    `${expected.id} invalid rendered value`,
+  );
   const capturesContactPhase =
-    expected.state === 'field-contact' && expected.entryMode !== 'native-restored';
+    expected.state === 'field-contact' &&
+    expected.entryMode !== 'native-restored';
   if (!capturesContactPhase) {
-    assert(Math.abs(frame.target - frame.rendered.value) <= 0.002, `${expected.id} target/rendered mismatch`);
+    assert(
+      Math.abs(frame.target - frame.rendered.value) <= 0.002,
+      `${expected.id} target/rendered mismatch`,
+    );
   }
   if (expected.sceneSelection !== null) {
-    assert(Math.abs(frame.target - expected.sceneSelection) <= 0.002, `${expected.id} selected a different target`);
+    assert(
+      Math.abs(frame.target - expected.sceneSelection) <= 0.002,
+      `${expected.id} selected a different target`,
+    );
   }
   const consumers = Object.values(record.appliedConsumers ?? {});
   assert(consumers.length > 0, `${expected.id} missing applied consumers`);
-  assert(consumers.every((consumer) => consumer.frameId === frame.frameId), `${expected.id} consumer frame mismatch`);
-  if (expected.state === 'field-contact' && expected.entryMode !== 'native-restored') {
-    assert(Number.isFinite(frame.fieldElapsedMs) && frame.fieldElapsedMs >= 0 && frame.fieldElapsedMs < 300, `${expected.id} invalid contact clock`);
+  assert(
+    consumers.every((consumer) => consumer.frameId === frame.frameId),
+    `${expected.id} consumer frame mismatch`,
+  );
+  if (
+    expected.state === 'field-contact' &&
+    expected.entryMode !== 'native-restored'
+  ) {
+    assert(
+      Number.isFinite(frame.fieldElapsedMs) &&
+        frame.fieldElapsedMs >= 0 &&
+        frame.fieldElapsedMs < 300,
+      `${expected.id} invalid contact clock`,
+    );
   }
   if (expected.state === 'field-pulse-a') {
-    assert(Number.isFinite(frame.fieldElapsedMs) && frame.fieldElapsedMs >= 300 && frame.fieldElapsedMs < 1_600, `${expected.id} invalid pulse-A clock`);
+    assert(
+      Number.isFinite(frame.fieldElapsedMs) &&
+        frame.fieldElapsedMs >= 300 &&
+        frame.fieldElapsedMs < 1_600,
+      `${expected.id} invalid pulse-A clock`,
+    );
   }
   if (expected.state === 'field-pulse-b') {
-    assert(Number.isFinite(frame.fieldElapsedMs) && frame.fieldElapsedMs >= 2_800, `${expected.id} invalid pulse-B clock`);
+    assert(
+      Number.isFinite(frame.fieldElapsedMs) && frame.fieldElapsedMs >= 2_800,
+      `${expected.id} invalid pulse-B clock`,
+    );
   }
 }
 
@@ -446,19 +507,59 @@ function classifyFieldFamily(result) {
 function assertRestoration(expected, result) {
   if (expected.entryMode !== 'native-restored') return;
   const evidence = result.restorationEvidence;
-  assert.equal(evidence?.navigation, 'genuine-non-hero-away-back', `${expected.id} lacks genuine restoration`);
-  assert.equal(evidence?.postBackScrollCorrection, false, `${expected.id} used post-back correction`);
-  assert(evidence.awayUrl && evidence.restoredUrl && evidence.awayUrl !== evidence.restoredUrl, `${expected.id} invalid away/back URLs`);
-  assert(Math.abs(evidence.restoredScrollY - evidence.preNavigationScrollY) <= 1, `${expected.id} scroll was not restored`);
-  assert(Math.abs(evidence.restoredScrollY - evidence.expectedScrollY) <= 1, `${expected.id} restored unexpected scroll`);
+  assert.equal(
+    evidence?.navigation,
+    'genuine-non-hero-away-back',
+    `${expected.id} lacks genuine restoration`,
+  );
+  assert.equal(
+    evidence?.postBackScrollCorrection,
+    false,
+    `${expected.id} used post-back correction`,
+  );
+  assert(
+    evidence.awayUrl &&
+      evidence.restoredUrl &&
+      evidence.awayUrl !== evidence.restoredUrl,
+    `${expected.id} invalid away/back URLs`,
+  );
+  assert(
+    Math.abs(evidence.restoredScrollY - evidence.preNavigationScrollY) <= 1,
+    `${expected.id} scroll was not restored`,
+  );
+  assert(
+    Math.abs(evidence.restoredScrollY - evidence.expectedScrollY) <= 1,
+    `${expected.id} restored unexpected scroll`,
+  );
   if (expected.state === 'field-contact') {
-    assert.equal(result.selectedContract, S7_RESTORATION_CONTRACT, `${expected.id} wrong restoration contract`);
+    assert.equal(
+      result.selectedContract,
+      S7_RESTORATION_CONTRACT,
+      `${expected.id} wrong restoration contract`,
+    );
     const first = evidence.firstEligible;
     assert(first, `${expected.id} missing first eligible frame`);
-    assert.equal(first.appliedFrame?.frame?.frameId, result.observed.appliedFrame.frame.frameId, `${expected.id} first eligible frame changed`);
-    assert.equal(first.renderedAtMs, result.observed.renderedAtMs, `${expected.id} first eligible timestamp changed`);
-    assert(Number.isFinite(first.appliedFrame?.frame?.fieldElapsedMs) && first.appliedFrame.frame.fieldElapsedMs >= 0, `${expected.id} invalid restored field clock`);
-    assert(['field-contact', 'field-pulse-a', 'field-pulse-b'].includes(classifyFieldFamily(result)), `${expected.id} left the field family`);
+    assert.equal(
+      first.appliedFrame?.frame?.frameId,
+      result.observed.appliedFrame.frame.frameId,
+      `${expected.id} first eligible frame changed`,
+    );
+    assert.equal(
+      first.renderedAtMs,
+      result.observed.renderedAtMs,
+      `${expected.id} first eligible timestamp changed`,
+    );
+    assert(
+      Number.isFinite(first.appliedFrame?.frame?.fieldElapsedMs) &&
+        first.appliedFrame.frame.fieldElapsedMs >= 0,
+      `${expected.id} invalid restored field clock`,
+    );
+    assert(
+      ['field-contact', 'field-pulse-a', 'field-pulse-b'].includes(
+        classifyFieldFamily(result),
+      ),
+      `${expected.id} left the field family`,
+    );
   }
 }
 
@@ -477,7 +578,11 @@ export async function validateEvidencePacket({
     states,
     validateRepairMatrix,
   } = await loadRepairMatrixContract();
-  assert.equal(attempt?.schemaVersion, S7_EVIDENCE_SCHEMA_VERSION, 'missing attempt record');
+  assert.equal(
+    attempt?.schemaVersion,
+    S7_EVIDENCE_SCHEMA_VERSION,
+    'missing attempt record',
+  );
   assert.equal(attempt?.runId, plan.runId, 'attempt uses another run');
   assert.equal(attempt?.planHash, plan.planHash, 'attempt uses another plan');
   assert.equal(typeof attempt?.attemptId, 'string', 'missing attempt ID');
@@ -515,15 +620,41 @@ export async function validateEvidencePacket({
   const allResults = [];
   for (const shard of shards) {
     assert.equal(shard.schemaVersion, S7_EVIDENCE_SCHEMA_VERSION);
-    assert.equal(shard.runId, plan.runId, `mixed run in shard ${shard.shardId}`);
-    assert.equal(shard.planHash, plan.planHash, `mixed plan in shard ${shard.shardId}`);
-    assert.equal(shard.attemptId, attempt.attemptId, `mixed attempt in shard ${shard.shardId}`);
-    assert(!actualShardIds.has(shard.shardId), `duplicate shard ${shard.shardId}`);
+    assert.equal(
+      shard.runId,
+      plan.runId,
+      `mixed run in shard ${shard.shardId}`,
+    );
+    assert.equal(
+      shard.planHash,
+      plan.planHash,
+      `mixed plan in shard ${shard.shardId}`,
+    );
+    assert.equal(
+      shard.attemptId,
+      attempt.attemptId,
+      `mixed attempt in shard ${shard.shardId}`,
+    );
+    assert(
+      !actualShardIds.has(shard.shardId),
+      `duplicate shard ${shard.shardId}`,
+    );
     actualShardIds.add(shard.shardId);
-    assert(expectedShardIds.has(shard.shardId), `unexpected shard ${shard.shardId}`);
+    assert(
+      expectedShardIds.has(shard.shardId),
+      `unexpected shard ${shard.shardId}`,
+    );
     const plannedShard = planShardById.get(shard.shardId);
-    assert.equal(shard.profile, plannedShard.profile, `wrong profile in ${shard.shardId}`);
-    assert.equal(shard.state, plannedShard.state, `wrong state in ${shard.shardId}`);
+    assert.equal(
+      shard.profile,
+      plannedShard.profile,
+      `wrong profile in ${shard.shardId}`,
+    );
+    assert.equal(
+      shard.state,
+      plannedShard.state,
+      `wrong state in ${shard.shardId}`,
+    );
     assert.deepEqual(
       shard.expectedCellIds,
       plannedShard.expectedCellIds,
@@ -537,7 +668,11 @@ export async function validateEvidencePacket({
     assert.equal(shard.fatal, null, `fatal runner failure in ${shard.shardId}`);
     allResults.push(...shard.results);
   }
-  assert.deepEqual([...actualShardIds].sort(), [...expectedShardIds].sort(), 'missing shards');
+  assert.deepEqual(
+    [...actualShardIds].sort(),
+    [...expectedShardIds].sort(),
+    'missing shards',
+  );
   const byId = new Map();
   const ownedImagePaths = new Set();
   for (const result of allResults) {
@@ -552,12 +687,24 @@ export async function validateEvidencePacket({
   for (const expected of expectedCells) {
     const result = byId.get(expected.id);
     if (expected.status === 'not-applicable') {
-      assert.equal(result.status, 'not-applicable', `${expected.id} changed N/A category`);
-      assert.equal(result.reason, expected.reason, `${expected.id} changed N/A reason`);
+      assert.equal(
+        result.status,
+        'not-applicable',
+        `${expected.id} changed N/A category`,
+      );
+      assert.equal(
+        result.reason,
+        expected.reason,
+        `${expected.id} changed N/A reason`,
+      );
       continue;
     }
     assert.equal(result.status, 'pass', `${expected.id} is not a pass`);
-    assert.equal(result.errorKind, undefined, `${expected.id} retains an error kind`);
+    assert.equal(
+      result.errorKind,
+      undefined,
+      `${expected.id} retains an error kind`,
+    );
     assert.equal(
       result.rawImages?.length,
       plan.deterministicInputs.captureRepetitions,
@@ -575,11 +722,22 @@ export async function validateEvidencePacket({
           `${expected.id.replaceAll('/', '--')}--repeat-${index + 1}.png`,
         ),
       );
-      assert.equal(image.path, expectedImagePath, `${expected.id} noncanonical image path`);
-      assert(!ownedImagePaths.has(image.path), `duplicate image ownership: ${image.path}`);
+      assert.equal(
+        image.path,
+        expectedImagePath,
+        `${expected.id} noncanonical image path`,
+      );
+      assert(
+        !ownedImagePaths.has(image.path),
+        `duplicate image ownership: ${image.path}`,
+      );
       ownedImagePaths.add(image.path);
       const imagePath = resolve(root, image.path);
-      assert.equal(await sha256File(imagePath), image.sha256, `${expected.id} image hash mismatch`);
+      assert.equal(
+        await sha256File(imagePath),
+        image.sha256,
+        `${expected.id} image hash mismatch`,
+      );
       await assertPng(imagePath);
     }
     assertCommittedFrame(expected, result);
@@ -587,10 +745,13 @@ export async function validateEvidencePacket({
   }
   const counts = {
     total: allResults.length,
-    applicable: allResults.filter(({ status }) => status !== 'not-applicable').length,
+    applicable: allResults.filter(({ status }) => status !== 'not-applicable')
+      .length,
     passed: allResults.filter(({ status }) => status === 'pass').length,
     failed: allResults.filter(({ status }) => status === 'fail').length,
-    notApplicable: allResults.filter(({ status }) => status === 'not-applicable').length,
+    notApplicable: allResults.filter(
+      ({ status }) => status === 'not-applicable',
+    ).length,
   };
   assert.deepEqual(counts, {
     total: 360,
@@ -604,18 +765,33 @@ export async function validateEvidencePacket({
 
 async function readShards(runDir) {
   const shardDir = resolve(runDir, 'shards');
-  const names = (await readdir(shardDir)).filter((name) => name.endsWith('.json')).sort();
-  return Promise.all(names.map(async (name) => JSON.parse(await readFile(resolve(shardDir, name), 'utf8'))));
+  const names = (await readdir(shardDir))
+    .filter((name) => name.endsWith('.json'))
+    .sort();
+  return Promise.all(
+    names.map(async (name) =>
+      JSON.parse(await readFile(resolve(shardDir, name), 'utf8')),
+    ),
+  );
 }
 
 async function main() {
   const [command, runDirArgument] = process.argv.slice(2);
-  assert(command === 'create-plan' || command === 'validate', 'usage: s7-evidence-harness.mjs <create-plan|validate> <run-dir>');
+  assert(
+    command === 'create-plan' || command === 'validate',
+    'usage: s7-evidence-harness.mjs <create-plan|validate> <run-dir>',
+  );
   assert(runDirArgument, 'run directory is required');
   const runDir = resolve(workspaceRoot, runDirArgument);
   if (command === 'create-plan') {
     const plan = await createEvidencePlan({ runDir });
-    console.log(JSON.stringify({ runId: plan.runId, planHash: plan.planHash, shards: plan.shards.length }));
+    console.log(
+      JSON.stringify({
+        runId: plan.runId,
+        planHash: plan.planHash,
+        shards: plan.shards.length,
+      }),
+    );
     return;
   }
   const plan = await loadEvidencePlan(runDir);
@@ -624,10 +800,15 @@ async function main() {
     attempt: await loadEvidenceAttempt(runDir),
     shards: await readShards(runDir),
   });
-  console.log(JSON.stringify({ runId: plan.runId, planHash: plan.planHash, counts }));
+  console.log(
+    JSON.stringify({ runId: plan.runId, planHash: plan.planHash, counts }),
+  );
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (
+  process.argv[1] &&
+  import.meta.url === pathToFileURL(process.argv[1]).href
+) {
   main().catch((error) => {
     console.error(error);
     process.exitCode = 1;

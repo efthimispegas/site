@@ -125,8 +125,9 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
     const blueZeroRatio = frame.ratios.blueZero;
     const blueOneRatio = frame.ratios.blueOne;
     const quantize = (ratio: number) =>
-      Math.ceil(THREE.MathUtils.clamp(ratio, 0, 1) * BLUE_TUBE_TUBULAR_SEGMENTS) /
-      BLUE_TUBE_TUBULAR_SEGMENTS;
+      Math.ceil(
+        THREE.MathUtils.clamp(ratio, 0, 1) * BLUE_TUBE_TUBULAR_SEGMENTS,
+      ) / BLUE_TUBE_TUBULAR_SEGMENTS;
     const routeProgress =
       blueZeroRatio < 1
         ? THREE.MathUtils.lerp(
@@ -134,11 +135,7 @@ export function HeroBeam({ frameRef }: { frameRef: HeroFrameRef }) {
             BLUE_ZERO_ROUTE_END,
             quantize(blueZeroRatio),
           )
-        : THREE.MathUtils.lerp(
-            BLUE_ZERO_ROUTE_END,
-            1,
-            quantize(blueOneRatio),
-          );
+        : THREE.MathUtils.lerp(BLUE_ZERO_ROUTE_END, 1, quantize(blueOneRatio));
     const tip = getHeroRoutePoint(
       blueZeroRatio > 0
         ? routeProgress

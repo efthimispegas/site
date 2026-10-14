@@ -1,0 +1,153 @@
+
+> nx run @site/individual-e2e:e2e --retries=0 --reporter=line
+
+> playwright test --retries=0 --reporter=line
+
+(node:79333) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:79341) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:79342) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:79348) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 8 tests using 5 workers
+
+(node:79358) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79355) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+(node:79357) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:79359) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+
+(node:79356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/8] [chromium] › src/individual.spec.ts:14:5 › work pages use concept portfolio language
+[2/8] [chromium] › src/individual.spec.ts:26:5 › mobile layout avoids horizontal overflow
+[3/8] [Mobile Chrome] › src/individual.spec.ts:4:5 › homepage presents the provisional individual brand
+[4/8] [chromium] › src/individual.spec.ts:4:5 › homepage presents the provisional individual brand
+[5/8] [chromium] › src/individual.spec.ts:36:5 › homepage has no serious or critical accessibility violations
+[6/8] [Mobile Chrome] › src/individual.spec.ts:26:5 › mobile layout avoids horizontal overflow
+  1) [chromium] › src/individual.spec.ts:36:5 › homepage has no serious or critical accessibility violations 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#f6f0e6",
+    +               "contrastRatio": 1.32,
+    +               "expectedContrastRatio": "3:1",
+    +               "fgColor": "#d7d2c9",
+    +               "fontSize": "153.6pt (204.8px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 1.32 (foreground color: #d7d2c9, background color: #f6f0e6, font size: 153.6pt (204.8px), font weight: normal). Expected contrast ratio of 3:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<body>",
+    +                 "target": Array [
+    +                   "body",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 1.32 (foreground color: #d7d2c9, background color: #f6f0e6, font size: 153.6pt (204.8px), font weight: normal). Expected contrast ratio of 3:1",
+    +         "html": "<span data-kinetic=\"line\" style=\"opacity: 0.1336; transform: translateY(41.5887px);\">Vale</span>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           "span[data-kinetic=\"line\"]:nth-child(2)",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      45 |   );
+      46 |
+    > 47 |   expect(seriousViolations).toEqual([]);
+         |                             ^
+      48 | });
+      49 |
+        at /Users/whiskey/Work/site/apps/individual-e2e/src/individual.spec.ts:47:29
+
+    Error Context: test-output/playwright/output/individual-homepage-has-no-9ea73-al-accessibility-violations-chromium/error-context.md
+
+
+(node:79384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+(node:79385) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[WebServer] (node:79387) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[7/8] [Mobile Chrome] › src/individual.spec.ts:14:5 › work pages use concept portfolio language
+[8/8] [Mobile Chrome] › src/individual.spec.ts:36:5 › homepage has no serious or critical accessibility violations
+[WebServer] (node:79397) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+  1 failed
+    [chromium] › src/individual.spec.ts:36:5 › homepage has no serious or critical accessibility violations 
+  7 passed (4.4s)
+Warning: command "playwright test --retries=0 --reporter=line" exited with non-zero status code
+
+
+ NX   Running target e2e for project @site/individual-e2e failed
+
+Failed tasks:
+
+- @site/individual-e2e:e2e
+
+Hint: run the command with --verbose for more details.
+

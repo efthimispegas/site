@@ -1,0 +1,65 @@
+{
+  "attributes": {
+    "id": "outer",
+    "data-hero-render-ready": "true"
+  },
+  "canvasVisible": true,
+  "fontsReady": true,
+  "loaderCleared": false,
+  "lifecycleElapsedMs": null,
+  "record": {
+    "renderedAtMs": 130,
+    "frame": {
+      "frameId": 7,
+      "target": 0,
+      "rendered": {
+        "value": 0,
+        "velocity": 0
+      },
+      "fieldElapsedMs": 0
+    },
+    "appliedConsumers": {
+      "camera": {
+        "frameId": 7
+      },
+      "field": {
+        "frameId": 7
+      }
+    },
+    "canvas": {
+      "cssWidth": 240,
+      "cssHeight": 220,
+      "backingWidth": 240,
+      "backingHeight": 220
+    }
+  },
+  "presentation": {
+    "status": "uncertain",
+    "binding": {
+      "status": "bound-to-completed-frame",
+      "frameId": 7
+    },
+    "clipping": {
+      "status": "unsupported",
+      "intersection": null,
+      "horizontalCropPlaneCssY": null,
+      "reasons": [
+        "nonrectangular-or-unresolved-clip-path"
+      ]
+    },
+    "opacity": {
+      "status": "observed-css-opacity-product",
+      "quantity": "ancestor-css-group-opacity-product",
+      "cssOpacityProduct": 1,
+      "sceneMaterialOpacity": null,
+      "reasons": []
+    },
+    "temporal": {
+      "status": "static-at-sample"
+    },
+    "timing": {
+      "sampleStartedAtMs": 133.90000000596046,
+      "sampleEndedAtMs": 134.09999999403954
+    }
+  }
+}

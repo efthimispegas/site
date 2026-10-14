@@ -57,15 +57,25 @@ function bootstrapCaptureCssClock() {
   const log: CaptureCssClockSnapshot['log'] = [];
   let nextId = 0;
   let synchronizing = false;
-  function readEffectIdentity(animation: Animation): Pick<CaptureCssClockSnapshot['animations'][number], 'animationName' | 'transitionProperty' | 'target' | 'timing'> {
-    const effect = animation.effect instanceof KeyframeEffect ? animation.effect : null;
+  function readEffectIdentity(
+    animation: Animation,
+  ): Pick<
+    CaptureCssClockSnapshot['animations'][number],
+    'animationName' | 'transitionProperty' | 'target' | 'timing'
+  > {
+    const effect =
+      animation.effect instanceof KeyframeEffect ? animation.effect : null;
     const element = effect?.target;
     let selector: string | null = null;
     if (element) {
       // Use an ID only when it identifies this exact element uniquely. Otherwise
       // retain its capture-time DOM path, never assign meaning from animation order.
       const idSelector = element.id ? `#${CSS.escape(element.id)}` : null;
-      if (idSelector && document.querySelectorAll(idSelector).length === 1 && document.querySelector(idSelector) === element) {
+      if (
+        idSelector &&
+        document.querySelectorAll(idSelector).length === 1 &&
+        document.querySelector(idSelector) === element
+      ) {
         selector = idSelector;
       } else {
         const parts: string[] = [];
@@ -77,31 +87,51 @@ function bootstrapCaptureCssClock() {
           node = parent;
         }
         const candidate = parts.join(' > ');
-        if (document.querySelectorAll(candidate).length === 1 && document.querySelector(candidate) === element) selector = candidate;
+        if (
+          document.querySelectorAll(candidate).length === 1 &&
+          document.querySelector(candidate) === element
+        )
+          selector = candidate;
       }
     }
     const timing = effect?.getTiming();
     return {
-      animationName: animation instanceof CSSAnimation ? animation.animationName : null,
-      transitionProperty: animation instanceof CSSTransition ? animation.transitionProperty : null,
-      target: element ? {
-        tagName: element.localName,
-        namespaceURI: element.namespaceURI,
-        id: element.id,
-        className: element.getAttribute('class') ?? '',
-        selector,
-        pseudoElement: effect?.pseudoElement ?? null,
-      } : null,
-      timing: timing ? {
-        delay: timing.delay ?? 0,
-        endDelay: timing.endDelay ?? 0,
-        duration: timing.duration === Infinity ? 'infinite' : typeof timing.duration === 'object' ? timing.duration.toString() : timing.duration ?? 'auto',
-        iterations: timing.iterations === Infinity ? 'infinite' as const : timing.iterations ?? 1,
-        iterationStart: timing.iterationStart ?? 0,
-        direction: timing.direction ?? 'normal',
-        fill: timing.fill ?? 'auto',
-        easing: timing.easing ?? 'linear',
-      } : null,
+      animationName:
+        animation instanceof CSSAnimation ? animation.animationName : null,
+      transitionProperty:
+        animation instanceof CSSTransition
+          ? animation.transitionProperty
+          : null,
+      target: element
+        ? {
+            tagName: element.localName,
+            namespaceURI: element.namespaceURI,
+            id: element.id,
+            className: element.getAttribute('class') ?? '',
+            selector,
+            pseudoElement: effect?.pseudoElement ?? null,
+          }
+        : null,
+      timing: timing
+        ? {
+            delay: timing.delay ?? 0,
+            endDelay: timing.endDelay ?? 0,
+            duration:
+              timing.duration === Infinity
+                ? 'infinite'
+                : typeof timing.duration === 'object'
+                  ? timing.duration.toString()
+                  : (timing.duration ?? 'auto'),
+            iterations:
+              timing.iterations === Infinity
+                ? ('infinite' as const)
+                : (timing.iterations ?? 1),
+            iterationStart: timing.iterationStart ?? 0,
+            direction: timing.direction ?? 'normal',
+            fill: timing.fill ?? 'auto',
+            easing: timing.easing ?? 'linear',
+          }
+        : null,
     };
   }
   function sync() {

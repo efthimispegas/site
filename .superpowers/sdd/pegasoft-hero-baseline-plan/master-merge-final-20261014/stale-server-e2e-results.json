@@ -1,0 +1,3530 @@
+{
+  "config": {
+    "argv": [
+      "/Users/whiskey/.nvm/versions/node/v24.19.0/bin/node",
+      "/Users/whiskey/Work/site/node_modules/@playwright/test/cli.js",
+      "test",
+      "--retries=0",
+      "--reporter=line,json",
+      "--max-failures=3",
+      "--output=/tmp/pegasoft-merge-final-e2e"
+    ],
+    "configFile": "/Users/whiskey/Work/site/apps/pegasoft-e2e/playwright.config.ts",
+    "rootDir": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 3,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/tmp/pegasoft-merge-final-e2e",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src",
+        "testIgnore": [
+          "**/hero-production-smoke.spec.ts",
+          "**/hero-s7-diagnostics.spec.ts",
+          "**/hero-s7-matrix.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/tmp/pegasoft-merge-final-e2e",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src",
+        "testIgnore": [
+          "**/hero-production-smoke.spec.ts",
+          "**/hero-s7-diagnostics.spec.ts",
+          "**/hero-s7-matrix.spec.ts"
+        ],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pegasoft-merge-final-e2e",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src",
+        "snapshotDir": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src",
+        "testIgnore": [
+          "**/hero-production-smoke.spec.ts",
+          "**/hero-s7-diagnostics.spec.ts",
+          "**/hero-s7-matrix.spec.ts"
+        ],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4200",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "channel": "chrome"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/tmp/pegasoft-merge-final-e2e",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "Mobile Chrome",
+        "testDir": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src",
+        "snapshotDir": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src",
+        "testIgnore": [
+          "**/hero-production-smoke.spec.ts",
+          "**/hero-s7-diagnostics.spec.ts",
+          "**/hero-s7-matrix.spec.ts"
+        ],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "http://127.0.0.1:4200",
+          "trace": "on-first-retry",
+          "userAgent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 393,
+            "height": 727
+          },
+          "screen": {
+            "width": 393,
+            "height": 851
+          },
+          "deviceScaleFactor": 2.75,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "chromium",
+          "channel": "chrome"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "Mobile Chrome"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "line"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "pnpm --filter @site/pegasoft exec next dev -H 127.0.0.1 -p 4200",
+      "url": "http://127.0.0.1:4200",
+      "reuseExistingServer": true,
+      "cwd": "/Users/whiskey/Work/site"
+    }
+  },
+  "suites": [
+    {
+      "title": "hero-alternatives.spec.ts",
+      "file": "hero-alternatives.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "reduced motion is useful, non-blocking, deterministic, and keyboard reachable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 37016,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts",
+                        "column": 14,
+                        "line": 272
+                      },
+                      "message": "Error: page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4200/?__heroState=landing-idle&__heroTime=2500\", waiting until \"load\"\u001b[22m\n\n\n  270 |\n  271 |   await page.emulateMedia({ reducedMotion: 'reduce' });\n> 272 |   await page.goto(HERO_URL);\n      |              ^\n  273 |\n  274 |   const state = await waitForNamedHeroState(page);\n  275 |   await expect(state).toHaveAttribute('data-hero-motion', 'reduced');\n    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:272:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T13:15:45.131Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "failure-runtime-state",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1NS4wLjgwNTkuNDAiLCJkaWFnbm9zdGljc1VuYXZhaWxhYmxlIjoiRXJyb3I6IFJ1bnRpbWUgZGlhZ25vc3RpYyBkaWQgbm90IHJlc3BvbmQgd2l0aGluIDJzIn0="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/pegasoft-merge-final-e2e/hero-alternatives-reduced--52497-stic-and-keyboard-reachable-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-9f90b2d49120a965972e",
+          "file": "hero-alternatives.spec.ts",
+          "line": 266,
+          "column": 5
+        },
+        {
+          "title": "forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 37018,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts",
+                        "column": 14,
+                        "line": 295
+                      },
+                      "message": "Error: page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4200/?__heroState=landing-idle&__heroTime=2500&__heroFallback=1\", waiting until \"load\"\u001b[22m\n\n\n  293 |   const errors = captureRuntimeErrors(page);\n  294 |\n> 295 |   await page.goto(`${HERO_URL}&__heroFallback=1`);\n      |              ^\n  296 |\n  297 |   const state = await waitForNamedHeroState(page);\n  298 |   await expect(state).toHaveAttribute('data-hero-motion', 'static');\n    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:295:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T13:16:23.127Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "failure-runtime-state",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1NS4wLjgwNTkuNDAiLCJkaWFnbm9zdGljc1VuYXZhaWxhYmxlIjoiRXJyb3I6IFJ1bnRpbWUgZGlhZ25vc3RpYyBkaWQgbm90IHJlc3BvbmQgd2l0aGluIDJzIn0="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/pegasoft-merge-final-e2e/hero-alternatives-forced-W-7b87e-stic-and-keyboard-reachable-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-7a3ebfe451272cc66740",
+          "file": "hero-alternatives.spec.ts",
+          "line": 290,
+          "column": 5
+        },
+        {
+          "title": "active Canvas context loss latches useful fallback and unlocks the page",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 37028,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts",
+                        "column": 14,
+                        "line": 325
+                      },
+                      "message": "Error: page.goto: net::ERR_ABORTED; maybe frame was detached?\nCall log:\n\u001b[2m  - navigating to \"http://127.0.0.1:4200/?__heroState=landing-idle&__heroTime=2500\", waiting until \"load\"\u001b[22m\n\n\n  323 | }, testInfo) => {\n  324 |   const errors = captureRuntimeErrors(page);\n> 325 |   await page.goto(HERO_URL);\n      |              ^\n  326 |\n  327 |   const state = await waitForNamedHeroState(page);\n  328 |   await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready');\n    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:325:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T13:17:01.137Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "failure-runtime-state",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1NS4wLjgwNTkuNDAiLCJkaWFnbm9zdGljc1VuYXZhaWxhYmxlIjoiRXJyb3I6IFJ1bnRpbWUgZGlhZ25vc3RpYyBkaWQgbm90IHJlc3BvbmQgd2l0aGluIDJzIn0="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/tmp/pegasoft-merge-final-e2e/hero-alternatives-active-C-37449-llback-and-unlocks-the-page-chromium/error-context.md"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-ea9710c5b2f2368b5e65",
+          "file": "hero-alternatives.spec.ts",
+          "line": 321,
+          "column": 5
+        },
+        {
+          "title": "active Canvas context loss mid-journey latches fallback without a retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-a16f681e961f5aaa49d5",
+          "file": "hero-alternatives.spec.ts",
+          "line": 357,
+          "column": 5
+        },
+        {
+          "title": "delayed essential resources require a completed post-resource render",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-18cbe0c4060e60478a3c",
+          "file": "hero-alternatives.spec.ts",
+          "line": 396,
+          "column": 5
+        },
+        {
+          "title": "never-resolving essential resources reach useful fallback at the finite deadline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-897156d98802a922806e",
+          "file": "hero-alternatives.spec.ts",
+          "line": 479,
+          "column": 5
+        },
+        {
+          "title": "closed mobile navigation is hidden from assistive technology and keyboard focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-431d94f303e79c828632",
+          "file": "hero-alternatives.spec.ts",
+          "line": 502,
+          "column": 5
+        },
+        {
+          "title": "static fallback is deterministic during ordinary initial loading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-58150cc513bd438696b4",
+          "file": "hero-alternatives.spec.ts",
+          "line": 537,
+          "column": 5
+        },
+        {
+          "title": "expired loading deadline is checked on resume when its timer was throttled",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-4b4004c109aec30786cb",
+          "file": "hero-alternatives.spec.ts",
+          "line": 561,
+          "column": 5
+        },
+        {
+          "title": "ready scene survives the loading deadline and settles reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-00a334fbde47c4f154c4",
+          "file": "hero-alternatives.spec.ts",
+          "line": 615,
+          "column": 5
+        },
+        {
+          "title": "route remount rejects abandoned resource and context callbacks",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-f2dfed4caf631d426afe",
+          "file": "hero-alternatives.spec.ts",
+          "line": 705,
+          "column": 5
+        },
+        {
+          "title": "successful capability probe with failed actual Canvas selects fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-5a1f1cf3d89482b47ad4",
+          "file": "hero-alternatives.spec.ts",
+          "line": 744,
+          "column": 5
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: recording-desktop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-bcfa59c1cc898a780ba7",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: desktop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-004134979830807c1155",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: tablet",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-edce7a1eb9757f5275d9",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-68fdab3758c935899ada",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        },
+        {
+          "title": "reduced motion is useful, non-blocking, deterministic, and keyboard reachable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-fcdf5d4edb2a0d84097f",
+          "file": "hero-alternatives.spec.ts",
+          "line": 266,
+          "column": 5
+        },
+        {
+          "title": "forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-99e9b05850d93eef9e08",
+          "file": "hero-alternatives.spec.ts",
+          "line": 290,
+          "column": 5
+        },
+        {
+          "title": "active Canvas context loss latches useful fallback and unlocks the page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-83795f8a880f82fa6d3a",
+          "file": "hero-alternatives.spec.ts",
+          "line": 321,
+          "column": 5
+        },
+        {
+          "title": "active Canvas context loss mid-journey latches fallback without a retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-c2d3df37e042063ec742",
+          "file": "hero-alternatives.spec.ts",
+          "line": 357,
+          "column": 5
+        },
+        {
+          "title": "delayed essential resources require a completed post-resource render",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-b03a1532711dc9d0c455",
+          "file": "hero-alternatives.spec.ts",
+          "line": 396,
+          "column": 5
+        },
+        {
+          "title": "never-resolving essential resources reach useful fallback at the finite deadline",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-92ddeb0d778f33088ed2",
+          "file": "hero-alternatives.spec.ts",
+          "line": 479,
+          "column": 5
+        },
+        {
+          "title": "closed mobile navigation is hidden from assistive technology and keyboard focus",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-0b64955f2b8d853fd6d3",
+          "file": "hero-alternatives.spec.ts",
+          "line": 502,
+          "column": 5
+        },
+        {
+          "title": "static fallback is deterministic during ordinary initial loading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-06e8e3b8f188774f2347",
+          "file": "hero-alternatives.spec.ts",
+          "line": 537,
+          "column": 5
+        },
+        {
+          "title": "expired loading deadline is checked on resume when its timer was throttled",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-bba1dc3cccd0545d3c59",
+          "file": "hero-alternatives.spec.ts",
+          "line": 561,
+          "column": 5
+        },
+        {
+          "title": "ready scene survives the loading deadline and settles reduced motion",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-800cc978d8f96b267d75",
+          "file": "hero-alternatives.spec.ts",
+          "line": 615,
+          "column": 5
+        },
+        {
+          "title": "route remount rejects abandoned resource and context callbacks",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-43b132315a0cb71eaebf",
+          "file": "hero-alternatives.spec.ts",
+          "line": 705,
+          "column": 5
+        },
+        {
+          "title": "successful capability probe with failed actual Canvas selects fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-f5c60bcbae9883d07f1b",
+          "file": "hero-alternatives.spec.ts",
+          "line": 744,
+          "column": 5
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: recording-desktop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-e2943195a745f523eb43",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: desktop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-4e343da9046b199ee3ba",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: tablet",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-24b946eb931b9064ab34",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        },
+        {
+          "title": "ordinary entry visible ink, cue, CTA and accessibility: mobile",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "b8c939348beba6dbf90f-b58dc2f125a0be5f5a22",
+          "file": "hero-alternatives.spec.ts",
+          "line": 812,
+          "column": 7
+        }
+      ]
+    },
+    {
+      "title": "hero-performance.spec.ts",
+      "file": "hero-performance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Phase 19 hero performance probe",
+          "file": "hero-performance.spec.ts",
+          "line": 224,
+          "column": 6,
+          "specs": [
+            {
+              "title": "records a full forward and reverse hero scrub",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 75000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Set HERO_PERFORMANCE=1 to run the locked performance probe.",
+                      "location": {
+                        "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-performance.spec.ts",
+                        "line": 227,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b8e97475e65affe2e3c8-45f3602a06ef355616a6",
+              "file": "hero-performance.spec.ts",
+              "line": 233,
+              "column": 7
+            },
+            {
+              "title": "records a full forward and reverse hero scrub",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 75000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Set HERO_PERFORMANCE=1 to run the locked performance probe.",
+                      "location": {
+                        "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-performance.spec.ts",
+                        "line": 227,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "Mobile Chrome",
+                  "projectName": "Mobile Chrome",
+                  "results": [],
+                  "status": "skipped"
+                }
+              ],
+              "id": "b8e97475e65affe2e3c8-8d968a776d30e5fc3208",
+              "file": "hero-performance.spec.ts",
+              "line": 233,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "pegasoft.spec.ts",
+      "file": "pegasoft.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "homepage presents Pegasoft CTA and 3D/fallback surface",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-cc48f25a79c46a0c6cd1",
+          "file": "pegasoft.spec.ts",
+          "line": 465,
+          "column": 5
+        },
+        {
+          "title": "work taxonomy keeps Concept Lab separate from client portfolio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-2695528ba8ad809ad1ae",
+          "file": "pegasoft.spec.ts",
+          "line": 511,
+          "column": 5
+        },
+        {
+          "title": "seo and geo utility routes respond",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-9e4d8961de5201cef01e",
+          "file": "pegasoft.spec.ts",
+          "line": 524,
+          "column": 5
+        },
+        {
+          "title": "mobile layout avoids horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-ebdc4976fcdefc965713",
+          "file": "pegasoft.spec.ts",
+          "line": 535,
+          "column": 5
+        },
+        {
+          "title": "homepage has no serious or critical accessibility violations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-3c353aef2a49877e28c7",
+          "file": "pegasoft.spec.ts",
+          "line": 545,
+          "column": 5
+        },
+        {
+          "title": "homepage hydrates without runtime errors and mounts WebGL or fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-51d067e936abf72870b9",
+          "file": "pegasoft.spec.ts",
+          "line": 560,
+          "column": 5
+        },
+        {
+          "title": "development harness observes field-pulse-b from physical input and applied time",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-09d2a3243d773fa595fa",
+          "file": "pegasoft.spec.ts",
+          "line": 586,
+          "column": 5
+        },
+        {
+          "title": "hero state converges across forward, reverse, jump, resize, and restored reload entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-0dc062f3cacaa3bd3806",
+          "file": "pegasoft.spec.ts",
+          "line": 606,
+          "column": 5
+        },
+        {
+          "title": "desktop journeys complete at normal, slow, fast, and reverse rates",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-3f0616e6fb16b391a5c2",
+          "file": "pegasoft.spec.ts",
+          "line": 659,
+          "column": 5
+        },
+        {
+          "title": "the same physically reached applied field frame produces a stable capture",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-cac82f7e3021fdeab2e0",
+          "file": "pegasoft.spec.ts",
+          "line": 817,
+          "column": 5
+        },
+        {
+          "title": "forced fallback remains useful and state-addressable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-d3560a33106eb9e6dbaf",
+          "file": "pegasoft.spec.ts",
+          "line": 871,
+          "column": 5
+        },
+        {
+          "title": "reduced motion selects discrete poses without desktop trail",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-0f14dbd05a3baea32243",
+          "file": "pegasoft.spec.ts",
+          "line": 891,
+          "column": 5
+        },
+        {
+          "title": "homepage presents Pegasoft CTA and 3D/fallback surface",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-be70df1753c936f8ad85",
+          "file": "pegasoft.spec.ts",
+          "line": 465,
+          "column": 5
+        },
+        {
+          "title": "work taxonomy keeps Concept Lab separate from client portfolio",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-7b74bac5ca4e8aa314f0",
+          "file": "pegasoft.spec.ts",
+          "line": 511,
+          "column": 5
+        },
+        {
+          "title": "seo and geo utility routes respond",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-168e8c38ac96f62d1e2d",
+          "file": "pegasoft.spec.ts",
+          "line": 524,
+          "column": 5
+        },
+        {
+          "title": "mobile layout avoids horizontal overflow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-9a8e86323e3c361a88ee",
+          "file": "pegasoft.spec.ts",
+          "line": 535,
+          "column": 5
+        },
+        {
+          "title": "homepage has no serious or critical accessibility violations",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-8bd97722b69dc34761ac",
+          "file": "pegasoft.spec.ts",
+          "line": 545,
+          "column": 5
+        },
+        {
+          "title": "homepage hydrates without runtime errors and mounts WebGL or fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-7247cf62a2b98af3246a",
+          "file": "pegasoft.spec.ts",
+          "line": 560,
+          "column": 5
+        },
+        {
+          "title": "development harness observes field-pulse-b from physical input and applied time",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-8b8007600e2c4ba908ff",
+          "file": "pegasoft.spec.ts",
+          "line": 586,
+          "column": 5
+        },
+        {
+          "title": "hero state converges across forward, reverse, jump, resize, and restored reload entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-76c28604bccfd770fa0a",
+          "file": "pegasoft.spec.ts",
+          "line": 606,
+          "column": 5
+        },
+        {
+          "title": "desktop journeys complete at normal, slow, fast, and reverse rates",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-1129783e1c5d1c781164",
+          "file": "pegasoft.spec.ts",
+          "line": 659,
+          "column": 5
+        },
+        {
+          "title": "the same physically reached applied field frame produces a stable capture",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-2476c1e5389f5aa45ff3",
+          "file": "pegasoft.spec.ts",
+          "line": 817,
+          "column": 5
+        },
+        {
+          "title": "forced fallback remains useful and state-addressable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-bc566376e03a3430b814",
+          "file": "pegasoft.spec.ts",
+          "line": 871,
+          "column": 5
+        },
+        {
+          "title": "reduced motion selects discrete poses without desktop trail",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "fbdfe7bc864b55c20a42-c375953a86c1191a0378",
+          "file": "pegasoft.spec.ts",
+          "line": 891,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "visual/hero-capture-clock.spec.ts",
+      "file": "visual/hero-capture-clock.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "native animation name and target binding survive screenshot and DOM reordering",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-8009ffbf7d0f668c0d89",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "same-name SVG effects retain distinct native targets without element IDs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-3d888e1c487906c6873c",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "css_document_timeline_progresses_while_javascript_clock_is_paused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-c9fd41fd8301781d08df",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 68,
+          "column": 5
+        },
+        {
+          "title": "css_transport_advances_input_delta_and_stays_stable_across_screenshot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-21e6177756feab0a3aae",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 85,
+          "column": 5
+        },
+        {
+          "title": "css_transition_created_in_timer_uses_remaining_interval",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-caf067e11008ca811da6",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 108,
+          "column": 5
+        },
+        {
+          "title": "css_transport_installed_before_navigation_preserves_timer_creation_time",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-4897689f74afcad9d17a",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 139,
+          "column": 5
+        },
+        {
+          "title": "native animation name and target binding survive screenshot and DOM reordering",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-bf1e3b2e22cb56a67983",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "same-name SVG effects retain distinct native targets without element IDs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-a58c1522fc0fdc67bfe8",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "css_document_timeline_progresses_while_javascript_clock_is_paused",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-64b4d99b44c06b4124b0",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 68,
+          "column": 5
+        },
+        {
+          "title": "css_transport_advances_input_delta_and_stays_stable_across_screenshot",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-ad137b497d46e60d943a",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 85,
+          "column": 5
+        },
+        {
+          "title": "css_transition_created_in_timer_uses_remaining_interval",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-275513dc792a0afabbb9",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 108,
+          "column": 5
+        },
+        {
+          "title": "css_transport_installed_before_navigation_preserves_timer_creation_time",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1ccad27b9a07c30edc97-a492704c459f22346062",
+          "file": "visual/hero-capture-clock.spec.ts",
+          "line": 139,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "visual/hero-capture-contract.spec.ts",
+      "file": "visual/hero-capture-contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "lifecycle_changes_between_assertions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-b617251b6d4da92c14c4",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "resource_readiness_delays_entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-fadb8cb5155a659a92ad",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 34,
+          "column": 5
+        },
+        {
+          "title": "pulse_label_differs_from_applied_clock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-a435f93cd260d7f1000f",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 43,
+          "column": 5
+        },
+        {
+          "title": "stale_consumer_rejects_frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-3891d83433f3ba63a844",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 54,
+          "column": 5
+        },
+        {
+          "title": "pending_render_rejects_frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-5fb5d33f9f2821609447",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 63,
+          "column": 5
+        },
+        {
+          "title": "nonfinite_frame_cannot_qualify",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-60c8e631f9115059c39c",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 69,
+          "column": 5
+        },
+        {
+          "title": "physical_entry_uses_viewport_and_flow_domains",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-531a8fd7969ce334c839",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 75,
+          "column": 5
+        },
+        {
+          "title": "loader_age_uses_lifecycle_origin_not_rendered_age",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-daf13d15926fd35fa760",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "physical_entry_waits_for_actual_loader_clearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-5a3e911c0705082db3d0",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 88,
+          "column": 5
+        },
+        {
+          "title": "contact_clock_requires_real_history_above_point72",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-86aa339733f3c5497f18",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 96,
+          "column": 5
+        },
+        {
+          "title": "incomplete_clock_history_cannot_qualify",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-a68e819704c31830bc54",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 107,
+          "column": 5
+        },
+        {
+          "title": "clock_transport_batches_without_overshooting_event_window",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-b6fa338780cca39a1d2d",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 111,
+          "column": 5
+        },
+        {
+          "title": "lifecycle_changes_between_assertions",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-ecba707ae4e6176fca24",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "resource_readiness_delays_entry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-4a1500186401ad6ae376",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 34,
+          "column": 5
+        },
+        {
+          "title": "pulse_label_differs_from_applied_clock",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-ac50a0a09648464f9004",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 43,
+          "column": 5
+        },
+        {
+          "title": "stale_consumer_rejects_frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-e04bee520573bd2f1d27",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 54,
+          "column": 5
+        },
+        {
+          "title": "pending_render_rejects_frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-dca4a1ed5e9c25505feb",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 63,
+          "column": 5
+        },
+        {
+          "title": "nonfinite_frame_cannot_qualify",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-cc7a135c02b03584874a",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 69,
+          "column": 5
+        },
+        {
+          "title": "physical_entry_uses_viewport_and_flow_domains",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-8d1de60ee69dec3282d6",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 75,
+          "column": 5
+        },
+        {
+          "title": "loader_age_uses_lifecycle_origin_not_rendered_age",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-bbecfe401084cfd0bf4f",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "physical_entry_waits_for_actual_loader_clearance",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-46623cfee875458abd21",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 88,
+          "column": 5
+        },
+        {
+          "title": "contact_clock_requires_real_history_above_point72",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-d987fd6c2ac97dbd857f",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 96,
+          "column": 5
+        },
+        {
+          "title": "incomplete_clock_history_cannot_qualify",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-213ebae7e122aaeeb185",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 107,
+          "column": 5
+        },
+        {
+          "title": "clock_transport_batches_without_overshooting_event_window",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "72aebfa38b067d8831ac-4ec18ad9c96f32063748",
+          "file": "visual/hero-capture-contract.spec.ts",
+          "line": 111,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "visual/hero-capture-provenance.spec.ts",
+      "file": "visual/hero-capture-provenance.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "provenance_saved_field_contact_passes_independent_validator_pins",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-6b8eba80218559f93832",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 88,
+          "column": 5
+        },
+        {
+          "title": "provenance_stale_camera_readback_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-e989976e6c992f0951d6",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 147,
+          "column": 5
+        },
+        {
+          "title": "provenance_missing_route_readback_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-b37b9dbd5e7f975dd743",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 153,
+          "column": 5
+        },
+        {
+          "title": "provenance_acknowledgment_without_actual_object_readback_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-7fd08894ef79fa796d21",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 159,
+          "column": 5
+        },
+        {
+          "title": "provenance_field_clock_disagrees_with_completed_frame_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-9571ffc03e8cc98e9009",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 165,
+          "column": 5
+        },
+        {
+          "title": "provenance_unknown_physical_height_is_not_guessed_from_viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-bf70ede6b1727e3990e3",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 171,
+          "column": 5
+        },
+        {
+          "title": "provenance_saved_journey_exit_preserves_material_readback_roundtrip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-63eac2b584556b7c1c14",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 177,
+          "column": 5
+        },
+        {
+          "title": "provenance_survives_durable_outcome_and_manifest_finalization",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-a6bbbd05e8eb7bdb3daa",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 206,
+          "column": 5
+        },
+        {
+          "title": "provenance_saved_field_contact_passes_independent_validator_pins",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-7b8ee90f590e96f5ca21",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 88,
+          "column": 5
+        },
+        {
+          "title": "provenance_stale_camera_readback_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-cb562294147910004905",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 147,
+          "column": 5
+        },
+        {
+          "title": "provenance_missing_route_readback_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-1e2e039d5d09cc12ae3c",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 153,
+          "column": 5
+        },
+        {
+          "title": "provenance_acknowledgment_without_actual_object_readback_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-a572f522c0c0a3065430",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 159,
+          "column": 5
+        },
+        {
+          "title": "provenance_field_clock_disagrees_with_completed_frame_rejected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-21da837e085172f2b048",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 165,
+          "column": 5
+        },
+        {
+          "title": "provenance_unknown_physical_height_is_not_guessed_from_viewport",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-2bbbfa36e07a85c40c99",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 171,
+          "column": 5
+        },
+        {
+          "title": "provenance_saved_journey_exit_preserves_material_readback_roundtrip",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-331d88cb0477a6f5ba20",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 177,
+          "column": 5
+        },
+        {
+          "title": "provenance_survives_durable_outcome_and_manifest_finalization",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "1996c880a12ad5ca52e7-da91f137ff21a9f33ccf",
+          "file": "visual/hero-capture-provenance.spec.ts",
+          "line": 206,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "visual/hero-capture-run.spec.ts",
+      "file": "visual/hero-capture-run.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "restart_preserves_run_artifacts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-ad16540b2820ed43be4e",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 43,
+          "column": 5
+        },
+        {
+          "title": "capture_run_preserves_historical_and_concurrent_outputs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-b53da3b3d99690cba50d",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 64,
+          "column": 5
+        },
+        {
+          "title": "capture_run_failed_and_missing_states_are_explicit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-59e9267a8a54e6ef8250",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "capture_run_complete_manifest_hashes_all_artifacts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-c5158502355ee9e3de90",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 108,
+          "column": 5
+        },
+        {
+          "title": "capture_run_missing_or_changed_artifact_cannot_complete",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-37366f7f5e1e8a5ea13b",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 147,
+          "column": 5
+        },
+        {
+          "title": "capture_run_foreign_measurement_identity_cannot_complete",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-e5cf5f783d15e4b893bb",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 166,
+          "column": 5
+        },
+        {
+          "title": "capture_run_failure_survives_later_success",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-85daa175bb119d8e05fd",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 180,
+          "column": 5
+        },
+        {
+          "title": "capture_run_failed_manifest_hashes_empty_partial_artifacts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-2c51e676a91be156c04c",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 199,
+          "column": 5
+        },
+        {
+          "title": "restart_preserves_run_artifacts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-3956083d45275adf6a18",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 43,
+          "column": 5
+        },
+        {
+          "title": "capture_run_preserves_historical_and_concurrent_outputs",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-59e1c22673a260c73812",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 64,
+          "column": 5
+        },
+        {
+          "title": "capture_run_failed_and_missing_states_are_explicit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-98b3401256c44dce668a",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 78,
+          "column": 5
+        },
+        {
+          "title": "capture_run_complete_manifest_hashes_all_artifacts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-fdca7ffffb0ca1fb7b9c",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 108,
+          "column": 5
+        },
+        {
+          "title": "capture_run_missing_or_changed_artifact_cannot_complete",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-04f2b3b9846e656ba811",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 147,
+          "column": 5
+        },
+        {
+          "title": "capture_run_foreign_measurement_identity_cannot_complete",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-d30c836b21f252b501df",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 166,
+          "column": 5
+        },
+        {
+          "title": "capture_run_failure_survives_later_success",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-979c30d0627f32c5c45c",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 180,
+          "column": 5
+        },
+        {
+          "title": "capture_run_failed_manifest_hashes_empty_partial_artifacts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "893504ac61148809027e-3f654f74304b6aeb17c6",
+          "file": "visual/hero-capture-run.spec.ts",
+          "line": 199,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "visual/hero-presentation-readback.spec.ts",
+      "file": "visual/hero-presentation-readback.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "same-task readback intersects nested overflow and rectangular inset clips",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-3327933c7df1e209a07e",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 40,
+          "column": 5
+        },
+        {
+          "title": "readback records ancestor CSS opacity product and preserves zero",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-6c91cbc0b35a20da2bfc",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "readback rejects nonrectangular and transformed clipping without inventing a plane",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-1f788f925d86876e1d30",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 65,
+          "column": 5
+        },
+        {
+          "title": "readback marks unsupported compositing separately from observed CSS values",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-385348ff13d0018b9999",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 83,
+          "column": 5
+        },
+        {
+          "title": "readback rejects frame mismatch and incomplete consumer application",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-b4923bbbdb9d43d6e1e4",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 95,
+          "column": 5
+        },
+        {
+          "title": "readback cannot bind pending renders or an ambiguous canvas selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-887b05829b08ed3dcab8",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 110,
+          "column": 5
+        },
+        {
+          "title": "running native opacity animation remains temporally uncertain on a completed frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-ce8a1727d2b133851ef7",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 127,
+          "column": 5
+        },
+        {
+          "title": "fixed descendant clipping ambiguity reports a barrier rather than a false intersection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-da23382ce4491888f7fd",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 142,
+          "column": 5
+        },
+        {
+          "title": "readback retains DOM values but cannot invent a missing completed frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-7e574ee2aa32bbe017a3",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 151,
+          "column": 5
+        },
+        {
+          "title": "bracket parity masks DOM readback when opacity changes around acquisition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-9ceeac856cc9684e3da8",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 171,
+          "column": 5
+        },
+        {
+          "title": "bracket parity compares the initial acquisition clipping too",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-b3feed321dccfb6df6e1",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 183,
+          "column": 5
+        },
+        {
+          "title": "bracket parity exposes only stable supported DOM quantities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-ab635b8de54075dacaf0",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 196,
+          "column": 5
+        },
+        {
+          "title": "capture acquisition retains presentation from its own completed-frame task",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-6271ea56cefa809c1ca5",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 212,
+          "column": 5
+        },
+        {
+          "title": "paint containment shorthand strict blocks rectangular readback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-8fdca51b687b1761fbb4",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 222,
+          "column": 7
+        },
+        {
+          "title": "paint containment shorthand content blocks rectangular readback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-5830a6f50dc457d98351",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 222,
+          "column": 7
+        },
+        {
+          "title": "same-task readback intersects nested overflow and rectangular inset clips",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-f4b8e83bce48c0c374bb",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 40,
+          "column": 5
+        },
+        {
+          "title": "readback records ancestor CSS opacity product and preserves zero",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-b4d2cea4ab269c8965bb",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "readback rejects nonrectangular and transformed clipping without inventing a plane",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-8f163cc33301d998cfeb",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 65,
+          "column": 5
+        },
+        {
+          "title": "readback marks unsupported compositing separately from observed CSS values",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-539dd954e1169d270075",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 83,
+          "column": 5
+        },
+        {
+          "title": "readback rejects frame mismatch and incomplete consumer application",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-0d629237bc0d78824db9",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 95,
+          "column": 5
+        },
+        {
+          "title": "readback cannot bind pending renders or an ambiguous canvas selection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-970ac361706bc5a61315",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 110,
+          "column": 5
+        },
+        {
+          "title": "running native opacity animation remains temporally uncertain on a completed frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-b5aa259c18b8fc72918c",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 127,
+          "column": 5
+        },
+        {
+          "title": "fixed descendant clipping ambiguity reports a barrier rather than a false intersection",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-35a63077ef3cedcad4e4",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 142,
+          "column": 5
+        },
+        {
+          "title": "readback retains DOM values but cannot invent a missing completed frame",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-ca6c595ee0ec52fc8fe9",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 151,
+          "column": 5
+        },
+        {
+          "title": "bracket parity masks DOM readback when opacity changes around acquisition",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-eb8727d4b71b49a6c581",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 171,
+          "column": 5
+        },
+        {
+          "title": "bracket parity compares the initial acquisition clipping too",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-7cce99dabd05c2f35e8b",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 183,
+          "column": 5
+        },
+        {
+          "title": "bracket parity exposes only stable supported DOM quantities",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-5ed32b499dc17f152f4f",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 196,
+          "column": 5
+        },
+        {
+          "title": "capture acquisition retains presentation from its own completed-frame task",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-945b41dc393d65c137da",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 212,
+          "column": 5
+        },
+        {
+          "title": "paint containment shorthand strict blocks rectangular readback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-e1be053d56e3cf997dd0",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 222,
+          "column": 7
+        },
+        {
+          "title": "paint containment shorthand content blocks rectangular readback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "Mobile Chrome",
+              "projectName": "Mobile Chrome",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "0905954a312682fe0a9f-68baea8a976b45b3267e",
+          "file": "visual/hero-presentation-readback.spec.ts",
+          "line": 222,
+          "column": 7
+        }
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 3 maximum allowed failures.\u001b[39m"
+    }
+  ],
+  "stats": {
+    "startTime": "2026-10-14T13:15:44.172Z",
+    "duration": 114509.771,
+    "expected": 0,
+    "skipped": 153,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

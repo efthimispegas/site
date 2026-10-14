@@ -26,7 +26,10 @@ test('test-enabled production artifact exposes applied-frame evidence after lega
       page.evaluate(() => {
         const frame = (
           window as Window & {
-            __pegasoftHeroFrame?: { renderedAtMs?: number; frame: { frameId: number } };
+            __pegasoftHeroFrame?: {
+              renderedAtMs?: number;
+              frame: { frameId: number };
+            };
           }
         ).__pegasoftHeroFrame;
         return frame?.renderedAtMs && frame.frame.frameId > 0 ? frame : null;

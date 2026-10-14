@@ -22,18 +22,12 @@ export const HERO_REFERENCE_STATE_KEYS = [
 
 export type HeroReferenceStateKey = (typeof HERO_REFERENCE_STATE_KEYS)[number];
 export type HeroEvidenceClass =
-  | 'observed'
-  | 'source-confirmed'
-  | 'inferred'
-  | 'unknown';
+  'observed' | 'source-confirmed' | 'inferred' | 'unknown';
 export type HeroLifecycle = 'loading' | 'landing' | 'journey' | 'exit';
 export type HeroMotionProfile = 'full' | 'reduced' | 'static';
 export type HeroInputClass = 'fine-pointer' | 'coarse-pointer' | 'none';
 export type HeroViewportProfileId =
-  | 'recording-desktop'
-  | 'desktop'
-  | 'tablet'
-  | 'mobile';
+  'recording-desktop' | 'desktop' | 'tablet' | 'mobile';
 export type HeroCopyState =
   | 'none'
   | 'landing'
@@ -68,16 +62,10 @@ export type HeroProgressConstraint =
   | { kind: 'unknown' };
 
 export type HeroStructuralFeatureStatus =
-  | 'observed'
-  | 'blocked'
-  | 'not-applicable';
+  'observed' | 'blocked' | 'not-applicable';
 
 export type HeroPrimaryStructureKind =
-  | 'landmark'
-  | 'route'
-  | 'boundary'
-  | 'fieldProfile'
-  | 'composition';
+  'landmark' | 'route' | 'boundary' | 'fieldProfile' | 'composition';
 
 export type HeroReferenceState = {
   key: HeroReferenceStateKey;

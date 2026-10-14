@@ -1,7 +1,7 @@
 # Pegasoft Hero Baseline Plan
 
 Status: Baseline Phase 15 is accepted; Phase 16 is blocked on measurement correspondence; Phase 2 is deferred open
-Last reviewed: 2026-10-03
+Last reviewed: 2026-10-08
 
 This document is the sole live authority for Pegasoft hero status, phase
 authorization, implementation scope, and next action. The sprint breakdowns,
@@ -79,7 +79,7 @@ are recorded separately from acceptance; neither silently closes a phase.
 | --- | --- | --- |
 | 0 | Accepted | Preserve recoverable history and hash-locked source evidence. |
 | 1 | Partially accepted | Repair outstanding source/motion correspondence before closure. |
-| 2 | Open | Current-page and production safety: established Chrome development suite 16/16 passed in [current evidence](#retained-phase-evidence); bundled-Chromium instability remains open for later and is not on the current execution path. |
+| 2 | Open | Current-page and production safety: established Chrome development suite 16/16 passed in [current evidence](#retained-phase-evidence); maintenance technical checks pass under the gate below. Deferred baseline acceptance remains open; maintenance does not close Phase 2. |
 | 3 | Accepted | Recheck the production graph at final cutover. |
 | 4 | Accepted | Keep new compensating rules subject to scoped hygiene review. |
 | 5 | Accepted | Architecture and deterministic rendered state: retained foundation evidence plus physical-scroll/applied-frame named-state reconciliation passed. |
@@ -100,10 +100,37 @@ are recorded separately from acceptance; neither silently closes a phase.
 
 Current next action: complete [Task 2 correspondence](#task-2--independent-measurement-of-the-match),
 then Tasks 3–6 in order. Phases 15–19 are authorized; no new capture batch is
-authorized by this status summary. Phase 2 bundled-Chromium diagnosis is
-deferred. Failures retain one owning phase; dependent phases link to it.
+authorized by this status summary. Phase 2 visual qualification remains
+deferred. The separately authorized maintenance batch may repair and verify
+lifecycle failures. Failures retain one owning phase; dependent phases link to it.
 
-### Current recovery checkpoint — 2026-09-30
+### Branch maintenance gate
+
+- Maintenance merge with master `d8b950b` is completed on
+  `codex/hero-reference-rebaseline`, from hero parent `61bb7b8`.
+  Stop maintenance work here; no push or deployment is authorized.
+- Required technical checks pass: frozen install, both builds, workspace
+  typechecks/lint/unit tests, hero harnesses, complete E2E, production smoke,
+  security policy and both production localhost apps. See the
+  [final verification packet](../.superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-final-20261014/verification.json).
+  These checks do not accept hero visuals or close deferred phase gates.
+- The user approved a temporary exception for only `CVE-2026-93687`
+  (`braces`, GHSA-vfj7-8cjw-p6xm) on 2026-10-14. Keep the exception in
+  `package.json#pnpm.auditConfig.ignoreCves`; review by 2026-10-28 or upon an
+  upstream fix. Remove it when a compatible fixed version is adopted.
+- Keep `pnpm audit --audit-level high` for every other advisory. The unfiltered
+  audit still reports one high finding and one moderate `uuid` finding;
+  production dependency audit reports zero. Do not describe the waived issue
+  as fixed. Retain the raw audit and explicit user approval in the final packet.
+- Unused Next lint registrations/config packages are removed; all 70 active
+  rules in each app remain identical. Keep assertions, timing limits and
+  provenance requirements intact.
+- The [Oct 8 checkpoint](../.superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-repair-20261008/verification.json)
+  and [Oct 6 baseline](../.superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/verification.json)
+  are retained historical evidence. Preserve `.env` locally/ignored, frozen
+  evidence and the separate `codex/pegasoft-concept` work.
+
+### Current recovery checkpoint
 
 The consolidated operational status, latest checks, packet/report links,
 blockers and resume action live in [ledger/CURRENT.md](./ledger/CURRENT.md).

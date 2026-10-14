@@ -105,7 +105,10 @@ const SHARD_STATES = [
 ] as const;
 
 test.beforeAll(async () => {
-  expect(runDirArgument, 'S7_MATRIX_RUN_DIR must select a pinned evidence plan').toBeTruthy();
+  expect(
+    runDirArgument,
+    'S7_MATRIX_RUN_DIR must select a pinned evidence plan',
+  ).toBeTruthy();
   const matrixModule = await import(
     pathToFileURL(
       resolve(
@@ -123,7 +126,10 @@ test.beforeAll(async () => {
 });
 
 test.beforeEach(async ({ page }) => {
-  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' });
+  await page.emulateMedia({
+    colorScheme: 'light',
+    reducedMotion: 'no-preference',
+  });
 });
 
 test.afterEach(async ({ page, context }) => {
@@ -206,7 +212,8 @@ async function readSettledObservation(page: Page, expectedTarget: number) {
           !frame?.frameId ||
           Math.abs((frame.target ?? Number.NaN) - expected) > 0.002 ||
           Math.abs(
-            (frame.rendered?.value ?? Number.NaN) - (frame.target ?? Number.NaN),
+            (frame.rendered?.value ?? Number.NaN) -
+              (frame.target ?? Number.NaN),
           ) > 0.002 ||
           Math.abs(frame.rendered?.velocity ?? Number.NaN) > 0.03 ||
           consumers.length === 0 ||
@@ -401,40 +408,40 @@ async function waitForCommittedFrame(
   await cellAssertion(() =>
     page.waitForFunction(
       ({ expectedTarget, requireSettled, minimumFieldMs }) => {
-      const record = (
-        window as Window & {
-          __pegasoftHeroFrame?: {
-            renderedAtMs?: number;
-            frame?: {
-              frameId?: number;
-              target?: number;
-              rendered?: { value?: number; velocity?: number };
-              fieldElapsedMs?: number;
+        const record = (
+          window as Window & {
+            __pegasoftHeroFrame?: {
+              renderedAtMs?: number;
+              frame?: {
+                frameId?: number;
+                target?: number;
+                rendered?: { value?: number; velocity?: number };
+                fieldElapsedMs?: number;
+              };
+              appliedConsumers?: Record<string, { frameId?: number }>;
             };
-            appliedConsumers?: Record<string, { frameId?: number }>;
-          };
-        }
-      ).__pegasoftHeroFrame;
-      const frame = record?.frame;
-      if (
-        !record?.renderedAtMs ||
-        !frame?.frameId ||
-        Math.abs((frame.target ?? Number.NaN) - expectedTarget) > 0.002 ||
-        (frame.fieldElapsedMs ?? 0) < minimumFieldMs
-      )
-        return false;
-      const consumers = Object.values(record.appliedConsumers ?? {});
-      if (
-        consumers.length === 0 ||
-        consumers.some((consumer) => consumer.frameId !== frame.frameId)
-      )
-        return false;
-      return (
-        !requireSettled ||
-        (Math.abs((frame.rendered?.value ?? Number.NaN) - expectedTarget) <=
-          0.002 &&
-          Math.abs(frame.rendered?.velocity ?? Number.NaN) <= 0.03)
-      );
+          }
+        ).__pegasoftHeroFrame;
+        const frame = record?.frame;
+        if (
+          !record?.renderedAtMs ||
+          !frame?.frameId ||
+          Math.abs((frame.target ?? Number.NaN) - expectedTarget) > 0.002 ||
+          (frame.fieldElapsedMs ?? 0) < minimumFieldMs
+        )
+          return false;
+        const consumers = Object.values(record.appliedConsumers ?? {});
+        if (
+          consumers.length === 0 ||
+          consumers.some((consumer) => consumer.frameId !== frame.frameId)
+        )
+          return false;
+        return (
+          !requireSettled ||
+          (Math.abs((frame.rendered?.value ?? Number.NaN) - expectedTarget) <=
+            0.002 &&
+            Math.abs(frame.rendered?.velocity ?? Number.NaN) <= 0.03)
+        );
       },
       {
         expectedTarget: targetProgress,
@@ -587,8 +594,7 @@ function classifyObservedState(
   observed: Awaited<ReturnType<typeof readObservation>>,
 ) {
   const frame = observed.appliedFrame?.frame as
-    | { target?: number; fieldElapsedMs?: number }
-    | undefined;
+    { target?: number; fieldElapsedMs?: number } | undefined;
   if (frame && (frame.target ?? 0) >= 0.72 && (frame.target ?? 0) < 0.82) {
     const elapsed = frame.fieldElapsedMs ?? 0;
     if (elapsed < 300) return 'field-contact';
@@ -598,7 +604,9 @@ function classifyObservedState(
 }
 
 for (const shardState of SHARD_STATES) {
-  test(`records bounded S7 shard: ${shardState}`, async ({ page }, testInfo) => {
+  test(`records bounded S7 shard: ${shardState}`, async ({
+    page,
+  }, testInfo) => {
     test.setTimeout(90_000);
     const profile = testInfo.project.name;
     const shardId = `${profile}--${shardState}`;
@@ -666,7 +674,9 @@ for (const shardState of SHARD_STATES) {
         });
         if (cell.sceneSelection === null) {
           // Startup recipes remain normal timed navigation; no state/time control is used.
-          await page.waitForTimeout(cell.state === 'loader-mark' ? 2_000 : 3_500);
+          await page.waitForTimeout(
+            cell.state === 'loader-mark' ? 2_000 : 3_500,
+          );
         } else {
           await waitReady(page);
           const target = await targetScrollY(page, cell.sceneSelection);
@@ -719,8 +729,7 @@ for (const shardState of SHARD_STATES) {
             ).toBe(true),
           );
           const frame = observed.appliedFrame?.frame as
-            | { fieldElapsedMs?: number }
-            | undefined;
+            { fieldElapsedMs?: number } | undefined;
           await cellAssertion(() =>
             expect(
               Number.isFinite(frame?.fieldElapsedMs) &&
@@ -756,7 +765,11 @@ for (const shardState of SHARD_STATES) {
           ).not.toBeNull(),
         );
         const rawImages = [];
-        for (let repetition = 1; repetition <= S7_CAPTURE_REPETITIONS; repetition += 1) {
+        for (
+          let repetition = 1;
+          repetition <= S7_CAPTURE_REPETITIONS;
+          repetition += 1
+        ) {
           const imagePath = resolve(
             imageDir,
             `${cell.id.replaceAll('/', '--')}--repeat-${repetition}.png`,

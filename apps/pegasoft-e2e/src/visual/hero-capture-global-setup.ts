@@ -15,8 +15,7 @@ export default async function captureGlobalSetup(
   config: FullConfig,
 ): Promise<void> {
   const metadata = config.metadata.heroCapture as
-    | CaptureSetupMetadata
-    | undefined;
+    CaptureSetupMetadata | undefined;
   if (!metadata)
     throw new Error('Capture global setup requires metadata.heroCapture');
   const context = await initializeCaptureRun(

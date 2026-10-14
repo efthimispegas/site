@@ -176,7 +176,11 @@ export function CampusHub({
           [-1, 1].map((column) => (
             <mesh
               key={`${side}-${floor}-${column}`}
-              position={[side * 2.45 + column * 0.35, 0.92 + floor * 0.85, 1.67]}
+              position={[
+                side * 2.45 + column * 0.35,
+                0.92 + floor * 0.85,
+                1.67,
+              ]}
             >
               <boxGeometry args={[0.2, 0.34, 0.045]} />
               <meshStandardMaterial

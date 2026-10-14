@@ -1,0 +1,252 @@
+
+ NX   Running targets typecheck, lint, test for 7 projects:
+
+- @site/individual-e2e
+- @site/motion-system
+- @site/brand-system
+- @site/pegasoft-e2e
+- @site/individual
+- @site/pegasoft
+- @site/content
+
+
+
+> nx run @site/brand-system:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/content:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/motion-system:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/brand-system:lint
+
+> eslint .
+
+(node:19448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run @site/pegasoft:typecheck
+
+> tsc --noEmit --project tsconfig.json
+
+
+> nx run @site/brand-system:test
+
+> vitest
+
+(node:19463) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.8 /Users/whiskey/Work/site/libs/brand-system
+
+(node:19477) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ |@site/brand-system| src/lib/brand-system.spec.ts (3 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  3 passed (3)
+   Start at  15:32:11
+   Duration  208ms (transform 21ms, setup 0ms, import 31ms, tests 3ms, environment 0ms)
+
+
+> nx run @site/content:lint
+
+> eslint .
+
+(node:19464) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run @site/content:test
+
+> vitest
+
+(node:19488) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.8 /Users/whiskey/Work/site/libs/content
+
+(node:19494) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ |@site/content| src/lib/content.spec.ts (4 tests) 2ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  15:32:12
+   Duration  120ms (transform 23ms, setup 0ms, import 32ms, tests 2ms, environment 0ms)
+
+
+> nx run @site/motion-system:lint
+
+> eslint .
+
+(node:19495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run @site/motion-system:test
+
+> vitest
+
+(node:19501) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.8 /Users/whiskey/Work/site/libs/motion-system
+
+(node:19507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ |@site/motion-system| src/lib/reduced-motion.spec.ts (2 tests) 1ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  15:32:12
+   Duration  600ms (transform 16ms, setup 0ms, import 21ms, tests 1ms, environment 493ms)
+
+
+> nx run @site/individual:lint
+
+> eslint .
+
+(node:19508) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run @site/pegasoft:test
+
+> vitest
+
+(node:19531) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.8 /Users/whiskey/Work/site/apps/pegasoft
+
+(node:19537) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19543) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19545) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19541) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19544) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19539) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19538) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19542) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:19546) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-frame-driver.spec.ts (5 tests) 3ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-sequence.spec.ts (9 tests) 14ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-attempt.spec.ts (5 tests) 2ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-profile.spec.ts (146 tests) 10ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-contract.spec.ts (12 tests) 6ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-model.spec.ts (8 tests) 6ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-route-rendering.spec.ts (10 tests) 13ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-controller.spec.ts (9 tests) 13ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-world-layout.spec.ts (8 tests) 41ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-frame-state.spec.ts (26 tests) 111ms
+
+ Test Files  10 passed (10)
+      Tests  238 passed (238)
+   Start at  15:32:14
+   Duration  349ms (transform 481ms, setup 0ms, import 852ms, tests 219ms, environment 1ms)
+
+
+> nx run @site/pegasoft:lint
+
+> eslint .
+
+(node:19525) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run @site/individual-e2e:lint
+
+> eslint .
+
+(node:19547) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> nx run @site/pegasoft-e2e:lint
+
+> eslint .
+
+(node:19554) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts[24m[0m
+[0m  [2m322:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m322:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m362:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m362:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m415:9[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m563:9[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m586:9[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m656:3[22m  [33mwarning[39m  Avoid having conditionals in tests       [2mplaywright/no-conditional-in-test[22m[0m
+[0m  [2m695:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m705:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m862:5[22m  [33mwarning[39m  Avoid having conditionals in tests       [2mplaywright/no-conditional-in-test[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-production-smoke.spec.ts[24m[0m
+[0m  [2m29:5[22m  [33mwarning[39m  Forbidden non-null assertion  [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m29:5[22m  [33mwarning[39m  Forbidden non-null assertion  [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-s7-matrix.spec.ts[24m[0m
+[0m  [2m669:17[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m681:15[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m  [2m716:13[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m  [2m725:13[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m  [2m733:13[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs[24m[0m
+[0m   [2m29:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m38:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m56:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m79:3[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m99:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m107:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m122:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m143:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m152:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m163:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m174:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m193:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m210:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m232:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m250:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m270:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m299:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m322:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m342:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m353:3[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts[24m[0m
+[0m  [2m559:5[22m  [33mwarning[39m  Avoid having conditionals in tests  [2mplaywright/no-conditional-in-test[22m[0m
+[0m[0m
+[0m[33m[1m✖ 39 problems (0 errors, 39 warnings)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m
+
+> nx run @site/individual-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+
+
+ NX   Successfully ran targets typecheck, lint, test for 7 projects
+
+

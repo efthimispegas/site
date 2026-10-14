@@ -28,9 +28,7 @@
       "parallelism": false,
       "dependsOn": [
         {
-          "projects": [
-            "@site/pegasoft"
-          ],
+          "projects": ["@site/pegasoft"],
           "target": "build-s7-diagnostics"
         }
       ],
@@ -62,9 +60,7 @@
       "parallelism": false,
       "dependsOn": [
         {
-          "projects": [
-            "@site/pegasoft"
-          ],
+          "projects": ["@site/pegasoft"],
           "target": "build-s7-diagnostics"
         }
       ],
@@ -141,9 +137,7 @@
       "dependsOn": [
         "typecheck",
         {
-          "projects": [
-            "@site/pegasoft"
-          ],
+          "projects": ["@site/pegasoft"],
           "target": "typecheck"
         }
       ],

@@ -1,0 +1,70 @@
+
+> nx run @site/pegasoft-e2e:hero-capture-contract-test
+
+> playwright test --config=playwright.capture-contract.config.ts
+
+(node:18619) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18619) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2mRunning [22m43[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:18638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:18638) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/43] src/visual/hero-capture-contract.spec.ts:26:5 › lifecycle_changes_between_assertions
+[1A[2K[2/43] src/visual/hero-capture-contract.spec.ts:34:5 › resource_readiness_delays_entry
+[1A[2K[3/43] src/visual/hero-capture-contract.spec.ts:43:5 › pulse_label_differs_from_applied_clock
+[1A[2K[4/43] src/visual/hero-capture-contract.spec.ts:54:5 › stale_consumer_rejects_frame
+[1A[2K[5/43] src/visual/hero-capture-contract.spec.ts:63:5 › pending_render_rejects_frame
+[1A[2K[6/43] src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify
+[1A[2K[7/43] src/visual/hero-capture-contract.spec.ts:75:5 › physical_entry_uses_viewport_and_flow_domains
+[1A[2K[8/43] src/visual/hero-capture-contract.spec.ts:79:5 › loader_age_uses_lifecycle_origin_not_rendered_age
+[1A[2K[9/43] src/visual/hero-capture-contract.spec.ts:88:5 › physical_entry_waits_for_actual_loader_clearance
+[1A[2K[10/43] src/visual/hero-capture-contract.spec.ts:96:5 › contact_clock_requires_real_history_above_point72
+[1A[2K[11/43] src/visual/hero-capture-contract.spec.ts:107:5 › incomplete_clock_history_cannot_qualify
+[1A[2K[12/43] src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window
+[1A[2K[13/43] src/visual/hero-capture-provenance.spec.ts:88:5 › provenance_saved_field_contact_passes_independent_validator_pins
+[1A[2K[14/43] src/visual/hero-capture-provenance.spec.ts:147:5 › provenance_stale_camera_readback_rejected
+[1A[2K[15/43] src/visual/hero-capture-provenance.spec.ts:153:5 › provenance_missing_route_readback_rejected
+[1A[2K[16/43] src/visual/hero-capture-provenance.spec.ts:159:5 › provenance_acknowledgment_without_actual_object_readback_rejected
+[1A[2K[17/43] src/visual/hero-capture-provenance.spec.ts:165:5 › provenance_field_clock_disagrees_with_completed_frame_rejected
+[1A[2K[18/43] src/visual/hero-capture-provenance.spec.ts:171:5 › provenance_unknown_physical_height_is_not_guessed_from_viewport
+[1A[2K[19/43] src/visual/hero-capture-provenance.spec.ts:177:5 › provenance_saved_journey_exit_preserves_material_readback_roundtrip
+[1A[2K[20/43] src/visual/hero-capture-provenance.spec.ts:206:5 › provenance_survives_durable_outcome_and_manifest_finalization
+[1A[2K[21/43] src/visual/hero-capture-run.spec.ts:43:5 › restart_preserves_run_artifacts
+[1A[2K[22/43] src/visual/hero-capture-run.spec.ts:64:5 › capture_run_preserves_historical_and_concurrent_outputs
+[1A[2K[23/43] src/visual/hero-capture-run.spec.ts:78:5 › capture_run_failed_and_missing_states_are_explicit
+[1A[2K[24/43] src/visual/hero-capture-run.spec.ts:108:5 › capture_run_complete_manifest_hashes_all_artifacts
+[1A[2K[25/43] src/visual/hero-capture-run.spec.ts:147:5 › capture_run_missing_or_changed_artifact_cannot_complete
+[1A[2K[26/43] src/visual/hero-capture-run.spec.ts:166:5 › capture_run_foreign_measurement_identity_cannot_complete
+[1A[2K[27/43] src/visual/hero-capture-run.spec.ts:180:5 › capture_run_failure_survives_later_success
+[1A[2K[28/43] src/visual/hero-capture-run.spec.ts:199:5 › capture_run_failed_manifest_hashes_empty_partial_artifacts
+[1A[2K[29/43] src/visual/hero-presentation-readback.spec.ts:40:5 › same-task readback intersects nested overflow and rectangular inset clips
+[1A[2K[30/43] src/visual/hero-presentation-readback.spec.ts:51:5 › readback records ancestor CSS opacity product and preserves zero
+[1A[2K[31/43] src/visual/hero-presentation-readback.spec.ts:65:5 › readback rejects nonrectangular and transformed clipping without inventing a plane
+[1A[2K[32/43] src/visual/hero-presentation-readback.spec.ts:83:5 › readback marks unsupported compositing separately from observed CSS values
+[1A[2K[33/43] src/visual/hero-presentation-readback.spec.ts:95:5 › readback rejects frame mismatch and incomplete consumer application
+[1A[2K[34/43] src/visual/hero-presentation-readback.spec.ts:110:5 › readback cannot bind pending renders or an ambiguous canvas selection
+[1A[2K[35/43] src/visual/hero-presentation-readback.spec.ts:127:5 › running native opacity animation remains temporally uncertain on a completed frame
+[1A[2K[36/43] src/visual/hero-presentation-readback.spec.ts:142:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection
+[1A[2K[37/43] src/visual/hero-presentation-readback.spec.ts:151:5 › readback retains DOM values but cannot invent a missing completed frame
+[1A[2K[38/43] src/visual/hero-presentation-readback.spec.ts:171:5 › bracket parity masks DOM readback when opacity changes around acquisition
+[1A[2K[39/43] src/visual/hero-presentation-readback.spec.ts:183:5 › bracket parity compares the initial acquisition clipping too
+[1A[2K[40/43] src/visual/hero-presentation-readback.spec.ts:196:5 › bracket parity exposes only stable supported DOM quantities
+[1A[2K[41/43] src/visual/hero-presentation-readback.spec.ts:212:5 › capture acquisition retains presentation from its own completed-frame task
+[1A[2K[42/43] src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand strict blocks rectangular readback
+[1A[2K[43/43] src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand content blocks rectangular readback
+[1A[2K[32m  43 passed[39m[2m (2.0s)[22m
+
+
+
+ NX   Successfully ran target hero-capture-contract-test for project @site/pegasoft-e2e
+
+

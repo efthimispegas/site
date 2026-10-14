@@ -1,0 +1,138 @@
+{
+  "mismatch": {
+    "attributes": {
+      "id": "outer",
+      "data-hero-render-ready": "true"
+    },
+    "canvasVisible": true,
+    "fontsReady": true,
+    "loaderCleared": false,
+    "lifecycleElapsedMs": null,
+    "record": {
+      "renderedAtMs": 103.39999997615814,
+      "frame": {
+        "frameId": 7,
+        "target": 0,
+        "rendered": {
+          "value": 0,
+          "velocity": 0
+        },
+        "fieldElapsedMs": 0
+      },
+      "appliedConsumers": {
+        "camera": {
+          "frameId": 7
+        },
+        "field": {
+          "frameId": 7
+        }
+      },
+      "canvas": {
+        "cssWidth": 240,
+        "cssHeight": 220,
+        "backingWidth": 240,
+        "backingHeight": 220
+      }
+    },
+    "presentation": {
+      "status": "uncertain",
+      "binding": {
+        "status": "mismatch",
+        "frameId": 7
+      },
+      "clipping": {
+        "status": "supported-rectangular",
+        "intersection": {
+          "x": 0,
+          "y": 0,
+          "width": 240,
+          "height": 220
+        },
+        "horizontalCropPlaneCssY": null,
+        "reasons": []
+      },
+      "opacity": {
+        "status": "observed-css-opacity-product",
+        "quantity": "ancestor-css-group-opacity-product",
+        "cssOpacityProduct": 1,
+        "sceneMaterialOpacity": null,
+        "reasons": []
+      },
+      "temporal": {
+        "status": "static-at-sample"
+      },
+      "timing": {
+        "sampleStartedAtMs": 106.59999999403954,
+        "sampleEndedAtMs": 107.7999999821186
+      }
+    }
+  },
+  "stale": {
+    "attributes": {
+      "id": "outer",
+      "data-hero-render-ready": "true"
+    },
+    "canvasVisible": true,
+    "fontsReady": true,
+    "loaderCleared": false,
+    "lifecycleElapsedMs": null,
+    "record": {
+      "renderedAtMs": 103.39999997615814,
+      "frame": {
+        "frameId": 7,
+        "target": 0,
+        "rendered": {
+          "value": 0,
+          "velocity": 0
+        },
+        "fieldElapsedMs": 0
+      },
+      "appliedConsumers": {
+        "camera": {
+          "frameId": 6
+        },
+        "field": {
+          "frameId": 7
+        }
+      },
+      "canvas": {
+        "cssWidth": 240,
+        "cssHeight": 220,
+        "backingWidth": 240,
+        "backingHeight": 220
+      }
+    },
+    "presentation": {
+      "status": "uncertain",
+      "binding": {
+        "status": "unavailable",
+        "frameId": 7
+      },
+      "clipping": {
+        "status": "supported-rectangular",
+        "intersection": {
+          "x": 0,
+          "y": 0,
+          "width": 240,
+          "height": 220
+        },
+        "horizontalCropPlaneCssY": null,
+        "reasons": []
+      },
+      "opacity": {
+        "status": "observed-css-opacity-product",
+        "quantity": "ancestor-css-group-opacity-product",
+        "cssOpacityProduct": 1,
+        "sceneMaterialOpacity": null,
+        "reasons": []
+      },
+      "temporal": {
+        "status": "static-at-sample"
+      },
+      "timing": {
+        "sampleStartedAtMs": 112.19999998807907,
+        "sampleEndedAtMs": 112.2999999821186
+      }
+    }
+  }
+}

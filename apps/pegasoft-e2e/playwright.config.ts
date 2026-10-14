@@ -8,6 +8,12 @@ const baseURL =
   requestedBaseURL && /^https?:\/\//u.test(requestedBaseURL)
     ? requestedBaseURL
     : 'http://127.0.0.1:4200';
+// Match the established S6/S7 browser. Bundled headless-shell remains an
+// explicit diagnostic run, rather than silently using it as Desktop Chrome.
+const browserChannel = process.env['E2E_BROWSER_CHANNEL'] ?? 'chrome';
+if (!['chrome', 'chromium'].includes(browserChannel)) {
+  throw new Error('E2E_BROWSER_CHANNEL must be chrome or chromium');
+}
 
 /**
  * Read environment variables from file.
@@ -20,6 +26,13 @@ const baseURL =
  */
 export default defineConfig({
   ...nxE2EPreset(__filename, { testDir: './src' }),
+  // These production/evidence suites have dedicated S7 configurations and
+  // require their own build artifacts or pinned evidence plan.
+  testIgnore: [
+    '**/hero-production-smoke.spec.ts',
+    '**/hero-s7-diagnostics.spec.ts',
+    '**/hero-s7-matrix.spec.ts',
+  ],
   // The hero acceptance suite opens GPU-backed canvases and compares exact
   // frames. Serial execution avoids browser WebGL context eviction and keeps
   // capture results deterministic across desktop and mobile profiles.
@@ -40,11 +53,19 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], baseURL },
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: browserChannel === 'chromium' ? undefined : 'chrome',
+        baseURL,
+      },
     },
     {
       name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'], baseURL },
+      use: {
+        ...devices['Pixel 5'],
+        channel: browserChannel === 'chromium' ? undefined : 'chrome',
+        baseURL,
+      },
     },
   ],
 });

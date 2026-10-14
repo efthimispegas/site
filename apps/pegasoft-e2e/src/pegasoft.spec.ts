@@ -282,15 +282,14 @@ async function enterAppliedFieldPhase(
 
         return Boolean(
           record?.renderedAtMs &&
-            frame?.frameId &&
-            Math.abs((frame.target ?? Number.NaN) - expectedTarget) <= 0.002 &&
-            Math.abs(
-              (frame.rendered?.value ?? Number.NaN) - expectedTarget,
-            ) <= 0.002 &&
-            Math.abs(frame.rendered?.velocity ?? Number.NaN) <= 0.03 &&
-            (frame.fieldElapsedMs ?? 0) >= minimumFieldMs &&
-            consumers.length > 0 &&
-            consumers.every((consumer) => consumer.frameId === frame.frameId),
+          frame?.frameId &&
+          Math.abs((frame.target ?? Number.NaN) - expectedTarget) <= 0.002 &&
+          Math.abs((frame.rendered?.value ?? Number.NaN) - expectedTarget) <=
+            0.002 &&
+          Math.abs(frame.rendered?.velocity ?? Number.NaN) <= 0.03 &&
+          (frame.fieldElapsedMs ?? 0) >= minimumFieldMs &&
+          consumers.length > 0 &&
+          consumers.every((consumer) => consumer.frameId === frame.frameId),
         );
       },
       {
@@ -317,9 +316,10 @@ async function enterAppliedFieldPhase(
       const frame = record?.frame;
       return {
         appliedConsumers: Object.fromEntries(
-          Object.entries(record?.appliedConsumers ?? {}).map(
-            ([key, value]) => [key, value.frameId],
-          ),
+          Object.entries(record?.appliedConsumers ?? {}).map(([key, value]) => [
+            key,
+            value.frameId,
+          ]),
         ),
         frame: frame
           ? {
@@ -329,8 +329,7 @@ async function enterAppliedFieldPhase(
               target: frame.target,
             }
           : null,
-        maxScrollY:
-          document.documentElement.scrollHeight - window.innerHeight,
+        maxScrollY: document.documentElement.scrollHeight - window.innerHeight,
         sceneProgress: document
           .querySelector('[data-hero-shell]')
           ?.getAttribute('data-hero-scene-progress'),
@@ -679,12 +678,9 @@ test('desktop journeys complete at normal, slow, fast, and reverse rates', async
   ) => {
     const result = await page.evaluate(
       async ({ duration, journeyDirection }) => {
-        const flow = document.querySelector<HTMLElement>(
-          '[data-hero-process]',
-        );
-        const shellElement = document.querySelector<HTMLElement>(
-          '[data-hero-shell]',
-        );
+        const flow = document.querySelector<HTMLElement>('[data-hero-process]');
+        const shellElement =
+          document.querySelector<HTMLElement>('[data-hero-shell]');
         if (!flow || !shellElement) {
           throw new Error('Hero journey geometry is unavailable');
         }
@@ -754,18 +750,17 @@ test('desktop journeys complete at normal, slow, fast, and reverse rates', async
         const frame = record?.frame;
         const consumers = Object.values(record?.appliedConsumers ?? {});
         const diagnosticTarget = Number(
-          document
-            .querySelector<HTMLElement>('[data-hero-shell]')
-            ?.dataset.heroSceneProgress,
+          document.querySelector<HTMLElement>('[data-hero-shell]')?.dataset
+            .heroSceneProgress,
         );
         return Boolean(
           record?.renderedAtMs &&
-            frame?.frameId &&
-            Math.abs(frame.target - diagnosticTarget) <= 0.002 &&
-            Math.abs(frame.rendered.value - frame.target) <= 0.002 &&
-            Math.abs(frame.rendered.velocity) <= 0.03 &&
-            consumers.length > 0 &&
-            consumers.every((consumer) => consumer.frameId === frame.frameId),
+          frame?.frameId &&
+          Math.abs(frame.target - diagnosticTarget) <= 0.002 &&
+          Math.abs(frame.rendered.value - frame.target) <= 0.002 &&
+          Math.abs(frame.rendered.velocity) <= 0.03 &&
+          consumers.length > 0 &&
+          consumers.every((consumer) => consumer.frameId === frame.frameId),
         );
       },
       undefined,

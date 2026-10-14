@@ -2,55 +2,55 @@
 name: Pegasoft
 description: Current site and hero design vocabulary, governed by the hero baseline plan
 colors:
-  hero-sky: "#c8dae5"
-  hero-surface: "#fcfcfc"
-  hero-ink: "#050419"
-  hero-muted: "#5d6479"
-  hero-indigo: "#3d4bdb"
-  scene-red-route: "#ff4d67"
-  scene-blue-glow: "#0e94fb"
-  scene-blue-core: "#f4fdff"
-  site-paper: "#f8f5ee"
-  site-gold: "#c7a45b"
+  hero-sky: '#c8dae5'
+  hero-surface: '#fcfcfc'
+  hero-ink: '#050419'
+  hero-muted: '#5d6479'
+  hero-indigo: '#3d4bdb'
+  scene-red-route: '#ff4d67'
+  scene-blue-glow: '#0e94fb'
+  scene-blue-core: '#f4fdff'
+  site-paper: '#f8f5ee'
+  site-gold: '#c7a45b'
 typography:
   hero-display:
-    fontFamily: "Roboto, sans-serif"
-    fontSize: "93px"
+    fontFamily: 'Roboto, sans-serif'
+    fontSize: '93px'
     fontWeight: 500
     lineHeight: 0.929
-    letterSpacing: "-5.76px"
+    letterSpacing: '-5.76px'
   hero-body:
-    fontFamily: "Roboto, sans-serif"
-    fontSize: "24px"
+    fontFamily: 'Roboto, sans-serif'
+    fontSize: '24px'
     lineHeight: 1.2
   site-display:
-    fontFamily: "Iowan Old Style, Cormorant Garamond, Georgia, serif"
+    fontFamily: 'Iowan Old Style, Cormorant Garamond, Georgia, serif'
 rounded:
-  hero-medium: "12px"
-  hero-large: "24px"
-  pill: "156px"
+  hero-medium: '12px'
+  hero-large: '24px'
+  pill: '156px'
 spacing:
-  hero-xs: "12px"
-  hero-sm: "18px"
-  hero-md: "20px"
-  hero-lg: "24px"
-  hero-xl: "40px"
-  hero-2xl: "48px"
-  hero-3xl: "96px"
-  hero-4xl: "128px"
+  hero-xs: '12px'
+  hero-sm: '18px'
+  hero-md: '20px'
+  hero-lg: '24px'
+  hero-xl: '40px'
+  hero-2xl: '48px'
+  hero-3xl: '96px'
+  hero-4xl: '128px'
 components:
   hero-pill-dark:
-    backgroundColor: "{colors.hero-ink}"
-    textColor: "{colors.hero-surface}"
-    rounded: "{rounded.pill}"
-    padding: "0 24px"
-    height: "48px"
+    backgroundColor: '{colors.hero-ink}'
+    textColor: '{colors.hero-surface}'
+    rounded: '{rounded.pill}'
+    padding: '0 24px'
+    height: '48px'
   hero-pill-light:
-    backgroundColor: "{colors.hero-surface}"
-    textColor: "{colors.hero-ink}"
-    rounded: "{rounded.pill}"
-    padding: "0 24px"
-    height: "48px"
+    backgroundColor: '{colors.hero-surface}'
+    textColor: '{colors.hero-ink}'
+    rounded: '{rounded.pill}'
+    padding: '0 24px'
+    height: '48px'
 ---
 
 # Design System: Pegasoft

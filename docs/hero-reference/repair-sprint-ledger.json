@@ -25,7 +25,7 @@
     "requires": "S8 qualified plus user decision to proceed",
     "confirmationRef": "User message: Start the R3 visual recovery plan.",
     "authorizedAtUtc": "2026-09-28T13:32:38Z",
-    "currentCheckpoint": "See docs/pegasoft-hero-baseline-plan.md#canonical-baseline-phase-tracker. Phase 5 and the user-reduced Phase 15 gate are accepted; Phase 16 is in progress. Phase 2 bundled-Chromium instability remains deferred open for later and is not on the current execution path."
+    "currentCheckpoint": "See docs/pegasoft-hero-baseline-plan.md#canonical-baseline-phase-tracker for live phase status and authorization; this ledger retains dated evidence only."
   },
   "coordination": {
     "ledgerOwner": "root",
@@ -1221,6 +1221,22 @@
       "weeklyUsedPercent": 75,
       "pauseAtFiveHourUsedPercent": 95,
       "scope": "account-wide; no reset or credits redeemed"
+    },
+    {
+      "date": "2026-10-08",
+      "context": "master-merge-repair-user-checkpoint",
+      "fiveHourUsedPercent": 88,
+      "weeklyUsedPercent": 26,
+      "ordinaryUsageAllowed": true,
+      "scope": "Account snapshot; not task cost."
+    },
+    {
+      "date": "2026-10-14",
+      "context": "master-merge-final-validation",
+      "fiveHourUsedPercent": 61,
+      "weeklyUsedPercent": 45,
+      "ordinaryUsageAllowed": true,
+      "scope": "Account snapshot; not task cost."
     }
   ],
   "recoveryTask2": {
@@ -2290,6 +2306,18 @@
       },
       "limits": "Checkpoint commit only. Phase 16 Task 2 remains unqualified; no new hero capture, source-authority decision, runtime refinement or visual acceptance. Historical bulk repair captures remain local under the existing ignore policy.",
       "env": "Existing .env is unchanged and excluded via /.env."
+    },
+    "masterMergeCheckpoint": {
+      "date": "2026-10-14",
+      "status": "completed",
+      "packet": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-final-20261014/verification.json",
+      "incomingMaster": "d8b950b2a3fb4ba3194ba14686dbbc688b7d7d0e",
+      "heroParent": "61bb7b88cf36c27fa456f13b923b1b7bb42dc5e0",
+      "mergeFinalized": true,
+      "outcome": "Required maintenance checks pass. Complete E2E is green; the user-approved single-CVE audit exception is retained with raw reports. No hero visual acceptance.",
+      "nextAction": "Stop maintenance work. Review the audit exception by 2026-10-28; hero Task 2 awaits a new user instruction/source-authority decision.",
+      "limits": "No push or deployment. Frozen evidence, ignored .env and unrelated concept work are preserved.",
+      "priorCheckpoint": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-repair-20261008/verification.json"
     }
   },
   "waves": [

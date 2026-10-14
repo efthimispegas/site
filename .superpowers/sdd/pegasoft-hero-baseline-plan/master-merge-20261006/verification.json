@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-06",
+  "branch": "codex/hero-reference-rebaseline",
+  "status": "merge-prepared-validation-blocked",
+  "heroParent": "61bb7b88cf36c27fa456f13b923b1b7bb42dc5e0",
+  "incomingMaster": "d8b950b2a3fb4ba3194ba14686dbbc688b7d7d0e",
+  "mergeFinalized": false,
+  "changes": [
+    "Incoming master package.json with required direct dev sharp addition; fresh lockfile.",
+    "Align TypeScript compiler settings with incoming TypeScript 5.9.",
+    "Keep S7-specific tests under existing dedicated production/evidence configurations; ordinary E2E no longer collects suites requiring a pinned plan."
+  ],
+  "runtime": {
+    "node": "24.19.0",
+    "pnpm": "10.8.1",
+    "resolvedPackages": {
+      "root": {
+        "nx": "22.7.5",
+        "typescript": "5.9.3",
+        "next": "16.2.12",
+        "three": "0.185.1",
+        "sharp": "0.35.4"
+      },
+      "pegasoft": {
+        "next": "16.3.4",
+        "three": "0.182.0"
+      },
+      "individual": {
+        "next": "16.3.4"
+      }
+    }
+  },
+  "checks": {
+    "build": {
+      "status": "passed",
+      "projects": 2,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/build.log",
+      "sha256": "f71b5367d3d84e637d8188bc0a844e1b1766edca1130228531a3e63b16dc627b"
+    },
+    "core-checks": {
+      "status": "passed",
+      "projects": 7,
+      "unitTestsPassed": 247,
+      "lintErrors": 0,
+      "lintWarnings": 39,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/core-checks.log",
+      "sha256": "d11edd1e5ac0e650e2a37d3d4f9f1cead223e329a7eff7032bdef1ecd12ff76c"
+    },
+    "measurement": {
+      "status": "passed",
+      "tests": 85,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/measurement.log",
+      "sha256": "cdbfde1d849223506236c9f1d72017f008a3779f2f9b5d262a06bb8595cb8017"
+    },
+    "capture-contracts": {
+      "status": "passed",
+      "tests": 43,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/capture-contracts.log",
+      "sha256": "e32e3d308c76ffcecb59a72a39105e58d8ecf503395994e98941d2dc6bcf7017"
+    },
+    "clock-fixtures": {
+      "status": "passed",
+      "tests": 6,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/clock-fixtures.log",
+      "sha256": "b7c59151aa433a8811caae526b20c8ee094100b480f88cc43d5dd18174cba1a8"
+    },
+    "s7-harness": {
+      "status": "passed",
+      "tests": 29,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/s7-harness.log",
+      "sha256": "e61c1c3867afd31894ac79cea59d31f55b6817740fc2491f27c74ab04d092d9f"
+    },
+    "frozen-install": {
+      "status": "passed",
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/frozen-install.log",
+      "sha256": "989459a7c4b75e4c3e44f23871438f50fa8ffd6739987cac8c89531869219812"
+    },
+    "format": {
+      "status": "passed",
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/format.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "e2e-config-check": {
+      "status": "passed",
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/e2e-config-check.log",
+      "sha256": "0a26a01d43814d0201447dbb8f6e5426e4d8bbbc9d5270734ac81e5b7d95db3a"
+    },
+    "production-smoke": {
+      "status": "passed",
+      "tests": 4,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/production-smoke.log",
+      "sha256": "189fd1343ab93b2dc1166cc309e1c6727f7a47b0e921f44a9355008a2bba890b"
+    },
+    "e2e": {
+      "status": "failed",
+      "pegasoft": {
+        "passed": 144,
+        "failed": 8,
+        "skipped": 4
+      },
+      "individual": {
+        "passed": 8,
+        "log": "initial-e2e.log"
+      },
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/e2e.log",
+      "sha256": "b30dcca000ccdefaecbea16a15e3db51e65d7190326ae529ac2f68c3f5599c0f"
+    },
+    "audit": {
+      "status": "failed",
+      "moderate": 29,
+      "high": 32,
+      "critical": 7,
+      "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/audit.log",
+      "sha256": "2a0c2ca82c5cd0607eafedd0c44b724b6876957eda688d6b23edfd78ad331f1d"
+    }
+  },
+  "browserSmoke": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/browser-smoke.json",
+  "frozenFixturesRestored": 19,
+  "limits": "No reference qualification or visual acceptance. No app geometry/material edit. E2E failures are observed, not attributed to master without a baseline comparison.",
+  "nextAction": "Await dependency-version choice; repair 8 E2E findings without weakening assertions, rerun affected checks, then finalize merge.",
+  "env": "Unchanged, local and ignored; no credentials in staged changes.",
+  "usageSnapshot": {
+    "fiveHourUsedPercent": 0,
+    "weeklyUsedPercent": 100,
+    "hasCredits": true,
+    "spendControlReached": false
+  },
+  "inputHashes": {
+    "package.json": "02ca1fde75fcb232dc2fc28e2dc760f5ba59387809f93027edb7ca312e9949e0",
+    "pnpm-lock.yaml": "a5eda59cdd33098490b040a3b8ef1f4c10dd8aa6fd8a5ab011999d2a296074a8",
+    "apps/pegasoft-e2e/playwright.config.ts": "3d488e7b256c678cb3d3702946f38bb36237122a1ec5c3fb95460ee4dcd38eac",
+    "tsconfig.base.json": "0c8535eb55574a5a1f8d7d93a6d79f5adaa3b1d169edd0f7b26c7d3c8fa3a670"
+  },
+  "gitRuntime": {
+    "systemGit": "Xcode license gate encountered during final checks; no terms accepted.",
+    "used": "Codex bundled Git 2.53.0",
+    "formatWrapper": "/tmp/pegasoft-master-merge-git/bin/git",
+    "nodeAndPnpmUnchanged": true
+  },
+  "checkedInputHashes": {
+    ".github/workflows/ci.yml": "148cb428a35586d1a80e073ff74cc555b31ec795637a25d41d9b9d03ec521858",
+    "apps/individual-e2e/tsconfig.json": "793cb354ce17c6ab465d664501732165e4ae24f008bba080e0d79c1fada7e297",
+    "apps/individual/tsconfig.json": "43bf8d974bbb2ac42d004fddfac99ff38bce232e8f8c40fe5b7f703e8b44352e",
+    "apps/pegasoft-e2e/playwright.config.ts": "3d488e7b256c678cb3d3702946f38bb36237122a1ec5c3fb95460ee4dcd38eac",
+    "apps/pegasoft-e2e/tsconfig.json": "1e3f27222e4eb19931879995de89331e8d0b8299b1a3df8543b3950501066eac",
+    "apps/pegasoft/tsconfig.json": "6164e7d2a08e2e4ee21514c91d630f584db2f0c0b894d747d0301d4a83e546df",
+    "apps/pegasoft/tsconfig.spec.json": "29244bfe0de27f5ce3cac150c74ed4b54ba70de99bf182eaa0539ef8cc5ba791",
+    "libs/brand-system/tsconfig.json": "500ffc0a06bfc9666ed6a9859e972d511430174570c78a51618914c2039bd273",
+    "libs/brand-system/tsconfig.lib.json": "da01d0fdaec927e047be885ed86483b4259d0edc8ded26a6d6bb7acec272296b",
+    "libs/brand-system/tsconfig.spec.json": "99b82deac319634897bd966920998d9f91636966db85045ac78797b8558a1469",
+    "libs/content/tsconfig.json": "500ffc0a06bfc9666ed6a9859e972d511430174570c78a51618914c2039bd273",
+    "libs/content/tsconfig.lib.json": "da01d0fdaec927e047be885ed86483b4259d0edc8ded26a6d6bb7acec272296b",
+    "libs/content/tsconfig.spec.json": "99b82deac319634897bd966920998d9f91636966db85045ac78797b8558a1469",
+    "libs/motion-system/tsconfig.json": "500ffc0a06bfc9666ed6a9859e972d511430174570c78a51618914c2039bd273",
+    "libs/motion-system/tsconfig.lib.json": "5092f2504d4012f1893b1a7ebc49a8d8cc5df8c9c0d227caf3d2eb11a62cd14a",
+    "libs/motion-system/tsconfig.spec.json": "99b82deac319634897bd966920998d9f91636966db85045ac78797b8558a1469",
+    "package.json": "02ca1fde75fcb232dc2fc28e2dc760f5ba59387809f93027edb7ca312e9949e0",
+    "pnpm-lock.yaml": "a5eda59cdd33098490b040a3b8ef1f4c10dd8aa6fd8a5ab011999d2a296074a8",
+    "tsconfig.base.json": "0c8535eb55574a5a1f8d7d93a6d79f5adaa3b1d169edd0f7b26c7d3c8fa3a670",
+    "tsconfig.json": "8f2d2fcec6e402686642662d8130556e2bf773e65da37c5f991dfeafc000bfc4"
+  }
+}

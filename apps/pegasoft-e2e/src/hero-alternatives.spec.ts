@@ -12,37 +12,48 @@ const HERO_URL = `/?__heroState=${REFERENCE_STATE}&__heroTime=2500`;
 
 test.afterEach(async ({ page, browser }, testInfo) => {
   if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
-  const observed = await page.evaluate(() => {
-    const scene = document.querySelector('[data-hero-reference-state]');
-    const loader = document.querySelector('[data-hidden][data-revealing]');
-    const style = loader ? getComputedStyle(loader) : null;
-    return {
-      nowMs: performance.now(),
-      visibility: document.visibilityState,
-      url: location.href,
-      userAgent: navigator.userAgent,
-      scene: scene
-        ? Object.fromEntries(
-            [...scene.attributes].map(({ name, value }) => [name, value]),
-          )
-        : null,
-      loader: loader
-        ? {
-            hidden: loader.getAttribute('data-hidden'),
-            revealing: loader.getAttribute('data-revealing'),
-            visibility: style?.visibility,
-            opacity: style?.opacity,
-            display: style?.display,
-            pointerEvents: style?.pointerEvents,
-            animations: loader.getAnimations().map((animation) => ({
-              currentTime: animation.currentTime,
-              playState: animation.playState,
-              pending: animation.pending,
-            })),
-          }
-        : null,
-    };
-  });
+  let diagnosticTimer: ReturnType<typeof setTimeout> | undefined;
+  const observed = await Promise.race([
+    page.evaluate(() => {
+      const scene = document.querySelector('[data-hero-reference-state]');
+      const loader = document.querySelector('[data-hidden][data-revealing]');
+      const style = loader ? getComputedStyle(loader) : null;
+      return {
+        nowMs: performance.now(),
+        visibility: document.visibilityState,
+        url: location.href,
+        userAgent: navigator.userAgent,
+        scene: scene
+          ? Object.fromEntries(
+              [...scene.attributes].map(({ name, value }) => [name, value]),
+            )
+          : null,
+        loader: loader
+          ? {
+              hidden: loader.getAttribute('data-hidden'),
+              revealing: loader.getAttribute('data-revealing'),
+              visibility: style?.visibility,
+              opacity: style?.opacity,
+              display: style?.display,
+              pointerEvents: style?.pointerEvents,
+              animations: loader.getAnimations().map((animation) => ({
+                currentTime: animation.currentTime,
+                playState: animation.playState,
+                pending: animation.pending,
+              })),
+            }
+          : null,
+      };
+    }),
+    // Failure diagnostics must not keep a stalled renderer's test alive.
+    new Promise<never>((_, reject) => {
+      diagnosticTimer = setTimeout(
+        () => reject(new Error('Runtime diagnostic did not respond within 2s')),
+        2_000,
+      );
+    }),
+  ]).catch((error: unknown) => ({ diagnosticsUnavailable: String(error) }));
+  clearTimeout(diagnosticTimer);
   await testInfo.attach('failure-runtime-state', {
     body: JSON.stringify({ browserVersion: browser.version(), ...observed }),
     contentType: 'application/json',
@@ -101,20 +112,26 @@ async function expectUsefulLanding(page: Page, state: Locator) {
 async function expectLoaderDoesNotBlock(page: Page) {
   // Match a single committed CSS/DOM observation before locator assertions.
   // The same 5s visibility budget applies; no animation or page state is changed.
-  const cleared = await page.waitForFunction(() => {
-    const shell = document.querySelector('[data-hero-shell]');
-    const loaders = document.querySelectorAll(
-      '[aria-hidden="true"][data-direct][data-hidden][data-revealing]',
-    );
-    const loader = loaders[0];
-    if (!loader || loaders.length !== 1) return false;
-    const style = getComputedStyle(loader);
-    return shell?.getAttribute('data-loader-cleared') === 'true' &&
-      loader.getAttribute('data-hidden') === 'true' &&
-      (style.visibility === 'hidden' || style.display === 'none') &&
-      style.pointerEvents === 'none' &&
-      !document.body.classList.contains('pegasoft-locked');
-  }, undefined, { polling: 50, timeout: 5_000 });
+  const cleared = await page.waitForFunction(
+    () => {
+      const shell = document.querySelector('[data-hero-shell]');
+      const loaders = document.querySelectorAll(
+        '[aria-hidden="true"][data-direct][data-hidden][data-revealing]',
+      );
+      const loader = loaders[0];
+      if (!loader || loaders.length !== 1) return false;
+      const style = getComputedStyle(loader);
+      return (
+        shell?.getAttribute('data-loader-cleared') === 'true' &&
+        loader.getAttribute('data-hidden') === 'true' &&
+        (style.visibility === 'hidden' || style.display === 'none') &&
+        style.pointerEvents === 'none' &&
+        !document.body.classList.contains('pegasoft-locked')
+      );
+    },
+    undefined,
+    { polling: 50, timeout: 5_000 },
+  );
   await cleared.dispose();
   const shell = page.locator('[data-hero-shell]');
   const loader = page.locator(
@@ -399,7 +416,9 @@ test('delayed essential resources require a completed post-resource render', asy
       },
     });
   });
-  await page.goto('/?__heroResourceDelayMs=5000');
+  await page.goto('/?__heroResourceDelayMs=5000', {
+    waitUntil: 'domcontentloaded',
+  });
   const state = page.locator('[data-hero-reference-state]');
   await expect(state).toHaveAttribute(
     'data-hero-attempt-state',
@@ -461,7 +480,9 @@ test('never-resolving essential resources reach useful fallback at the finite de
   page,
 }, testInfo) => {
   const errors = captureRuntimeErrors(page);
-  await page.goto('/?__heroNeverResolveResources=1');
+  await page.goto('/?__heroNeverResolveResources=1', {
+    waitUntil: 'domcontentloaded',
+  });
 
   const state = page.locator('[data-hero-reference-state]');
   await expect(state).toHaveAttribute(
@@ -543,24 +564,38 @@ test('expired loading deadline is checked on resume when its timer was throttled
   // Suppress only the deadline timer to model a backgrounded/throttled page.
   await page.addInitScript(() => {
     const original = window.setTimeout.bind(window);
+    Object.assign(window, { __s6SuppressedDeadlineTimers: 0 });
     window.setTimeout = ((
       handler: TimerHandler,
       delay?: number,
       ...args: unknown[]
-    ) =>
-      original(
-        delay !== undefined && delay > 14_000 ? () => undefined : handler,
-        delay,
-        ...args,
-      )) as typeof window.setTimeout;
+    ) => {
+      // Next dev prefixes callback names with their component/effect owner.
+      const isDeadline =
+        typeof handler === 'function' && handler.name.endsWith('checkDeadline');
+      const w = window as unknown as {
+        __s6SuppressedDeadlineTimers: number;
+      };
+      w.__s6SuppressedDeadlineTimers += Number(isDeadline);
+      return original(isDeadline ? () => undefined : handler, delay, ...args);
+    }) as typeof window.setTimeout;
   });
-  await page.goto('/?__heroNeverResolveResources=1');
+  await page.goto('/?__heroNeverResolveResources=1', {
+    waitUntil: 'domcontentloaded',
+  });
   const state = page.locator('[data-hero-reference-state]');
   await expect(state).toHaveAttribute(
     'data-hero-attempt-state',
     'loading-resources',
   );
   await page.waitForTimeout(15_100);
+  expect(
+    await page.evaluate(
+      () =>
+        (window as unknown as { __s6SuppressedDeadlineTimers: number })
+          .__s6SuppressedDeadlineTimers,
+    ),
+  ).toBeGreaterThan(0);
   await expect(state).toHaveAttribute(
     'data-hero-attempt-state',
     'loading-resources',
@@ -751,7 +786,16 @@ test('successful capability probe with failed actual Canvas selects fallback', a
   await page.evaluate(() =>
     (window as unknown as { __s6AllowContext(): void }).__s6AllowContext(),
   );
-  await page.locator('a[href="/services"]').first().click();
+  const isMobile = (page.viewportSize()?.width ?? 1280) <= 820;
+  if (isMobile) {
+    await page.getByRole('button', { name: 'Toggle menu' }).click();
+  }
+  await page
+    .getByRole('navigation', {
+      name: isMobile ? 'Mobile navigation' : 'Primary links',
+    })
+    .getByRole('link', { name: 'Services', exact: true })
+    .click();
   await expect(page).toHaveURL(/\/services$/);
   await page.goBack();
   await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready');
@@ -866,6 +910,24 @@ for (const profile of [
       );
     }
     await expect(cta).toBeVisible();
+    // Visibility alone permits opacity-zero entrance frames. Inspect actual
+    // ancestor opacity before measuring ink and running the contrast audit.
+    await expect
+      .poll(() =>
+        cta.locator('.pill-btn-span').evaluate((element) => {
+          for (
+            let ancestor: Element | null = element;
+            ancestor;
+            ancestor = ancestor.parentElement
+          ) {
+            const style = getComputedStyle(ancestor);
+            if (style.visibility === 'hidden' || Number(style.opacity) !== 1)
+              return false;
+          }
+          return true;
+        }),
+      )
+      .toBe(true);
     const ctaInk = await measure(cta.locator('.pill-btn-span'));
     expect(ctaInk.lines).toBe(1);
     expect(ctaInk.clips).toEqual([]);

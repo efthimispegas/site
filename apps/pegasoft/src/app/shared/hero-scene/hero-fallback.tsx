@@ -6,12 +6,7 @@ import { HERO_TEST_DIAGNOSTICS } from './hero-test-diagnostics';
 import styles from './hero-scene.module.css';
 
 type HeroFallbackComposition =
-  | 'loader'
-  | 'landing'
-  | 'journey'
-  | 'field'
-  | 'arrival'
-  | 'exit';
+  'loader' | 'landing' | 'journey' | 'field' | 'arrival' | 'exit';
 
 function getFallbackComposition(
   key: HeroReferenceStateKey,

@@ -23,26 +23,46 @@ function realElapsed(milliseconds: number) {
   return new Promise<void>((resolve) => setTimeout(resolve, milliseconds));
 }
 
-test('native animation name and target binding survive screenshot and DOM reordering', async ({ page }) => {
+test('native animation name and target binding survive screenshot and DOM reordering', async ({
+  page,
+}) => {
   await pausedFixture(page);
   await installCaptureCssClock(page);
   const before = await readCaptureCssClock(page);
-  expect(before.animations[0]).toEqual(expect.objectContaining({
-    animationName: 'travel', transitionProperty: null,
-    target: expect.objectContaining({ tagName: 'div', id: 'animation', selector: '#animation', pseudoElement: null }),
-    timing: expect.objectContaining({ duration: 1000, delay: 0, iterations: 'infinite' }),
-  }));
-  await page.locator('#transition').evaluate(element => document.body.prepend(element));
+  expect(before.animations[0]).toEqual(
+    expect.objectContaining({
+      animationName: 'travel',
+      transitionProperty: null,
+      target: expect.objectContaining({
+        tagName: 'div',
+        id: 'animation',
+        selector: '#animation',
+        pseudoElement: null,
+      }),
+      timing: expect.objectContaining({
+        duration: 1000,
+        delay: 0,
+        iterations: 'infinite',
+      }),
+    }),
+  );
+  await page
+    .locator('#transition')
+    .evaluate((element) => document.body.prepend(element));
   await page.screenshot({ animations: 'allow' });
   const after = await readCaptureCssClock(page);
   expect(after.animations[0].id).toBe(before.animations[0].id);
   expect(after.animations[0].target).toEqual(before.animations[0].target);
 });
 
-test('same-name SVG effects retain distinct native targets without element IDs', async ({ page }) => {
+test('same-name SVG effects retain distinct native targets without element IDs', async ({
+  page,
+}) => {
   await page.clock.install({ time: epoch });
   await page.clock.pauseAt(epoch);
-  await page.setContent(`<style>@keyframes dash { to { stroke-dashoffset:-24; } } svg { animation:dash 4s linear infinite; }</style><svg viewBox="0 0 10 10"><ellipse cx="5" cy="5" rx="4" ry="4" /></svg><svg viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="9" ry="9" /></svg>`);
+  await page.setContent(
+    `<style>@keyframes dash { to { stroke-dashoffset:-24; } } svg { animation:dash 4s linear infinite; }</style><svg viewBox="0 0 10 10"><ellipse cx="5" cy="5" rx="4" ry="4" /></svg><svg viewBox="0 0 20 20"><ellipse cx="10" cy="10" rx="9" ry="9" /></svg>`,
+  );
   await installCaptureCssClock(page);
   const snapshot = await readCaptureCssClock(page);
   expect(snapshot.animations).toHaveLength(2);
@@ -54,15 +74,25 @@ test('same-name SVG effects retain distinct native targets without element IDs',
     expect(selector).not.toBe('');
     await expect(page.locator(selector)).toHaveCount(1);
   }
-  expect(snapshot.animations[0].target?.selector).not.toBe(snapshot.animations[1].target?.selector);
-  await page.locator('svg').evaluateAll(elements => elements.forEach(element => { element.id = 'duplicate'; }));
-  const duplicatedIds = JSON.parse(JSON.stringify(await readCaptureCssClock(page)));
+  expect(snapshot.animations[0].target?.selector).not.toBe(
+    snapshot.animations[1].target?.selector,
+  );
+  await page.locator('svg').evaluateAll((elements) =>
+    elements.forEach((element) => {
+      element.id = 'duplicate';
+    }),
+  );
+  const duplicatedIds = JSON.parse(
+    JSON.stringify(await readCaptureCssClock(page)),
+  );
   for (const animation of duplicatedIds.animations) {
     expect(animation.target.id).toBe('duplicate');
     await expect(page.locator(animation.target.selector)).toHaveCount(1);
     expect(animation.timing.iterations).toBe('infinite');
   }
-  expect(duplicatedIds.animations[0].target.selector).not.toBe(duplicatedIds.animations[1].target.selector);
+  expect(duplicatedIds.animations[0].target.selector).not.toBe(
+    duplicatedIds.animations[1].target.selector,
+  );
 });
 
 test('css_document_timeline_progresses_while_javascript_clock_is_paused', async ({
@@ -111,7 +141,9 @@ test('css_transition_created_in_timer_uses_remaining_interval', async ({
   await pausedFixture(page);
   await installCaptureCssClock(page);
   await page.evaluate(() => {
-    getComputedStyle(document.querySelector('#transition') as Element).getPropertyValue('opacity');
+    getComputedStyle(
+      document.querySelector('#transition') as Element,
+    ).getPropertyValue('opacity');
     setTimeout(
       () => document.querySelector('#transition')?.classList.add('active'),
       100,
@@ -125,10 +157,13 @@ test('css_transition_created_in_timer_uses_remaining_interval', async ({
   expect(transition).toBeDefined();
   expect(transition?.observedAtMs).toBe(100);
   expect(transition?.currentTime).toBeCloseTo(200, 5);
-  expect(transition).toEqual(expect.objectContaining({
-    animationName: null, transitionProperty: 'opacity',
-    target: expect.objectContaining({ selector: '#transition' }),
-  }));
+  expect(transition).toEqual(
+    expect.objectContaining({
+      animationName: null,
+      transitionProperty: 'opacity',
+      target: expect.objectContaining({ selector: '#transition' }),
+    }),
+  );
   expect(
     await page
       .locator('#transition')

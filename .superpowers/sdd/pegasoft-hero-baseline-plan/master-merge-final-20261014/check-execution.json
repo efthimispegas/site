@@ -1,0 +1,158 @@
+{
+  "frozen-install": {
+    "command": [
+      "pnpm",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "exitCode": 0,
+    "seconds": 1.03
+  },
+  "individual-e2e": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/individual-e2e:e2e",
+      "--skipNxCache",
+      "--retries=0",
+      "--reporter=line,json"
+    ],
+    "exitCode": 0,
+    "seconds": 7.59,
+    "inputNote": "Application runtime and dependencies unchanged by the unused lint-registration removal and audit-policy configuration."
+  },
+  "e2e": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:e2e",
+      "--skipNxCache",
+      "--retries=0",
+      "--reporter=line,json",
+      "--max-failures=3",
+      "--output=/tmp/pegasoft-merge-final-postformat-e2e"
+    ],
+    "exitCode": 0,
+    "seconds": 362.42
+  },
+  "core-checks": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run-many",
+      "--targets=typecheck,lint,test",
+      "--skipNxCache",
+      "--parallel=2"
+    ],
+    "exitCode": 0,
+    "seconds": 20.3
+  },
+  "build": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run-many",
+      "--targets=build",
+      "--projects=@site/pegasoft,@site/individual",
+      "--skipNxCache",
+      "--parallel=1"
+    ],
+    "exitCode": 0,
+    "seconds": 13.48
+  },
+  "measurement": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-measurement-test"
+    ],
+    "exitCode": 0,
+    "seconds": 0.91
+  },
+  "s7-harness": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-s7-harness-test"
+    ],
+    "exitCode": 0,
+    "seconds": 7.47
+  },
+  "production-smoke": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:hero-production-smoke"
+    ],
+    "exitCode": 0,
+    "seconds": 16.02
+  },
+  "failedStartupAttempt": {
+    "command": [
+      "pnpm",
+      "nx",
+      "run",
+      "@site/pegasoft-e2e:e2e",
+      "--skipNxCache",
+      "--retries=0",
+      "--reporter=line,json",
+      "--max-failures=3",
+      "--output=/tmp/pegasoft-merge-final-e2e"
+    ],
+    "exitCode": 1,
+    "seconds": 116.22
+  },
+  "audit-policy": {
+    "command": [
+      "pnpm",
+      "audit",
+      "--audit-level",
+      "high"
+    ],
+    "exitCode": 0
+  },
+  "frozen-install-after-policy": {
+    "command": [
+      "pnpm",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "exitCode": 0
+  },
+  "capture-contracts": {
+    "status": "passed-in-full-e2e",
+    "testsPerProfile": 43,
+    "profiles": 2,
+    "log": "e2e.log",
+    "results": "e2e-results.json"
+  },
+  "clock-fixtures": {
+    "status": "passed-in-full-e2e",
+    "testsPerProfile": 6,
+    "profiles": 2,
+    "log": "e2e.log",
+    "results": "e2e-results.json"
+  },
+  "localhost": {
+    "status": "passed",
+    "browser": "Codex in-app browser",
+    "routes": 4,
+    "httpLog": "localhost-http.json",
+    "browserLog": "browser-smoke.json",
+    "screenshots": [
+      "pegasoft-localhost.jpg",
+      "pegasoft-services.jpg",
+      "individual-localhost.jpg",
+      "individual-work.jpg"
+    ]
+  },
+  "format": {
+    "status": "pending-final-check",
+    "log": "format.log"
+  }
+}
