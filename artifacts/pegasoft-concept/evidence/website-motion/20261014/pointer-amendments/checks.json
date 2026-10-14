@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-14T08:11:24.760Z",
+  "manifestSha256": "3be76826f51ac96ee19f3e24e40fb3a418d14393e8e392abe26d603229613e86",
+  "checkSha256": "9129523c878ec550806b2e3b3c7b399a24bc39cdded12a1d1c683c76959c1bdb",
+  "observations": [
+    {
+      "enter": {
+        "x": 700,
+        "y": 300,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "leave": {
+        "x": 700,
+        "y": 300,
+        "opacity": "0",
+        "text": "Talkwith us",
+        "active": "false"
+      },
+      "reenter": {
+        "x": 300,
+        "y": 450,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "scrolling": [
+        {
+          "x": 300,
+          "y": 450,
+          "opacity": "1",
+          "text": "Talkwith us",
+          "active": "true"
+        },
+        {
+          "x": 300,
+          "y": 450,
+          "opacity": "1",
+          "text": "Talkwith us",
+          "active": "true"
+        },
+        {
+          "x": 300,
+          "y": 450,
+          "opacity": "1",
+          "text": "Talkwith us",
+          "active": "true"
+        }
+      ],
+      "scrollEntry": {
+        "x": 300,
+        "y": 450,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "next": {
+        "x": 930,
+        "y": 410,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "keyboardContact": true,
+      "particleRadius": 76,
+      "previousRadius": 95,
+      "particleReassembly": true,
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "reduced": false,
+      "stationaryCta": true,
+      "touchContact": true
+    },
+    {
+      "mobile": true,
+      "reduced": true,
+      "stationaryCta": true,
+      "touchContact": true
+    }
+  ],
+  "userAccepted": false,
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/pointer-amendments/recording/page@876b1afc6a1fa695377bf180569acd7f.webm",
+  "status": "passed"
+}

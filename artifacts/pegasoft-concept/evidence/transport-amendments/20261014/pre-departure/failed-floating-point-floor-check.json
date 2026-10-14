@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-14T08:55:44.483Z",
+  "manifestSha256": "1c8390f08c2f3847d352b22e59077ad662cc3f49d85b71c54449894f375ae734",
+  "scriptSha256": "3b9bc148e420e38fdea2bbdd6ef5cb7ddeed464d9aec4647469e2754d1941f94",
+  "c01Sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+  "approvedSilver": "c5cdd6",
+  "observations": [],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 8.643591693983859e-24\n- 0\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/transport-amendments/20261014/pre-departure/check.mjs:13:248"
+}

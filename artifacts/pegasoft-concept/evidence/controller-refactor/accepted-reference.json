@@ -1,0 +1,181 @@
+{
+  "status": "user_approved_reference_before_controller_extraction",
+  "user_quote": "Approved. Proceed with next review phase",
+  "date_local": "2026-10-12",
+  "baseline_sha256": "a9e8589de2260de57a1167c123b4a9d653a8425a98fd0b66c94c4eeb638a9651",
+  "amendments_sha256": "baa303e24b1860566fb2881e2e63a29eba4a84172c690d9d26a3bd83eb3ce1cb",
+  "build_files": [
+    {
+      "path": "index.html",
+      "sha256": "37d33d8188bcbedf23ee213a55520ccd1010191af08d902ece05990a18e12a88"
+    },
+    {
+      "path": "review/ship-jet-integration.html",
+      "sha256": "92dfed3152d16afa361afd0229ed487224bbdc09b6ae220e8f69dbd5cada47f8"
+    },
+    {
+      "path": "assets/inspection-DH2CdHee.js",
+      "sha256": "fdd31b2a38cf55ae42946e865f16cf05016ad7fa13ca5bcddd9d09290f7eaf0b"
+    }
+  ],
+  "runtime_assets": [
+    {
+      "source": "generation/cloud-family/cloud-story-approval.json",
+      "sourceSha256": "e57463961220ff6f545d2e027c1d20944d51087107520ca96a646c160b0656c5",
+      "packaged": "public/assets/generation/cloud-family/cloud-story-approval.json",
+      "packagedSha256": "e57463961220ff6f545d2e027c1d20944d51087107520ca96a646c160b0656c5",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/haze-treatment.json",
+      "sourceSha256": "564c7b59dd789a67a8afaf2bf98bcc9152e0c7e34aa476be5c2b53b8bbb77ae9",
+      "packaged": "public/assets/generation/cloud-family/haze-treatment.json",
+      "packagedSha256": "564c7b59dd789a67a8afaf2bf98bcc9152e0c7e34aa476be5c2b53b8bbb77ae9",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/K01/K01.png",
+      "sourceSha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3",
+      "packaged": "public/assets/generation/cloud-family/K01/K01.png",
+      "packagedSha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/K02/K02.png",
+      "sourceSha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194",
+      "packaged": "public/assets/generation/cloud-family/K02/K02.png",
+      "packagedSha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/K03/K03.png",
+      "sourceSha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401",
+      "packaged": "public/assets/generation/cloud-family/K03/K03.png",
+      "packagedSha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/container-family/model-draft/C01-container.glb",
+      "sourceSha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "packaged": "public/assets/generation/container-family/model-draft/C01-container.glb",
+      "packagedSha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/jet-family/J02-overhead.png",
+      "sourceSha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8",
+      "packaged": "public/assets/generation/jet-family/J02-overhead.png",
+      "packagedSha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/jet-family/shadow-measurements-approval.json",
+      "sourceSha256": "d589ae739d69b0aed2f3bdb7063e2a9187242b6eb31f82cc85593aadb8aeb49a",
+      "packaged": "public/assets/generation/jet-family/shadow-measurements-approval.json",
+      "packagedSha256": "d589ae739d69b0aed2f3bdb7063e2a9187242b6eb31f82cc85593aadb8aeb49a",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/lift-family/model-draft/attachment-ownership.json",
+      "sourceSha256": "533de587c77970c452aae69e45c638703d84a8d7177e218cad54849e9729d315",
+      "packaged": "public/assets/generation/lift-family/model-draft/attachment-ownership.json",
+      "packagedSha256": "533de587c77970c452aae69e45c638703d84a8d7177e218cad54849e9729d315",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sourceSha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+      "packaged": "public/assets/generation/lift-family/model-draft/model-carbon-unified.glb",
+      "packagedSha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/lift-family/model-draft/wheel-ownership-motion-amended.json",
+      "sourceSha256": "dc471c852437c5d7181646a4bafdeec7afb2f42f8bf6b395fb8e687d3778bd42",
+      "packaged": "public/assets/generation/lift-family/model-draft/wheel-ownership-motion-amended.json",
+      "packagedSha256": "dc471c852437c5d7181646a4bafdeec7afb2f42f8bf6b395fb8e687d3778bd42",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/ship-family/model-draft/S01-ship.glb",
+      "sourceSha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13",
+      "packaged": "public/assets/generation/ship-family/model-draft/S01-ship.glb",
+      "packagedSha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/ship-family/S01/S01-oblique-original.png",
+      "sourceSha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+      "packaged": "public/assets/generation/ship-family/S01/S01-oblique-original.png",
+      "packagedSha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/ship-family/water-plate/ocean-motion.mp4",
+      "sourceSha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912",
+      "packaged": "public/assets/generation/ship-family/water-plate/ocean-motion.mp4",
+      "packagedSha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/truck-family/model-draft/T01-truck.glb",
+      "sourceSha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "packaged": "public/assets/generation/truck-family/model-draft/T01-truck.glb",
+      "packagedSha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/fonts/dmsans-OFL.txt",
+      "sourceSha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1",
+      "packaged": "public/assets/review/fonts/dmsans-OFL.txt",
+      "packagedSha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/fonts/dmsans.ttf",
+      "sourceSha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+      "packaged": "public/assets/review/fonts/dmsans.ttf",
+      "packagedSha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/fonts/manrope-OFL.txt",
+      "sourceSha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "packaged": "public/assets/review/fonts/manrope-OFL.txt",
+      "packagedSha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/fonts/manrope.ttf",
+      "sourceSha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "packaged": "public/assets/review/fonts/manrope.ttf",
+      "packagedSha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/vendor/three/LICENSE",
+      "sourceSha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "packaged": "public/assets/review/vendor/three/LICENSE",
+      "packagedSha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "treatment": "byte-identical runtime asset"
+    }
+  ],
+  "affected_inputs": [
+    {
+      "path": "review/ship-jet-integration.js",
+      "sha256": "fd731edaab1c12475e14232e13ce497044ef850f7a9e4c532e18959828745a4a"
+    },
+    {
+      "path": "review/cloud-story-layers.js",
+      "sha256": "4b745e5297fe9b2a259a0f71708f526f39c94d894115ef2b25f547fad3e7a6b6"
+    },
+    {
+      "path": "review/jet-crossing.js",
+      "sha256": "b96480fb4b43c4d5091b8eda7a7b52667c663d61e4496b22c741f0c6743b18dc"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "48f829c769d6471cd95dc8eafc71e920d0b4545daca429272011ec7b17ee0523"
+    }
+  ]
+}

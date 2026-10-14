@@ -1,0 +1,45 @@
+{
+  "mode": "motion",
+  "date": "2026-10-12T11:05:54.306Z",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "baselineSha256": "a9e8589de2260de57a1167c123b4a9d653a8425a98fd0b66c94c4eeb638a9651",
+  "configSha256": "c9a843b93b4423be7760d3411b7b473661560e3706b328ce4b29032ce766c61f",
+  "checkSha256": "25ba51c79a8aee42e6042cc18049aeda55396cda7241edc08463b0ee49661e29",
+  "viewport": {
+    "width": 1280,
+    "height": 900
+  },
+  "observations": [
+    {
+      "normalFrames": 1556,
+      "start": 0,
+      "end": 1
+    },
+    {
+      "reverseFrames": 1562,
+      "start": 1,
+      "end": 0
+    },
+    {
+      "physicalScroll": {
+        "before": 0,
+        "down": 0.14686832264957264,
+        "up": 0.0867721688034188
+      }
+    },
+    {
+      "resizePreservedProgress": true,
+      "reducedMotionControls": true,
+      "networkAndRuntimeErrors": []
+    },
+    {
+      "mobileViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "horizontalOverflow": false
+    }
+  ],
+  "userAccepted": false,
+  "status": "passed"
+}

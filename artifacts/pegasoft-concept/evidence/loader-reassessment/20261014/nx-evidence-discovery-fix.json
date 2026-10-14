@@ -1,0 +1,17 @@
+{
+  "reason": "Raw project/Vite snapshots were detected as a second Nx app",
+  "treatment": "Rename configuration snapshots with .snapshot suffix; preserve bytes",
+  "files": [
+    {
+      "original": "sources/vite.config.js",
+      "snapshot": "sources/vite.config.js.snapshot",
+      "sha256": "170ff488d3b80405a305ad383297a265dd51b960d93a68977932461bdbdfd617"
+    },
+    {
+      "original": "sources/project.json",
+      "snapshot": "sources/project.json.snapshot",
+      "sha256": "1c2248a85b61f78f68c7ea41def1e1e906a4182a1f05aee771bb3132c70edd0c"
+    }
+  ],
+  "graph": "@site/pegasoft-concept resolves from apps/pegasoft-concept"
+}

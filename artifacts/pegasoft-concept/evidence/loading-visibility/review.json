@@ -1,0 +1,34 @@
+{
+  "status": "loading_flash_fixed_pending_transport_review",
+  "date": "2026-10-13T10:20:09.757672+00:00",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "uncommitted; pinned source/build",
+  "branch": "codex/pegasoft-concept",
+  "website": "http://127.0.0.1:8771/?revision=loading-fix-20261013",
+  "userAccepted": false,
+  "parentReview": "../transport-amendments/review.json",
+  "cause": "Jet image painted at the HTML origin with no transform while asynchronous scene assets were loading. Controller positioning occurred only after the assets resolved.",
+  "change": "Root CSS keeps stage overlays transparent until data-loaded=true; the initial controller pose is applied before the ready frame paints. Approved scene, jet equations, chapter timing and asset bytes are unchanged.",
+  "checks": {
+    "source": "source-checks.log",
+    "sourceSha256": "795f31ff1b23909da5d6d8565720db11c10208c006a6e88cd10d5f806671ad4e",
+    "final": "final-checks.log",
+    "finalSha256": "d5f17931c2835d8a947abab93e72225f73e690cabea79e73943cf261159d7435",
+    "lint": "passed; 52 syntax checks and scoped ESLint",
+    "unitTests": "16 passed",
+    "buildAndProvenance": "passed",
+    "runtime": "checks.json",
+    "runtimeSha256": "8cc8983a04d495a8a38a75bc29ec615322c4c65d88e6de457bcb2290f3930b78",
+    "conditions": "1280x900 and 390x844; actual GLB responses held until jet image decoding, then released; native wheel scroll to the later jet crossing"
+  },
+  "manifestSha256": "c67c27b159a796a142d796feb101dd32afca052ba330a457018e92110c2e6042",
+  "visualInspection": [
+    "before.png",
+    "loading-1280.png",
+    "crossing-1280.png"
+  ],
+  "buildIndexSha256": "f9e3bb6ff0f3116dae3670bbcfa9a17fcd8486eeb48e4e7e96f046d7822075d0",
+  "cssSha256": "7dafdaee9104a818177904a4981f20db472f05115f5f18138e9cfb8f4aba544b",
+  "projectSha256": "a5d0f51d811732571f27bb8238f6f8678a4e1a77ee5cc864108b8919e6d27aab",
+  "resume": "Await transport review; do not move to opening/outcome."
+}

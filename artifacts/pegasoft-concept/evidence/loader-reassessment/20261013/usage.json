@@ -1,0 +1,53 @@
+{
+  "ordinaryUsageAllowed": true,
+  "rateLimits": {
+    "limitId": "codex",
+    "limitName": null,
+    "normalModelSlug": null,
+    "primary": {
+      "usedPercent": 61,
+      "windowDurationMins": 300,
+      "resetsAt": 1791906112
+    },
+    "secondary": {
+      "usedPercent": 15,
+      "windowDurationMins": 10080,
+      "resetsAt": 1792474833
+    },
+    "credits": {
+      "hasCredits": true,
+      "unlimited": false,
+      "balance": "1353.8605995000"
+    },
+    "individualLimit": null,
+    "spendControlReached": false,
+    "planType": "team",
+    "rateLimitReachedType": null
+  },
+  "rateLimitsByLimitId": {
+    "codex": {
+      "limitId": "codex",
+      "limitName": null,
+      "normalModelSlug": null,
+      "primary": {
+        "usedPercent": 61,
+        "windowDurationMins": 300,
+        "resetsAt": 1791906112
+      },
+      "secondary": {
+        "usedPercent": 15,
+        "windowDurationMins": 10080,
+        "resetsAt": 1792474833
+      },
+      "credits": {
+        "hasCredits": true,
+        "unlimited": false,
+        "balance": "1353.8605995000"
+      },
+      "individualLimit": null,
+      "spendControlReached": false,
+      "planType": "team",
+      "rateLimitReachedType": null
+    }
+  }
+}

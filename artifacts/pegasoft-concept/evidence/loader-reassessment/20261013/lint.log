@@ -1,0 +1,22 @@
+
+> nx run @site/pegasoft-concept:lint
+
+> node tools/check-source.mjs
+
+{"status":"syntax_passed","files":68}
+> pnpm exec eslint tools vite.config.js eslint.config.mjs review/cloud-motion.js review/runtime-lifecycle.js review/ship-jet-controller.js review/ship-jet-scene.js review/ship-jet-inspection.js review/ship-jet-integration.js review/cloud-story-layers.js review/jet-crossing.js review/ship-water.js src review/cloud-story-sequence.js
+
+(node:17290) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17300) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran target lint for project @site/pegasoft-concept
+
+
+  Run duration:      2.9s
+  Cache:             0/1 hit (0%)
+  Critical path:     2.9s (1 task)
+  Recoverable time:  <1ms

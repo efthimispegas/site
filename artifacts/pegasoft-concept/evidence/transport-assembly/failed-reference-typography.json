@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-12T16:03:40.912Z",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "inputManifestSha256": "0b1b03f691f155321097164ee33d8e11e44c27998904cf7161dc223843a99677",
+  "checkSha256": "5536dc11958e4c6c5bee5fdeb17f1da11d41d4520b28e6ad4e4e8a7b3ca927f2",
+  "observations": [
+    {
+      "chapter": "handoff",
+      "localProgress": 0,
+      "journeyProgress": 0,
+      "screenshot": "handoff-0.png",
+      "sha256": "a0a7f52b7aa7d8795cbc80cbde9975fd79078c7b121d623fc9c365aa8790e319",
+      "comparison": {
+        "meanChannelDifference": 0.07810792824074074,
+        "channelsDifferingOver8": 0.0035338541666666665
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.2,
+      "journeyProgress": 0.05983962979215701,
+      "screenshot": "handoff-2000.png",
+      "sha256": "3f2b789ce89962e150c8a5586db5e916c99ddc1e4a0366a879adbc8b902474cf",
+      "comparison": {
+        "meanChannelDifference": 0.08153038194444444,
+        "channelsDifferingOver8": 0.003695891203703704
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.3,
+      "journeyProgress": 0.08975944468823552,
+      "screenshot": "handoff-3000.png",
+      "sha256": "c9581c9eea3d9c9341a819d4e5c0c201b92f75b267828c701f2a96f3d9a3e28b",
+      "comparison": {
+        "meanChannelDifference": 0.0741490162037037,
+        "channelsDifferingOver8": 0.003390625
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.4,
+      "journeyProgress": 0.11967925958431402,
+      "screenshot": "handoff-4000.png",
+      "sha256": "33bc3bc10a33a30df41d5789f524b1ad1b6d6bb3b1b2d881a40463358172f567",
+      "comparison": {
+        "meanChannelDifference": 0.06962181712962963,
+        "channelsDifferingOver8": 0.0031747685185185186
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.55,
+      "journeyProgress": 0.1645589819284318,
+      "screenshot": "handoff-5500.png",
+      "sha256": "ba8f5400ef3be1cf7830a316db6013b7f6c55601a7c69d36f103d9bf3e074528",
+      "comparison": {
+        "meanChannelDifference": 0.07134519675925927,
+        "channelsDifferingOver8": 0.0032575231481481483
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.63,
+      "journeyProgress": 0.18849483384529458,
+      "screenshot": "handoff-6300.png",
+      "sha256": "674bb7abf4f5749de02aca3085064726e9045c239b03c4cc15e633a394c247a2",
+      "comparison": {
+        "meanChannelDifference": 0.000024594907407407408,
+        "channelsDifferingOver8": 8.680555555555556e-7
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.8,
+      "journeyProgress": 0.23935851916862805,
+      "screenshot": "handoff-8000.png",
+      "sha256": "93fec7f9120cab060e0c3d351c0ac580bd076267cb818975b70675a967b850ba",
+      "comparison": {
+        "meanChannelDifference": 2.8935185185185185e-7,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.87,
+      "journeyProgress": 0.26030238959588303,
+      "screenshot": "handoff-8700.png",
+      "sha256": "b6484cc02db891eebcceea44c679bf0c1ab083628f4bd5af44789c535f5742f6",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.95,
+      "journeyProgress": 0.28423824151274585,
+      "screenshot": "handoff-9500.png",
+      "sha256": "3a33f63b01108cfb344b64bdb6a613bb5faa88a99753f927c70e927b5f2849f7",
+      "comparison": {
+        "meanChannelDifference": 2.8935185185185185e-7,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.12000000000000002,
+      "journeyProgress": 0.3323493038656401,
+      "screenshot": "ship-1200.png",
+      "sha256": "26329404977d14771b4ee058560445da60218963ed7d6d7433f7038d3969fc3e",
+      "comparison": {
+        "meanChannelDifference": 0.030819733796296295,
+        "channelsDifferingOver8": 0.001570023148148148
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.31999999999999995,
+      "journeyProgress": 0.4025611361551043,
+      "screenshot": "ship-3200.png",
+      "sha256": "0b254cd8bca31671e9e7b6ff38b3d29fde862b98384926c1bc97910d4a7acd82",
+      "comparison": {
+        "meanChannelDifference": 0.009717881944444444,
+        "channelsDifferingOver8": 0.00046267361111111113
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.44,
+      "journeyProgress": 0.44468823552878284,
+      "screenshot": "ship-4400.png",
+      "sha256": "ef7c147463d9fd62da37160fe9ffca6c61d71715d5e68ee92a24f40e5f1c1243",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.6,
+      "journeyProgress": 0.5008577013603542,
+      "screenshot": "ship-6000.png",
+      "sha256": "2bb048721a9f42da1aec1284baf1863bac70932a98777e2980dfa5101422652d",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.7999999999999997,
+      "journeyProgress": 0.5710695336498184,
+      "screenshot": "ship-8000.png",
+      "sha256": "749450b1938731ee26cb056864de1530dec14ee72099f825ded6896975a902ec",
+      "comparison": {
+        "meanChannelDifference": 2.9264369212962964,
+        "channelsDifferingOver8": 0.020994502314814815
+      },
+      "transforms": "matched within 1e-9"
+    }
+  ],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: ship:0.8 {\"meanChannelDifference\":2.9264369212962964,\"channelsDifferingOver8\":0.020994502314814815}\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/transport-check.mjs:73:14"
+}

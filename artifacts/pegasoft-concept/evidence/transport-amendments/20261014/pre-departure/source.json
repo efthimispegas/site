@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-14T08:59:42.097Z",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "Uncommitted scoped amendments; snapshot hashes identify checked inputs.",
+  "files": [
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "46220e0156533799665794e41bd90816a8d7d4d8e794fe04d2cdf1040275bbad",
+      "snapshot": "source/src/transport-sequence.js"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "1c8390f08c2f3847d352b22e59077ad662cc3f49d85b71c54449894f375ae734",
+      "snapshot": "source/website-motion-manifest.json"
+    },
+    {
+      "path": "tools/verify-website-motion.mjs",
+      "sha256": "30a6f86b08219e072a8e265b9883a56211d273ee956cb78b379b74122512d6c6",
+      "snapshot": "source/tools/verify-website-motion.mjs"
+    }
+  ],
+  "unchangedC01Asset": {
+    "path": "public/assets/generation/container-family/model-draft/C01-container.glb",
+    "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+  },
+  "preservedPaletteContractSha256": "fe7be1ebbc4f5c070df208937101fda17113f05f92e09b7d9b05a9e9151bfb29"
+}

@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-12T14:50:36.659Z",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "sourceFiles": {
+    "index.html": "f4460580077154acf1e6408f8efb97a0800f79264ad53bd49675914f31389bc2",
+    "src/main.js": "e98fd7160fc3ee61203bc0fcb3656c628d721375852aa9d81bb585dcea9cbfbd",
+    "src/journey-host.js": "35bc120d75320f1eed6e1b43d0ba7fd714b35db201f1e25b96bb08315694b99a",
+    "src/journey.css": "8efc09217d8fd6c11e536bc7929f84e18a3c16e8c465653d2eca1f51150978b5",
+    "tools/website-check.mjs": "c5b211e3f3eb104637e2b684adaddcf03c72e73693bd89a8c5a40cb8d1871e9c",
+    "project.json": "eb14a921dda7b5ddd80be20dcc2d6dbbb6acb993023baa0a0ddf7bd1b74a22c3",
+    "controller-refactor-manifest.json": "2c54d716820cf096a0fe9d520c7c29bd0e6353cc4f1117b5373e6e277de963f2",
+    "runtime-amendments.json": "baa303e24b1860566fb2881e2e63a29eba4a84172c690d9d26a3bd83eb3ce1cb",
+    "vite.config.js": "c9a843b93b4423be7760d3411b7b473661560e3706b328ce4b29032ce766c61f"
+  },
+  "observations": [
+    {
+      "progress": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "trace": "exact_match",
+      "screenshot": "production-0.png",
+      "sha256": "48d7db88d3b3f1a06849fbf7718d7100a56766e787528ac0e508411a18a28894",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      }
+    },
+    {
+      "progress": 0.24612713675213677,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "trace": "exact_match",
+      "screenshot": "production-2462.png",
+      "sha256": "45693aede66d68d960f5423dc531333d9965e68a7562271b0ee1f79d1628f0c0",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      }
+    },
+    {
+      "progress": 0.5384615384615384,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "trace": "exact_match",
+      "screenshot": "production-5385.png",
+      "sha256": "e072a2a1647b93204e78851e5330875079d42371a9739734a9bc9363fd79ac09",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      }
+    },
+    {
+      "progress": 0.5961538461538461,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "trace": "exact_match",
+      "screenshot": "production-5962.png",
+      "sha256": "0a2379154491c685c4ad697769b616895e47db39e54abf16d56d58dca39d4f1f",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      }
+    },
+    {
+      "progress": 0.6923076923076923,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "trace": "exact_match",
+      "screenshot": "production-6923.png",
+      "sha256": "aa42a2922a362667046330cd9e26061c1530dcaf54fcb706dade5b164ae0cb21",
+      "comparison": {
+        "meanChannelDifference": 0.000005497685185185185,
+        "channelsDifferingOver8": 0
+      }
+    },
+    {
+      "progress": 0.8461538461538461,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "trace": "exact_match",
+      "screenshot": "production-8462.png",
+      "sha256": "3f5871a2f49bfc7ff6d8f2c8f85d70ec263050ef4794c0fe8f425078ae2cea25",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      }
+    },
+    {
+      "progress": 1,
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "trace": "exact_match",
+      "screenshot": "production-10000.png",
+      "sha256": "e7a2012e58212ed9e8e7e34ea43b39e88182c793879c7580be2167408ce70e55",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      }
+    },
+    {
+      "nativeForwardReverseWheel": true,
+      "keyboardScroll": true,
+      "resizeProgressPreserved": true,
+      "reviewControls": 0,
+      "runtimeErrors": []
+    },
+    {
+      "mobileViewport": {
+        "width": 390,
+        "height": 844
+      },
+      "nativeTouchScroll": true,
+      "horizontalOverflow": false
+    },
+    {
+      "reducedMotion": "static approved asset and semantic copy, no graphics loop"
+    },
+    {
+      "graphicsLoadFailure": "static approved asset and semantic copy"
+    },
+    {
+      "developmentRootLoaded": true,
+      "lifecycle": {
+        "before": {
+          "loops": 1,
+          "state": "mounted"
+        },
+        "after": {
+          "loops": 0,
+          "state": "disposed",
+          "canvas": 0,
+          "media": 0
+        }
+      }
+    }
+  ],
+  "userAccepted": false,
+  "status": "checks_passed_pending_personal_review"
+}

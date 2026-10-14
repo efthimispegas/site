@@ -1,0 +1,95 @@
+
+ NX   Running targets lint, test, build for project @site/pegasoft-concept and 1 task it depends on:
+
+- @site/pegasoft-concept
+
+
+
+> nx run @site/pegasoft-concept:verify-baseline
+
+> node tools/package-reviewed-slice.mjs --check
+
+{"status":"baseline_verified","modules":23,"assets":20,"sourceInputs":45}
+
+> nx run @site/pegasoft-concept:test
+
+> node --test tools/packaging.test.mjs tools/cloud-motion.test.mjs tools/lifecycle.test.mjs tools/transport-timeline.test.mjs
+
+(node:82629) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:82631) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ K01 has steady nonzero travel through veil, bank and jet crossing [90m(9.615875ms)[39m[39m
+[32m✔ K01 retains origin/bank, follows the veil route and continues smoothly past bank [90m(2.9405ms)[39m[39m
+[32m✔ K02 has steady nonzero travel through veil, bank and jet crossing [90m(5.262375ms)[39m[39m
+[32m✔ K02 retains origin/bank, follows the veil route and continues smoothly past bank [90m(1.740083ms)[39m[39m
+[32m✔ K03 has steady nonzero travel through veil, bank and jet crossing [90m(4.845ms)[39m[39m
+[32m✔ K03 retains origin/bank, follows the veil route and continues smoothly past bank [90m(1.7475ms)[39m[39m
+(node:82632) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ scope removes listeners and restores property handlers exactly once [90m(0.866416ms)[39m[39m
+[32m✔ frame owner never duplicates requests and stop cancels pending work [90m(0.166625ms)[39m[39m
+[32m✔ stopping during a frame does not schedule a replacement callback [90m(0.074375ms)[39m[39m
+[32m✔ resource disposal deduplicates geometry, materials and textures across model roots [90m(1.645333ms)[39m[39m
+(node:82633) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ packaged runtime assets retain approved bytes and contain no historical evidence [90m(42.533625ms)[39m[39m
+[32m✔ every imported Three.js entry resolves to the same approved vendored implementation [90m(4.839834ms)[39m[39m
+[32m✔ approved chapter clocks retain their duration, overlap and reversible mapping [90m(0.256417ms)[39m[39m
+[32m✔ frozen inputs and explicitly commissioned runtime amendments remain verified [90m(200.264709ms)[39m[39m
+(node:82634) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ transport removes only approved duplicated overlap and retains chapter clocks [90m(0.96425ms)[39m[39m
+[32m✔ scroll coordinator preserves reversible local timing at desktop and small viewports [90m(3.982458ms)[39m[39m
+[34mℹ tests 16[39m
+[34mℹ suites 0[39m
+[34mℹ pass 16[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 330.768583[39m
+
+> nx run @site/pegasoft-concept:build
+
+> pnpm exec vite build
+
+(node:82641) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:82649) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.2.2 building client environment for production...
+transforming...
+[32m✓[0m 43 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../../dist/apps/pegasoft-concept/[0m[32mindex.html                              [0m[1;2m    5.73 kB[0m[2m │ gzip:   1.91 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/ship-jet-integration.html        [0m[1;2m   26.72 kB[0m[2m │ gzip:   7.84 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mindex-CKQMMT5V.css               [0m[1;2m   15.80 kB[0m[2m │ gzip:   4.50 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36minspection-QYtzISSe.js           [0m[1;2m   13.08 kB[0m[2m │ gzip:   3.97 kB[0m[2m │ map:    19.85 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mindex-D8SW_NYK.js                [0m[1;2m   19.76 kB[0m[2m │ gzip:   6.44 kB[0m[2m │ map:    35.25 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mship-jet-controller-CehO5G9N.js  [0m[33;1m2,071.75 kB[0m[2m │ gzip: 424.36 kB[0m[2m │ map: 3,449.92 kB[0m
+
+✓ built in 278ms
+
+> nx run @site/pegasoft-concept:lint
+
+> node tools/check-source.mjs
+
+{"status":"syntax_passed","files":51}
+> pnpm exec eslint tools vite.config.js eslint.config.mjs review/cloud-motion.js review/runtime-lifecycle.js review/ship-jet-controller.js review/ship-jet-scene.js review/ship-jet-inspection.js review/ship-jet-integration.js review/cloud-story-layers.js review/jet-crossing.js review/ship-water.js src review/cloud-story-sequence.js
+
+(node:82694) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:82696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran targets lint, test, build for project @site/pegasoft-concept and 1 task it depends on
+
+
+  Run duration:      1.9s
+  Cache:             0/4 hit (0%)
+  Critical path:     1.9s (1 task)
+  Recoverable time:  <1ms

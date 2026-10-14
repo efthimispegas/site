@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-13T22:07:34.373Z",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "motionManifestSha256": "126d3633ff2d04465b901c0f308e7f1aaa38710319ca9058dabed4e38e805fb9",
+  "homepageManifestSha256": "1f70b289b24095b2a014ec23d5db73cbc6c122caf3ac5cb2016654eab65d14bc",
+  "checkSha256": "7d4b8f8d132f3037962fe2d8fe2eb5ef89e004e1847385007d4e9dc23490f214",
+  "observations": [
+    {
+      "approvedPresetExact": true,
+      "resetExact": true,
+      "loadingBeat": {
+        "period": "1.74s",
+        "horizon": "hidden"
+      }
+    }
+  ],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "page.waitForFunction: Timeout 30000ms exceeded.\n    at wheelTo (/Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/website-motion-check.mjs:12:104)\n    at async file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/website-motion-check.mjs:44:3"
+}

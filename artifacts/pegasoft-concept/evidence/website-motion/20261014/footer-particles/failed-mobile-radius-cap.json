@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-14T10:36:48.008Z",
+  "manifestSha256": "0103f59410b95163d7f577d1e5fccb96b287d2bfd8789568bd0f91aef9c5ff7a",
+  "scriptSha256": "e51892ff66b670f39ff6a23eafe67c0d8104484aff61c5d12a0a49120c872abf",
+  "observations": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "initial": {
+        "radius": 130,
+        "displacement": 0,
+        "dispersing": 0,
+        "returning": 0,
+        "settings": {
+          "radius": 130,
+          "strength": 1.25,
+          "dispersionDuration": 0.65,
+          "returnDuration": 1.15,
+          "returnDelay": 0.1,
+          "falloff": 2,
+          "size": 0.65,
+          "spacing": 4
+        },
+        "points": 5225,
+        "loops": 1
+      },
+      "outward": {
+        "radius": 130,
+        "displacement": 32010.044,
+        "dispersing": 1268,
+        "returning": 0,
+        "settings": {
+          "radius": 130,
+          "strength": 1.25,
+          "dispersionDuration": 0.65,
+          "returnDuration": 1.15,
+          "returnDelay": 0.1,
+          "falloff": 2,
+          "size": 0.65,
+          "spacing": 4
+        },
+        "points": 5225,
+        "loops": 1
+      },
+      "held": {
+        "radius": 130,
+        "displacement": 48066.542,
+        "dispersing": 1268,
+        "returning": 0,
+        "settings": {
+          "radius": 130,
+          "strength": 1.25,
+          "dispersionDuration": 0.65,
+          "returnDuration": 1.15,
+          "returnDelay": 0.1,
+          "falloff": 2,
+          "size": 0.65,
+          "spacing": 4
+        },
+        "points": 5225,
+        "loops": 1
+      },
+      "returning": {
+        "radius": 130,
+        "displacement": 17709.023,
+        "dispersing": 0,
+        "returning": 1237,
+        "settings": {
+          "radius": 130,
+          "strength": 1.25,
+          "dispersionDuration": 0.65,
+          "returnDuration": 1.15,
+          "returnDelay": 0.1,
+          "falloff": 2,
+          "size": 0.65,
+          "spacing": 4
+        },
+        "points": 5225,
+        "loops": 1
+      },
+      "settled": {
+        "radius": 130,
+        "displacement": 0,
+        "dispersing": 0,
+        "returning": 0,
+        "settings": {
+          "radius": 130,
+          "strength": 1.25,
+          "dispersionDuration": 0.65,
+          "returnDuration": 1.15,
+          "returnDelay": 0.1,
+          "falloff": 2,
+          "size": 0.65,
+          "spacing": 4
+        },
+        "points": 5225,
+        "loops": 1
+      },
+      "pause": {
+        "radius": 130,
+        "displacement": 38127.619,
+        "dispersing": 1268,
+        "returning": 0,
+        "settings": {
+          "radius": 130,
+          "strength": 1.25,
+          "dispersionDuration": 0.65,
+          "returnDuration": 1.15,
+          "returnDelay": 0.1,
+          "falloff": 2,
+          "size": 0.65,
+          "spacing": 4
+        },
+        "points": 5225,
+        "loops": 1
+      },
+      "export": {
+        "radius": 130,
+        "strength": 1.25,
+        "dispersionDuration": 0.65,
+        "returnDuration": 1.15,
+        "returnDelay": 0.1,
+        "falloff": 2,
+        "size": 0.65,
+        "spacing": 4
+      },
+      "errors": []
+    }
+  ],
+  "userAccepted": false,
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/footer-particles/recording/page@df68ae384f273d6f50e14a8e17b60354.webm",
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n133.38 !== 300\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/footer-particles/check.mjs:9:75"
+}

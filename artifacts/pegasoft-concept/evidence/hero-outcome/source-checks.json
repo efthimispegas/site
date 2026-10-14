@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "html_ids": 21,
+  "local_paths": 8,
+  "checks": [
+    "Both JS modules pass node --check",
+    "Unique IDs and every local review link/media/module exists",
+    "Accepted opening renderer, CSS, defaults and city definitions unchanged",
+    "git diff --check passed"
+  ],
+  "scope": "Standalone artifact review; no Nx app/build changes."
+}

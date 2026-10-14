@@ -1,0 +1,308 @@
+{
+  "date": "2026-10-12T16:19:16.760Z",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "inputManifestSha256": "faa145e91c0eb666abbdc8e1ffd08b9f80dc6c92fb02f97f8951b7d04dcc99c2",
+  "checkSha256": "1fad50eefbe04841cee2d4ea69ac2a1a4793b9fda8eaa208f5f07b876918f92f",
+  "observations": [
+    {
+      "chapter": "handoff",
+      "localProgress": 0,
+      "journeyProgress": 0,
+      "screenshot": "handoff-0.png",
+      "sha256": "a0a7f52b7aa7d8795cbc80cbde9975fd79078c7b121d623fc9c365aa8790e319",
+      "comparison": {
+        "meanChannelDifference": 0.07810792824074074,
+        "channelsDifferingOver8": 0.0035338541666666665
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.2,
+      "journeyProgress": 0.05983962979215701,
+      "screenshot": "handoff-2000.png",
+      "sha256": "3f2b789ce89962e150c8a5586db5e916c99ddc1e4a0366a879adbc8b902474cf",
+      "comparison": {
+        "meanChannelDifference": 0.08153038194444444,
+        "channelsDifferingOver8": 0.003695891203703704
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.3,
+      "journeyProgress": 0.08975944468823552,
+      "screenshot": "handoff-3000.png",
+      "sha256": "2a59933db2fcc4fd23813b18eed76b0f04736d2240cb5a5cc457d55ccc7f5187",
+      "comparison": {
+        "meanChannelDifference": 0.0741623263888889,
+        "channelsDifferingOver8": 0.0033914930555555556
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.4,
+      "journeyProgress": 0.11967925958431402,
+      "screenshot": "handoff-4000.png",
+      "sha256": "82ae30fdba2300205184ab37041e7d0a8a0f4abfdbb14e82e250ef3b5c307374",
+      "comparison": {
+        "meanChannelDifference": 0.06962471064814815,
+        "channelsDifferingOver8": 0.0031747685185185186
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.55,
+      "journeyProgress": 0.1645589819284318,
+      "screenshot": "handoff-5500.png",
+      "sha256": "ba8f5400ef3be1cf7830a316db6013b7f6c55601a7c69d36f103d9bf3e074528",
+      "comparison": {
+        "meanChannelDifference": 0.07134519675925927,
+        "channelsDifferingOver8": 0.0032575231481481483
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.63,
+      "journeyProgress": 0.18849483384529458,
+      "screenshot": "handoff-6300.png",
+      "sha256": "d9a8dad9e71dee6d5bac75e44cbf904c485f48cedc58c0836596aed01b467bb9",
+      "comparison": {
+        "meanChannelDifference": 0.00002777777777777778,
+        "channelsDifferingOver8": 8.680555555555556e-7
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.8,
+      "journeyProgress": 0.23935851916862805,
+      "screenshot": "handoff-8000.png",
+      "sha256": "2331c41fa068096494a27c12612178d5977cb76e6b43af2b37920e4c03590874",
+      "comparison": {
+        "meanChannelDifference": 0.000008680555555555556,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.87,
+      "journeyProgress": 0.26030238959588303,
+      "screenshot": "handoff-8700.png",
+      "sha256": "b6484cc02db891eebcceea44c679bf0c1ab083628f4bd5af44789c535f5742f6",
+      "comparison": {
+        "meanChannelDifference": 0.0000023148148148148148,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "handoff",
+      "localProgress": 0.95,
+      "journeyProgress": 0.28423824151274585,
+      "screenshot": "handoff-9500.png",
+      "sha256": "3a33f63b01108cfb344b64bdb6a613bb5faa88a99753f927c70e927b5f2849f7",
+      "comparison": {
+        "meanChannelDifference": 2.8935185185185185e-7,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.12000000000000002,
+      "journeyProgress": 0.3323493038656401,
+      "screenshot": "ship-1200.png",
+      "sha256": "26329404977d14771b4ee058560445da60218963ed7d6d7433f7038d3969fc3e",
+      "comparison": {
+        "meanChannelDifference": 0.030724537037037036,
+        "channelsDifferingOver8": 0.0015665509259259259
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.31999999999999995,
+      "journeyProgress": 0.4025611361551043,
+      "screenshot": "ship-3200.png",
+      "sha256": "0b254cd8bca31671e9e7b6ff38b3d29fde862b98384926c1bc97910d4a7acd82",
+      "comparison": {
+        "meanChannelDifference": 0.009622685185185186,
+        "channelsDifferingOver8": 0.0004592013888888889
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.44,
+      "journeyProgress": 0.44468823552878284,
+      "screenshot": "ship-4400.png",
+      "sha256": "ef7c147463d9fd62da37160fe9ffca6c61d71715d5e68ee92a24f40e5f1c1243",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.6,
+      "journeyProgress": 0.5008577013603542,
+      "screenshot": "ship-6000.png",
+      "sha256": "2bb048721a9f42da1aec1284baf1863bac70932a98777e2980dfa5101422652d",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "ship",
+      "localProgress": 0.7999999999999997,
+      "journeyProgress": 0.5710695336498184,
+      "screenshot": "ship-8000.png",
+      "sha256": "749450b1938731ee26cb056864de1530dec14ee72099f825ded6896975a902ec",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "crossing",
+      "localProgress": 0.24612713675213682,
+      "journeyProgress": 0.6872271202067349,
+      "screenshot": "crossing-2462.png",
+      "sha256": "256b2e829401534b509d0e06fb17b687ee2362f98965fa2015a1f8df47405e72",
+      "comparison": {
+        "meanChannelDifference": 0.13616174768518519,
+        "channelsDifferingOver8": 0.004671296296296297
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "crossing",
+      "localProgress": 0.5384615384615384,
+      "journeyProgress": 0.8085131846650976,
+      "screenshot": "crossing-5385.png",
+      "sha256": "e072a2a1647b93204e78851e5330875079d42371a9739734a9bc9363fd79ac09",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "crossing",
+      "localProgress": 0.6923076923076923,
+      "journeyProgress": 0.872342123110065,
+      "screenshot": "crossing-6923.png",
+      "sha256": "5e01c7dc31eb5760ede6aa3aefcc1d9667bbafe35e33115e0facac0c5be23be7",
+      "comparison": {
+        "meanChannelDifference": 0.000005497685185185185,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "crossing",
+      "localProgress": 0.8461538461538461,
+      "journeyProgress": 0.9361710615550325,
+      "screenshot": "crossing-8462.png",
+      "sha256": "3f5871a2f49bfc7ff6d8f2c8f85d70ec263050ef4794c0fe8f425078ae2cea25",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "chapter": "crossing",
+      "localProgress": 1,
+      "journeyProgress": 1,
+      "screenshot": "crossing-10000.png",
+      "sha256": "e7a2012e58212ed9e8e7e34ea43b39e88182c793879c7580be2167408ce70e55",
+      "comparison": {
+        "meanChannelDifference": 0,
+        "channelsDifferingOver8": 0
+      },
+      "transforms": "matched within 1e-9"
+    },
+    {
+      "boundary": 0.2902222044919615,
+      "forwardReverse": true,
+      "jumps": [
+        {
+          "camera": 0.48716702072853013,
+          "cargo": 0.4871670207162808
+        },
+        {
+          "camera": 0.11417977048333948,
+          "cargo": 0.11417977048073405
+        },
+        {
+          "camera": 0.11417977048333948,
+          "cargo": 0.11417977048073405
+        },
+        {
+          "camera": 0.48716702072853013,
+          "cargo": 0.4871670207162808
+        }
+      ]
+    },
+    {
+      "boundary": 0.5851119001077114,
+      "forwardReverse": true,
+      "jumps": [
+        {
+          "camera": 0.21975522802798125,
+          "cargo": 0.07611984698874892
+        },
+        {
+          "camera": 0.0553883302117123,
+          "cargo": 0.01902996174719572
+        },
+        {
+          "camera": 0.0553883302117123,
+          "cargo": 0.01902996174719572
+        },
+        {
+          "camera": 0.21975522802798125,
+          "cargo": 0.07611984698874892
+        }
+      ]
+    },
+    {
+      "nativeScrollPlayback": 32,
+      "resizePreserved": true,
+      "keyboard": true,
+      "canvasCount": 1,
+      "inspectionControls": 0,
+      "runtimeErrors": []
+    },
+    {
+      "mobileTouch": true,
+      "horizontalOverflow": false
+    },
+    {
+      "reducedMotion": "approved static asset with semantic copy, no renderer"
+    },
+    {
+      "initializationFailure": "approved static fallback, canvas cleaned up"
+    },
+    {
+      "cleanup": {
+        "before": 1,
+        "after": 0,
+        "canvas": 0,
+        "videos": 0
+      }
+    }
+  ],
+  "userAccepted": false,
+  "status": "checks_passed_pending_personal_review"
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-14",
+  "status": "pending_usage_threshold_pause",
+  "branch": "codex/pegasoft-concept",
+  "requirements": [
+    "Remove visible pale header strip; verify true transparent overlay on transport background",
+    "Use Pegasoft #147dff hover for header links and CTA; no orange color inversion"
+  ],
+  "diagnosis": "Header-wide difference blend introduced by previous amendment inverts blue hover to orange. Pale strip cause requires rendered geometry/style inspection; CSS header background is already transparent.",
+  "screenshots": [
+    "/var/folders/k0/3mbw8h7j51j364w99x3cxvhm0000gn/T/TemporaryItems/NSIRD_screencaptureui_ygfAtf/Screenshot 2026-10-14 at 3.11.55 PM.png",
+    "/var/folders/k0/3mbw8h7j51j364w99x3cxvhm0000gn/T/TemporaryItems/NSIRD_screencaptureui_iF1JFN/Screenshot 2026-10-14 at 3.12.44 PM.png"
+  ],
+  "usage": {
+    "primaryUsedPercent": 96,
+    "secondaryUsedPercent": 35,
+    "threshold": 95
+  },
+  "codeChanged": false,
+  "next": "After allowance reset or explicit usage-policy override, inspect actual header/scene geometry, keep color inversion off hovered elements, verify light/dark sections and forward/reverse scroll, preserve accepted footer settings and assets."
+}

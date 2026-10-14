@@ -1,0 +1,111 @@
+{
+  "scrollY": 4500,
+  "els": [
+    {
+      "q": "#site-header",
+      "rect": {
+        "top": 0,
+        "left": 0,
+        "width": 1505,
+        "height": 89.875
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "blend": "difference",
+      "filter": "none",
+      "opacity": "1"
+    },
+    {
+      "q": "#story-track",
+      "rect": {
+        "top": -170.421875,
+        "left": 0,
+        "width": 1505,
+        "height": 15646.609375
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "blend": "normal",
+      "filter": "none",
+      "opacity": "1"
+    },
+    {
+      "q": "#stage",
+      "rect": {
+        "top": 0,
+        "left": 0,
+        "width": 1505,
+        "height": 749
+      },
+      "background": "rgb(237, 242, 247)",
+      "backgroundImage": "none",
+      "blend": "normal",
+      "filter": "none",
+      "opacity": "1"
+    },
+    {
+      "q": "#stage canvas",
+      "rect": {
+        "top": 0,
+        "left": 0,
+        "width": 1505,
+        "height": 749
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "blend": "normal",
+      "filter": "none",
+      "opacity": "1"
+    },
+    {
+      "q": "#intro-track",
+      "rect": {
+        "top": -4500,
+        "left": 0,
+        "width": 1505,
+        "height": 4429.578125
+      },
+      "background": "rgb(237, 242, 247)",
+      "backgroundImage": "none",
+      "blend": "normal",
+      "filter": "none",
+      "opacity": "1"
+    },
+    {
+      "q": "#opening-stage",
+      "rect": {
+        "top": -819.421875,
+        "left": 0,
+        "width": 1505,
+        "height": 749
+      },
+      "background": "rgb(5, 7, 10)",
+      "backgroundImage": "none",
+      "blend": "normal",
+      "filter": "none",
+      "opacity": "1"
+    },
+    {
+      "q": "main",
+      "rect": {
+        "top": -4500,
+        "left": 0,
+        "width": 1505,
+        "height": 21890.078125
+      },
+      "background": "rgba(0, 0, 0, 0)",
+      "backgroundImage": "none",
+      "blend": "normal",
+      "filter": "none",
+      "opacity": "1"
+    }
+  ],
+  "stage": {
+    "loaded": "true",
+    "clouds": "[{\"id\":\"K01\",\"density\":1,\"softness\":0.13,\"opacity\":1,\"overrides\":{},\"centre\":[-1.1,-0.8],\"width\":1.9,\"densityWeight\":0.4,\"arrival\":0},{\"id\":\"K02\",\"density\":0.8,\"softness\":0.65,\"opacity\":0.65,\"overrides\":{},\"centre\":[-0.85,0.75],\"width\":1.8,\"densityWeight\":0.48,\"arrival\":0},{\"id\":\"K03\",\"density\":0.94,\"softness\":0.45,\"opacity\":1,\"overrides\":{},\"centre\":[2.5,2],\"width\":2,\"densityWeight\":0.34,\"arrival\":0}]",
+    "jet": "{\"progress\":0,\"scale\":1,\"x\":-1655.5000000000002,\"y\":-48.78125,\"edge\":-990.2900000000002,\"reveal\":0,\"revealBoundary\":[[-1105.080277777778,0],[-1094.1350000000002,18.943749999999994],[-1070.0550000000003,78.203125],[-1036.9450000000002,162.859375],[-1020.3900000000002,205.1875],[-1000.8250000000003,272.9125],[-990.2900000000002,306.775],[-990.2900000000002,442.22499999999997],[-1008.3500000000003,501.484375],[-1039.9550000000004,586.140625],[-1071.5600000000002,670.796875],[-1102.1461111111112,749]],\"revealClip\":\"polygon(0px 0px, -1105.080277777778px 0px, -1094.1350000000002px 18.943749999999994px, -1070.0550000000003px 78.203125px, -1036.9450000000002px 162.859375px, -1020.3900000000002px 205.1875px, -1000.8250000000003px 272.9125px, -990.2900000000002px 306.775px, -990.2900000000002px 442.22499999999997px, -1008.3500000000003px 501.484375px, -1039.9550000000004px 586.140625px, -1071.5600000000002px 670.796875px, -1102.1461111111112px 749px, 0px 749px)\",\"revealComplete\":false,\"shadowReceiver\":\"revealed trust only\",\"shadow\":{\"x\":-8.04,\"y\":6.59,\"width\":105.64,\"height\":109.2,\"blur\":6.72,\"opacity\":41.03,\"visible\":true},\"footprint\":{\"width\":1589.882,\"height\":924.44625},\"center\":{\"x\":-911.0400000000002,\"y\":381.09},\"gentle\":false}",
+    "motion": "{\"progress\":0.04550650867823765,\"phase\":\"Stacked pickup\",\"owner\":\"stack\",\"distance\":40.897805164326236,\"target\":[-0.0023080975593878367,2.8525900095276864,-2.563596179297814e-17],\"camera\":[-0.0023080975593878367,6.316412908705312,40.75085763738382],\"quaternion\":[-0.04238538595182565,0,0,0.9991013357301223],\"pitch\":0.084796174523203,\"travel\":0,\"stackInView\":true,\"stackOpacity\":1,\"truckScreen\":[1.414638676304296,-0.34391760540995264,0.8134252367315455],\"truckPosition\":[15.63063752593066,0,-11.227279838880321],\"liftPosition\":[-1.633817940765173,1.7871035818899597,-0.00038688088233014843],\"contacts\":[{\"id\":\"corner_casting_-1_-1_-1\",\"gap\":14.957284511588778},{\"id\":\"corner_casting_-1_-1_1\",\"gap\":13.124929612997843},{\"id\":\"corner_casting_1_-1_-1\",\"gap\":16.38853025837397},{\"id\":\"corner_casting_1_-1_1\",\"gap\":14.735241478006845}],\"cargoMatrix\":[-7.134125792889644e-17,-4.017093282207487e-33,-0.7164220893068574,0,-2.4980018054066023e-17,0.7164220893068574,-1.5295849576277525e-33,0,0.7164220893068574,2.4980018054066023e-17,-7.134125792889644e-17,0,2.5308548728160614,2.074758370632667,3.099734011136057e-16,1],\"grabberScale\":[1,1,1],\"grabberMatrix\":[-3.1840981746971435,0,-3.899395637813787e-16,0,0,3.1840981746971435,0,0,3.899395637813787e-16,0,-3.1840981746971435,0,0.23208472620512222,5.4999664429733075,-0.0003868808823299199,1],\"stackVisible\":true,\"ground\":[-5.551115123125783e-17,0,0,5.551115123125783e-17,0,0,0,0,0,0,0,0],\"acceptedCamera\":[-0.0023080975593878367,5.773038165296042,67.91809606230636],\"acceptedDistance\":68.1630086072104,\"framing\":0.6,\"liftAimHeight\":2.8525900095276864,\"chapter\":\"handoff\",\"sourceShipProgress\":-1,\"contentTravel\":0,\"cloudMotionProgress\":0,\"jetProgress\":0,\"hullScreen\":{\"left\":752.5,\"right\":752.5,\"top\":0,\"bottom\":0},\"roadRegistration\":{\"active\":false},\"contextMatrices\":[[-1.5907765977970664e-16,-4.415292014772938e-33,-0.7164220893068574,0,-2.4980018054066026e-17,0.7164220893068574,0,0,0.7164220893068574,2.4980018054066026e-17,-1.5907765977970664e-16,0,2.5308548728160614,7.993605777301127e-15,3.099734011136057e-16,1],[-1.5907765977970664e-16,-4.415292014772938e-33,-0.7164220893068574,0,-2.4980018054066026e-17,0.7164220893068574,0,0,0.7164220893068574,2.4980018054066026e-17,-1.5907765977970664e-16,0,4.743166284595636,8.070744073052083e-15,-1.8125841228612837e-16,1]],\"contextMatrix\":[-1.5907765977970664e-16,-4.415292014772938e-33,-0.7164220893068574,0,-2.4980018054066026e-17,0.7164220893068574,0,0,0.7164220893068574,2.4980018054066026e-17,-1.5907765977970664e-16,0,2.5308548728160614,7.993605777301127e-15,3.099734011136057e-16,1],\"contextPoseResidual\":0,\"containerLayout\":\"original two-high C01 stack with one grounded container behind it\",\"contextFinishes\":[{\"name\":\"Approved C01 lower stack context\",\"paint\":\"#061e3b\",\"panels\":26},{\"name\":\"Stationary rear Pegasoft C01\",\"paint\":\"#147dff\",\"panels\":26}],\"truckDetails\":{\"fairings\":[{\"name\":\"tractor_side_fairing_-1\",\"rearEdge\":0.3750000035762797,\"wheelClearance\":0.035000000000001114},{\"name\":\"fairing_lower_blue_trim_-1\",\"rearEdge\":0.3750000035762784,\"wheelClearance\":0.03499999999999978},{\"name\":\"tractor_side_fairing_1\",\"rearEdge\":0.37500000357627794,\"wheelClearance\":0.034999999999999226},{\"name\":\"fairing_lower_blue_trim_1\",\"rearEdge\":0.37500000357627794,\"wheelClearance\":0.034999999999999226}],\"brakeDrums\":4,\"mounts\":[\"rear_underrun_mount_-1\",\"rear_underrun_mount_plate_-1\",\"side_guard_chassis_hanger_-1_-1.68\",\"side_guard_rail_outreach_-1_-1.68\",\"side_guard_chassis_hanger_-1_-4\",\"side_guard_rail_outreach_-1_-4\",\"side_guard_chassis_hanger_-1_-6.32\",\"side_guard_rail_outreach_-1_-6.32\",\"rear_underrun_mount_1\",\"rear_underrun_mount_plate_1\",\"side_guard_chassis_hanger_1_-1.68\",\"side_guard_rail_outreach_1_-1.68\",\"side_guard_chassis_hanger_1_-4\",\"side_guard_rail_outreach_1_-4\",\"side_guard_chassis_hanger_1_-6.32\",\"side_guard_rail_outreach_1_-6.32\"],\"sourceAssetUnchanged\":true},\"c01Paint\":[\"c5cdd6\"],\"journeyProgress\":0.013615463162196606,\"localTime\":0.8532470377169559,\"clouds\":[{\"id\":\"K01\",\"density\":1,\"softness\":0.13,\"opacity\":1,\"overrides\":{},\"centre\":[-1.1,-0.8],\"width\":1.9,\"densityWeight\":0.4,\"arrival\":0},{\"id\":\"K02\",\"density\":0.8,\"softness\":0.65,\"opacity\":0.65,\"overrides\":{},\"centre\":[-0.85,0.75],\"width\":1.8,\"densityWeight\":0.48,\"arrival\":0},{\"id\":\"K03\",\"density\":0.94,\"softness\":0.45,\"opacity\":1,\"overrides\":{},\"centre\":[2.5,2],\"width\":2,\"densityWeight\":0.34,\"arrival\":0}],\"jet\":{\"progress\":0,\"scale\":1,\"x\":-1655.5000000000002,\"y\":-48.78125,\"edge\":-990.2900000000002,\"reveal\":0,\"revealBoundary\":[[-1105.080277777778,0],[-1094.1350000000002,18.943749999999994],[-1070.0550000000003,78.203125],[-1036.9450000000002,162.859375],[-1020.3900000000002,205.1875],[-1000.8250000000003,272.9125],[-990.2900000000002,306.775],[-990.2900000000002,442.22499999999997],[-1008.3500000000003,501.484375],[-1039.9550000000004,586.140625],[-1071.5600000000002,670.796875],[-1102.1461111111112,749]],\"revealClip\":\"polygon(0px 0px, -1105.080277777778px 0px, -1094.1350000000002px 18.943749999999994px, -1070.0550000000003px 78.203125px, -1036.9450000000002px 162.859375px, -1020.3900000000002px 205.1875px, -1000.8250000000003px 272.9125px, -990.2900000000002px 306.775px, -990.2900000000002px 442.22499999999997px, -1008.3500000000003px 501.484375px, -1039.9550000000004px 586.140625px, -1071.5600000000002px 670.796875px, -1102.1461111111112px 749px, 0px 749px)\",\"revealComplete\":false,\"shadowReceiver\":\"revealed trust only\",\"shadow\":{\"x\":-8.04,\"y\":6.59,\"width\":105.64,\"height\":109.2,\"blur\":6.72,\"opacity\":41.03,\"visible\":true},\"footprint\":{\"width\":1589.882,\"height\":924.44625},\"center\":{\"x\":-911.0400000000002,\"y\":381.09},\"gentle\":false},\"copyLayout\":{\"visible\":false,\"entry\":0.6,\"rowSpacing\":0.363528,\"rowEntries\":[0.6774670541113641,0.7630030541113642],\"titleY\":749,\"titleGap\":114.597,\"items\":[{\"side\":\"left\",\"x\":196.25,\"y\":995.597,\"width\":360,\"hullGap\":33.11,\"entry\":0.6774670541113641,\"close\":0,\"originCentre\":376.25,\"animated\":true,\"visible\":false,\"height\":145},{\"side\":\"right\",\"x\":948.75,\"y\":995.597,\"width\":360,\"hullGap\":33.11,\"entry\":0.6774670541113641,\"close\":0,\"originCentre\":1128.75,\"animated\":true,\"visible\":false,\"height\":145},{\"side\":\"left\",\"x\":236.25,\"y\":1267.879472,\"width\":280,\"hullGap\":33.11,\"entry\":0.7630030541113642,\"close\":0,\"originCentre\":376.25,\"animated\":true,\"visible\":false,\"height\":145},{\"side\":\"right\",\"x\":988.75,\"y\":1267.879472,\"width\":280,\"hullGap\":33.11,\"entry\":0.7630030541113642,\"close\":0,\"originCentre\":1128.75,\"animated\":true,\"visible\":false,\"height\":145},{\"side\":\"centre\",\"x\":572.5,\"y\":1540.161944,\"width\":360,\"hullGap\":33.11,\"entry\":0.8485390541113642,\"originCentre\":752.5,\"animated\":true,\"visible\":false,\"height\":91}]},\"roadCopy\":{\"leftY\":773,\"rightY\":773,\"opacity\":1,\"visible\":false},\"servicesOpacity\":0}",
+    "drawCalls": "1435",
+    "triangles": "416480"
+  }
+}

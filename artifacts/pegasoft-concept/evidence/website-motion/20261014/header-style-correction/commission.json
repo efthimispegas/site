@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-14",
+  "branch": "codex/pegasoft-concept",
+  "authorization": "Apply corrections; keep inversion only on right CTA for tablet/desktop; no inversion on menu links; use Pegasoft blue on links",
+  "requirements": [
+    "Transparent header overlay with no pale background band",
+    "Normal blending for menu/logo; Pegasoft #147dff hover/focus for menu links",
+    "Difference inversion only on right CTA above 760px; mobile CTA uses normal blending",
+    "Preserve direction-based header fade and approved footer settings",
+    "Our services CTA hover/focus label, rolling label, arrow and border share #7bcbff",
+    "Insights outlined CTA (current label Explore perspectives, identified by user as Explore services) matches #7bcbff label/outline on hover and keyboard focus; preserve copy and resting outline",
+    "Hero first heading line Every idea has no trailing period",
+    "Remove hero-bottom Ideas \u2192 Real impact and Strategy / Design / Engineering captions"
+  ],
+  "diagnosis": "Pale strip persists with header hidden. Renderer clear color #edf2f7 differs from lit ground sampled at [234,235,237]; align handoff clear color to ground. Header-wide difference blending inverts hovered blue; scope it to CTA.",
+  "scope": [
+    "src/website-motion.css",
+    "src/website-motion-controller.js",
+    "src/transport-sequence.js",
+    "index.html",
+    "src/intro-controller.js"
+  ],
+  "assetOrCameraChanges": false,
+  "personalAcceptance": false
+}

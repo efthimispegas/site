@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-14",
+  "branch": "codex/pegasoft-concept",
+  "commit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "uncommitted": true,
+  "settingsAccepted": true,
+  "motionAndHeaderAccepted": false,
+  "status": "implementation_and_runtime_verified_pending_personal_review",
+  "request": "request.json",
+  "source": "source.json",
+  "checks": "checks.json",
+  "checksSha256": "b3ea0941984ae89e638add691cd39a07d7984656c9283cb84c2ad9f87b0a578a",
+  "manifestSha256": "ec6dab3b0ca20381be52a3c2945a3eb19b2ec643a953ae4ab1557470c9ae7973",
+  "nx": {
+    "build": "passed",
+    "lint": "passed",
+    "test": "passed",
+    "logs": [
+      "build.log",
+      "lint-test.log"
+    ]
+  },
+  "runtime": {
+    "footerViewports": [
+      "1280x900",
+      "390x844"
+    ],
+    "headerViewports": [
+      "1280x900",
+      "820x900",
+      "390x844"
+    ],
+    "verified": [
+      "transparent fixed top navigation",
+      "loader-gated initial reveal",
+      "repeated down/up scroll visibility",
+      "moving/slowing/stopped/resumed pointer",
+      "full rest with pointer inside",
+      "no radius outline",
+      "pause/reduced motion/export settings",
+      "homepage shared settings and one frame loop"
+    ],
+    "screenshots": [
+      "1280-header-footer.png",
+      "1280-header-light.png",
+      "1280-header-top.png",
+      "1280-moving.png",
+      "1280-rest.png",
+      "390-header-footer.png",
+      "390-header-light.png",
+      "390-header-top.png",
+      "390-moving.png",
+      "390-rest.png",
+      "820-header-footer.png",
+      "820-header-light.png",
+      "820-header-top.png"
+    ],
+    "recordings": [
+      "recordings/page@0d02cdf34567482661b4f199005819a1.webm",
+      "recordings/page@3fcd24151ed24c60037bed740ae70a36.webm",
+      "recordings/page@4e001da117af4b5bba3682c4dedaefa7.webm",
+      "recordings/page@559b004672a9fee09f2d0f8a78cf870b.webm",
+      "recordings/page@7222357814cebee2289fff9870af8698.webm",
+      "recordings/page@78c12e42d2c32d349b456c631bd0a2d2.webm",
+      "recordings/page@89cd9e10d1e5ec6cf33901ef81b9dad3.webm",
+      "recordings/page@c104c371d7809c57af4c3e57cfad809a.webm",
+      "recordings/page@d1a1a10ef372edce17b85c7a28e17c88.webm",
+      "recordings/page@f499990219f1469ccf13d53e2b67954a.webm"
+    ]
+  },
+  "reviewUrls": [
+    "http://127.0.0.1:8771/?revision=header-footer-20261014",
+    "http://127.0.0.1:8771/review/footer-particles.html?revision=pointer-rest-20261014#viewer"
+  ],
+  "notes": [
+    "Return delay .26s remains on field exit; stopped pointer within field returns immediately",
+    "Before-global-blend runtime packet superseded; not used as current evidence",
+    "Header check screenshots named light still show closing dark strip at viewport top; transparent/blend styling checked; do not claim separate light-background capture",
+    "No assets/cameras/trajectories modified"
+  ],
+  "usage": {
+    "ordinaryUsageAllowed": true,
+    "primaryUsedPercent": 95,
+    "secondaryUsedPercent": 34,
+    "pauseThresholdReached": true
+  },
+  "next": "Personal review of header/footer and prior homepage amendments; allowance-only work paused at 95% threshold; step 7 remains deferred"
+}

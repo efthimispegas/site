@@ -1,0 +1,111 @@
+{
+  "status": "ready_for_personal_layout_review",
+  "date_local": "2026-10-11",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push.",
+  "review": "review/trust-partners.html#viewer",
+  "scope": "Next trust/testimonial and partner layout review after approved jet motion. Native document scrolling; no change to accepted connected choreography.",
+  "inputs": [
+    {
+      "path": "review/trust-partners.html",
+      "sha256": "c37e0b80602b3df1a74e57b8076c31499c99b892338d1afa45422c2d8baf7492"
+    },
+    {
+      "path": "review/story-typography.css",
+      "sha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a"
+    }
+  ],
+  "reference": [
+    {
+      "path": "watch/watch-d77vvrqa/frames/cue_0035.jpg",
+      "sha256": "271c3520942cc2b43d8d0a921f7b2b5c0128b627a9cc7112c3feab71d73bc475"
+    },
+    {
+      "path": "watch/watch-d77vvrqa/frames/cue_0036.jpg",
+      "sha256": "c71085a870d54b6e3a2c043638970d811e7fe9f558b2aca18dc66ae8085ead0e"
+    }
+  ],
+  "reference_observations": [
+    "Portrait/attribution at left, quote at right; thin rules and spacious repeated rows scroll upward.",
+    "Five desktop partner columns, thin ruled cells with restrained corner marks."
+  ],
+  "layout_choices": [
+    "Shared storyline heading hierarchy and approved draft trust wording.",
+    "Two illustrative testimonial rows and ten explicit empty partner slots; final approved list determines count/order.",
+    "Mobile stacks quote below identity; partner grid has two columns."
+  ],
+  "checks": {
+    "native_scroll": {
+      "passed": true,
+      "delta_px": 360,
+      "rows_move_with_scroll": true,
+      "opacity": 1,
+      "transform": "none"
+    },
+    "responsive": "1280\u00d7720 desktop and 375\u00d7812 mobile visually inspected; five/two grid columns, readable stacked layout, no horizontal document overflow.",
+    "keyboard_anchor": "Enter on Partner grid link navigated to #partners.",
+    "console": [],
+    "source": "Unique IDs and local links passed on new layout and affected shadow reviews; isolated inline JS and connected modules pass node syntax checks.",
+    "mobile_cells": "Post-correction cells match their two grid tracks exactly; mobile borders align with header. Desktop composition unchanged."
+  },
+  "evidence": [
+    {
+      "path": "evidence/trust-partners-review/desktop.png",
+      "sha256": "0c33dd5a23ebb591ce89c8e7f5c0a162833ffb1677c86f7f87b50e54a3a9f096"
+    },
+    {
+      "path": "evidence/trust-partners-review/partners-desktop.png",
+      "sha256": "59350c36db4c1c751c442cc10670dec912eef00c3c7291bdb137db8805e3494b"
+    },
+    {
+      "path": "evidence/trust-partners-review/mobile.png",
+      "sha256": "83dc57b6fbbf36dd34c11c904e7520b7eb01e7671c782c2872366faa5f1fb0f8"
+    },
+    {
+      "path": "evidence/trust-partners-review/partners-mobile.png",
+      "sha256": "db510467e2ccffec65fcac15ca0525287e38b1a273a551f753f08f326a8365fe"
+    },
+    {
+      "path": "evidence/trust-partners-review/native-scroll.json",
+      "sha256": "a39391d734098ae5f9974c0d2873eda12e47dc8b374a366adeb0c9958832dad0"
+    },
+    {
+      "path": "evidence/trust-partners-review/responsive.json",
+      "sha256": "f5368352dada54cede8249f9b53335b02449595199095b7e3486642a3c8ee9f2"
+    },
+    {
+      "path": "evidence/trust-partners-review/console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/trust-partners-review/source-checks.json",
+      "sha256": "2f40fff27c5e3c57070ee9ab839107d107b936021c780725afd5a2f8c58e3082"
+    },
+    {
+      "path": "evidence/trust-partners-review/mobile-grid-correction.json",
+      "sha256": "2477e6391346b27b0a8cf9186c5fa2ad155b60eb901d97574020153494299884"
+    },
+    {
+      "path": "evidence/trust-partners-review/review-ready.png",
+      "sha256": "c7273ee3bb7f53c5fa39152faedcfa77b6eb84cbcde342bc0eb1285596bfafa8"
+    },
+    {
+      "path": "evidence/trust-partners-review/usage.json",
+      "sha256": "d1df8ebb510d5a9b175b07e107bb92198f489ea249a9bb6e9ad71e7537cdce58"
+    }
+  ],
+  "user_accepted_layout": false,
+  "content_status": "No testimonials, portraits or authorized partner identities supplied. Supporting copy remains draft.",
+  "next_action": "User review of layout/spacing; populate only from supplied authorized content. Connection to accepted jet chapter follows layout approval; Insights is the subsequent section.",
+  "generation": {
+    "new_jobs": 0,
+    "media_edits": 0
+  },
+  "limits": [
+    "Separate structural review, not full connected chapter acceptance.",
+    "Reference images are comparison evidence only; no reference people, quotes or airline marks become Pegasoft content.",
+    "No production/release or factual-company acceptance."
+  ],
+  "history": "before-mobile-grid-correction preserves initial cell measurements and source pin; all current screenshots recaptured after correction."
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-14T10:49:29.425Z",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "Uncommitted; snapshot hashes identify checked inputs.",
+  "manifestSha256": "7d5e9e738199315cd812f79f05d3fc488670f6dc3bae8cd0575ec462c6f4630b",
+  "files": [
+    {
+      "path": "src/particle-wordmark.js",
+      "sha256": "4b84ae897f18d719ba30f28de2aa9bcf6598a5cca76243279f8e0bf1bfcb22eb",
+      "snapshot": "source/src/particle-wordmark.js.snapshot"
+    },
+    {
+      "path": "src/footer-particle-review.js",
+      "sha256": "cff2c0c1efac228ec44cc3cd307f9c54ce7210ff7145d34d8a6776df86726cd3",
+      "snapshot": "source/src/footer-particle-review.js.snapshot"
+    },
+    {
+      "path": "src/footer-particle-review.css",
+      "sha256": "ef20fdde687a91b8395412923587ac578dc2273dd4a853b576732e4126bf07f3",
+      "snapshot": "source/src/footer-particle-review.css.snapshot"
+    },
+    {
+      "path": "review/footer-particles.html",
+      "sha256": "ef5b102479060d6a30f95bfa649b88057e09fb9b704e831202f1b0b747b8dd4f",
+      "snapshot": "source/review/footer-particles.html.snapshot"
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "59d97718d235e3e54c994a11bd3733ad7cf9e70409c8c360791828de03e0c96e",
+      "snapshot": "source/vite.config.js.snapshot"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "7d5e9e738199315cd812f79f05d3fc488670f6dc3bae8cd0575ec462c6f4630b",
+      "snapshot": "source/website-motion-manifest.json.snapshot"
+    },
+    {
+      "path": "tools/verify-website-motion.mjs",
+      "sha256": "45cc8b97ee8e9d5436259540aec4b2304647c90473d378f299fed5526350f35f",
+      "snapshot": "source/tools/verify-website-motion.mjs.snapshot"
+    }
+  ]
+}

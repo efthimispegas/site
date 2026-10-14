@@ -1,0 +1,121 @@
+{
+  "status": "ready_for_personal_homepage_opening_outcome_review",
+  "date": "2026-10-13T11:13:22.626740+00:00",
+  "branch": "codex/pegasoft-concept",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "uncommitted; source and build pinned below",
+  "website": "http://127.0.0.1:8771/?revision=opening-outcome-20261013",
+  "userAccepted": false,
+  "scope": "Step 5: accepted opening, corrected outcome, then accepted transport in the native-scroll homepage",
+  "priorApprovals": {
+    "opening": "../hero-opening/user-approval.json",
+    "transport": "transport-approval.json"
+  },
+  "composition": {
+    "frameSchedulers": 1,
+    "chapterRenderers": 2,
+    "clocks": [
+      "timed opening",
+      "independent globe rotation/travel",
+      "native intro scroll",
+      "unequal accepted transport chapters"
+    ],
+    "cameraOwnership": "Fixed accepted globe envelope; separate accepted transport camera. No bounds-driven fitting.",
+    "scroll": "Intro 4.2 viewport heights; existing transport spans unchanged"
+  },
+  "changes": [
+    "Approved opening defaults, shaders, geometry, city routes and geography retained. Only asset/import paths, scoped CSS/font aliases and abort/disposal adapted.",
+    "Atmospheric bowl moves over local 10-27%, behind the fixed hero. Curved lower mask plus opaque upper region preserves the globe anchor and conceals the upper incoming horizon. The rejected draft whole-canvas translation is removed.",
+    "Text exits before the bowl dominates; outcome title/values enter near 34%. Title pins near 59%; right column continues upward with reversible scrolling.",
+    "Vertical rolling decimal glyph wheels with spring settling, using the requested React Bits pattern without React or another animation framework. Values 1-3 remain labelled principle indices.",
+    "Ship-derived block font sizes, responsive bowl geometry, resize preservation and static reduced-motion fallback. Outcome yields naturally to the accepted stack pickup."
+  ],
+  "checks": {
+    "lint": "passed; 62 source syntax checks plus scoped ESLint",
+    "tests": "16 passed",
+    "buildAndProvenance": "passed",
+    "sourceLog": "source-checks.log",
+    "sourceLogSha256": "e9167b839a918f11c851d4f7ff15534b684a82768458a11c105060888ccd0f8d",
+    "runtime": "checks.json",
+    "runtimeSha256": "62a979490eb7ea66060d2ad8e107c3ef233c2d15ff276d9ef790b91149edf6e4",
+    "coverage": [
+      "Normalized accepted 1280x900 rendered text bounds/font metrics and camera envelope match",
+      "13 city nodes, 8 accepted routes and exact globe settings",
+      "1280x900,1506x753,390x844 DPR1 native scroll forward/reverse and boundaries",
+      "Rendered intermediate/settled counter glyphs",
+      "Resize preserves progress; no horizontal overflow",
+      "Static reduced motion; repeated mount/dispose, one scheduler and GPU/media cleanup"
+    ],
+    "motion": "motion.json",
+    "motionSha256": "8d180902ff28fafe69d162f85b0023168bd27e13bd22cf3a29eb189abd67ea42",
+    "recording": "recording/page@6f6b22e654341a4b50496d5cdf3e71ef.webm",
+    "recordingSha256": "e26813a0927a8747a7812f6f60efd97902a822ea8afb8f87b5b628a134e76e4b",
+    "transportRegression": "transport-regression/checks.json",
+    "transportRegressionSha256": "f42487e95fab61eb37ea701985b1095e2888f5867227655cb2f8414867e84a76",
+    "transportScope": "Three-viewport stationary context/retirement, rigid contacts/grabber/tyres, road/hull seam, type scale, reverse restoration and dev cleanup. Reused after intro-only mask refinement; transport input/check pins unchanged."
+  },
+  "visualInspection": [
+    "opening-middle-1280.png",
+    "opening-complete-1280.png",
+    "opening-complete-390.png",
+    "intro-1280-14.png",
+    "intro-1280-18.png",
+    "intro-1280-34.png",
+    "intro-1280-48.png",
+    "intro-390-18.png",
+    "intro-390-48.png",
+    "counters-settled-1280.png",
+    "final-playback-5.png",
+    "final-playback-7.png",
+    "final-playback-10.png"
+  ],
+  "reference": {
+    "local": "../hero-outcome/reference-contract.json",
+    "boundedFrames": "reference/",
+    "counter": "https://github.com/DavidHDev/react-bits/blob/main/src/content/Components/Counter/Counter.jsx",
+    "exactReferenceParityMeasured": false
+  },
+  "limits": [
+    "New parallax/counter appearance needs personal approval; technical checks do not establish acceptance",
+    "Chromium screencast has grey bottom padding; full-viewport PNGs and actual DOM/camera checks establish viewport coverage",
+    "Final metrics/facts/navigation and remaining editorial/CTA/cursor/footer/ordinary sections remain pending",
+    "Whole-site responsive/device-performance qualification and release remain separate",
+    "Fixed approved grabber four-corner mechanical pickup remains unresolved"
+  ],
+  "preserved": [
+    "Rejected isolated outcome WIP/pause packet unchanged",
+    "Original assets and prior manifests/evidence frozen",
+    "No generation, framework/dependency change, commit, push or deployment"
+  ],
+  "diagnostics": {
+    "failed-reference-stage-rename.json": "Capture harness renamed source CSS ID; corrected without changing reference",
+    "failed-scroll-pixel-boundary.json": "Integer physical-scroll rounding; sub-0.01px phase tolerance",
+    "superseded-single-radial-mask-motion.json": "Early upper-globe masking; corrected upper-region union mask",
+    "superseded-translated-canvas-motion.json": "Outgoing canvas edge; removed rejected translation and kept fixed globe anchor"
+  },
+  "manifests": {
+    "baseline-manifest.json": "a9e8589de2260de57a1167c123b4a9d653a8425a98fd0b66c94c4eeb638a9651",
+    "transport-integration-manifest.json": "c67c27b159a796a142d796feb101dd32afca052ba330a457018e92110c2e6042",
+    "opening-packaging-manifest.json": "ea6ffd257e1044b5389ae1ee37d848576d9172ac5da2d434a9a2ba1d1aedfffd",
+    "homepage-integration-manifest.json": "3afad8717a92583de089832a9d0c99cf2ffefa7570cd43f26b5754464ac1135e"
+  },
+  "configuration": {
+    "project.json": "a0b4814c73834fe6e323a842fc58cae0eab43774ca0014b8e1c44afea2d2c626",
+    "vite.config.js": "c9a843b93b4423be7760d3411b7b473661560e3706b328ce4b29032ce766c61f",
+    "eslint.config.mjs": "08c08ce885c5766743684eca7c9b4e136c1bae68fa9f45ef04232e79160f3b46",
+    "tools/package-opening.mjs": "18c16f903bcfa13a174216fc91c912f20cdc112ca18a3c0159ecf5500ecfdd29",
+    "tools/package-reviewed-slice.mjs": "b928a201a3a00b8b54e0d1bd68d24a70387d8a9c55584cb806af825b774ac6bc",
+    "tools/verify-homepage.mjs": "0b22fa399444468dd0b1c1f6d97c68fa98503d5748e98392890d768eaf7340b5"
+  },
+  "buildFiles": {
+    "index.html": "f8a3eb75867eccb7c8bc11bc517473e8b69c5f13420c959a6a42a2f8245795fd",
+    "assets/index-B69UdQln.js": "6b8cda061313193fd77a933ad7325d346fd5e4553724c4a0d82edc0fa2807d93",
+    "assets/index-B69UdQln.js.map": "5a56fe22d3ff21bb9f320a320ba6ebb3c9ae5e0bd9e156fc6a744084c23d9821",
+    "assets/index-BIpsYS7K.css": "2f4d200a05341a533e70b61b9adbd869c723263808ef272ab90684003b4512ad",
+    "assets/inspection-DHrfSKFX.js": "4807ce7c3f3832a0397cbf369a1bf216df1cac1e20ed6a9a1a25579b69d86421",
+    "assets/inspection-DHrfSKFX.js.map": "7e24898980ba24c4aba09c6f13c91ae01fc003d203cbdadc42676f5261b75190",
+    "assets/ship-jet-controller-CK-w-A0h.js": "4eddf21e60f080e7aed1d726495477b58f466d674a87af7340d09242f07520ea",
+    "assets/ship-jet-controller-CK-w-A0h.js.map": "4041ca1f4b78253e3bc9130c242cec7e375f4b0c9c8e0ec808b4103e9c3fa5af"
+  },
+  "resume": "Await step 5 review, then remaining motion in actual page context. Ordinary content stays last."
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-13T22:01:24.184Z",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "motionManifestSha256": "f4fa8d93b1521c46475caa073fdca5679baad94cf2e564b418807d7e159d19d4",
+  "homepageManifestSha256": "1f70b289b24095b2a014ec23d5db73cbc6c122caf3ac5cb2016654eab65d14bc",
+  "checkSha256": "a816003bfe75849b5a7a914fefeb81f15a8f9a304fc270f0c294b426b34a3c34",
+  "observations": [
+    {
+      "approvedPresetExact": true,
+      "resetExact": true,
+      "loadingBeat": {
+        "period": "1.74s",
+        "horizon": "hidden"
+      }
+    }
+  ],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'1' !== '0'\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/website-motion-check.mjs:27:11"
+}

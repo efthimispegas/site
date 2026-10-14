@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-14",
+  "status": "ready_for_personal_footer_particle_control_review",
+  "userAccepted": false,
+  "url": "http://127.0.0.1:8771/review/footer-particles.html#viewer",
+  "source": "source.json",
+  "request": "request.json",
+  "checks": "checks.json",
+  "executedCheck": "check.mjs",
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/footer-particles/recording/page@918d290366170694a14d93978bcef2b5.webm",
+  "defaults": {
+    "radius": 130,
+    "strength": 1.25,
+    "dispersionDuration": 0.65,
+    "returnDuration": 1.15,
+    "returnDelay": 0.1,
+    "falloff": 2,
+    "size": 0.65,
+    "spacing": 4
+  },
+  "controls": [
+    "radius",
+    "dispersion strength",
+    "outward duration",
+    "return duration",
+    "return delay",
+    "edge falloff",
+    "particle size",
+    "particle spacing"
+  ],
+  "playback": [
+    "pause/play",
+    "quarter speed",
+    "demo pass",
+    "return",
+    "pointer hold",
+    "previous desktop preset",
+    "reset proposed",
+    "reduced motion",
+    "copy/export JSON"
+  ],
+  "nx": {
+    "build": "build.log",
+    "lint": "lint.log",
+    "test": "tests.log",
+    "unitTests": 22,
+    "passed": true
+  },
+  "runtime": {
+    "desktopAndMobile": true,
+    "homepageSettingsMatch": true,
+    "oneFrameOwner": true,
+    "returnSettles": true,
+    "exportVerified": true,
+    "reducedMotionVerified": true
+  },
+  "truckAndHeadingPacket": "../../../transport-amendments/20261014/truck-details/review.json",
+  "limits": [
+    "Candidate defaults also drive the homepage; inspector changes remain local until approved/exported.",
+    "No approval, commit or deployment inferred from automated checks."
+  ]
+}

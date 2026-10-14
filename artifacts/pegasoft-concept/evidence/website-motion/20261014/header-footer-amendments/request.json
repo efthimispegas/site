@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-14",
+  "branch": "codex/pegasoft-concept",
+  "footerSettingsApproved": {
+    "radius": 67,
+    "strength": 2.23,
+    "dispersionDuration": 0.53,
+    "returnDuration": 1.15,
+    "returnDelay": 0.26,
+    "falloff": 2,
+    "size": 0.7,
+    "spacing": 3
+  },
+  "requirements": [
+    "Hide pointer radius outline",
+    "Return immediately on slowing/stopped pointer; settle fully while pointer remains inside; reactivate on movement",
+    "Page-wide sticky transparent header; fade on downward scroll, reappear on upward scroll"
+  ],
+  "scope": [
+    "index.html",
+    "src/intro-controller.js",
+    "src/website-motion-controller.js",
+    "src/website-motion.css",
+    "src/particle-wordmark.js",
+    "review/footer-particles.html",
+    "src/footer-particle-review.js",
+    "src/footer-particle-review.css",
+    "tools/verify-website-motion.mjs"
+  ],
+  "approval": "Settings approved; revised motion and header pending personal review"
+}

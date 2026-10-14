@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-14",
+  "branch": "codex/pegasoft-concept",
+  "commit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "uncommitted": true,
+  "status": "implementation_and_runtime_verified_pending_personal_review",
+  "personalAcceptance": false,
+  "commission": "commission.json",
+  "source": "source.json",
+  "checks": "checks.json",
+  "checksSha256": "656e6a3cb85a2a477ea32b94bce7f3cb158bbe18e31715d786bffa92d5fc9ff0",
+  "manifestSha256": "564d64109150be910d10df578a569b183e608c6738abe23be2d001b445e79c64",
+  "nx": {
+    "build": "passed",
+    "lint": "passed",
+    "tests": "passed"
+  },
+  "runtime": {
+    "viewports": [
+      "1505x749",
+      "820x900",
+      "390x844"
+    ],
+    "verified": [
+      "Header background transparent and no full-header inversion",
+      "Neutral menu/logo rendering on light and dark sections",
+      "Menu hover Pegasoft blue #147dff",
+      "CTA difference blend rendered on tablet/desktop only, normal mobile blue",
+      "Header fades down and returns up",
+      "Sky clear color matches ground; no pale strip",
+      "Our services hover outline/label/rolling label/arrow all #7bcbff",
+      "One application frame loop; no browser errors",
+      "Insights CTA hover and keyboard focus match #7bcbff label and outline at all three viewports",
+      "Hero first line reads Every idea without period; both bottom captions removed"
+    ],
+    "screenshots": [
+      "1505-hero-menu-hover.png",
+      "1505-insights-cta-hover.png",
+      "1505-lift-cta-hover.png",
+      "1505-lift-header.png",
+      "1505-lift-menu-hover.png",
+      "1505-lift-no-header.png",
+      "1505-services-hover.png",
+      "390-insights-cta-hover.png",
+      "390-lift-header.png",
+      "390-lift-no-header.png",
+      "390-services-hover.png",
+      "820-hero-menu-hover.png",
+      "820-insights-cta-hover.png",
+      "820-lift-cta-hover.png",
+      "820-lift-header.png",
+      "820-lift-menu-hover.png",
+      "820-lift-no-header.png",
+      "before-hidden.png",
+      "before-visible.png",
+      "road-menu-hover.png"
+    ],
+    "recordings": [
+      "recordings/page@0f251fcbc48d17d21a17e4977b63e4d6.webm",
+      "recordings/page@1f1e374bc6c2a68982a32a5a79d55b0e.webm",
+      "recordings/page@26bec0d49fbe9576d1cc8ecf657d538a.webm",
+      "recordings/page@5050497fb4460a723b82b671ea562416.webm",
+      "recordings/page@72bb1f2317b922ddd1b83afd51fe64e7.webm",
+      "recordings/page@7fc3d001dcd3927fd506f2d5ff7c71d8.webm",
+      "recordings/page@883f4ee8a10552b4b3ee812bf35e494d.webm",
+      "recordings/page@afd1300e79eeca5a6fc4403dea55a90a.webm",
+      "recordings/page@e268d4c047fedc536477d98c2db7f18e.webm"
+    ]
+  },
+  "visualInspection": [
+    "1505-lift-menu-hover.png",
+    "1505-lift-cta-hover.png",
+    "1505-services-hover.png",
+    "390-lift-header.png",
+    "road-menu-hover.png",
+    "1505-insights-cta-hover.png",
+    "390-services-hover.png"
+  ],
+  "diagnosis": "Header-hidden comparison confirms pale strip belongs to scene sky/ground color mismatch. Match only handoff clear color to sampled distant ground #eaebed; no camera/asset/floor material changes.",
+  "preserved": [
+    "Asset bytes and geometry",
+    "Camera/motion calculations",
+    "Approved footer settings and pointer return behavior",
+    "Existing Our services outline color"
+  ],
+  "superseded": [
+    "checks-before-cta-layer.json passes CSS assertions but rendered CTA inversion was absent. Do not use it as final visual evidence."
+  ],
+  "pending": [],
+  "next": "Personal review of applied header/CTA/hero copy amendments; step7 remains deferred",
+  "clarification": "User identified Explore services as the Insights CTA; current draft label Explore perspectives is preserved, hover/focus treatment aligned."
+}

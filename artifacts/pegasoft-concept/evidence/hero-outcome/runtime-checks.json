@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "checks": {
+    "normal": {
+      "status": "passed",
+      "samples": 90,
+      "start": 0,
+      "end": 1,
+      "camera_envelopes": 1
+    },
+    "quarter": {
+      "status": "passed",
+      "samples": 351,
+      "start": 0,
+      "end": 1,
+      "camera_envelopes": 1
+    },
+    "reverse": {
+      "status": "passed",
+      "samples": 89,
+      "start": 1,
+      "end": 0,
+      "camera_envelopes": 1
+    },
+    "physical_scroll": "15 native wheel observations: 0\u201393.8% and reverse restoration, scene pinned at 12px",
+    "keyboard": "Home, ArrowRight, End passed",
+    "pause": "Story holds; independent globe rotation continues",
+    "mobile_reduced": "390px final/static rows visually inspected; no horizontal overflow",
+    "opening_replay": "Accepted 3.8s timeline plays to complete hero; final state captured separately from 100ms trace sampling",
+    "console": "empty"
+  },
+  "visual_inspection": "Normal boundaries, softened incoming horizon, current reverse, desktop outcome, mobile final/reduced and actual wheel pin inspected; personal acceptance pending.",
+  "evidence_reuse": "Final palette alignment only followed forward/quarter captures; their motion program, timing and geometry are unchanged. Current reverse/opening replay/full outcome inspect aligned colors. Mobile layout and physical-scroll paths remain unchanged.",
+  "tool_recovery": "Browser input timeouts recovered by checking the applied state or keyboard controls. Role-based wait replaced with bounded native-frame capture."
+}

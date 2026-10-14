@@ -1,0 +1,138 @@
+{
+  "arrow": {
+    "direction": 1,
+    "frame": 6679,
+    "geometry": {
+      "camera": {
+        "aspect": 1.967016599371916,
+        "centerX": 0.925,
+        "centerY": 0.5,
+        "radiusHeight": 0.52,
+        "viewHeight": 2.28
+      },
+      "cityNodes": 13,
+      "connections": [
+        "New York → Paris",
+        "Tokyo → Los Angeles",
+        "Barcelona → Paris",
+        "Milan → Athens",
+        "Paris → New Delhi",
+        "London → Moscow",
+        "Tokyo → Dubai",
+        "Abu Dhabi → Berlin"
+      ],
+      "height": 435.3515625,
+      "landPoints": 4118,
+      "rotationRadians": 1.2152548000000394,
+      "settings": {
+        "arcs": 1.21,
+        "dots": 1.5,
+        "rim": 0.48,
+        "speed": 1.52
+      },
+      "width": 856.34375
+    },
+    "layout": {
+      "metricsY": 1.12,
+      "titleY": 1.1
+    },
+    "openingTime": 3.8,
+    "playing": false,
+    "progress": 0.001,
+    "reduced": false,
+    "replaying": false,
+    "rotationTime": 84.61019200000158,
+    "sceneTime": 55.664600000002025,
+    "scrollMode": false,
+    "speed": 1,
+    "state": {
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "globeOpacity": 1,
+      "horizonY": 1.05,
+      "lineExit": [
+        0.00007475000000000001,
+        0,
+        0
+      ],
+      "metricsY": 1.12,
+      "outcomeActive": false,
+      "phase": "Hero · line exit",
+      "progress": 0.001,
+      "titleY": 1.1,
+      "utilityExit": 0
+    },
+    "wallTimestampMs": 55877
+  },
+  "end": {
+    "direction": 1,
+    "frame": 6692,
+    "geometry": {
+      "camera": {
+        "aspect": 1.967016599371916,
+        "centerX": 0.925,
+        "centerY": 0.5,
+        "radiusHeight": 0.52,
+        "viewHeight": 2.28
+      },
+      "cityNodes": 13,
+      "connections": [
+        "New York → Paris",
+        "Tokyo → Los Angeles",
+        "Barcelona → Paris",
+        "Milan → Athens",
+        "Paris → New Delhi",
+        "London → Moscow",
+        "Tokyo → Dubai",
+        "Abu Dhabi → Berlin"
+      ],
+      "height": 435.3515625,
+      "landPoints": 4118,
+      "rotationRadians": 1.2190054000000394,
+      "settings": {
+        "arcs": 1.21,
+        "dots": 1.5,
+        "rim": 0.48,
+        "speed": 1.52
+      },
+      "width": 856.34375
+    },
+    "layout": {
+      "metricsY": -1.34,
+      "titleY": 0.20000000000000007
+    },
+    "openingTime": 3.8,
+    "playing": false,
+    "progress": 1,
+    "reduced": false,
+    "replaying": false,
+    "rotationTime": 84.76021600000156,
+    "sceneTime": 55.76330000000202,
+    "scrollMode": false,
+    "speed": 1,
+    "state": {
+      "counts": [
+        1,
+        2,
+        3
+      ],
+      "globeOpacity": 0,
+      "horizonY": -2,
+      "lineExit": [
+        1,
+        1,
+        1
+      ],
+      "metricsY": -1.34,
+      "outcomeActive": true,
+      "phase": "Outcome · final principle",
+      "progress": 1,
+      "titleY": 0.20000000000000007,
+      "utilityExit": 1
+    },
+    "wallTimestampMs": 55976
+  }
+}

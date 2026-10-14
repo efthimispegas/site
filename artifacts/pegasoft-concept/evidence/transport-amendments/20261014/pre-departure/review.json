@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-14",
+  "status": "ready_for_personal_camera_container_palette_review",
+  "userAccepted": false,
+  "url": "http://127.0.0.1:8771/?revision=pre-departure-20261014",
+  "request": "request.json",
+  "source": "source.json",
+  "before": "before/services-63.png",
+  "checks": "checks.json",
+  "executedBrowserCheck": "check.mjs",
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/transport-amendments/20261014/pre-departure/recording/page@4ce976b1f047b31614cec179c58ab5e1.webm",
+  "nx": {
+    "build": "build.log",
+    "lint": "lint.log",
+    "test": "tests.log",
+    "passed": true,
+    "unitTests": 22
+  },
+  "previousPacket": "../../../website-motion/20261014/title-amendments/review.json",
+  "changes": {
+    "cameraZoom": [
+      0.5,
+      0.6
+    ],
+    "settledAtDeparture": 0.6,
+    "stationaryContainerPanels": [
+      "#061e3b",
+      "#147dff"
+    ],
+    "c01": "original silver, materials and asset bytes unchanged"
+  },
+  "visualInspection": {
+    "viewports": [
+      "1503×655",
+      "1280×900",
+      "390×844"
+    ],
+    "observations": [
+      "truck rests on services boundary after zoom completion",
+      "closer initial pickup preserved",
+      "navy lower stack and blue rear container retain hardware and warning markings",
+      "C01 stays silver",
+      "forward/reverse camera and static context poses remain continuous"
+    ]
+  },
+  "preserved": [
+    "all object geometries/paths and attachments",
+    "truck seating and articulation",
+    "camera from departure onward",
+    "other homepage amendments",
+    "ship, clouds, jet and approved loader presets"
+  ],
+  "limits": [
+    "Personal approval pending",
+    "No commit, release or generation"
+  ]
+}

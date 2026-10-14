@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-13T22:03:27.192Z",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "motionManifestSha256": "9281329bfbb585a4574f755435e112c48c9ee795d3f8810e6fa0535cfe58b9a8",
+  "homepageManifestSha256": "1f70b289b24095b2a014ec23d5db73cbc6c122caf3ac5cb2016654eab65d14bc",
+  "checkSha256": "791ae7b1fc27a0dd74ee7211192373389c053c59fb3dd218b54b949da4b69395",
+  "observations": [
+    {
+      "approvedPresetExact": true,
+      "resetExact": true,
+      "loadingBeat": {
+        "period": "1.74s",
+        "horizon": "hidden"
+      }
+    }
+  ],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: Footer resize jumped to transport\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/website-motion-check.mjs:40:386"
+}

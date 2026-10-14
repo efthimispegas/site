@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-12T13:04:48.376Z",
+  "scope": "cloud centres and continued cloud-only clock",
+  "amendmentSha256": "a4b9d4834e67cef9aedd487f618f48663b05a2e2540d0c90a3547351c7172e4e",
+  "baselineSha256": "a9e8589de2260de57a1167c123b4a9d653a8425a98fd0b66c94c4eeb638a9651",
+  "scriptSha256": "5873ae1846fb42edaad7932aadff0f519111b0f8c82bc0a12705944a26ad3d9e",
+  "observations": [],
+  "userAccepted": false,
+  "status": "failed",
+  "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(Math.hypot(rendered.x-cloud.centre[0],rendered.y-cloud.centre[1])<1e-12)\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/cloud-review-check.mjs:48:18"
+}

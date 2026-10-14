@@ -1,0 +1,63 @@
+
+ NX   Running target build for project @site/pegasoft-concept and 3 tasks it depends on:
+
+
+
+> nx run @site/pegasoft-concept:verify-baseline
+
+> node tools/package-reviewed-slice.mjs --check
+
+
+> nx run @site/pegasoft-concept:verify-homepage
+
+> node tools/package-opening.mjs --check
+
+
+> nx run @site/pegasoft-concept:verify-website-motion
+
+> node tools/verify-website-motion.mjs
+
+{"status":"opening_packaging_verified","files":5}
+{"status":"website_motion_inputs_and_outputs_verified_pending_personal_review"}
+> node tools/verify-homepage.mjs
+
+{"status":"homepage_input_and_output_pins_verified"}
+{"status":"baseline_verified","modules":23,"assets":20,"sourceInputs":45}
+
+> nx run @site/pegasoft-concept:build
+
+> pnpm exec vite build
+
+(node:38526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:38528) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.2.2 building client environment for production...
+transforming...
+[32m✓[0m 61 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/loader.html                      [0m[1;2m    8.90 kB[0m[2m │ gzip:   2.53 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mindex.html                              [0m[1;2m   13.15 kB[0m[2m │ gzip:   3.75 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/ship-jet-integration.html        [0m[1;2m   26.80 kB[0m[2m │ gzip:   7.85 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mloader-Ctx8E3gd.css              [0m[1;2m    1.93 kB[0m[2m │ gzip:   0.73 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mindex-D4bOQ4DI.css               [0m[1;2m    7.84 kB[0m[2m │ gzip:   2.43 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mintro-controller-BzV_oBQq.css    [0m[1;2m   33.54 kB[0m[2m │ gzip:   8.17 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mloader-63J-MwiW.js               [0m[1;2m    3.44 kB[0m[2m │ gzip:   1.28 kB[0m[2m │ map:     5.97 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36minspection-BQ-vbulH.js           [0m[1;2m   13.13 kB[0m[2m │ gzip:   3.99 kB[0m[2m │ map:    19.85 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mintro-controller-BW5yQTmO.js     [0m[1;2m   28.45 kB[0m[2m │ gzip:   9.71 kB[0m[2m │ map:    46.89 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mindex-Bc1krF-R.js                [0m[1;2m   33.30 kB[0m[2m │ gzip:  10.24 kB[0m[2m │ map:    56.68 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mship-jet-controller-DIAY5BFC.js  [0m[1;2m  250.33 kB[0m[2m │ gzip:  65.26 kB[0m[2m │ map:   501.21 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mthree.module-Cmevciy6.js         [0m[33;1m1,824.60 kB[0m[2m │ gzip: 360.76 kB[0m[2m │ map: 2,948.70 kB[0m
+
+✓ built in 371ms
+
+
+
+ NX   Successfully ran target build for project @site/pegasoft-concept and 3 tasks it depends on
+
+
+  Run duration:      1.4s
+  Cache:             0/4 hit (0%)
+  Critical path:     1.4s (2 tasks)
+  Recoverable time:  <1ms

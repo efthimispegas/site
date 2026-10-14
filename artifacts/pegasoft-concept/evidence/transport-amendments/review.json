@@ -1,0 +1,82 @@
+{
+  "status": "ready_for_personal_transport_amendment_review",
+  "date": "2026-10-13T08:42:56.754362+00:00",
+  "branch": "codex/pegasoft-concept",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "uncommitted; source and built output pinned below",
+  "website": "http://127.0.0.1:8771/?revision=transport-amendments-20261013",
+  "userAccepted": false,
+  "priorReview": "../transport-assembly/review.json",
+  "manifestSha256": "5ac8f5253fba8f824eb933a72f8d73b03e47eb1bc0adad2401033ffda2988bdf",
+  "changes": [
+    "Preserve original two-high C01 stack/pickup calibration; clone the approved C01 at ground level beside it on the far side from the lift. Three initial containers total.",
+    "Both leftover containers stay scene-owned with invariant world transforms. Fade between local handoff 20%-25%; hidden before the reverse/turn. Restore deterministically with reverse scroll.",
+    "Root-only road registration: use matched screen-space wipe planes and lateral alignment to actual exported hull main-body rim stations. Road width/offset blend during leading straight road; ship, cargo, camera and model bytes stay unchanged. Curved hull ends retain their original geometry.",
+    "Shared responsive ship-derived title/description tokens across services, road, ship and trust descriptions. Main section headings and approved content motion unchanged."
+  ],
+  "checks": {
+    "source": "source-checks.log",
+    "sourceSha256": "66a5eb0a4a0c590f4a89fc36b206f8be623ec94e7bc6e96f59a77e76efa5c584",
+    "lint": "passed; 51 syntax checks and scoped ESLint",
+    "tests": "16 passed",
+    "build": "passed",
+    "assetProvenance": "passed; source asset bytes retained",
+    "runtime": "checks.json",
+    "runtimeSha256": "4425da2460cb4acbd130e457848bdcde3f8ecbf771f69a4483fe61b852bd0530",
+    "viewports": [
+      "1506x753 DPR1",
+      "1280x900 DPR1",
+      "390x844 DPR1"
+    ],
+    "coverage": [
+      "Native wheel scrolling through lift/reverse/handoff/road/deck",
+      "Both stationary context matrices; hidden at reverse",
+      "Unchanged grabber scale, grounded tyres, trailer seating",
+      "Hull/road projected registration and independent raster edges at main-body seams",
+      "Exact scroll position reverse restoration",
+      "Shared computed title/body font sizes",
+      "No horizontal overflow; one-loop cleanup and repeated dispose"
+    ],
+    "inspectorRegression": "inspector-regression/frames-checks.json",
+    "inspectorRegressionSha256": "312ae7f21172559fd425f9261f57f5c6aa441129e368bd2bbb4ba4e2504446a0",
+    "inspectorComparisons": 14
+  },
+  "visualInspection": [
+    "opening-1506.png",
+    "opening-390.png",
+    "reverse-turn-1506.png",
+    "wipe-1506-276.png",
+    "content-390.png"
+  ],
+  "constraints": [
+    "Frozen original inspection pages and evidence preserved",
+    "Fixed approved grabber dimensions; four-corner mechanical pickup remains unresolved",
+    "Opening/outcome and ordinary content pending; whole-site responsive qualification remains pending",
+    "No generation, deployment or commit"
+  ],
+  "supersededEvidence": {
+    "superseded-row-checks.json": "Earlier two-grounded-container interpretation explicitly superseded by user: preserve original stack and add one behind."
+  },
+  "diagnostics": [
+    "failed-raster-sea-classification.json",
+    "failed-scroll-quantization.json",
+    "failed-outside-hull-assumption.json"
+  ],
+  "checkInputs": {
+    "project.json": "c7e84a2e940e3c771a785368c968de49c64ee3c8b84e02bf36365202edfdedcd",
+    "tools/transport-amendment-check.mjs": "38c4ee58d768a6ea5b08b1885dfeb2c0a905ac5446d363a7bfb9c73ced3971d1",
+    "tools/controller-review-check.mjs": "ba2bdf77ed9ddf0709af16c0da6dc0846831fca5b6bd0747b9201029394c465c",
+    "tools/package-reviewed-slice.mjs": "681a55f1194a6a6b239ee1b53983a969328b14f6e89e899da2df63126d8647ed"
+  },
+  "buildFiles": {
+    "index.html": "18bebaa71047debe5ead3d467b8872eecdb4f5e52800d5c45f6c877f07c8e8e7",
+    "review/ship-jet-integration.html": "9bf5aa44924784e265727abd55024acc2d855ea8c1460597be9c801927be55f3",
+    "assets/index-CKQMMT5V.css": "7db99500c3bb401263a1ceda759f4816a693220d66c3d2d580be7ad84f40ad65",
+    "assets/index-D8SW_NYK.js": "f801ef1ad6ce00b6105c02bf4eae1c2d94e41b9e0af9c09d9c8c8abd007ccf16",
+    "assets/index-D8SW_NYK.js.map": "e4d45e0c2871d79ad814ecb867c02759bb4b1957f28b94bc95bf7476aa8a68e1",
+    "assets/inspection-QYtzISSe.js": "9291295d2f7d9b1d95da57993aa0fe10bee305987b71a0fea4bad678ecf8ea16",
+    "assets/inspection-QYtzISSe.js.map": "03fc9a8aedaf33bb8cd46a2536b4e876a9e1295ca15b93ad5145cb31e49e2fb6",
+    "assets/ship-jet-controller-CehO5G9N.js": "8c1f159234813d2c5035d7c6a53c6a97b8eb7cb9bf8889c59415b46ed9d931a0",
+    "assets/ship-jet-controller-CehO5G9N.js.map": "de6514bd1ea0b14b2c64d2d61dd901d1e02eebcf92bdd9b1928a5a1327bfebbe"
+  }
+}

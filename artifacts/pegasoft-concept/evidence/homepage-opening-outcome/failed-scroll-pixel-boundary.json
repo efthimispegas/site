@@ -1,0 +1,2833 @@
+{
+  "date": "2026-10-13T10:52:38.966Z",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "homepageManifestSha256": "9c0769dcc310253f800259bcb8bf76228f1e0fb32900e3a8c347d15c41eb32c2",
+  "openingManifestSha256": "ea6ffd257e1044b5389ae1ee37d848576d9172ac5da2d434a9a2ba1d1aedfffd",
+  "checkSha256": "510407d884f6eadd87f2c86f12d14ff2da87627f36dc7db02bb42e971281242e",
+  "observations": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "acceptedOpeningBounds": true,
+      "opening": {
+        "progress": 0,
+        "openingTime": 3.8,
+        "sceneTime": 3.8330999999999946,
+        "rotationTime": 5.826312000000008,
+        "opening": {
+          "end": 3.8,
+          "ringScale": 1.8599999999999999,
+          "ringOpacity": 0,
+          "markOpacity": 0,
+          "pulseScale": 1,
+          "pulseVisible": false,
+          "aperture": 1,
+          "nav": 1,
+          "lines": [
+            1,
+            1,
+            1
+          ],
+          "body": 1,
+          "cta": 1,
+          "complete": true
+        },
+        "state": {
+          "progress": 0,
+          "wipe": 0,
+          "horizonY": 1.1,
+          "heroY": 0,
+          "lineExit": [
+            0,
+            0,
+            0
+          ],
+          "utilityExit": 0,
+          "titleY": 1,
+          "metricsY": 1,
+          "outcomeActive": false,
+          "counts": [
+            0,
+            0,
+            0
+          ]
+        },
+        "layout": {
+          "titleY": 1,
+          "metricsY": 1
+        },
+        "geometry": {
+          "camera": {
+            "aspect": 1.4222222222222223,
+            "viewHeight": 2.28,
+            "centerX": 0.925,
+            "centerY": 0.5,
+            "radiusHeight": 0.52
+          },
+          "width": 1280,
+          "height": 900,
+          "rotationRadians": -0.7543421999999999,
+          "landPoints": 4118,
+          "cityNodes": 13,
+          "connections": [
+            "New York → Paris",
+            "Tokyo → Los Angeles",
+            "Barcelona → Paris",
+            "Milan → Athens",
+            "Paris → New Delhi",
+            "London → Moscow",
+            "Tokyo → Dubai",
+            "Abu Dhabi → Berlin"
+          ],
+          "settings": {
+            "speed": 1.52,
+            "dots": 1.5,
+            "rim": 0.48,
+            "arcs": 1.21
+          }
+        }
+      },
+      "scrollSamples": [
+        {
+          "progress": 0,
+          "openingTime": 3.8,
+          "sceneTime": 3.999799999999994,
+          "rotationTime": 6.079696000000008,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0,
+            "wipe": 0,
+            "horizonY": 1.1,
+            "heroY": 0,
+            "lineExit": [
+              0,
+              0,
+              0
+            ],
+            "utilityExit": 0,
+            "titleY": 1,
+            "metricsY": 1,
+            "outcomeActive": false,
+            "counts": [
+              0,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 1,
+            "metricsY": 1
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7480075999999998,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.1,
+          "openingTime": 3.8,
+          "sceneTime": 4.1497999999999955,
+          "rotationTime": 6.307696000000007,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.1,
+            "wipe": 0,
+            "horizonY": 1.1,
+            "heroY": 0,
+            "lineExit": [
+              0.7407407407407408,
+              0.5994074074074076,
+              0.4500740740740742
+            ],
+            "utilityExit": 0.5829903978052127,
+            "titleY": 1,
+            "metricsY": 1,
+            "outcomeActive": false,
+            "counts": [
+              0,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 1,
+            "metricsY": 1
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7423075999999998,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.13994708994708996,
+          "openingTime": 3.8,
+          "sceneTime": 4.2998999999999965,
+          "rotationTime": 6.535848000000008,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.13994708994708996,
+            "wipe": 0.13970078618020473,
+            "horizonY": 0.7786881917855293,
+            "heroY": -0.03073417295964504,
+            "lineExit": [
+              0.9871272486094974,
+              0.9256317324332053,
+              0.8241785442992412
+            ],
+            "utilityExit": 0.9403623609068039,
+            "titleY": 1,
+            "metricsY": 1,
+            "outcomeActive": false,
+            "counts": [
+              0,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 1,
+            "metricsY": 1
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7366037999999998,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.18015873015873016,
+          "openingTime": 3.8,
+          "sceneTime": 4.449799999999998,
+          "rotationTime": 6.763696000000007,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.18015873015873016,
+            "wipe": 0.4573291045627,
+            "horizonY": 0.04814305950579012,
+            "heroY": -0.100612403003794,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 1,
+            "metricsY": 1,
+            "outcomeActive": false,
+            "counts": [
+              0,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 1,
+            "metricsY": 1
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7309075999999999,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.21984126984126984,
+          "openingTime": 3.8,
+          "sceneTime": 4.6498,
+          "rotationTime": 7.067696000000007,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.21984126984126984,
+            "wipe": 0.7902056648237165,
+            "horizonY": -0.7174730290945477,
+            "heroY": -0.1738452462612176,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 1,
+            "metricsY": 1,
+            "outcomeActive": false,
+            "counts": [
+              0,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 1,
+            "metricsY": 1
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7233075999999998,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.2701058201058201,
+          "openingTime": 3.8,
+          "sceneTime": 4.766500000000002,
+          "rotationTime": 7.245080000000007,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.2701058201058201,
+            "wipe": 1,
+            "horizonY": -1.1999999999999997,
+            "heroY": -0.22,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 1,
+            "metricsY": 1,
+            "outcomeActive": false,
+            "counts": [
+              0,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 1,
+            "metricsY": 1
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7188729999999999,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.33994708994708994,
+          "openingTime": 3.8,
+          "sceneTime": 4.866500000000004,
+          "rotationTime": 7.397080000000006,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.33994708994708994,
+            "wipe": 1,
+            "horizonY": -1.1999999999999997,
+            "heroY": -0.22,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 0.8898011311804415,
+            "metricsY": 0.8664625850340135,
+            "outcomeActive": true,
+            "counts": [
+              0,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 0.8898011311804415,
+            "metricsY": 0.8664625850340135
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7150729999999998,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.4798941798941799,
+          "openingTime": 3.8,
+          "sceneTime": 4.966500000000005,
+          "rotationTime": 7.549080000000005,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.4798941798941799,
+            "wipe": 1,
+            "horizonY": -1.1999999999999997,
+            "heroY": -0.22,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 0.5037401933953658,
+            "metricsY": 0.39863945578231297,
+            "outcomeActive": true,
+            "counts": [
+              1,
+              0,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 0.5037401933953658,
+            "metricsY": 0.39863945578231297
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7112729999999998,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.5902116402116402,
+          "openingTime": 3.8,
+          "sceneTime": 5.066400000000006,
+          "rotationTime": 7.700928000000005,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.5902116402116402,
+            "wipe": 1,
+            "horizonY": -1.1999999999999997,
+            "heroY": -0.22,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 0.19999999999999996,
+            "metricsY": 0.029863945578231244,
+            "outcomeActive": true,
+            "counts": [
+              1,
+              1,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 0.19999999999999996,
+            "metricsY": 0.029863945578231244
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7074767999999999,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.68994708994709,
+          "openingTime": 3.8,
+          "sceneTime": 5.166400000000007,
+          "rotationTime": 7.852928000000006,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.68994708994709,
+            "wipe": 1,
+            "horizonY": -1.1999999999999997,
+            "heroY": -0.22,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 0.19999999999999996,
+            "metricsY": -0.30353741496598663,
+            "outcomeActive": true,
+            "counts": [
+              1,
+              2,
+              0
+            ]
+          },
+          "layout": {
+            "titleY": 0.19999999999999996,
+            "metricsY": -0.30353741496598663
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.7036767999999999,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 0.8600529100529101,
+          "openingTime": 3.8,
+          "sceneTime": 5.283100000000009,
+          "rotationTime": 8.030312000000006,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 0.8600529100529101,
+            "wipe": 1,
+            "horizonY": -1.1999999999999997,
+            "heroY": -0.22,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 0.19999999999999996,
+            "metricsY": -0.8721768707482997,
+            "outcomeActive": true,
+            "counts": [
+              1,
+              2,
+              3
+            ]
+          },
+          "layout": {
+            "titleY": 0.19999999999999996,
+            "metricsY": -0.8721768707482997
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.6992421999999998,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        },
+        {
+          "progress": 1,
+          "openingTime": 3.8,
+          "sceneTime": 5.399800000000011,
+          "rotationTime": 8.207696000000002,
+          "opening": {
+            "end": 3.8,
+            "ringScale": 1.8599999999999999,
+            "ringOpacity": 0,
+            "markOpacity": 0,
+            "pulseScale": 1,
+            "pulseVisible": false,
+            "aperture": 1,
+            "nav": 1,
+            "lines": [
+              1,
+              1,
+              1
+            ],
+            "body": 1,
+            "cta": 1,
+            "complete": true
+          },
+          "state": {
+            "progress": 1,
+            "wipe": 1,
+            "horizonY": -1.1999999999999997,
+            "heroY": -0.22,
+            "lineExit": [
+              1,
+              1,
+              1
+            ],
+            "utilityExit": 1,
+            "titleY": 0.19999999999999996,
+            "metricsY": -1.3399999999999999,
+            "outcomeActive": true,
+            "counts": [
+              1,
+              2,
+              3
+            ]
+          },
+          "layout": {
+            "titleY": 0.19999999999999996,
+            "metricsY": -1.3399999999999999
+          },
+          "geometry": {
+            "camera": {
+              "aspect": 1.4222222222222223,
+              "viewHeight": 2.28,
+              "centerX": 0.925,
+              "centerY": 0.5,
+              "radiusHeight": 0.52
+            },
+            "width": 1280,
+            "height": 900,
+            "rotationRadians": -0.6948076,
+            "landPoints": 4118,
+            "cityNodes": 13,
+            "connections": [
+              "New York → Paris",
+              "Tokyo → Los Angeles",
+              "Barcelona → Paris",
+              "Milan → Athens",
+              "Paris → New Delhi",
+              "London → Moscow",
+              "Tokyo → Dubai",
+              "Abu Dhabi → Berlin"
+            ],
+            "settings": {
+              "speed": 1.52,
+              "dots": 1.5,
+              "rim": 0.48,
+              "arcs": 1.21
+            }
+          }
+        }
+      ],
+      "reverseStateRestored": true,
+      "independentOpeningAndRotationClocks": true,
+      "rollingFrames": [
+        [
+          {
+            "target": "0",
+            "wheels": [
+              0.009779111639117178
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -2.12787)",
+              "matrix(1, 0, 0, 1, 0, 215.466)",
+              "matrix(1, 0, 0, 1, 0, 433.06)",
+              "matrix(1, 0, 0, 1, 0, 650.653)",
+              "matrix(1, 0, 0, 1, 0, 868.247)",
+              "matrix(1, 0, 0, 1, 0, 1085.84)",
+              "matrix(1, 0, 0, 1, 0, -872.503)",
+              "matrix(1, 0, 0, 1, 0, -654.909)",
+              "matrix(1, 0, 0, 1, 0, -437.315)",
+              "matrix(1, 0, 0, 1, 0, -219.722)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.01953936352471386
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -4.25164)",
+              "matrix(1, 0, 0, 1, 0, 213.342)",
+              "matrix(1, 0, 0, 1, 0, 430.936)",
+              "matrix(1, 0, 0, 1, 0, 648.53)",
+              "matrix(1, 0, 0, 1, 0, 866.123)",
+              "matrix(1, 0, 0, 1, 0, 1083.72)",
+              "matrix(1, 0, 0, 1, 0, -874.627)",
+              "matrix(1, 0, 0, 1, 0, -657.033)",
+              "matrix(1, 0, 0, 1, 0, -439.439)",
+              "matrix(1, 0, 0, 1, 0, -221.845)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.02889519557884784
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -6.28741)",
+              "matrix(1, 0, 0, 1, 0, 211.306)",
+              "matrix(1, 0, 0, 1, 0, 428.9)",
+              "matrix(1, 0, 0, 1, 0, 646.494)",
+              "matrix(1, 0, 0, 1, 0, 864.088)",
+              "matrix(1, 0, 0, 1, 0, 1081.68)",
+              "matrix(1, 0, 0, 1, 0, -876.662)",
+              "matrix(1, 0, 0, 1, 0, -659.069)",
+              "matrix(1, 0, 0, 1, 0, -441.475)",
+              "matrix(1, 0, 0, 1, 0, -223.881)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "0",
+            "wheels": [
+              0.00302442348329383
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.658096)",
+              "matrix(1, 0, 0, 1, 0, 216.936)",
+              "matrix(1, 0, 0, 1, 0, 434.529)",
+              "matrix(1, 0, 0, 1, 0, 652.123)",
+              "matrix(1, 0, 0, 1, 0, 869.717)",
+              "matrix(1, 0, 0, 1, 0, 1087.31)",
+              "matrix(1, 0, 0, 1, 0, -871.033)",
+              "matrix(1, 0, 0, 1, 0, -653.439)",
+              "matrix(1, 0, 0, 1, 0, -435.846)",
+              "matrix(1, 0, 0, 1, 0, -218.252)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.006043430469839505
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -1.31501)",
+              "matrix(1, 0, 0, 1, 0, 216.279)",
+              "matrix(1, 0, 0, 1, 0, 433.872)",
+              "matrix(1, 0, 0, 1, 0, 651.466)",
+              "matrix(1, 0, 0, 1, 0, 869.06)",
+              "matrix(1, 0, 0, 1, 0, 1086.65)",
+              "matrix(1, 0, 0, 1, 0, -871.69)",
+              "matrix(1, 0, 0, 1, 0, -654.096)",
+              "matrix(1, 0, 0, 1, 0, -436.503)",
+              "matrix(1, 0, 0, 1, 0, -218.909)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.008944191021329987
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -1.9462)",
+              "matrix(1, 0, 0, 1, 0, 215.648)",
+              "matrix(1, 0, 0, 1, 0, 433.241)",
+              "matrix(1, 0, 0, 1, 0, 650.835)",
+              "matrix(1, 0, 0, 1, 0, 868.429)",
+              "matrix(1, 0, 0, 1, 0, 1086.02)",
+              "matrix(1, 0, 0, 1, 0, -872.321)",
+              "matrix(1, 0, 0, 1, 0, -654.727)",
+              "matrix(1, 0, 0, 1, 0, -437.134)",
+              "matrix(1, 0, 0, 1, 0, -219.54)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "0",
+            "wheels": [
+              0.0009148150826420068
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.199058)",
+              "matrix(1, 0, 0, 1, 0, 217.395)",
+              "matrix(1, 0, 0, 1, 0, 434.988)",
+              "matrix(1, 0, 0, 1, 0, 652.582)",
+              "matrix(1, 0, 0, 1, 0, 870.176)",
+              "matrix(1, 0, 0, 1, 0, 1087.77)",
+              "matrix(1, 0, 0, 1, 0, -870.574)",
+              "matrix(1, 0, 0, 1, 0, -652.98)",
+              "matrix(1, 0, 0, 1, 0, -435.387)",
+              "matrix(1, 0, 0, 1, 0, -217.793)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.0018280852169379064
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.39778)",
+              "matrix(1, 0, 0, 1, 0, 217.196)",
+              "matrix(1, 0, 0, 1, 0, 434.79)",
+              "matrix(1, 0, 0, 1, 0, 652.383)",
+              "matrix(1, 0, 0, 1, 0, 869.977)",
+              "matrix(1, 0, 0, 1, 0, 1087.57)",
+              "matrix(1, 0, 0, 1, 0, -870.773)",
+              "matrix(1, 0, 0, 1, 0, -653.179)",
+              "matrix(1, 0, 0, 1, 0, -435.585)",
+              "matrix(1, 0, 0, 1, 0, -217.992)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.0027071210961530055
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.589053)",
+              "matrix(1, 0, 0, 1, 0, 217.005)",
+              "matrix(1, 0, 0, 1, 0, 434.598)",
+              "matrix(1, 0, 0, 1, 0, 652.192)",
+              "matrix(1, 0, 0, 1, 0, 869.786)",
+              "matrix(1, 0, 0, 1, 0, 1087.38)",
+              "matrix(1, 0, 0, 1, 0, -870.964)",
+              "matrix(1, 0, 0, 1, 0, -653.37)",
+              "matrix(1, 0, 0, 1, 0, -435.777)",
+              "matrix(1, 0, 0, 1, 0, -218.183)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "0",
+            "wheels": [
+              0.00027259448285608864
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.0593149)",
+              "matrix(1, 0, 0, 1, 0, 217.534)",
+              "matrix(1, 0, 0, 1, 0, 435.128)",
+              "matrix(1, 0, 0, 1, 0, 652.722)",
+              "matrix(1, 0, 0, 1, 0, 870.316)",
+              "matrix(1, 0, 0, 1, 0, 1087.91)",
+              "matrix(1, 0, 0, 1, 0, -870.434)",
+              "matrix(1, 0, 0, 1, 0, -652.841)",
+              "matrix(1, 0, 0, 1, 0, -435.247)",
+              "matrix(1, 0, 0, 1, 0, -217.653)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.0005447500457004576
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.118534)",
+              "matrix(1, 0, 0, 1, 0, 217.475)",
+              "matrix(1, 0, 0, 1, 0, 435.069)",
+              "matrix(1, 0, 0, 1, 0, 652.663)",
+              "matrix(1, 0, 0, 1, 0, 870.256)",
+              "matrix(1, 0, 0, 1, 0, 1087.85)",
+              "matrix(1, 0, 0, 1, 0, -870.494)",
+              "matrix(1, 0, 0, 1, 0, -652.9)",
+              "matrix(1, 0, 0, 1, 0, -435.306)",
+              "matrix(1, 0, 0, 1, 0, -217.712)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.0008070562957556996
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.17561)",
+              "matrix(1, 0, 0, 1, 0, 217.418)",
+              "matrix(1, 0, 0, 1, 0, 435.012)",
+              "matrix(1, 0, 0, 1, 0, 652.606)",
+              "matrix(1, 0, 0, 1, 0, 870.199)",
+              "matrix(1, 0, 0, 1, 0, 1087.79)",
+              "matrix(1, 0, 0, 1, 0, -870.551)",
+              "matrix(1, 0, 0, 1, 0, -652.957)",
+              "matrix(1, 0, 0, 1, 0, -435.363)",
+              "matrix(1, 0, 0, 1, 0, -217.769)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.1441566741801924
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -31.3676)",
+              "matrix(1, 0, 0, 1, 0, 186.226)",
+              "matrix(1, 0, 0, 1, 0, 403.82)",
+              "matrix(1, 0, 0, 1, 0, 621.414)",
+              "matrix(1, 0, 0, 1, 0, 839.007)",
+              "matrix(1, 0, 0, 1, 0, 1056.6)",
+              "matrix(1, 0, 0, 1, 0, -901.743)",
+              "matrix(1, 0, 0, 1, 0, -684.149)",
+              "matrix(1, 0, 0, 1, 0, -466.555)",
+              "matrix(1, 0, 0, 1, 0, -248.961)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.00015991594444996192
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.0347967)",
+              "matrix(1, 0, 0, 1, 0, 217.559)",
+              "matrix(1, 0, 0, 1, 0, 435.153)",
+              "matrix(1, 0, 0, 1, 0, 652.746)",
+              "matrix(1, 0, 0, 1, 0, 870.34)",
+              "matrix(1, 0, 0, 1, 0, 1087.93)",
+              "matrix(1, 0, 0, 1, 0, -870.41)",
+              "matrix(1, 0, 0, 1, 0, -652.816)",
+              "matrix(1, 0, 0, 1, 0, -435.222)",
+              "matrix(1, 0, 0, 1, 0, -217.629)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.00023700293759809106
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.0515704)",
+              "matrix(1, 0, 0, 1, 0, 217.542)",
+              "matrix(1, 0, 0, 1, 0, 435.136)",
+              "matrix(1, 0, 0, 1, 0, 652.73)",
+              "matrix(1, 0, 0, 1, 0, 870.323)",
+              "matrix(1, 0, 0, 1, 0, 1087.92)",
+              "matrix(1, 0, 0, 1, 0, -870.427)",
+              "matrix(1, 0, 0, 1, 0, -652.833)",
+              "matrix(1, 0, 0, 1, 0, -435.239)",
+              "matrix(1, 0, 0, 1, 0, -217.645)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.5940173926353011
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -129.254)",
+              "matrix(1, 0, 0, 1, 0, 88.3393)",
+              "matrix(1, 0, 0, 1, 0, 305.933)",
+              "matrix(1, 0, 0, 1, 0, 523.527)",
+              "matrix(1, 0, 0, 1, 0, 741.121)",
+              "matrix(1, 0, 0, 1, 0, 958.714)",
+              "matrix(1, 0, 0, 1, 0, -999.629)",
+              "matrix(1, 0, 0, 1, 0, -782.036)",
+              "matrix(1, 0, 0, 1, 0, -564.442)",
+              "matrix(1, 0, 0, 1, 0, -346.848)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.000046449906100554216
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.0101072)",
+              "matrix(1, 0, 0, 1, 0, 217.584)",
+              "matrix(1, 0, 0, 1, 0, 435.177)",
+              "matrix(1, 0, 0, 1, 0, 652.771)",
+              "matrix(1, 0, 0, 1, 0, 870.365)",
+              "matrix(1, 0, 0, 1, 0, 1087.96)",
+              "matrix(1, 0, 0, 1, 0, -870.385)",
+              "matrix(1, 0, 0, 1, 0, -652.791)",
+              "matrix(1, 0, 0, 1, 0, -435.198)",
+              "matrix(1, 0, 0, 1, 0, -217.604)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.00006886098500808443
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.0149837)",
+              "matrix(1, 0, 0, 1, 0, 217.579)",
+              "matrix(1, 0, 0, 1, 0, 435.173)",
+              "matrix(1, 0, 0, 1, 0, 652.766)",
+              "matrix(1, 0, 0, 1, 0, 870.36)",
+              "matrix(1, 0, 0, 1, 0, 1087.95)",
+              "matrix(1, 0, 0, 1, 0, -870.39)",
+              "matrix(1, 0, 0, 1, 0, -652.796)",
+              "matrix(1, 0, 0, 1, 0, -435.202)",
+              "matrix(1, 0, 0, 1, 0, -217.609)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.8452607753621326
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -183.923)",
+              "matrix(1, 0, 0, 1, 0, 33.6703)",
+              "matrix(1, 0, 0, 1, 0, 251.264)",
+              "matrix(1, 0, 0, 1, 0, 468.858)",
+              "matrix(1, 0, 0, 1, 0, 686.451)",
+              "matrix(1, 0, 0, 1, 0, 904.045)",
+              "matrix(1, 0, 0, 1, 0, -1054.3)",
+              "matrix(1, 0, 0, 1, 0, -836.705)",
+              "matrix(1, 0, 0, 1, 0, -619.111)",
+              "matrix(1, 0, 0, 1, 0, -401.517)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.000013400164007799072
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.00291579)",
+              "matrix(1, 0, 0, 1, 0, 217.591)",
+              "matrix(1, 0, 0, 1, 0, 435.185)",
+              "matrix(1, 0, 0, 1, 0, 652.778)",
+              "matrix(1, 0, 0, 1, 0, 870.372)",
+              "matrix(1, 0, 0, 1, 0, 1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.378)",
+              "matrix(1, 0, 0, 1, 0, -652.784)",
+              "matrix(1, 0, 0, 1, 0, -435.19)",
+              "matrix(1, 0, 0, 1, 0, -217.597)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0.000019870245109244368
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -0.00432364)",
+              "matrix(1, 0, 0, 1, 0, 217.589)",
+              "matrix(1, 0, 0, 1, 0, 435.183)",
+              "matrix(1, 0, 0, 1, 0, 652.777)",
+              "matrix(1, 0, 0, 1, 0, 870.371)",
+              "matrix(1, 0, 0, 1, 0, 1087.96)",
+              "matrix(1, 0, 0, 1, 0, -870.379)",
+              "matrix(1, 0, 0, 1, 0, -652.786)",
+              "matrix(1, 0, 0, 1, 0, -435.192)",
+              "matrix(1, 0, 0, 1, 0, -217.598)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.9466857989999343
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -205.993)",
+              "matrix(1, 0, 0, 1, 0, 11.6008)",
+              "matrix(1, 0, 0, 1, 0, 229.195)",
+              "matrix(1, 0, 0, 1, 0, 446.788)",
+              "matrix(1, 0, 0, 1, 0, 664.382)",
+              "matrix(1, 0, 0, 1, 0, 881.976)",
+              "matrix(1, 0, 0, 1, 0, -1076.37)",
+              "matrix(1, 0, 0, 1, 0, -858.774)",
+              "matrix(1, 0, 0, 1, 0, -641.18)",
+              "matrix(1, 0, 0, 1, 0, -423.587)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.9826492792738647
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -213.818)",
+              "matrix(1, 0, 0, 1, 0, 3.77541)",
+              "matrix(1, 0, 0, 1, 0, 221.369)",
+              "matrix(1, 0, 0, 1, 0, 438.963)",
+              "matrix(1, 0, 0, 1, 0, 656.557)",
+              "matrix(1, 0, 0, 1, 0, 874.15)",
+              "matrix(1, 0, 0, 1, 0, -1084.19)",
+              "matrix(1, 0, 0, 1, 0, -866.6)",
+              "matrix(1, 0, 0, 1, 0, -649.006)",
+              "matrix(1, 0, 0, 1, 0, -431.412)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.9945488285990333
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -216.408)",
+              "matrix(1, 0, 0, 1, 0, 1.18614)",
+              "matrix(1, 0, 0, 1, 0, 218.78)",
+              "matrix(1, 0, 0, 1, 0, 436.374)",
+              "matrix(1, 0, 0, 1, 0, 653.967)",
+              "matrix(1, 0, 0, 1, 0, 871.561)",
+              "matrix(1, 0, 0, 1, 0, -1086.78)",
+              "matrix(1, 0, 0, 1, 0, -869.189)",
+              "matrix(1, 0, 0, 1, 0, -651.595)",
+              "matrix(1, 0, 0, 1, 0, -434.001)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.9983341361448351
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.231)",
+              "matrix(1, 0, 0, 1, 0, 0.362482)",
+              "matrix(1, 0, 0, 1, 0, 217.956)",
+              "matrix(1, 0, 0, 1, 0, 435.55)",
+              "matrix(1, 0, 0, 1, 0, 653.144)",
+              "matrix(1, 0, 0, 1, 0, 870.737)",
+              "matrix(1, 0, 0, 1, 0, -1087.61)",
+              "matrix(1, 0, 0, 1, 0, -870.013)",
+              "matrix(1, 0, 0, 1, 0, -652.419)",
+              "matrix(1, 0, 0, 1, 0, -434.825)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.9994997041287449
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.485)",
+              "matrix(1, 0, 0, 1, 0, 0.108861)",
+              "matrix(1, 0, 0, 1, 0, 217.703)",
+              "matrix(1, 0, 0, 1, 0, 435.296)",
+              "matrix(1, 0, 0, 1, 0, 652.89)",
+              "matrix(1, 0, 0, 1, 0, 870.484)",
+              "matrix(1, 0, 0, 1, 0, -1087.86)",
+              "matrix(1, 0, 0, 1, 0, -870.266)",
+              "matrix(1, 0, 0, 1, 0, -652.672)",
+              "matrix(1, 0, 0, 1, 0, -435.079)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.9998522258531352
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.562)",
+              "matrix(1, 0, 0, 1, 0, 0.0321547)",
+              "matrix(1, 0, 0, 1, 0, 217.626)",
+              "matrix(1, 0, 0, 1, 0, 435.22)",
+              "matrix(1, 0, 0, 1, 0, 652.813)",
+              "matrix(1, 0, 0, 1, 0, 870.407)",
+              "matrix(1, 0, 0, 1, 0, -1087.94)",
+              "matrix(1, 0, 0, 1, 0, -870.343)",
+              "matrix(1, 0, 0, 1, 0, -652.749)",
+              "matrix(1, 0, 0, 1, 0, -435.155)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.999956862200354
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.584)",
+              "matrix(1, 0, 0, 1, 0, 0.00938652)",
+              "matrix(1, 0, 0, 1, 0, 217.603)",
+              "matrix(1, 0, 0, 1, 0, 435.197)",
+              "matrix(1, 0, 0, 1, 0, 652.791)",
+              "matrix(1, 0, 0, 1, 0, 870.384)",
+              "matrix(1, 0, 0, 1, 0, -1087.96)",
+              "matrix(1, 0, 0, 1, 0, -870.366)",
+              "matrix(1, 0, 0, 1, 0, -652.772)",
+              "matrix(1, 0, 0, 1, 0, -435.178)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              0.9999875273315904
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.591)",
+              "matrix(1, 0, 0, 1, 0, 0.00271397)",
+              "matrix(1, 0, 0, 1, 0, 217.596)",
+              "matrix(1, 0, 0, 1, 0, 435.19)",
+              "matrix(1, 0, 0, 1, 0, 652.784)",
+              "matrix(1, 0, 0, 1, 0, 870.378)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.372)",
+              "matrix(1, 0, 0, 1, 0, -652.779)",
+              "matrix(1, 0, 0, 1, 0, -435.185)"
+            ]
+          },
+          {
+            "target": "1",
+            "wheels": [
+              0.1447613242381226
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -31.4992)",
+              "matrix(1, 0, 0, 1, 0, 186.095)",
+              "matrix(1, 0, 0, 1, 0, 403.688)",
+              "matrix(1, 0, 0, 1, 0, 621.282)",
+              "matrix(1, 0, 0, 1, 0, 838.876)",
+              "matrix(1, 0, 0, 1, 0, 1056.47)",
+              "matrix(1, 0, 0, 1, 0, -901.874)",
+              "matrix(1, 0, 0, 1, 0, -684.28)",
+              "matrix(1, 0, 0, 1, 0, -466.687)",
+              "matrix(1, 0, 0, 1, 0, -249.093)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "1",
+            "wheels": [
+              0.594535220752628
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -129.367)",
+              "matrix(1, 0, 0, 1, 0, 88.2266)",
+              "matrix(1, 0, 0, 1, 0, 305.82)",
+              "matrix(1, 0, 0, 1, 0, 523.414)",
+              "matrix(1, 0, 0, 1, 0, 741.008)",
+              "matrix(1, 0, 0, 1, 0, 958.602)",
+              "matrix(1, 0, 0, 1, 0, -999.742)",
+              "matrix(1, 0, 0, 1, 0, -782.148)",
+              "matrix(1, 0, 0, 1, 0, -564.555)",
+              "matrix(1, 0, 0, 1, 0, -346.961)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "1",
+            "wheels": [
+              0.845491952540733
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -183.974)",
+              "matrix(1, 0, 0, 1, 0, 33.62)",
+              "matrix(1, 0, 0, 1, 0, 251.214)",
+              "matrix(1, 0, 0, 1, 0, 468.807)",
+              "matrix(1, 0, 0, 1, 0, 686.401)",
+              "matrix(1, 0, 0, 1, 0, 903.995)",
+              "matrix(1, 0, 0, 1, 0, -1054.35)",
+              "matrix(1, 0, 0, 1, 0, -836.755)",
+              "matrix(1, 0, 0, 1, 0, -619.161)",
+              "matrix(1, 0, 0, 1, 0, -401.568)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.0907605366410125
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -237.343)",
+              "matrix(1, 0, 0, 1, 0, -19.7489)",
+              "matrix(1, 0, 0, 1, 0, 197.845)",
+              "matrix(1, 0, 0, 1, 0, 415.439)",
+              "matrix(1, 0, 0, 1, 0, 633.032)",
+              "matrix(1, 0, 0, 1, 0, 850.626)",
+              "matrix(1, 0, 0, 1, 0, 1068.22)",
+              "matrix(1, 0, 0, 1, 0, -890.124)",
+              "matrix(1, 0, 0, 1, 0, -672.53)",
+              "matrix(1, 0, 0, 1, 0, -454.936)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.5766428850534973
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -343.068)",
+              "matrix(1, 0, 0, 1, 0, -125.474)",
+              "matrix(1, 0, 0, 1, 0, 92.1199)",
+              "matrix(1, 0, 0, 1, 0, 309.714)",
+              "matrix(1, 0, 0, 1, 0, 527.307)",
+              "matrix(1, 0, 0, 1, 0, 744.901)",
+              "matrix(1, 0, 0, 1, 0, 962.495)",
+              "matrix(1, 0, 0, 1, 0, -995.849)",
+              "matrix(1, 0, 0, 1, 0, -778.255)",
+              "matrix(1, 0, 0, 1, 0, -560.661)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.8400502128165457
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -400.383)",
+              "matrix(1, 0, 0, 1, 0, -182.79)",
+              "matrix(1, 0, 0, 1, 0, 34.8041)",
+              "matrix(1, 0, 0, 1, 0, 252.398)",
+              "matrix(1, 0, 0, 1, 0, 469.992)",
+              "matrix(1, 0, 0, 1, 0, 687.585)",
+              "matrix(1, 0, 0, 1, 0, 905.179)",
+              "matrix(1, 0, 0, 1, 0, -1053.16)",
+              "matrix(1, 0, 0, 1, 0, -835.571)",
+              "matrix(1, 0, 0, 1, 0, -617.977)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.9451087032171628
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -423.243)",
+              "matrix(1, 0, 0, 1, 0, -205.65)",
+              "matrix(1, 0, 0, 1, 0, 11.944)",
+              "matrix(1, 0, 0, 1, 0, 229.538)",
+              "matrix(1, 0, 0, 1, 0, 447.132)",
+              "matrix(1, 0, 0, 1, 0, 664.725)",
+              "matrix(1, 0, 0, 1, 0, 882.319)",
+              "matrix(1, 0, 0, 1, 0, -1076.02)",
+              "matrix(1, 0, 0, 1, 0, -858.431)",
+              "matrix(1, 0, 0, 1, 0, -640.837)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.982149335535948
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -431.303)",
+              "matrix(1, 0, 0, 1, 0, -213.71)",
+              "matrix(1, 0, 0, 1, 0, 3.88419)",
+              "matrix(1, 0, 0, 1, 0, 221.478)",
+              "matrix(1, 0, 0, 1, 0, 439.072)",
+              "matrix(1, 0, 0, 1, 0, 656.665)",
+              "matrix(1, 0, 0, 1, 0, 874.259)",
+              "matrix(1, 0, 0, 1, 0, -1084.08)",
+              "matrix(1, 0, 0, 1, 0, -866.491)",
+              "matrix(1, 0, 0, 1, 0, -648.897)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.9944008968882292
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -433.969)",
+              "matrix(1, 0, 0, 1, 0, -216.375)",
+              "matrix(1, 0, 0, 1, 0, 1.21833)",
+              "matrix(1, 0, 0, 1, 0, 218.812)",
+              "matrix(1, 0, 0, 1, 0, 436.406)",
+              "matrix(1, 0, 0, 1, 0, 654)",
+              "matrix(1, 0, 0, 1, 0, 871.593)",
+              "matrix(1, 0, 0, 1, 0, -1086.75)",
+              "matrix(1, 0, 0, 1, 0, -869.157)",
+              "matrix(1, 0, 0, 1, 0, -651.563)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.9982909540339675
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -434.816)",
+              "matrix(1, 0, 0, 1, 0, -217.222)",
+              "matrix(1, 0, 0, 1, 0, 0.371878)",
+              "matrix(1, 0, 0, 1, 0, 217.966)",
+              "matrix(1, 0, 0, 1, 0, 435.559)",
+              "matrix(1, 0, 0, 1, 0, 653.153)",
+              "matrix(1, 0, 0, 1, 0, 870.747)",
+              "matrix(1, 0, 0, 1, 0, -1087.6)",
+              "matrix(1, 0, 0, 1, 0, -870.003)",
+              "matrix(1, 0, 0, 1, 0, -652.409)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.9994881278418262
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.076)",
+              "matrix(1, 0, 0, 1, 0, -217.482)",
+              "matrix(1, 0, 0, 1, 0, 0.11138)",
+              "matrix(1, 0, 0, 1, 0, 217.705)",
+              "matrix(1, 0, 0, 1, 0, 435.299)",
+              "matrix(1, 0, 0, 1, 0, 652.893)",
+              "matrix(1, 0, 0, 1, 0, 870.486)",
+              "matrix(1, 0, 0, 1, 0, -1087.86)",
+              "matrix(1, 0, 0, 1, 0, -870.264)",
+              "matrix(1, 0, 0, 1, 0, -652.67)"
+            ]
+          },
+          {
+            "target": "0",
+            "wheels": [
+              0
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.9998486378908076
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.155)",
+              "matrix(1, 0, 0, 1, 0, -217.561)",
+              "matrix(1, 0, 0, 1, 0, 0.0329355)",
+              "matrix(1, 0, 0, 1, 0, 217.627)",
+              "matrix(1, 0, 0, 1, 0, 435.22)",
+              "matrix(1, 0, 0, 1, 0, 652.814)",
+              "matrix(1, 0, 0, 1, 0, 870.408)",
+              "matrix(1, 0, 0, 1, 0, -1087.94)",
+              "matrix(1, 0, 0, 1, 0, -870.342)",
+              "matrix(1, 0, 0, 1, 0, -652.748)"
+            ]
+          },
+          {
+            "target": "1",
+            "wheels": [
+              0.1440766542908175
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -31.3502)",
+              "matrix(1, 0, 0, 1, 0, 186.244)",
+              "matrix(1, 0, 0, 1, 0, 403.837)",
+              "matrix(1, 0, 0, 1, 0, 621.431)",
+              "matrix(1, 0, 0, 1, 0, 839.025)",
+              "matrix(1, 0, 0, 1, 0, 1056.62)",
+              "matrix(1, 0, 0, 1, 0, -901.725)",
+              "matrix(1, 0, 0, 1, 0, -684.131)",
+              "matrix(1, 0, 0, 1, 0, -466.538)",
+              "matrix(1, 0, 0, 1, 0, -248.944)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.9999558398770343
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.178)",
+              "matrix(1, 0, 0, 1, 0, -217.584)",
+              "matrix(1, 0, 0, 1, 0, 0.00960897)",
+              "matrix(1, 0, 0, 1, 0, 217.603)",
+              "matrix(1, 0, 0, 1, 0, 435.197)",
+              "matrix(1, 0, 0, 1, 0, 652.791)",
+              "matrix(1, 0, 0, 1, 0, 870.385)",
+              "matrix(1, 0, 0, 1, 0, -1087.96)",
+              "matrix(1, 0, 0, 1, 0, -870.365)",
+              "matrix(1, 0, 0, 1, 0, -652.772)"
+            ]
+          },
+          {
+            "target": "1",
+            "wheels": [
+              0.5939941502901618
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -129.249)",
+              "matrix(1, 0, 0, 1, 0, 88.3443)",
+              "matrix(1, 0, 0, 1, 0, 305.938)",
+              "matrix(1, 0, 0, 1, 0, 523.532)",
+              "matrix(1, 0, 0, 1, 0, 741.126)",
+              "matrix(1, 0, 0, 1, 0, 958.719)",
+              "matrix(1, 0, 0, 1, 0, -999.624)",
+              "matrix(1, 0, 0, 1, 0, -782.031)",
+              "matrix(1, 0, 0, 1, 0, -564.437)",
+              "matrix(1, 0, 0, 1, 0, -346.843)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              1.9999872376995984
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.185)",
+              "matrix(1, 0, 0, 1, 0, -217.591)",
+              "matrix(1, 0, 0, 1, 0, 0.002777)",
+              "matrix(1, 0, 0, 1, 0, 217.597)",
+              "matrix(1, 0, 0, 1, 0, 435.19)",
+              "matrix(1, 0, 0, 1, 0, 652.784)",
+              "matrix(1, 0, 0, 1, 0, 870.378)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.372)",
+              "matrix(1, 0, 0, 1, 0, -652.779)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              0.9902532767788552
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -215.473)",
+              "matrix(1, 0, 0, 1, 0, 2.12083)",
+              "matrix(1, 0, 0, 1, 0, 219.715)",
+              "matrix(1, 0, 0, 1, 0, 437.308)",
+              "matrix(1, 0, 0, 1, 0, 654.902)",
+              "matrix(1, 0, 0, 1, 0, 872.496)",
+              "matrix(1, 0, 0, 1, 0, -1085.85)",
+              "matrix(1, 0, 0, 1, 0, -868.254)",
+              "matrix(1, 0, 0, 1, 0, -650.66)",
+              "matrix(1, 0, 0, 1, 0, -433.067)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              2
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)"
+            ]
+          },
+          {
+            "target": "3",
+            "wheels": [
+              1.6847546869311678
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -366.592)",
+              "matrix(1, 0, 0, 1, 0, -148.998)",
+              "matrix(1, 0, 0, 1, 0, 68.5954)",
+              "matrix(1, 0, 0, 1, 0, 286.189)",
+              "matrix(1, 0, 0, 1, 0, 503.783)",
+              "matrix(1, 0, 0, 1, 0, 721.377)",
+              "matrix(1, 0, 0, 1, 0, 938.97)",
+              "matrix(1, 0, 0, 1, 0, -1019.37)",
+              "matrix(1, 0, 0, 1, 0, -801.78)",
+              "matrix(1, 0, 0, 1, 0, -584.186)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              2
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)"
+            ]
+          },
+          {
+            "target": "3",
+            "wheels": [
+              2.4221348375942338
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -527.041)",
+              "matrix(1, 0, 0, 1, 0, -309.448)",
+              "matrix(1, 0, 0, 1, 0, -91.8539)",
+              "matrix(1, 0, 0, 1, 0, 125.74)",
+              "matrix(1, 0, 0, 1, 0, 343.334)",
+              "matrix(1, 0, 0, 1, 0, 560.927)",
+              "matrix(1, 0, 0, 1, 0, 778.521)",
+              "matrix(1, 0, 0, 1, 0, 996.115)",
+              "matrix(1, 0, 0, 1, 0, -962.229)",
+              "matrix(1, 0, 0, 1, 0, -744.635)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              2
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)"
+            ]
+          },
+          {
+            "target": "3",
+            "wheels": [
+              2.786821838775203
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -606.395)",
+              "matrix(1, 0, 0, 1, 0, -388.801)",
+              "matrix(1, 0, 0, 1, 0, -171.208)",
+              "matrix(1, 0, 0, 1, 0, 46.3862)",
+              "matrix(1, 0, 0, 1, 0, 263.98)",
+              "matrix(1, 0, 0, 1, 0, 481.574)",
+              "matrix(1, 0, 0, 1, 0, 699.167)",
+              "matrix(1, 0, 0, 1, 0, 916.761)",
+              "matrix(1, 0, 0, 1, 0, -1041.58)",
+              "matrix(1, 0, 0, 1, 0, -823.989)"
+            ]
+          }
+        ],
+        [
+          {
+            "target": "1",
+            "wheels": [
+              1
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)",
+              "matrix(1, 0, 0, 1, 0, -435.188)"
+            ]
+          },
+          {
+            "target": "2",
+            "wheels": [
+              2
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -435.188)",
+              "matrix(1, 0, 0, 1, 0, -217.594)",
+              "matrix(1, 0, 0, 1, 0, 0)",
+              "matrix(1, 0, 0, 1, 0, 217.594)",
+              "matrix(1, 0, 0, 1, 0, 435.188)",
+              "matrix(1, 0, 0, 1, 0, 652.781)",
+              "matrix(1, 0, 0, 1, 0, 870.375)",
+              "matrix(1, 0, 0, 1, 0, -1087.97)",
+              "matrix(1, 0, 0, 1, 0, -870.375)",
+              "matrix(1, 0, 0, 1, 0, -652.781)"
+            ]
+          },
+          {
+            "target": "3",
+            "wheels": [
+              2.9277871582323116
+            ],
+            "glyphs": [
+              "matrix(1, 0, 0, 1, 0, -637.068)",
+              "matrix(1, 0, 0, 1, 0, -419.474)",
+              "matrix(1, 0, 0, 1, 0, -201.881)",
+              "matrix(1, 0, 0, 1, 0, 15.7131)",
+              "matrix(1, 0, 0, 1, 0, 233.307)",
+              "matrix(1, 0, 0, 1, 0, 450.901)",
+              "matrix(1, 0, 0, 1, 0, 668.494)",
+              "matrix(1, 0, 0, 1, 0, 886.088)",
+              "matrix(1, 0, 0, 1, 0, -1072.26)",
+              "matrix(1, 0, 0, 1, 0, -854.662)"
+            ]
+          }
+        ]
+      ],
+      "resizePreservedProgress": true,
+      "noHorizontalOverflow": true
+    }
+  ],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(r.state.lineExit.every(v=>v===1))\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/homepage-check.mjs:52:22"
+}

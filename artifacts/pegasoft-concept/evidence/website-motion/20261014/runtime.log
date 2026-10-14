@@ -1,0 +1,23 @@
+
+> nx run @site/pegasoft-concept:website-motion-check
+
+> node tools/website-motion-check.mjs
+
+(node:34610) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{"status":"passed_pending_personal_review"}
+
+
+
+ NX   Successfully ran target website-motion-check for project @site/pegasoft-concept
+
+
+  Run duration:      1m 4s
+  Cache:             0/1 hit (0%)
+  Critical path:     1m 4s (1 task)
+  Recoverable time:  <1ms
+
+  Recommendations:
+    - Drastically reduce your run duration by sharing a cache across your team and CI → https://cloud.nx.app/connect/vSwELfZQAj.
+    - Speed up or split the longest tasks on the critical path:
+        @site/pegasoft-concept:website-motion-check    1m 4s

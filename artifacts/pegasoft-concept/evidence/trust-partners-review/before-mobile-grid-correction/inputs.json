@@ -1,0 +1,7 @@
+{
+  "input": {
+    "path": "review/trust-partners.html",
+    "sha256": "5dc8043b3f1d67ce21cbe7c56c512d14a6b20178a4caa4d16e47916b7bfd40c0"
+  },
+  "reason": "Mobile minimum height transferred through aspect ratio, making cells exceed their tracks. Fixed mobile cells use auto aspect ratio. Desktop unaffected."
+}

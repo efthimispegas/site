@@ -1,0 +1,66 @@
+{
+  "status": "user_approved_cloud_continuity",
+  "date_local": "2026-10-12",
+  "branch": "codex/pegasoft-concept",
+  "request": "All clouds should remain in constant/continuous motion; remove K01 hesitation at 23\u201326% and freeze after 61%.",
+  "diagnosis": [
+    "Two smoothstep position eases stop at their shared veil waypoint around 24.6% story progress.",
+    "Cloud clock clamps to 16 seconds around 61.5% while the 26-second combined story continues."
+  ],
+  "changes": [
+    "Smooth origin/veil/bank paths traversed by distance, without stopping at waypoints.",
+    "Continue cloud-only travel beyond the 16-second bank position along its exit tangent until the jet covers the scene.",
+    "Record commissioned amendments separately without modifying the frozen baseline or approved assets."
+  ],
+  "timing_limit": "The veil route point is retained, but its crossing time is redistributed by distance to keep travel steady. Bank position remains at 16 seconds.",
+  "unchanged": [
+    "All approved cloud PNGs and haze/edge/opacity presets",
+    "Ship/camera/jet/chapter/content timing and appearance fields, verified against original review",
+    "Frozen concept sources and renderer assets"
+  ],
+  "checks": {
+    "nx": "lint, 10/10 tests, build and baseline/amendment verification passed",
+    "trajectory": "16000 velocity samples per cloud, no zero motion and local speed ratio below 1.005",
+    "runtime": "development/production sample comparisons, normal/reverse playback, physical scroll after 61%, early normal playback at 20\u201330%, mobile rendering and visual screenshot inspection",
+    "unaffected_state": "exact equality against source after excluding cloud centres and added cloud-clock metadata"
+  },
+  "inputs": {
+    "baseline_sha256": "a9e8589de2260de57a1167c123b4a9d653a8425a98fd0b66c94c4eeb638a9651",
+    "amendments_sha256": "a4b9d4834e67cef9aedd487f618f48663b05a2e2540d0c90a3547351c7172e4e"
+  },
+  "evidence": [
+    {
+      "path": "artifacts/pegasoft-concept/evidence/cloud-continuity/before.json",
+      "sha256": "8629504ade925542f7d1dea51df110385011ccd589586ddbc6a345eab1636695"
+    },
+    {
+      "path": "artifacts/pegasoft-concept/evidence/cloud-continuity/runtime-checks.json",
+      "sha256": "9d4638ec18f11e374e079c15ec37d3227172ac90bdb5296093bc1e05b229ad94"
+    },
+    {
+      "path": "artifacts/pegasoft-concept/evidence/cloud-continuity/normal-playback.json",
+      "sha256": "47d318c1dd70c74af47268c8defbe7d1660f37546c1b41babc976819aa8bb5a4"
+    },
+    {
+      "path": "artifacts/pegasoft-concept/evidence/cloud-continuity/early-normal-playback.json",
+      "sha256": "8b3edc21f61049e0b641dba0ddf52b0b431768ee0c344541c1ef2a209115b8f9"
+    }
+  ],
+  "build": [
+    {
+      "path": "dist/apps/pegasoft-concept/assets/inspection-DH2CdHee.js",
+      "sha256": "fdd31b2a38cf55ae42946e865f16cf05016ad7fa13ca5bcddd9d09290f7eaf0b"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/index.html",
+      "sha256": "37d33d8188bcbedf23ee213a55520ccd1010191af08d902ece05990a18e12a88"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/review/ship-jet-integration.html",
+      "sha256": "92dfed3152d16afa361afd0229ed487224bbdc09b6ae220e8f69dbd5cada47f8"
+    }
+  ],
+  "user_accepted": true,
+  "next_action": "Review cloud continuity in the production preview; do not begin broad controller refactoring until this gate is accepted.",
+  "user_quote": "Approved. Proceed with next review phase"
+}

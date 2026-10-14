@@ -1,0 +1,41 @@
+{
+  "previousTransportManifestSha256": "c67c27b159a796a142d796feb101dd32afca052ba330a457018e92110c2e6042",
+  "transportApprovalSha256": "dde5f36ac82a543173f9e3e65b55d0ee2e7c2d4b5b0d477ceffa99d89a8972af",
+  "openingPackagingSha256": "ea6ffd257e1044b5389ae1ee37d848576d9172ac5da2d434a9a2ba1d1aedfffd",
+  "files": [
+    {
+      "path": "src/journey-host.js",
+      "previousSha256": "79ae9c14684b1bed4d5ed8fd8a9ee45d4a42fe6df10e2d907641f6c182d10888",
+      "sha256": "1f17b3ca9ae7503929f1e347181714a402f344661bed9ec5b9b4bd79f2a7e196"
+    },
+    {
+      "path": "src/main.js",
+      "previousSha256": "e98fd7160fc3ee61203bc0fcb3656c628d721375852aa9d81bb585dcea9cbfbd",
+      "sha256": "90735479216715cec71d17e9e4b6bb9ad87e89c2597ea98508fd6156a79ea9f3"
+    },
+    {
+      "path": "index.html",
+      "previousSha256": "0a153728b3e3a543f3c521c8587608bca60e4974e98a5a8e5fd097da207554ae",
+      "sha256": "c769fbaf2b1d4f753197abd842b3651de4b0690301d6c11da2f921ebbafdc749"
+    }
+  ],
+  "addedFiles": [
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "50ab06b233461a2cc08b12ff84ecdfa524d49a658e873b2d8cb3046383ffc278"
+    },
+    {
+      "path": "src/intro-sequence.js",
+      "sha256": "41a6759bd0ef344ba9205266b1f9cac92c038408fe45338ff6a8ad72bb39d7f4"
+    },
+    {
+      "path": "src/outcome.css",
+      "sha256": "5890bbaf8fb54f9ac05a60c42454b77be310f04e74dc8e45ac3ba10b1d1c0b1e"
+    },
+    {
+      "path": "src/hero-odometer.js",
+      "sha256": "e774a141c7ccb35a93c5f29987fae3dd9335d19fc353d920f8e1aaa783270d59"
+    }
+  ],
+  "status": "homepage_opening_outcome_pending_personal_review"
+}

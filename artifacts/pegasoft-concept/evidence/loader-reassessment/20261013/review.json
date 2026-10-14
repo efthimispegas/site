@@ -1,0 +1,41 @@
+{
+  "status": "ready_for_personal_loader_and_outcome_review",
+  "userAccepted": false,
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "uncommitted": true,
+  "reviews": {
+    "loader": "http://127.0.0.1:8771/review/loader.html#viewer",
+    "homepage": "http://127.0.0.1:8771/?revision=loader-outcome-20261013"
+  },
+  "request": "request.json",
+  "inputs": "source.json",
+  "verification": "verification.json",
+  "renderedChecks": "checks.json",
+  "homepageComparison": "homepage/checks.json",
+  "normalPlayback": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/loader-reassessment/20261013/recording/page@345ba7cc2c418eabcabaed458d39eb76.webm",
+  "keyboard": "keyboard.json",
+  "before": "before/loading.json",
+  "changes": [
+    "Render-blocking opening styles, off-screen horizon and pre-initialization visibility gate",
+    "Reserve intro scroll space before module execution; refresh retains a full viewport loader",
+    "Compositor beat during geography/font loading; heavy transport setup follows opening completion",
+    "Same homepage controller in dedicated loader inspector; 17 phase controls, play/restart/scrub/frame/speed/reduced preview",
+    "Outcome entry near 26%, continuous reversible content positioning",
+    "Counter targets latch once at first visible entry; timed spring continues without scrolling and values remain after reverse"
+  ],
+  "preserved": [
+    "Original opening timing defaults; pulse bounce defaults to zero",
+    "Globe geography, city routes, camera, materials and lighting",
+    "Approved transport geometry, trajectories, asset bytes and frame ownership",
+    "Five labelled demo metrics; no new company claims"
+  ],
+  "limits": [
+    "Loader motion is reopened for user re-approval, including the loading beat",
+    "Outcome parallax/counters and the whole website remain unaccepted",
+    "Fixed grabber four-corner pickup limitation remains unresolved",
+    "Passing Chromium runtime checks does not establish performance on representative devices"
+  ],
+  "next": "Await personal review; do not advance the implementation queue or deploy.",
+  "recordingNote": "Chromium screencast includes grey padding below its captured viewport. Full-viewport cold/refresh, opening and outcome PNGs establish the actual layout; retain the unmodified recording for motion evidence."
+}

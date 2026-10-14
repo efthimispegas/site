@@ -1,0 +1,6394 @@
+{
+  "final": {
+    "direction": -1,
+    "frame": 4538,
+    "geometry": {
+      "camera": {
+        "aspect": 1.967016599371916,
+        "centerX": 0.925,
+        "centerY": 0.5,
+        "radiusHeight": 0.52,
+        "viewHeight": 2.28
+      },
+      "cityNodes": 13,
+      "connections": [
+        "New York → Paris",
+        "Tokyo → Los Angeles",
+        "Barcelona → Paris",
+        "Milan → Athens",
+        "Paris → New Delhi",
+        "London → Moscow",
+        "Tokyo → Dubai",
+        "Abu Dhabi → Berlin"
+      ],
+      "height": 435.3515625,
+      "landPoints": 4118,
+      "rotationRadians": 3.9155006000000374,
+      "settings": {
+        "arcs": 1.21,
+        "dots": 1.5,
+        "rim": 0.48,
+        "speed": 1.52
+      },
+      "width": 856.34375
+    },
+    "layout": {
+      "metricsY": 1,
+      "titleY": 1
+    },
+    "openingTime": 3.8,
+    "playing": false,
+    "progress": 0,
+    "reduced": false,
+    "replaying": false,
+    "rotationTime": 192.62002400000148,
+    "sceneTime": 126.72370000000004,
+    "scrollMode": false,
+    "speed": 1,
+    "state": {
+      "counts": [
+        0,
+        0,
+        0
+      ],
+      "globeOpacity": 1,
+      "heroMaskBottom": 1,
+      "heroParallaxY": 0,
+      "horizonY": -1,
+      "lineExit": [
+        0,
+        0,
+        0
+      ],
+      "metricsY": 1,
+      "outcomeActive": false,
+      "phase": "Hero · line exit",
+      "progress": 0,
+      "sectionTravel": 0,
+      "titleY": 1,
+      "utilityExit": 0
+    },
+    "wallTimestampMs": 128834
+  },
+  "trace": [
+    {
+      "direction": -1,
+      "frame": 3617,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.566215999999977,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.34,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 1,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 178.6486399999991,
+      "sceneTime": 117.531999999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.34,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 1,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 119602
+    },
+    {
+      "direction": -1,
+      "frame": 3621,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.5712851999999775,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.2904514285714304,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9851777777777784,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 178.85140799999908,
+      "sceneTime": 117.665399999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.2904514285714304,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9851777777777784,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 119734
+    },
+    {
+      "direction": -1,
+      "frame": 3624,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.5750851999999766,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.2533085714285734,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9740666666666672,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 179.00340799999907,
+      "sceneTime": 117.765399999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.2533085714285734,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9740666666666672,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 119834
+    },
+    {
+      "direction": -1,
+      "frame": 3631,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.5788889999999776,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.216128571428571,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9629444444444444,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 179.1555599999991,
+      "sceneTime": 117.865499999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.216128571428571,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9629444444444444,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 119934
+    },
+    {
+      "direction": -1,
+      "frame": 3642,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.5830005999999783,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.1759400000000015,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9509222222222226,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 179.32002399999914,
+      "sceneTime": 117.973699999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.1759400000000015,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9509222222222226,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120042
+    },
+    {
+      "direction": -1,
+      "frame": 3652,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.58680059999998,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.138797142857145,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9398111111111116,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 179.47202399999918,
+      "sceneTime": 118.073699999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.138797142857145,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9398111111111116,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120142
+    },
+    {
+      "direction": -1,
+      "frame": 3662,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.590600599999981,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.101654285714289,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9287000000000007,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 179.62402399999922,
+      "sceneTime": 118.17369999999902,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.101654285714289,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9287000000000007,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120242
+    },
+    {
+      "direction": -1,
+      "frame": 3670,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.594400599999981,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.064511428571432,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9175888888888898,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 179.77602399999924,
+      "sceneTime": 118.27369999999904,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.064511428571432,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9175888888888898,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120342
+    },
+    {
+      "direction": -1,
+      "frame": 3680,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.598204399999981,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -1.0273314285714346,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.9064666666666684,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 179.92817599999924,
+      "sceneTime": 118.373799999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -1.0273314285714346,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.9064666666666684,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120442
+    },
+    {
+      "direction": -1,
+      "frame": 3690,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.601996799999982,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.9902628571428624,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.8953777777777793,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 180.07987199999926,
+      "sceneTime": 118.473599999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.9902628571428624,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.8953777777777793,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120542
+    },
+    {
+      "direction": -1,
+      "frame": 3700,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.605796799999983,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.9531200000000052,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.8842666666666683,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 180.2318719999993,
+      "sceneTime": 118.57359999999902,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.9531200000000052,
+        "outcomeActive": true,
+        "phase": "Outcome · final principle",
+        "progress": 0.8842666666666683,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120642
+    },
+    {
+      "direction": -1,
+      "frame": 3710,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.609596799999984,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.9159771428571484,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.8731555555555572,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 180.38387199999937,
+      "sceneTime": 118.67359999999904,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.9159771428571484,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.8731555555555572,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120742
+    },
+    {
+      "direction": -1,
+      "frame": 3719,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6133967999999848,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.8788342857142912,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.8620444444444462,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 180.5358719999994,
+      "sceneTime": 118.77359999999904,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.8788342857142912,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.8620444444444462,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120842
+    },
+    {
+      "direction": -1,
+      "frame": 3729,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6175159999999855,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.8385714285714319,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.8500000000000009,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 180.70063999999945,
+      "sceneTime": 118.88199999999908,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.8385714285714319,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.8500000000000009,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 120950
+    },
+    {
+      "direction": -1,
+      "frame": 3740,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6213159999999873,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.8014285714285754,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.83888888888889,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 180.85263999999947,
+      "sceneTime": 118.98199999999908,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          3
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.8014285714285754,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.83888888888889,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121050
+    },
+    {
+      "direction": -1,
+      "frame": 3749,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6251159999999873,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.7642857142857182,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.827777777777779,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 181.00463999999948,
+      "sceneTime": 119.08199999999908,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          2
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.7642857142857182,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.827777777777779,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121151
+    },
+    {
+      "direction": -1,
+      "frame": 3760,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.629235199999988,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.7240228571428633,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.8157333333333351,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 181.16940799999952,
+      "sceneTime": 119.19039999999907,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          2
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.7240228571428633,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.8157333333333351,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121259
+    },
+    {
+      "direction": -1,
+      "frame": 3771,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.633035199999989,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.6868800000000062,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.8046222222222241,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 181.3214079999995,
+      "sceneTime": 119.2903999999991,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          2
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.6868800000000062,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.8046222222222241,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121359
+    },
+    {
+      "direction": -1,
+      "frame": 3782,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.636831399999989,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.6497742857142943,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7935222222222248,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 181.4732559999995,
+      "sceneTime": 119.39029999999912,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          1
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.6497742857142943,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7935222222222248,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121459
+    },
+    {
+      "direction": -1,
+      "frame": 3793,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.64063139999999,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.6126314285714376,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7824111111111138,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 181.6252559999996,
+      "sceneTime": 119.49029999999912,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          1
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.6126314285714376,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7824111111111138,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121559
+    },
+    {
+      "direction": -1,
+      "frame": 3804,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6447543999999903,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.5723314285714378,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7703555555555583,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 181.79017599999963,
+      "sceneTime": 119.59879999999912,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.5723314285714378,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7703555555555583,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121667
+    },
+    {
+      "direction": -1,
+      "frame": 3814,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.648550599999993,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.5352257142857211,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7592555555555576,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 181.9420239999997,
+      "sceneTime": 119.69869999999916,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.5352257142857211,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7592555555555576,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121767
+    },
+    {
+      "direction": -1,
+      "frame": 3824,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.652350599999993,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.4980828571428644,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7481444444444466,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 182.0940239999997,
+      "sceneTime": 119.7986999999992,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.4980828571428644,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7481444444444466,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121867
+    },
+    {
+      "direction": -1,
+      "frame": 3833,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.656465999999992,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.45785714285714896,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7361111111111129,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 182.2586399999997,
+      "sceneTime": 119.9069999999992,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.45785714285714896,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7361111111111129,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 121975
+    },
+    {
+      "direction": -1,
+      "frame": 3845,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.660873999999994,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.414771428571435,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7232222222222241,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 182.43495999999973,
+      "sceneTime": 120.0229999999992,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.414771428571435,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7232222222222241,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122091
+    },
+    {
+      "direction": -1,
+      "frame": 3855,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.664700599999994,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.37736857142857905,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7120333333333356,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 182.58802399999976,
+      "sceneTime": 120.12369999999922,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.37736857142857905,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7120333333333356,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122193
+    },
+    {
+      "direction": -1,
+      "frame": 3865,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.668496799999995,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.34026285714286764,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.7009333333333364,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 182.7398719999998,
+      "sceneTime": 120.22359999999922,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.34026285714286764,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.7009333333333364,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122293
+    },
+    {
+      "direction": -1,
+      "frame": 3876,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.672615999999996,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.3000000000000076,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.6888888888888911,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 182.9046399999998,
+      "sceneTime": 120.33199999999924,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.3000000000000076,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.6888888888888911,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122400
+    },
+    {
+      "direction": -1,
+      "frame": 3887,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.676377999999996,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.2632285714285796,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.6778888888888913,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 183.05511999999985,
+      "sceneTime": 120.43099999999926,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.2632285714285796,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.6778888888888913,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122500
+    },
+    {
+      "direction": -1,
+      "frame": 3898,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6802159999999966,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.2257142857142942,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.6666666666666692,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 183.20863999999983,
+      "sceneTime": 120.53199999999924,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.2257142857142942,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.6666666666666692,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122601
+    },
+    {
+      "direction": -1,
+      "frame": 3909,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.684335199999998,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.1854514285714388,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.6546222222222253,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 183.37340799999987,
+      "sceneTime": 120.64039999999926,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.1854514285714388,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.6546222222222253,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122709
+    },
+    {
+      "direction": -1,
+      "frame": 3920,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6881313999999974,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.14834571428572696,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.643522222222226,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 183.52525599999987,
+      "sceneTime": 120.74029999999924,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.14834571428572696,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.643522222222226,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122809
+    },
+    {
+      "direction": -1,
+      "frame": 3931,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.6919351999999974,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.1111657142857252,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.6324000000000033,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 183.6774079999999,
+      "sceneTime": 120.84039999999928,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          2,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.1111657142857252,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.6324000000000033,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 122909
+    },
+    {
+      "direction": -1,
+      "frame": 3941,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.696046799999999,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.07097714285715573,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.6203777777777816,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 183.8418719999999,
+      "sceneTime": 120.94859999999927,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          1,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.07097714285715573,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.6203777777777816,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123017
+    },
+    {
+      "direction": -1,
+      "frame": 3952,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.699846799999999,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": -0.03383428571429903,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.6092666666666706,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 183.99387199999995,
+      "sceneTime": 121.04859999999928,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          1,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": -0.03383428571429903,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.6092666666666706,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123117
+    },
+    {
+      "direction": -1,
+      "frame": 3962,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7036468,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.0033085714285573387,
+        "titleY": 0.19999999999999996
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5981555555555598,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 184.145872,
+      "sceneTime": 121.14859999999928,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          1,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.0033085714285573387,
+        "outcomeActive": true,
+        "phase": "Pinned statement · metric travel",
+        "progress": 0.5981555555555598,
+        "sectionTravel": 1,
+        "titleY": 0.19999999999999996,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123217
+    },
+    {
+      "direction": -1,
+      "frame": 3972,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.707450600000002,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.04048857142855966,
+        "titleY": 0.2081839080459672
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5870333333333368,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 184.29802400000003,
+      "sceneTime": 121.24869999999932,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.04048857142855966,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5870333333333368,
+        "sectionTravel": 1,
+        "titleY": 0.2081839080459672,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123317
+    },
+    {
+      "direction": -1,
+      "frame": 3983,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7112164000000023,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.07729714285712763,
+        "titleY": 0.23855938697316736
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5760222222222268,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 184.44865600000008,
+      "sceneTime": 121.34779999999932,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.07729714285712763,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5760222222222268,
+        "sectionTravel": 1,
+        "titleY": 0.23855938697316736,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123417
+    },
+    {
+      "direction": -1,
+      "frame": 3993,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.715366000000003,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.11785714285713178,
+        "titleY": 0.2720306513409869
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5638888888888922,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 184.61464000000012,
+      "sceneTime": 121.45699999999935,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.11785714285713178,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5638888888888922,
+        "sectionTravel": 1,
+        "titleY": 0.2720306513409869,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123525
+    },
+    {
+      "direction": -1,
+      "frame": 4004,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.719154600000005,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.15488857142855905,
+        "titleY": 0.302590038314166
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5528111111111148,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 184.76618400000015,
+      "sceneTime": 121.55669999999937,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.15488857142855905,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5528111111111148,
+        "sectionTravel": 1,
+        "titleY": 0.302590038314166,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123625
+    },
+    {
+      "direction": -1,
+      "frame": 4015,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7229660000000058,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.19214285714284576,
+        "titleY": 0.3333333333333238
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5416666666666701,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 184.9186400000002,
+      "sceneTime": 121.65699999999936,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.19214285714284576,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5416666666666701,
+        "sectionTravel": 1,
+        "titleY": 0.3333333333333238,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123726
+    },
+    {
+      "direction": -1,
+      "frame": 4026,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7267584000000062,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.22921142857141252,
+        "titleY": 0.3639233716474961
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5305777777777826,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 185.07033600000025,
+      "sceneTime": 121.75679999999936,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.22921142857141252,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5305777777777826,
+        "sectionTravel": 1,
+        "titleY": 0.3639233716474961,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123826
+    },
+    {
+      "direction": -1,
+      "frame": 4037,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.730862400000007,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.26932571428569785,
+        "titleY": 0.397026819923358
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5185777777777827,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 185.23449600000023,
+      "sceneTime": 121.86479999999938,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.26932571428569785,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5185777777777827,
+        "sectionTravel": 1,
+        "titleY": 0.397026819923358,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 123933
+    },
+    {
+      "direction": -1,
+      "frame": 4047,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.734681400000008,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.30665428571426856,
+        "titleY": 0.4278314176245068
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.5074111111111163,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 185.3872560000003,
+      "sceneTime": 121.9652999999994,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.30665428571426856,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.5074111111111163,
+        "sectionTravel": 1,
+        "titleY": 0.4278314176245068,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124034
+    },
+    {
+      "direction": -1,
+      "frame": 4057,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7388006000000087,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.3469171428571288,
+        "titleY": 0.46105747126435626
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.4953666666666709,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 185.55202400000033,
+      "sceneTime": 122.07369999999942,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.3469171428571288,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.4953666666666709,
+        "sectionTravel": 1,
+        "titleY": 0.46105747126435626,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124143
+    },
+    {
+      "direction": -1,
+      "frame": 4069,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7429160000000095,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.38714285714284413,
+        "titleY": 0.4942528735632076
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.4833333333333372,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 185.71664000000035,
+      "sceneTime": 122.18199999999943,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.38714285714284413,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.4833333333333372,
+        "sectionTravel": 1,
+        "titleY": 0.4942528735632076,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124250
+    },
+    {
+      "direction": -1,
+      "frame": 4080,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7467160000000104,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.42428571428570105,
+        "titleY": 0.5249042145593761
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.47222222222222615,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 185.8686400000004,
+      "sceneTime": 122.28199999999948,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.42428571428570105,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.47222222222222615,
+        "sectionTravel": 1,
+        "titleY": 0.5249042145593761,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124351
+    },
+    {
+      "direction": -1,
+      "frame": 4091,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.750835200000011,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.464548571428556,
+        "titleY": 0.5581302681992208
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.4601777777777824,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 186.03340800000043,
+      "sceneTime": 122.39039999999947,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.464548571428556,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.4601777777777824,
+        "sectionTravel": 1,
+        "titleY": 0.5581302681992208,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124459
+    },
+    {
+      "direction": -1,
+      "frame": 4101,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.754631400000011,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.5016542857142682,
+        "titleY": 0.5887509578543917
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.449077777777783,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 186.18525600000044,
+      "sceneTime": 122.49029999999948,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.5016542857142682,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.449077777777783,
+        "sectionTravel": 1,
+        "titleY": 0.5887509578543917,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124559
+    },
+    {
+      "direction": -1,
+      "frame": 4112,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.758431400000012,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.5387971428571252,
+        "titleY": 0.6194022988505601
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.43796666666667194,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 186.33725600000048,
+      "sceneTime": 122.5902999999995,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.5387971428571252,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.43796666666667194,
+        "sectionTravel": 1,
+        "titleY": 0.6194022988505601,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124659
+    },
+    {
+      "direction": -1,
+      "frame": 4123,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7625468000000137,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.5790228571428409,
+        "titleY": 0.6525977011494117
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.4259333333333382,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 186.50187200000053,
+      "sceneTime": 122.69859999999952,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          1,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.5790228571428409,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.4259333333333382,
+        "sectionTravel": 1,
+        "titleY": 0.6525977011494117,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124767
+    },
+    {
+      "direction": -1,
+      "frame": 4134,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.766350600000014,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.6162028571428428,
+        "titleY": 0.6832796934865781
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.4148111111111154,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 186.6540240000006,
+      "sceneTime": 122.79869999999951,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.6162028571428428,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.4148111111111154,
+        "sectionTravel": 1,
+        "titleY": 0.6832796934865781,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124867
+    },
+    {
+      "direction": -1,
+      "frame": 4145,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.770146800000016,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.6533085714285548,
+        "titleY": 0.7139003831417488
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.40371111111111607,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 186.80587200000065,
+      "sceneTime": 122.89859999999956,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.6533085714285548,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.40371111111111607,
+        "sectionTravel": 1,
+        "titleY": 0.7139003831417488,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 124967
+    },
+    {
+      "direction": -1,
+      "frame": 4155,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.773946800000017,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.6904514285714121,
+        "titleY": 0.7445517241379174
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.39260000000000495,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 186.95787200000063,
+      "sceneTime": 122.99859999999956,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.6904514285714121,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.39260000000000495,
+        "sectionTravel": 1,
+        "titleY": 0.7445517241379174,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125067
+    },
+    {
+      "direction": -1,
+      "frame": 4166,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7777506000000174,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.7276314285714142,
+        "titleY": 0.7752337164750839
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.3814777777777821,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 187.1100240000007,
+      "sceneTime": 123.09869999999958,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.7276314285714142,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.3814777777777821,
+        "sectionTravel": 1,
+        "titleY": 0.7752337164750839,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125167
+    },
+    {
+      "direction": -1,
+      "frame": 4177,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7815468000000183,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.7647371428571264,
+        "titleY": 0.8058544061302546
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.3703777777777827,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 187.26187200000072,
+      "sceneTime": 123.1985999999996,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.7647371428571264,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.3703777777777827,
+        "sectionTravel": 1,
+        "titleY": 0.8058544061302546,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125267
+    },
+    {
+      "direction": -1,
+      "frame": 4187,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.78535060000002,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.8019171428571283,
+        "titleY": 0.836536398467421
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.3592555555555599,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 187.4140240000008,
+      "sceneTime": 123.29869999999964,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.8019171428571283,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.3592555555555599,
+        "sectionTravel": 1,
+        "titleY": 0.836536398467421,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125367
+    },
+    {
+      "direction": -1,
+      "frame": 4198,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.78914680000002,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.8390228571428404,
+        "titleY": 0.8671570881225915
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.34815555555556055,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 187.5658720000008,
+      "sceneTime": 123.39859999999965,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.8390228571428404,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.34815555555556055,
+        "sectionTravel": 1,
+        "titleY": 0.8671570881225915,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125467
+    },
+    {
+      "direction": -1,
+      "frame": 4210,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.793266000000022,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.879285714285701,
+        "titleY": 0.900383141762441
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.3361111111111151,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 187.73064000000088,
+      "sceneTime": 123.50699999999962,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.879285714285701,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.3361111111111151,
+        "sectionTravel": 1,
+        "titleY": 0.900383141762441,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125575
+    },
+    {
+      "direction": -1,
+      "frame": 4219,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.7970660000000223,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.916428571428558,
+        "titleY": 0.9310344827586096
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.325000000000004,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 187.8826400000009,
+      "sceneTime": 123.6069999999996,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.916428571428558,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.325000000000004,
+        "sectionTravel": 1,
+        "titleY": 0.9310344827586096,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125675
+    },
+    {
+      "direction": -1,
+      "frame": 4230,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.800866000000024,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.9535714285714152,
+        "titleY": 0.9616858237547782
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.3138888888888929,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 188.03464000000093,
+      "sceneTime": 123.7069999999996,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.9535714285714152,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.3138888888888929,
+        "sectionTravel": 1,
+        "titleY": 0.9616858237547782,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125775
+    },
+    {
+      "direction": -1,
+      "frame": 4241,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8049814000000226,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 0.9937971428571252,
+        "titleY": 0.9948812260536252
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.3018555555555608,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 188.1992560000009,
+      "sceneTime": 123.8152999999996,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 0.9937971428571252,
+        "outcomeActive": true,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.3018555555555608,
+        "sectionTravel": 1,
+        "titleY": 0.9948812260536252,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125884
+    },
+    {
+      "direction": -1,
+      "frame": 4250,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.808781400000023,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.29074444444444975,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 188.35125600000097,
+      "sceneTime": 123.91529999999962,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.29074444444444975,
+        "sectionTravel": 1,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 125984
+    },
+    {
+      "direction": -1,
+      "frame": 4261,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.812581400000024,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.2796333333333386,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 188.50325600000096,
+      "sceneTime": 124.01529999999964,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0,
+        "heroMaskBottom": 0.21999999999999997,
+        "heroParallaxY": -0.22,
+        "horizonY": -2.4,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Outcome · statement arrives",
+        "progress": 0.2796333333333386,
+        "sectionTravel": 1,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 126084
+    },
+    {
+      "direction": -1,
+      "frame": 4272,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.816381400000025,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.26852222222222744,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 188.65525600000095,
+      "sceneTime": 124.11529999999964,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0.007040371183205996,
+        "heroMaskBottom": 0.2201757972715024,
+        "heroParallaxY": -0.21995041615419164,
+        "horizonY": -2.3993690039868367,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.26852222222222744,
+        "sectionTravel": 0.9997746188826891,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 126184
+    },
+    {
+      "direction": -1,
+      "frame": 4274,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.820816000000025,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.2555555555555595,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 188.832640000001,
+      "sceneTime": 124.23199999999964,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0.4722349235378831,
+        "heroMaskBottom": 0.2359365720742483,
+        "heroParallaxY": -0.2155050694149556,
+        "horizonY": -2.3433762173752637,
+        "lineExit": [
+          1,
+          1,
+          1
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.2555555555555595,
+        "sectionTravel": 0.9795684973407072,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 126348
+    },
+    {
+      "direction": -1,
+      "frame": 4285,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.824935200000025,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.243511111111114,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 188.997408000001,
+      "sceneTime": 124.34039999999968,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 0.9621132648477784,
+        "heroMaskBottom": 0.2709111186244838,
+        "heroParallaxY": -0.20564045372129944,
+        "horizonY": -2.2232065018467493,
+        "lineExit": [
+          1,
+          1,
+          0.9969103788422524
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.243511111111114,
+        "sectionTravel": 0.9347293350968156,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 126450
+    },
+    {
+      "direction": -1,
+      "frame": 4295,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.828735200000025,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.2324000000000029,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 189.149408000001,
+      "sceneTime": 124.44039999999968,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.31759174057397366,
+        "heroParallaxY": -0.1924741244534946,
+        "horizonY": -2.0715868598717986,
+        "lineExit": [
+          1,
+          1,
+          0.9781309440000068
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.2324000000000029,
+        "sectionTravel": 0.8748823838795209,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 126550
+    },
+    {
+      "direction": -1,
+      "frame": 4305,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.832516200000025,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.2213444444444473,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 189.300648000001,
+      "sceneTime": 124.5398999999997,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.37510846011606136,
+        "heroParallaxY": -0.17625145996726474,
+        "horizonY": -1.8985621486948192,
+        "lineExit": [
+          1,
+          0.9990099808947204,
+          0.9442969970984332
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.2213444444444473,
+        "sectionTravel": 0.8011429998512034,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 126650
+    },
+    {
+      "direction": -1,
+      "frame": 4315,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.836335200000026,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.21017777777778063,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 189.45340800000105,
+      "sceneTime": 124.64039999999972,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.4417855702305705,
+        "heroParallaxY": -0.1574450955759929,
+        "horizonY": -1.7170359787046894,
+        "lineExit": [
+          1,
+          0.9843367337805272,
+          0.896851909706461
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.21017777777778063,
+        "sectionTravel": 0.7156595253454223,
+        "titleY": 1,
+        "utilityExit": 1
+      },
+      "wallTimestampMs": 126750
+    },
+    {
+      "direction": -1,
+      "frame": 4325,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.840135200000026,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.19906666666666947,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 189.60540800000103,
+      "sceneTime": 124.74039999999977,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.5140720300553898,
+        "heroParallaxY": -0.13705660690745416,
+        "horizonY": -1.5433536961937635,
+        "lineExit": [
+          0.9999348699259264,
+          0.9539199532592688,
+          0.8384675365926084
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.19906666666666947,
+        "sectionTravel": 0.6229845768520643,
+        "titleY": 1,
+        "utilityExit": 0.9999149700740746
+      },
+      "wallTimestampMs": 126850
+    },
+    {
+      "direction": -1,
+      "frame": 4334,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.843935200000027,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.18795555555555832,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 189.75740800000105,
+      "sceneTime": 124.84039999999976,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.589667021289698,
+        "heroParallaxY": -0.11573494271316212,
+        "horizonY": -1.3874464411311258,
+        "lineExit": [
+          0.9895566696515822,
+          0.9097871233552938,
+          0.7709967437256693
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.18795555555555832,
+        "sectionTravel": 0.5260679214234643,
+        "titleY": 1,
+        "utilityExit": 0.9864412371518696
+      },
+      "wallTimestampMs": 126950
+    },
+    {
+      "direction": -1,
+      "frame": 4345,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.847735200000028,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.17684444444444716,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 189.9094080000011,
+      "sceneTime": 124.94039999999978,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.6659571699923508,
+        "heroParallaxY": -0.09421720846369593,
+        "horizonY": -1.2567693247720693,
+        "lineExit": [
+          0.962890403533616,
+          0.8539958572373262,
+          0.6964971442743672
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.17684444444444716,
+        "sectionTravel": 0.42826003847134514,
+        "titleY": 1,
+        "utilityExit": 0.9521094735394332
+      },
+      "wallTimestampMs": 127050
+    },
+    {
+      "direction": -1,
+      "frame": 4356,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.851531400000028,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.1657444444444478,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 190.0612560000011,
+      "sceneTime": 125.0402999999998,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.7402565582574943,
+        "heroParallaxY": -0.0732609707478862,
+        "horizonY": -1.1552487142332994,
+        "lineExit": [
+          0.9220410047280664,
+          0.7886732709317769,
+          0.6171076204688174
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.1657444444444478,
+        "sectionTravel": 0.33300441249039187,
+        "titleY": 1,
+        "utilityExit": 0.900051082319486
+      },
+      "wallTimestampMs": 127150
+    },
+    {
+      "direction": -1,
+      "frame": 4366,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8553314000000287,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.15463333333333668,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 190.2132560000011,
+      "sceneTime": 125.14029999999984,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.8101027370441033,
+        "heroParallaxY": -0.053560766474740104,
+        "horizonY": -1.0829805369319483,
+        "lineExit": [
+          0.8689825914907583,
+          0.7157444873240969,
+          0.5347251331574323
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.15463333333333668,
+        "sectionTravel": 0.2434580294306368,
+        "titleY": 1,
+        "utilityExit": 0.8332307060542278
+      },
+      "wallTimestampMs": 127251
+    },
+    {
+      "direction": -1,
+      "frame": 4377,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8594468000000295,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.14260000000000303,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 190.37787200000116,
+      "sceneTime": 125.24859999999984,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.8776084190026304,
+        "heroParallaxY": -0.03452070233259143,
+        "horizonY": -1.0344700505237507,
+        "lineExit": [
+          0.8001728060000185,
+          0.6306370560000221,
+          0.4446013060000225
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.14260000000000303,
+        "sectionTravel": 0.15691228332996102,
+        "titleY": 1,
+        "utilityExit": 0.7478231040000228
+      },
+      "wallTimestampMs": 127359
+    },
+    {
+      "direction": -1,
+      "frame": 4388,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8632506000000304,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.13147777777778172,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 190.5300240000012,
+      "sceneTime": 125.34869999999988,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.929675497117516,
+        "heroParallaxY": -0.019835116197623705,
+        "horizonY": -1.011380259677738,
+        "lineExit": [
+          0.7282858904194368,
+          0.5485153788453655,
+          0.3626719506046238
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.13147777777778172,
+        "sectionTravel": 0.09015961908010776,
+        "titleY": 1,
+        "utilityExit": 0.6601160104911157
+      },
+      "wallTimestampMs": 127459
+    },
+    {
+      "direction": -1,
+      "frame": 4399,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8670506000000295,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.12036666666667065,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 190.6820240000012,
+      "sceneTime": 125.44869999999987,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.9690965151439376,
+        "heroParallaxY": -0.008716367523504758,
+        "horizonY": -1.0021976257836105,
+        "lineExit": [
+          0.6506379710092877,
+          0.46527486684262226,
+          0.284255512675953
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.12036666666667065,
+        "sectionTravel": 0.03961985237956708,
+        "titleY": 1,
+        "utilityExit": 0.5672468993880047
+      },
+      "wallTimestampMs": 127559
+    },
+    {
+      "direction": -1,
+      "frame": 4410,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8708506000000296,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.1092555555555595,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 190.83402400000116,
+      "sceneTime": 125.5486999999999,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 0.993315536954727,
+        "heroParallaxY": -0.0018853613717436891,
+        "horizonY": -1.000102818646754,
+        "lineExit": [
+          0.5692184466608662,
+          0.3828923795312359,
+          0.21132672906826885
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Atmospheric horizon",
+        "progress": 0.1092555555555595,
+        "sectionTravel": 0.008569824417016769,
+        "titleY": 1,
+        "utilityExit": 0.4722032211035222
+      },
+      "wallTimestampMs": 127659
+    },
+    {
+      "direction": -1,
+      "frame": 4421,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8746544000000305,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.09813333333333664,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 190.9861760000012,
+      "sceneTime": 125.64879999999992,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.48600162607409886,
+          0.3033482094074303,
+          0.14588229274075884
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.09813333333333664,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0.3779637256071973
+      },
+      "wallTimestampMs": 127759
+    },
+    {
+      "direction": -1,
+      "frame": 4432,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8784506000000314,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.08703333333333728,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 191.13802400000125,
+      "sceneTime": 125.74869999999991,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.40329503582410303,
+          0.22893193165743264,
+          0.09016257749075858
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.08703333333333728,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0.2878778532806701
+      },
+      "wallTimestampMs": 127859
+    },
+    {
+      "direction": -1,
+      "frame": 4443,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.882250600000032,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.07592222222222618,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 191.2900240000013,
+      "sceneTime": 125.84869999999997,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.3229063756732104,
+          0.16146919743246424,
+          0.04604243585838101
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.07592222222222618,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0.20473900888741312
+      },
+      "wallTimestampMs": 127959
+    },
+    {
+      "direction": -1,
+      "frame": 4454,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.886050600000032,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.06481111111111502,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 191.44202400000128,
+      "sceneTime": 125.94869999999996,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.246976563258942,
+          0.10309494057374984,
+          0.015640401221887333
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.06481111111111502,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0.1317112876030102
+      },
+      "wallTimestampMs": 128059
+    },
+    {
+      "direction": -1,
+      "frame": 4464,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8898506000000337,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.05370000000000391,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 191.59402400000133,
+      "sceneTime": 126.0487,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.17756321175002304,
+          0.055866774250014406,
+          0.001014086750002129
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.05370000000000391,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0.07186611200001836
+      },
+      "wallTimestampMs": 128159
+    },
+    {
+      "direction": -1,
+      "frame": 4475,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.893650600000034,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.042588888888892784,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 191.74602400000137,
+      "sceneTime": 126.1487,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.11672393431517732,
+          0.02184231162998193,
+          0
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.042588888888892784,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0.02827490465099369
+      },
+      "wallTimestampMs": 128259
+    },
+    {
+      "direction": -1,
+      "frame": 4485,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.8974506000000337,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.03147777777778167,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 191.89802400000133,
+      "sceneTime": 126.24870000000004,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.06651634412312933,
+          0.003079165882376773,
+          0
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.03147777777778167,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0.0040090881284925994
+      },
+      "wallTimestampMs": 128359
+    },
+    {
+      "direction": -1,
+      "frame": 4496,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.901250600000034,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.020366666666670568,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 192.05002400000137,
+      "sceneTime": 126.34870000000002,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.028998054342603295,
+          0,
+          0
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.020366666666670568,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0
+      },
+      "wallTimestampMs": 128459
+    },
+    {
+      "direction": -1,
+      "frame": 4507,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.905050600000035,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": true,
+      "progress": 0.009255555555559456,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 192.2020240000014,
+      "sceneTime": 126.44870000000002,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0.0062266781423234085,
+          0,
+          0
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0.009255555555559456,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0
+      },
+      "wallTimestampMs": 128559
+    },
+    {
+      "direction": -1,
+      "frame": 4517,
+      "geometry": {
+        "camera": {
+          "aspect": 1.967016599371916,
+          "centerX": 0.925,
+          "centerY": 0.5,
+          "radiusHeight": 0.52,
+          "viewHeight": 2.28
+        },
+        "cityNodes": 13,
+        "connections": [
+          "New York → Paris",
+          "Tokyo → Los Angeles",
+          "Barcelona → Paris",
+          "Milan → Athens",
+          "Paris → New Delhi",
+          "London → Moscow",
+          "Tokyo → Dubai",
+          "Abu Dhabi → Berlin"
+        ],
+        "height": 435.3515625,
+        "landPoints": 4118,
+        "rotationRadians": 3.908523800000036,
+        "settings": {
+          "arcs": 1.21,
+          "dots": 1.5,
+          "rim": 0.48,
+          "speed": 1.52
+        },
+        "width": 856.34375
+      },
+      "layout": {
+        "metricsY": 1,
+        "titleY": 1
+      },
+      "openingTime": 3.8,
+      "playing": false,
+      "progress": 0,
+      "reduced": false,
+      "replaying": false,
+      "rotationTime": 192.34095200000144,
+      "sceneTime": 126.54010000000004,
+      "scrollMode": false,
+      "speed": 1,
+      "state": {
+        "counts": [
+          0,
+          0,
+          0
+        ],
+        "globeOpacity": 1,
+        "heroMaskBottom": 1,
+        "heroParallaxY": 0,
+        "horizonY": -1,
+        "lineExit": [
+          0,
+          0,
+          0
+        ],
+        "metricsY": 1,
+        "outcomeActive": false,
+        "phase": "Hero · line exit",
+        "progress": 0,
+        "sectionTravel": 0,
+        "titleY": 1,
+        "utilityExit": 0
+      },
+      "wallTimestampMs": 128650
+    }
+  ]
+}

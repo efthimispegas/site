@@ -1,0 +1,51 @@
+{
+  "previousRefactorSha256": "2c54d716820cf096a0fe9d520c7c29bd0e6353cc4f1117b5373e6e277de963f2",
+  "approvedWebsiteChecksSha256": "c19987e74a9bb2973dea3d1fa8488b54b950eac0d41bdaf44f1f8c6c8cd96451",
+  "files": [
+    {
+      "path": "review/ship-jet-controller.js",
+      "previousSha256": "34ecbd74203b46ff0e0d11881031bdf9ad122407a3a8c5d17d1370f0cda1defd",
+      "sha256": "d9d6b527108b67815993d1554a615c7024469a2ace711fec43c30484c5d9e802"
+    },
+    {
+      "path": "review/ship-jet-scene.js",
+      "previousSha256": "2aa7d52fed6d399cfd60bbd7397f5255d0a2b02a5f4785e7cca7cbc54db2bcae",
+      "sha256": "de34ddf318eeed0388c714f3c5855eb8f0b3103e5688347704f5dd964e03a5d0"
+    },
+    {
+      "path": "review/cloud-story-sequence.js",
+      "previousSha256": "e07f174e77ba727e0d806416a93b979383c2cf7e2b6b1917f2c67061f6dea16e",
+      "sha256": "cdac85b9d78c0abe3fe9166a919167b426c397e33c4a0fa5d8cd9bad4be52f72"
+    },
+    {
+      "path": "src/journey-host.js",
+      "previousSha256": "35bc120d75320f1eed6e1b43d0ba7fd714b35db201f1e25b96bb08315694b99a",
+      "sha256": "79ae9c14684b1bed4d5ed8fd8a9ee45d4a42fe6df10e2d907641f6c182d10888"
+    },
+    {
+      "path": "src/journey.css",
+      "previousSha256": "8efc09217d8fd6c11e536bc7929f84e18a3c16e8c465653d2eca1f51150978b5",
+      "sha256": "8efc09217d8fd6c11e536bc7929f84e18a3c16e8c465653d2eca1f51150978b5"
+    },
+    {
+      "path": "index.html",
+      "previousSha256": "f4460580077154acf1e6408f8efb97a0800f79264ad53bd49675914f31389bc2",
+      "sha256": "0a153728b3e3a543f3c521c8587608bca60e4974e98a5a8e5fd097da207554ae"
+    }
+  ],
+  "stage": "transport_assembly_pending_personal_review",
+  "addedFiles": [
+    {
+      "path": "src/transport-timeline.js",
+      "sha256": "ce6772d8f221123b87b646499a0e26343ce1cdc84a3641f5074bee2380bfe03d"
+    },
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "86d1aaa04a74a1787494b5292b2f0415a1c2a6ae76aeb9374796eedfd6d1f849"
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "394d47e164d6f2351258133d1cd0d04f5b6780601ff740a24f030a9e1ba47936"
+    }
+  ]
+}

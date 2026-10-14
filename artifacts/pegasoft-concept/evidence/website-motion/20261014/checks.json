@@ -1,0 +1,106 @@
+{
+  "date": "2026-10-13T22:09:01.573Z",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "motionManifestSha256": "126d3633ff2d04465b901c0f308e7f1aaa38710319ca9058dabed4e38e805fb9",
+  "homepageManifestSha256": "1f70b289b24095b2a014ec23d5db73cbc6c122caf3ac5cb2016654eab65d14bc",
+  "checkSha256": "56dd453a9086068fbb968c70b19f17323f6efc01c23ba4590a2390e7bf601be0",
+  "observations": [
+    {
+      "approvedPresetExact": true,
+      "resetExact": true,
+      "loadingBeat": {
+        "period": "1.74s",
+        "horizon": "hidden"
+      }
+    },
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "arrival": {
+        "editorial": 0.4117647058823529,
+        "visible": true,
+        "closingVisible": false,
+        "footerVisible": false,
+        "headerCta": true,
+        "selected": 0,
+        "mode": "industries",
+        "reduced": false,
+        "elapsed": 4.383099999999995
+      },
+      "previews": [
+        "/assets/generation/ship-family/S01/S01-oblique-original.png",
+        "/assets/generation/cloud-family/K03/K03.png",
+        "/assets/generation/jet-family/J02-overhead.png"
+      ],
+      "keyboardOrTouchContact": true,
+      "marqueeRuns": true,
+      "particleDispersesAndReforms": true,
+      "resize": {
+        "before": {
+          "fraction": -0.22270316146827923
+        },
+        "after": {
+          "fraction": -0.2229168037551271
+        }
+      },
+      "reverse": true,
+      "cleanup": {
+        "before": 1,
+        "after": 0,
+        "wordmark": "true",
+        "transportCanvases": 0
+      },
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "arrival": {
+        "editorial": 0.4112724770002788,
+        "visible": true,
+        "closingVisible": false,
+        "footerVisible": false,
+        "headerCta": true,
+        "selected": 0,
+        "mode": "industries",
+        "reduced": false,
+        "elapsed": 4.283099999999996
+      },
+      "previews": [
+        "/assets/generation/ship-family/S01/S01-oblique-original.png",
+        "/assets/generation/cloud-family/K03/K03.png",
+        "/assets/generation/jet-family/J02-overhead.png"
+      ],
+      "keyboardOrTouchContact": true,
+      "marqueeRuns": true,
+      "particleDispersesAndReforms": true,
+      "resize": {
+        "before": {
+          "fraction": -0.5041050903119869
+        },
+        "after": {
+          "fraction": -0.5039688308667462
+        }
+      },
+      "reverse": true,
+      "cleanup": {
+        "before": 1,
+        "after": 0,
+        "wordmark": "true",
+        "transportCanvases": 0
+      },
+      "errors": []
+    },
+    {
+      "reducedMotionStatic": true,
+      "loops": 0
+    }
+  ],
+  "userAccepted": false,
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/recording/page@f8d027204b979021d4b762effa9cdce4.webm",
+  "status": "passed_pending_personal_review"
+}

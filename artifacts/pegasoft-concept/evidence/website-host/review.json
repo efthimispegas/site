@@ -1,0 +1,50 @@
+{
+  "status": "ready_for_personal_website_view_review",
+  "scope": "Step 3 website host for the migrated ship/cloud/jet slice; full homepage assembly remains pending",
+  "website": "http://127.0.0.1:8771/",
+  "development": "http://127.0.0.1:8770/",
+  "inspector": "http://127.0.0.1:8771/review/ship-jet-integration.html#viewer",
+  "userAccepted": false,
+  "checks": {
+    "nxLint": "passed",
+    "nxTests": "14 passed",
+    "nxBuild": "passed",
+    "baselineProvenance": "passed",
+    "websiteCheck": "checks.json",
+    "websiteCheckSha256": "c19987e74a9bb2973dea3d1fa8488b54b950eac0d41bdaf44f1f8c6c8cd96451"
+  },
+  "visualInspection": [
+    "production-0.png",
+    "production-6923.png",
+    "mobile.png"
+  ],
+  "comparisonConditions": {
+    "reference": "../controller-refactor/accepted-reference.json",
+    "viewport": "1280x900, device scale 1, fixed ocean sample",
+    "normalization": "Only reference host layout adjusted to the same full-viewport sticky stage; accepted scene source unchanged. Inspector input uses number type to preserve native-scroll double precision.",
+    "diagnostics": "Initial fixed-position reference host caused font-compositing differences (mean channel delta 0.51645; channels >8 = 0.01561). Matching sticky host resolved them. Range input rounded progress in the reference; number input resolved exact-trace mismatch. Thresholds and production behavior unchanged."
+  },
+  "intentionalChanges": [
+    "Root now renders the current slice, replacing the review launcher",
+    "Stage fills the viewport, with native scrolling and no inspection controls",
+    "Reduced-motion and initialization failure show the approved static ship and semantic content"
+  ],
+  "preserved": [
+    "Asset bytes and approved presets",
+    "Approved geometry, materials, shaders, camera and motion equations",
+    "Independent inspector and frozen comparison"
+  ],
+  "pending": [
+    "Personal website-view review",
+    "Earlier lift/truck/highway and opening/outcome chapters",
+    "Ordinary content and whole-site acceptance"
+  ],
+  "buildFiles": {
+    "index.html": "8110a8b4efa8e8e02a19d9621de5f41fb2834c01d8aa9cdd652f85fbd3da51ad",
+    "review/ship-jet-integration.html": "ebdf8534768bc855720bc6567f007a17bf3eb9ffecd8b981d7c3016979159d31",
+    "assets/index-Z5d_t3H6.js": "4bf5650e06c46aca87920af314bca5090543f00fc790ce81741ed8acd5c839c3",
+    "assets/index-D1dDELSF.css": "8efc09217d8fd6c11e536bc7929f84e18a3c16e8c465653d2eca1f51150978b5",
+    "assets/ship-jet-controller-C3M2XoRp.js": "dc16d9932f8c17616ef24c41cca4ca9e5e94eaceb3e9f9fc6e42dba3661cac0b",
+    "assets/inspection-CqPClCzH.js": "ef4763e79b4925e81ecbf4a309fdfd270f0e58aa6b9c402fb4388bda2ce97ade"
+  }
+}

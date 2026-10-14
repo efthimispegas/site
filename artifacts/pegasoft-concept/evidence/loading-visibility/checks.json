@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-13T10:19:27.903Z",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "manifestSha256": "c67c27b159a796a142d796feb101dd32afca052ba330a457018e92110c2e6042",
+  "checkSha256": "17609275831eb1a75fb1967e25eac2079f8f66665e1c829f46622eab19bb2bcf",
+  "observations": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "loading": {
+        "ready": "false",
+        "jet": "0",
+        "shadow": "0",
+        "clouds": "0"
+      },
+      "start": {
+        "opacity": "1",
+        "right": -128
+      },
+      "crossing": {
+        "visibility": "visible",
+        "opacity": "1",
+        "bounds": {
+          "x": 33.78888702392578,
+          "y": 35.8125,
+          "width": 1472.6666259765625,
+          "height": 828.375,
+          "top": 35.8125,
+          "right": 1506.4555130004883,
+          "bottom": 864.1875,
+          "left": 33.78888702392578
+        },
+        "jet": 0.5017361111111113
+      },
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "loading": {
+        "ready": "false",
+        "jet": "0",
+        "shadow": "0",
+        "clouds": "0"
+      },
+      "start": {
+        "opacity": "1",
+        "right": -39
+      },
+      "crossing": {
+        "visibility": "visible",
+        "opacity": "1",
+        "bounds": {
+          "x": 10.21220588684082,
+          "y": 295.80535888671875,
+          "width": 448.6920471191406,
+          "height": 252.3892822265625,
+          "top": 295.80535888671875,
+          "right": 458.90425300598145,
+          "bottom": 548.1946411132812,
+          "left": 10.21220588684082
+        },
+        "jet": 0.5016414889415479
+      },
+      "errors": []
+    }
+  ],
+  "userAccepted": false,
+  "status": "passed"
+}

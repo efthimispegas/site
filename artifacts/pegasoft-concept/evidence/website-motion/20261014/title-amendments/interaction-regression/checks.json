@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-14T08:43:44.298Z",
+  "manifestSha256": "3d17f0071918007238aa7347012977a252cb631ac0a63c4689d16bacc580e573",
+  "checkSha256": "4daf5df9341692d9a48c853e5dc3be61c48da308ebb996585cbcceaccf549175",
+  "observations": [
+    {
+      "enter": {
+        "x": 700,
+        "y": 300,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "leave": {
+        "x": 700,
+        "y": 300,
+        "opacity": "0",
+        "text": "Talkwith us",
+        "active": "false"
+      },
+      "reenter": {
+        "x": 300,
+        "y": 450,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "scrolling": [
+        {
+          "x": 300,
+          "y": 450,
+          "opacity": "1",
+          "text": "Talkwith us",
+          "active": "true"
+        },
+        {
+          "x": 300,
+          "y": 450,
+          "opacity": "1",
+          "text": "Talkwith us",
+          "active": "true"
+        },
+        {
+          "x": 300,
+          "y": 450,
+          "opacity": "1",
+          "text": "Talkwith us",
+          "active": "true"
+        }
+      ],
+      "scrollEntry": {
+        "x": 300,
+        "y": 450,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "next": {
+        "x": 930,
+        "y": 410,
+        "opacity": "1",
+        "text": "Talkwith us",
+        "active": "true"
+      },
+      "keyboardContact": true,
+      "particleRadius": 76,
+      "previousRadius": 95,
+      "particleReassembly": true,
+      "errors": []
+    },
+    {
+      "mobile": true,
+      "reduced": false,
+      "stationaryCta": true,
+      "touchContact": true
+    },
+    {
+      "mobile": true,
+      "reduced": true,
+      "stationaryCta": true,
+      "touchContact": true
+    }
+  ],
+  "userAccepted": false,
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/title-amendments/interaction-regression/recording/page@2f20074be838c743c6a4a8b5c4b95925.webm",
+  "status": "passed"
+}

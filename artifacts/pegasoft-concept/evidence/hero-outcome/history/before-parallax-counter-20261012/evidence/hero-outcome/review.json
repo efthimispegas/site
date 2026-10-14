@@ -1,0 +1,164 @@
+{
+  "date_local": "2026-10-12",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "1b89cd5",
+  "working_tree": "Uncommitted; no push; unrelated WIP preserved.",
+  "status": "ready_for_personal_motion_review",
+  "review": "review/hero-outcome.html#viewer",
+  "implementation_complete": true,
+  "user_accepted_motion": false,
+  "measured_reference_parity": false,
+  "scope": "Approved hero \u2192 atmospheric exit \u2192 pinned outcome/value motion. No lift handoff, later effects or full assembly.",
+  "accepted_opening": "evidence/hero-opening/user-approval.json",
+  "inputs": [
+    {
+      "path": "review/hero-outcome.html",
+      "sha256": "5080320560f4faeebf21755b04379e84b7940edcd3fa0a236041ab3eabea7dba"
+    },
+    {
+      "path": "review/hero-outcome.css",
+      "sha256": "3eb4fa09bd48db35afd63e66b7d4a51b1b511361b25eeca763812d673533cb0c"
+    },
+    {
+      "path": "review/hero-outcome.js",
+      "sha256": "8707e064b4a4dc33ac2c5c61599a0c38307ea69ed68402f724e38c9e4122925c"
+    },
+    {
+      "path": "review/hero-outcome-sequence.js",
+      "sha256": "ba4ebf041d746356cf0de7c5e00417e0cafe68a3268e34802a22f5e77dc994b4"
+    }
+  ],
+  "references": "evidence/hero-outcome/reference-contract.json",
+  "drivers": {
+    "opening": "Unchanged approved elapsed timeline; replay control",
+    "globe": "Independent time, approved 1.52 multiplier, fixed camera and city geometry",
+    "story": "Physical scroll or native range; 9s normal playback proxy, quarter speed and reverse follow same normalized path",
+    "cursor": "Pointer position and section progress; fixed ring for touch/keyboard",
+    "reduced": "Immediate static outcome with all rows"
+  },
+  "sequence": {
+    "text_exit": [
+      0,
+      0.25
+    ],
+    "atmosphere": [
+      0.1,
+      0.44
+    ],
+    "outcome_entry": 0.43,
+    "title_pin": 0.68,
+    "metric_travel": [
+      0.43,
+      1
+    ]
+  },
+  "checks": {
+    "source": "source-checks.json passed",
+    "sequence": "sequence-checks.json: 1001 states passed",
+    "runtime": "runtime-checks.json passed",
+    "preservation": "34 accepted input hashes unchanged",
+    "console": "console.json empty"
+  },
+  "limits": [
+    "01\u201303 are demonstration delivery-principle indices, not company statistics. Final facts, copy, image and destinations remain deferred.",
+    "No measured exact reference parity or representative-device performance claim.",
+    "No paid generation, commit, push or deployment."
+  ],
+  "next_action": "User reviews/amends this motion; remaining editorial/CTA/footer effects follow acceptance, content-only sections last.",
+  "new_paid_generation_jobs": 0,
+  "evidence_reuse": "Final palette alignment only followed forward/quarter captures; their motion program, timing and geometry are unchanged. Current reverse/opening replay/full outcome inspect aligned colors. Mobile layout and physical-scroll paths remain unchanged.",
+  "evidence": [
+    {
+      "path": "evidence/hero-outcome/reference-contract.json",
+      "sha256": "62b5088580c4500acf1f8f2ecc41fa8367ca53f6da2a1fa981f404d7555d6ada"
+    },
+    {
+      "path": "evidence/hero-outcome/source-checks.json",
+      "sha256": "4cd56cf1557e0648035a40bf5550cea04465648fc8041d1c588969ee1475e7b8"
+    },
+    {
+      "path": "evidence/hero-outcome/sequence-checks.json",
+      "sha256": "e602ebc560dd1e80d87938cb6f1454fe25cc28fde6435c5b9baace0082533fb5"
+    },
+    {
+      "path": "evidence/hero-outcome/runtime-checks.json",
+      "sha256": "70f2686a562f902b691ddc9c1f7ad9502728c769c9bc4cde5ffa05559f7a8df3"
+    },
+    {
+      "path": "evidence/hero-outcome/preservation.json",
+      "sha256": "a69bba5d11612fad2dc21460b712544ae4d1096f6cc9b9003e9d182ec4151b2e"
+    },
+    {
+      "path": "evidence/hero-outcome/preserved-opening.json",
+      "sha256": "f26f090ca5892af010dafb232fb03a25f484defc923328be43b6c2edbe5ea670"
+    },
+    {
+      "path": "evidence/hero-outcome/normal-playback.json",
+      "sha256": "daa2ef82249ee208d2668d0e120c81f3eb244d5cb4da73c41631e9c0f0a5bec4"
+    },
+    {
+      "path": "evidence/hero-outcome/normal-capture-map.json",
+      "sha256": "51dde55b6304bc01a0c1c4c530d3441fba68495363d30f906a56f5c780fe4ee2"
+    },
+    {
+      "path": "evidence/hero-outcome/quarter-playback.json",
+      "sha256": "7fe77a18592c99a21f5e82711b23a7acf5d47e70196e0a85abce56af5b4dd8c7"
+    },
+    {
+      "path": "evidence/hero-outcome/reverse-playback.json",
+      "sha256": "ce91b3a8e17315f24c4e3b16324b069943038a01c2aa48f3d432cb87b37fb483"
+    },
+    {
+      "path": "evidence/hero-outcome/physical-scroll.json",
+      "sha256": "4412cee7b2049af080088622293cb706668774ca0dd2f06a56d4815820317528"
+    },
+    {
+      "path": "evidence/hero-outcome/physical-scroll-2.png",
+      "sha256": "a2ac3fef4e70396db837107c02a8a97f1d12b0a3e909c302cf8b67f8528ea542"
+    },
+    {
+      "path": "evidence/hero-outcome/physical-scroll-5.png",
+      "sha256": "44993c6b8e5b9fbce52db0fd077f785430d5e248ea47fdbb67163917f68be94f"
+    },
+    {
+      "path": "evidence/hero-outcome/keyboard.json",
+      "sha256": "642942bc116c58aea5ae47f550b4b8f9fd25cc14949204bcdc3bbfc115f6558e"
+    },
+    {
+      "path": "evidence/hero-outcome/pause.json",
+      "sha256": "3537d86b92f3da0cb592841daf7310696c20cf5fa8845c4372b1d5feaf4adfe0"
+    },
+    {
+      "path": "evidence/hero-outcome/mobile-final.png",
+      "sha256": "ed97b11deef35bba19de4d9d5bf620028ad2676fcf63b10a1b69044b97597cb5"
+    },
+    {
+      "path": "evidence/hero-outcome/mobile-reduced.png",
+      "sha256": "bbfbf590039edbab01628f6de9fc05359994e6a38aab2f3b34e257e3a4931d86"
+    },
+    {
+      "path": "evidence/hero-outcome/mobile-reduced.json",
+      "sha256": "26e9b9487d31a2735c1fcdd32dd47ab6a7cf6d4ff4d8d2379e2135148c82e1e8"
+    },
+    {
+      "path": "evidence/hero-outcome/opening-replay.json",
+      "sha256": "a77c0d2f203423cafdc91ff115ce564fc08d3727c0529c167c404b57f60de772"
+    },
+    {
+      "path": "evidence/hero-outcome/console.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "evidence/hero-outcome/review-ready.json",
+      "sha256": "2ec58ac6abe79181cc15590539d269792c1d5b3d037170ac98f23a989576b47e"
+    },
+    {
+      "path": "evidence/hero-outcome/review-ready.png",
+      "sha256": "73452d4d40cb61ca3c7eef84404118fe401600dc6d5159c6bd64e2914fa98181"
+    },
+    {
+      "path": "evidence/hero-outcome/usage.json",
+      "sha256": "419b92accaff9265411222961791ebc0e1e0b426b32e6d5d75f44a74336a6a85"
+    }
+  ]
+}

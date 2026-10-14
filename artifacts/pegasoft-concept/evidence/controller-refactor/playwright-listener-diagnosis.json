@@ -1,0 +1,9 @@
+{
+  "date": "2026-10-12T13:38:07.006Z",
+  "refactorSha256": "f59de759e47a22aa5ca5e245a3a30cb01a024e096c3da59b52c7fadac9a02b01",
+  "scriptSha256": "35214ce835a93ef61ca23c15e76c8bc89e82442b6c40a5b1ab14c5e75d461632",
+  "observations": [],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(disposedListeners.every(target=>Object.values(target).every(count=>count===0)))\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/controller-lifecycle-check.mjs:47:10"
+}

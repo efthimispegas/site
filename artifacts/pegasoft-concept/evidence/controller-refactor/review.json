@@ -1,0 +1,161 @@
+{
+  "status": "ready_for_personal_controller_review",
+  "date_local": "2026-10-12",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "working_tree": "Uncommitted controller extraction; no push/release.",
+  "scope": "Step 3: accepted ship/cloud/jet scene loader, scoped controller, inspection adapter, frame ownership and cleanup.",
+  "accepted_cloud_revision": "../cloud-continuity/review.json",
+  "preservation": "Frozen approved asset/source bytes; accepted cloud route, camera, shaders/materials, ship/cargo and jet/content choreography unchanged.",
+  "interfaces": {
+    "mount": "Loads once; returns readiness promise.",
+    "update": "Local progress and reduced-motion input; schedules no callbacks.",
+    "resize": "Measured width/height; keeps camera contract.",
+    "tick": "Independent elapsed-ms water input.",
+    "render": "Caller-owned frame loop.",
+    "dispose": "Abort requests/listeners, cancel observer/frame work in adapter, release videos/GPU resources; idempotent."
+  },
+  "checks": {
+    "lint": "passed; source syntax and new/refactored modules ESLint",
+    "tests": "14/14 passed",
+    "build": "passed",
+    "desktop_rendering": {
+      "samples": 14,
+      "scene_traces": "exact match",
+      "maximum_mean_channel_difference": 1.1731361213304302e-06,
+      "maximum_channel_fraction_differing_over_8": 0,
+      "conditions": "fixed ocean frame 0, 1280x900 DPR1; predefined comparison thresholds retained"
+    },
+    "lifecycle": "3 cleanup/remount cycles, idempotent mount, native Remount button, appearance controls after remount, cancellation while loading, clean static fallback and retry",
+    "reusability": "Production controller mounted/updated/rendered/disposed without inspection controls or own frame/observer",
+    "normal_reverse_scroll_resize_reduced_mobile": "passed; motion-checks.json",
+    "visual_inspection": "Ship/content, cloud/nose crossing, trailing reveal/shadow, mobile and clean fallback inspected"
+  },
+  "reference": {
+    "path": "artifacts/pegasoft-concept/evidence/controller-refactor/accepted-reference.json",
+    "sha256": "fe7be0595a4ab56c57b6c1c78642d542a7815ae1e85d2458194ca641c81e9b15"
+  },
+  "refactor": {
+    "path": "apps/pegasoft-concept/controller-refactor-manifest.json",
+    "sha256": "2c54d716820cf096a0fe9d520c7c29bd0e6353cc4f1117b5373e6e277de963f2"
+  },
+  "runs": [
+    {
+      "path": "artifacts/pegasoft-concept/evidence/controller-refactor/frames-checks.json",
+      "sha256": "bc40ef955280568b6ceca457f65bc6c5ec9183ab8c77d502101e874cb7785ff7"
+    },
+    {
+      "path": "artifacts/pegasoft-concept/evidence/controller-refactor/motion-checks.json",
+      "sha256": "55fb98aeec0153cbc490a84e9a55d2d40acb546dc934596d5c55b61c08e8540a"
+    },
+    {
+      "path": "artifacts/pegasoft-concept/evidence/controller-refactor/lifecycle-checks.json",
+      "sha256": "350f47314ffc15e3d726531c4e548db85186c051e42f8163ae6f0d2d0a386f51"
+    }
+  ],
+  "build_files": [
+    {
+      "path": "assets/generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "path": "assets/generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "path": "assets/generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    },
+    {
+      "path": "assets/generation/cloud-family/cloud-story-approval.json",
+      "sha256": "e57463961220ff6f545d2e027c1d20944d51087107520ca96a646c160b0656c5"
+    },
+    {
+      "path": "assets/generation/cloud-family/haze-treatment.json",
+      "sha256": "564c7b59dd789a67a8afaf2bf98bcc9152e0c7e34aa476be5c2b53b8bbb77ae9"
+    },
+    {
+      "path": "assets/generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "assets/generation/jet-family/J02-overhead.png",
+      "sha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8"
+    },
+    {
+      "path": "assets/generation/jet-family/shadow-measurements-approval.json",
+      "sha256": "d589ae739d69b0aed2f3bdb7063e2a9187242b6eb31f82cc85593aadb8aeb49a"
+    },
+    {
+      "path": "assets/generation/lift-family/model-draft/attachment-ownership.json",
+      "sha256": "533de587c77970c452aae69e45c638703d84a8d7177e218cad54849e9729d315"
+    },
+    {
+      "path": "assets/generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    },
+    {
+      "path": "assets/generation/lift-family/model-draft/wheel-ownership-motion-amended.json",
+      "sha256": "dc471c852437c5d7181646a4bafdeec7afb2f42f8bf6b395fb8e687d3778bd42"
+    },
+    {
+      "path": "assets/generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85"
+    },
+    {
+      "path": "assets/generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "assets/generation/ship-family/water-plate/ocean-motion.mp4",
+      "sha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912"
+    },
+    {
+      "path": "assets/generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "assets/inspection-CexooAXd.js",
+      "sha256": "0a0bef2dc9e7e3aeea404ebc65f006a9b4e65e7dc04bdf25f28d157478578294"
+    },
+    {
+      "path": "assets/inspection-CexooAXd.js.map",
+      "sha256": "6032de01121221b54a11da8d83e73acb5292f7e89dc1eabc32cf75995682cc3b"
+    },
+    {
+      "path": "assets/review/fonts/dmsans-OFL.txt",
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+    },
+    {
+      "path": "assets/review/fonts/dmsans.ttf",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+    },
+    {
+      "path": "assets/review/fonts/manrope-OFL.txt",
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    {
+      "path": "assets/review/fonts/manrope.ttf",
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+    },
+    {
+      "path": "assets/review/vendor/three/LICENSE",
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "path": "index.html",
+      "sha256": "cb476fe6fcdb3e0d6c51e2db86e34511f3897066702204de451e31cd48d8c086"
+    },
+    {
+      "path": "review/ship-jet-integration.html",
+      "sha256": "cb9409d4727e45c207987562fb1a25a7246b98fb3e9f00befe45a048feca10f3"
+    }
+  ],
+  "limitations": [
+    "Fixed grabber four-corner pickup limitation remains; no rig dimensions changed.",
+    "Representative-device memory/performance and whole-site acceptance remain later gates.",
+    "Simulated internal lift-rig controls remain frozen; this extraction does not redesign the rig."
+  ],
+  "user_accepted_controller_refactor": false,
+  "next_action": "Personal controller review; after acceptance proceed to step 4 full transport assembly."
+}

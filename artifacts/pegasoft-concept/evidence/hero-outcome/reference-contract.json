@@ -1,0 +1,30 @@
+{
+  "hero_exit": {
+    "path": "evidence/motion/clips/hero-exit.mp4",
+    "source": "docs/references/hero_walkthrough.mov",
+    "source_window_seconds": [
+      9.5,
+      14.24
+    ],
+    "sha256": "0da779920a9ae8b818bf7af0a9135c6fb473fd92a72c335ad2bc0817dd9cc7f7"
+  },
+  "outcome": {
+    "path": "evidence/hero-outcome/reference/outcome-motion.mp4",
+    "source": "/Users/whiskey/Work/site/docs/references/reference_walkthrough.mov",
+    "source_window_seconds": [
+      86,
+      107
+    ],
+    "cadence": "60/1",
+    "interpolation": false,
+    "sha256": "a20ad653d0c97a2728031f312b3a742fdfb0e9c32e45160b083336c0bb8c006b"
+  },
+  "observations": [
+    "Heading moves upward through line masks ahead of atmosphere.",
+    "Blue atmospheric bowl rises from bottom and closes into porcelain.",
+    "Left statement holds while the right value column continues upward.",
+    "Oversized numbers change before settling as their rows come into view.",
+    "Circular pointer ring advances with the section."
+  ],
+  "limits": "Native sources examined in bounded windows. No source wall-time-to-scroll mapping or measured exact parity inferred."
+}

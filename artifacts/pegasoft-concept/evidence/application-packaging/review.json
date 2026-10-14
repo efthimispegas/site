@@ -1,0 +1,178 @@
+{
+  "status": "historical_packaging_parity_before_cloud_amendment",
+  "date_local": "2026-10-12",
+  "branch": "codex/pegasoft-concept",
+  "base_commit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "working_tree": "Uncommitted packaging implementation; no push or release.",
+  "scope": "Steps 1\u20132: frozen source closure and Vite/Nx packaging of the accepted ship/cloud/jet review.",
+  "runtime": "Node 24.19.0; pnpm 10.8.1; Vite 8.2.2; vendored Three.js revision 182; Google Chrome headless on macOS.",
+  "source_manifest": {
+    "path": "apps/pegasoft-concept/baseline-manifest.json",
+    "sha256": "a9e8589de2260de57a1167c123b4a9d653a8425a98fd0b66c94c4eeb638a9651"
+  },
+  "checks": {
+    "frozen_lockfile_install": "passed; root package/lockfile unchanged",
+    "nx_graph": "validated; isolated application targets",
+    "lint": "passed; all 30 JavaScript modules syntax checked, new integration code ESLint checked",
+    "unit_tests": "4/4 passed",
+    "production_build": "passed",
+    "desktop_fidelity": "7 checkpoints x 2 packaged builds: exact scene traces and zero pixel differences at fixed ocean frame 0, 1280x900 DPR 1",
+    "normal_reverse_scroll_resize_reduced_mobile": "passed; see motion-checks.json",
+    "visual_inspection": "Production ship, nose crossing, trailing chapter/shadow and mobile screenshots inspected"
+  },
+  "runs": [
+    {
+      "path": "artifacts/pegasoft-concept/evidence/application-packaging/frames-checks.json",
+      "sha256": "424646b27f3cd821486cf064744a2a5f96ad0fd0c6d0a1da0194f735cbe1d973"
+    },
+    {
+      "path": "artifacts/pegasoft-concept/evidence/application-packaging/motion-checks.json",
+      "sha256": "a791769bccc2d84fd267843275b5b838ca51d09dc7b161d3ecf8d440d01f9e78"
+    }
+  ],
+  "build_files": [
+    {
+      "path": "assets/generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3",
+      "bytes": 1648125
+    },
+    {
+      "path": "assets/generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194",
+      "bytes": 1340336
+    },
+    {
+      "path": "assets/generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401",
+      "bytes": 1612876
+    },
+    {
+      "path": "assets/generation/cloud-family/cloud-story-approval.json",
+      "sha256": "e57463961220ff6f545d2e027c1d20944d51087107520ca96a646c160b0656c5",
+      "bytes": 5959
+    },
+    {
+      "path": "assets/generation/cloud-family/haze-treatment.json",
+      "sha256": "564c7b59dd789a67a8afaf2bf98bcc9152e0c7e34aa476be5c2b53b8bbb77ae9",
+      "bytes": 2529
+    },
+    {
+      "path": "assets/generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "bytes": 2174140
+    },
+    {
+      "path": "assets/generation/jet-family/J02-overhead.png",
+      "sha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8",
+      "bytes": 2800510
+    },
+    {
+      "path": "assets/generation/jet-family/shadow-measurements-approval.json",
+      "sha256": "d589ae739d69b0aed2f3bdb7063e2a9187242b6eb31f82cc85593aadb8aeb49a",
+      "bytes": 1539
+    },
+    {
+      "path": "assets/generation/lift-family/model-draft/attachment-ownership.json",
+      "sha256": "533de587c77970c452aae69e45c638703d84a8d7177e218cad54849e9729d315",
+      "bytes": 4317
+    },
+    {
+      "path": "assets/generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+      "bytes": 17389976
+    },
+    {
+      "path": "assets/generation/lift-family/model-draft/wheel-ownership-motion-amended.json",
+      "sha256": "dc471c852437c5d7181646a4bafdeec7afb2f42f8bf6b395fb8e687d3778bd42",
+      "bytes": 7711
+    },
+    {
+      "path": "assets/generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+      "bytes": 6555871
+    },
+    {
+      "path": "assets/generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13",
+      "bytes": 11313040
+    },
+    {
+      "path": "assets/generation/ship-family/water-plate/ocean-motion.mp4",
+      "sha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912",
+      "bytes": 16729264
+    },
+    {
+      "path": "assets/generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "bytes": 4287352
+    },
+    {
+      "path": "assets/inspection-De6hrvES.js",
+      "sha256": "9f1c96fd65065bbf551b054a2617ff71e090e736db1ecf674059414dd4458cbf",
+      "bytes": 2068805
+    },
+    {
+      "path": "assets/inspection-De6hrvES.js.map",
+      "sha256": "ca733ae6735ba0fdd19e914dcd0202aa624c7ca61416e9cb3ff741d8becac763",
+      "bytes": 3445744
+    },
+    {
+      "path": "assets/review/fonts/dmsans-OFL.txt",
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1",
+      "bytes": 4482
+    },
+    {
+      "path": "assets/review/fonts/dmsans.ttf",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+      "bytes": 240164
+    },
+    {
+      "path": "assets/review/fonts/manrope-OFL.txt",
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "bytes": 4387
+    },
+    {
+      "path": "assets/review/fonts/manrope.ttf",
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "bytes": 164700
+    },
+    {
+      "path": "assets/review/vendor/three/LICENSE",
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "bytes": 1081
+    },
+    {
+      "path": "index.html",
+      "sha256": "37d33d8188bcbedf23ee213a55520ccd1010191af08d902ece05990a18e12a88",
+      "bytes": 973
+    },
+    {
+      "path": "review/ship-jet-integration.html",
+      "sha256": "3990d0b5bf08465d7fe5bf2b2a6f7ceaa6ad33cf00b985ee67db3167f4c4698f",
+      "bytes": 26632
+    }
+  ],
+  "approval": {
+    "original_motion": "accepted",
+    "asset_bytes": "preserved",
+    "packaging": "pending user review",
+    "controller_lifecycle_refactor": "not started",
+    "whole_website": "pending"
+  },
+  "diagnosis": [
+    "The range control rounds to .0001; matched captures now use native cue buttons where available.",
+    "Original static media server did not retain a nonzero seek: comparing frame 0 against frame 1 produced a false mismatch. Capture ocean frame 0 consistently; normal video playback checked separately.",
+    "Vite extracted shared CSS after later inline overrides. Embed byte-identical shared CSS at its original position; exact rendered comparisons now pass."
+  ],
+  "next_action": "After personal packaging acceptance, begin step 3 controller extraction with parity checks; do not overwrite controllers with the packaging generator.",
+  "deferred": [
+    "controller disposal/remount",
+    "full transport/home assembly",
+    "rejected outcome correction",
+    "remaining motion/content",
+    "whole-site qualification",
+    "release"
+  ],
+  "superseded_by": "../cloud-continuity/review.json",
+  "acceptance_limit": "Zero-pixel comparison describes the original packaging run; commissioned cloud motion now intentionally differs."
+}

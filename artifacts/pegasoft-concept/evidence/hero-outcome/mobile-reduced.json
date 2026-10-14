@@ -1,0 +1,88 @@
+{
+  "motion": {
+    "direction": 1,
+    "frame": 109,
+    "geometry": {
+      "camera": {
+        "aspect": 0.6400044591845266,
+        "centerX": 0.63,
+        "centerY": 0.3,
+        "radiusHeight": 0.32,
+        "viewHeight": 2.28
+      },
+      "cityNodes": 13,
+      "connections": [
+        "New York → Paris",
+        "Tokyo → Los Angeles",
+        "Barcelona → Paris",
+        "Milan → Athens",
+        "Paris → New Delhi",
+        "London → Moscow",
+        "Tokyo → Dubai",
+        "Abu Dhabi → Berlin"
+      ],
+      "height": 560.640625,
+      "landPoints": 4118,
+      "rotationRadians": -0.8784388000000001,
+      "settings": {
+        "arcs": 1.21,
+        "dots": 1.5,
+        "rim": 0.48,
+        "speed": 1.52
+      },
+      "width": 358.8125
+    },
+    "layout": {
+      "metricsY": 0.16,
+      "titleY": 0.16
+    },
+    "openingTime": 3.8,
+    "playing": false,
+    "progress": 1,
+    "reduced": true,
+    "replaying": false,
+    "rotationTime": 0.8624479999999991,
+    "sceneTime": 0.5673999999999997,
+    "scrollMode": false,
+    "speed": 1,
+    "state": {
+      "counts": [
+        1,
+        2,
+        3
+      ],
+      "globeOpacity": 0,
+      "horizonY": -2,
+      "lineExit": [
+        1,
+        1,
+        1
+      ],
+      "metricsY": 0.16,
+      "outcomeActive": true,
+      "phase": "Reduced motion · static chapter",
+      "progress": 1,
+      "titleY": 0.16,
+      "utilityExit": 1
+    },
+    "wallTimestampMs": 3627
+  },
+  "page": {
+    "scrollWidth": 390,
+    "width": 390
+  },
+  "stage": {
+    "overflow": "clip",
+    "scrollTop": 0
+  },
+  "title": {
+    "bottom": 212.7835922241211,
+    "height": 163.65625,
+    "left": 38,
+    "right": 351.9921875,
+    "top": 49.127342224121094,
+    "width": 313.9921875,
+    "x": 38,
+    "y": 49.127342224121094
+  }
+}

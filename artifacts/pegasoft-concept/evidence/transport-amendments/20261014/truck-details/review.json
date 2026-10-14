@@ -1,0 +1,40 @@
+{
+  "date": "2026-10-14",
+  "status": "ready_for_personal_truck_heading_review",
+  "userAccepted": false,
+  "url": "http://127.0.0.1:8771/?revision=truck-footer-controls-20261014",
+  "source": "source.json",
+  "request": "request.json",
+  "checks": "checks.json",
+  "executedCheck": "check.mjs",
+  "checkedConfig": "checked-config/website-motion-manifest.json",
+  "evidenceReuse": "Truck/helper, Services and trust source hashes match the tested config. Subsequent changes concern only footer renderer/control modules, which have their own current checks.",
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/transport-amendments/20261014/truck-details/recording/page@cd23a916957708986c71426199837a36.webm",
+  "unchangedGlbBytes": [
+    {
+      "path": "public/assets/generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "public/assets/generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    }
+  ],
+  "changes": [
+    "Four rear fairing panels end ahead of the rear-wheel fender with 35mm clearance; original forward edges/materials retained.",
+    "Four rear-tractor brake drums close the view behind original rim vents.",
+    "Sixteen brackets/plates attach rear underrun and side guards to the same articulated trailer.",
+    "Safe left inset and bounded Services-title motion retain the full leading O.",
+    "Trust lines: Trusted / to build what / comes next."
+  ],
+  "viewports": [
+    "1503×655",
+    "820×900",
+    "390×844"
+  ],
+  "nxChecks": "../../../website-motion/20261014/footer-particles/review.json",
+  "limits": [
+    "Original source GLBs are frozen; repairs affect the local T01 instance.",
+    "Personal approval pending; no release or generation."
+  ]
+}

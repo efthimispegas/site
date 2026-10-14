@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "phase_samples": 1001,
+  "wipe_span": 0.17,
+  "old_wipe_span": 0.34,
+  "title_pin": 0.59,
+  "checks": [
+    "Exactly half of former horizon duration",
+    "World, hero and inner haze travel at different rates",
+    "Only lower horizon half can enter its clipping window",
+    "Outcome heading intersects viewport around 34%",
+    "Exact pinned title and same reverse trajectory",
+    "120 spring samples show continuous monotone glyph travel and settling",
+    "Digit wrap 9 to 0 remains continuous",
+    "Closed-form spring gives equivalent response across frame rates"
+  ],
+  "defaults": {
+    "textEnd": 0.2,
+    "wipeStart": 0.1,
+    "wipeEnd": 0.27,
+    "outcomeStart": 0.3,
+    "titlePin": 0.59
+  }
+}

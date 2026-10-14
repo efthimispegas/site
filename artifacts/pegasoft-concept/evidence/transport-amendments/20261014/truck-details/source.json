@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-14T10:49:29.406Z",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "Uncommitted; snapshot hashes identify checked inputs.",
+  "manifestSha256": "7d5e9e738199315cd812f79f05d3fc488670f6dc3bae8cd0575ec462c6f4630b",
+  "files": [
+    {
+      "path": "src/truck-detail-repair.js",
+      "sha256": "08c8798000ba30e2f318a53dbe0e89883bd63c9a323d682a0d17cc6f71b89e7a",
+      "snapshot": "source/src/truck-detail-repair.js.snapshot"
+    },
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "305fa73320812293faea628ef9eae3eb499c78c4ee1d03c0daed295a0b2d4dcb",
+      "snapshot": "source/src/transport-sequence.js.snapshot"
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "b4a9eac04b9116766dd75f31f49031d4aeca5c19ae1ddef6836bc60fdc4f7034",
+      "snapshot": "source/src/transport-controller.js.snapshot"
+    },
+    {
+      "path": "src/website-motion.css",
+      "sha256": "b2cea17a8f7f3db6525c608604312ca795613c99d333d7f6fcc8ed7f371b129e",
+      "snapshot": "source/src/website-motion.css.snapshot"
+    },
+    {
+      "path": "index.html",
+      "sha256": "b912aa19b59834f79ac368d72ce90cef1ebf3530d1ca24ef98f76fc967fdbabf",
+      "snapshot": "source/index.html.snapshot"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "7d5e9e738199315cd812f79f05d3fc488670f6dc3bae8cd0575ec462c6f4630b",
+      "snapshot": "source/website-motion-manifest.json.snapshot"
+    },
+    {
+      "path": "tools/verify-website-motion.mjs",
+      "sha256": "45cc8b97ee8e9d5436259540aec4b2304647c90473d378f299fed5526350f35f",
+      "snapshot": "source/tools/verify-website-motion.mjs.snapshot"
+    }
+  ]
+}

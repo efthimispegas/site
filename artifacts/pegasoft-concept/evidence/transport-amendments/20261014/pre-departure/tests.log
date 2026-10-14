@@ -1,0 +1,57 @@
+
+> nx run @site/pegasoft-concept:test
+
+> node --test tools/packaging.test.mjs tools/cloud-motion.test.mjs tools/lifecycle.test.mjs tools/transport-timeline.test.mjs tools/counter.test.mjs
+
+(node:51245) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:51247) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ K01 has steady nonzero travel through veil, bank and jet crossing [90m(8.091375ms)[39m[39m
+[32m✔ K01 retains origin/bank, follows the veil route and continues smoothly past bank [90m(2.208584ms)[39m[39m
+[32m✔ K02 has steady nonzero travel through veil, bank and jet crossing [90m(5.737625ms)[39m[39m
+[32m✔ K02 retains origin/bank, follows the veil route and continues smoothly past bank [90m(2.316084ms)[39m[39m
+[32m✔ K03 has steady nonzero travel through veil, bank and jet crossing [90m(4.364792ms)[39m[39m
+[32m✔ K03 retains origin/bank, follows the veil route and continues smoothly past bank [90m(1.607584ms)[39m[39m
+(node:51248) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ decimal places preserve 98.5 and decimal carry without binary rounding loss [90m(1.233667ms)[39m[39m
+[32m✔ spring overshoots and returns to its appointed digit, in either direction [90m(0.310125ms)[39m[39m
+[32m✔ spring trajectory is stable at different frame rates [90m(0.084333ms)[39m[39m
+[32m✔ outcome overlaps horizon clearance and all five rows end within view [90m(0.181375ms)[39m[39m
+[32m✔ horizon uses twice the scroll while other phases retain their response and resize mapping [90m(1.097042ms)[39m[39m
+[32m✔ counter targets latch once on entry, independent of reverse scroll or dwell [90m(0.152666ms)[39m[39m
+(node:51249) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ scope removes listeners and restores property handlers exactly once [90m(0.529125ms)[39m[39m
+[32m✔ frame owner never duplicates requests and stop cancels pending work [90m(0.130375ms)[39m[39m
+[32m✔ stopping during a frame does not schedule a replacement callback [90m(0.064875ms)[39m[39m
+[32m✔ resource disposal deduplicates geometry, materials and textures across model roots [90m(0.986291ms)[39m[39m
+(node:51250) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ packaged runtime assets retain approved bytes and contain no historical evidence [90m(34.777875ms)[39m[39m
+[32m✔ every imported Three.js entry resolves to the same approved vendored implementation [90m(4.189917ms)[39m[39m
+[32m✔ approved chapter clocks retain their duration, overlap and reversible mapping [90m(0.243334ms)[39m[39m
+[32m✔ frozen inputs and explicitly commissioned runtime amendments remain verified [90m(191.081791ms)[39m[39m
+(node:51251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ transport removes only approved duplicated overlap and retains chapter clocks [90m(0.398125ms)[39m[39m
+[32m✔ scroll coordinator preserves reversible local timing at desktop and small viewports [90m(1.969541ms)[39m[39m
+[34mℹ tests 22[39m
+[34mℹ suites 0[39m
+[34mℹ pass 22[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 298.80525[39m
+
+
+
+ NX   Successfully ran target test for project @site/pegasoft-concept
+
+
+  Run duration:      339ms
+  Cache:             0/1 hit (0%)
+  Critical path:     335ms (1 task)
+  Recoverable time:  <1ms

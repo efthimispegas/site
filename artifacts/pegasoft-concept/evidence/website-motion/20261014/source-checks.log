@@ -1,0 +1,42 @@
+
+ NX   Running targets lint, test for project @site/pegasoft-concept:
+
+- @site/pegasoft-concept
+
+
+✔  nx run @site/pegasoft-concept:test
+
+> nx run @site/pegasoft-concept:lint
+
+> node tools/check-source.mjs
+
+{"status":"syntax_passed","files":73}
+> pnpm exec eslint tools vite.config.js eslint.config.mjs review/cloud-motion.js review/runtime-lifecycle.js review/ship-jet-controller.js review/ship-jet-scene.js review/ship-jet-inspection.js review/ship-jet-integration.js review/cloud-story-layers.js review/jet-crossing.js review/ship-water.js src review/cloud-story-sequence.js
+
+(node:34062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:34064) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0m[0m
+[0m[4m/Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/tools/website-motion-check.mjs[24m[0m
+[0m  [2m12:83[22m   [31merror[39m  'scrollY' is not defined  [2mno-undef[22m[0m
+[0m  [2m12:132[22m  [31merror[39m  'scrollY' is not defined  [2mno-undef[22m[0m
+[0m  [2m13:93[22m   [31merror[39m  'scrollY' is not defined  [2mno-undef[22m[0m
+[0m[0m
+[0m[31m[1m✖ 3 problems (3 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
+Warning: command "pnpm exec eslint tools vite.config.js eslint.config.mjs review/cloud-motion.js review/runtime-lifecycle.js review/ship-jet-controller.js review/ship-jet-scene.js review/ship-jet-inspection.js review/ship-jet-integration.js review/cloud-story-layers.js review/jet-crossing.js review/ship-water.js src review/cloud-story-sequence.js" exited with non-zero status code
+
+
+ NX   Running targets lint, test for project @site/pegasoft-concept failed
+
+Failed tasks:
+
+- @site/pegasoft-concept:lint
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+
+  Run duration:      3.5s
+  Cache:             0/1 hit (0%)
+  Critical path:     3.4s (1 task)
+  Recoverable time:  <1ms

@@ -1,0 +1,36 @@
+@import url('./counter.css');
+#intro-track{position:relative;overflow-anchor:none;background:#05070a}
+#opening-stage{--story-block-title-size:min(38px,calc(100cqh*.054));--story-block-description-size:min(13px,calc(100cqh*.019))}
+#opening-stage .outcome-world{position:absolute;inset:0;z-index:-1;background:#05070a;pointer-events:none;overflow:hidden}
+/* One stationary gradient profile; the bowl rises behind the fixed
+   hero. Its upper half is concealed by the hero's matching mask. */
+#opening-stage .horizon{position:absolute;inset:0 0 auto;height:300cqh;background:radial-gradient(ellipse max(90cqw,120cqh) 100cqh at 50% 0%,#05070a 0%,#05070a 46%,#061e3b 56%,#147dff 68%,#b9e7ff 86%,#edf2f7 100%);will-change:transform}
+#opening-stage .outcome{position:absolute;inset:0;z-index:3;overflow:hidden;color:#11151b;pointer-events:none}
+#opening-stage .outcome[hidden]{display:none}
+#opening-stage .outcome-title{position:absolute;left:4%;width:44%;top:0;will-change:transform}
+#opening-stage .outcome-title .eyebrow{font:600 11px OpeningManrope;letter-spacing:.13em;color:#647283;margin:0 0 3cqh}
+#opening-stage .outcome-title h2{font:750 min(64px,5.1cqw)/1.03 OpeningManrope;letter-spacing:-.045em;margin:0}
+#opening-stage .outcome-title h2 span{display:block}
+#opening-stage .outcome-title .muted{color:#88919a}
+#opening-stage .outcome-title p:last-child{font-size:var(--story-block-description-size);line-height:1.5;max-width:75%;color:#5e6b79;margin-top:4cqh}
+#opening-stage .metrics{position:absolute;left:62%;width:34%;top:0;will-change:transform}
+#opening-stage .metric{height:62cqh;border-top:1px solid #11151b18;padding-top:3cqh}
+#opening-stage .metric-label{font-size:11px;letter-spacing:.04em;color:#657282;margin:0 0 2cqh}
+#opening-stage .metric-value{font:750 17cqw/1 OpeningManrope;font-variant-numeric:tabular-nums;display:inline-flex;position:relative;gap:0;vertical-align:top}
+#opening-stage .metric h3{font:650 var(--story-block-title-size)/1.2 Manrope;letter-spacing:-.035em;margin:3cqh 0 0}
+#opening-stage .metric p:last-child{font-size:var(--story-block-description-size);color:#657282;line-height:1.5;max-width:88%;margin-top:2cqh}
+body.static-journey #intro-track{display:none}
+@media(max-width:679px){
+ #opening-stage{--story-block-title-size:min(22px,4vw);--story-block-description-size:min(13px,3.33vw)}
+ #opening-stage .outcome-title{left:6%;width:88%;z-index:2;background:#edf2f7;padding-bottom:3cqh}
+ #opening-stage .outcome-title h2{font-size:8cqw}
+ #opening-stage .outcome-title h2 span{display:inline}
+ #opening-stage .outcome-title h2 span:after{content:' '}
+ #opening-stage .outcome-title .eyebrow{margin-bottom:2cqh;font-size:10px}
+ #opening-stage .outcome-title p:last-child{max-width:95%;margin:2cqh 0}
+ #opening-stage .metrics{left:8%;width:84%;padding-top:44cqh}
+ #opening-stage .metric{height:50cqh}
+ #opening-stage .metric-value{font-size:27cqw}
+ #opening-stage .metric h3{margin-top:2cqh}
+ #opening-stage .outcome:before{content:'';position:absolute;inset:0 0 auto;height:42%;background:#edf2f7;z-index:1;pointer-events:none}
+}

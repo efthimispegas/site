@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-14T08:45:26.014Z",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "uncommitted changes; snapshot hashes identify the actual checked inputs",
+  "manifestSha256": "3d17f0071918007238aa7347012977a252cb631ac0a63c4689d16bacc580e573",
+  "files": [
+    {
+      "path": "src/journey-host.js",
+      "sha256": "fc0ba073b943c56e1690fa1f763b84d564fa358caad1de3385e0d83d6bf49e90",
+      "snapshot": "source/src/journey-host.js"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "3ade69e0a84c7baefd0dd82cd30e6875c7b855e135dc6f06309a4ca1ac4f32b1",
+      "snapshot": "source/src/main.js"
+    },
+    {
+      "path": "index.html",
+      "sha256": "98bed2cdc8bdc3d5942ccc659c3bdbeca6636ad31293d7dc20793a367a5a900a",
+      "snapshot": "source/index.html"
+    },
+    {
+      "path": "src/website-motion-controller.js",
+      "sha256": "77efe981f137b9bbba9b03694d8056cf258a3facfe6dc12e31cffaeb5e218da1",
+      "snapshot": "source/src/website-motion-controller.js"
+    },
+    {
+      "path": "src/website-motion.css",
+      "sha256": "629cad9dd69066114ad0e85ba21de5e3d0be33638f141b4d464721a0b6b02677",
+      "snapshot": "source/src/website-motion.css"
+    },
+    {
+      "path": "src/particle-wordmark.js",
+      "sha256": "f265c68252b55f1f8268828b16c1c279e0025305c48d3dc482fb06a277a2c908",
+      "snapshot": "source/src/particle-wordmark.js"
+    },
+    {
+      "path": "src/approved-loader-preset.js",
+      "sha256": "b50d04e4d4d75d27513ee385c15a2755582340693e9bd658c5e089bee276ca07",
+      "snapshot": "source/src/approved-loader-preset.js"
+    },
+    {
+      "path": "src/loader.css",
+      "sha256": "c2fd53f3c395dca19944f4e12359cf0ad943cb792c9ca2849211232bea739637",
+      "snapshot": "source/src/loader.css"
+    },
+    {
+      "path": "src/intro-sequence.js",
+      "sha256": "e5961848a0199315de791076437e9a885bb813a51f1972b3ce4aa805486ef399",
+      "snapshot": "source/src/intro-sequence.js"
+    },
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "b04b47026311471eaafc1e2feecbf996d868cdc754f245970d67c0bcbded126e",
+      "snapshot": "source/src/intro-controller.js"
+    },
+    {
+      "path": "src/outcome-metrics.js",
+      "sha256": "9968953d9031015eb5e9726e639601976b1a99bcfd4f291785a9107d977c0285",
+      "snapshot": "source/src/outcome-metrics.js"
+    },
+    {
+      "path": "src/outcome.css",
+      "sha256": "d82d9896f6c07e14fa0093c7f8524ff5e59d7bee81dadaf1ec7c08230e7c2a8d",
+      "snapshot": "source/src/outcome.css"
+    },
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "49bac90bc228eac61f0bf6948aeefff755746d99809945b9227c3c5b85a76055",
+      "snapshot": "source/src/transport-sequence.js"
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "6b2d6b80b400880d855796e0009e07ba5835e3bdaff19aa02cd98dbacba787df",
+      "snapshot": "source/review/ship-content.js"
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "ff9f6be876ad94862f8593967d765a4a671f1a735a77e73e1d998382c7153b9c",
+      "snapshot": "source/review/ship-jet-controller.js"
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "e1fede27c9c938dd008d627d6ae5897a4250633c96709bea9be78d03d2d1b467",
+      "snapshot": "source/src/transport-controller.js"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "3d17f0071918007238aa7347012977a252cb631ac0a63c4689d16bacc580e573",
+      "snapshot": "source/website-motion-manifest.json"
+    },
+    {
+      "path": "tools/verify-website-motion.mjs",
+      "sha256": "57b48854f4b947201aa5aa064493d7dcc513e291c69f5d020f9f0a0099a4e78a",
+      "snapshot": "source/tools/verify-website-motion.mjs"
+    },
+    {
+      "path": "tools/package-reviewed-slice.mjs",
+      "sha256": "d41e2444a04d163aa3df3e9e0130844b41ff9a87e9c30ab4ae629a2c3f7fc476",
+      "snapshot": "source/tools/package-reviewed-slice.mjs"
+    },
+    {
+      "path": "tools/counter.test.mjs",
+      "sha256": "5ed2d4f22838a66598670bd62abf92ff1e545789d528a05e3b26bd245841864a",
+      "snapshot": "source/tools/counter.test.mjs"
+    }
+  ],
+  "unchangedHeadingSources": [
+    {
+      "path": "src/hero-opening.css",
+      "sha256": "9c417a262fa3ced9d0b0fbf04554ce2ebb8f00f52755983455940116a455b452"
+    },
+    {
+      "path": "src/journey.css",
+      "sha256": "7dafdaee9104a818177904a4981f20db472f05115f5f18138e9cfb8f4aba544b"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "previousTransportManifestSha256": "c67c27b159a796a142d796feb101dd32afca052ba330a457018e92110c2e6042",
+  "transportApprovalSha256": "dde5f36ac82a543173f9e3e65b55d0ee2e7c2d4b5b0d477ceffa99d89a8972af",
+  "openingPackagingSha256": "ea6ffd257e1044b5389ae1ee37d848576d9172ac5da2d434a9a2ba1d1aedfffd",
+  "files": [
+    {
+      "path": "src/journey-host.js",
+      "previousSha256": "79ae9c14684b1bed4d5ed8fd8a9ee45d4a42fe6df10e2d907641f6c182d10888",
+      "sha256": "1f17b3ca9ae7503929f1e347181714a402f344661bed9ec5b9b4bd79f2a7e196"
+    },
+    {
+      "path": "src/main.js",
+      "previousSha256": "e98fd7160fc3ee61203bc0fcb3656c628d721375852aa9d81bb585dcea9cbfbd",
+      "sha256": "90735479216715cec71d17e9e4b6bb9ad87e89c2597ea98508fd6156a79ea9f3"
+    },
+    {
+      "path": "index.html",
+      "previousSha256": "0a153728b3e3a543f3c521c8587608bca60e4974e98a5a8e5fd097da207554ae",
+      "sha256": "195b19ff4228db668f132f815e6240c72c86fda2de97a6e32f63f0074ba2f4f4"
+    }
+  ],
+  "addedFiles": [
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "f57da4e09c84ac98b7031c5bedc304f4a27b1b7920e75cae8979a00fca75d05d"
+    },
+    {
+      "path": "src/intro-sequence.js",
+      "sha256": "ba3a4581d319013c3c7bb4275dba8865d097913b72a6f5dd13abd24eefbeb414"
+    },
+    {
+      "path": "src/outcome.css",
+      "sha256": "883286218ea4d0de48493e029baab8ba749a994d8404bfe8823c4753b5470180"
+    },
+    {
+      "path": "src/hero-odometer.js",
+      "sha256": "0ab468b6e290ee17b58048e8030c79f2531bf7e196f0b2f52e8e0ff61cf928f1"
+    },
+    {
+      "path": "src/outcome-metrics.js",
+      "sha256": "a9d6bc3bc6c03fafe739e9228c5b5d94a21794e060a914465f70ac80dc367690"
+    },
+    {
+      "path": "src/counter.css",
+      "sha256": "940d12a882954279b5d55cf3714018a5facc9c2ffd1611b5850a73722b00a60f"
+    }
+  ],
+  "status": "homepage_opening_outcome_pending_personal_review",
+  "amendment": "13 October: entry at 28.5%, bouncing decimal counters and five labelled demo metrics."
+}

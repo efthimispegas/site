@@ -1,0 +1,96 @@
+{
+  "status": "ready_for_personal_outcome_amendment_review",
+  "date": "2026-10-13T14:28:19.145515+00:00",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "uncommitted; pinned below",
+  "branch": "codex/pegasoft-concept",
+  "website": "http://127.0.0.1:8771/?revision=outcome-bounce-20261013",
+  "userAccepted": false,
+  "parentReview": "../../homepage-opening-outcome/review.json",
+  "request": "request.json",
+  "beforeManifestSha256": "3afad8717a92583de089832a9d0c99cf2ffefa7570cd43f26b5754464ac1135e",
+  "changes": [
+    "Visible outcome entry 28-29%, nominal 28.5%. Render offscreen through a continuous 27%-28.5% lead-in so the earlier entry does not pop. Horizon remains 10%-27%, title pin remains 59%.",
+    "Vanilla DOM/CSS adapter of user-supplied React Bits Counter: numeric place detection, decimal point, near-integer rounding, ten wrapped glyphs, styling props and gradient overlays. React hooks/Motion runtime replaced with an analytic underdamped spring in the existing app scheduler. No React or new animation framework installed.",
+    "Spring stiffness100/damping10/mass1 retains velocity when retargeted and overshoots then settles. This is a tuned native equivalent, not an exact Motion timing-parity claim.",
+    "Five Demo metric rows: 2+ years of delivery, 98.5% conversion, 15+ clients worldwide, 5+ countries, 50+ projects completed. Figures are review examples, not verified company claims.",
+    "All five rows have readable continuous travel. A common numeric font size is calibrated to the longest value after font loading and on resize, using temporarily unhidden layout measurement without a paint. Reading widths fit on desktop/mobile. Static/reduced-motion fallback includes the same examples."
+  ],
+  "checks": {
+    "buildAndProvenance": "passed",
+    "tests": "20 passed; includes decimal precision, overshoot in both directions, frame-rate invariance and all-row travel",
+    "lint": "passed; 65 syntax checks plus scoped ESLint",
+    "sourceLog": "source-checks.log",
+    "sourceSha256": "52ba7ca6396078ee9933d37fadf42acb8fd91902a69f6df0e5aa52aba7b8dc59",
+    "lintLog": "lint.log",
+    "lintSha256": "b9ef488d22bfa69c69c48926e21fafe74a40b7818d90aa3b92068e20669ad42a",
+    "homepage": "checks.json",
+    "homepageSha256": "312444af5be848fb6a7e66134038c12bc880160f8b9a7a3e94efac21526f02fe",
+    "coverage": "1280x900,1506x753,390x844 DPR1; accepted opening bounds/camera/presets, early rendered entry, rolling decimal glyphs/final labels, reverse scroll, resize, reduced motion and disposal",
+    "bounce": "bounce-checks.json",
+    "bounceSha256": "f3902d09c303b0af66a6213a7d9476776e6d614181798b77698818dfd8ee9238",
+    "bouncePeaks": [
+      {
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "peak": 2.3258172905073344,
+        "settled": 2.0002280358337137
+      },
+      {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "peak": 2.3258297282281393,
+        "settled": 2.00008821595924
+      }
+    ],
+    "motion": "motion.json",
+    "motionSha256": "c4625903d2da9c439d0d1a39a66985eada5c34ac0068e42c175cf452ae0bfc4f",
+    "normalReverse": "passed; native wheel scrolling over the complete updated intro",
+    "recording": "recording/page@71a154b6046e27b1e1f9a29ba768b2e9.webm",
+    "recordingSha256": "5ddf3cb7cb90f6f7ce410ec77f6cb74130b803bdb69d58bcb56bbdfd563d6e77"
+  },
+  "visualInspection": [
+    "intro-1280-29.png",
+    "metric-1280-50.png",
+    "counters-settled-1280.png",
+    "counters-settled-390.png",
+    "bounce-peak.png"
+  ],
+  "preserved": [
+    "Accepted opening assets, globe camera/anchor and horizon profile",
+    "All approved transport geometry, timing, camera, attachment equations, cloud/jet settings and source manifests",
+    "One app frame scheduler; no generation, deployment, commit or unrelated dependency changes"
+  ],
+  "diagnostics": {
+    "failed-width.json": "Numbers measured while the outcome was display:none and fonts were pending; corrected by waiting for fonts and temporarily measuring the hidden section synchronously",
+    "failed-hidden-boundary-check.json": "Physical-scroll rounding put the mobile 27% sample just below the visibility gate; test now verifies hidden-or-offscreen rendering rather than measuring display:none boxes"
+  },
+  "limitations": [
+    "Personal approval of revised entry, bounce and demo layout remains pending",
+    "Example statistics must be replaced/confirmed before factual publication",
+    "Chromium recording has inherited grey padding; full-viewport PNGs establish layout coverage",
+    "Final content, navigation, remaining motion and whole-site qualification remain deferred"
+  ],
+  "references": [
+    "User-supplied Counter JSX/CSS and props",
+    "https://motion.dev/docs/react-use-spring",
+    "https://motion.dev/docs/react-transitions#spring"
+  ],
+  "manifestSha256": "5a61ef1dea8ad5ebbe37edfac4e3b5234e1b105d6e998db53e1c99cdc4db0df1",
+  "configSha256": "78b3ca56d20c33ecb60391034948225dfe47681487d58fefb69470b61f34d506",
+  "buildFiles": {
+    "index.html": "99f0517c9f259727e489e76f2b40b9883715ce99870ab0db1e2406d6f0c7a5d9",
+    "assets/index-BDdHvFn-.js": "e05e215e1df0517dc631aefb464c03f40c99ca7a34adaff94657f50b7ef85572",
+    "assets/index-BDdHvFn-.js.map": "1542ffe41cb5996a7079788af8848adf0ad095f7c9d20007ae5cf52bb65ba44a",
+    "assets/index-BQKsHJjJ.css": "114fada40d17d8bd727ded34da82e6e58814bbb9505786572e7b0401d4c8b207",
+    "assets/inspection-DHrfSKFX.js": "4807ce7c3f3832a0397cbf369a1bf216df1cac1e20ed6a9a1a25579b69d86421",
+    "assets/inspection-DHrfSKFX.js.map": "7e24898980ba24c4aba09c6f13c91ae01fc003d203cbdadc42676f5261b75190",
+    "assets/ship-jet-controller-CK-w-A0h.js": "4eddf21e60f080e7aed1d726495477b58f466d674a87af7340d09242f07520ea",
+    "assets/ship-jet-controller-CK-w-A0h.js.map": "4041ca1f4b78253e3bc9130c242cec7e375f4b0c9c8e0ec808b4103e9c3fa5af"
+  },
+  "resume": "Await current step 5 personal review; do not advance to remaining motion until approval."
+}

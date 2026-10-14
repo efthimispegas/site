@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-14",
+  "status": "ready_for_personal_homepage_amendment_review",
+  "userAccepted": false,
+  "url": "http://127.0.0.1:8771/?revision=homepage-amendments-20261014",
+  "source": "source.json",
+  "manifestSha256": "3d17f0071918007238aa7347012977a252cb631ac0a63c4689d16bacc580e573",
+  "requests": [
+    "request.json",
+    "../../../outcome-amendments/20261014/request.json",
+    "../../../transport-amendments/20261014/request.json",
+    "../spacing-amendments/request.json"
+  ],
+  "runtimeChecks": "checks.json",
+  "normalForwardReverse": "playback-checks.json",
+  "interactionRegression": "interaction-regression/checks.json",
+  "recordings": [
+    "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/title-amendments/recording/page@9feda20b70dd209f245b44a88c413105.webm",
+    "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/title-amendments/normal-playback/page@e251c26183951ae08bb3736f813d7c77.webm",
+    "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/title-amendments/interaction-regression/recording/page@2f20074be838c743c6a4a8b5c4b95925.webm"
+  ],
+  "nx": {
+    "build": "build.log",
+    "lint": "lint.log",
+    "test": "tests.log",
+    "unitTests": 22,
+    "passed": true
+  },
+  "visualInspection": {
+    "viewports": [
+      "1506×753",
+      "1366×768",
+      "1280×900",
+      "390×844"
+    ],
+    "reviewed": [
+      "hero tone pair",
+      "trust sentence case and unchanged size",
+      "Insights descenders",
+      "pickup/reverse/loaded-truck framing",
+      "outcome-to-lift boundary",
+      "ship heading and tighter rows",
+      "mobile title/truck layout"
+    ],
+    "personalAcceptancePending": true
+  },
+  "changes": {
+    "horizonResponse": "50% of prior scroll response, only horizon span doubled",
+    "outcomeEntry": "local 19%, during horizon exit",
+    "outcomeOutgoingTrimPx": 100,
+    "contentGapFactor": 0.85,
+    "ordinaryPaddingFactor": 0.8,
+    "liftFraming": {
+      "desktopDistanceFactor": 0.6,
+      "mobileDistanceFactor": 0.84,
+      "departureEase": [
+        0.6,
+        0.68
+      ],
+      "aim": "one cached vertical pickup envelope; no moving-bound fits"
+    },
+    "refresh": "early history/hash reset restores loader at top"
+  },
+  "preserved": [
+    "model/media bytes",
+    "ship heading style and type sizes",
+    "rigid grabber scale and accepted coupling limitation",
+    "container context world transforms",
+    "truck chassis seating and paths",
+    "highway/overhead camera after departure",
+    "cloud presets/continuous motion",
+    "jet reveal and shadow",
+    "once-only counter spring timing",
+    "single scheduler",
+    "frozen inspector default spacing"
+  ],
+  "limits": [
+    "Personal visual approval pending",
+    "Content/contact/legal work remains step 7",
+    "No commit, deployment or paid generation"
+  ]
+}

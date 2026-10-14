@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "html": [
+    {
+      "file": "review/trust-partners.html",
+      "unique_ids": 5,
+      "local_links_passed": true
+    },
+    {
+      "file": "review/ship-jet-integration.html",
+      "unique_ids": 72,
+      "local_links_passed": true
+    },
+    {
+      "file": "review/jet-transition.html",
+      "unique_ids": 32,
+      "local_links_passed": true
+    }
+  ],
+  "jet_inline_syntax": "node --check passed",
+  "new_review_scripts": 0
+}

@@ -1,0 +1,18 @@
+{
+  "status": "ready_for_personal_review",
+  "userAccepted": false,
+  "request": "request.json",
+  "source": "source.json",
+  "checks": "checks.json",
+  "checkSource": "check.mjs",
+  "manifestSha256": "3be76826f51ac96ee19f3e24e40fb3a418d14393e8e392abe26d603229613e86",
+  "parentReview": "../../20261013/review.json",
+  "url": "http://127.0.0.1:8771/review/loader.html?revision=ring42-filled-cta-20261014#viewer",
+  "recording": null,
+  "limits": [
+    "Personal approval pending",
+    "Accepted transport objects/cameras/assets and remaining preset values preserved",
+    "No commit, generation or release"
+  ],
+  "next": "Await the existing step-6 motion review."
+}

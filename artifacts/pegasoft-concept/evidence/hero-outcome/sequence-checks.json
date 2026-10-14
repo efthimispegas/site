@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "samples": 1001,
+  "checks": [
+    "Monotone horizon/title/metrics/globe occlusion and line exits",
+    "Text exits ahead of completed atmosphere",
+    "Globe remains fully visible during initial text exit",
+    "Exact title pin holds from 68%",
+    "Counters settle and final porcelain covers stage",
+    "Same pure state forward and reverse",
+    "Reduced motion exposes static outcome"
+  ],
+  "defaults": {
+    "textEnd": 0.2,
+    "wipeStart": 0.1,
+    "wipeEnd": 0.44,
+    "outcomeStart": 0.43,
+    "titlePin": 0.68
+  },
+  "numeric_tolerance": 1e-12,
+  "initial_check_correction": "Strict floating-point endpoint equality was corrected to a geometric tolerance; computed endpoint is -1.9999999999999998."
+}

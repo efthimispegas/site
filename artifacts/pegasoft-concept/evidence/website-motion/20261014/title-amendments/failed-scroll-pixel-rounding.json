@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-14T08:32:13.189Z",
+  "manifestSha256": "0db2ab538710483e096e0b4f4b4f8995ca1590ae4881f68e42d9231cd5a76a86",
+  "scriptSha256": "a5a39a5fa36ee11c57effdc3c47b36ff7abaceb63c9435932ca472b67a2050ac",
+  "observations": [],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 0.9999999904543374\n- 1\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/title-amendments/check.mjs:28:297",
+  "errors": []
+}

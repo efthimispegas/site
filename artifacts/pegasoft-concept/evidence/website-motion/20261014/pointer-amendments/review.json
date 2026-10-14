@@ -1,0 +1,18 @@
+{
+  "status": "ready_for_personal_review",
+  "userAccepted": false,
+  "request": "request.json",
+  "source": "source.json",
+  "checks": "checks.json",
+  "checkSource": "check.mjs",
+  "manifestSha256": "3be76826f51ac96ee19f3e24e40fb3a418d14393e8e392abe26d603229613e86",
+  "parentReview": "../review.json",
+  "url": "http://127.0.0.1:8771/?revision=cta-pointer-20261014#closing-cta",
+  "recording": "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/website-motion/20261014/pointer-amendments/recording/page@876b1afc6a1fa695377bf180569acd7f.webm",
+  "limits": [
+    "Personal approval pending",
+    "Accepted transport objects/cameras/assets and remaining preset values preserved",
+    "No commit, generation or release"
+  ],
+  "next": "Await the existing step-6 motion review."
+}

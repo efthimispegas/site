@@ -1,0 +1,82 @@
+{
+  "status": "ready_for_personal_transport_website_review",
+  "branch": "codex/pegasoft-concept",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "workingTree": "uncommitted; source and build pins below",
+  "website": "http://127.0.0.1:8771/?revision=transport-assembly-20261012",
+  "scope": "Step 4 connected transport website: stack pickup, reverse, truck handoff, highway, road/deck, ship/water, clouds and jet",
+  "userAccepted": false,
+  "priorApproval": "../website-host/user-approval.json",
+  "inputManifestSha256": "faa145e91c0eb666abbdc8e1ffd08b9f80dc6c92fb02f97f8951b7d04dcc99c2",
+  "checks": {
+    "lint": "passed; 49 source files syntax checked plus scoped ESLint",
+    "tests": "16 passed",
+    "build": "passed",
+    "baselineProvenance": "passed",
+    "runtime": "checks.json",
+    "runtimeSha256": "4ba9fefcc83cc73b7b4439e50e9f366b1fb373796f1b17284c39b133a4d50d3b",
+    "renderedComparisons": 19,
+    "maximumMeanChannelDifference": 0.13616174768518519,
+    "maximumChannelFractionOver8": 0.004671296296296297,
+    "inspectorRegression": "inspector-regression/frames-checks.json",
+    "inspectorRegressionSha256": "cf4d8954560f96064ab50d5e1e61a287f99aa34d2414ce7375ac6a89a03a4621"
+  },
+  "composition": {
+    "rendererCount": 1,
+    "frameOwnerCount": 1,
+    "physicalCargoInstances": 1,
+    "handoffEndpoint": 0.97,
+    "shipEndpoint": 0.84,
+    "crossingSeconds": 26,
+    "localClockSeconds": [
+      18.1875,
+      18.48,
+      26
+    ],
+    "cameraAndOwnershipJoins": "Forward/reverse boundary checks; captured in checks.json",
+    "localScrollPace": "Piecewise source-calibrated scroll spans; resized story time retained"
+  },
+  "intentionalIntegrationChanges": [
+    "Blend the two approved lighting profiles across the opening road portion of the deck passage; retain soft tyre contact through that blend",
+    "Keep the vessel light target continuous into the cloud chapter instead of resetting its target at local zero",
+    "Reuse the latest approved root/cloud typography across the preceding ship chapter",
+    "Remove only duplicated handoff/ship overlap; retain local phase timing and motion equations"
+  ],
+  "visualInspection": [
+    "handoff-0.png",
+    "handoff-5500.png",
+    "ship-3200.png",
+    "ship-8000.png",
+    "mobile.png"
+  ],
+  "referenceConditions": {
+    "viewport": "1280x900 DPR1, fixed ocean frame zero",
+    "sources": [
+      "frozen handoff renderer",
+      "frozen ship integration renderer",
+      "accepted cloud/jet reference build"
+    ],
+    "hostNormalization": "Same full-viewport sticky stage in reference captures",
+    "typography": "Four frozen stage-height copy font rules from accepted root applied to older ship comparison; captured raw mismatch retained",
+    "blockedReferenceAssets": "Historical watch/evidence media blocked; runtime assets retained"
+  },
+  "diagnostics": [
+    "failed-reference-initialization.json",
+    "failed-reference-typography.json",
+    "failed-development-server.json",
+    "failed-development-module-identity.json"
+  ],
+  "limitations": [
+    "Fixed grabber remains the approved size; unresolved four-corner pickup limitation retained",
+    "Opening/outcome, other motion and ordinary content remain pending",
+    "Whole-site acceptance and measured device performance remain pending"
+  ],
+  "buildFiles": {
+    "index.html": "a4870f637c4885117d46d8b3e799e96c3f6a23731ad8c081abd6732205acae0b",
+    "review/ship-jet-integration.html": "7923a6201b62f48b8157d4dfef04c6a29c176a94f97a4e9cb709193b3feba4d0",
+    "assets/index-D1dDELSF.css": "8efc09217d8fd6c11e536bc7929f84e18a3c16e8c465653d2eca1f51150978b5",
+    "assets/inspection-ruZTtERk.js": "72dadbe48555a09a988720fc47323495e5e9cbcb4ab264c590140161ec7986aa",
+    "assets/index-CcKKprIS.js": "494b60cd7bd5fd246460c7ea30bc9e07bb5131e41ae9a5278fa806c162507354",
+    "assets/ship-jet-controller-C9BXj_4R.js": "eff3b59240a5939eea3a0f74284a6a5c810c1870fb78b00cec0a4fc4f7417dc2"
+  }
+}

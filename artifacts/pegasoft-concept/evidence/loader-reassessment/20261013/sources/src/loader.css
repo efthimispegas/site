@@ -1,0 +1,8 @@
+/* Runs on the compositor before geography/fonts and JavaScript are ready. */
+#opening-stage:not([data-loaded="true"]) .radar,#opening-stage[data-wait-preview="true"] .radar{animation:loader-wait-beat var(--loader-beat-duration,1.2s) ease-in-out infinite;will-change:transform}
+#opening-stage .radar{will-change:transform,opacity}
+@keyframes loader-wait-beat{0%,100%{transform:scale(.70)}50%{transform:scale(calc(.70 + var(--loader-beat-amount,.035)))}}
+@media(prefers-reduced-motion:reduce){#opening-stage .radar{animation:none!important}}
+/* Inspector-only simulation uses the same waiting beat, including visibility. */
+#opening-stage[data-wait-preview="true"] .radar,#opening-stage[data-wait-preview="true"] .loader-mark{opacity:1!important}
+#opening-stage[data-wait-preview="true"] .hero,#opening-stage[data-wait-preview="true"] .pulse,#opening-stage[data-wait-preview="true"] .outcome-world{visibility:hidden!important}

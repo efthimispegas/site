@@ -1,0 +1,25 @@
+{
+  "manifestSha256": "2e119427faa634a146d07204cfd063588d2fcbc2c658ba6d42c162651317bb02",
+  "checkSha256": "595ae3e410226baf42fdc84d6bb0680670e7a8ff41e2c831d9c8456bcd8bb20f",
+  "observations": [
+    {
+      "entry": "/?revision=ring42-filled-cta-20261014",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "presetExact": true,
+      "startupRing": 0.42,
+      "resetExact": false,
+      "style": {
+        "background": "rgb(237, 242, 247)",
+        "color": "rgb(5, 7, 10)",
+        "border": "rgb(237, 242, 247)"
+      },
+      "keyboardFocus": true
+    }
+  ],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'rgb(237, 242, 247)'\n- 'rgb(20, 125, 255)'\n        ^\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/loader-reassessment/20261014/ring42-cta/check.mjs:23:32"
+}
