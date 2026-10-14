@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-15",
+  "branch": "codex/pegasoft-concept",
+  "stagedSourceTree": "a74f3bb6830bade64f491542835464446005b477",
+  "stage": "approved pre-content application, exported from Git index",
+  "sourceSelection": "six content-review/before snapshots; final working tree retained",
+  "checks": {
+    "build": "passed",
+    "lint": "passed",
+    "projectTests": "passed",
+    "baselineVerifiers": "passed"
+  },
+  "lineEndings": "application .gitattributes preserves exact hashed source/assets including CRLF font license",
+  "visualAcceptance": "existing frozen approval only; this verifies build portability",
+  "log": "nx.log"
+}

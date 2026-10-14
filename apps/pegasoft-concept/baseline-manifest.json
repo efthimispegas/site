@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "stage": "packaging_only",
+  "entry": "review/ship-jet-integration.html",
+  "threeRevision": "182",
+  "sourceRoot": "artifacts/pegasoft-concept",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "approval": "evidence/ship-jet-integration/user-approval.json",
+  "userAcceptedPackaging": false,
+  "runtimeRefactored": false,
+  "sources": [
+    {
+      "source": "generation/cloud-family/cloud-story-approval.json",
+      "sourceSha256": "e57463961220ff6f545d2e027c1d20944d51087107520ca96a646c160b0656c5",
+      "packaged": "public/assets/generation/cloud-family/cloud-story-approval.json",
+      "packagedSha256": "e57463961220ff6f545d2e027c1d20944d51087107520ca96a646c160b0656c5",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/haze-treatment.json",
+      "sourceSha256": "564c7b59dd789a67a8afaf2bf98bcc9152e0c7e34aa476be5c2b53b8bbb77ae9",
+      "packaged": "public/assets/generation/cloud-family/haze-treatment.json",
+      "packagedSha256": "564c7b59dd789a67a8afaf2bf98bcc9152e0c7e34aa476be5c2b53b8bbb77ae9",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/K01/K01.png",
+      "sourceSha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3",
+      "packaged": "public/assets/generation/cloud-family/K01/K01.png",
+      "packagedSha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/K02/K02.png",
+      "sourceSha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194",
+      "packaged": "public/assets/generation/cloud-family/K02/K02.png",
+      "packagedSha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/cloud-family/K03/K03.png",
+      "sourceSha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401",
+      "packaged": "public/assets/generation/cloud-family/K03/K03.png",
+      "packagedSha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/container-family/model-draft/C01-container.glb",
+      "sourceSha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "packaged": "public/assets/generation/container-family/model-draft/C01-container.glb",
+      "packagedSha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/jet-family/J02-overhead.png",
+      "sourceSha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8",
+      "packaged": "public/assets/generation/jet-family/J02-overhead.png",
+      "packagedSha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/jet-family/shadow-measurements-approval.json",
+      "sourceSha256": "d589ae739d69b0aed2f3bdb7063e2a9187242b6eb31f82cc85593aadb8aeb49a",
+      "packaged": "public/assets/generation/jet-family/shadow-measurements-approval.json",
+      "packagedSha256": "d589ae739d69b0aed2f3bdb7063e2a9187242b6eb31f82cc85593aadb8aeb49a",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/lift-family/model-draft/attachment-ownership.json",
+      "sourceSha256": "533de587c77970c452aae69e45c638703d84a8d7177e218cad54849e9729d315",
+      "packaged": "public/assets/generation/lift-family/model-draft/attachment-ownership.json",
+      "packagedSha256": "533de587c77970c452aae69e45c638703d84a8d7177e218cad54849e9729d315",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sourceSha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+      "packaged": "public/assets/generation/lift-family/model-draft/model-carbon-unified.glb",
+      "packagedSha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/lift-family/model-draft/wheel-ownership-motion-amended.json",
+      "sourceSha256": "dc471c852437c5d7181646a4bafdeec7afb2f42f8bf6b395fb8e687d3778bd42",
+      "packaged": "public/assets/generation/lift-family/model-draft/wheel-ownership-motion-amended.json",
+      "packagedSha256": "dc471c852437c5d7181646a4bafdeec7afb2f42f8bf6b395fb8e687d3778bd42",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/ship-family/model-draft/S01-ship.glb",
+      "sourceSha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13",
+      "packaged": "public/assets/generation/ship-family/model-draft/S01-ship.glb",
+      "packagedSha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/ship-family/S01/S01-oblique-original.png",
+      "sourceSha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+      "packaged": "public/assets/generation/ship-family/S01/S01-oblique-original.png",
+      "packagedSha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/ship-family/water-plate/ocean-motion.mp4",
+      "sourceSha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912",
+      "packaged": "public/assets/generation/ship-family/water-plate/ocean-motion.mp4",
+      "packagedSha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/truck-family/model-draft/T01-truck.glb",
+      "sourceSha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "packaged": "public/assets/generation/truck-family/model-draft/T01-truck.glb",
+      "packagedSha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "generation/truck-family/model-draft/truck-model.mjs",
+      "sourceSha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32",
+      "packaged": "generation/truck-family/model-draft/truck-model.mjs",
+      "packagedSha256": "7d82fcbc467ee559c9681bbba5b4cb635daf69a04682ca01dafc8a0be9bf3f32",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/cloud-story-layers.js",
+      "sourceSha256": "4bf22ee50c2d4fc5a4364e2408791b1c90b9ae655dbf5307fff2da93ae4af606",
+      "packaged": "review/cloud-story-layers.js",
+      "packagedSha256": "fcabefa7c4d3f898ccb0711f61b9ca44d58038ae34d163a5770130f53fc92188",
+      "treatment": "import/asset addressing only"
+    },
+    {
+      "source": "review/cloud-story-sequence.js",
+      "sourceSha256": "e07f174e77ba727e0d806416a93b979383c2cf7e2b6b1917f2c67061f6dea16e",
+      "packaged": "review/cloud-story-sequence.js",
+      "packagedSha256": "e07f174e77ba727e0d806416a93b979383c2cf7e2b6b1917f2c67061f6dea16e",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/fonts/dmsans-OFL.txt",
+      "sourceSha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1",
+      "packaged": "public/assets/review/fonts/dmsans-OFL.txt",
+      "packagedSha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/fonts/dmsans.ttf",
+      "sourceSha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+      "packaged": "public/assets/review/fonts/dmsans.ttf",
+      "packagedSha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/fonts/manrope-OFL.txt",
+      "sourceSha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "packaged": "public/assets/review/fonts/manrope-OFL.txt",
+      "packagedSha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/fonts/manrope.ttf",
+      "sourceSha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "packaged": "public/assets/review/fonts/manrope.ttf",
+      "packagedSha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+      "treatment": "byte-identical runtime asset"
+    },
+    {
+      "source": "review/handoff-lift-rig.js",
+      "sourceSha256": "cc5a8c846343891a860406ec3679def0a74b4436806809e624619dcd24d33776",
+      "packaged": "review/handoff-lift-rig.js",
+      "packagedSha256": "cc5a8c846343891a860406ec3679def0a74b4436806809e624619dcd24d33776",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/handoff-sequence.js",
+      "sourceSha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e",
+      "packaged": "review/handoff-sequence.js",
+      "packagedSha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/jet-crossing.js",
+      "sourceSha256": "57d28597e2b085668664b3c76478f96e2f48e12c15b5741734873c521f0d7795",
+      "packaged": "review/jet-crossing.js",
+      "packagedSha256": "b96480fb4b43c4d5091b8eda7a7b52667c663d61e4496b22c741f0c6743b18dc",
+      "treatment": "import/asset addressing only"
+    },
+    {
+      "source": "review/lift-cab.js",
+      "sourceSha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7",
+      "packaged": "review/lift-cab.js",
+      "packagedSha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/lift-container-contact.js",
+      "sourceSha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+      "packaged": "review/lift-container-contact.js",
+      "packagedSha256": "2477ffaaa94d7e8af16a2d443e8110e2c87d1ca60b19b2aa9546697630675d65",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/lift-motion-contract.js",
+      "sourceSha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923",
+      "packaged": "review/lift-motion-contract.js",
+      "packagedSha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/lift-motion-data.js",
+      "sourceSha256": "1b331873fdaac909d745d215d67b7c9ddd23d1abd377abfdef7cbc3cddedb7a1",
+      "packaged": "review/lift-motion-data.js",
+      "packagedSha256": "1b331873fdaac909d745d215d67b7c9ddd23d1abd377abfdef7cbc3cddedb7a1",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/lift-wheels.js",
+      "sourceSha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95",
+      "packaged": "review/lift-wheels.js",
+      "packagedSha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/ship-content.js",
+      "sourceSha256": "02d7d7eac2d59ec3eeb6b1105b20a8061ab55d651847472c11853659263c824c",
+      "packaged": "review/ship-content.js",
+      "packagedSha256": "02d7d7eac2d59ec3eeb6b1105b20a8061ab55d651847472c11853659263c824c",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/ship-integration-sequence.js",
+      "sourceSha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112",
+      "packaged": "review/ship-integration-sequence.js",
+      "packagedSha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/ship-jet-integration.html",
+      "sourceSha256": "d39e9c4487a8a4200880222c1d062c5bfe3cd5b6d936d94955a72dfca39a8083",
+      "packaged": "review/ship-jet-integration.html",
+      "packagedSha256": "5a365cfdd875ec25eb6a92eefa0f771d58211f643640c91a801a88a6b1937f95",
+      "treatment": "import map removed; asset/reference addressing only"
+    },
+    {
+      "source": "review/ship-jet-integration.js",
+      "sourceSha256": "80ff6e3a9ff7acdb69cfd7276db2616fea88359730aaac3f100a6fd249b77a75",
+      "packaged": "review/ship-jet-integration.js",
+      "packagedSha256": "a744c76c8157ade53546c1dcd6453b57e44b345719d886047ca952271d423d55",
+      "treatment": "import/asset addressing only"
+    },
+    {
+      "source": "review/ship-jet-sequence.js",
+      "sourceSha256": "40460b95375a2b2a7e9ad257993a76e20830ed561a553147501a5b0c7fef04c0",
+      "packaged": "review/ship-jet-sequence.js",
+      "packagedSha256": "40460b95375a2b2a7e9ad257993a76e20830ed561a553147501a5b0c7fef04c0",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/ship-road.js",
+      "sourceSha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94",
+      "packaged": "review/ship-road.js",
+      "packagedSha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/ship-surface.js",
+      "sourceSha256": "d72880b88ccb459a2e614bc3ccd620e4f6d4085ddadcf56fbfae1fd65fe30d67",
+      "packaged": "review/ship-surface.js",
+      "packagedSha256": "d72880b88ccb459a2e614bc3ccd620e4f6d4085ddadcf56fbfae1fd65fe30d67",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/ship-water.js",
+      "sourceSha256": "486dd2d236bac33b9db928f3fb95d40846011bc31daff3be5d8c3aa1958f0427",
+      "packaged": "review/ship-water.js",
+      "packagedSha256": "48f829c769d6471cd95dc8eafc71e920d0b4545daca429272011ec7b17ee0523",
+      "treatment": "import/asset addressing only"
+    },
+    {
+      "source": "review/story-typography.css",
+      "sourceSha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a",
+      "packaged": "review/story-typography.css",
+      "packagedSha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a",
+      "treatment": "byte-identical stylesheet"
+    },
+    {
+      "source": "review/vendor/three/build/three.core.js",
+      "sourceSha256": "283be43b2229e15f46dac84cd19354ede5f06cac7ffb185e765cfcfb2c1eec90",
+      "packaged": "review/vendor/three/build/three.core.js",
+      "packagedSha256": "283be43b2229e15f46dac84cd19354ede5f06cac7ffb185e765cfcfb2c1eec90",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/vendor/three/build/three.module.js",
+      "sourceSha256": "d835eab0b3bca3fdfd51e2ce7d06911f4a089b08db73cc3cd70fe5e3005a623f",
+      "packaged": "review/vendor/three/build/three.module.js",
+      "packagedSha256": "d835eab0b3bca3fdfd51e2ce7d06911f4a089b08db73cc3cd70fe5e3005a623f",
+      "treatment": "byte-identical module"
+    },
+    {
+      "source": "review/vendor/three/examples/jsm/environments/RoomEnvironment.js",
+      "sourceSha256": "c83d34dd5ec39ced21367a7571675cdaf9de1b35685c44437f86516b89a830f2",
+      "packaged": "review/vendor/three/examples/jsm/environments/RoomEnvironment.js",
+      "packagedSha256": "446d91c7963969dd8a69d7a7367bb7b42a7e7da1f38b50825c2e8a36890d3ca6",
+      "treatment": "import/asset addressing only"
+    },
+    {
+      "source": "review/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "sourceSha256": "a2d45c28c56774cc789b99154e914c34db3197f9ea2b89fee27600cc2509b14f",
+      "packaged": "review/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "packagedSha256": "b5e15bc2b679c3665a57de11dfc91d847ff410bd93a137f748be4af2ea416af0",
+      "treatment": "import/asset addressing only"
+    },
+    {
+      "source": "review/vendor/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "sourceSha256": "fda7e946b8e0b5ab39b779206589e7a1079a22eb24efb89d7223e03fdfb1f751",
+      "packaged": "review/vendor/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "packagedSha256": "c62282a390908391eeb1b1cbb0ba583c26e2954676b3000d46988f9484db9798",
+      "treatment": "import/asset addressing only"
+    },
+    {
+      "source": "review/vendor/three/LICENSE",
+      "sourceSha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "packaged": "public/assets/review/vendor/three/LICENSE",
+      "packagedSha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601",
+      "treatment": "byte-identical runtime asset"
+    }
+  ],
+  "generated": [
+    {
+      "path": "review/runtime-assets.js",
+      "sha256": "2f9e06dd7999591bdc1bce596dc812a7e507dd9ec46cac884a99b074dbce2a1d"
+    }
+  ]
+}

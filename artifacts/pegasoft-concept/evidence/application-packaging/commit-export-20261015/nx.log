@@ -1,0 +1,24 @@
+
+ NX   Running targets build, lint, test for project @site/pegasoft-concept and 3 tasks it depends on:
+
+- @site/pegasoft-concept
+
+
+✔  nx run @site/pegasoft-concept:verify-website-motion
+✔  nx run @site/pegasoft-concept:verify-homepage
+✔  nx run @site/pegasoft-concept:verify-baseline
+✔  nx run @site/pegasoft-concept:test
+✔  nx run @site/pegasoft-concept:build
+✔  nx run @site/pegasoft-concept:lint
+
+
+
+ NX   Successfully ran targets build, lint, test for project @site/pegasoft-concept and 3 tasks it depends on
+
+
+Output of 6 successful tasks were not shown. Run with --verbose or --output-style=static to see it.
+
+  Run duration:      3.5s
+  Cache:             0/6 hit (0%)
+  Critical path:     3.4s (1 task)
+  Recoverable time:  65ms (2% of the run)

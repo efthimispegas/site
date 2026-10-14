@@ -1,0 +1,49 @@
+{
+  "sources": [
+    {
+      "path": "review/hero-globe.js",
+      "sha256": "63aa0fcfbb5bbdb4ff2e171b22ad1d7921a5bfce6a655c13068ee7f270280078"
+    },
+    {
+      "path": "review/hero-city-routes.js",
+      "sha256": "e1dfba26c50536cd5ad860779a4005aa1d3d949e4d88da1147562068624d748e"
+    },
+    {
+      "path": "review/hero-opening-sequence.js",
+      "sha256": "698073d719c2abe9851c39f6557a25a15fb94be62e12b2a69dd613ecc63cea53"
+    },
+    {
+      "path": "review/hero-opening.css",
+      "sha256": "3efdb026b97947c23fb23ed6252fc8cba261cfb25d55b3c0cd212c724135a92a"
+    },
+    {
+      "path": "generation/hero-globe/land-dots.json",
+      "sha256": "fde256e72478e84644af31cda26572accb312363b4e8fb3622f98b5068741433"
+    }
+  ],
+  "files": [
+    {
+      "path": "src/hero-opening-sequence.js",
+      "sha256": "698073d719c2abe9851c39f6557a25a15fb94be62e12b2a69dd613ecc63cea53"
+    },
+    {
+      "path": "src/hero-city-routes.js",
+      "sha256": "e1dfba26c50536cd5ad860779a4005aa1d3d949e4d88da1147562068624d748e"
+    },
+    {
+      "path": "src/hero-globe.js",
+      "sha256": "63df2efdf56d7e975fa8ed86c0bbf4316f1839f91d93e806681fabefd22c96be"
+    },
+    {
+      "path": "src/hero-opening.css",
+      "sha256": "9c417a262fa3ced9d0b0fbf04554ce2ebb8f00f52755983455940116a455b452"
+    },
+    {
+      "path": "public/assets/generation/hero-globe/land-dots.json",
+      "sha256": "fde256e72478e84644af31cda26572accb312363b4e8fb3622f98b5068741433"
+    }
+  ],
+  "approval": "evidence/hero-opening/user-approval.json",
+  "approvalSha256": "1d32bafd9e194cc47dc919b03ac010044575f1c37c4b7c5d7e2fbc047f4359bc",
+  "treatment": "Same Three182, shaders, geography/cities, camera envelope and defaults. Import/asset addressing, abort/disposal and scoped CSS/font names only."
+}

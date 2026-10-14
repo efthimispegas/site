@@ -1,0 +1,46 @@
+{
+  "stage": "controller_extraction_pending_personal_review",
+  "authority": "User approved cloud continuity and requested the next review phase",
+  "approvedAmendmentsSha256": "baa303e24b1860566fb2881e2e63a29eba4a84172c690d9d26a3bd83eb3ce1cb",
+  "acceptedReferenceSha256": "fe7be0595a4ab56c57b6c1c78642d542a7815ae1e85d2458194ca641c81e9b15",
+  "files": [
+    {
+      "path": "review/ship-jet-integration.js",
+      "acceptedSha256": "fd731edaab1c12475e14232e13ce497044ef850f7a9e4c532e18959828745a4a",
+      "sha256": "fede1e6960232813662e0bd0e2f8e7546c609f01c365b4933c1631c410baa641"
+    },
+    {
+      "path": "review/cloud-story-layers.js",
+      "acceptedSha256": "4b745e5297fe9b2a259a0f71708f526f39c94d894115ef2b25f547fad3e7a6b6",
+      "sha256": "1bc214e84f653423b7c592c616029d0040f0805b5d6622d4298d782b7c1393b4"
+    },
+    {
+      "path": "review/jet-crossing.js",
+      "acceptedSha256": "b96480fb4b43c4d5091b8eda7a7b52667c663d61e4496b22c741f0c6743b18dc",
+      "sha256": "2462f33692b32ae6cf02839e0fd3270f7eccb26c40afa635c94931593746d35d"
+    },
+    {
+      "path": "review/ship-water.js",
+      "acceptedSha256": "48f829c769d6471cd95dc8eafc71e920d0b4545daca429272011ec7b17ee0523",
+      "sha256": "680ad6953de941e0a47c1ec6a84e53528e16c414b93b7e923631d727c992d03b"
+    }
+  ],
+  "addedFiles": [
+    {
+      "path": "review/runtime-lifecycle.js",
+      "sha256": "716637f178c05636c0fa4acb473c57d6445ec5440024ba6e2459ebb78ddc2dad"
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "34ecbd74203b46ff0e0d11881031bdf9ad122407a3a8c5d17d1370f0cda1defd"
+    },
+    {
+      "path": "review/ship-jet-scene.js",
+      "sha256": "2aa7d52fed6d399cfd60bbd7397f5255d0a2b02a5f4785e7cca7cbc54db2bcae"
+    },
+    {
+      "path": "review/ship-jet-inspection.js",
+      "sha256": "8b47920660027e466183173f403df980e24e8e118880842c94b38503fb9005ba"
+    }
+  ]
+}

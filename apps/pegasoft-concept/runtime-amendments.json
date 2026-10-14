@@ -1,0 +1,31 @@
+{
+  "status": "user_approved_cloud_continuity",
+  "date_local": "2026-10-12",
+  "authority": "Direct user observation and request for constant/continuous motion of all clouds through the jet reveal",
+  "baseManifestSha256": "a9e8589de2260de57a1167c123b4a9d653a8425a98fd0b66c94c4eeb638a9651",
+  "scope": "Cloud position travel and an unclamped cloud-only clock; asset bytes, presets, camera, ship and jet unchanged",
+  "files": [
+    {
+      "path": "review/cloud-story-layers.js",
+      "baselinePackagedSha256": "fcabefa7c4d3f898ccb0711f61b9ca44d58038ae34d163a5770130f53fc92188",
+      "sha256": "4b745e5297fe9b2a259a0f71708f526f39c94d894115ef2b25f547fad3e7a6b6"
+    },
+    {
+      "path": "review/ship-jet-sequence.js",
+      "baselinePackagedSha256": "40460b95375a2b2a7e9ad257993a76e20830ed561a553147501a5b0c7fef04c0",
+      "sha256": "7d2af92340908b359e5e8ce7e15cb8ca2757f00d5d3d6ee72c2c30ea2c7b5a0e"
+    },
+    {
+      "path": "review/ship-jet-integration.js",
+      "baselinePackagedSha256": "a744c76c8157ade53546c1dcd6453b57e44b345719d886047ca952271d423d55",
+      "sha256": "fd731edaab1c12475e14232e13ce497044ef850f7a9e4c532e18959828745a4a"
+    }
+  ],
+  "addedFiles": [
+    {
+      "path": "review/cloud-motion.js",
+      "sha256": "afdfa70e103f80dd2775cb099a0d40ec0e98482b4668bd785d799b1d9e671520"
+    }
+  ],
+  "user_quote": "Approved. Proceed with next review phase"
+}
