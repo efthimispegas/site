@@ -1,0 +1,6 @@
+{
+  "userAccepted": false,
+  "viewports": [],
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: testimonials belong inside the existing Trusted reveal\n\n0 !== 1\n\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/trust-placement-check.mjs:1:540\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:502:9)"
+}

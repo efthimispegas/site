@@ -1,0 +1,54 @@
+{
+  "userAccepted": false,
+  "cases": [
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 900
+      },
+      "layout": "passed"
+    },
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 900
+      },
+      "hover": "failed",
+      "failure": "departure does not jump to another scroll offset"
+    },
+    {
+      "viewport": {
+        "width": 820,
+        "height": 900
+      },
+      "layout": "passed"
+    },
+    {
+      "viewport": {
+        "width": 820,
+        "height": 900
+      },
+      "hover": "passed",
+      "samples": 6,
+      "resume": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "layout": "passed"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hover": "passed",
+      "samples": 6,
+      "resume": "passed"
+    }
+  ],
+  "manifestSha256": "73b9d91e6cb02312f558b9ed7bcdbfc43f772d6b84f6eabe7d10091708201dbd",
+  "status": "failed"
+}

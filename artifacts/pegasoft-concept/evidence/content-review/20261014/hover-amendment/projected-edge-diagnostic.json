@@ -1,0 +1,22 @@
+{
+  "userAccepted": false,
+  "cases": [
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 900
+      },
+      "layout": "passed"
+    },
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 900
+      },
+      "hover": "failed",
+      "failure": "one lifted tile remains stable within the paused column\n\n0 !== 1\n"
+    }
+  ],
+  "manifestSha256": "c81b134db2fa652a27e1d5b08b5ab85c8fea549a4f966cca02451963598bf6c2",
+  "status": "failed"
+}

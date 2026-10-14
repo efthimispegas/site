@@ -1,0 +1,55 @@
+{
+  "userAccepted": false,
+  "cases": [
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 900
+      },
+      "layout": "failed",
+      "failure": "duplicate testimonials title/description removed\n\n1 !== 0\n"
+    },
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 900
+      },
+      "hover": "failed",
+      "failure": "hovered column remains still at edges, elevated footprint and inter-tile gap"
+    },
+    {
+      "viewport": {
+        "width": 820,
+        "height": 900
+      },
+      "layout": "failed",
+      "failure": "duplicate testimonials title/description removed\n\n1 !== 0\n"
+    },
+    {
+      "viewport": {
+        "width": 820,
+        "height": 900
+      },
+      "hover": "failed",
+      "failure": "hovered column remains still at edges, elevated footprint and inter-tile gap"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "layout": "failed",
+      "failure": "duplicate testimonials title/description removed\n\n1 !== 0\n"
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "hover": "failed",
+      "failure": "hovered column remains still at edges, elevated footprint and inter-tile gap"
+    }
+  ],
+  "manifestSha256": "5a3dc2124cd5396c02f8aea6f83b0297e81099ca0519e77666583d33b9fc01ec",
+  "status": "failed"
+}

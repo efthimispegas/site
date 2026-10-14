@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-14",
+  "authority": "User: Yes, use these fields for review",
+  "fields": {
+    "General": [
+      "name",
+      "email",
+      "optional company",
+      "message"
+    ],
+    "Company owner": [
+      "name",
+      "business email",
+      "company/website",
+      "project goals"
+    ],
+    "Investor": [
+      "name",
+      "email",
+      "firm",
+      "investment interest"
+    ],
+    "Careers": [
+      "name",
+      "email",
+      "role/discipline",
+      "portfolio/CV link"
+    ]
+  },
+  "endpointConnected": false
+}

@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-14T13:57:13.890Z",
+  "manifestSha256": "b6d9e78d665998c63f039f52396e16c891bd875280145be36d6be0f70c76c29f",
+  "sourceSha256": "a1c6c2a2b16110ee34c9bd56d350ddd0063b4be1c7c239aca7e84d7c28d8ff7e",
+  "scriptSha256": "ffb48f50411397d0a77c37e317fa39d686d4c235185a509eea4cc22f8a21b057",
+  "observations": [
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 749
+      },
+      "columns": 5,
+      "errors": [],
+      "externalRequests": []
+    }
+  ],
+  "userAccepted": false,
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: {\"progress\":0.8269791666666667}\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/content-review/20261014/check.mjs:12:305"
+}

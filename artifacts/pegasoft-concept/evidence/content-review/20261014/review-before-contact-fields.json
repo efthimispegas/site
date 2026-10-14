@@ -1,0 +1,131 @@
+{
+  "date": "2026-10-14",
+  "branch": "codex/pegasoft-concept",
+  "commit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "uncommitted": true,
+  "status": "next_content_layout_review_ready",
+  "personalAcceptance": false,
+  "precedingHomepageApproval": "artifacts/pegasoft-concept/evidence/website-motion/20261014/all-amendments-approved/user-approval.json",
+  "precedingHomepageApprovalSha256": "9bf5dc2e41d9bab96d23de3a4373a80f34b21a2f638c6d6eed8afbcfa0f4c775",
+  "request": "request.json",
+  "source": "source.json",
+  "checks": "checks.json",
+  "checksSha256": "27f5fbcf9daf11ba3238fdf6d1b35013a65f15f0c10360b51ed69959e588ed7e",
+  "manifestSha256": "2369b8724c2af4bd0df01268746b5a4e7fc6ce8658148105518aa029bd3b160b",
+  "nx": {
+    "build": "passed",
+    "lint": "passed",
+    "tests": "passed",
+    "logs": [
+      "build.log",
+      "lint-test.log"
+    ]
+  },
+  "runtime": {
+    "status": "passed",
+    "viewports": [
+      "1505x749",
+      "820x900",
+      "390x844"
+    ],
+    "verified": [
+      "Fresh deep link waits for loader/scene setup before positioning review",
+      "Two factual-empty testimonial slots",
+      "Ten partner cells; five desktop/tablet columns, two mobile",
+      "Native FAQ keyboard open/close",
+      "Contact tab keyboard navigation and proposed field list; no form implemented",
+      "Cookie dialog Escape/close/save; necessary-only preference persists",
+      "Expertise navigation reaches handoff .79 after native smooth-scroll settles",
+      "Careers navigation selects contact audience",
+      "Mobile navigation dialog opens/closes and reaches FAQ",
+      "Reduced-motion static content remains usable with no frame loop",
+      "One ordinary application scheduler; no browser errors or external tracker requests",
+      "Forward/reverse native trust-to-content join captures"
+    ],
+    "screenshots": [
+      "1505-contact-proposal.png",
+      "1505-cookies.png",
+      "1505-expertise-navigation.png",
+      "1505-faq.png",
+      "1505-partners.png",
+      "1505-testimonials.png",
+      "1505-trust-content-join.png",
+      "390-contact-proposal.png",
+      "390-cookies.png",
+      "390-faq.png",
+      "390-mobile-menu.png",
+      "390-partners.png",
+      "390-reduced-faq.png",
+      "390-testimonials.png",
+      "390-trust-content-join.png",
+      "820-contact-proposal.png",
+      "820-cookies.png",
+      "820-expertise-navigation.png",
+      "820-faq.png",
+      "820-partners.png",
+      "820-testimonials.png",
+      "820-trust-content-join.png"
+    ],
+    "recordings": [
+      "recordings/page@049555e7213a146b51d42727af06d901.webm",
+      "recordings/page@06f240cf7837d0f18b8c3888e8e09751.webm",
+      "recordings/page@3eb695fd66f35eecd6d958c76cc5e67d.webm",
+      "recordings/page@a57354558279fe193360ebb21bbea655.webm",
+      "recordings/page@b92c6a0edaa997e0d113f84280f611b3.webm",
+      "recordings/page@bccd09290f3a2b2081348a473db2f9eb.webm",
+      "recordings/page@cda42943f619f1d5943c11227ef4d3b7.webm",
+      "recordings/page@f3a4a8c3850e816a9c20d9923c785085.webm"
+    ]
+  },
+  "protectedSources": [
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "05782809db455fcd756b138e08961fc2f99135f3e24ac62ac997bbd49ec5c3c0",
+      "unchanged": true
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "b4a9eac04b9116766dd75f31f49031d4aeca5c19ae1ddef6836bc60fdc4f7034",
+      "unchanged": true
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "ff9f6be876ad94862f8593967d765a4a671f1a735a77e73e1d998382c7153b9c",
+      "unchanged": true
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "6b2d6b80b400880d855796e0009e07ba5835e3bdaff19aa02cd98dbacba787df",
+      "unchanged": true
+    },
+    {
+      "path": "src/particle-wordmark.js",
+      "sha256": "cb26ce0fc544ddae6270366528152e4d907ede4308de6d3ebdc030fdd0193b89",
+      "unchanged": true
+    },
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "cde0e5a4fa0b425d8b39a2dbf688dfb1d02fa5a4079d891ed0dae6ab62ee58c2",
+      "unchanged": true
+    }
+  ],
+  "visualInspection": [
+    "1505-testimonials.png",
+    "1505-faq.png",
+    "1505-contact-proposal.png",
+    "390-partners.png",
+    "390-mobile-menu.png",
+    "1505-trust-content-join.png"
+  ],
+  "pending": [
+    "Approved testimonials, portraits, names and partner relationships/logos",
+    "Verified company metrics, contact/legal identity and article destinations",
+    "Explicit contact field approval, recipient, privacy wording and submission endpoint",
+    "Final cookie/tracker decisions and whole-site qualification"
+  ],
+  "contactFieldImplementation": false,
+  "comparison": "Retained trust/partners source remains unchanged at artifacts/pegasoft-concept/review/trust-partners.html",
+  "reviewUrl": "http://127.0.0.1:8771/?revision=content-review-20261014#trust-evidence",
+  "priorFailedCheck": "Initial tablet test sampled a still-running native smooth scroll after 1s. Preserved in checks-before-scroll-settle.json; final test waits for the unchanged target within a tighter tolerance. No product navigation fix was required.",
+  "next": "User reviews ordinary layouts/interactions and supplies factual content/field confirmation. Preserve accepted animation/assets; no generation, external submission or release."
+}

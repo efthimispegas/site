@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-14",
+  "status": "implemented and technically verified; personal review pending",
+  "userAccepted": false,
+  "branch": "codex/pegasoft-concept",
+  "sourceCommit": "295e6d632f0063e3855eb9497834cecdad23449c",
+  "uncommitted": true,
+  "source": "source.json",
+  "sourceSha256": "51a103f3598bd8d392a9980e594cb76558ce6077ee7dee23009751974c763236",
+  "manifestSha256": "68e0ef8c5a160eb51fd8012570ed4db3508488bd73edb78f8d7cf138ad1a2728",
+  "request": "request.json",
+  "checks": {
+    "checks.json": "d3e75d655687af8c5a22512475a91ef49ac53b6e8e7caec4bf9972265d678c09",
+    "regression-checks.json": "c1766b95443a96b1cb72e64d1776d2a05bde01802dd3524ea106e62ffa29cda8",
+    "transition-checks.json": "b189dce20afa72a942174dffdf9fc9f79cc68e5096ef055ff20f8522be55276e",
+    "trust-placement-checks.json": "ed5abdf0ccfa95cf1192f9685540fbb6a35a906e7ca3db5bcec5341f3f10f913"
+  },
+  "nx": {
+    "build": "passed",
+    "lint": "passed",
+    "projectTests": "passed",
+    "logs": [
+      "build.log",
+      "lint-test.log"
+    ]
+  },
+  "runtime": [
+    "Testimonials are children of the existing Trusted reveal; original heading and description retained",
+    "No Working together or duplicate title/subtitle; What they say label; no Partners and collaborators eyebrow",
+    "Cards and author content fit at 1505x749,1280x700,820x900,390x844; no inner graphics-viewport scroll",
+    "Reduced motion, restoration and keyboard static fallback preserve the four cards",
+    "Entire column uses a stationary hit surface; lifted art retains ownership across gaps/edges",
+    "Six held cursor positions at desktop/tablet/mobile; no offset motion while held",
+    "Immediate edge entry and repeated sweeps through lift transition; active-class trace remains [0]",
+    "Moving into neighboring column transfers pause and resumes prior column without exiting wall",
+    "Smooth offset continuity includes the repeated-tile modulo wrap",
+    "Normal forward/reverse wheel passage and ordinary-content regression passed"
+  ],
+  "protectedSources": [
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "05782809db455fcd756b138e08961fc2f99135f3e24ac62ac997bbd49ec5c3c0",
+      "unchanged": true
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "b4a9eac04b9116766dd75f31f49031d4aeca5c19ae1ddef6836bc60fdc4f7034",
+      "unchanged": true
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "ff9f6be876ad94862f8593967d765a4a671f1a735a77e73e1d998382c7153b9c",
+      "unchanged": true
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "6b2d6b80b400880d855796e0009e07ba5835e3bdaff19aa02cd98dbacba787df",
+      "unchanged": true
+    },
+    {
+      "path": "src/particle-wordmark.js",
+      "sha256": "cb26ce0fc544ddae6270366528152e4d907ede4308de6d3ebdc030fdd0193b89",
+      "unchanged": true
+    },
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "cde0e5a4fa0b425d8b39a2dbf688dfb1d02fa5a4079d891ed0dae6ab62ee58c2",
+      "unchanged": true
+    }
+  ],
+  "visualInspection": [
+    "1505-trusted-section.png",
+    "1280-trusted-section.png",
+    "390-trusted-section.png",
+    "1505-hover-held.png",
+    "laptop-column-edge-held.png"
+  ],
+  "history": [
+    "red-checks.json",
+    "projected-edge-diagnostic.json",
+    "before-loop-continuity-checks.json",
+    "trust-placement-red-checks.json",
+    "viewport-scroll-red-checks.json"
+  ],
+  "diagnosis": [
+    "Old hit tests followed moving/lifted tile surfaces and cleared hover over gaps. Stationary column proxies and retained ownership eliminate the feedback loop. Tilt remains stable while a column is hovered; velocity restarts from the held phase.",
+    "An axis-aligned bounding box extends outside a perspective column; final samples use actual projected hit boundaries and raised artwork edges.",
+    "Raw track offset wraps at the repeat period; continuity is checked modulo that period.",
+    "Hash navigation to a child of overflow:hidden scrolled the stage internally. Homepage overflow:clip keeps the graphics viewport fixed."
+  ],
+  "limits": [
+    "Fictional testimonial/partner content",
+    "Personal acceptance pending; whole-site qualification later",
+    "No representative-device performance claim",
+    "Contact endpoint remains disconnected"
+  ],
+  "reviewUrl": "http://127.0.0.1:8771/?revision=trusted-partners-20261014#trust-evidence",
+  "next": "Stop at personal review. No commit/deployment/generation."
+}

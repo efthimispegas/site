@@ -1,0 +1,34 @@
+{
+  "observations": [
+    {
+      "viewport": {
+        "width": 1505,
+        "height": 900
+      },
+      "errors": [],
+      "columns": 5,
+      "alternatingContinuousMotion": true,
+      "pauseResume": true,
+      "keyboardFocusPause": true,
+      "testimonialNavigation": true,
+      "reducedMotion": true
+    },
+    {
+      "viewport": {
+        "width": 820,
+        "height": 900
+      },
+      "errors": [],
+      "columns": 5,
+      "alternatingContinuousMotion": true,
+      "pauseResume": true,
+      "keyboardFocusPause": true,
+      "testimonialNavigation": true,
+      "reducedMotion": true
+    }
+  ],
+  "userAccepted": false,
+  "manifestSha256": "e1b46b9fd04102a236ff911ab6e72c63cfceb9184591cd60ab66a839e1d1859b",
+  "status": "failed",
+  "failure": "AssertionError [ERR_ASSERTION]: adjacent columns continuously travel opposite directions\n    at file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/content-review/20261014/partner-wall/check.mjs:5:270"
+}

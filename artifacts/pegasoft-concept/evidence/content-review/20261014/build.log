@@ -1,0 +1,68 @@
+
+ NX   Running target build for project @site/pegasoft-concept and 3 tasks it depends on:
+
+
+
+> nx run @site/pegasoft-concept:verify-baseline
+
+> node tools/package-reviewed-slice.mjs --check
+
+
+> nx run @site/pegasoft-concept:verify-homepage
+
+> node tools/package-opening.mjs --check
+
+
+> nx run @site/pegasoft-concept:verify-website-motion
+
+> node tools/verify-website-motion.mjs
+
+{"status":"opening_packaging_verified","files":5}
+> node tools/verify-homepage.mjs
+
+{"status":"website_motion_inputs_and_outputs_verified_pending_personal_review"}
+{"status":"homepage_input_and_output_pins_verified"}
+{"status":"baseline_verified","modules":23,"assets":20,"sourceInputs":45}
+
+> nx run @site/pegasoft-concept:build
+
+> pnpm exec vite build
+
+(node:89204) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:89206) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.2.2 building client environment for production...
+transforming...
+[32m✓[0m 67 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/footer-particles.html            [0m[1;2m    2.11 kB[0m[2m │ gzip:   0.98 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/loader.html                      [0m[1;2m    8.99 kB[0m[2m │ gzip:   2.56 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mindex.html                              [0m[1;2m   19.50 kB[0m[2m │ gzip:   5.41 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/ship-jet-integration.html        [0m[1;2m   26.88 kB[0m[2m │ gzip:   7.87 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mloader-Ctx8E3gd.css              [0m[1;2m    1.93 kB[0m[2m │ gzip:   0.73 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mfooterParticles-CY77mIlR.css     [0m[1;2m    2.24 kB[0m[2m │ gzip:   0.95 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mindex-BabU96yn.css               [0m[1;2m   17.32 kB[0m[2m │ gzip:   4.63 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mintro-controller-rlmJBVaK.css    [0m[1;2m   33.70 kB[0m[2m │ gzip:   8.23 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mloader-feWB3_jH.js               [0m[1;2m    3.45 kB[0m[2m │ gzip:   1.28 kB[0m[2m │ map:     5.97 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mruntime-lifecycle-BbgR35Yr.js    [0m[1;2m    4.02 kB[0m[2m │ gzip:   1.50 kB[0m[2m │ map:     4.65 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mfooterParticles-DWK4mAZF.js      [0m[1;2m    5.54 kB[0m[2m │ gzip:   2.03 kB[0m[2m │ map:     8.85 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mparticle-wordmark-DNTQd3vH.js    [0m[1;2m    5.59 kB[0m[2m │ gzip:   2.06 kB[0m[2m │ map:     8.59 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36minspection-D27G_Pff.js           [0m[1;2m   13.18 kB[0m[2m │ gzip:   4.00 kB[0m[2m │ map:    19.85 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mintro-controller-BlUFE_nF.js     [0m[1;2m   29.18 kB[0m[2m │ gzip:   9.94 kB[0m[2m │ map:    47.81 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mindex-V-Iq1KOl.js                [0m[1;2m   44.36 kB[0m[2m │ gzip:  13.22 kB[0m[2m │ map:    74.39 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mship-jet-controller-DEdpl-0Y.js  [0m[1;2m  250.45 kB[0m[2m │ gzip:  65.31 kB[0m[2m │ map:   501.30 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mthree.module-BavjGYZU.js         [0m[33;1m1,820.66 kB[0m[2m │ gzip: 359.39 kB[0m[2m │ map: 2,944.15 kB[0m
+
+✓ built in 238ms
+
+
+
+ NX   Successfully ran target build for project @site/pegasoft-concept and 3 tasks it depends on
+
+
+  Run duration:      837ms
+  Cache:             0/4 hit (0%)
+  Critical path:     830ms (2 tasks)
+  Recoverable time:  <1ms

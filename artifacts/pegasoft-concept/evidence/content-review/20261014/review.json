@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-14",
+  "branch": "codex/pegasoft-concept",
+  "source": "hover-amendment/source.json",
+  "uncommitted": true,
+  "manifestSha256": "68e0ef8c5a160eb51fd8012570ed4db3508488bd73edb78f8d7cf138ad1a2728",
+  "designApproval": "superpowers-design-gate.json",
+  "creditAuthorization": "Proceed with credit consumption",
+  "userAccepted": false,
+  "status": "implemented and technically verified; personal review pending",
+  "nx": {
+    "build": "passed",
+    "lint": "passed",
+    "projectTests": "passed",
+    "logs": [
+      "partner-wall/build.log",
+      "partner-wall/lint-test.log"
+    ]
+  },
+  "runtime": {
+    "placement": "hover-amendment/trust-placement-checks.json",
+    "hover": "hover-amendment/checks.json",
+    "transition": "hover-amendment/transition-checks.json",
+    "ordinary": "hover-amendment/regression-checks.json"
+  },
+  "contact": {
+    "review": "contact-fields/review.json",
+    "checksReused": "Contact-form module unchanged; current regression confirms audience interactions. Prior dedicated validation/draft checks remain attributed to their own manifest.",
+    "submission": "disconnected"
+  },
+  "protectedSources": [
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "05782809db455fcd756b138e08961fc2f99135f3e24ac62ac997bbd49ec5c3c0",
+      "unchanged": true
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "b4a9eac04b9116766dd75f31f49031d4aeca5c19ae1ddef6836bc60fdc4f7034",
+      "unchanged": true
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "ff9f6be876ad94862f8593967d765a4a671f1a735a77e73e1d998382c7153b9c",
+      "unchanged": true
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "6b2d6b80b400880d855796e0009e07ba5835e3bdaff19aa02cd98dbacba787df",
+      "unchanged": true
+    },
+    {
+      "path": "src/particle-wordmark.js",
+      "sha256": "cb26ce0fc544ddae6270366528152e4d907ede4308de6d3ebdc030fdd0193b89",
+      "unchanged": true
+    },
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "cde0e5a4fa0b425d8b39a2dbf688dfb1d02fa5a4079d891ed0dae6ab62ee58c2",
+      "unchanged": true
+    }
+  ],
+  "visualInspection": [
+    "hover-amendment/1505-trusted-section.png",
+    "hover-amendment/1280-trusted-section.png",
+    "hover-amendment/390-trusted-section.png",
+    "hover-amendment/1505-hover-held.png",
+    "hover-amendment/laptop-column-edge-held.png"
+  ],
+  "historicalChecks": [
+    "partner-wall/red-checks.json",
+    "partner-wall/first-checks.json",
+    "partner-wall/hover-first-checks.json"
+  ],
+  "diagnosticNotes": [
+    "Mobile fixed-delay sampling initially captured too few frames; bounded measurable-travel wait confirmed motion. No representative-device performance claim.",
+    "Keyboard tile focus previously jumped to offscreen originals. A single visible wall focus target now pauses decorative clones; semantic list is retained and reduced-motion shows the list.",
+    "Hover test initially selected a duplicate outside the clipped wall. Corrected hit-tested coordinates verify the rendered visible tile."
+  ],
+  "references": [
+    "https://reactbits.dev/components/drift-wall",
+    "https://www.unsection.com/section/bobbin-social-proof-testimonial-section"
+  ],
+  "license": "/licenses/react-bits.txt",
+  "pending": [
+    "Personal acceptance of integrated visual result",
+    "Authorized real testimonials, partners, company metrics and article destinations",
+    "Contact recipient/backend/privacy, company and legal details",
+    "Whole-site qualification and release authorization"
+  ],
+  "reviewUrl": "http://127.0.0.1:8771/?revision=trusted-partners-20261014#trust-evidence",
+  "next": "Stop at personal review. No commit/deployment/generation.",
+  "latestAmendment": "hover-amendment/review.json",
+  "checks": "hover-amendment/checks.json",
+  "checksSha256": "d3e75d655687af8c5a22512475a91ef49ac53b6e8e7caec4bf9972265d678c09"
+}

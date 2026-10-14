@@ -2,7 +2,7 @@ import {createWebsiteMotionController} from './website-motion-controller.js';
 import {createIntroController} from './intro-controller.js';
 import {introScrollDistance,introProgressAtScroll,introScrollAtProgress} from './intro-sequence.js';
 import {createTransportController} from './transport-controller.js';
-import {scrollDistance,progressAtScroll,scrollAtProgress} from './transport-timeline.js';
+import {scrollDistance,progressAtScroll,scrollAtProgress,scrollSpans,handoffEnd} from './transport-timeline.js';
 import {createScope, createFrameLoop} from '../review/runtime-lifecycle.js';
 
 /** Website scroll owner. The inspector uses the same controller independently. */
@@ -86,7 +86,12 @@ export function createJourneyHost(root) {
     });
     return task;
   }
-  const host = {mount, dispose: () => scope.dispose(), get controller() {return controller;}, get intro() {return intro;}, get content(){return content;}, get progress() {return progress;}, get activeFrameLoops() {return loop.active ? 1 : 0;}};
+  function navigate(target,{behavior=media.matches?'instant':'smooth'}={}){
+    if(document.body.classList.contains('static-journey')){staticStory.scrollIntoView({behavior,block:'start'});return;}
+    const top=target==='trust'?start()+distance:target==='about'?introTrack.getBoundingClientRect().top+window.scrollY+introScrollAtProgress(.50,window.innerHeight):start()+scrollSpans(window.innerHeight)[0]*.79/handoffEnd;
+    window.scrollTo({top,behavior});
+  }
+  const host = {mount,navigate, dispose: () => scope.dispose(), get controller() {return controller;}, get intro() {return intro;}, get content(){return content;}, get progress() {return progress;}, get activeFrameLoops() {return loop.active ? 1 : 0;}};
   stage.journey = host;
   scope.defer(() => { if (stage.journey === host) delete stage.journey; });
   return host;

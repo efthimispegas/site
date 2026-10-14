@@ -5,23 +5,23 @@
     {
       "path": "src/journey-host.js",
       "previousSha256": "0dfce71b661d9e9ebaeee718ad4aaaf617acea840f2beb32e6b8fde6426cc3e2",
-      "sha256": "fc0ba073b943c56e1690fa1f763b84d564fa358caad1de3385e0d83d6bf49e90"
+      "sha256": "1a4cebfec00244ae85a07b718d919bdada21b84b526d826e2d423044a9b01846"
     },
     {
       "path": "src/main.js",
       "previousSha256": "9ec90eccbbe26c3821d3e6943d801db9afcbbbcb5645307bb4be63fa771b4d4c",
-      "sha256": "3ade69e0a84c7baefd0dd82cd30e6875c7b855e135dc6f06309a4ca1ac4f32b1"
+      "sha256": "299908a5ab73ab510ca90f7103815af7fbff1eacd2c2b13ff8d17eb2bce93f2b"
     },
     {
       "path": "index.html",
       "previousSha256": "9839791071b57caf2508c466bc315c09c207ee90539f7025f688edae0fe70641",
-      "sha256": "832b2ac54a26e0316f29eef34241ec428f069115fdc4105d3b758d038827c420"
+      "sha256": "f22ed5d88911d634b04d19d9e919a3339c5edeccf365257430fb9e7644862860"
     }
   ],
   "addedFiles": [
     {
       "path": "src/website-motion-controller.js",
-      "sha256": "8823432766cd83d232953aee032f5a18922374086102046115f03752963b5c35"
+      "sha256": "a700ab17456f167b225542c3f11ff4dc57275d962a8f2e868560af71b3ba92fb"
     },
     {
       "path": "src/website-motion.css",
@@ -138,5 +138,35 @@
   "headerFooterAmendmentRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/header-footer-amendments/request.json",
   "headerFooterAmendmentRequestSha256": "754420ee362eaf61990110474e951734ceba82571ac02ddaef2381b41c492ff0",
   "headerStyleCorrectionRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/header-style-correction/commission.json",
-  "headerStyleCorrectionRequestSha256": "8d8c383be24d3341d7bed9ea2206e12865ae03d71f9f116c1b87365ea8ee8e0e"
+  "headerStyleCorrectionRequestSha256": "8d8c383be24d3341d7bed9ea2206e12865ae03d71f9f116c1b87365ea8ee8e0e",
+  "contentPhaseAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/content-review/20261014/request.json",
+    "requestSha256": "6abe024e3455fc3116035bffe9dcbc477c2052d86b14f83f356a786fa6216d6a",
+    "approval": "artifacts/pegasoft-concept/evidence/website-motion/20261014/all-amendments-approved/user-approval.json",
+    "approvalSha256": "9bf5dc2e41d9bab96d23de3a4373a80f34b21a2f638c6d6eed8afbcfa0f4c775",
+    "acceptedManifest": "artifacts/pegasoft-concept/evidence/content-review/20261014/before/website-motion-manifest.json.snapshot",
+    "acceptedManifestSha256": "564d64109150be910d10df578a569b183e608c6738abe23be2d001b445e79c64",
+    "files": [
+      {
+        "path": "src/content-sections.css",
+        "sha256": "f346f1fb58b91c034aa0116a3acff9ae22ed6afb82b38137ab10fa869f0587bb"
+      },
+      {
+        "path": "src/content-controller.js",
+        "sha256": "5905e7b315afb8a68bd0b58ef2113cf286b54a35b721843bf1728a0c0ccd8c94"
+      },
+      {
+        "path": "src/contact-form.js",
+        "sha256": "6e34520b505ce9ed2a92e270adeeaac42875b28ac6caca2dbe8fc16118409570"
+      },
+      {
+        "path": "src/partner-wall.js",
+        "sha256": "b92d895d4cc8c94baad05f981355c3ce3b9ee65325a4ada4b65a04546b981a60"
+      },
+      {
+        "path": "public/licenses/react-bits.txt",
+        "sha256": "f4c33af6739191537738662d223b68d77bc226f4b57ea883e16481d8cc5c73c9"
+      }
+    ]
+  }
 }
