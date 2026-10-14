@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "states": [
+    "activation-route",
+    "clearance-travel",
+    "arrival-lockup"
+  ],
+  "reportPath": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json",
+  "capturePath": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+  "anchorsPath": "docs/hero-reference/recording-anchors.json",
+  "pins": [
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json",
+      "bytes": 771737,
+      "sha256": "1120df04f11305c48f979032b3515998cfd9151413007097eb922a7b7fc64a97"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+      "bytes": 1438555,
+      "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb"
+    },
+    {
+      "path": "docs/hero-reference/recording-anchors.json",
+      "bytes": 155189,
+      "sha256": "351fed91b69ddf4a45de4e4ead7d68c642ff01e7496f8062fa61c12bb5b163b1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/classifier-snapshot.mjs",
+      "bytes": 71162,
+      "sha256": "24fafcdb362dd631e809646168740f10e98a40ab901543620092d4726147092d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/source-segments-snapshot.json",
+      "bytes": 3124,
+      "sha256": "78d3e9f34597a29d65bec6181b14f6302ff07b3233a2c5c0d182ce6018e4fb54"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/local-route-rendering-snapshot.ts",
+      "bytes": 2232,
+      "sha256": "a6ce158f642412ca41066edc22d4e39a10eee3251d2ad2479f7e72acc660682c"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-000598-activation-route.png",
+      "bytes": 1625039,
+      "sha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-route.png",
+      "bytes": 421050,
+      "sha256": "5265413af2294199cf639bf447a655064670d3c696aceea22aee0a39838ea74d"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001078-clearance-travel.png",
+      "bytes": 2038304,
+      "sha256": "621c0d2d39a3ddc4f8cc8e7fd1a3a3053122c7b20b0dd46a211066698e8556c9"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/clearance-travel.png",
+      "bytes": 483776,
+      "sha256": "d8abd6b01cbabe9034733a7362ff5d19c0232e086b82ea036fe6af8d69c0e3a2"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+      "bytes": 1131505,
+      "sha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/local-hero-route.ts",
+      "bytes": 10846,
+      "sha256": "b31364614481996a6eb63a016719e9f9db23e8d89f2ec2530350ecb2f3ce2ed2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/local-hero-beam.tsx",
+      "bytes": 7212,
+      "sha256": "6e1e4ef9ef9417f2b01de2b9582da891f6ca329e2b316dc4c398af19b122c087"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/source-radius-semantics.json",
+      "bytes": 1159,
+      "sha256": "df4aca1341ab661b8e293f2c5bed25b1110cfac714685b01d64b14158d22b499"
+    }
+  ]
+}

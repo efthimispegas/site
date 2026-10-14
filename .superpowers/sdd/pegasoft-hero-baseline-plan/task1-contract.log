@@ -1,0 +1,44 @@
+
+> nx run @site/pegasoft-e2e:hero-capture-contract-test
+
+> playwright test --config=playwright.capture-contract.config.ts
+
+(node:61615) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:61615) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2mRunning [22m13[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:61621) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:61621) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/13] src/visual/hero-capture-contract.spec.ts:26:5 › lifecycle_changes_between_assertions
+[1A[2K[2/13] src/visual/hero-capture-contract.spec.ts:34:5 › resource_readiness_delays_entry
+[1A[2K[3/13] src/visual/hero-capture-contract.spec.ts:43:5 › pulse_label_differs_from_applied_clock
+[1A[2K[4/13] src/visual/hero-capture-contract.spec.ts:54:5 › stale_consumer_rejects_frame
+[1A[2K[5/13] src/visual/hero-capture-contract.spec.ts:63:5 › pending_render_rejects_frame
+[1A[2K[6/13] src/visual/hero-capture-run.spec.ts:43:5 › restart_preserves_run_artifacts
+[1A[2K[7/13] src/visual/hero-capture-run.spec.ts:64:5 › capture_run_preserves_historical_and_concurrent_outputs
+[1A[2K[8/13] src/visual/hero-capture-run.spec.ts:78:5 › capture_run_failed_and_missing_states_are_explicit
+[1A[2K[9/13] src/visual/hero-capture-run.spec.ts:108:5 › capture_run_complete_manifest_hashes_all_artifacts
+[1A[2K[10/13] src/visual/hero-capture-run.spec.ts:147:5 › capture_run_missing_or_changed_artifact_cannot_complete
+[1A[2K[11/13] src/visual/hero-capture-run.spec.ts:166:5 › capture_run_foreign_measurement_identity_cannot_complete
+[1A[2K[12/13] src/visual/hero-capture-run.spec.ts:180:5 › capture_run_failure_survives_later_success
+[1A[2K[13/13] src/visual/hero-capture-run.spec.ts:199:5 › capture_run_failed_manifest_hashes_empty_partial_artifacts
+[1A[2K[32m  13 passed[39m[2m (531ms)[22m
+
+
+
+ NX   Successfully ran target hero-capture-contract-test for project @site/pegasoft-e2e
+
+
+  Run duration:      874ms
+  Cache:             0/1 hit (0%)
+  Critical path:     867ms (1 task)
+  Recoverable time:  <1ms

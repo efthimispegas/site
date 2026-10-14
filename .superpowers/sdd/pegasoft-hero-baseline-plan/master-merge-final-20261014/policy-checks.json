@@ -1,0 +1,19 @@
+{
+  "audit-policy": {
+    "command": [
+      "pnpm",
+      "audit",
+      "--audit-level",
+      "high"
+    ],
+    "exitCode": 0
+  },
+  "frozen-install-after-policy": {
+    "command": [
+      "pnpm",
+      "install",
+      "--frozen-lockfile"
+    ],
+    "exitCode": 0
+  }
+}

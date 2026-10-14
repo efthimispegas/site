@@ -1,0 +1,76 @@
+{
+  "status": "unfilled-evidence-contract; not a qualification artifact",
+  "requiredProof": [
+    "Effect-specific source onset no wider than one recording frame, derived from retained effect progression and locked CSS, with hashed raw frame/timestamp attachments. Background presentation frames56/57 are insufficient.",
+    "Source age interval equals sample timestamp minus independently bounded effect onset; it must overlap the identified captured native currentTime.",
+    "Explicit reviewed source/local semantic-effect equivalence; native names may differ, while role and causal timing must match.",
+    "Local animation ID/name/target and age bind to the same bracketed screenshot/measurement in a newly authorized packet. Never backfill historical anonymous IDs.",
+    "Independent reviewer identity/ref and all run/state/recording/reference/local screenshot pins. No owner self-qualification."
+  ],
+  "states": [
+    {
+      "stateId": "loader-mark",
+      "runId": null,
+      "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "referenceSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+      "implementationSha256": null,
+      "schemaVersion": 1,
+      "reviewerType": "independent-reviewer",
+      "reviewer": null,
+      "reviewRef": null,
+      "source": {
+        "clockBasis": "loader-animation-onset",
+        "effectRole": null,
+        "animationName": null,
+        "targetSelector": null,
+        "cssSha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c",
+        "onsetIntervalPts": null,
+        "recordingTimeBase": "1/6000",
+        "samplePts": 12000,
+        "ageMs": null,
+        "evidenceRef": null
+      },
+      "implementation": {
+        "clockBasis": "loader-animation-onset",
+        "effectRole": null,
+        "animationId": null,
+        "animationName": null,
+        "targetSelector": null,
+        "ageMs": null,
+        "evidenceRef": null
+      }
+    },
+    {
+      "stateId": "world-reveal",
+      "runId": null,
+      "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "referenceSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+      "implementationSha256": null,
+      "schemaVersion": 1,
+      "reviewerType": "independent-reviewer",
+      "reviewer": null,
+      "reviewRef": null,
+      "source": {
+        "clockBasis": "loader-animation-onset",
+        "effectRole": null,
+        "animationName": null,
+        "targetSelector": null,
+        "cssSha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c",
+        "onsetIntervalPts": null,
+        "recordingTimeBase": "1/6000",
+        "samplePts": 21000,
+        "ageMs": null,
+        "evidenceRef": null
+      },
+      "implementation": {
+        "clockBasis": "loader-animation-onset",
+        "effectRole": null,
+        "animationId": null,
+        "animationName": null,
+        "targetSelector": null,
+        "ageMs": null,
+        "evidenceRef": null
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "command": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/analyze-exit.mjs --verify",
+  "baseManifestPinsVerified": 13,
+  "byteIdenticalRecomputedOutputs": 3,
+  "historicalExpectedPinsVerified": 4,
+  "sourceAndImplementationBoundaryReproductions": "both match saved measurements",
+  "boundaryGates": "unchanged; implementation remains blocked",
+  "applicationExecution": false,
+  "captures": 0,
+  "sharedFilesEdited": 0
+}

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "status": "pass-with-qualification-blocked",
+  "rawImageAuthorityPins": {
+    "status": "pass",
+    "count": 6,
+    "authority": "Historical anchors and capture manifest; no current provenance claim"
+  },
+  "dependencies": {
+    "status": "pass",
+    "count": 2,
+    "result": "Frozen snapshots match latest independently reviewed refinement revision"
+  },
+  "challengeEvaluation": {
+    "status": "pass",
+    "labelledSections": 27,
+    "observedDiagnostic": 5,
+    "blockedDiagnostic": 22,
+    "qualified": 0
+  },
+  "blankControls": {
+    "status": "pass",
+    "count": 6,
+    "maximumAbsoluteResidual": 0,
+    "limit": "Finite producer labels; no calibration claim"
+  },
+  "labelAudit": {
+    "status": "pass",
+    "evidence": "label-audit.json",
+    "independentReview": "pending-root-commissioned-review"
+  },
+  "reproducibility": {
+    "status": "pass",
+    "expectedOutputs": 15,
+    "command": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/evaluate.mjs --verify",
+    "evidence": "verification.log",
+    "result": "All 15 outputs recomputed byte-for-byte from immutable dependency snapshots and pinned raw rasters"
+  },
+  "qualification": "blocked",
+  "scope": {
+    "sourceTestRuntimeDocsChanges": 0,
+    "newCaptures": 0,
+    "gatesChanged": false,
+    "masksBorrowed": false
+  },
+  "testsTypecheckLint": {
+    "status": "not-required",
+    "reason": "Evidence-only packet importing frozen dependencies; no production source or tests changed"
+  }
+}

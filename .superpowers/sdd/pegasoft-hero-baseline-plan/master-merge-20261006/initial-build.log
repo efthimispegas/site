@@ -1,0 +1,67 @@
+
+ NX   Running target build for 2 projects:
+
+- @site/individual
+- @site/pegasoft
+
+
+
+> nx run @site/individual:build
+
+> next build
+
+▲ Next.js 16.3.4 (Turbopack)
+(node:18617) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Running next.config.js took 516ms
+
+  Creating an optimized production build ...
+(node:18617) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18680) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Compiled successfully in 988ms
+  Running TypeScript ...
+error TS2688: Cannot find type definition file for '*'.
+  The file is in the program because:
+    Entry point of type library '*' specified in compilerOptions
+tsconfig.json(25,27): error TS5103: Invalid value for '--ignoreDeprecations'.
+Failed to type check.
+
+Warning: command "next build" exited with non-zero status code
+> nx run @site/pegasoft:build
+
+> next build
+
+▲ Next.js 16.3.4 (Turbopack)
+(node:18618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18639) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Running next.config.js took 528ms
+
+  Creating an optimized production build ...
+(node:18618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18681) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Compiled successfully in 1201ms
+  Running TypeScript ...
+error TS2688: Cannot find type definition file for '*'.
+  The file is in the program because:
+    Entry point of type library '*' specified in compilerOptions
+tsconfig.json(25,27): error TS5103: Invalid value for '--ignoreDeprecations'.
+Failed to type check.
+
+Warning: command "next build" exited with non-zero status code
+
+
+ NX   Running target build for 2 projects failed
+
+Failed tasks:
+
+- @site/individual:build
+- @site/pegasoft:build
+

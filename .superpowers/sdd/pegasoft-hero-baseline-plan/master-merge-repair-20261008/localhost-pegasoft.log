@@ -1,0 +1,84 @@
+
+ NX   Running target start for project @site/pegasoft and 1 task it depends on:
+
+
+
+> nx run @site/pegasoft:build
+
+> next build
+
+▲ Next.js 16.3.8 (Turbopack)
+(node:76262) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Running next.config.js took 262ms
+
+  Creating an optimized production build ...
+(node:76262) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✓ Compiled successfully in 373ms
+  Running TypeScript ...
+  Finished TypeScript in 1178ms ...
+  Collecting page data using 10 workers ...
+(node:76305) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76309) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76311) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76306) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76312) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76307) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76313) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76314) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:76310) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  Generating static pages using 10 workers (0/17) ...
+  Generating static pages using 10 workers (4/17) 
+  Generating static pages using 10 workers (8/17) 
+  Generating static pages using 10 workers (12/17) 
+✓ Generating static pages using 10 workers (17/17) in 276ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ○ /contact
+├ ƒ /llms.txt
+├ ○ /opengraph-image
+├ ○ /privacy
+├ ○ /robots.txt
+├ ○ /services
+├ ○ /sitemap.xml
+├ ○ /studio
+├ ○ /work
+├   /work/[slug]
+│ ├ ● /work/helios-ledger
+│ ├ ● /work/asteria-care
+│ └ ● /work/northline-ops
+├ ○ /work/concepts
+└ ○ /work/portfolio
+
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+
+
+> nx run @site/pegasoft:start --port=4330 --hostname=127.0.0.1
+
+> next start --port=4330 --hostname=127.0.0.1
+
+(node:76328) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+▲ Next.js 16.3.8
+- Local:         http://127.0.0.1:4330
+- Network:       http://127.0.0.1:4330
+✓ Ready in 65ms
+✓ Running next.config.js took 227ms

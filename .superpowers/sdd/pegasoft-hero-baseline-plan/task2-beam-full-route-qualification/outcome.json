@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "status": "evidenced-retained-input-boundary; review-ready",
+  "qualification": "blocked",
+  "historicalRunId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+  "coverage": "Six unmasked source/local frames: activation-route, clearance-field-preview and arrival-lockup;27 independently proposed per-image sections. These are challenges, not exhaustive route ground-truth labels.",
+  "labels": "labels.json",
+  "labelAudit": "label-audit.json",
+  "rawResults": "challenge-results.json",
+  "compactResults": "summary.json",
+  "table": "challenge-table.csv",
+  "calibrationAssessment": "calibration-feasibility.json",
+  "observed": {
+    "diagnosticObserved": 5,
+    "diagnosticBlocked": 22,
+    "qualified": 0,
+    "redRouteBoundary": "Positive-bright helper misses saturated red routes with negative mean-RGB contrast; raw red samples are retained.",
+    "haloBoundary": "Detached local dot and dark copy expand total residual envelopes; amplitude alone does not identify route halo.",
+    "sourceClearanceBoundary": "Luminous marks/copy/industrial support contaminate proposed source sidebands; original noise limit remains unchanged.",
+    "clippingBoundary": "Outside-raster/partial-strip requests block without padding or invented completion.",
+    "pulseBoundary": "Static field marks are labelled as visible marks only. Pulse phase/causality is unavailable in this three-state packet."
+  },
+  "conclusion": "Retained evidence supports reproducible declared statistics on isolated visible bright sections. It does not qualify all route classes, separate semantic core/halo or calibrated error/full extent. Independent semantic/edge review and matched causal background/component evidence are the precise missing inputs; no arbitrary sensitivity threshold is adopted.",
+  "preserved": { "oldPacketsAndScripts": true, "sourceTestRuntimeDocsEdits": 0, "newCaptures": 0, "sourceOrLocalMasksBorrowed": false, "activeGatesChanged": false },
+  "reviewOwnership": "Root commissions targeted independent review; producer grants no qualification.",
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/evaluate.mjs --verify",
+  "stopCondition": "Concrete challenge/calibration packet plus evidenced retained-input boundary delivered. No geometry consumption."
+}

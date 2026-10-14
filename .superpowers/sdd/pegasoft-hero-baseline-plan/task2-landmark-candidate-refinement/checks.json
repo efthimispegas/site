@@ -1,0 +1,62 @@
+{
+  "measurementContracts": {
+    "command": "pnpm nx run @site/pegasoft-e2e:hero-measurement-test",
+    "red": {
+      "exitCode": 1,
+      "tests": 71,
+      "pass": 69,
+      "fail": 2,
+      "expectedFailures": [
+        "candidate rejects contour-connected red ambiguity while preserving diagnostic building support",
+        "candidate blocks clipped endpoint separation while retaining shaft support"
+      ]
+    },
+    "green": {
+      "exitCode": 0,
+      "tests": 71,
+      "pass": 71,
+      "fail": 0
+    },
+    "baselineGuardCases": [
+      "detached red support remains observed",
+      "enclosed red logo remains filled"
+    ]
+  },
+  "typechecks": {
+    "command": "pnpm nx run @site/pegasoft-e2e:typecheck",
+    "exitCode": 0,
+    "targets": [
+      "@site/pegasoft:typecheck",
+      "@site/pegasoft-e2e:typecheck"
+    ],
+    "cacheHits": 0,
+    "targetsCount": 2
+  },
+  "lint": {
+    "command": "pnpm nx run @site/pegasoft-e2e:lint",
+    "exitCode": 0,
+    "errors": 0,
+    "warnings": 39
+  },
+  "whitespace": {
+    "command": "git diff --check -- apps/pegasoft-e2e/src/visual/screen-structural-features.mjs tools/hero-reference/measurement-contract.test.mjs",
+    "exitCode": 0,
+    "rawLog": "whitespace.log"
+  },
+  "rasterEvaluation": {
+    "command": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/evaluate-refinement.mjs",
+    "exitCodes": [
+      0,
+      0
+    ],
+    "byteIdenticalRuns": 2,
+    "pinnedInputs": 8,
+    "preservedPriorPacketPins": 32,
+    "maskPixelsChanged": [
+      0,
+      0,
+      0
+    ]
+  },
+  "captureOrBrowserExecution": false
+}

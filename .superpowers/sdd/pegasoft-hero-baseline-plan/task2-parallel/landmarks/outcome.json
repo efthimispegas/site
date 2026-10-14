@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-02",
+  "status": "bounded diagnostic checkpoint; all semantic and contour-error qualification remains blocked",
+  "findings": [
+    {
+      "state": "activation-contact",
+      "finding": "Reviewed neutral rail fringe (1438,634), RGB [213,201,213], is selected before hole fill. Its distance from the measured background interval is 28.0357, far beyond the four-unit exclusion band. The saved row has a six-pixel unselected gap x1439..1444 before building support begins at x1445; selected-support connectivity reaches the building by another route.",
+      "evidence": "contour-evidence.json#rows[1].railJunctionRows and witnessToBuildingSideConnection",
+      "nextImplementation": "Add a conservative connected-contaminant ambiguity gate using independently identified rail-edge evidence; test this pinned witness and preserved building edge. Do not solve by increasing the RGB exclusion distance or cutting a hardcoded crop."
+    },
+    {
+      "state": "arrival-lockup",
+      "finding": "The selected ROI edge x1194 has 29 selected pixels y747..775. At y760, the bright rounded endpoint RGB [244,253,255] continues outside the ROI at x1190..1193; it is selected inside x1194..1218. A color transition at x1219 leads to the flat gray shaft RGB [219,224,226] at x1220. The mask merges both. This boundary contact does not establish that the gray arrow shaft extends outside the ROI.",
+      "evidence": "contour-evidence.json#rows[2].feedShaftRows and brightEndpointOutsideRoi; arrival-lockup-contour-accounting.png",
+      "nextImplementation": "Implement candidate-only connected feed-endpoint exclusion with explicit ambiguity rejection, keeping the current ROI/support gates. Validate endpoint exclusion and shaft retention separately on the pinned raster before seeking independent semantic review."
+    },
+    {
+      "state": "all-three",
+      "finding": "ROI-wide RGB uncertainty is not a contour-error estimate: only 584/6995 route, 716/8976 contact and 342/605 arrival uncertain pixels are within eight raster pixels of the selected contour. The remaining counts are far from that contour. These distances describe candidate support, not a conservative error bound.",
+      "nextImplementation": "Retain edge-located uncertainty counts and require independently labeled implementation-only inner/outer edge envelopes to calibrate missed/extra support before qualification."
+    },
+    {
+      "state": "activation-interiors",
+      "finding": "Exact reproduced fill adds 3878 route pixels in 13 components and 3943 contact pixels in 13 components. Largest components are 1597 and 1615 pixels; 12 smaller enclosed components account for 2281 and 2328 pixels. Arrival adds zero. Filled-interior overlays expose the logo/window pattern for independent semantic inspection; no interior touches the reported rail witness.",
+      "nextImplementation": "Keep enclosed fill and its accounting; validate the 13 component roles independently together with corrected outer contours."
+    }
+  ],
+  "checks": {
+    "pinnedInputs": "9/9 verified; three image and three saved mask pins plus extractor/review/review-packet",
+    "candidateMaskReproduction": "3/3 pixel-identical",
+    "filledCounts": "3/3 exact agreement with prior packet",
+    "uncertaintyCounts": "3/3 exact agreement with prior packet",
+    "roiAndSupportGates": "unchanged",
+    "sourceMasksConsumed": false,
+    "currentCaptureQualification": false,
+    "activeCandidateIntegration": false
+  },
+  "artifacts": [
+    "contour-evidence.json",
+    "activation-contact-inspection.png",
+    "activation-contact-contour-accounting.png",
+    "activation-contact-filled-interiors.png",
+    "arrival-lockup-inspection.png",
+    "arrival-lockup-contour-accounting.png",
+    "activation-route-inspection.png",
+    "activation-route-contour-accounting.png",
+    "activation-route-filled-interiors.png"
+  ],
+  "stoppingCondition": "Evidence checkpoint produced; no shared implementation changes or independent semantic acceptance."
+}

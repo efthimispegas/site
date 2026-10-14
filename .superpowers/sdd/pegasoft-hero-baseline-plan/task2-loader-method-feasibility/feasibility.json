@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-03",
+  "purpose": "Independent bounded feasibility assessment before any fourth loader fit; not qualification or review of its own output",
+  "verdict": "NO_PROCEED_ON_RETAINED_EVIDENCE",
+  "qualifiedDistinctMethod": null,
+  "executionAuthorizedByThisResult": false,
+  "gate": {
+    "effectSpecificOnsetIntervalMaximumMs": 16.666666666666668,
+    "recordingTimeBase": "1/6000",
+    "maximumIntervalWidthPts": 100,
+    "boundMustInclude": [
+      "Effect identity and original recording/computed-style equivalence",
+      "Rasterization, opacity/compositing and codec error",
+      "Frame sampling, repeat/drop/alias branches and presentation timestamp mapping"
+    ]
+  },
+  "distinctCandidateConsidered": {
+    "method": "Ordinal event constraints from independently identified staggered cube/line appearances, with authored delays removed; no orientation moments or pose fit",
+    "distinctness": "Use multiple semantic event times and their causal delays rather than spatial pose inversion.",
+    "hypotheticalDerivation": "For event j, a certified visible-event interval [L_j,U_j], authored native delay d_j, visibility latency v_j in [v_min,j,v_max,j], and recording/native timing uncertainty b_j imply native onset in [L_j-d_j-v_max,j-b_j, U_j-d_j-v_min,j+b_j]. Intersect only validated constraints for the SAME native onset, retaining every semantic/alias branch. Proceed only if the full feasible-set diameter is at most 100 PTS units.",
+    "retainedEvidenceFailure": "CSS cubes fade/slide over 400ms with 80ms stagger; first visible encoded pixels are not a zero-latency marker for animation start. No certified appearance intervals, visibility-latency bounds, recording timing bounds or independently established common native start exist. Line draw and periodic ellipse strokes also require semantic and phase binding. Applying fresh thresholds would repeat the rejected threshold-onset approach.",
+    "requiredBeforeAnyExecution": [
+      "Identify each original-recording component/effect independently and establish the recording native computed timing/delay, including shared-start relationship",
+      "Provide a conservative recording-compatible appearance/raster/codec error and native-to-PTS timing bound, with held-out validation; synthetic pose recovery alone is insufficient",
+      "Prove branch uniqueness or retain the union of all event/phase hypotheses; derive the worst-case 100-PTS bound before fitting retained pixels"
+    ]
+  },
+  "identifiabilityBarrier": {
+    "type": "Unspecified observation model prevents certified effect-onset identification; not a universal impossibility theorem for video estimation.",
+    "formalTest": "Given pixels Y_k and PTS t_k, define the feasible onset set S={tau: some recording-matched effect/render model, pixel-error realization, timing mapping and semantic/alias branch consistent with all Y_k has onset tau}. Qualification needs sup(S)-inf(S)<=100 PTS units. Retained evidence supplies neither the admissible recording-error/timing family nor verified original effect binding, so that diameter cannot be bounded defensibly.",
+    "observability": "Fading/translation/rotation overlap. Encoded first appearance includes unbounded visibility latency relative to native start. Settled or repeating dash patterns alone can admit multiple age branches. A constant recording time offset may cancel between onset and sample; no navigation offset is required or invented. Unbounded variation/unknown mapping between presented frames and native effect age remains an unverified prerequisite.",
+    "existingDiagnostics": "106.93ms threshold sensitivity and 19.33ms conditional pose spread are diagnostic outcomes, not confidence intervals or proofs of a complete feasible-set width. Recording normalized residual 0.252910707268 exceeds tested synthetic 0.06684438855; averaging/intersection cannot repair missing model/error validation.",
+    "sourceLimit": "Locked CSS/HTML recover authored source; hash equality does not prove original recording native style, compositor behavior or effect identity. User confirms no other original-session trace/log exists."
+  },
+  "minimumAdditionalEvidence": [
+    "An effect-specific original-session native onset/currentTime/target binding correlated to recording PTS with a conservative total interval <=100 ticks would directly resolve the clock; the user confirms this is unavailable.",
+    "Absent that trace: independent evidence establishing original-recording effect/computed-timing equivalence plus a validated conservative recording-compatible observation/timing error family and uniqueness derivation that proves the <=100-tick onset bound. More samples or another fit under the same unvalidated assumptions do not supply it.",
+    "If the original retained source cannot obtain those prerequisites, an explicitly authorized replacement reference with synchronized native named-effect timing and conservative recording correlation is needed; it changes reference authority and cannot retrospectively qualify this MOV. Preserve the current blocked contract."
+  ],
+  "remainingQualification": "Both loader-mark and world-reveal source contracts remain unfilled; any future method result also needs independent review, source/local semantic-role correspondence and a new authorized capture packet with named native local bindings. No historical anonymous ages are backfilled.",
+  "checks": {
+    "evidenceInputsPinned": 8,
+    "selectedDeclaredPinsVerified": 3,
+    "declaredPinTargets": [
+      ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-checkpoint.json",
+      ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-manifest.json",
+      "docs/hero-reference/live/locked-reference-loader.css"
+    ],
+    "fitOrCaptureRuns": 0,
+    "sourceOrContractEdits": 0,
+    "selfQualification": false
+  },
+  "nextAction": "Do not execute a fourth estimator on these retained inputs. Obtain the additional causal/model-validation evidence or explicitly authorize a replacement timed reference; keep Task 2 loader qualification blocked."
+}

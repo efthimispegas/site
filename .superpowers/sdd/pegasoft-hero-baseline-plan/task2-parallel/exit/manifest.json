@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "status": "historical diagnostic packet; exit qualification blocked",
+  "inputs": [
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json",
+      "bytes": 771737,
+      "sha256": "1120df04f11305c48f979032b3515998cfd9151413007097eb922a7b7fc64a97",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+      "bytes": 1438555,
+      "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001918-journey-exit.png",
+      "bytes": 658503,
+      "sha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b",
+      "expectedSha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b",
+      "historicalPinVerified": true
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/journey-exit.png",
+      "bytes": 254834,
+      "sha256": "c0dfeafbb840e65be60ff23bbe5bc08a0e14568899027eeb1688655d622eb19e",
+      "expectedSha256": "c0dfeafbb840e65be60ff23bbe5bc08a0e14568899027eeb1688655d622eb19e",
+      "historicalPinVerified": true
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/measurements/journey-exit.json",
+      "bytes": 116674,
+      "sha256": "6e23621fad4dd8d914343740bdb776961621236af3000bf3644ed7e73bd05ba4",
+      "expectedSha256": "6e23621fad4dd8d914343740bdb776961621236af3000bf3644ed7e73bd05ba4",
+      "historicalPinVerified": true
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/observations/journey-exit.json",
+      "bytes": 60350,
+      "sha256": "b956575961e4083e385960f9cd274978d1e40c4d43aa96efa79dccec32490291",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/extractor-before.mjs",
+      "bytes": 63855,
+      "sha256": "1a186aef346255395307ee81ee908ded95a15a677876a277eb7ec2152ec8a69b",
+      "expectedSha256": "1a186aef346255395307ee81ee908ded95a15a677876a277eb7ec2152ec8a69b",
+      "historicalPinVerified": true
+    },
+    {
+      "path": "docs/hero-reference/recording-anchors.json",
+      "bytes": 155189,
+      "sha256": "351fed91b69ddf4a45de4e4ead7d68c642ff01e7496f8062fa61c12bb5b163b1",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": "docs/hero-reference/recording-structural-bounds.json",
+      "bytes": 178657,
+      "sha256": "825c246d39ba8d9ac39575b464e1dab33be469ea516ec0b3900fbed6d85fd762",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/analyze-exit.mjs",
+      "bytes": 11694,
+      "sha256": "85694e2fb7cf170f230015841ed6a60b0ffd82d82440a4168e82763c19ef2672",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/diagnostics.json",
+      "bytes": 12821,
+      "sha256": "c0546ae95afb398dc8ff81b4dae4562fe3a85122d959c562ce47230d78b78934",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/row-profile.csv",
+      "bytes": 85101,
+      "sha256": "54a4e8c231884ed0993b3ddd9c6fec2cad80eafcb90b670254ca7fdc44efef81",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/outcome.json",
+      "bytes": 1484,
+      "sha256": "5e86a447ee66c5792b5e1700c09299259703e28962208cdeef519ccfb8a21aa6",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/verification.json",
+      "bytes": 470,
+      "sha256": "9ef101250a4dde8fe3dc2cbbd97d87a816b87c03158d9f782b4a683608f3d58f",
+      "expectedSha256": null,
+      "historicalPinVerified": null
+    }
+  ],
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/analyze-exit.mjs --verify",
+  "unchangedGates": true
+}

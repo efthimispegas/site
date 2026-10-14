@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "scope": "Read-only source byte pins; no copied production assets",
+  "sources": [
+    {
+      "id": "app",
+      "url": "https://www.vectrfl.com/_astro/CommonScripts.astro_astro_type_script_index_0_lang.CZTi642d.js",
+      "bytes": 120694,
+      "sha256": "352de1ba99e915be04f929107ffcfbfa2893b943bf0b60ae1d74006fa1e36494",
+      "segments": [
+        {
+          "name": "device-predicates",
+          "utf8Start": 2500,
+          "utf8EndExclusive": 2742,
+          "sha256": "d8d14e0be9f1fd5031b74acf988898bf26c7c31d4cf9006dd15cd08520054a12",
+          "excerpt": "Uo=()=>/iPhone|iPad|iPod/i.test(navigator.userAgent)||Ls(),Qt=()=>/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream||/android/i.test(navigator.userAgent)||Ls(),Ls=()=>/Macintosh/.test(navigator.userAgent)&&\"ontouchend\"in document"
+        },
+        {
+          "name": "canvas-size-history",
+          "utf8Start": 29545,
+          "utf8EndExclusive": 30418,
+          "sha256": "2e7aaf6faeac39521d1e99fa3fcb360315ef86e7e7547d710fe0a3d2209c3926",
+          "excerpt": "const e=()=>{const a=document.createElement(\"div\");a.style.cssText=\"position:fixed;top:0;left:0;width:0;height:100lvh;visibility:hidden;pointer-events:none;\",document.documentElement.appendChild(a);const i=a.offsetHeight||window.innerHeight;return a.remove(),i},t=()=>Qt()&&window.innerWidth<900;let r=window.innerWidth,n=t(),s=n?Math.max(window.innerHeight,e()):window.innerHeight;const l=({force:a=!1}={})=>{const i=t(),d=window.innerWidth,u=window.innerHeight;i&&!n&&(s=Math.max(u,e())),n=i;const m=i?Math.max(s,u):u;if(i&&!a&&d===r&&m===s)return;r=d,s=m;const h=Uo(),g=h?1.25:i&&!h?1.5:p.dpr,w={width:d,height:m,dpr:Math.min(g,window.devicePixelRatio),ratio:d/m};p.canvasSize=w,p.api.trigger({name:\"resize\",fireAtStart:!0},w)};window.addEventListener(\"resize\",()=>l()),window.addEventListener(\"orientationchange\",()=>{s=window.innerHeight,l({force:!0})}),l({force:!0}),"
+        },
+        {
+          "name": "canvas-display",
+          "utf8Start": 37748,
+          "utf8EndExclusive": 37802,
+          "sha256": "52e2e187031ef84765d1510ce62e48a8c4a714ec8a67da5a74d0d4cd6d230b39",
+          "excerpt": "m.style=\"width: 100vw; height: 100vh; height: 100lvh;\""
+        }
+      ]
+    },
+    {
+      "id": "renderer",
+      "url": "https://www.vectrfl.com/_astro/renderer.C_wI7OdU.js",
+      "bytes": 9365,
+      "sha256": "664abaf682e04ea8e8d2ef1babcdc4749cc9c27300bfa173f41b36656a236b18",
+      "segments": [
+        {
+          "name": "bloom-device-policy",
+          "utf8Start": 6438,
+          "utf8EndExclusive": 6497,
+          "sha256": "d2eb2a52949ea0c77af123100009064a5992fb6e5776293fee2ab332344b4283",
+          "excerpt": "r=j.isMobileOrTablet?4:2;this.bloomPass=he(s,1.5,.05,.22,r)"
+        },
+        {
+          "name": "drawing-buffer",
+          "utf8Start": 7292,
+          "utf8EndExclusive": 7360,
+          "sha256": "280108acb96268cfb1f0154018e76eb6e9f2e30d7e4aee6823c0172bec55a4ce",
+          "excerpt": "onResize({width:e,height:t,dpr:i}){this.setDrawingBufferSize(e,t,i)}"
+        }
+      ]
+    }
+  ]
+}

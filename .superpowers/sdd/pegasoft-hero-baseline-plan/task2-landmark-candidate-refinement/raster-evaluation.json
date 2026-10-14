@@ -1,0 +1,959 @@
+{
+  "status": "candidate vetoes only; no semantic qualification or active comparison integration",
+  "method": "Unchanged classifier, ROIs, support gates and filled masks. Red contour adjacency veto; clipped connected support receives explicit unresolved separation status. No source mask is consumed by measurement.",
+  "checks": {
+    "historicalImagePins": "3/3",
+    "historicalMaskPins": "3/3",
+    "priorPacketPins": "32/32; current source/test bytes resolved through immutable BEFORE snapshots",
+    "diagnosticMaskReproduction": "3/3 pixel-identical before/after",
+    "filledSupportReproduction": "3/3 exact",
+    "sourceMaskSubstitution": false,
+    "runtimeOrCaptureChanges": false
+  },
+  "inputPins": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-before.mjs",
+      "bytes": 71162,
+      "sha256": "24fafcdb362dd631e809646168740f10e98a40ab901543620092d4726147092d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-after.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-route.png",
+      "bytes": 421050,
+      "sha256": "5265413af2294199cf639bf447a655064670d3c696aceea22aee0a39838ea74d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-route-candidate-support.png",
+      "bytes": 16768,
+      "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-contact.png",
+      "bytes": 388415,
+      "sha256": "1d2135173ddc983a14d4ddc2e78a7a06f302d909eab24b394b3fc9961c0961fa"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-contact-candidate-support.png",
+      "bytes": 16695,
+      "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/arrival-lockup-candidate-support.png",
+      "bytes": 15469,
+      "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+    }
+  ],
+  "rows": [
+    {
+      "state": "activation-route",
+      "input": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-route.png",
+        "bytes": 421050,
+        "sha256": "5265413af2294199cf639bf447a655064670d3c696aceea22aee0a39838ea74d"
+      },
+      "savedSupport": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-route-candidate-support.png",
+        "bytes": 16768,
+        "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+      },
+      "unchangedConfig": {
+        "label": "first-destination building before route contact",
+        "method": "largest-neutral-structure-component",
+        "predicate": {
+          "id": "pale-neutral-structure",
+          "description": "r,g,b >= 125, b-r <= 28, b-g <= 14, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+        },
+        "roi": [
+          0.525,
+          0.55,
+          0.225,
+          0.445
+        ],
+        "minimumComponentPixels": 500,
+        "maximumComponentPixels": 260000,
+        "maximumComponentWidth": 700,
+        "maximumComponentHeight": 650,
+        "minimumComponentFillRatio": 0.08,
+        "minimumSelectedPixels": 70000,
+        "sourceMethod": "source-semantic-mask",
+        "rationale": "The implementation-only ROI contains the complete destination building in the locked localhost composition while excluding process copy and most surrounding world context. A neutral RGB predicate rejects the pale-blue ground, red route, and blue logo; component support and size gates retain only filled implementation building surfaces. The independently measured result is compared with the source mask without transferring source geometry into this classifier."
+      },
+      "oldMeasurementStatus": "observed",
+      "newMeasurementStatus": "observed",
+      "reason": null,
+      "support": 188869,
+      "changedSupportPixels": 0,
+      "filledInteriorPixels": 3878,
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 6995,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 3878,
+        "contourAmbiguity": {
+          "status": "no-red-adjacency-observed",
+          "redAdjacentContourPixels": 0,
+          "excludedRedNeighborPixels": 0,
+          "witnesses": [],
+          "policy": "8-neighbor excluded red-dominance >28 beside filled selected contour; conservative ambiguity veto only",
+          "semanticRoleAssigned": false,
+          "contourErrorCalibrated": false
+        },
+        "boundarySeparation": {
+          "status": "not-required",
+          "boundarySupportPixels": 0,
+          "externalContinuationPixels": 0,
+          "imageBoundarySupportPixels": 0,
+          "witnesses": [],
+          "reason": null,
+          "selectedOutsideRoiPixels": 0,
+          "semanticRoleAssigned": false
+        }
+      },
+      "quality": {
+        "status": "qualified",
+        "reasons": [],
+        "quantity": "selected-color-support",
+        "lowChromaFraction": 0.9931116276360864,
+        "crossSectionP10": 200,
+        "crossSectionP90": 438,
+        "touchesBoundary": false,
+        "physicalRadiusMeasured": false,
+        "glowEnvelopeMeasured": false
+      },
+      "qualification": {
+        "status": "blocked",
+        "reason": "Candidate color support is not an independently qualified complete semantic silhouette."
+      },
+      "diagnosticSupport": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-route-diagnostic-support.png",
+        "bytes": 16768,
+        "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+      }
+    },
+    {
+      "state": "activation-contact",
+      "input": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-contact.png",
+        "bytes": 388415,
+        "sha256": "1d2135173ddc983a14d4ddc2e78a7a06f302d909eab24b394b3fc9961c0961fa"
+      },
+      "savedSupport": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-contact-candidate-support.png",
+        "bytes": 16695,
+        "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+      },
+      "unchangedConfig": {
+        "label": "logo-bearing first-destination building at route contact",
+        "method": "largest-neutral-structure-component",
+        "predicate": {
+          "id": "pale-neutral-structure",
+          "description": "r,g,b >= 125, b-r <= 28, b-g <= 14, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+        },
+        "roi": [
+          0.42,
+          0.25,
+          0.25,
+          0.47
+        ],
+        "minimumComponentPixels": 500,
+        "maximumComponentPixels": 180000,
+        "maximumComponentWidth": 700,
+        "maximumComponentHeight": 650,
+        "minimumComponentFillRatio": 0.08,
+        "minimumSelectedPixels": 70000,
+        "sourceMethod": "source-semantic-mask",
+        "rationale": "The implementation-only contact ROI follows the complete destination building in the locked localhost composition. The renderer-independent neutral predicate and component gates exclude the red route, blue logo, pale-blue ground, and small workers without reusing source mask geometry."
+      },
+      "oldMeasurementStatus": "observed",
+      "newMeasurementStatus": "blocked",
+      "reason": "Selected contour adjoins excluded red support; connected rail/subject ambiguity prevents measurement.",
+      "support": 171906,
+      "changedSupportPixels": 0,
+      "filledInteriorPixels": 3943,
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 8976,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 3943,
+        "contourAmbiguity": {
+          "status": "blocked",
+          "redAdjacentContourPixels": 103,
+          "excludedRedNeighborPixels": 119,
+          "witnesses": [
+            {
+              "selectedPixel": [
+                1438,
+                634
+              ],
+              "selectedRgb": [
+                213,
+                201,
+                213
+              ],
+              "excludedPixel": [
+                1437,
+                633
+              ],
+              "excludedRgb": [
+                222,
+                173,
+                188
+              ]
+            },
+            {
+              "selectedPixel": [
+                1438,
+                634
+              ],
+              "selectedRgb": [
+                213,
+                201,
+                213
+              ],
+              "excludedPixel": [
+                1437,
+                634
+              ],
+              "excludedRgb": [
+                237,
+                130,
+                150
+              ]
+            },
+            {
+              "selectedPixel": [
+                1438,
+                634
+              ],
+              "selectedRgb": [
+                213,
+                201,
+                213
+              ],
+              "excludedPixel": [
+                1437,
+                635
+              ],
+              "excludedRgb": [
+                249,
+                94,
+                118
+              ]
+            },
+            {
+              "selectedPixel": [
+                1438,
+                634
+              ],
+              "selectedRgb": [
+                213,
+                201,
+                213
+              ],
+              "excludedPixel": [
+                1438,
+                635
+              ],
+              "excludedRgb": [
+                232,
+                145,
+                164
+              ]
+            },
+            {
+              "selectedPixel": [
+                1439,
+                635
+              ],
+              "selectedRgb": [
+                211,
+                205,
+                218
+              ],
+              "excludedPixel": [
+                1438,
+                635
+              ],
+              "excludedRgb": [
+                232,
+                145,
+                164
+              ]
+            },
+            {
+              "selectedPixel": [
+                1439,
+                635
+              ],
+              "selectedRgb": [
+                211,
+                205,
+                218
+              ],
+              "excludedPixel": [
+                1438,
+                636
+              ],
+              "excludedRgb": [
+                251,
+                89,
+                114
+              ]
+            },
+            {
+              "selectedPixel": [
+                1439,
+                635
+              ],
+              "selectedRgb": [
+                211,
+                205,
+                218
+              ],
+              "excludedPixel": [
+                1439,
+                636
+              ],
+              "excludedRgb": [
+                232,
+                145,
+                164
+              ]
+            },
+            {
+              "selectedPixel": [
+                1440,
+                636
+              ],
+              "selectedRgb": [
+                210,
+                208,
+                221
+              ],
+              "excludedPixel": [
+                1439,
+                636
+              ],
+              "excludedRgb": [
+                232,
+                145,
+                164
+              ]
+            },
+            {
+              "selectedPixel": [
+                1440,
+                636
+              ],
+              "selectedRgb": [
+                210,
+                208,
+                221
+              ],
+              "excludedPixel": [
+                1439,
+                637
+              ],
+              "excludedRgb": [
+                253,
+                82,
+                107
+              ]
+            },
+            {
+              "selectedPixel": [
+                1440,
+                636
+              ],
+              "selectedRgb": [
+                210,
+                208,
+                221
+              ],
+              "excludedPixel": [
+                1440,
+                637
+              ],
+              "excludedRgb": [
+                232,
+                144,
+                164
+              ]
+            },
+            {
+              "selectedPixel": [
+                1441,
+                637
+              ],
+              "selectedRgb": [
+                210,
+                208,
+                221
+              ],
+              "excludedPixel": [
+                1440,
+                637
+              ],
+              "excludedRgb": [
+                232,
+                144,
+                164
+              ]
+            },
+            {
+              "selectedPixel": [
+                1441,
+                637
+              ],
+              "selectedRgb": [
+                210,
+                208,
+                221
+              ],
+              "excludedPixel": [
+                1440,
+                638
+              ],
+              "excludedRgb": [
+                252,
+                86,
+                111
+              ]
+            },
+            {
+              "selectedPixel": [
+                1441,
+                637
+              ],
+              "selectedRgb": [
+                210,
+                208,
+                221
+              ],
+              "excludedPixel": [
+                1441,
+                638
+              ],
+              "excludedRgb": [
+                222,
+                171,
+                188
+              ]
+            },
+            {
+              "selectedPixel": [
+                1442,
+                638
+              ],
+              "selectedRgb": [
+                208,
+                212,
+                224
+              ],
+              "excludedPixel": [
+                1441,
+                638
+              ],
+              "excludedRgb": [
+                222,
+                171,
+                188
+              ]
+            },
+            {
+              "selectedPixel": [
+                1442,
+                638
+              ],
+              "selectedRgb": [
+                208,
+                212,
+                224
+              ],
+              "excludedPixel": [
+                1441,
+                639
+              ],
+              "excludedRgb": [
+                240,
+                121,
+                143
+              ]
+            },
+            {
+              "selectedPixel": [
+                1442,
+                639
+              ],
+              "selectedRgb": [
+                215,
+                194,
+                208
+              ],
+              "excludedPixel": [
+                1441,
+                638
+              ],
+              "excludedRgb": [
+                222,
+                171,
+                188
+              ]
+            }
+          ],
+          "policy": "8-neighbor excluded red-dominance >28 beside filled selected contour; conservative ambiguity veto only",
+          "semanticRoleAssigned": false,
+          "contourErrorCalibrated": false
+        },
+        "boundarySeparation": {
+          "status": "not-required",
+          "boundarySupportPixels": 0,
+          "externalContinuationPixels": 0,
+          "imageBoundarySupportPixels": 0,
+          "witnesses": [],
+          "reason": null,
+          "selectedOutsideRoiPixels": 0,
+          "semanticRoleAssigned": false
+        }
+      },
+      "quality": {
+        "status": "blocked",
+        "reasons": [
+          "Selected contour adjoins excluded red support; connected rail/subject ambiguity prevents measurement."
+        ],
+        "quantity": "selected-color-support",
+        "lowChromaFraction": 0.9925947901760265,
+        "crossSectionP10": 199,
+        "crossSectionP90": 421,
+        "touchesBoundary": false,
+        "physicalRadiusMeasured": false,
+        "glowEnvelopeMeasured": false
+      },
+      "qualification": {
+        "status": "blocked",
+        "reason": "Candidate color support is not an independently qualified complete semantic silhouette."
+      },
+      "diagnosticSupport": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-contact-diagnostic-support.png",
+        "bytes": 16695,
+        "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+      }
+    },
+    {
+      "state": "arrival-lockup",
+      "input": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+        "bytes": 288613,
+        "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+      },
+      "savedSupport": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/arrival-lockup-candidate-support.png",
+        "bytes": 15469,
+        "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+      },
+      "unchangedConfig": {
+        "label": "large frontal arrival arrow",
+        "method": "largest-neutral-structure-component",
+        "predicate": {
+          "id": "pale-neutral-structure",
+          "description": "r,g,b >= 125, b-r <= 28, b-g <= 14, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB"
+        },
+        "roi": [
+          0.396,
+          0.24,
+          0.16,
+          0.48
+        ],
+        "minimumComponentPixels": 500,
+        "maximumComponentPixels": 180000,
+        "maximumComponentWidth": 600,
+        "maximumComponentHeight": 700,
+        "minimumComponentFillRatio": 0.08,
+        "minimumSelectedPixels": 20000,
+        "sourceMethod": "source-semantic-mask",
+        "rationale": "The implementation-only ROI contains the complete localhost arrival arrow while excluding the incoming feed and surrounding square/diamond marks. A renderer-independent neutral predicate rejects the pale-blue background and cyan bloom; component support and geometry gates retain the filled arrow without applying the source silhouette to localhost pixels."
+      },
+      "oldMeasurementStatus": "observed",
+      "newMeasurementStatus": "blocked",
+      "reason": "Selected support reaches the unchanged ROI boundary; attached feature and subject roles cannot be separated by this candidate.",
+      "support": 33392,
+      "changedSupportPixels": 0,
+      "filledInteriorPixels": 0,
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 605,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 0,
+        "contourAmbiguity": {
+          "status": "no-red-adjacency-observed",
+          "redAdjacentContourPixels": 0,
+          "excludedRedNeighborPixels": 0,
+          "witnesses": [],
+          "policy": "8-neighbor excluded red-dominance >28 beside filled selected contour; conservative ambiguity veto only",
+          "semanticRoleAssigned": false,
+          "contourErrorCalibrated": false
+        },
+        "boundarySeparation": {
+          "status": "blocked",
+          "boundarySupportPixels": 29,
+          "externalContinuationPixels": 25,
+          "imageBoundarySupportPixels": 0,
+          "witnesses": [
+            {
+              "selectedPixel": [
+                1194,
+                748
+              ],
+              "selectedRgb": [
+                228,
+                240,
+                246
+              ],
+              "outsideRoiPixel": [
+                1193,
+                749
+              ],
+              "outsideRoiRgb": [
+                229,
+                241,
+                246
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                749
+              ],
+              "selectedRgb": [
+                240,
+                250,
+                253
+              ],
+              "outsideRoiPixel": [
+                1193,
+                749
+              ],
+              "outsideRoiRgb": [
+                229,
+                241,
+                246
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                749
+              ],
+              "selectedRgb": [
+                240,
+                250,
+                253
+              ],
+              "outsideRoiPixel": [
+                1193,
+                750
+              ],
+              "outsideRoiRgb": [
+                239,
+                249,
+                252
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                750
+              ],
+              "selectedRgb": [
+                243,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                749
+              ],
+              "outsideRoiRgb": [
+                229,
+                241,
+                246
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                750
+              ],
+              "selectedRgb": [
+                243,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                750
+              ],
+              "outsideRoiRgb": [
+                239,
+                249,
+                252
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                750
+              ],
+              "selectedRgb": [
+                243,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                751
+              ],
+              "outsideRoiRgb": [
+                243,
+                252,
+                254
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                751
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                750
+              ],
+              "outsideRoiRgb": [
+                239,
+                249,
+                252
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                751
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                751
+              ],
+              "outsideRoiRgb": [
+                243,
+                252,
+                254
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                751
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                752
+              ],
+              "outsideRoiRgb": [
+                244,
+                253,
+                255
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                752
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                751
+              ],
+              "outsideRoiRgb": [
+                243,
+                252,
+                254
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                752
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                752
+              ],
+              "outsideRoiRgb": [
+                244,
+                253,
+                255
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                752
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                753
+              ],
+              "outsideRoiRgb": [
+                244,
+                253,
+                255
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                753
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                752
+              ],
+              "outsideRoiRgb": [
+                244,
+                253,
+                255
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                753
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                753
+              ],
+              "outsideRoiRgb": [
+                244,
+                253,
+                255
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                753
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                754
+              ],
+              "outsideRoiRgb": [
+                244,
+                253,
+                255
+              ]
+            },
+            {
+              "selectedPixel": [
+                1194,
+                754
+              ],
+              "selectedRgb": [
+                244,
+                253,
+                255
+              ],
+              "outsideRoiPixel": [
+                1193,
+                753
+              ],
+              "outsideRoiRgb": [
+                244,
+                253,
+                255
+              ]
+            }
+          ],
+          "reason": "Selected support reaches the unchanged ROI boundary; attached feature and subject roles cannot be separated by this candidate.",
+          "selectedOutsideRoiPixels": 0,
+          "semanticRoleAssigned": false
+        }
+      },
+      "quality": {
+        "status": "blocked",
+        "reasons": [
+          "Selected subject reaches the ROI/image boundary; full-subject extent is not established.",
+          "Selected support reaches the unchanged ROI boundary; attached feature and subject roles cannot be separated by this candidate."
+        ],
+        "quantity": "selected-color-support",
+        "lowChromaFraction": 1,
+        "crossSectionP10": 47,
+        "crossSectionP90": 53,
+        "touchesBoundary": true,
+        "physicalRadiusMeasured": false,
+        "glowEnvelopeMeasured": false
+      },
+      "qualification": {
+        "status": "blocked",
+        "reason": "Candidate color support is not an independently qualified complete semantic silhouette."
+      },
+      "diagnosticSupport": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/arrival-lockup-diagnostic-support.png",
+        "bytes": 15469,
+        "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+      }
+    }
+  ]
+}

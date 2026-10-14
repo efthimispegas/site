@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
 
 permissions:
@@ -22,16 +22,15 @@ jobs:
       - uses: pnpm/action-setup@v6
         name: Install pnpm
         with:
-          version: 10.8.1
           run_install: false
 
       - uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version-file: '.nvmrc'
           cache: 'pnpm'
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec playwright install chromium --with-deps
+      - run: pnpm exec playwright install chromium chrome --with-deps
       - run: pnpm exec nx format:check
       - run: pnpm exec nx run-many -t lint test typecheck build --parallel=3
       - run: pnpm exec nx run-many -t e2e --parallel=1

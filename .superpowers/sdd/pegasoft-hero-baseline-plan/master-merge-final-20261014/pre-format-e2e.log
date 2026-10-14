@@ -1,0 +1,256 @@
+
+> nx run @site/pegasoft-e2e:e2e --retries=0 --reporter=line,json --max-failures=3 --output=/tmp/pegasoft-merge-final-verified-e2e
+
+> playwright test --retries=0 --reporter=line,json --max-failures=3 --output=/tmp/pegasoft-merge-final-verified-e2e
+
+(node:81207) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:81213) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:81214) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:81220) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[32m✔ test-contract provenance excludes mutable sprint summaries but keeps normative contracts [90m(0.821292ms)[39m[39m
+[32m✔ execution records genuine cell assertions and continues [90m(0.247333ms)[39m[39m
+[32m✔ explicit predicate timeout becomes a cell assertion while test timeout stays fatal [90m(0.393ms)[39m[39m
+[32m✔ execution stops after timeout and persists fatal result [90m(0.227ms)[39m[39m
+[32m✔ execution stops after page closure and persists fatal result [90m(0.165917ms)[39m[39m
+[32m✔ execution stops after context closure and persists fatal result [90m(0.073917ms)[39m[39m
+[32m✔ execution stops after abort and persists fatal result [90m(0.090458ms)[39m[39m
+[32m✔ execution stops after filesystem I/O and persists fatal result [90m(0.187875ms)[39m[39m
+[32m✔ execution stops after unknown programming error and persists fatal result [90m(0.476833ms)[39m[39m
+[32m✔ resource cleanup closes open page and context [90m(0.754417ms)[39m[39m
+
+Running 156 tests using 1 worker
+
+[32m✔ resource cleanup has a short independent deadline [90m(35.148542ms)[39m[39m
+[32m✔ attempt creation rejects reuse and pre-existing evidence [90m(12.129083ms)[39m[39m
+(node:81242) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/156] [chromium] › src/hero-alternatives.spec.ts:266:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable
+[32m✔ validator accepts a complete synthetic packet without current-input checks [90m(2402.075333ms)[39m[39m
+[32m✔ validator rejects missing and duplicate shard IDs [90m(339.8575ms)[39m[39m
+[32m✔ validator rejects mixed plan/run provenance [90m(410.688834ms)[39m[39m
+[32m✔ validator rejects missing, corrupt, and hash-mismatched PNG evidence [90m(848.576375ms)[39m[39m
+[32m✔ validator rejects signature-only PNGs and reused or noncanonical image paths [90m(300.287041ms)[39m[39m
+[32m✔ validator rejects a valid non-PNG stored at a canonical PNG path [90m(253.703542ms)[39m[39m
+[32m✔ validator rejects missing and duplicate cell IDs and changed N/A category [90m(181.227416ms)[39m[39m
+[2/156] [chromium] › src/hero-alternatives.spec.ts:290:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable
+[32m✔ validator rejects target, rendered, and field-clock predicate failures [90m(2833.626959ms)[39m[39m
+[32m✔ validator rejects contract, scroll, first-eligible, and restored-clock failures [90m(2705.036375ms)[39m[39m
+[32m✔ validator rejects reordered IDs, cross-shard reassignment, and changed N/A [90m(117.203708ms)[39m[39m
+[32m✔ validator rejects mixed attempts and malformed committed/restoration evidence [90m(550.162ms)[39m[39m
+[32m✔ validator rejects packet accounting other than 360/336/24 [90m(105.680375ms)[39m[39m
+[32m✔ validator independently rejects stale build provenance [90m(15.463208ms)[39m[39m
+[32m✔ validator independently rejects stale implementation provenance [90m(2.942083ms)[39m[39m
+[32m✔ validator independently rejects stale testContract provenance [90m(2.037583ms)[39m[39m
+[32m✔ validator independently rejects stale reference provenance [90m(1.441917ms)[39m[39m
+[32m✔ validator independently rejects stale runnerConfig provenance [90m(1.866208ms)[39m[39m
+[3/156] [chromium] › src/hero-alternatives.spec.ts:321:5 › active Canvas context loss latches useful fallback and unlocks the page
+[WebServer] [browser] THREE.WebGLRenderer: WEBGL_lose_context extension not supported.
+
+[4/156] [chromium] › src/hero-alternatives.spec.ts:357:5 › active Canvas context loss mid-journey latches fallback without a retry
+[WebServer] [browser] THREE.WebGLRenderer: WEBGL_lose_context extension not supported.
+
+[5/156] [chromium] › src/hero-alternatives.spec.ts:396:5 › delayed essential resources require a completed post-resource render
+[6/156] [chromium] › src/hero-alternatives.spec.ts:479:5 › never-resolving essential resources reach useful fallback at the finite deadline
+[7/156] [chromium] › src/hero-alternatives.spec.ts:502:5 › closed mobile navigation is hidden from assistive technology and keyboard focus
+[8/156] [chromium] › src/hero-alternatives.spec.ts:537:5 › static fallback is deterministic during ordinary initial loading
+[9/156] [chromium] › src/hero-alternatives.spec.ts:561:5 › expired loading deadline is checked on resume when its timer was throttled
+[10/156] [chromium] › src/hero-alternatives.spec.ts:615:5 › ready scene survives the loading deadline and settles reduced motion
+[11/156] [chromium] › src/hero-alternatives.spec.ts:705:5 › route remount rejects abandoned resource and context callbacks
+[WebServer] [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[12/156] [chromium] › src/hero-alternatives.spec.ts:744:5 › successful capability probe with failed actual Canvas selects fallback
+[WebServer] [browser] THREE.WebGLRenderer: Error creating WebGL context. 
+[WebServer]     at HeroScene.useCallback[createRenderer] (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+[WebServer]   213 |       attemptStartedAt.current ??= performance.now();
+[WebServer]   214 |       try {
+[WebServer] > 215 |         return new WebGLRenderer({
+[WebServer]       |                ^
+[WebServer]   216 |           ...defaults,
+[WebServer]   217 |           alpha: true,
+[WebServer]   218 |           antialias: true, (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+
+[WebServer] [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[13/156] [chromium] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: recording-desktop
+[14/156] [chromium] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: desktop
+[15/156] [chromium] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: tablet
+[16/156] [chromium] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: mobile
+[17/156] [chromium] › src/hero-performance.spec.ts:233:7 › Phase 19 hero performance probe › records a full forward and reverse hero scrub
+[18/156] [chromium] › src/pegasoft.spec.ts:465:5 › homepage presents Pegasoft CTA and 3D/fallback surface
+[19/156] [chromium] › src/pegasoft.spec.ts:511:5 › work taxonomy keeps Concept Lab separate from client portfolio
+[20/156] [chromium] › src/pegasoft.spec.ts:524:5 › seo and geo utility routes respond
+[21/156] [chromium] › src/pegasoft.spec.ts:535:5 › mobile layout avoids horizontal overflow
+[22/156] [chromium] › src/pegasoft.spec.ts:545:5 › homepage has no serious or critical accessibility violations
+[23/156] [chromium] › src/pegasoft.spec.ts:560:5 › homepage hydrates without runtime errors and mounts WebGL or fallback
+[24/156] [chromium] › src/pegasoft.spec.ts:586:5 › development harness observes field-pulse-b from physical input and applied time
+[25/156] [chromium] › src/pegasoft.spec.ts:606:5 › hero state converges across forward, reverse, jump, resize, and restored reload entry
+[26/156] [chromium] › src/pegasoft.spec.ts:659:5 › desktop journeys complete at normal, slow, fast, and reverse rates
+[27/156] [chromium] › src/pegasoft.spec.ts:817:5 › the same physically reached applied field frame produces a stable capture
+[28/156] [chromium] › src/pegasoft.spec.ts:871:5 › forced fallback remains useful and state-addressable
+[29/156] [chromium] › src/pegasoft.spec.ts:891:5 › reduced motion selects discrete poses without desktop trail
+[30/156] [chromium] › src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering
+[31/156] [chromium] › src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs
+[32/156] [chromium] › src/visual/hero-capture-clock.spec.ts:68:5 › css_document_timeline_progresses_while_javascript_clock_is_paused
+[33/156] [chromium] › src/visual/hero-capture-clock.spec.ts:85:5 › css_transport_advances_input_delta_and_stays_stable_across_screenshot
+[34/156] [chromium] › src/visual/hero-capture-clock.spec.ts:108:5 › css_transition_created_in_timer_uses_remaining_interval
+[35/156] [chromium] › src/visual/hero-capture-clock.spec.ts:139:5 › css_transport_installed_before_navigation_preserves_timer_creation_time
+[36/156] [chromium] › src/visual/hero-capture-contract.spec.ts:26:5 › lifecycle_changes_between_assertions
+[37/156] [chromium] › src/visual/hero-capture-contract.spec.ts:34:5 › resource_readiness_delays_entry
+[38/156] [chromium] › src/visual/hero-capture-contract.spec.ts:43:5 › pulse_label_differs_from_applied_clock
+[39/156] [chromium] › src/visual/hero-capture-contract.spec.ts:54:5 › stale_consumer_rejects_frame
+[40/156] [chromium] › src/visual/hero-capture-contract.spec.ts:63:5 › pending_render_rejects_frame
+[41/156] [chromium] › src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify
+[42/156] [chromium] › src/visual/hero-capture-contract.spec.ts:75:5 › physical_entry_uses_viewport_and_flow_domains
+[43/156] [chromium] › src/visual/hero-capture-contract.spec.ts:79:5 › loader_age_uses_lifecycle_origin_not_rendered_age
+[44/156] [chromium] › src/visual/hero-capture-contract.spec.ts:88:5 › physical_entry_waits_for_actual_loader_clearance
+[45/156] [chromium] › src/visual/hero-capture-contract.spec.ts:96:5 › contact_clock_requires_real_history_above_point72
+[46/156] [chromium] › src/visual/hero-capture-contract.spec.ts:107:5 › incomplete_clock_history_cannot_qualify
+[47/156] [chromium] › src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window
+[48/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:88:5 › provenance_saved_field_contact_passes_independent_validator_pins
+[49/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:147:5 › provenance_stale_camera_readback_rejected
+[50/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:153:5 › provenance_missing_route_readback_rejected
+[51/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:159:5 › provenance_acknowledgment_without_actual_object_readback_rejected
+[52/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:165:5 › provenance_field_clock_disagrees_with_completed_frame_rejected
+[53/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:171:5 › provenance_unknown_physical_height_is_not_guessed_from_viewport
+[54/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:177:5 › provenance_saved_journey_exit_preserves_material_readback_roundtrip
+[55/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:206:5 › provenance_survives_durable_outcome_and_manifest_finalization
+[56/156] [chromium] › src/visual/hero-capture-run.spec.ts:43:5 › restart_preserves_run_artifacts
+[57/156] [chromium] › src/visual/hero-capture-run.spec.ts:64:5 › capture_run_preserves_historical_and_concurrent_outputs
+[58/156] [chromium] › src/visual/hero-capture-run.spec.ts:78:5 › capture_run_failed_and_missing_states_are_explicit
+[59/156] [chromium] › src/visual/hero-capture-run.spec.ts:108:5 › capture_run_complete_manifest_hashes_all_artifacts
+[60/156] [chromium] › src/visual/hero-capture-run.spec.ts:147:5 › capture_run_missing_or_changed_artifact_cannot_complete
+[61/156] [chromium] › src/visual/hero-capture-run.spec.ts:166:5 › capture_run_foreign_measurement_identity_cannot_complete
+[62/156] [chromium] › src/visual/hero-capture-run.spec.ts:180:5 › capture_run_failure_survives_later_success
+[63/156] [chromium] › src/visual/hero-capture-run.spec.ts:199:5 › capture_run_failed_manifest_hashes_empty_partial_artifacts
+[64/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:40:5 › same-task readback intersects nested overflow and rectangular inset clips
+[65/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:51:5 › readback records ancestor CSS opacity product and preserves zero
+[66/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:65:5 › readback rejects nonrectangular and transformed clipping without inventing a plane
+[67/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:83:5 › readback marks unsupported compositing separately from observed CSS values
+[68/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:95:5 › readback rejects frame mismatch and incomplete consumer application
+[69/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:110:5 › readback cannot bind pending renders or an ambiguous canvas selection
+[70/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:127:5 › running native opacity animation remains temporally uncertain on a completed frame
+[71/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:142:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection
+[72/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:151:5 › readback retains DOM values but cannot invent a missing completed frame
+[73/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:171:5 › bracket parity masks DOM readback when opacity changes around acquisition
+[74/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:183:5 › bracket parity compares the initial acquisition clipping too
+[75/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:196:5 › bracket parity exposes only stable supported DOM quantities
+[76/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:212:5 › capture acquisition retains presentation from its own completed-frame task
+[77/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand strict blocks rectangular readback
+[78/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand content blocks rectangular readback
+(node:83386) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[79/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:266:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable
+[80/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:290:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable
+[81/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:321:5 › active Canvas context loss latches useful fallback and unlocks the page
+[WebServer] [browser] THREE.WebGLRenderer: WEBGL_lose_context extension not supported.
+
+[82/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:357:5 › active Canvas context loss mid-journey latches fallback without a retry
+[WebServer] [browser] THREE.WebGLRenderer: WEBGL_lose_context extension not supported.
+
+[83/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:396:5 › delayed essential resources require a completed post-resource render
+[84/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:479:5 › never-resolving essential resources reach useful fallback at the finite deadline
+[85/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:502:5 › closed mobile navigation is hidden from assistive technology and keyboard focus
+[86/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:537:5 › static fallback is deterministic during ordinary initial loading
+[87/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:561:5 › expired loading deadline is checked on resume when its timer was throttled
+[88/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:615:5 › ready scene survives the loading deadline and settles reduced motion
+[89/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:705:5 › route remount rejects abandoned resource and context callbacks
+[WebServer] [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[90/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:744:5 › successful capability probe with failed actual Canvas selects fallback
+[WebServer] [browser] THREE.WebGLRenderer: Error creating WebGL context. 
+[WebServer]     at HeroScene.useCallback[createRenderer] (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+[WebServer]   213 |       attemptStartedAt.current ??= performance.now();
+[WebServer]   214 |       try {
+[WebServer] > 215 |         return new WebGLRenderer({
+[WebServer]       |                ^
+[WebServer]   216 |           ...defaults,
+[WebServer]   217 |           alpha: true,
+[WebServer]   218 |           antialias: true, (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+
+[WebServer] [browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[91/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: recording-desktop
+[92/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: desktop
+[93/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: tablet
+[94/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:812:7 › ordinary entry visible ink, cue, CTA and accessibility: mobile
+[95/156] [Mobile Chrome] › src/hero-performance.spec.ts:233:7 › Phase 19 hero performance probe › records a full forward and reverse hero scrub
+[96/156] [Mobile Chrome] › src/pegasoft.spec.ts:465:5 › homepage presents Pegasoft CTA and 3D/fallback surface
+[97/156] [Mobile Chrome] › src/pegasoft.spec.ts:511:5 › work taxonomy keeps Concept Lab separate from client portfolio
+[98/156] [Mobile Chrome] › src/pegasoft.spec.ts:524:5 › seo and geo utility routes respond
+[99/156] [Mobile Chrome] › src/pegasoft.spec.ts:535:5 › mobile layout avoids horizontal overflow
+[100/156] [Mobile Chrome] › src/pegasoft.spec.ts:545:5 › homepage has no serious or critical accessibility violations
+[101/156] [Mobile Chrome] › src/pegasoft.spec.ts:560:5 › homepage hydrates without runtime errors and mounts WebGL or fallback
+[102/156] [Mobile Chrome] › src/pegasoft.spec.ts:586:5 › development harness observes field-pulse-b from physical input and applied time
+[103/156] [Mobile Chrome] › src/pegasoft.spec.ts:606:5 › hero state converges across forward, reverse, jump, resize, and restored reload entry
+[104/156] [Mobile Chrome] › src/pegasoft.spec.ts:659:5 › desktop journeys complete at normal, slow, fast, and reverse rates
+[105/156] [Mobile Chrome] › src/pegasoft.spec.ts:817:5 › the same physically reached applied field frame produces a stable capture
+[106/156] [Mobile Chrome] › src/pegasoft.spec.ts:871:5 › forced fallback remains useful and state-addressable
+[107/156] [Mobile Chrome] › src/pegasoft.spec.ts:891:5 › reduced motion selects discrete poses without desktop trail
+[108/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering
+[109/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs
+[110/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:68:5 › css_document_timeline_progresses_while_javascript_clock_is_paused
+[111/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:85:5 › css_transport_advances_input_delta_and_stays_stable_across_screenshot
+[112/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:108:5 › css_transition_created_in_timer_uses_remaining_interval
+[113/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:139:5 › css_transport_installed_before_navigation_preserves_timer_creation_time
+[114/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:26:5 › lifecycle_changes_between_assertions
+[115/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:34:5 › resource_readiness_delays_entry
+[116/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:43:5 › pulse_label_differs_from_applied_clock
+[117/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:54:5 › stale_consumer_rejects_frame
+[118/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:63:5 › pending_render_rejects_frame
+[119/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify
+[120/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:75:5 › physical_entry_uses_viewport_and_flow_domains
+[121/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:79:5 › loader_age_uses_lifecycle_origin_not_rendered_age
+[122/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:88:5 › physical_entry_waits_for_actual_loader_clearance
+[123/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:96:5 › contact_clock_requires_real_history_above_point72
+[124/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:107:5 › incomplete_clock_history_cannot_qualify
+[125/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window
+[126/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:88:5 › provenance_saved_field_contact_passes_independent_validator_pins
+[127/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:147:5 › provenance_stale_camera_readback_rejected
+[128/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:153:5 › provenance_missing_route_readback_rejected
+[129/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:159:5 › provenance_acknowledgment_without_actual_object_readback_rejected
+[130/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:165:5 › provenance_field_clock_disagrees_with_completed_frame_rejected
+[131/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:171:5 › provenance_unknown_physical_height_is_not_guessed_from_viewport
+[132/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:177:5 › provenance_saved_journey_exit_preserves_material_readback_roundtrip
+[133/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:206:5 › provenance_survives_durable_outcome_and_manifest_finalization
+[134/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:43:5 › restart_preserves_run_artifacts
+[135/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:64:5 › capture_run_preserves_historical_and_concurrent_outputs
+[136/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:78:5 › capture_run_failed_and_missing_states_are_explicit
+[137/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:108:5 › capture_run_complete_manifest_hashes_all_artifacts
+[138/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:147:5 › capture_run_missing_or_changed_artifact_cannot_complete
+[139/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:166:5 › capture_run_foreign_measurement_identity_cannot_complete
+[140/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:180:5 › capture_run_failure_survives_later_success
+[141/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:199:5 › capture_run_failed_manifest_hashes_empty_partial_artifacts
+[142/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:40:5 › same-task readback intersects nested overflow and rectangular inset clips
+[143/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:51:5 › readback records ancestor CSS opacity product and preserves zero
+[144/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:65:5 › readback rejects nonrectangular and transformed clipping without inventing a plane
+[145/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:83:5 › readback marks unsupported compositing separately from observed CSS values
+[146/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:95:5 › readback rejects frame mismatch and incomplete consumer application
+[147/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:110:5 › readback cannot bind pending renders or an ambiguous canvas selection
+[148/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:127:5 › running native opacity animation remains temporally uncertain on a completed frame
+[149/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:142:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection
+[150/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:151:5 › readback retains DOM values but cannot invent a missing completed frame
+[151/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:171:5 › bracket parity masks DOM readback when opacity changes around acquisition
+[152/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:183:5 › bracket parity compares the initial acquisition clipping too
+[153/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:196:5 › bracket parity exposes only stable supported DOM quantities
+[154/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:212:5 › capture acquisition retains presentation from its own completed-frame task
+[155/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand strict blocks rectangular readback
+[156/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand content blocks rectangular readback
+  4 skipped
+  152 passed (6.0m)
+
+
+
+ NX   Successfully ran target e2e for project @site/pegasoft-e2e
+
+

@@ -1,0 +1,26 @@
+{
+  "packetSha256": "79731ccdc88ae04d968e6f17c546ca0f4177c8a7882911f6b6c5baab69164473",
+  "verdict": "ACCEPT_BOUNDED_CHALLENGE_AND_FEASIBILITY_CONCLUSIONS; QUALIFICATION_BLOCKED",
+  "findings": [],
+  "verified": {
+    "packetPins": "40/40 bytes and hashes match",
+    "challengeCounts": "27 sections: 5 observed diagnostics, 22 blocked; all 27 qualification outcomes blocked",
+    "rawImagePins": 6,
+    "visualInspection": "Six unmasked previews plus three relevant original rasters corroborate red feeders, detached grid dots, copy and pale-object contamination.",
+    "repeatability": "Saved verification records 15 byte-identical outputs; root independently reproduced them. Reviewer did not rerun evaluation.",
+    "scope": "No edits, captures, fits, prior-packet re-audit or review of reviewer-authored landmark/loader artifacts."
+  },
+  "supportedConclusions": [
+    "Positive mean-RGB excess misses the retained red feeder sections: source/local red samples have approximately -65.21/-77.67 mean contrast.",
+    "Detached arrival dot support at raster y684\u2013702 expands the threshold-3 envelope to 51.5 CSS px, versus isolated feed 25.5; half-peak width remains 24.",
+    "Clearance copy residual reaches 159, versus feed 39; the pale object also reaches 39. One absolute-residual amplitude threshold cannot retain feed while rejecting all these negatives.",
+    "Arrival source/local half-peak widths 12/24 are declared composited profile statistics, not independently qualified semantic core thickness."
+  ],
+  "qualificationLimits": [
+    "Producer labels are targeted challenges, not exhaustive independent ground truth or calibrated edge intervals.",
+    "Blank-control zero residual does not calibrate semantic rejection, hidden background or localization error.",
+    "Calibration-feasibility.json lines 29\u201332 and 52\u201354 distinguish underdetermined causal layers from measurable visible-profile statistics. No universal impossibility claim is required or supported.",
+    "All states remain blocked for complete route coverage, calibrated core/halo correspondence, pulse causality, animation-age correspondence and current capture provenance."
+  ],
+  "minimumNextAction": "Declare the intended visible-profile quantity, establish independent semantic/orientation/error labels, and validate a polarity-general diagnostic on withheld controls. For causal core/halo claims, obtain matched background/component evidence or an independently validated attribution model; otherwise restrict claims to supported visible composited sections."
+}

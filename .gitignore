@@ -38,16 +38,35 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# Nx
 .nx/cache
+.nx/polygraph
 .nx/workspace-data
+
+# Agents
 .claude/worktrees
 .claude/settings.local.json
+.playwright-mcp
 
-.nx/polygraph
+# Local Pegasoft research, evidence, usage ledgers, and working instructions.
+**/docs/
+
+# Local-only ledger and measurement helpers.
+tools/hero-reference/**
+tools/docs/**
+
+
 
 # Next.js
 .next
+apps/pegasoft/.next-s7-diagnostics
+apps/pegasoft/.next-lifecycle-review
 out
 
 test-output
 vitest.config.*.timestamp*
+
+.nx/migrate-runs
+
+# Local credentials
+/.env

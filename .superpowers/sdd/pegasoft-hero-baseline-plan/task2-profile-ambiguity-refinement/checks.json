@@ -1,0 +1,10 @@
+{
+  "reviewCounterexample": { "status": "reproduced", "beforeStatus": "observed-diagnostic", "literalFixture": "Existing isolated profile plus rows48-52 [240,250,255], bridge44-47 [190,210,220]", "evidence": "ambiguity-fixture-diagnostics.json" },
+  "red": { "status": "expected-fail", "tests": 85, "pass": 84, "fail": 1, "failingTest": "beam ambiguity guard rejects significant peaks connected by a dim bridge", "log": "logs/red-test.log" },
+  "green": { "status": "pass", "tests": 85, "pass": 85, "fail": 0, "log": "logs/green-test.log" },
+  "typechecks": { "status": "pass", "projects": ["@site/pegasoft", "@site/pegasoft-e2e"], "log": "logs/typecheck.log" },
+  "lint": { "status": "pass", "errors": 0, "existingWarnings": 39, "log": "logs/lint.log" },
+  "whitespace": { "status": "pass", "exitCode": 0, "log": "logs/whitespace.log" },
+  "savedRasterEvaluation": { "status": "pass", "historicalImagePins": 4, "currentMethodBeamProfiles": 4, "unchangedExitClassifierResults": 2, "singlePlateauControl": "observed-diagnostic", "reviewFixtureAfter": "blocked", "log": "logs/raster-reproduction.log" },
+  "preservation": { "status": "pass", "original83Tests": "Byte-for-byte prefix preserved", "oldPacketBeforePins": 31, "unchangedOldPinsAfter": 29, "expectedChangedLiveInputs": 2, "evidence": "old-packet-preservation.json" }
+}

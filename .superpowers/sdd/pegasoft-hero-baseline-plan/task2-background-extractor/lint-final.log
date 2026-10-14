@@ -1,0 +1,69 @@
+
+> nx run @site/pegasoft-e2e:lint
+
+> eslint .
+
+(node:43341) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts[24m[0m
+[0m  [2m322:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m322:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m362:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m362:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m415:9[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m563:9[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m586:9[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m656:3[22m  [33mwarning[39m  Avoid having conditionals in tests       [2mplaywright/no-conditional-in-test[22m[0m
+[0m  [2m695:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m705:9[22m  [33mwarning[39m  Forbidden non-null assertion             [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m862:5[22m  [33mwarning[39m  Avoid having conditionals in tests       [2mplaywright/no-conditional-in-test[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-production-smoke.spec.ts[24m[0m
+[0m  [2m29:5[22m  [33mwarning[39m  Forbidden non-null assertion  [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m  [2m29:5[22m  [33mwarning[39m  Forbidden non-null assertion  [2m@typescript-eslint/no-non-null-assertion[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-s7-matrix.spec.ts[24m[0m
+[0m  [2m669:17[22m  [33mwarning[39m  Unexpected use of page.waitForTimeout()  [2mplaywright/no-wait-for-timeout[22m[0m
+[0m  [2m681:15[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m  [2m716:13[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m  [2m725:13[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m  [2m733:13[22m  [33mwarning[39m  Avoid calling `expect` conditionally     [2mplaywright/no-conditional-expect[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs[24m[0m
+[0m   [2m29:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m38:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m56:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m79:3[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m   [2m99:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m107:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m122:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m143:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m152:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m163:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m174:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m193:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m210:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m232:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m250:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m270:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m299:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m322:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m342:1[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m  [2m353:3[22m  [33mwarning[39m  Test has no assertions  [2mplaywright/expect-expect[22m[0m
+[0m[0m
+[0m[4m/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts[24m[0m
+[0m  [2m554:5[22m  [33mwarning[39m  Avoid having conditionals in tests  [2mplaywright/no-conditional-in-test[22m[0m
+[0m[0m
+[0m[33m[1m✖ 39 problems (0 errors, 39 warnings)[22m[39m[0m
+[0m[33m[1m[22m[39m[0m
+
+
+
+ NX   Successfully ran target lint for project @site/pegasoft-e2e
+
+
+  Run duration:      1.1s
+  Cache:             0/1 hit (0%)
+  Critical path:     1.1s (1 task)
+  Recoverable time:  <1ms

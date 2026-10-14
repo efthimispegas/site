@@ -1,0 +1,408 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-01T11:45:36.230229+00:00",
+  "reviewerType": "independent",
+  "reviewerId": "/root/loader_evidence_review",
+  "reviewer": {
+    "identity": "Codex subagent /root/loader_evidence_review",
+    "role": "independent loader timing reviewer",
+    "captureAuthor": false,
+    "implementationOwner": false,
+    "reviewOwnership": "Only task2-loader-independent-review.json",
+    "basis": "Independent reads, SHA256 verification, retained recording re-decode to stdout, image inspection, exact CSS and clock-source inspection; owner findings were not accepted as causal proof."
+  },
+  "scope": "Task 2 loader timing correspondence for loader-mark and world-reveal only. No runtime edits, new capture files, browser captures, guessed offsets, DOM-order mapping, graphics/motion/final visual acceptance.",
+  "packet": {
+    "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-qualification-packet.json",
+    "sha256": "106e78d91628c13c1d61e93e3978322ccd2272f1502bddc4f56805a049d5693f",
+    "expectedSha256": "106e78d91628c13c1d61e93e3978322ccd2272f1502bddc4f56805a049d5693f",
+    "status": "pass"
+  },
+  "runId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+  "overallStatus": "blocked",
+  "integrity": {
+    "status": "pass",
+    "linkedArtifactsVerified": 20,
+    "packetHashVerified": true,
+    "checks": [
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+        "bytes": 1438555,
+        "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb",
+        "expectedSha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json",
+        "bytes": 771737,
+        "sha256": "1120df04f11305c48f979032b3515998cfd9151413007097eb922a7b7fc64a97",
+        "expectedSha256": "1120df04f11305c48f979032b3515998cfd9151413007097eb922a7b7fc64a97",
+        "status": "pass"
+      },
+      {
+        "path": "docs/hero-reference/live/locked-reference-loader.css",
+        "bytes": 75910,
+        "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c",
+        "expectedSha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft/src/app/shared/hero-scene/hero-shell.module.css",
+        "bytes": 12276,
+        "sha256": "048a3f681b6d7ada9e6dd86cff6c5350831a40ec2383dc1bde75eb999e3d242d",
+        "expectedSha256": "048a3f681b6d7ada9e6dd86cff6c5350831a40ec2383dc1bde75eb999e3d242d",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft/src/app/shared/pegasoft-home.tsx",
+        "bytes": 33548,
+        "sha256": "e33c81bcc1ca9a099589af7e1662e9e9b3374fd19e8d001a158a741cb5474834",
+        "expectedSha256": "e33c81bcc1ca9a099589af7e1662e9e9b3374fd19e8d001a158a741cb5474834",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+        "bytes": 5820,
+        "sha256": "7f40a5c46a5606088f8be2a4add3893cf4868ed19a3bae0b84dff28cd962916e",
+        "expectedSha256": "7f40a5c46a5606088f8be2a4add3893cf4868ed19a3bae0b84dff28cd962916e",
+        "status": "pass"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-frames.json",
+        "bytes": 235608,
+        "sha256": "87245987ca4ceda9a58d135e713d24fc2c6c6a96a8d31788fcb6fbf520ffe7eb",
+        "expectedSha256": "87245987ca4ceda9a58d135e713d24fc2c6c6a96a8d31788fcb6fbf520ffe7eb",
+        "status": "pass"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-01.png",
+        "bytes": 1037559,
+        "sha256": "459f05fffeea1a2783c4955a71238bb2c7fa91446a480c122c5889c0abc24d59",
+        "expectedSha256": "459f05fffeea1a2783c4955a71238bb2c7fa91446a480c122c5889c0abc24d59",
+        "status": "pass"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-02.png",
+        "bytes": 25744,
+        "sha256": "5f0e64ce9988756fcbb5bb6df86aedf3fd3b3170349bcda58a631b9807318cc7",
+        "expectedSha256": "5f0e64ce9988756fcbb5bb6df86aedf3fd3b3170349bcda58a631b9807318cc7",
+        "status": "pass"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-detail.png",
+        "bytes": 269334,
+        "sha256": "06f1f0234472bf467e2a9fcab2e1588a44ce5efe8582a03de8e1cd1e2776e0dc",
+        "expectedSha256": "06f1f0234472bf467e2a9fcab2e1588a44ce5efe8582a03de8e1cd1e2776e0dc",
+        "status": "pass"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-loader-sheet.png",
+        "bytes": 1484612,
+        "sha256": "d17ad51c4a8501d705469248619a50c26b0db4b5ad775c042cc3f50494a98bc9",
+        "expectedSha256": "d17ad51c4a8501d705469248619a50c26b0db4b5ad775c042cc3f50494a98bc9",
+        "status": "pass"
+      },
+      {
+        "path": "docs/vectrfl_recording.mov",
+        "bytes": 190835536,
+        "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "expectedSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/measurements/loader-mark.json",
+        "bytes": 67016,
+        "sha256": "fcdceafa594fa8beebb2d29dd9bdafd408cc3f650076e5b1d8055490a90fb36d",
+        "expectedSha256": "fcdceafa594fa8beebb2d29dd9bdafd408cc3f650076e5b1d8055490a90fb36d",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/loader-mark.png",
+        "bytes": 48512,
+        "sha256": "bd9ce16d298c0adb7613f0dc50c68f2cdc6f4f1b68a1c19166b5af1c67292626",
+        "expectedSha256": "bd9ce16d298c0adb7613f0dc50c68f2cdc6f4f1b68a1c19166b5af1c67292626",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/observations/loader-mark.json",
+        "bytes": 37191,
+        "sha256": "5550501ddb87c5cc60376cb7400fc07cc10a1e7cfaaf5735e198bfcddd42d0b4",
+        "expectedSha256": "5550501ddb87c5cc60376cb7400fc07cc10a1e7cfaaf5735e198bfcddd42d0b4",
+        "status": "pass"
+      },
+      {
+        "path": "docs/hero-reference/recording/frame-000118-loader-mark.png",
+        "bytes": 145465,
+        "sha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+        "expectedSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/measurements/world-reveal.json",
+        "bytes": 88917,
+        "sha256": "5268cb866993b0e6ba37bfa5c379d9a9c1c7131e4b2e2bcd8cfef2748092421e",
+        "expectedSha256": "5268cb866993b0e6ba37bfa5c379d9a9c1c7131e4b2e2bcd8cfef2748092421e",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/world-reveal.png",
+        "bytes": 312690,
+        "sha256": "f6794769190e5d70e874d4f907e15b7ba0447a23cb3353fa285ef82dcf7d06f6",
+        "expectedSha256": "f6794769190e5d70e874d4f907e15b7ba0447a23cb3353fa285ef82dcf7d06f6",
+        "status": "pass"
+      },
+      {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/observations/world-reveal.json",
+        "bytes": 38586,
+        "sha256": "53f758beba6d660a70751429e7ebf60ea5fade190d48ca051a1617b09a699e5e",
+        "expectedSha256": "53f758beba6d660a70751429e7ebf60ea5fade190d48ca051a1617b09a699e5e",
+        "status": "pass"
+      },
+      {
+        "path": "docs/hero-reference/recording/frame-000208-world-reveal.png",
+        "bytes": 509190,
+        "sha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+        "expectedSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+        "status": "pass"
+      }
+    ],
+    "decodedRecordingChecks": [
+      {
+        "decodedFrameIndex": 56,
+        "pts": 5800,
+        "timestampSeconds": 0.966667,
+        "timeBase": "1/6000",
+        "retainedImage": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-01.png",
+        "decodedPngSha256": "459f05fffeea1a2783c4955a71238bb2c7fa91446a480c122c5889c0abc24d59",
+        "byteIdentity": "pass",
+        "operation": "Decode retained recording to stdout; no new image file or browser capture"
+      },
+      {
+        "decodedFrameIndex": 57,
+        "pts": 5900,
+        "timestampSeconds": 0.983333,
+        "timeBase": "1/6000",
+        "retainedImage": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-02.png",
+        "decodedPngSha256": "5f0e64ce9988756fcbb5bb6df86aedf3fd3b3170349bcda58a631b9807318cc7",
+        "byteIdentity": "pass",
+        "operation": "Decode retained recording to stdout; no new image file or browser capture"
+      },
+      {
+        "decodedFrameIndex": 118,
+        "pts": 12000,
+        "timestampSeconds": 2.0,
+        "timeBase": "1/6000",
+        "retainedImage": "docs/hero-reference/recording/frame-000118-loader-mark.png",
+        "decodedPngSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+        "byteIdentity": "pass",
+        "operation": "Decode retained recording to stdout; no new image file or browser capture"
+      },
+      {
+        "decodedFrameIndex": 208,
+        "pts": 21000,
+        "timestampSeconds": 3.5,
+        "timeBase": "1/6000",
+        "retainedImage": "docs/hero-reference/recording/frame-000208-world-reveal.png",
+        "decodedPngSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+        "byteIdentity": "pass",
+        "operation": "Decode retained recording to stdout; no new image file or browser capture"
+      }
+    ]
+  },
+  "reviewQuestions": [
+    {
+      "question": "Does the retained recording plus exact locked CSS establish a source animation-onset interval no wider than one frame? Identify the causal proof; otherwise retain blocked status.",
+      "status": "blocked",
+      "answer": "The retained recording independently establishes a page-to-loader background presentation transition between frames 56/57, PTS 5800/5900, width 100/6000 seconds. It does not establish CSS animation onset within that interval.",
+      "causalEvidence": [
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-01.png",
+          "finding": "Re-decoded frame 56 is byte-identical to the retained PNG and visibly contains the settled page."
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-02.png",
+          "finding": "Re-decoded frame 57 is byte-identical to the retained PNG and visibly shows the replacement loader background. The logo/ellipses are not visibly established at this frame."
+        },
+        {
+          "path": "docs/hero-reference/live/locked-reference-loader.css",
+          "finding": "Locked CSS declares logo-rotate 1.5s ease-out; staggered cube-fade/cube-slide; delayed arrow draw-line; ellipse draw-line and dash-move; and .hide erase-line effects. CSS supplies durations, delays and value trajectories, but contains no recording timestamp or evidence pinning effect applicability/style resolution to the page-to-background transition."
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-loader-sheet.png",
+          "finding": "The retained sheet visually shows staged assembly and ellipse draw progression, but contains no effect-specific quantitative inversion or unique onset proof at one-frame precision."
+        }
+      ],
+      "qualifiedSourceOnsetIntervalMs": null,
+      "blocker": "No causal mapping from the presentation transition to the start of a named source CSS effect. Raster visibility can lag effect creation and effects have distinct delays/activation conditions."
+    },
+    {
+      "question": "Can the captured anonymous native IDs be mapped to a specific source/local semantic effect using existing evidence, without trusting requested age or DOM order?",
+      "status": "blocked",
+      "answer": "Existing retained clock records cannot bind anonymous IDs 0/1 to a specific target-bearing semantic source/local effect without additional assumptions.",
+      "causalEvidence": [
+        {
+          "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+          "finding": "IDs are assigned by nextId++ on discovery of Animation object instances from document.getAnimations(). Snapshot serializes id/kind/observedAtMs/initialTimeMs/currentTime; it omits CSSAnimation.animationName, CSSTransition.transitionProperty and KeyframeEffect.target. Discovery order is not an element identity."
+        },
+        {
+          "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/measurements/loader-mark.json",
+          "finding": "IDs 0/1 both have currentTime 2016.666ms, initialTimeMs 16.666ms and observedAtMs 4ms. Measurement, before/after observations and packet agree on these anonymous values, but supply no target/name."
+        },
+        {
+          "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/measurements/world-reveal.json",
+          "finding": "IDs 0/1 both have currentTime 3500ms, initialTimeMs 0ms and observedAtMs 1ms. ID 3 is a transition with currentTime 605ms; it has no transitionProperty/target and cannot substitute for a loader animation age."
+        },
+        {
+          "path": "apps/pegasoft/src/app/shared/hero-scene/hero-shell.module.css",
+          "finding": "Local CSS applies loader-dash-move 4s linear infinite to .loaderEllipse SVGs. This identifies source-level candidate effects, not captured Animation object IDs. Source logo rotation, staged cube/arrow assembly and ellipse draw/erase are absent from the reviewed local loader."
+        },
+        {
+          "path": "apps/pegasoft/src/app/shared/pegasoft-home.tsx",
+          "finding": "Loader JSX has distinct outer/inner SVGs and a static core/arrow mask. Their DOM order cannot identify the anonymous capture-clock object IDs."
+        }
+      ],
+      "nativeIdMapping": null,
+      "blocker": "Captured native IDs lack animationName and target identity; equal native times and source-level candidate declarations do not supply a historical binding."
+    },
+    {
+      "question": "Do any independently established source/local ages overlap at both anchors? Missing evidence or non-equivalent effects must remain blocked.",
+      "status": "blocked",
+      "answer": "No independently established equivalent source/local animation-age intervals exist at both anchors, so overlap cannot be qualified.",
+      "causalEvidence": [
+        {
+          "path": "docs/hero-reference/recording/frame-000118-loader-mark.png",
+          "finding": "Independently re-decoded anchor frame 118 matches the retained image at 2.000000s recording PTS. It shows a partially assembled/rotated loader. Recording time is not a CSS age."
+        },
+        {
+          "path": "docs/hero-reference/recording/frame-000208-world-reveal.png",
+          "finding": "Independently re-decoded anchor frame 208 matches the retained image at 3.500000s recording PTS. It shows the assembled logo and world reveal. This presentation state does not identify an effect-specific onset."
+        },
+        {
+          "path": "docs/hero-reference/live/locked-reference-loader.css",
+          "finding": "The source draws/erases ellipse coverage and assembles/rotates the core; the reviewed local loader has dash movement and unrelated hide transitions. Matching labels or recording timestamps cannot make these effects equivalent."
+        },
+        {
+          "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json",
+          "finding": "Retained loaderPhaseCorrespondence is blocked for both anchors, with no independently bound source/local onset or local native animation readback. This independent review provides findings, not missing onset/semantic fields."
+        }
+      ],
+      "sourceLocalAgeOverlap": null,
+      "blocker": "Question 1 source onset and question 2 semantic binding remain absent. Source-only effects also have no equivalent local effects to qualify."
+    }
+  ],
+  "states": [
+    {
+      "stateId": "loader-mark",
+      "status": "blocked",
+      "runId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+      "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "referenceSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+      "implementationSha256": "bd9ce16d298c0adb7613f0dc50c68f2cdc6f4f1b68a1c19166b5af1c67292626",
+      "referenceRecordingTimeSeconds": 2,
+      "sourceAnimationOnsetIntervalMs": null,
+      "sourceAnimationAgeIntervalMs": null,
+      "implementationSemanticEffect": null,
+      "identifiedNativeAnimationId": null,
+      "implementationQualifiedAgeIntervalMs": null,
+      "anonymousNativeReadback": {
+        "nowMs": 2004,
+        "animations": [
+          {
+            "id": 0,
+            "kind": "animation",
+            "observedAtMs": 4,
+            "initialTimeMs": 16.665999999999997,
+            "currentTime": 2016.666
+          },
+          {
+            "id": 1,
+            "kind": "animation",
+            "observedAtMs": 4,
+            "initialTimeMs": 16.665999999999997,
+            "currentTime": 2016.666
+          }
+        ]
+      },
+      "clockAgreementAcrossMeasurementAndBeforeAfter": "pass",
+      "ageOverlapStatus": "blocked",
+      "reason": "No independently bounded effect-specific source onset and no retained target/name binding for a captured local native effect; recording position and anonymous currentTime cannot establish semantic age overlap."
+    },
+    {
+      "stateId": "world-reveal",
+      "status": "blocked",
+      "runId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+      "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "referenceSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+      "implementationSha256": "f6794769190e5d70e874d4f907e15b7ba0447a23cb3353fa285ef82dcf7d06f6",
+      "referenceRecordingTimeSeconds": 3.5,
+      "sourceAnimationOnsetIntervalMs": null,
+      "sourceAnimationAgeIntervalMs": null,
+      "implementationSemanticEffect": null,
+      "identifiedNativeAnimationId": null,
+      "implementationQualifiedAgeIntervalMs": null,
+      "anonymousNativeReadback": {
+        "nowMs": 3501,
+        "animations": [
+          {
+            "id": 0,
+            "kind": "animation",
+            "observedAtMs": 1,
+            "initialTimeMs": 0,
+            "currentTime": 3500
+          },
+          {
+            "id": 1,
+            "kind": "animation",
+            "observedAtMs": 1,
+            "initialTimeMs": 0,
+            "currentTime": 3500
+          },
+          {
+            "id": 3,
+            "kind": "transition",
+            "observedAtMs": 2896,
+            "initialTimeMs": 0,
+            "currentTime": 605
+          }
+        ]
+      },
+      "clockAgreementAcrossMeasurementAndBeforeAfter": "pass",
+      "ageOverlapStatus": "blocked",
+      "reason": "No independently bounded effect-specific source onset and no retained target/name binding for a captured local native effect; recording position and anonymous currentTime cannot establish semantic age overlap."
+    }
+  ],
+  "remainingBlockers": [
+    "Source: effect-specific causal onset interval at or below one recording-frame width is unestablished; the verified 56/57 interval qualifies background presentation only.",
+    "Local: anonymous native animation IDs are not historically bound to animation name and target; observedAtMs is discovery time and currentTime is an anonymous effect readback.",
+    "Correspondence: no qualified equivalent source/local ages overlap at both anchors; local loader lacks source core assembly/rotation and ellipse draw/erase effects."
+  ],
+  "nextAction": "Keep Task 2 unqualified and do not populate loaderPhaseContracts from this review. The owner must establish effect-specific source onset from independently measured retained raster progression against the locked CSS and supply an existing target/name-bearing binding for the captured native IDs. If such a historical binding does not exist, this packet cannot supply it; any identity instrumentation and new capture requires separately authorized scope. Preserve the current packet and blocked diagnostics; no geometry repairs may consume these blocked metrics.",
+  "checks": {
+    "jsonSerialization": "pass",
+    "packetAndLinkedHashes": "pass",
+    "retainedRecordingFramesByteIdentity": "4/4 pass",
+    "clockReadbackAgreement": "2/2 pass",
+    "sourceLocalOnsetQualification": "blocked",
+    "runtimeTests": "not required; no runtime source changes"
+  },
+  "accountSnapshots": [
+    {
+      "stage": "review-start",
+      "primaryUsedPercent": 16,
+      "secondaryUsedPercent": 23,
+      "ordinaryUsageAllowed": true
+    },
+    {
+      "stage": "after-bounded-evidence-batch",
+      "primaryUsedPercent": 18,
+      "secondaryUsedPercent": 24,
+      "ordinaryUsageAllowed": true
+    }
+  ],
+  "acceptanceLimits": {
+    "graphics": false,
+    "motion": false,
+    "finalVisualAcceptance": false,
+    "sourceOrLocalOnsetSelfQualification": false
+  }
+}

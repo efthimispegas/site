@@ -1,0 +1,32 @@
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+src/visual/hero-capture-clock.ts(66,3): error TS2322: Type '(handler: TimerHandler, timeout?: number, ...args: unknown[]) => number' is not assignable to type '((handler: TimerHandler, timeout?: number | undefined, ...arguments: any[]) => number) & typeof setTimeout'.
+  Property '__promisify__' is missing in type '(handler: TimerHandler, timeout?: number, ...args: unknown[]) => number' but required in type 'typeof setTimeout'.
+src/visual/hero-capture-clock.ts(67,3): error TS2322: Type '(handler: TimerHandler, timeout?: number, ...args: unknown[]) => number' is not assignable to type '((handler: TimerHandler, timeout?: number | undefined, ...arguments: any[]) => number) & { (handler: TimerHandler, timeout?: number | undefined, ...arguments: any[]): number; <TArgs extends any[]>(callback: (...args: TArgs) => void, delay?: number | undefined, ...args: TArgs): Timeout; (callback: (_: void) => void, ...'.
+  Type '(handler: TimerHandler, timeout?: number, ...args: unknown[]) => number' is not assignable to type '{ (handler: TimerHandler, timeout?: number | undefined, ...arguments: any[]): number; <TArgs extends any[]>(callback: (...args: TArgs) => void, delay?: number | undefined, ...args: TArgs): Timeout; (callback: (_: void) => void, delay?: number | undefined): Timeout; }'.
+    Type 'number' is not assignable to type 'Timeout'.
+Warning: command "tsc --build tsconfig.json --emitDeclarationOnly" exited with non-zero status code
+
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:typecheck
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      2.5s
+  Cache:             0/1 hit (0%)
+  Critical path:     2.5s (2 tasks)
+  Recoverable time:  <1ms

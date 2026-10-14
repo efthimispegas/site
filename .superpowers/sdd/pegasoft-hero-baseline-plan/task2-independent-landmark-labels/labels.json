@@ -1,0 +1,911 @@
+{
+  "date": "2026-10-03",
+  "status": "partial independent raw-pixel witnesses; full-contour labeling and error qualification blocked",
+  "coordinateContract": {
+    "space": "raster-pixel coordinates",
+    "origin": "top-left",
+    "raster": [
+      3016,
+      1522
+    ],
+    "cssViewport": [
+      1508,
+      761
+    ],
+    "rasterPixelsPerCssPixel": 2,
+    "cssMapping": "divide x and y by 2",
+    "polygonMeaning": "conservative visible interior witnesses; never whole-subject masks"
+  },
+  "states": [
+    {
+      "state": "activation-contact",
+      "rawImageSha256": "1d2135173ddc983a14d4ddc2e78a7a06f302d909eab24b394b3fc9961c0961fa",
+      "subjectDescription": "Connected destination building: left annex, center logo-bearing tower, right volume and doorway projection. Interior logo/window/roof details belong to the visible building union.",
+      "polygons": [
+        {
+          "id": "contact-roof-interior",
+          "role": "subject",
+          "part": "center tower roof",
+          "vertices": [
+            [
+              1542,
+              612
+            ],
+            [
+              1558,
+              612
+            ],
+            [
+              1558,
+              628
+            ],
+            [
+              1542,
+              628
+            ]
+          ],
+          "witnessPixel": [
+            1550,
+            620
+          ],
+          "confidence": "high for interior semantic role; no contour claim",
+          "cssVertices": [
+            [
+              771,
+              306
+            ],
+            [
+              779,
+              306
+            ],
+            [
+              779,
+              314
+            ],
+            [
+              771,
+              314
+            ]
+          ],
+          "witnessRgb": [
+            229,
+            230,
+            231
+          ]
+        },
+        {
+          "id": "contact-tower-interior",
+          "role": "subject",
+          "part": "center tower facade",
+          "vertices": [
+            [
+              1592,
+              872
+            ],
+            [
+              1608,
+              872
+            ],
+            [
+              1608,
+              888
+            ],
+            [
+              1592,
+              888
+            ]
+          ],
+          "witnessPixel": [
+            1600,
+            880
+          ],
+          "confidence": "high for interior semantic role; no contour claim",
+          "cssVertices": [
+            [
+              796,
+              436
+            ],
+            [
+              804,
+              436
+            ],
+            [
+              804,
+              444
+            ],
+            [
+              796,
+              444
+            ]
+          ],
+          "witnessRgb": [
+            173,
+            185,
+            192
+          ]
+        },
+        {
+          "id": "contact-annex-interior",
+          "role": "subject",
+          "part": "left annex visible side",
+          "vertices": [
+            [
+              1392,
+              907
+            ],
+            [
+              1408,
+              907
+            ],
+            [
+              1408,
+              923
+            ],
+            [
+              1392,
+              923
+            ]
+          ],
+          "witnessPixel": [
+            1400,
+            915
+          ],
+          "confidence": "high for interior semantic role; no contour claim",
+          "cssVertices": [
+            [
+              696,
+              453.5
+            ],
+            [
+              704,
+              453.5
+            ],
+            [
+              704,
+              461.5
+            ],
+            [
+              696,
+              461.5
+            ]
+          ],
+          "witnessRgb": [
+            203,
+            210,
+            214
+          ]
+        },
+        {
+          "id": "contact-right-volume-interior",
+          "role": "subject",
+          "part": "right volume facade",
+          "vertices": [
+            [
+              1787,
+              792
+            ],
+            [
+              1803,
+              792
+            ],
+            [
+              1803,
+              808
+            ],
+            [
+              1787,
+              808
+            ]
+          ],
+          "witnessPixel": [
+            1795,
+            800
+          ],
+          "confidence": "high for interior semantic role; no contour claim",
+          "cssVertices": [
+            [
+              893.5,
+              396
+            ],
+            [
+              901.5,
+              396
+            ],
+            [
+              901.5,
+              404
+            ],
+            [
+              893.5,
+              404
+            ]
+          ],
+          "witnessRgb": [
+            177,
+            189,
+            196
+          ]
+        },
+        {
+          "id": "contact-red-rail-core",
+          "role": "contaminant",
+          "part": "incoming red rail core outside building",
+          "vertices": [
+            [
+              1412,
+              632
+            ],
+            [
+              1416,
+              632
+            ],
+            [
+              1416,
+              636
+            ],
+            [
+              1412,
+              636
+            ]
+          ],
+          "witnessPixel": [
+            1414,
+            634
+          ],
+          "confidence": "high for visible red core exclusion; antialiased fringe is not assigned",
+          "cssVertices": [
+            [
+              706,
+              316
+            ],
+            [
+              708,
+              316
+            ],
+            [
+              708,
+              318
+            ],
+            [
+              706,
+              318
+            ]
+          ],
+          "witnessRgb": [
+            255,
+            77,
+            103
+          ]
+        }
+      ],
+      "boundarySegments": [
+        {
+          "id": "contact-top-roof",
+          "locatorBox": [
+            1435,
+            525,
+            240,
+            110
+          ],
+          "observation": "Readable sloping roof/ground transition; pale blended edge remains distinct from the roof interior.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "The screenshot supplies blended RGB but no independent coverage/alpha or true projected edge. A guessed center of the blend would be an estimator assumption."
+          },
+          "locatorBoxCss": [
+            717.5,
+            262.5,
+            120,
+            55
+          ]
+        },
+        {
+          "id": "contact-right-roof-and-step",
+          "locatorBox": [
+            1650,
+            540,
+            225,
+            175
+          ],
+          "observation": "Right volume roof and tower-to-volume step are visible; small facade/roof detail should not be mistaken for ground.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "Pale surfaces and antialiasing do not determine an accepted inclusion threshold or edge-error bound."
+          },
+          "locatorBoxCss": [
+            825,
+            270,
+            112.5,
+            87.5
+          ]
+        },
+        {
+          "id": "contact-right-facade-edge",
+          "locatorBox": [
+            1840,
+            690,
+            35,
+            180
+          ],
+          "observation": "Visible building side terminates against pale-blue ground.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "Visible contrast localizes the transition but does not certify semantic ownership of blended edge pixels."
+          },
+          "locatorBoxCss": [
+            920,
+            345,
+            17.5,
+            90
+          ]
+        },
+        {
+          "id": "contact-annex-left-and-foot",
+          "locatorBox": [
+            1335,
+            730,
+            135,
+            315
+          ],
+          "observation": "Left annex side and lower foot contour are visible and separated from nearby small figures/trees.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "No independent contour truth establishes how many antialiased or ground-like pixels belong to the projected surface."
+          },
+          "locatorBoxCss": [
+            667.5,
+            365,
+            67.5,
+            157.5
+          ]
+        },
+        {
+          "id": "contact-lower-connected-volumes",
+          "locatorBox": [
+            1435,
+            840,
+            425,
+            210
+          ],
+          "observation": "Visible lower facade, doorway projection and volume notches form the subject; open ground between projections must stay excluded.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "The visible edges can be described, but a pixel-accurate union and its error cannot be certified from the flattened colors alone."
+          },
+          "locatorBoxCss": [
+            717.5,
+            420,
+            212.5,
+            105
+          ]
+        },
+        {
+          "id": "contact-rail-occlusion",
+          "locatorBox": [
+            1428,
+            620,
+            34,
+            95
+          ],
+          "observation": "Several red rails terminate at the tower/annex projection. The magnified raw crop shows faint red/pale edge mixtures at the contact.",
+          "occlusion": "The building hides rail continuation. Hidden rail or building geometry is not reconstructed.",
+          "uncertainty": {
+            "status": "unresolvable-from-supplied-RGB",
+            "maximumContourErrorRaster": null,
+            "reason": "Mixed red/ground/building RGB at the junction cannot uniquely reveal coverage or assign every fringe pixel to rail versus building. No clean boundary polygon is supplied."
+          },
+          "locatorBoxCss": [
+            714,
+            310,
+            17,
+            47.5
+          ]
+        }
+      ],
+      "fullSilhouette": null,
+      "qualification": "blocked"
+    },
+    {
+      "state": "arrival-lockup",
+      "rawImageSha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc",
+      "subjectDescription": "Visible neutral arrow has a horizontal shaft, two diagonal arms and a right-facing tip. Incoming cyan/white feed, the bright rounded junction mark, dotted wake and surrounding square/diamond marks need separate roles.",
+      "polygons": [
+        {
+          "id": "arrival-incoming-feed-core",
+          "role": "contaminant",
+          "part": "incoming bright feed interior",
+          "vertices": [
+            [
+              1042,
+              756
+            ],
+            [
+              1058,
+              756
+            ],
+            [
+              1058,
+              764
+            ],
+            [
+              1042,
+              764
+            ]
+          ],
+          "witnessPixel": [
+            1050,
+            760
+          ],
+          "confidence": "high for feed appearance and exclusion from neutral shaft",
+          "cssVertices": [
+            [
+              521,
+              378
+            ],
+            [
+              529,
+              378
+            ],
+            [
+              529,
+              382
+            ],
+            [
+              521,
+              382
+            ]
+          ],
+          "witnessRgb": [
+            247,
+            255,
+            255
+          ]
+        },
+        {
+          "id": "arrival-bright-rounded-mark",
+          "role": "endpoint-like-appearance",
+          "requestedRole": "feed-endpoint",
+          "roleResolution": "feed-endpoint versus shaft-cap ownership unresolved",
+          "vertices": [
+            [
+              1200,
+              757
+            ],
+            [
+              1208,
+              757
+            ],
+            [
+              1208,
+              765
+            ],
+            [
+              1200,
+              765
+            ]
+          ],
+          "witnessPixel": [
+            1204,
+            761
+          ],
+          "confidence": "high for bright rounded interior; causal semantic ownership unestablished",
+          "cssVertices": [
+            [
+              600,
+              378.5
+            ],
+            [
+              604,
+              378.5
+            ],
+            [
+              604,
+              382.5
+            ],
+            [
+              600,
+              382.5
+            ]
+          ],
+          "witnessRgb": [
+            244,
+            253,
+            255
+          ]
+        },
+        {
+          "id": "arrival-shaft-left-interior",
+          "role": "shaft",
+          "part": "neutral shaft left interior",
+          "vertices": [
+            [
+              1234,
+              754
+            ],
+            [
+              1246,
+              754
+            ],
+            [
+              1246,
+              766
+            ],
+            [
+              1234,
+              766
+            ]
+          ],
+          "witnessPixel": [
+            1240,
+            760
+          ],
+          "confidence": "high for visible shaft interior; not its left boundary",
+          "cssVertices": [
+            [
+              617,
+              377
+            ],
+            [
+              623,
+              377
+            ],
+            [
+              623,
+              383
+            ],
+            [
+              617,
+              383
+            ]
+          ],
+          "witnessRgb": [
+            219,
+            224,
+            226
+          ]
+        },
+        {
+          "id": "arrival-shaft-inner-surface",
+          "role": "shaft",
+          "part": "neutral shaft inner strip",
+          "vertices": [
+            [
+              1344,
+              756
+            ],
+            [
+              1356,
+              756
+            ],
+            [
+              1356,
+              764
+            ],
+            [
+              1344,
+              764
+            ]
+          ],
+          "witnessPixel": [
+            1350,
+            760
+          ],
+          "confidence": "high for visible shaft interior",
+          "cssVertices": [
+            [
+              672,
+              378
+            ],
+            [
+              678,
+              378
+            ],
+            [
+              678,
+              382
+            ],
+            [
+              672,
+              382
+            ]
+          ],
+          "witnessRgb": [
+            228,
+            230,
+            231
+          ]
+        },
+        {
+          "id": "arrival-upper-arm-interior",
+          "role": "subject",
+          "part": "upper diagonal arm interior",
+          "vertices": [
+            [
+              1416,
+              636
+            ],
+            [
+              1424,
+              636
+            ],
+            [
+              1424,
+              644
+            ],
+            [
+              1416,
+              644
+            ]
+          ],
+          "witnessPixel": [
+            1420,
+            640
+          ],
+          "confidence": "high for visible arm interior; no contour claim",
+          "cssVertices": [
+            [
+              708,
+              318
+            ],
+            [
+              712,
+              318
+            ],
+            [
+              712,
+              322
+            ],
+            [
+              708,
+              322
+            ]
+          ],
+          "witnessRgb": [
+            228,
+            230,
+            231
+          ]
+        },
+        {
+          "id": "arrival-lower-arm-interior",
+          "role": "subject",
+          "part": "lower diagonal arm interior",
+          "vertices": [
+            [
+              1396,
+              886
+            ],
+            [
+              1404,
+              886
+            ],
+            [
+              1404,
+              894
+            ],
+            [
+              1396,
+              894
+            ]
+          ],
+          "witnessPixel": [
+            1400,
+            890
+          ],
+          "confidence": "high for visible arm interior; no contour claim",
+          "cssVertices": [
+            [
+              698,
+              443
+            ],
+            [
+              702,
+              443
+            ],
+            [
+              702,
+              447
+            ],
+            [
+              698,
+              447
+            ]
+          ],
+          "witnessRgb": [
+            228,
+            230,
+            231
+          ]
+        },
+        {
+          "id": "arrival-feed-gap-background",
+          "role": "background",
+          "part": "visible gap between beam end and rounded mark",
+          "vertices": [
+            [
+              1180,
+              756
+            ],
+            [
+              1184,
+              756
+            ],
+            [
+              1184,
+              764
+            ],
+            [
+              1180,
+              764
+            ]
+          ],
+          "witnessPixel": [
+            1182,
+            760
+          ],
+          "confidence": "high for this small visible gap; no hidden connection is inferred",
+          "cssVertices": [
+            [
+              590,
+              378
+            ],
+            [
+              592,
+              378
+            ],
+            [
+              592,
+              382
+            ],
+            [
+              590,
+              382
+            ]
+          ],
+          "witnessRgb": [
+            208,
+            225,
+            235
+          ]
+        }
+      ],
+      "boundarySegments": [
+        {
+          "id": "arrival-shaft-left-and-rounded-mark-seam",
+          "locatorBox": [
+            1180,
+            735,
+            48,
+            55
+          ],
+          "observation": "A bright rounded mark meets the neutral shaft at a near-vertical seam. The mark is distinct in appearance from the cyan beam, which ends to its left across visible ground.",
+          "occlusion": "The rounded mark's right continuation is hidden or coincident with the shaft at this seam; full mark shape and authored attachment are unknown.",
+          "uncertainty": {
+            "status": "unresolvable-from-supplied-RGB",
+            "maximumContourErrorRaster": null,
+            "reason": "One RGB frame cannot determine whether the bright mark belongs to feed, shaft cap or another layer, nor recover their overlapping coverages. Its interior is labeled by appearance only."
+          },
+          "locatorBoxCss": [
+            590,
+            367.5,
+            24,
+            27.5
+          ]
+        },
+        {
+          "id": "arrival-shaft-upper-edge",
+          "locatorBox": [
+            1210,
+            735,
+            325,
+            17
+          ],
+          "observation": "Straight shaft/ground transition visible from the seam toward the upper-arm junction.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "Pale RGB transition lacks independent silhouette/coverage truth and a justified pixel inclusion policy."
+          },
+          "locatorBoxCss": [
+            605,
+            367.5,
+            162.5,
+            8.5
+          ]
+        },
+        {
+          "id": "arrival-shaft-lower-edge",
+          "locatorBox": [
+            1210,
+            770,
+            325,
+            20
+          ],
+          "observation": "Lower shaft edge includes dark surface detail and pale blended pixels; the details are not automatically background.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "Ridge/detail colors and blended ground cannot be converted to a certified outer contour without independent boundary evidence."
+          },
+          "locatorBoxCss": [
+            605,
+            385,
+            162.5,
+            10
+          ]
+        },
+        {
+          "id": "arrival-upper-arm-contour",
+          "locatorBox": [
+            1290,
+            520,
+            265,
+            255
+          ],
+          "observation": "Upper diagonal arm has a visible flat cap and long outer sides; nearby cyan dots remain surrounding context.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "No independently calibrated distinction between surface antialiasing and background is available."
+          },
+          "locatorBoxCss": [
+            645,
+            260,
+            132.5,
+            127.5
+          ]
+        },
+        {
+          "id": "arrival-lower-arm-contour",
+          "locatorBox": [
+            1290,
+            765,
+            265,
+            240
+          ],
+          "observation": "Lower diagonal arm and flat cap are visible with exterior open negative space around the shaft.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "A complete outer polygon and error bound cannot be asserted from visual placement alone."
+          },
+          "locatorBoxCss": [
+            645,
+            382.5,
+            132.5,
+            120
+          ]
+        },
+        {
+          "id": "arrival-tip-and-arm-junction",
+          "locatorBox": [
+            1510,
+            720,
+            50,
+            85
+          ],
+          "observation": "Right-facing tip, bevel/ridge and joining arms are visible; the pale outer edge is blended against the ground.",
+          "uncertainty": {
+            "status": "uncalibrated",
+            "maximumContourErrorRaster": null,
+            "reason": "The flattened image does not uniquely identify coverage of the outer bevel, edge pixels or any overlapping wake contribution."
+          },
+          "locatorBoxCss": [
+            755,
+            360,
+            25,
+            42.5
+          ]
+        }
+      ],
+      "fullSilhouette": null,
+      "qualification": "blocked"
+    }
+  ],
+  "nextRequiredEvidence": "Independently identified implementation subject/rail and endpoint/shaft layer or coverage evidence tied to the same applied frame and raw raster, plus calibrated contour-error truth. An independent reviewer must assess these partial labels; no source masks or geometry transfer may fill the unresolved segments."
+}

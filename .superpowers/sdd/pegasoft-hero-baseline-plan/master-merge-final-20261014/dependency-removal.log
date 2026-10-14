@@ -1,0 +1,22 @@
+Scope: all 8 workspace projects
+Progress: resolved 0, reused 1, downloaded 0, added 0
+ WARN  deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 1495, reused 1325, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: glob@8.1.0, inflight@1.0.6, tsconfck@3.1.6, uuid@8.3.2, whatwg-encoding@2.0.0
+Packages: +2
+++
+Progress: resolved 1495, reused 1325, downloaded 0, added 2, done
+
+devDependencies:
+- @next/eslint-plugin-next 16.3.8
+- eslint-config-next 16.3.8
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: nx.                                                 │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Done in 1.6s using pnpm v10.8.1

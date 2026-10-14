@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "packetComplete": true,
+  "scope": "Inactive beam/exit diagnostics implementation and bounded checks; all semantic/error/provenance qualifications blocked",
+  "inputs": [
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+      "bytes": 1438555,
+      "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb"
+    },
+    {
+      "path": "docs/hero-reference/recording-anchors.json",
+      "bytes": 155189,
+      "sha256": "351fed91b69ddf4a45de4e4ead7d68c642ff01e7496f8062fa61c12bb5b163b1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/diagnostic.json",
+      "bytes": 434015,
+      "sha256": "8c64a63a2ceb4002827516f368f46f390df4edea5a7a821a6debf264046d8a67"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/diagnostics.json",
+      "bytes": 12821,
+      "sha256": "c0546ae95afb398dc8ff81b4dae4562fe3a85122d959c562ce47230d78b78934"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/screen-profile-diagnostics.mjs",
+      "bytes": 10934,
+      "sha256": "115e285baef8f9f0358dd9d7386ed08c61e3871ea56b0231318e7c64d24c3505"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/screen-structural-features.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+      "bytes": 1131505,
+      "sha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001918-journey-exit.png",
+      "bytes": 658503,
+      "sha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/journey-exit.png",
+      "bytes": 254834,
+      "sha256": "c0dfeafbb840e65be60ff23bbe5bc08a0e14568899027eeb1688655d622eb19e"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs",
+      "bytes": 10934,
+      "sha256": "115e285baef8f9f0358dd9d7386ed08c61e3871ea56b0231318e7c64d24c3505"
+    },
+    {
+      "path": "tools/hero-reference/measurement-contract.test.mjs",
+      "bytes": 52370,
+      "sha256": "e68db6ed21b97188f4d61b791fe18e033d53a25880baadd16576809abd92eb3f"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/after/measurement-contract.test.mjs",
+      "bytes": 52370,
+      "sha256": "e68db6ed21b97188f4d61b791fe18e033d53a25880baadd16576809abd92eb3f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/beam-raster-diagnostics.json",
+      "bytes": 1801482,
+      "sha256": "be66cf66454bbb00dd4b3a73458638d8f87eb1f5243e128f8b3a1987bd6dbb73"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/before/measurement-contract.test.mjs",
+      "bytes": 44669,
+      "sha256": "44abbf361d0c3df3a8ed8b4682f965036dcf1fc4f638d957a02a3ebadb4699ea"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/before/module-state.json",
+      "bytes": 202,
+      "sha256": "c7fead0a4367505b3fd3d96cf88e0a3b3d152c7ae600107aff5bd12cf3dc7701"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/checks.json",
+      "bytes": 1343,
+      "sha256": "00b24c1356bcb2018bc821aec87ad5849b4f2f072cc9d5684fbbfc3bf5a16e50"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/exit-raster-diagnostics.json",
+      "bytes": 261096,
+      "sha256": "8470493cd2aa91d7d0b64c25759a65f5ec9c6958015f4fb156f59b2883bb74f8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/implementation.patch",
+      "bytes": 20147,
+      "sha256": "bac18905cdad646bfedd0fab80b5aea127ca7e23e53dd86a1d9f7d0a174bee21"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/input-pins.json",
+      "bytes": 2701,
+      "sha256": "c853a101e641b468f66fdc066733d5557124c7713c23fae2654e25a5cd5a956a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/before-test.log",
+      "bytes": 8396,
+      "sha256": "e88e42eaf33717a2ea743ae57ac57b27a66e29143fec02fada770aaf495b0236"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/green-final-test.log",
+      "bytes": 9611,
+      "sha256": "d1592bb246c1e3e36bd429f5944b7963516a068124ce382f07d73f8d8153e6be"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/green-test.log",
+      "bytes": 9493,
+      "sha256": "23d28f33adb05859f5d8c1d278e1cf6decc4a8ff836ea55c274463706cc42a74"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/lint.log",
+      "bytes": 5542,
+      "sha256": "89fa7eb81f3b1c1e5c303fdd19b2f5e114544b373b729228e2b9b6894448022c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/raster-reproduction.log",
+      "bytes": 129,
+      "sha256": "c1cca608d22ef60153d34a9191cb4eeb48550fd353999cb30c66282b4cb169d6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/red-raw-sideband.log",
+      "bytes": 11239,
+      "sha256": "d1ae7101c10d27ffa4ee436d3ac35ff5decb7c45951e8eebe16cf2bafb49a2ad"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/red-test.log",
+      "bytes": 25213,
+      "sha256": "8989dddd66442829a562709ca15b7060dc3333be09ab13a350bc542131878b8d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/logs/typecheck.log",
+      "bytes": 543,
+      "sha256": "2bdb559a4edc1de26fdf38f004fba27280cfc33501b420a920191a05f8a483d2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/outcome.json",
+      "bytes": 3698,
+      "sha256": "d1aa0e2fba1dc0e75c497a4a31d5991c985e6fe84a3b62886d83c85777d7fd88"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/reproduce.mjs",
+      "bytes": 5257,
+      "sha256": "56fbec184a25d942f2ee16133d1495d27723f1fa23146c193b218b56e9712609"
+    }
+  ],
+  "checksPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/checks.json",
+  "outcomePath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/outcome.json",
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/reproduce.mjs --verify"
+}

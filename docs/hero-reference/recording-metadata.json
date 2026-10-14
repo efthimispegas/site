@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "verifiedOn": "2026-07-28",
+  "classificationVocabulary": [
+    "observed",
+    "source-confirmed",
+    "inferred",
+    "unknown"
+  ],
+  "authority": {
+    "path": "docs/vectrfl_recording.mov",
+    "sha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+    "status": "observed",
+    "role": "authoritative reproducible desktop recording",
+    "derivedCapturePolicy": "PNG captures are reproducible inspection aids. The MOV SHA, decoded-frame index, and PTS remain the authority."
+  },
+  "container": {
+    "status": "observed",
+    "format": "QuickTime / MOV",
+    "formatNames": ["mov", "mp4", "m4a", "3gp", "3g2", "mj2"],
+    "sizeBytes": 190835536,
+    "startTimeSeconds": 0,
+    "durationSeconds": 32.927833,
+    "bitRate": 46364553,
+    "creationTimeUtc": "2026-07-26T14:17:17.000000Z",
+    "quickTimeCreationDate": "2026-07-26T16:16:27+0200",
+    "captureMake": "Apple",
+    "captureModel": "Mac15,6",
+    "captureSoftware": "macOS 15.7.7 (24G720)"
+  },
+  "video": {
+    "status": "observed",
+    "streamIndex": 0,
+    "codec": "h264",
+    "codecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+    "profile": "Main",
+    "level": 50,
+    "codecTag": "avc1",
+    "mimeCodec": "avc1.4d0032",
+    "widthPixels": 3016,
+    "heightPixels": 1522,
+    "pixelFormat": "yuv420p",
+    "fieldOrder": "progressive",
+    "colorRange": "tv",
+    "colorSpace": "bt709",
+    "colorTransfer": "bt709",
+    "colorPrimaries": "bt709",
+    "chromaLocation": "center",
+    "timeBase": "1/6000",
+    "startPts": 0,
+    "durationPts": 197567,
+    "durationSeconds": 32.927833,
+    "nominalFrameRate": "60/1",
+    "averageFrameRate": "118800/1981",
+    "averageFramesPerSecond": 59.969712,
+    "declaredFrameCount": 1980,
+    "decodedPresentationFrameCount": 1976,
+    "bitRate": 46232604,
+    "audioStreamPresent": false
+  },
+  "frameIndexing": {
+    "status": "observed",
+    "canonicalAnchorPair": ["decodedFrameIndex", "bestEffortTimestampPts"],
+    "decodedFrameIndexDefinition": "Zero-based presentation-order index in ffprobe .frames; this is the n used by ffmpeg select=eq(n,index).",
+    "ptsDefinition": "best_effort_timestamp in the video time base 1/6000.",
+    "declaredVersusDecodedDiscrepancy": {
+      "status": "observed",
+      "declaredFrameCount": 1980,
+      "decodedPresentationFrameCount": 1976,
+      "detail": "The stream header declares 1980 frames, while FFmpeg 8.1.2 decodes 1976 presentation frames. The timeline also skips PTS 400 and 500 between 0.050000s and 0.100000s.",
+      "acceptanceRule": "Never identify an anchor by declared ordinal alone; always retain decoded-frame index plus PTS."
+    },
+    "firstDecodedFrame": {
+      "decodedFrameIndex": 0,
+      "bestEffortTimestampPts": 0,
+      "timestampSeconds": 0
+    },
+    "lastDecodedFrame": {
+      "decodedFrameIndex": 1975,
+      "bestEffortTimestampPts": 197700,
+      "timestampSeconds": 32.95
+    },
+    "durationCaveat": "The last decoded frame PTS is 32.950000s although the stream/container duration is 32.927833s; use each anchor's PTS rather than deriving it from total duration or average FPS."
+  },
+  "recordingProfile": {
+    "rasterViewport": {
+      "status": "observed",
+      "widthPixels": 3016,
+      "heightPixels": 1522
+    },
+    "cssViewport": {
+      "status": "source-confirmed",
+      "widthCssPixels": 1508,
+      "heightCssPixels": 761,
+      "confidence": "high",
+      "evidence": [
+        "The recording raster is exactly two times 1508x761 in each dimension.",
+        "QuickTime metadata identifies an Apple Mac15,6 capture on macOS 15.7.7, consistent with Retina backing pixels.",
+        "On 2026-07-28, the current authoritative site rendered at CSS 1508x761 placed the first landing-title line at x=405.046875, y=128, width=697.90625, height=86.3984375; its half-raster alignment matches the recording landing composition."
+      ],
+      "caveat": "The MOV does not directly encode CSS viewport dimensions. This pair is accepted through exact raster scaling plus live-source layout cross-check."
+    },
+    "devicePixelRatio": {
+      "status": "source-confirmed",
+      "value": 2,
+      "confidence": "high",
+      "caveat": "DPR is not stored as a dedicated MOV field; it is resolved jointly with the CSS viewport."
+    },
+    "browserNameAndVersion": {
+      "status": "unknown",
+      "value": null,
+      "reason": "No browser chrome or browser metadata is present in the recording."
+    },
+    "inputDevice": {
+      "status": "unknown",
+      "value": null,
+      "reason": "Pointer and scroll motion are visible, but the recording does not identify mouse versus trackpad."
+    },
+    "responsiveEvidence": {
+      "status": "observed",
+      "profilesPresent": ["desktop"],
+      "profilesAbsent": [
+        "tablet",
+        "mobile",
+        "resize",
+        "touch",
+        "reduced-motion"
+      ]
+    }
+  },
+  "timingPolicy": {
+    "status": "observed",
+    "preReloadFrames": "0.000000s through approximately 0.883333s show an already-resolved page and are capture setup, not a loader target.",
+    "loaderAndReveal": "The apparent reload/reveal after approximately 0.900000s is elapsed-time evidence.",
+    "journey": "Motion after the landing exit is user-scroll-controlled. Recording timestamps are seek anchors and must not be interpreted as authored scroll durations or normalized journey progress.",
+    "localEffects": "The recording shows repeating landing-route and field-pulse states, but cannot by itself separate elapsed-time, scroll, and pointer ownership."
+  },
+  "verificationTools": {
+    "ffmpegVersion": "8.1.2",
+    "ffprobeVersion": "8.1.2",
+    "hostArchitecture": "arm64",
+    "commands": {
+      "sha256": "shasum -a 256 docs/vectrfl_recording.mov",
+      "metadata": "ffprobe -v error -show_format -show_streams -of json docs/vectrfl_recording.mov",
+      "decodedFrameCount": "ffprobe -v error -select_streams v:0 -show_frames -show_entries frame=best_effort_timestamp,best_effort_timestamp_time,key_frame,pict_type -of json docs/vectrfl_recording.mov | jq '.frames | length'",
+      "anchorExtractionTemplate": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,DECODED_FRAME_INDEX)'\" -frames:v 1 docs/hero-reference/recording/OUTPUT.png"
+    }
+  }
+}

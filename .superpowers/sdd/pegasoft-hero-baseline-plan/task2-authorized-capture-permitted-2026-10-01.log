@@ -1,0 +1,76 @@
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck  [local cache]
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/pegasoft-e2e:hero-capture
+
+> playwright test --config=playwright.visual.config.ts
+
+(node:9044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:9044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:9106) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:9161) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2mRunning [22m15[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:9215) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:9215) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/15] src/visual/hero-reference.visual.ts:473:7 › capture loader-mark at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture loader-mark at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[2/15] src/visual/hero-reference.visual.ts:473:7 › capture world-reveal at the recording profile
+[1A[2K[3/15] src/visual/hero-reference.visual.ts:473:7 › capture landing at the recording profile
+[1A[2K[4/15] src/visual/hero-reference.visual.ts:473:7 › capture landing-idle at the recording profile
+[1A[2K[5/15] src/visual/hero-reference.visual.ts:473:7 › capture activation-route at the recording profile
+[1A[2K[6/15] src/visual/hero-reference.visual.ts:473:7 › capture activation-contact at the recording profile
+[1A[2K[7/15] src/visual/hero-reference.visual.ts:473:7 › capture clearance-travel at the recording profile
+[1A[2K[8/15] src/visual/hero-reference.visual.ts:473:7 › capture clearance-field-preview at the recording profile
+[1A[2K[9/15] src/visual/hero-reference.visual.ts:473:7 › capture field-approach at the recording profile
+[1A[2K[10/15] src/visual/hero-reference.visual.ts:473:7 › capture field-contact at the recording profile
+[1A[2K[11/15] src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-a at the recording profile
+[1A[2K[12/15] src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-b at the recording profile
+[1A[2K[13/15] src/visual/hero-reference.visual.ts:473:7 › capture arrival-travel at the recording profile
+[1A[2K[14/15] src/visual/hero-reference.visual.ts:473:7 › capture arrival-lockup at the recording profile
+[1A[2K[15/15] src/visual/hero-reference.visual.ts:473:7 › capture journey-exit at the recording profile
+[1A[2K[32m  15 passed[39m[2m (53.3s)[22m
+
+
+
+ NX   Successfully ran target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on
+
+Nx read the output from the cache instead of running the command for 1 out of 3 tasks.
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+
+  Run duration:      55.0s
+  Cache:             1/3 hit (33%)
+  Critical path:     55.0s (3 tasks)
+  Recoverable time:  <1ms
+
+  Recommendations:
+    - Speed up or split the longest tasks on the critical path:
+        @site/pegasoft-e2e:hero-capture    54.0s

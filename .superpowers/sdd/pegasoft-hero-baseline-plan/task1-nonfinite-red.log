@@ -1,0 +1,55 @@
+
+> nx run @site/pegasoft-e2e:hero-capture-contract-test --grep=nonfinite_frame
+
+> playwright test --config=playwright.capture-contract.config.ts --grep=nonfinite_frame
+
+(node:63451) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:63451) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[2mRunning [22m1[2m test using [22m1[2m worker[22m
+
+[1A[2K(node:63457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:63457) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/1] src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify
+[1A[2K[31m  1) src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify [2m────────────────[22m[39m
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mfalse[39m
+    Received: [31mtrue[39m
+
+      70 |   const observed = sample();
+      71 |   observed.record!.frame.target = Number.NaN;
+    > 72 |   expect(isCaptureObservationReady(observed, { key: 'world-reveal', lifecycle: 'loading', target: 0 })).toBe(false);
+         |                                                                                                         ^
+      73 | });
+      74 |
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-contract.spec.ts:72:105[22m
+
+[2m    Error Context: test-output/playwright/capture-contract/hero-capture-contract-nonfinite-frame-cannot-qualify/error-context.md[22m
+
+
+[1A[2K[31m  1 failed[39m
+[31m    src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify [2m─────────────────[22m[39m
+Warning: command "playwright test --config=playwright.capture-contract.config.ts --grep=nonfinite_frame" exited with non-zero status code
+
+
+ NX   Running target hero-capture-contract-test for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture-contract-test
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      712ms
+  Critical path:     704ms (1 task)
+  Recoverable time:  <1ms

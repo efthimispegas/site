@@ -1,0 +1,23 @@
+{
+  "measurementContracts": {
+    "status": "pass",
+    "count": 67,
+    "redGreen": "5 new API cases, 1 palette case and 1 enclosed-hole case observed failing before their implementations; exterior-notch regression remains green"
+  },
+  "captureContractFixtures": {
+    "command": "pnpm nx run @site/pegasoft-e2e:hero-capture-contract-test",
+    "status": "pass",
+    "count": 28,
+    "exitCode": 0,
+    "kind": "isolated browser fixtures; not a reference capture batch"
+  },
+  "typechecks": "both pass; Nx cache 0/2 hits",
+  "lint": "pass: 0 errors/39 existing warnings",
+  "whitespace": "git diff --check pass",
+  "savedImages": "3/3 manifest pins match",
+  "negativeSamples": "11/11 excluded",
+  "roiAndSupportGates": "unchanged",
+  "activeComparator": "candidate not integrated",
+  "independentQualification": "not granted",
+  "arrivalBoundary": "blocked"
+}

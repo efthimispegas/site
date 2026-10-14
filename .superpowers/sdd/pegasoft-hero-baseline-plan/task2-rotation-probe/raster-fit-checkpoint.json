@@ -1,0 +1,842 @@
+{
+  "status": "rejected for qualification: conditional spread exceeds one frame and recording residual exceeds tested error model",
+  "method": "Fit free square pose and amplitude to luminance using 8x subpixel coverage; invert CSS ease-out only after pose fit. Synthetic held-out forward render uses PIL polygon 32x BOX sampling.",
+  "syntheticValidation": [
+    {
+      "truth": [
+        24.15,
+        23.8,
+        28.04,
+        31.37
+      ],
+      "noiseAmplitude": 0.0,
+      "result": {
+        "center": [
+          24.15,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 31.375,
+        "amplitude": 1.0001198709072199,
+        "rmsResidual": 0.003286350903928749,
+        "maxAbsResidual": 0.03743364046815145
+      },
+      "angleErrorDegrees": 0.004999999999999005,
+      "centerErrorPixels": 0.01249999999999929
+    },
+    {
+      "truth": [
+        24.15,
+        23.8,
+        28.04,
+        31.37
+      ],
+      "noiseAmplitude": 0.00392156862745098,
+      "result": {
+        "center": [
+          24.15,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 31.375,
+        "amplitude": 0.999202184026672,
+        "rmsResidual": 0.0038389076907406994,
+        "maxAbsResidual": 0.03700347474289467
+      },
+      "angleErrorDegrees": 0.004999999999999005,
+      "centerErrorPixels": 0.01249999999999929
+    },
+    {
+      "truth": [
+        24.15,
+        23.8,
+        28.04,
+        31.37
+      ],
+      "noiseAmplitude": 0.011764705882352941,
+      "result": {
+        "center": [
+          24.15,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 31.375,
+        "amplitude": 0.9975199041102439,
+        "rmsResidual": 0.006051301047809543,
+        "maxAbsResidual": 0.044058043286970994
+      },
+      "angleErrorDegrees": 0.004999999999999005,
+      "centerErrorPixels": 0.01249999999999929
+    },
+    {
+      "truth": [
+        24.32,
+        23.91,
+        28.04,
+        36.18
+      ],
+      "noiseAmplitude": 0.0,
+      "result": {
+        "center": [
+          24.3375,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 36.125,
+        "amplitude": 0.9999907539179154,
+        "rmsResidual": 0.003245648308941964,
+        "maxAbsResidual": 0.037136687042153615
+      },
+      "angleErrorDegrees": 0.054999999999999716,
+      "centerErrorPixels": 0.017677669529662182
+    },
+    {
+      "truth": [
+        24.32,
+        23.91,
+        28.04,
+        36.18
+      ],
+      "noiseAmplitude": 0.00392156862745098,
+      "result": {
+        "center": [
+          24.3375,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 36.125,
+        "amplitude": 0.9990446561616338,
+        "rmsResidual": 0.003899760311308062,
+        "maxAbsResidual": 0.041501738992861525
+      },
+      "angleErrorDegrees": 0.054999999999999716,
+      "centerErrorPixels": 0.017677669529662182
+    },
+    {
+      "truth": [
+        24.32,
+        23.91,
+        28.04,
+        36.18
+      ],
+      "noiseAmplitude": 0.011764705882352941,
+      "result": {
+        "center": [
+          24.3375,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 36.125,
+        "amplitude": 0.9973179241923339,
+        "rmsResidual": 0.005711929315369375,
+        "maxAbsResidual": 0.03622210040164697
+      },
+      "angleErrorDegrees": 0.054999999999999716,
+      "centerErrorPixels": 0.017677669529662182
+    },
+    {
+      "truth": [
+        24.49,
+        23.8,
+        28.04,
+        41.63
+      ],
+      "noiseAmplitude": 0.0,
+      "result": {
+        "center": [
+          24.4625,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 41.625,
+        "amplitude": 0.9999791748666719,
+        "rmsResidual": 0.005386606140859028,
+        "maxAbsResidual": 0.06073312638964201
+      },
+      "angleErrorDegrees": 0.005000000000002558,
+      "centerErrorPixels": 0.030207614933986007
+    },
+    {
+      "truth": [
+        24.49,
+        23.8,
+        28.04,
+        41.63
+      ],
+      "noiseAmplitude": 0.00392156862745098,
+      "result": {
+        "center": [
+          24.4625,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 41.625,
+        "amplitude": 0.9989627907970147,
+        "rmsResidual": 0.005667237581312435,
+        "maxAbsResidual": 0.06122543742338227
+      },
+      "angleErrorDegrees": 0.005000000000002558,
+      "centerErrorPixels": 0.030207614933986007
+    },
+    {
+      "truth": [
+        24.49,
+        23.8,
+        28.04,
+        41.63
+      ],
+      "noiseAmplitude": 0.011764705882352941,
+      "result": {
+        "center": [
+          24.525,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 41.625,
+        "amplitude": 0.9963670225126996,
+        "rmsResidual": 0.007302770358921097,
+        "maxAbsResidual": 0.0615909559958181
+      },
+      "angleErrorDegrees": 0.005000000000002558,
+      "centerErrorPixels": 0.03716517186829616
+    },
+    {
+      "truth": [
+        24.15,
+        23.91,
+        28.04,
+        46.42
+      ],
+      "noiseAmplitude": 0.0,
+      "result": {
+        "center": [
+          24.15,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 46.375,
+        "amplitude": 1.0002698870577316,
+        "rmsResidual": 0.004571578042888586,
+        "maxAbsResidual": 0.05735543433896895
+      },
+      "angleErrorDegrees": 0.045000000000001705,
+      "centerErrorPixels": 0.002500000000001279
+    },
+    {
+      "truth": [
+        24.15,
+        23.91,
+        28.04,
+        46.42
+      ],
+      "noiseAmplitude": 0.00392156862745098,
+      "result": {
+        "center": [
+          24.15,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 46.375,
+        "amplitude": 0.9993798509188722,
+        "rmsResidual": 0.005017278170785485,
+        "maxAbsResidual": 0.057953427369765054
+      },
+      "angleErrorDegrees": 0.045000000000001705,
+      "centerErrorPixels": 0.002500000000001279
+    },
+    {
+      "truth": [
+        24.15,
+        23.91,
+        28.04,
+        46.42
+      ],
+      "noiseAmplitude": 0.011764705882352941,
+      "result": {
+        "center": [
+          24.15,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 46.375,
+        "amplitude": 0.9976276619788366,
+        "rmsResidual": 0.006690283258654591,
+        "maxAbsResidual": 0.05765554494308256
+      },
+      "angleErrorDegrees": 0.045000000000001705,
+      "centerErrorPixels": 0.002500000000001279
+    },
+    {
+      "truth": [
+        24.32,
+        23.8,
+        28.04,
+        51.29
+      ],
+      "noiseAmplitude": 0.0,
+      "result": {
+        "center": [
+          24.3375,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 51.25,
+        "amplitude": 1.0000036467898572,
+        "rmsResidual": 0.00525054122825149,
+        "maxAbsResidual": 0.059990309247157536
+      },
+      "angleErrorDegrees": 0.03999999999999915,
+      "centerErrorPixels": 0.021505813167604765
+    },
+    {
+      "truth": [
+        24.32,
+        23.8,
+        28.04,
+        51.29
+      ],
+      "noiseAmplitude": 0.00392156862745098,
+      "result": {
+        "center": [
+          24.3375,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 51.25,
+        "amplitude": 0.9991032058332208,
+        "rmsResidual": 0.005563192944639445,
+        "maxAbsResidual": 0.06327875532697358
+      },
+      "angleErrorDegrees": 0.03999999999999915,
+      "centerErrorPixels": 0.021505813167604765
+    },
+    {
+      "truth": [
+        24.32,
+        23.8,
+        28.04,
+        51.29
+      ],
+      "noiseAmplitude": 0.011764705882352941,
+      "result": {
+        "center": [
+          24.3375,
+          23.7875
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 51.25,
+        "amplitude": 0.9973627038071676,
+        "rmsResidual": 0.0072081962429195855,
+        "maxAbsResidual": 0.06684438855189279
+      },
+      "angleErrorDegrees": 0.03999999999999915,
+      "centerErrorPixels": 0.021505813167604765
+    },
+    {
+      "truth": [
+        24.49,
+        23.91,
+        28.04,
+        56.71
+      ],
+      "noiseAmplitude": 0.0,
+      "result": {
+        "center": [
+          24.4625,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 56.75,
+        "amplitude": 0.9998370128907987,
+        "rmsResidual": 0.00443857317461184,
+        "maxAbsResidual": 0.052320637007951754
+      },
+      "angleErrorDegrees": 0.03999999999999915,
+      "centerErrorPixels": 0.027613402542968127
+    },
+    {
+      "truth": [
+        24.49,
+        23.91,
+        28.04,
+        56.71
+      ],
+      "noiseAmplitude": 0.00392156862745098,
+      "result": {
+        "center": [
+          24.4625,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 56.75,
+        "amplitude": 0.9988082662983125,
+        "rmsResidual": 0.004830827653616007,
+        "maxAbsResidual": 0.052658194483611254
+      },
+      "angleErrorDegrees": 0.03999999999999915,
+      "centerErrorPixels": 0.027613402542968127
+    },
+    {
+      "truth": [
+        24.49,
+        23.91,
+        28.04,
+        56.71
+      ],
+      "noiseAmplitude": 0.011764705882352941,
+      "result": {
+        "center": [
+          24.4625,
+          23.9125
+        ],
+        "sidePixels": 28.0625,
+        "orientationDegreesModulo90": 56.75,
+        "amplitude": 0.997201656318658,
+        "rmsResidual": 0.006610783565317283,
+        "maxAbsResidual": 0.057106932010636435
+      },
+      "angleErrorDegrees": 0.03999999999999915,
+      "centerErrorPixels": 0.027613402542968127
+    }
+  ],
+  "recordingFits": [
+    {
+      "center": [
+        23.0669402583423,
+        24.245156081808403
+      ],
+      "sidePixels": 28.1025,
+      "orientationDegreesModulo90": 33.335116839716676,
+      "amplitude": 0.2022733308520559,
+      "rmsResidual": 0.007071906577965864,
+      "maxAbsResidual": 0.04907418444515178,
+      "frameIndex": 60,
+      "pts": 6200,
+      "roi": [
+        99,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "443e8ab870a7fa50220269bbdcf52cafca40ca401c47a99e20d0281088a8d5d2",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        122.0669402583423,
+        151.2451560818084
+      ],
+      "conditionalOnsetMs": 983.1273297750822
+    },
+    {
+      "center": [
+        23.186531007751938,
+        23.81831395348837
+      ],
+      "sidePixels": 28.1025,
+      "orientationDegreesModulo90": 35.05005938797984,
+      "amplitude": 0.348440543547881,
+      "rmsResidual": 0.011706113866368195,
+      "maxAbsResidual": 0.0884214302900703,
+      "frameIndex": 61,
+      "pts": 6300,
+      "roi": [
+        103,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "6c22bdf939112169b905a41db0c73d9da5418a866959c00042c8187341b03e0f",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        126.18653100775194,
+        150.81831395348837
+      ],
+      "conditionalOnsetMs": 973.1940991065859
+    },
+    {
+      "center": [
+        22.952668680765356,
+        24.62965760322257
+      ],
+      "sidePixels": 28.1025,
+      "orientationDegreesModulo90": 35.95185345191793,
+      "amplitude": 0.45320532294174254,
+      "rmsResidual": 0.011849702177712945,
+      "maxAbsResidual": 0.07862799113797359,
+      "frameIndex": 62,
+      "pts": 6400,
+      "roi": [
+        106,
+        126,
+        48,
+        48
+      ],
+      "imageSha256": "7fc9c366d4abd62dddc8685b76f8d1c0895bde876f51946dcd7fc13df4a3660e",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        128.95266868076536,
+        150.62965760322257
+      ],
+      "conditionalOnsetMs": 975.6970589195545
+    },
+    {
+      "center": [
+        23.448019247985684,
+        23.472135183527314
+      ],
+      "sidePixels": 28.1025,
+      "orientationDegreesModulo90": 37.092127396797906,
+      "amplitude": 0.5371986769146702,
+      "rmsResidual": 0.015791695954761178,
+      "maxAbsResidual": 0.10725793750214369,
+      "frameIndex": 63,
+      "pts": 6500,
+      "roi": [
+        108,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "4352043b0a76c22023224a5605da6e8bc44d4f17119fa90c44bb5f247b492dea",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        131.44801924798568,
+        150.4721351835273
+      ],
+      "conditionalOnsetMs": 974.2876502902802
+    },
+    {
+      "center": [
+        22.80514375561546,
+        23.3954964061096
+      ],
+      "sidePixels": 28.1025,
+      "orientationDegreesModulo90": 37.647715855356566,
+      "amplitude": 0.5872835057922818,
+      "rmsResidual": 0.01649209673802364,
+      "maxAbsResidual": 0.12346666462152028,
+      "frameIndex": 64,
+      "pts": 6600,
+      "roi": [
+        110,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "f6a5d311c2aecfbaca288d020f424f6383a5fc4633397791dbcebc990baee89f",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        132.80514375561546,
+        150.3954964061096
+      ],
+      "conditionalOnsetMs": 982.0805912320642
+    },
+    {
+      "center": [
+        22.210265957446808,
+        23.28053191489363
+      ],
+      "sidePixels": 28.13375,
+      "orientationDegreesModulo90": 38.635771520309305,
+      "amplitude": 0.6544223734229201,
+      "rmsResidual": 0.019024643297573026,
+      "maxAbsResidual": 0.12851168611500624,
+      "frameIndex": 65,
+      "pts": 6700,
+      "roi": [
+        113,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "491b846a12e85f1eff63e7183c8dcbcc12be0e9203993ac08c079a740b7101aa",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        135.2102659574468,
+        150.28053191489363
+      ],
+      "conditionalOnsetMs": 982.8600912944542
+    },
+    {
+      "center": [
+        22.74292863359443,
+        22.214915143603122
+      ],
+      "sidePixels": 28.1025,
+      "orientationDegreesModulo90": 39.80935357425699,
+      "amplitude": 0.7266614333897133,
+      "rmsResidual": 0.020754399298865946,
+      "maxAbsResidual": 0.17812430760654058,
+      "frameIndex": 66,
+      "pts": 6800,
+      "roi": [
+        115,
+        128,
+        48,
+        48
+      ],
+      "imageSha256": "bace4595e392fdf434101dcb58579ea230a10f292deb4db931adde4d4376dac7",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        137.74292863359443,
+        150.21491514360312
+      ],
+      "conditionalOnsetMs": 980.480793437686
+    },
+    {
+      "center": [
+        22.98832599118944,
+        23.179625550660802
+      ],
+      "sidePixels": 28.1025,
+      "orientationDegreesModulo90": 40.092324513067055,
+      "amplitude": 0.7538819440661659,
+      "rmsResidual": 0.023333100919630166,
+      "maxAbsResidual": 0.16178900570279997,
+      "frameIndex": 67,
+      "pts": 6900,
+      "roi": [
+        116,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "7c664e3cb4cf9970b320d24c22ff540c054b583f26560785fed09830ff6f4264",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        138.98832599118944,
+        150.1796255506608
+      ],
+      "conditionalOnsetMs": 992.5266455779267
+    },
+    {
+      "center": [
+        23.440758845437614,
+        23.166317504655495
+      ],
+      "sidePixels": 28.13375,
+      "orientationDegreesModulo90": 42.1838910787923,
+      "amplitude": 0.8430901481625945,
+      "rmsResidual": 0.021578230794212963,
+      "maxAbsResidual": 0.1593350387806406,
+      "frameIndex": 68,
+      "pts": 7000,
+      "roi": [
+        120,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "abfc26cc4294e5a519271c5e80219a0ee35e66020797bd005964b508321c7025",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        143.4407588454376,
+        150.1663175046555
+      ],
+      "conditionalOnsetMs": 974.693940827505
+    },
+    {
+      "center": [
+        23.538043478260875,
+        23.19202898550725
+      ],
+      "sidePixels": 28.165,
+      "orientationDegreesModulo90": 43.213346175474015,
+      "amplitude": 0.8743850285637186,
+      "rmsResidual": 0.022712378110674114,
+      "maxAbsResidual": 0.15294933931111993,
+      "frameIndex": 69,
+      "pts": 7100,
+      "roi": [
+        122,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "07d25a9540d2900e7d5203fcd448b9abfaa1760204f66c6ea5b84d7672b08eb3",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        145.53804347826087,
+        150.19202898550725
+      ],
+      "conditionalOnsetMs": 974.1552317801688
+    },
+    {
+      "center": [
+        22.519424131627062,
+        24.257084095063988
+      ],
+      "sidePixels": 28.13375,
+      "orientationDegreesModulo90": 43.80793059105654,
+      "amplitude": 0.9021218672779908,
+      "rmsResidual": 0.02427791553805978,
+      "maxAbsResidual": 0.18215312336527756,
+      "frameIndex": 70,
+      "pts": 7200,
+      "roi": [
+        124,
+        126,
+        48,
+        48
+      ],
+      "imageSha256": "fb8411c658411b773503c5856a1b38cc1811b5edb563e72af973ea20a309c40d",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        146.51942413162706,
+        150.257084095064
+      ],
+      "conditionalOnsetMs": 980.8160239974804
+    },
+    {
+      "center": [
+        23.485439068100362,
+        23.344982078853036
+      ],
+      "sidePixels": 28.165,
+      "orientationDegreesModulo90": 44.70036941635573,
+      "amplitude": 0.9232118221073455,
+      "rmsResidual": 0.023123543361755795,
+      "maxAbsResidual": 0.1782975866711889,
+      "frameIndex": 71,
+      "pts": 7300,
+      "roi": [
+        125,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "290d4c6c7516ef9dcc72c67d07d4f502a11f5671a607dcfbf3c3f141eacdbf30",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        148.48543906810036,
+        150.34498207885304
+      ],
+      "conditionalOnsetMs": 982.3691271757077
+    },
+    {
+      "center": [
+        23.402573529411768,
+        24.35018382352942
+      ],
+      "sidePixels": 28.165,
+      "orientationDegreesModulo90": 45.64480719336253,
+      "amplitude": 0.9493187027849225,
+      "rmsResidual": 0.022717568781001476,
+      "maxAbsResidual": 0.1823991428668369,
+      "frameIndex": 72,
+      "pts": 7400,
+      "roi": [
+        127,
+        126,
+        48,
+        48
+      ],
+      "imageSha256": "418d3d5293d11ae4390cef8b6577ad7a4cd6a7b3219bc55ce018a550e8f4e5c9",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        150.40257352941177,
+        150.35018382352942
+      ],
+      "conditionalOnsetMs": 982.9154217138539
+    },
+    {
+      "center": [
+        23.241039019963694,
+        24.307622504537193
+      ],
+      "sidePixels": 28.165,
+      "orientationDegreesModulo90": 46.50713589188746,
+      "amplitude": 0.9657772270531699,
+      "rmsResidual": 0.023771193372620344,
+      "maxAbsResidual": 0.17386920862120991,
+      "frameIndex": 73,
+      "pts": 7500,
+      "roi": [
+        129,
+        126,
+        48,
+        48
+      ],
+      "imageSha256": "10d9839170e055405ad9f344b08beeee35d8acc4168cb6000f0ff6d26f6865ca",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        152.2410390199637,
+        150.3076225045372
+      ],
+      "conditionalOnsetMs": 984.7480361227248
+    },
+    {
+      "center": [
+        21.94826800364632,
+        23.25865998176846
+      ],
+      "sidePixels": 28.165,
+      "orientationDegreesModulo90": 47.53610801057187,
+      "amplitude": 0.9844494347886309,
+      "rmsResidual": 0.025221292835062612,
+      "maxAbsResidual": 0.18497064238216507,
+      "frameIndex": 74,
+      "pts": 7600,
+      "roi": [
+        132,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "df909d1b43c24de8c2acca6792ce077088c30b33cba96f6e4b9422b98962eea7",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        153.94826800364632,
+        150.25865998176846
+      ],
+      "conditionalOnsetMs": 983.5674026116083
+    },
+    {
+      "center": [
+        23.506055555555548,
+        23.218777777777774
+      ],
+      "sidePixels": 28.13375,
+      "orientationDegreesModulo90": 48.353611097319906,
+      "amplitude": 1.0016504617548592,
+      "rmsResidual": 0.026472215227509643,
+      "maxAbsResidual": 0.2529107072680399,
+      "frameIndex": 75,
+      "pts": 7700,
+      "roi": [
+        132,
+        127,
+        48,
+        48
+      ],
+      "imageSha256": "523f6ff9720730fdb6b47e9ae562456306ddc4ddb865703c13a9d85cbbdca534",
+      "luminanceContrast": 161.70919999999998,
+      "recordingCenterCropPixels": [
+        155.50605555555555,
+        150.21877777777777
+      ],
+      "conditionalOnsetMs": 985.9387008263501
+    }
+  ],
+  "summary": {
+    "syntheticCases": 18,
+    "maxSyntheticAngleErrorDegrees": 0.054999999999999716,
+    "maxSyntheticCenterErrorPixels": 0.03716517186829616,
+    "maxSyntheticRmsResidual": 0.007302770358921097,
+    "maxSyntheticAbsResidual": 0.06684438855189279,
+    "recordingFrames": 16,
+    "conditionalOnsetRangeMs": [
+      973.1940991065859,
+      992.5266455779267
+    ],
+    "conditionalOnsetSpreadMs": 19.332546471340834,
+    "maxRecordingRmsResidual": 0.026472215227509643,
+    "maxRecordingAbsResidual": 0.2529107072680399
+  },
+  "limitations": [
+    "Synthetic validation does not establish a codec/antialiasing error bound for recorded pixels.",
+    "A free intensity/pose fit cannot establish the recording native effect identity or onset.",
+    "One best-fit parameter per frame is not a certified timing interval.",
+    "No mean/intersection is promoted to proof; no phase contract is filled."
+  ],
+  "nextAction": "If recording residuals exceed synthetic perturbation envelope or onset spread exceeds one frame, reject this cube estimator as qualification evidence; select another causal effect or establish stronger recording error evidence."
+}

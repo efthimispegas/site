@@ -1,0 +1,26 @@
+{
+  "provenance": {
+    "path": "docs/hero-reference/live/source-evidence.json",
+    "sha256": "2d5fc00b842e464532fdd22706ec62d53aef442db5e92c300fe5805d74ecbb3d",
+    "scope": "Retained source-confirmed records; not a fresh source bundle or source render verification."
+  },
+  "records": [
+    {
+      "id": "idle-feeder-and-rendered-clock-ownership",
+      "evidenceClass": "source-confirmed",
+      "sourceRefs": [
+        "live-app-js-2026-09-15-phase7"
+      ],
+      "value": {
+        "sourceSymbols": "Oa._createAllLines and Oa._createIdleRedLines iterate zr for red geometry.",
+        "redRadius": 0.075,
+        "blueRadius": 0.125,
+        "idleGeometry": "Same four activation feeders, not a separate landing network.",
+        "idleDepth": "Normal depth testing; mirror line duplicates also exist.",
+        "coupledEffects": "Source onRaf derives red/blue reveal, field composition/grid ratio and arrival ratio from damped cameraProgress.",
+        "targetException": "Landing idle spawning requires target progress zero.",
+        "gridClock": "Resets when gridRatio is zero; do not substitute the later 0.74 contact gate."
+      }
+    }
+  ]
+}

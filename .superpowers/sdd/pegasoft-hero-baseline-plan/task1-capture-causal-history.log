@@ -1,0 +1,126 @@
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/pegasoft-e2e:hero-capture
+
+> playwright test --config=playwright.visual.config.ts
+
+(node:68251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:68251) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:68276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:68277) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2mRunning [22m15[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:68287) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:68287) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/15] src/visual/hero-reference.visual.ts:464:7 › capture loader-mark at the recording profile
+[1A[2K[2/15] src/visual/hero-reference.visual.ts:464:7 › capture world-reveal at the recording profile
+[1A[2K[3/15] src/visual/hero-reference.visual.ts:464:7 › capture landing at the recording profile
+[1A[2K[4/15] src/visual/hero-reference.visual.ts:464:7 › capture landing-idle at the recording profile
+[1A[2K[31m  1) src/visual/hero-reference.visual.ts:464:7 › capture landing-idle at the recording profile [2m─────[22m[39m
+
+    Error: landing-idle: capture input did not reach a coherent completed frame: {"attributes":{"data-hero-attempt-state":"ready","data-hero-render-ready":"true","data-hero-fallback-ready":"false","data-hero-attempt-id":"_R_1favb_","data-hero-attempt-started-at":"83","data-hero-attempt-elapsed-ms":"13","data-hero-fallback-at":"0","data-hero-resources-started-at":"83","data-hero-resources-ready-at":"83","data-hero-ready-at":"96","data-hero-first-applied-frame":"1","data-hero-attempt-reason":"frame-applied","style":"display:contents","data-hero-reference-state":"landing-idle","data-hero-step":"1","data-hero-lifecycle":"landing","data-hero-motion":"full","data-hero-profile":"desktop","data-hero-scene-progress":"0.000000","data-hero-direct-entry":"false","data-hero-pointer-trail":"true","data-hero-seed":"43117"},"canvasVisible":true,"fontsReady":true,"loaderCleared":true,"lifecycleElapsedMs":6944,"record":{"schemaVersion":1,"frame":{"frameId":429,"measurementSequence":1,"nowMs":6848,"deltaMs":16,"target":0,"smoothTimeSeconds":0.15,"rendered":{"value":0,"velocity":0},"ratios":{"red":0,"blueZero":0,"field":0,"fieldComposition":0,"blueOne":0,"retreat":0},"fieldElapsedMs":0,"fieldResetSequence":0,"arrivalElapsedMs":0,"arrivalRatio":0,"arrivalResetSequence":0,"idle":[{"active":false,"phaseSeconds":0,"spawnSeconds":2.170021844193339,"start":0,"end":0,"completedCycles":2},{"active":false,"phaseSeconds":0,"spawnSeconds":0.9355416688323013,"start":0,"end":0,"completedCycles":2},{"active":false,"phaseSeconds":0,"spawnSeconds":1.6999146747291085,"start":0,"end":0,"completedCycles":2},{"active":true,"phaseSeconds":1.1520000000000008,"spawnSeconds":-0.003974660739304844,"start":0.190000000000001,"end":1,"completedCycles":1}],"randomState":1578171438},"appliedConsumers":{"camera":{"frameId":429,"renderedProgress":0,"readback":{"position":[-80,66,15],"quaternion":[-0.3956274809003758,-0.243403409558069,-0.10958246830234673,0.8787635399882582],"fovDegrees":14.42629256144392,"projectionMatrix":[3.987294327724203,0,0,0,0,7.901235014728118,0,0,0,0,-1.0002000200020003,-1,0,0,-0.20002000200020004,0],"matrixWorld":[0.8574929257125442,-2.7755575615628914e-17,0.5144957554275266,0,0.38518831106408524,0.6629411579943759,-0.641980518440142,0,-0.34108041188631566,0.7486715040904629,0.5684673531438594,0,-80,66,15,1]}},"activation":{"frameId":429,"renderedProgress":0,"readback":{"accentEmissive":0.1,"contactOpacity":0.3,"lightIntensity":0}},"field":{"frameId":429,"renderedProgress":0,"readback":{"gridRatio":0,"clockElapsedMs":0,"resetSequence":0,"opacities":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"emissiveIntensities":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"scalesY":[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],"contactLightIntensity":0}},"arrival-wake":{"frameId":429,"renderedProgress":0,"readback":{"visible":false,"opacity":0}},"arrival-feed":{"frameId":429,"renderedProgress":0,"readback":{"visible":false,"opacity":0}},"arrival":{"frameId":429,"renderedProgress":0,"readback":{"activationRatio":0,"clockElapsedMs":0,"resetSequence":0,"visible":false,"baseEmissiveIntensities":[0,0,0,0,0,0],"topEmissiveIntensities":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"baseColors":[0.6653872982754769,0.76052450467022,0.8069522576650873,0.6653872982754769,0.76052450467022,0.8069522576650873,0.6653872982754769,0.76052450467022,0.8069522576650873,0.6653872982754769,0.76052450467022,0.8069522576650873,0.6653872982754769,0.76052450467022,0.8069522576650873,0.6653872982754769,0.76052450467022,0.8069522576650873],"topColors":[0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036,0.8796223968851662,0.9215818562755338,0.9386857284565036]}},"idle":{"frameId":429,"renderedProgress":0,"readback":{"visible":true,"drawStarts":[0,0,0,1344],"drawCounts":[0,0,0,5856],"physicalRadii":[0.075,0.075,0.075,0.075],"depthTests":[1,1,1,1],"depthWrites":[1,1,1,1]}},"red-feeder-0":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[-53,0.15000000223517418,-21],"physicalRadius":0.075}},"red-feeder-1":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[-53,0.15000000223517418,-27.5],"physicalRadius":0.075}},"red-feeder-2":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[-59,0.15000000223517418,-27.5],"physicalRadius":0.075}},"red-feeder-3":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[-59,0.15000000223517418,-21.200000762939453],"physicalRadius":0.075}},"blue-zero-glow":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[-56.09999990463257,0.15000000409781933,3],"physicalRadius":0.26875}},"blue-zero-core":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[-56.09999990463257,0.15000000153668225,3],"physicalRadius":0.125}},"blue-one-glow":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[24,0.15000000409781933,25],"physicalRadius":0.26875}},"blue-one-core":{"frameId":429,"renderedProgress":0,"readback":{"drawStart":0,"drawCount":0,"visibleRange":[0,0],"visible":false,"headWorld":[24,0.15000000153668225,25],"physicalRadius":0.125}},"beam":{"frameId":429,"renderedProgress":0,"readback":{"tipPosition":[-50,0.16999999999999998,-35],"tipVisible":false,"lightPosition":[-50,0.16999999999999998,-35]}}},"canvas":{"cssWidth":1508,"cssHeight":761,"backingWidth":2639,"backingHeight":1331},"pointer":{"x":0,"y":0},"renderedAtMs":6944}}
+
+    [90m   at [39mhero-capture-contract.ts:175
+
+      173 |     inputLog.push({ kind: 'clock', value: 16 });
+      174 |   }
+    > 175 |   throw new Error(`${expected.key}: capture input did not reach a coherent completed frame: ${JSON.stringify(sample)}`);
+          |         ^
+      176 | }
+      177 |
+      178 | export const CAPTURE_EXPECTATIONS: Record<string, CaptureExpectation> = {
+    [2m    at waitForCaptureObservation (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-contract.ts:175:9)[22m
+    [2m    at waitForSettledStateOrRuntimeError (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:261:19)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:472:32[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-a3696-le-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-a3696-le-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-a3696-le-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:68356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:68356) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[5/15] src/visual/hero-reference.visual.ts:464:7 › capture activation-route at the recording profile
+[1A[2K[6/15] src/visual/hero-reference.visual.ts:464:7 › capture activation-contact at the recording profile
+[1A[2K[7/15] src/visual/hero-reference.visual.ts:464:7 › capture clearance-travel at the recording profile
+[1A[2K[8/15] src/visual/hero-reference.visual.ts:464:7 › capture clearance-field-preview at the recording profile
+[1A[2K[9/15] src/visual/hero-reference.visual.ts:464:7 › capture field-approach at the recording profile
+[1A[2K[10/15] src/visual/hero-reference.visual.ts:464:7 › capture field-contact at the recording profile
+[1A[2K[11/15] src/visual/hero-reference.visual.ts:464:7 › capture field-pulse-a at the recording profile
+[1A[2K[12/15] src/visual/hero-reference.visual.ts:464:7 › capture field-pulse-b at the recording profile
+[1A[2K[13/15] src/visual/hero-reference.visual.ts:464:7 › capture arrival-travel at the recording profile
+[1A[2K[14/15] src/visual/hero-reference.visual.ts:464:7 › capture arrival-lockup at the recording profile
+[1A[2K[15/15] src/visual/hero-reference.visual.ts:464:7 › capture journey-exit at the recording profile
+[1A[2KError: Capture failed; preserved manifest: /Users/whiskey/Work/site/apps/pegasoft-e2e/test-output/hero-reference/runs/0af06455-4d54-43ee-86fe-878514856373/capture-manifest.json (1 failures)
+
+[90m   at [39mhero-capture-global-teardown.ts:7
+
+   5 |   const manifest = await finalizeCaptureRun(context);
+   6 |   if (manifest.status !== 'complete') {
+>  7 |     throw new Error(
+     |           ^
+   8 |       `Capture failed; preserved manifest: ${context.outputRoot}/capture-manifest.json (${manifest.failures.length} failures)`,
+   9 |     );
+  10 |   }
+[2m    at captureGlobalTeardown (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-global-teardown.ts:7:11)[22m
+
+[1A[2K[31m  1 failed[39m
+[31m    src/visual/hero-reference.visual.ts:464:7 › capture landing-idle at the recording profile [2m──────[22m[39m
+[32m  14 passed[39m[2m (1.1m)[22m
+[31m  1 error was not a part of any test, see above for details[39m
+Warning: command "playwright test --config=playwright.visual.config.ts" exited with non-zero status code
+
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      1m 8s
+  Cache:             0/2 hit (0%)
+  Critical path:     1m 8s (3 tasks)
+  Recoverable time:  <1ms
+
+  Recommendations:
+    - Drastically reduce your run duration by sharing a cache across your team and CI → https://cloud.nx.app/connect/vRwlphNLvL.
+    - Speed up or split the longest tasks on the critical path:
+        @site/pegasoft-e2e:hero-capture    1m 5s

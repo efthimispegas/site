@@ -39,6 +39,20 @@ test('homepage has no serious or critical accessibility violations', async ({
   await page.goto('/');
   await expect(page.getByRole('main')).toBeVisible();
 
+  // Audit the completed entrance, rather than a partially transparent frame.
+  const reveal = page.locator('[data-kinetic="line"], [data-kinetic="fade"]');
+  await expect
+    .poll(() =>
+      reveal.evaluateAll(
+        (elements) =>
+          elements.length > 0 &&
+          elements.every(
+            (element) => getComputedStyle(element).opacity === '1',
+          ),
+      ),
+    )
+    .toBe(true);
+
   const results = await new AxeBuilder({ page }).analyze();
   const seriousViolations = results.violations.filter((violation) =>
     ['serious', 'critical'].includes(violation.impact ?? ''),

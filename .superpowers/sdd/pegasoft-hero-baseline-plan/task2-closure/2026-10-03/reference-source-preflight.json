@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-03",
+  "scope": "Read-only source-version preflight for proposed timed reference; no browser/visual capture",
+  "url": "https://www.vectrfl.com/?trace=1",
+  "expectedLockedHtmlSha256": "a0d66705e329aa59f646cadeccbbd4a99362a26dd65d82451233b3aa93882012",
+  "recordingAuthorityChanged": false,
+  "httpStatus": 200,
+  "finalUrl": "https://www.vectrfl.com/?trace=1",
+  "html": {
+    "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/2026-10-03/current-source-proposal.html",
+    "bytes": 25201,
+    "sha256": "a0d66705e329aa59f646cadeccbbd4a99362a26dd65d82451233b3aa93882012"
+  },
+  "lockedHtmlHashMatches": true,
+  "cssLinks": [
+    "/_astro/apply.B-bC7KCE.css"
+  ],
+  "css": {
+    "url": "https://www.vectrfl.com/_astro/apply.B-bC7KCE.css",
+    "httpStatus": 200,
+    "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/2026-10-03/current-source-proposal.css",
+    "bytes": 75910,
+    "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c",
+    "expectedLockedCssSha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c",
+    "lockedCssHashMatches": true
+  }
+}

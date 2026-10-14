@@ -1,0 +1,33 @@
+{
+  "status": "verified artifact integrity; timing remains unqualified",
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-checkpoint.json",
+      "bytes": 26157,
+      "sha256": "5a31f30d9b6f1aba0a242a60beb794acb7a3075052a28acaffc20ba9d765b26c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/check-source-geometry.py",
+      "bytes": 4829,
+      "sha256": "d5f203b6db04cfb008449456880598e532189db91f6346fe5f8e130c8931d6bb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/measure-static-geometry.py",
+      "bytes": 690,
+      "sha256": "352d798bb896e54da156c0b279d82004d67661fa8ce75795af9491de20680d04"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-check.log",
+      "bytes": 913,
+      "sha256": "c208f67a6b55bed4e3a1e57e35de7f29dddcd5bc320bc7d3c9ccce70f56a5b25"
+    }
+  ],
+  "extraction": {
+    "frameIndex": 148,
+    "command": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf 'select=eq(n\\,148),crop=400:400:(iw-400)/2:(ih-400)/2' -frames:v 1 .superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/settled-logo-frame148.png"
+  },
+  "sourceGeometryArtifactChecks": "6/6 pass",
+  "analysisRerun": "exit 0; 48 positional cross-checks",
+  "newVisualCaptureBatch": false,
+  "runtimeEdits": false
+}

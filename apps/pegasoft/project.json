@@ -1,0 +1,35 @@
+{
+  "name": "@site/pegasoft",
+  "projectType": "application",
+  "sourceRoot": "apps/pegasoft/src",
+  "tags": ["type:app", "scope:pegasoft"],
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/pegasoft",
+        "command": "tsc --noEmit --project tsconfig.json"
+      }
+    },
+    "build-s7-diagnostics": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": "apps/pegasoft",
+        "command": "NEXT_DIST_DIR=.next-s7-diagnostics NEXT_PUBLIC_HERO_TEST_DIAGNOSTICS=1 next build",
+        "env": {
+          "NODE_ENV": "production"
+        }
+      }
+    },
+    "hero-lifecycle": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "apps/pegasoft",
+        "command": "vitest run src/app/shared/hero-scene/hero-attempt.spec.ts"
+      }
+    }
+  }
+}

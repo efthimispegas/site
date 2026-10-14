@@ -1,0 +1,46 @@
+
+> nx run @site/pegasoft-e2e:hero-compare --args=--capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6 --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json
+
+> node tools/hero-reference/compare-captures.mjs --capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6 --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json
+
+(node:26473) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+file:///Users/whiskey/Work/site/tools/hero-reference/compare-captures.mjs:713
+  if (result.status !== 'pass') throw new Error(`Capture input correspondence blocked:\n${result.blockers.join('\n')}`);
+                                      ^
+
+Error: Capture input correspondence blocked:
+Input tree hash is stale or missing.
+loader-mark: mixed run/build/input identity.
+world-reveal: mixed run/build/input identity.
+landing: mixed run/build/input identity.
+landing-idle: mixed run/build/input identity.
+activation-route: mixed run/build/input identity.
+activation-contact: mixed run/build/input identity.
+clearance-travel: mixed run/build/input identity.
+clearance-field-preview: mixed run/build/input identity.
+field-approach: mixed run/build/input identity.
+field-pulse-a: mixed run/build/input identity.
+field-contact: mixed run/build/input identity.
+field-pulse-b: mixed run/build/input identity.
+arrival-travel: mixed run/build/input identity.
+arrival-lockup: mixed run/build/input identity.
+journey-exit: mixed run/build/input identity.
+    at verifyCaptureManifest [90m(file:///Users/whiskey/Work/site/[39mtools/hero-reference/compare-captures.mjs:713:39[90m)[39m
+    at async [90mfile:///Users/whiskey/Work/site/[39mtools/hero-reference/compare-captures.mjs:729:1
+
+Node.js v24.19.0
+Warning: command "node tools/hero-reference/compare-captures.mjs --capture-root apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6 --source-measurement-overlay docs/hero-reference/recording-measurement-amendments-v1.json" exited with non-zero status code
+
+
+ NX   Running target hero-compare for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-compare
+
+Hint: run the command with --verbose for more details.
+
+  Run duration:      165ms
+  Critical path:     158ms (1 task)
+  Recoverable time:  <1ms

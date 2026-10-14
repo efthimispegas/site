@@ -1,0 +1,585 @@
+{
+  "date": "2026-10-14",
+  "status": "merge-completed",
+  "branch": "codex/hero-reference-rebaseline",
+  "heroParent": "61bb7b88cf36c27fa456f13b923b1b7bb42dc5e0",
+  "incomingMaster": "d8b950b2a3fb4ba3194ba14686dbbc688b7d7d0e",
+  "mergeFinalized": true,
+  "pushed": false,
+  "deployed": false,
+  "runtime": {
+    "node": "24.19.0",
+    "pnpm": "10.8.1",
+    "nx": "22.7.12",
+    "next": "16.3.8",
+    "typescript": "5.9.3"
+  },
+  "checks": {
+    "frozen-install": {
+      "command": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "exitCode": 0,
+      "seconds": 1.03
+    },
+    "individual-e2e": {
+      "status": "passed-on-final-inputs",
+      "passed": 8,
+      "failed": 0,
+      "log": "individual-e2e.log",
+      "results": "individual-e2e-results.json"
+    },
+    "e2e": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:e2e",
+        "--skipNxCache",
+        "--retries=0",
+        "--reporter=line,json",
+        "--max-failures=3",
+        "--output=/tmp/pegasoft-merge-final-postformat-e2e"
+      ],
+      "exitCode": 0,
+      "seconds": 362.42
+    },
+    "core-checks": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run-many",
+        "--targets=typecheck,lint,test",
+        "--skipNxCache",
+        "--parallel=2"
+      ],
+      "exitCode": 0,
+      "seconds": 20.3
+    },
+    "build": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run-many",
+        "--targets=build",
+        "--projects=@site/pegasoft,@site/individual",
+        "--skipNxCache",
+        "--parallel=1"
+      ],
+      "exitCode": 0,
+      "seconds": 13.48
+    },
+    "measurement": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-measurement-test"
+      ],
+      "exitCode": 0,
+      "seconds": 0.91
+    },
+    "s7-harness": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-s7-harness-test"
+      ],
+      "exitCode": 0,
+      "seconds": 7.47
+    },
+    "production-smoke": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-production-smoke"
+      ],
+      "exitCode": 0,
+      "seconds": 16.02
+    },
+    "failedStartupAttempt": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:e2e",
+        "--skipNxCache",
+        "--retries=0",
+        "--reporter=line,json",
+        "--max-failures=3",
+        "--output=/tmp/pegasoft-merge-final-e2e"
+      ],
+      "exitCode": 1,
+      "seconds": 116.22
+    },
+    "audit-policy": {
+      "command": [
+        "pnpm",
+        "audit",
+        "--audit-level",
+        "high"
+      ],
+      "exitCode": 0
+    },
+    "frozen-install-after-policy": {
+      "command": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "exitCode": 0
+    },
+    "capture-contracts": {
+      "status": "passed-in-full-e2e",
+      "testsPerProfile": 43,
+      "profiles": 2,
+      "log": "e2e.log",
+      "results": "e2e-results.json"
+    },
+    "clock-fixtures": {
+      "status": "passed-in-full-e2e",
+      "testsPerProfile": 6,
+      "profiles": 2,
+      "log": "e2e.log",
+      "results": "e2e-results.json"
+    },
+    "localhost": {
+      "status": "passed",
+      "browser": "Codex in-app browser",
+      "routes": 4,
+      "httpLog": "localhost-http.json",
+      "browserLog": "browser-smoke.json",
+      "screenshots": [
+        "pegasoft-localhost.jpg",
+        "pegasoft-services.jpg",
+        "individual-localhost.jpg",
+        "individual-work.jpg"
+      ]
+    },
+    "format": {
+      "status": "passed",
+      "log": "format.log",
+      "frozenEvidenceExcluded": true
+    },
+    "runtimeEquivalence": {
+      "status": "passed",
+      "files": 33,
+      "log": "format-runtime-equivalence.json"
+    }
+  },
+  "counts": {
+    "pegasoftE2E": {
+      "passed": 152,
+      "skipped": 4,
+      "failed": 0,
+      "retries": 0,
+      "browserChannel": "chrome"
+    },
+    "individualE2E": {
+      "passed": 8,
+      "failed": 0,
+      "retries": 0
+    },
+    "unitTests": 247,
+    "measurementTests": 85,
+    "s7HarnessTests": 29,
+    "productionSmokeTests": 4,
+    "lintErrors": 0,
+    "lintWarnings": 40
+  },
+  "security": {
+    "gate": "pnpm audit --audit-level high",
+    "status": "passed-with-user-approved-exception",
+    "rawReport": "audit.json",
+    "rawCounts": {
+      "critical": 0,
+      "high": 1,
+      "moderate": 1
+    },
+    "productionDependencyCounts": {
+      "critical": 0,
+      "high": 0,
+      "moderate": 0
+    },
+    "productionReport": "production-audit.json",
+    "approvedException": "CVE-2026-93687",
+    "approval": "audit-exception-proposal.json",
+    "reviewBy": "2026-10-28",
+    "remainingModerate": "GHSA-w5hq-g745-h8pq",
+    "policyReport": "audit-policy.json",
+    "policyGateLog": "audit-policy.log",
+    "pnpmJsonCaveat": "pnpm 10.8.1 JSON output retains unfiltered metadata totals and returns nonzero for any raw finding; the CI gate is the unchanged plain-text high-severity command."
+  },
+  "changes": [
+    "Dependency patches and scoped transitive overrides; TypeScript 5.9 compatibility preserved.",
+    "Demand rendering during essential-resource loading; completed-frame readiness unchanged.",
+    "Correct timer throttling, actual mobile navigation and rendered entrance waits; original assertions and timing budgets retained.",
+    "Chrome matches existing S6/S7 qualification; bundled Chromium remains explicit diagnostic-only.",
+    "Unused Next ESLint registration/config dependencies removed; resolved active lint rules remain identical.",
+    "Approved audit exception applies only to the single unpatched CVE.",
+    "Current status, canonical plan, discovery routing and evidence ledger aligned.",
+    "Normalize active formatting with compiler/config equivalence proof; preserve hash-bound snapshots through formatter exclusions."
+  ],
+  "preserved": [
+    "Ignored .env excluded from Git.",
+    "Older tracked readback fixture JSONs restored from HEAD.",
+    "Raw Oct 6 and Oct 8 evidence unchanged.",
+    "Separate concept branch/worktree not modified by this maintenance batch.",
+    "Formatting excludes immutable evidence/reference folders; compiled active behavior/configuration is identical."
+  ],
+  "limits": [
+    "Maintenance completion does not qualify Phase 16 Task 2 or accept hero graphics/motion.",
+    "No reference capture, geometry or material edit; no representative-device performance claim.",
+    "Four pre-existing E2E skips retained; no new assertion weakening or skipped failures.",
+    "Do not push or deploy; stop after the merge commit."
+  ],
+  "nextAction": "Stop maintenance work. Review the approved exception by 2026-10-28 or when a compatible upstream fix is available.",
+  "accountSnapshot": {
+    "fiveHourUsedPercent": 61,
+    "weeklyUsedPercent": 45,
+    "ordinaryUsageAllowed": true,
+    "notTaskCost": true
+  },
+  "inputPins": {
+    ".github/workflows/ci.yml": "598bf9aa23c8eee7dccf116e13bde03ea4dee70e6e6ec0ea6e66ee75d96b70b4",
+    ".prettierignore": "484a975159a6359939245c6d2e273d3f7d229897fd347152bfb54311d667437e",
+    "DESIGN.md": "1d95d0ebaa12f29de38278d171712ba621b9f199b5379511e03e642423028521",
+    "apps/individual-e2e/src/individual.spec.ts": "3dcaec6537d348529cef625312f8823f86272ff288834c0698b9fe0a6e642231",
+    "apps/individual-e2e/tsconfig.json": "793cb354ce17c6ab465d664501732165e4ae24f008bba080e0d79c1fada7e297",
+    "apps/individual/eslint.config.mjs": "c57c8548bdd70281321900caa1efbd6219934feeb37a9eaf8ac45c0499d9cf82",
+    "apps/individual/package.json": "8d3233cf010a62b56b99185cf0e72ec51e3335fa1e019e6a2f66384004302837",
+    "apps/individual/tsconfig.json": "43bf8d974bbb2ac42d004fddfac99ff38bce232e8f8c40fe5b7f703e8b44352e",
+    "apps/pegasoft-e2e/playwright.capture-contract.config.ts": "2ae5e38a9db31b69bfd5f89aa7d9dd25c9904d73e9dd9d90c4fe944faa2e4f5d",
+    "apps/pegasoft-e2e/playwright.config.ts": "13ac945e77140bf45d5b5d41d6e993e88a1c0f567df1bdc17c29ae8f08ddaef9",
+    "apps/pegasoft-e2e/playwright.s7.config.ts": "71ea78ec683dc47716a94fdfdd9b98bc16e314c22abd3a8000951658052eb5ac",
+    "apps/pegasoft-e2e/playwright.s7.diagnostics.config.ts": "79c6f174716158e2ed9043f44fe310c79b27505fddbf7b34aa5681e7feabb06c",
+    "apps/pegasoft-e2e/playwright.visual.config.ts": "3952e96dc96d83bed268d1cbbe5225810c40bdd143715144bbd5e8ec5bd75da1",
+    "apps/pegasoft-e2e/project.json": "ca36edeae1bae23407f61ae6c34209d3c07cf896a5a78e26d1653428d3cf36ef",
+    "apps/pegasoft-e2e/s7-matrix-global-setup.mjs": "9562ac1b587c4229de909dd1d7ee0697d87fdf0bb9781ee946adc771ac240621",
+    "apps/pegasoft-e2e/src/hero-alternatives.spec.ts": "aa5e31ac6e07ab0f9abda4bf15712490e662c38bc7628f6e9de0eb8cc929a8b7",
+    "apps/pegasoft-e2e/src/hero-performance.spec.ts": "9c643f6304cbe1c684f91c2bba28ce9780badbaf3201d6d6d2c641e5f7c91964",
+    "apps/pegasoft-e2e/src/hero-production-smoke.spec.ts": "96a0e6d225618c31281a65f007a8547738e6e08c0e097553cd3e30beb011e30b",
+    "apps/pegasoft-e2e/src/hero-s7-diagnostics.spec.ts": "10f1a78cdc14ffede7ee6e98a9b4c04a4bdc47b6d7475cda87ef325133afdfd5",
+    "apps/pegasoft-e2e/src/hero-s7-matrix.spec.ts": "94ab7d6fc03f32273da6964960c8379fab650dc0ff1cfb054125e8746c09e9f9",
+    "apps/pegasoft-e2e/src/pegasoft.spec.ts": "dd547a70b27a4e934a44b4918a441b776aed197940a604f636d31328abe9bf49",
+    "apps/pegasoft-e2e/src/s7-evidence-fixtures.mjs": "bb21e21f1c4f40def9e7260d0b4ebcd6a43eaf9aecc929f07c9eb47d50598cc5",
+    "apps/pegasoft-e2e/src/s7-evidence-harness.mjs": "cf4dd4b1a1f8f4d8e911d534e839f936490fa351198ac0becf90abd95fafb3fd",
+    "apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs": "c2bf0ff7f5791f1a2b1386edabf31a00dde955b2a844101822fa1e9aff0de9d8",
+    "apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts": "9f4332e5f77b027a288295680f881ca8c6f2ddd375873316391f85e602705d1a",
+    "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts": "84cce253b1f0d4631494222e313e635d1a6c23b192179f891e91d8b4d6aafa3d",
+    "apps/pegasoft-e2e/src/visual/hero-capture-contract.spec.ts": "4adbefeb821d7989c8045d6d8450741db6508fb4d2e2519cf9ec328c80d32acc",
+    "apps/pegasoft-e2e/src/visual/hero-capture-contract.ts": "fec835fa90cb5e1fa2a7331be3505926d15c6ac7d4b1bdb099389193b999ff54",
+    "apps/pegasoft-e2e/src/visual/hero-capture-global-setup.ts": "89e973d2a00c26f1a7871b49cdcd387577b8573a661df238a2765d558d757c5c",
+    "apps/pegasoft-e2e/src/visual/hero-capture-identity.ts": "a5547b528b42aedd294360727cc17d070afa609fea3582267426bcb2587b5b03",
+    "apps/pegasoft-e2e/src/visual/hero-presentation-readback.spec.ts": "3442bb8e8ae048a7f800bcb383914812c798485e59c96f04a88880cac72cbf31",
+    "apps/pegasoft-e2e/src/visual/hero-presentation-readback.ts": "25bf2820971d2cf45fb8ab3f42bfa31b3108374accf8588dc415661e8d96ebfa",
+    "apps/pegasoft-e2e/src/visual/hero-reference.visual.ts": "7d5cb70a5a6e0218e64fb48228f7e1e0a8a6c331dc05a23e93080209fcc439f4",
+    "apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs": "deec7fb8bfeaa49114e19e739edbcb980db4096eac6f8772536ee51ece9833ec",
+    "apps/pegasoft-e2e/src/visual/screen-structural-features.mjs": "a8a1234137b8dff22933cb64691f7d74d46dac5f566835355989923ad2f2e8f2",
+    "apps/pegasoft-e2e/tsconfig.json": "1e3f27222e4eb19931879995de89331e8d0b8299b1a3df8543b3950501066eac",
+    "apps/pegasoft/eslint.config.mjs": "b1d3f670248e5c1fb8206a864cb38a659b3f6a64f6d84615a73b0e366ea72a6f",
+    "apps/pegasoft/next-env.d.ts": "1862ac4bbbc5192d4bf562161df66ea547ed3e67173100656ab606ae9797db2b",
+    "apps/pegasoft/package.json": "297b7b6c35664734621af9cfa4576e8d9296e983bd852577454c0d5d43b36531",
+    "apps/pegasoft/src/app/shared/hero-scene/hero-attempt.ts": "c938ecdccbff23aba8d1dc7958c364380310c2bcbc1b1d451060f54d67d79995",
+    "apps/pegasoft/src/app/shared/hero-scene/hero-beam.tsx": "66b8e33d511651f2b06197fb50fc187ec28f904f0546d157a509e28fe4be3f0e",
+    "apps/pegasoft/src/app/shared/hero-scene/hero-contract.ts": "3966892d290fa663cf3d689827691677f3de4abaabb09e01248fc5bb02ad09b3",
+    "apps/pegasoft/src/app/shared/hero-scene/hero-fallback.tsx": "1cd8cbfd6c86ca8eb6ec3dcead0b3f5a88d05011da6231014abf3baec6bfd18c",
+    "apps/pegasoft/src/app/shared/hero-scene/hero-ground-shadow.tsx": "33205bbfd9ca4475d69bd4934026dbca2f57326ea21143b608570a4d83d2e8a7",
+    "apps/pegasoft/src/app/shared/hero-scene/hero-scene.tsx": "644fe8827ff6ed7f642794c0b199d300370116d2778b251c900f4f36c73d609b",
+    "apps/pegasoft/src/app/shared/hero-scene/stages/landing-graphics.tsx": "fcb5efac9088fb6c5ace2b493663dc29d0034c1923b2f97997fb022d4c57994c",
+    "apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx": "db0d35a8fdb7c13b9614de03fd48406b5bdec717de8101512de0ff8bc4dd6f03",
+    "apps/pegasoft/src/app/shared/pegasoft-home.tsx": "168d81ea06837ff97fe97e21a2d3cf17dbbaba120a668f5e218019de676b6ada",
+    "apps/pegasoft/tsconfig.json": "6164e7d2a08e2e4ee21514c91d630f584db2f0c0b894d747d0301d4a83e546df",
+    "apps/pegasoft/tsconfig.spec.json": "29244bfe0de27f5ce3cac150c74ed4b54ba70de99bf182eaa0539ef8cc5ba791",
+    "docs/hero-reference/repair-sprint-ledger.json": "d3e74fe598ee39ebed17979c7cb168639358756b79fb05862826a6208f65f560",
+    "docs/hero-reference/repairs/s7/status.md": "f4585424ad06d5559cdb2540b80d8f7f906e0529f29dec532ad68f7854ce2025",
+    "docs/ledger/CURRENT.md": "c32c0178d59d3d1676082b6579804a7d6e976fa9498bc0179df6886024864810",
+    "docs/ledger/INDEX.md": "0d3e9368168169baa75dd4ef8bebdd466d6aa4b5ebaa27f52c7d23b68cf1f176",
+    "docs/ledger/document-index.json": "d34a15779ba99f70a1e9ee2846df6db657491ba68e86c4e9dbdc9113aa22d57c",
+    "docs/pegasoft-hero-baseline-plan.md": "d630ed50e2cc3313231ec4972e9a25a63060fdd1baa9d4984e24b3eee8966b5b",
+    "libs/brand-system/tsconfig.json": "500ffc0a06bfc9666ed6a9859e972d511430174570c78a51618914c2039bd273",
+    "libs/brand-system/tsconfig.lib.json": "da01d0fdaec927e047be885ed86483b4259d0edc8ded26a6d6bb7acec272296b",
+    "libs/brand-system/tsconfig.spec.json": "99b82deac319634897bd966920998d9f91636966db85045ac78797b8558a1469",
+    "libs/content/tsconfig.json": "500ffc0a06bfc9666ed6a9859e972d511430174570c78a51618914c2039bd273",
+    "libs/content/tsconfig.lib.json": "da01d0fdaec927e047be885ed86483b4259d0edc8ded26a6d6bb7acec272296b",
+    "libs/content/tsconfig.spec.json": "99b82deac319634897bd966920998d9f91636966db85045ac78797b8558a1469",
+    "libs/motion-system/tsconfig.json": "500ffc0a06bfc9666ed6a9859e972d511430174570c78a51618914c2039bd273",
+    "libs/motion-system/tsconfig.lib.json": "5092f2504d4012f1893b1a7ebc49a8d8cc5df8c9c0d227caf3d2eb11a62cd14a",
+    "libs/motion-system/tsconfig.spec.json": "99b82deac319634897bd966920998d9f91636966db85045ac78797b8558a1469",
+    "package.json": "49e69217310e40c8d07f46a1037c13ab079f5fcab9c997eb17defbe04a1999e1",
+    "pnpm-lock.yaml": "0c88f99a73c153496a2b81c6e9e74eb6017e71eccbc2d6424ef53fcdf9f57eb6",
+    "tools/docs/build-ledger.mjs": "f1c4611020a5f666a1ce22bfe424fab7f4d63962b4a4775feec53bd56e29eecf",
+    "tsconfig.base.json": "0c8535eb55574a5a1f8d7d93a6d79f5adaa3b1d169edd0f7b26c7d3c8fa3a670",
+    "tsconfig.json": "8f2d2fcec6e402686642662d8130556e2bf773e65da37c5f991dfeafc000bfc4"
+  },
+  "artifacts": {
+    "production-smoke-results.json": {
+      "sha256": "e2759cfba6614720cda18953aba97562962c72f9becd7ecf78c8086699f909ef",
+      "bytes": 9601
+    },
+    "production-smoke.log": {
+      "sha256": "777ec5a7d1f11a1901694b3a733a37e14a3eed278066ec29b845b9b5101f5084",
+      "bytes": 1865
+    },
+    "final-format-write.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "audit.json": {
+      "sha256": "dd22cf35c87bcf4afb6ecd74b0407ce44d5e50367b40a06bae5a5438730c649a",
+      "bytes": 6700
+    },
+    "localhost-http.json": {
+      "sha256": "57f352cb201ad2702c386ee7f5c40dd0705aeb12002ca4d1c41146ad04e9886d",
+      "bytes": 551
+    },
+    "individual-e2e.log": {
+      "sha256": "6a924d1ec3731414ebd384f6f76a6ebc816d0d4794d7db93000e6360c99436e3",
+      "bytes": 3621
+    },
+    "pre-format-build.log": {
+      "sha256": "2ae4b3fe5f7e87c9aa27c325f14acfd96284052b9d1f7224608fc9ee72f16740",
+      "bytes": 6180
+    },
+    "pre-format-core-checks.log": {
+      "sha256": "ff8ee18b2126d70c25e6fcd8261ed16b9f4119871d06e39a49dba66abaab5b30",
+      "bytes": 12498
+    },
+    "localhost-pegasoft.log": {
+      "sha256": "854dd3fcf81639b620a9ed97db5d434522e3b80c399af2360031fc0f46501ed3",
+      "bytes": 3623
+    },
+    "e2e-results.json": {
+      "sha256": "9eb9d8f102af9b6e45087e214d7dd56c325ab8506b418841e1bd442f7ccc60d2",
+      "bytes": 202252
+    },
+    "core-checks.log": {
+      "sha256": "6bfc73e1aef9b6052d24ca724163fe01108088bf23c1e4a28ca60247ecf3ca16",
+      "bytes": 12498
+    },
+    "format.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "frozen-install-after-policy.log": {
+      "sha256": "86d5d4c0cff869bfba5a13e521dc737e14fa925a2f44a8995d7193b7613efdc5",
+      "bytes": 1026
+    },
+    "pre-format-production-smoke.log": {
+      "sha256": "8db30966ecb1e12dc74a9a9a968397a3cc889a0501d590d3d041add9f2b42f47",
+      "bytes": 1638
+    },
+    "s7-harness.log": {
+      "sha256": "5256866af1c291bfff874738105d5f93a712fdfa782e53977c5d0372313fee42",
+      "bytes": 3697
+    },
+    "audit-policy.log": {
+      "sha256": "0325a24039070dcac8d9f749c5567cc2e15c7f24e09e705ab9fa8a6ba52003a2",
+      "bytes": 66
+    },
+    "localhost-individual.log": {
+      "sha256": "1b0c961017e458a5735207657674ae9ae1b8c9642775c5037e8c8e1c6cf8960b",
+      "bytes": 3465
+    },
+    "individual-localhost.jpg": {
+      "sha256": "6d907832152f2d247a8a7f412940de45f61c957a05f0c9fb95209f7ceb76a312",
+      "bytes": 29161
+    },
+    "active-format-write.log": {
+      "sha256": "f46e85ce800639ebc7b6b95804538f11fe7e99ceeddf862fe31490ade40db284",
+      "bytes": 1755
+    },
+    "frozen-install.log": {
+      "sha256": "7d13305270a2ee940087064efe9edbf7fa5b319bf9787206a77f104b711e9bb9",
+      "bytes": 1026
+    },
+    "production-audit.json": {
+      "sha256": "7dda5b8dd42c655a1e2fc36bf5f7d8ad7e1c028f5c1db0df7bfc8a412aed68d5",
+      "bytes": 310
+    },
+    "pre-format-measurement.log": {
+      "sha256": "ed1c6c657ca2df226b790815d43d441d2bc5249879b3a7783d7f3b423619c1d4",
+      "bytes": 9696
+    },
+    "individual-work.jpg": {
+      "sha256": "b2e8b9d5d5c0e93d770a77b389e0fd54be320abbbb7d7595758777aa5ce6420f",
+      "bytes": 43671
+    },
+    "lint-rule-parity.json": {
+      "sha256": "3cf60bf0834511289442bfaada0f604b02d8a8c2092e24ef6be7472a01f6c22d",
+      "bytes": 171
+    },
+    "pegasoft-services.jpg": {
+      "sha256": "421be54a2a51b3ec2f88d1b7a1f0b6ff3477bbe32a060e6a13c87c3a600ad1bc",
+      "bytes": 60928
+    },
+    "measurement.log": {
+      "sha256": "b36c203e48d9729b8ad8e60d07f7ccfb9517981ab552c6daa08b998eedefadb1",
+      "bytes": 9698
+    },
+    "before-cta-settle-e2e.log": {
+      "sha256": "6a25591bf96b2521b7e94c1de47d0a303727d10e27f2100d54b7e11c5bdfa961",
+      "bytes": 29426
+    },
+    "pre-format-e2e.log": {
+      "sha256": "910b9849bffef77e0ef38c19f7e7975de432b1cc8f172b605f30706903bf9ade",
+      "bytes": 27936
+    },
+    "check-execution.json": {
+      "sha256": "8b53f308f02e027501f2f7275ceb1ceb4a48747d8a2d72b4c4d234179c097c70",
+      "bytes": 3156
+    },
+    "audit-policy.json": {
+      "sha256": "e3efe01b228147f5cc413fb321321f2222a0c7cac7160182c9f49929763a5880",
+      "bytes": 4827
+    },
+    "final-source.diff": {
+      "sha256": "c8d60b90784e19d941662896ef1de3c910a3f5fb0203deeeb11ee2b1e31b722d",
+      "bytes": 848718
+    },
+    "policy-checks.json": {
+      "sha256": "b3c92d398b7285a94a08fbb482c58c6f80e61de6f3b2435c6b3bdb6495bf8490",
+      "bytes": 274
+    },
+    "before-cta-settle-e2e-results.json": {
+      "sha256": "f1b840d66ade0c2b3d9b1e8278e97136522bb873005d8005de4defbcca24a251",
+      "bytes": 206050
+    },
+    "audit-exception-proposal.json": {
+      "sha256": "f8c53f511ca644a480a3cd808580e46528ce11e40131db1b1b26380d83b3de9f",
+      "bytes": 1741
+    },
+    "stale-server-e2e.log": {
+      "sha256": "8d9d3f5e5bfcc4d9c1d6022f226b6cb2deae61791b50e4ce4849111b5370e8f8",
+      "bytes": 8005
+    },
+    "pegasoft-localhost.jpg": {
+      "sha256": "ad315ef22eb11567743ddbc22b1567131d64338b593efdedb87d77b2017dfa5b",
+      "bytes": 21177
+    },
+    "individual-e2e-results.json": {
+      "sha256": "7368134211d98d0b7d19dda3a601ad0eff355fb7d2dda11934a225d8a29c0d25",
+      "bytes": 13500
+    },
+    "dependency-removal.log": {
+      "sha256": "3ded00330d0cb08873ff17c296e6af5946320ecf6e29d31bfdb9da0945fae44d",
+      "bytes": 1495
+    },
+    "pre-format-production-smoke-results.json": {
+      "sha256": "91faec0427ae83ac94eb09a0fb02e5fdf4817b9a9428b1eb5449f63150626325",
+      "bytes": 9592
+    },
+    "e2e.log": {
+      "sha256": "d8c82773a5a39dff8ea7f1590b164b9c44c2965d9f962ce9d7d49aee5bfc45d8",
+      "bytes": 27958
+    },
+    "stale-server-e2e-results.json": {
+      "sha256": "7c61932e555281fa71ef4ce2e7bf18dbd1e0fbcb7e77e1cc31420b4c7321447e",
+      "bytes": 112741
+    },
+    "browser-smoke.json": {
+      "sha256": "4e29d176e8ec694a6c6f80dda271173c7c618118c6a9c8fc97e7c295911979f8",
+      "bytes": 425
+    },
+    "pre-format-e2e-results.json": {
+      "sha256": "3bc9c1d9b5fe79104bffb6ac64b85b2be38a38268a04c421bf9c299010eb5f3f",
+      "bytes": 202290
+    },
+    "format-write.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "pre-format-s7-harness.log": {
+      "sha256": "bb22bac56316e227b27b72330940436662bdd64ff8a57787c2367ef4eae1a101",
+      "bytes": 3698
+    },
+    "build.log": {
+      "sha256": "3a6b56dd149c477466921a0d6b22c20a24f0b9537451f0c6b98294f3929bb155",
+      "bytes": 6177
+    },
+    "format-runtime-equivalence.json": {
+      "sha256": "1ef20bf52e4c584a1c33991dceabb6de3b641e122fb9176ffc14cf64a8bc8b40",
+      "bytes": 6170
+    },
+    "generated-fixtures/capture-integration.json": {
+      "sha256": "14502c7f6434829a9a071e5ee7bd1803245d0ef29b40ed860a0eda885e47a692",
+      "bytes": 1396
+    },
+    "generated-fixtures/frame-mismatch.json": {
+      "sha256": "231d81a7887d44de93f680fd88e9bcea686c6d78b40305e923d947472886225a",
+      "bytes": 3091
+    },
+    "generated-fixtures/opacity-product-zero.json": {
+      "sha256": "b9dda4211c547cc365c6c13fa07bb6f5472f69b4cfe45fca5681492b4b83955a",
+      "bytes": 3077
+    },
+    "generated-fixtures/bracket-initial-clip-mismatch.json": {
+      "sha256": "d06c8fe92d2d9b56e22e86945920bfd3865047e5f95289cd0f5e0a45a827bd19",
+      "bytes": 4718
+    },
+    "generated-fixtures/bracket-opacity-mismatch.json": {
+      "sha256": "0859f926cf6cdeb0452b6988be6f2cdd1bd6be042b2a6ca46c02da7a945394aa",
+      "bytes": 4737
+    },
+    "generated-fixtures/unsupported-opacity-filter.json": {
+      "sha256": "86f46edd9116e6b80ab06796d662e907ced437ec9c5783e01732703744a5b841",
+      "bytes": 1419
+    },
+    "generated-fixtures/unsupported-rounded.json": {
+      "sha256": "3cd8b09233b3b73ea9ad560f244f2e52180561e0e8be4cf5dd01dff4a6bed7db",
+      "bytes": 1377
+    },
+    "generated-fixtures/unsupported-rotation.json": {
+      "sha256": "3ae095f1e43beb51a4ba623895df4ece29e4898dc4a0551f573b81e39b7d143b",
+      "bytes": 1368
+    },
+    "generated-fixtures/containment-content.json": {
+      "sha256": "104ddbdfc8712b54b51544f8fa145fce7ab579d7c75428468081d4b8cec7f0f2",
+      "bytes": 1601
+    },
+    "generated-fixtures/unsupported-shape.json": {
+      "sha256": "be0c803b8c931263c836a1cae94a6ef765a6335c7c7f8a26b25aa8d761d6d3c7",
+      "bytes": 1362
+    },
+    "generated-fixtures/bracket-supported-animation-control.json": {
+      "sha256": "9e6a82d7f60b57f298cf1e83021f8425204119351b4d59b7fa2d3734d171e286",
+      "bytes": 3469
+    },
+    "generated-fixtures/pending-ambiguous.json": {
+      "sha256": "8291d1a4e218ab96716951c833cc9d577a0763b6c4df9dcf88bc96804d3f8d3a",
+      "bytes": 2965
+    },
+    "generated-fixtures/containment-strict.json": {
+      "sha256": "e3516fb0606019b7bf3db95e20c615acc52d82bb5e91e6130738655ea2fc3849",
+      "bytes": 1602
+    },
+    "generated-fixtures/unsupported-opacity-boxless.json": {
+      "sha256": "ddb6e2e4cb91208bebe454fedc2208a3cc3287e29c141149beaf964eafedcfda",
+      "bytes": 1342
+    },
+    "generated-fixtures/unsupported-overflow-radius.json": {
+      "sha256": "dd9041734baccebc0715882c152a8c190b586e9e0541df392cb3b02d564bdcce",
+      "bytes": 1342
+    },
+    "generated-fixtures/fixed-overflow-barrier.json": {
+      "sha256": "44058f974748bf68b6f3b2b33be6d1863355122f1ec48ebd42ef9ea2c4438d2e",
+      "bytes": 1384
+    },
+    "generated-fixtures/nested-clips.json": {
+      "sha256": "8a5d65ed8550d074ae241cbb0526968c3246cd50838f68e41776327be85b42ff",
+      "bytes": 1396
+    },
+    "generated-fixtures/missing-frame.json": {
+      "sha256": "ad77a4542bc27d7fd3057838f117d8bfca9edf920cc4d101c0cc9a5351f70d2b",
+      "bytes": 953
+    },
+    "generated-fixtures/real-animation-timing.json": {
+      "sha256": "36e83edbe5290813b694d8245ce071747e395cea8c4bc057b96a9647b1088df8",
+      "bytes": 1381
+    }
+  }
+}

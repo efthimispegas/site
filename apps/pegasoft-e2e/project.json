@@ -1,0 +1,174 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "@site/pegasoft-e2e",
+  "projectType": "application",
+  "sourceRoot": "apps/pegasoft-e2e/src",
+  "targets": {
+    "hero-repair-lifecycle": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.s6.config.ts --project=chromium"
+      }
+    },
+    "hero-production-smoke": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.s7.config.ts"
+      }
+    },
+    "hero-s7-diagnostics": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "dependsOn": [
+        {
+          "projects": ["@site/pegasoft"],
+          "target": "build-s7-diagnostics"
+        }
+      ],
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.s7.diagnostics.config.ts"
+      }
+    },
+    "hero-s7-matrix": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.s7.matrix.config.ts"
+      }
+    },
+    "hero-s7-harness-test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": ".",
+        "command": "node --test apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs"
+      }
+    },
+    "hero-s7-create-plan": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "dependsOn": [
+        {
+          "projects": ["@site/pegasoft"],
+          "target": "build-s7-diagnostics"
+        }
+      ],
+      "options": {
+        "cwd": ".",
+        "command": "node apps/pegasoft-e2e/src/s7-evidence-harness.mjs create-plan {args.runDir}"
+      }
+    },
+    "hero-s7-validate-packet": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": ".",
+        "command": "node apps/pegasoft-e2e/src/s7-evidence-harness.mjs validate {args.runDir}"
+      }
+    },
+    "hero-repair-route-context": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": ".",
+        "command": "node docs/hero-reference/repairs/s3/probe-context.mjs"
+      }
+    },
+    "hero-repair-depth": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": ".",
+        "command": "node docs/hero-reference/repairs/s3/probe-depth.mjs"
+      }
+    },
+    "hero-repair-profiles": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": ".",
+        "command": "node docs/hero-reference/repairs/s5/probe-profiles.mjs"
+      }
+    },
+    "hero-repair-frames": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": ".",
+        "command": "node docs/hero-reference/repairs/s2/probe-frames.mjs"
+      }
+    },
+    "hero-measurement-test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": ".",
+        "command": "node --test tools/hero-reference/measurement-contract.test.mjs"
+      }
+    },
+    "hero-repair-baseline": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "parallelism": false,
+      "options": {
+        "cwd": ".",
+        "command": "node docs/hero-reference/repairs/s0/browser/probe-local.mjs"
+      }
+    },
+    "hero-capture": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "dependsOn": [
+        "typecheck",
+        {
+          "projects": ["@site/pegasoft"],
+          "target": "typecheck"
+        }
+      ],
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.visual.config.ts"
+      }
+    },
+    "hero-compare": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": ".",
+        "command": "node tools/hero-reference/compare-captures.mjs"
+      }
+    },
+    "hero-capture-contract-test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.capture-contract.config.ts"
+      }
+    },
+    "hero-capture-clock-test": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "cwd": "apps/pegasoft-e2e",
+        "command": "playwright test --config=playwright.capture-clock.config.ts"
+      }
+    }
+  }
+}

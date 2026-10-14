@@ -1,0 +1,56 @@
+
+> nx run @site/pegasoft-e2e:hero-s7-harness-test
+
+> node --test apps/pegasoft-e2e/src/s7-evidence-harness.test.mjs
+
+(node:15598) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:15599) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ test-contract provenance excludes mutable sprint summaries but keeps normative contracts [90m(0.680917ms)[39m[39m
+[32m✔ execution records genuine cell assertions and continues [90m(0.201542ms)[39m[39m
+[32m✔ explicit predicate timeout becomes a cell assertion while test timeout stays fatal [90m(0.357208ms)[39m[39m
+[32m✔ execution stops after timeout and persists fatal result [90m(0.195625ms)[39m[39m
+[32m✔ execution stops after page closure and persists fatal result [90m(0.142542ms)[39m[39m
+[32m✔ execution stops after context closure and persists fatal result [90m(0.072667ms)[39m[39m
+[32m✔ execution stops after abort and persists fatal result [90m(0.087291ms)[39m[39m
+[32m✔ execution stops after filesystem I/O and persists fatal result [90m(0.369291ms)[39m[39m
+[32m✔ execution stops after unknown programming error and persists fatal result [90m(0.0705ms)[39m[39m
+[32m✔ resource cleanup closes open page and context [90m(0.220041ms)[39m[39m
+[32m✔ resource cleanup has a short independent deadline [90m(11.184333ms)[39m[39m
+[32m✔ attempt creation rejects reuse and pre-existing evidence [90m(5.122166ms)[39m[39m
+[32m✔ validator accepts a complete synthetic packet without current-input checks [90m(637.931917ms)[39m[39m
+[32m✔ validator rejects missing and duplicate shard IDs [90m(90.411625ms)[39m[39m
+[32m✔ validator rejects mixed plan/run provenance [90m(83.206958ms)[39m[39m
+[32m✔ validator rejects missing, corrupt, and hash-mismatched PNG evidence [90m(259.171708ms)[39m[39m
+[32m✔ validator rejects signature-only PNGs and reused or noncanonical image paths [90m(183.814041ms)[39m[39m
+[32m✔ validator rejects a valid non-PNG stored at a canonical PNG path [90m(82.7215ms)[39m[39m
+[32m✔ validator rejects missing and duplicate cell IDs and changed N/A category [90m(102.364916ms)[39m[39m
+[32m✔ validator rejects target, rendered, and field-clock predicate failures [90m(1062.911792ms)[39m[39m
+[32m✔ validator rejects contract, scroll, first-eligible, and restored-clock failures [90m(1380.9795ms)[39m[39m
+[32m✔ validator rejects reordered IDs, cross-shard reassignment, and changed N/A [90m(99.500917ms)[39m[39m
+[32m✔ validator rejects mixed attempts and malformed committed/restoration evidence [90m(397.2455ms)[39m[39m
+[32m✔ validator rejects packet accounting other than 360/336/24 [90m(83.367542ms)[39m[39m
+[32m✔ validator independently rejects stale build provenance [90m(12.822458ms)[39m[39m
+[32m✔ validator independently rejects stale implementation provenance [90m(1.398167ms)[39m[39m
+[32m✔ validator independently rejects stale testContract provenance [90m(1.406542ms)[39m[39m
+[32m✔ validator independently rejects stale reference provenance [90m(1.437167ms)[39m[39m
+[32m✔ validator independently rejects stale runnerConfig provenance [90m(1.522083ms)[39m[39m
+[34mℹ tests 29[39m
+[34mℹ suites 0[39m
+[34mℹ pass 29[39m
+[34mℹ fail 0[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 4612.013875[39m
+
+
+
+ NX   Successfully ran target hero-s7-harness-test for project @site/pegasoft-e2e
+
+
+  Run duration:      4.7s
+  Cache:             0/1 hit (0%)
+  Critical path:     4.7s (1 task)
+  Recoverable time:  <1ms

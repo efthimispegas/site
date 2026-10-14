@@ -1,0 +1,736 @@
+{
+  "status": "diagnostic only; not independently qualified",
+  "method": "Fourth complex spatial moment of each thresholded isolated leftmost cube; invert locked 1.5s ease-out logo rotation assuming axis-aligned source cube geometry. Three color thresholds expose mask sensitivity.",
+  "assumptions": [
+    "Recorded cube inherits locked logo-rotate keyframes.",
+    "Cube authored orientation is axis-aligned; source SVG geometry has not been pinned.",
+    "Component selection tracks cube_01; native DOM identity is not recorded.",
+    "Raster orientation errors and source CSS version equivalence are not bounded."
+  ],
+  "rows": [
+    {
+      "frameIndex": 58,
+      "pts": 6000,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 688,
+      "centroid": [
+        116.15116279069767,
+        153.38372093023256
+      ],
+      "squareOrientationDegreesModulo90": 28.369663897204717,
+      "image": "task2-rotation-probe/frame-001.png",
+      "sha256": "f828155d0d597ef3f4b2fdffbe5aa61f0e1b18a0834eb65003435340f0aac9e6"
+    },
+    {
+      "frameIndex": 59,
+      "pts": 6100,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 891,
+      "centroid": [
+        118.33333333333333,
+        151.8608305274972
+      ],
+      "squareOrientationDegreesModulo90": 29.356063295637497,
+      "image": "task2-rotation-probe/frame-002.png",
+      "sha256": "72161a20f1e9728a88d417b0a10425c8df1b1c879a77dd065f3a7de07938b44a"
+    },
+    {
+      "frameIndex": 59,
+      "pts": 6100,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 718,
+      "centroid": [
+        118.12952646239555,
+        151.77019498607243
+      ],
+      "squareOrientationDegreesModulo90": 28.788752661155854,
+      "image": "task2-rotation-probe/frame-002.png",
+      "sha256": "72161a20f1e9728a88d417b0a10425c8df1b1c879a77dd065f3a7de07938b44a"
+    },
+    {
+      "frameIndex": 59,
+      "pts": 6100,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 400,
+      "centroid": [
+        119.46,
+        152.84
+      ],
+      "squareOrientationDegreesModulo90": 9.708539329539875,
+      "image": "task2-rotation-probe/frame-002.png",
+      "sha256": "72161a20f1e9728a88d417b0a10425c8df1b1c879a77dd065f3a7de07938b44a"
+    },
+    {
+      "frameIndex": 60,
+      "pts": 6200,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 929,
+      "centroid": [
+        122.8794402583423,
+        151.4951560818084
+      ],
+      "squareOrientationDegreesModulo90": 33.335116839716676,
+      "image": "task2-rotation-probe/frame-003.png",
+      "sha256": "443e8ab870a7fa50220269bbdcf52cafca40ca401c47a99e20d0281088a8d5d2",
+      "conditionalOnsetMs": 983.1273297750822
+    },
+    {
+      "frameIndex": 60,
+      "pts": 6200,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 890,
+      "centroid": [
+        122.60786516853932,
+        151.17865168539325
+      ],
+      "squareOrientationDegreesModulo90": 32.728305553883956,
+      "image": "task2-rotation-probe/frame-003.png",
+      "sha256": "443e8ab870a7fa50220269bbdcf52cafca40ca401c47a99e20d0281088a8d5d2",
+      "conditionalOnsetMs": 992.4278458697275
+    },
+    {
+      "frameIndex": 60,
+      "pts": 6200,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 829,
+      "centroid": [
+        122.51266586248492,
+        150.89987937273824
+      ],
+      "squareOrientationDegreesModulo90": 33.56718657934482,
+      "image": "task2-rotation-probe/frame-003.png",
+      "sha256": "443e8ab870a7fa50220269bbdcf52cafca40ca401c47a99e20d0281088a8d5d2",
+      "conditionalOnsetMs": 979.5544896416558
+    },
+    {
+      "frameIndex": 61,
+      "pts": 6300,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1032,
+      "centroid": [
+        126.62403100775194,
+        150.75581395348837
+      ],
+      "squareOrientationDegreesModulo90": 36.80005938797984,
+      "image": "task2-rotation-probe/frame-004.png",
+      "sha256": "6c22bdf939112169b905a41db0c73d9da5418a866959c00042c8187341b03e0f",
+      "conditionalOnsetMs": 945.6018098774255
+    },
+    {
+      "frameIndex": 61,
+      "pts": 6300,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 956,
+      "centroid": [
+        126.80543933054393,
+        150.64853556485355
+      ],
+      "squareOrientationDegreesModulo90": 34.63026489544188,
+      "image": "task2-rotation-probe/frame-004.png",
+      "sha256": "6c22bdf939112169b905a41db0c73d9da5418a866959c00042c8187341b03e0f",
+      "conditionalOnsetMs": 979.7467780568212
+    },
+    {
+      "frameIndex": 61,
+      "pts": 6300,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 901,
+      "centroid": [
+        126.84350721420644,
+        150.684794672586
+      ],
+      "squareOrientationDegreesModulo90": 35.1989606498868,
+      "image": "task2-rotation-probe/frame-004.png",
+      "sha256": "6c22bdf939112169b905a41db0c73d9da5418a866959c00042c8187341b03e0f",
+      "conditionalOnsetMs": 970.8635993102663
+    },
+    {
+      "frameIndex": 62,
+      "pts": 6400,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 993,
+      "centroid": [
+        129.95266868076536,
+        150.37965760322257
+      ],
+      "squareOrientationDegreesModulo90": 37.20185345191793,
+      "image": "task2-rotation-probe/frame-005.png",
+      "sha256": "7fc9c366d4abd62dddc8685b76f8d1c0895bde876f51946dcd7fc13df4a3660e",
+      "conditionalOnsetMs": 955.8718872839794
+    },
+    {
+      "frameIndex": 62,
+      "pts": 6400,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 920,
+      "centroid": [
+        129.7086956521739,
+        150.5782608695652
+      ],
+      "squareOrientationDegreesModulo90": 34.59183428795865,
+      "image": "task2-rotation-probe/frame-005.png",
+      "sha256": "7fc9c366d4abd62dddc8685b76f8d1c0895bde876f51946dcd7fc13df4a3660e",
+      "conditionalOnsetMs": 997.0120049777679
+    },
+    {
+      "frameIndex": 62,
+      "pts": 6400,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 900,
+      "centroid": [
+        129.5311111111111,
+        150.55333333333334
+      ],
+      "squareOrientationDegreesModulo90": 35.85420971835178,
+      "image": "task2-rotation-probe/frame-005.png",
+      "sha256": "7fc9c366d4abd62dddc8685b76f8d1c0895bde876f51946dcd7fc13df4a3660e",
+      "conditionalOnsetMs": 977.236346318124
+    },
+    {
+      "frameIndex": 63,
+      "pts": 6500,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1117,
+      "centroid": [
+        132.26051924798568,
+        150.5971351835273
+      ],
+      "squareOrientationDegreesModulo90": 40.467127396797906,
+      "image": "task2-rotation-probe/frame-006.png",
+      "sha256": "4352043b0a76c22023224a5605da6e8bc44d4f17119fa90c44bb5f247b492dea",
+      "conditionalOnsetMs": 919.7225151054718
+    },
+    {
+      "frameIndex": 63,
+      "pts": 6500,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1024,
+      "centroid": [
+        132.09375,
+        150.3046875
+      ],
+      "squareOrientationDegreesModulo90": 37.565476633414306,
+      "image": "task2-rotation-probe/frame-006.png",
+      "sha256": "4352043b0a76c22023224a5605da6e8bc44d4f17119fa90c44bb5f247b492dea",
+      "conditionalOnsetMs": 966.7301486604107
+    },
+    {
+      "frameIndex": 63,
+      "pts": 6500,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 958,
+      "centroid": [
+        132.05427974947807,
+        150.5125260960334
+      ],
+      "squareOrientationDegreesModulo90": 37.019313231939535,
+      "image": "task2-rotation-probe/frame-006.png",
+      "sha256": "4352043b0a76c22023224a5605da6e8bc44d4f17119fa90c44bb5f247b492dea",
+      "conditionalOnsetMs": 975.4474177261292
+    },
+    {
+      "frameIndex": 64,
+      "pts": 6600,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1113,
+      "centroid": [
+        133.68014375561546,
+        150.7079964061096
+      ],
+      "squareOrientationDegreesModulo90": 40.772715855356566,
+      "image": "task2-rotation-probe/frame-007.png",
+      "sha256": "f6a5d311c2aecfbaca288d020f424f6383a5fc4633397791dbcebc990baee89f",
+      "conditionalOnsetMs": 931.370705209755
+    },
+    {
+      "frameIndex": 64,
+      "pts": 6600,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1000,
+      "centroid": [
+        133.485,
+        150.355
+      ],
+      "squareOrientationDegreesModulo90": 37.76724802767855,
+      "image": "task2-rotation-probe/frame-007.png",
+      "sha256": "f6a5d311c2aecfbaca288d020f424f6383a5fc4633397791dbcebc990baee89f",
+      "conditionalOnsetMs": 980.1658196199222
+    },
+    {
+      "frameIndex": 64,
+      "pts": 6600,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 948,
+      "centroid": [
+        133.4789029535865,
+        150.23839662447259
+      ],
+      "squareOrientationDegreesModulo90": 37.104863204558555,
+      "image": "task2-rotation-probe/frame-007.png",
+      "sha256": "f6a5d311c2aecfbaca288d020f424f6383a5fc4633397791dbcebc990baee89f",
+      "conditionalOnsetMs": 990.7513874638921
+    },
+    {
+      "frameIndex": 65,
+      "pts": 6700,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1175,
+      "centroid": [
+        136.7727659574468,
+        150.90553191489363
+      ],
+      "squareOrientationDegreesModulo90": 39.885771520309305,
+      "image": "task2-rotation-probe/frame-008.png",
+      "sha256": "491b846a12e85f1eff63e7183c8dcbcc12be0e9203993ac08c079a740b7101aa",
+      "conditionalOnsetMs": 962.5673409915503
+    },
+    {
+      "frameIndex": 65,
+      "pts": 6700,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1058,
+      "centroid": [
+        136.1710775047259,
+        150.6880907372401
+      ],
+      "squareOrientationDegreesModulo90": 39.56096771610436,
+      "image": "task2-rotation-probe/frame-008.png",
+      "sha256": "491b846a12e85f1eff63e7183c8dcbcc12be0e9203993ac08c079a740b7101aa",
+      "conditionalOnsetMs": 967.8610502559407
+    },
+    {
+      "frameIndex": 65,
+      "pts": 6700,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 993,
+      "centroid": [
+        135.82980866062437,
+        150.39476334340384
+      ],
+      "squareOrientationDegreesModulo90": 37.79979753452358,
+      "image": "task2-rotation-probe/frame-008.png",
+      "sha256": "491b846a12e85f1eff63e7183c8dcbcc12be0e9203993ac08c079a740b7101aa",
+      "conditionalOnsetMs": 996.310734958118
+    },
+    {
+      "frameIndex": 66,
+      "pts": 6800,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1149,
+      "centroid": [
+        138.61792863359443,
+        151.52741514360312
+      ],
+      "squareOrientationDegreesModulo90": 41.18435357425699,
+      "image": "task2-rotation-probe/frame-009.png",
+      "sha256": "bace4595e392fdf434101dcb58579ea230a10f292deb4db931adde4d4376dac7",
+      "conditionalOnsetMs": 957.923482950232
+    },
+    {
+      "frameIndex": 66,
+      "pts": 6800,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1031,
+      "centroid": [
+        138.75848690591658,
+        150.87584869059165
+      ],
+      "squareOrientationDegreesModulo90": 39.11445124436828,
+      "image": "task2-rotation-probe/frame-009.png",
+      "sha256": "bace4595e392fdf434101dcb58579ea230a10f292deb4db931adde4d4376dac7",
+      "conditionalOnsetMs": 991.7813071575587
+    },
+    {
+      "frameIndex": 66,
+      "pts": 6800,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 976,
+      "centroid": [
+        138.7295081967213,
+        150.7295081967213
+      ],
+      "squareOrientationDegreesModulo90": 38.63716330246601,
+      "image": "task2-rotation-probe/frame-009.png",
+      "sha256": "bace4595e392fdf434101dcb58579ea230a10f292deb4db931adde4d4376dac7",
+      "conditionalOnsetMs": 999.5042836900484
+    },
+    {
+      "frameIndex": 67,
+      "pts": 6900,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1135,
+      "centroid": [
+        139.73832599118944,
+        151.0546255506608
+      ],
+      "squareOrientationDegreesModulo90": 41.592324513067055,
+      "image": "task2-rotation-probe/frame-010.png",
+      "sha256": "7c664e3cb4cf9970b320d24c22ff540c054b583f26560785fed09830ff6f4264",
+      "conditionalOnsetMs": 967.8467159842817
+    },
+    {
+      "frameIndex": 67,
+      "pts": 6900,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1055,
+      "centroid": [
+        139.8521327014218,
+        150.7090047393365
+      ],
+      "squareOrientationDegreesModulo90": 39.99840482702513,
+      "image": "task2-rotation-probe/frame-010.png",
+      "sha256": "7c664e3cb4cf9970b320d24c22ff540c054b583f26560785fed09830ff6f4264",
+      "conditionalOnsetMs": 994.0615490884225
+    },
+    {
+      "frameIndex": 67,
+      "pts": 6900,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 980,
+      "centroid": [
+        139.56938775510204,
+        150.5081632653061
+      ],
+      "squareOrientationDegreesModulo90": 40.23531628139024,
+      "image": "task2-rotation-probe/frame-010.png",
+      "sha256": "7c664e3cb4cf9970b320d24c22ff540c054b583f26560785fed09830ff6f4264",
+      "conditionalOnsetMs": 990.1874256672033
+    },
+    {
+      "frameIndex": 68,
+      "pts": 7000,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1074,
+      "centroid": [
+        143.7532588454376,
+        150.8538175046555
+      ],
+      "squareOrientationDegreesModulo90": 40.8088910787923,
+      "image": "task2-rotation-probe/frame-011.png",
+      "sha256": "abfc26cc4294e5a519271c5e80219a0ee35e66020797bd005964b508321c7025",
+      "conditionalOnsetMs": 997.4424322511131
+    },
+    {
+      "frameIndex": 68,
+      "pts": 7000,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1005,
+      "centroid": [
+        143.92338308457713,
+        150.47462686567164
+      ],
+      "squareOrientationDegreesModulo90": 43.12367931400523,
+      "image": "task2-rotation-probe/frame-011.png",
+      "sha256": "abfc26cc4294e5a519271c5e80219a0ee35e66020797bd005964b508321c7025",
+      "conditionalOnsetMs": 958.993138390757
+    },
+    {
+      "frameIndex": 68,
+      "pts": 7000,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 952,
+      "centroid": [
+        144.1218487394958,
+        149.95378151260505
+      ],
+      "squareOrientationDegreesModulo90": 41.23662249679782,
+      "image": "task2-rotation-probe/frame-011.png",
+      "sha256": "abfc26cc4294e5a519271c5e80219a0ee35e66020797bd005964b508321c7025",
+      "conditionalOnsetMs": 990.3941485131593
+    },
+    {
+      "frameIndex": 69,
+      "pts": 7100,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1104,
+      "centroid": [
+        146.16304347826087,
+        150.50452898550725
+      ],
+      "squareOrientationDegreesModulo90": 44.463346175474015,
+      "image": "task2-rotation-probe/frame-012.png",
+      "sha256": "07d25a9540d2900e7d5203fcd448b9abfaa1760204f66c6ea5b84d7672b08eb3",
+      "conditionalOnsetMs": 953.0610385080784
+    },
+    {
+      "frameIndex": 69,
+      "pts": 7100,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1019,
+      "centroid": [
+        146.32188420019628,
+        150.45240431795878
+      ],
+      "squareOrientationDegreesModulo90": 43.02866466766079,
+      "image": "task2-rotation-probe/frame-012.png",
+      "sha256": "07d25a9540d2900e7d5203fcd448b9abfaa1760204f66c6ea5b84d7672b08eb3",
+      "conditionalOnsetMs": 977.2528659520744
+    },
+    {
+      "frameIndex": 69,
+      "pts": 7100,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 969,
+      "centroid": [
+        146.28482972136223,
+        150.36326109391126
+      ],
+      "squareOrientationDegreesModulo90": 41.66065114765664,
+      "image": "task2-rotation-probe/frame-012.png",
+      "sha256": "07d25a9540d2900e7d5203fcd448b9abfaa1760204f66c6ea5b84d7672b08eb3",
+      "conditionalOnsetMs": 1000.0483939814967
+    },
+    {
+      "frameIndex": 70,
+      "pts": 7200,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1094,
+      "centroid": [
+        147.64442413162706,
+        150.382084095064
+      ],
+      "squareOrientationDegreesModulo90": -42.94206940894346,
+      "image": "task2-rotation-probe/frame-013.png",
+      "sha256": "fb8411c658411b773503c5856a1b38cc1811b5edb563e72af973ea20a309c40d",
+      "conditionalOnsetMs": 925.2146572428944
+    },
+    {
+      "frameIndex": 70,
+      "pts": 7200,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1009,
+      "centroid": [
+        147.48959365708623,
+        150.3567888999009
+      ],
+      "squareOrientationDegreesModulo90": 44.92064903692079,
+      "image": "task2-rotation-probe/frame-013.png",
+      "sha256": "fb8411c658411b773503c5856a1b38cc1811b5edb563e72af973ea20a309c40d",
+      "conditionalOnsetMs": 961.9542402911848
+    },
+    {
+      "frameIndex": 70,
+      "pts": 7200,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 968,
+      "centroid": [
+        147.3181818181818,
+        150.57438016528926
+      ],
+      "squareOrientationDegreesModulo90": 44.503274189261305,
+      "image": "task2-rotation-probe/frame-013.png",
+      "sha256": "fb8411c658411b773503c5856a1b38cc1811b5edb563e72af973ea20a309c40d",
+      "conditionalOnsetMs": 969.0501989334375
+    },
+    {
+      "frameIndex": 71,
+      "pts": 7300,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1116,
+      "centroid": [
+        149.42293906810036,
+        150.59498207885304
+      ],
+      "squareOrientationDegreesModulo90": 44.95036941635573,
+      "image": "task2-rotation-probe/frame-014.png",
+      "sha256": "290d4c6c7516ef9dcc72c67d07d4f502a11f5671a607dcfbf3c3f141eacdbf30",
+      "conditionalOnsetMs": 978.1146510814833
+    },
+    {
+      "frameIndex": 71,
+      "pts": 7300,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1044,
+      "centroid": [
+        149.13601532567048,
+        150.27777777777777
+      ],
+      "squareOrientationDegreesModulo90": 44.724749280163934,
+      "image": "task2-rotation-probe/frame-014.png",
+      "sha256": "290d4c6c7516ef9dcc72c67d07d4f502a11f5671a607dcfbf3c3f141eacdbf30",
+      "conditionalOnsetMs": 981.9546335618813
+    },
+    {
+      "frameIndex": 71,
+      "pts": 7300,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 994,
+      "centroid": [
+        148.9496981891348,
+        150.0291750503018
+      ],
+      "squareOrientationDegreesModulo90": 43.74667255451945,
+      "image": "task2-rotation-probe/frame-014.png",
+      "sha256": "290d4c6c7516ef9dcc72c67d07d4f502a11f5671a607dcfbf3c3f141eacdbf30",
+      "conditionalOnsetMs": 998.5158971121743
+    },
+    {
+      "frameIndex": 72,
+      "pts": 7400,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1088,
+      "centroid": [
+        151.40257352941177,
+        150.35018382352942
+      ],
+      "squareOrientationDegreesModulo90": -43.23019280663747,
+      "image": "task2-rotation-probe/frame-015.png",
+      "sha256": "418d3d5293d11ae4390cef8b6577ad7a4cd6a7b3219bc55ce018a550e8f4e5c9",
+      "conditionalOnsetMs": 963.5406735117141
+    },
+    {
+      "frameIndex": 72,
+      "pts": 7400,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1019,
+      "centroid": [
+        151.2875368007851,
+        150.2875368007851
+      ],
+      "squareOrientationDegreesModulo90": 44.68786366090754,
+      "image": "task2-rotation-probe/frame-015.png",
+      "sha256": "418d3d5293d11ae4390cef8b6577ad7a4cd6a7b3219bc55ce018a550e8f4e5c9",
+      "conditionalOnsetMs": 999.2483765723748
+    },
+    {
+      "frameIndex": 72,
+      "pts": 7400,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 956,
+      "centroid": [
+        151.244769874477,
+        150.13179916317992
+      ],
+      "squareOrientationDegreesModulo90": -44.67919810053149,
+      "image": "task2-rotation-probe/frame-015.png",
+      "sha256": "418d3d5293d11ae4390cef8b6577ad7a4cd6a7b3219bc55ce018a550e8f4e5c9",
+      "conditionalOnsetMs": 988.460538113694
+    },
+    {
+      "frameIndex": 73,
+      "pts": 7500,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1102,
+      "centroid": [
+        153.0535390199637,
+        150.3076225045372
+      ],
+      "squareOrientationDegreesModulo90": -43.61786410811254,
+      "image": "task2-rotation-probe/frame-016.png",
+      "sha256": "10d9839170e055405ad9f344b08beeee35d8acc4168cb6000f0ff6d26f6865ca",
+      "conditionalOnsetMs": 986.9052132438296
+    },
+    {
+      "frameIndex": 73,
+      "pts": 7500,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1060,
+      "centroid": [
+        152.99811320754716,
+        150.50754716981132
+      ],
+      "squareOrientationDegreesModulo90": -44.13866852401228,
+      "image": "task2-rotation-probe/frame-016.png",
+      "sha256": "10d9839170e055405ad9f344b08beeee35d8acc4168cb6000f0ff6d26f6865ca",
+      "conditionalOnsetMs": 995.8677822999456
+    },
+    {
+      "frameIndex": 73,
+      "pts": 7500,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 988,
+      "centroid": [
+        152.88866396761134,
+        150.36234817813767
+      ],
+      "squareOrientationDegreesModulo90": -44.31566183271003,
+      "image": "task2-rotation-probe/frame-016.png",
+      "sha256": "10d9839170e055405ad9f344b08beeee35d8acc4168cb6000f0ff6d26f6865ca",
+      "conditionalOnsetMs": 998.9044834588772
+    },
+    {
+      "frameIndex": 74,
+      "pts": 7600,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1097,
+      "centroid": [
+        155.69826800364632,
+        150.50865998176846
+      ],
+      "squareOrientationDegreesModulo90": -44.96389198942813,
+      "image": "task2-rotation-probe/frame-017.png",
+      "sha256": "df909d1b43c24de8c2acca6792ce077088c30b33cba96f6e4b9422b98962eea7",
+      "conditionalOnsetMs": 1026.6534598258156
+    },
+    {
+      "frameIndex": 74,
+      "pts": 7600,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1028,
+      "centroid": [
+        155.03696498054475,
+        150.59338521400778
+      ],
+      "squareOrientationDegreesModulo90": -41.75976412899224,
+      "image": "task2-rotation-probe/frame-017.png",
+      "sha256": "df909d1b43c24de8c2acca6792ce077088c30b33cba96f6e4b9422b98962eea7",
+      "conditionalOnsetMs": 971.2607977271775
+    },
+    {
+      "frameIndex": 74,
+      "pts": 7600,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 976,
+      "centroid": [
+        154.97540983606558,
+        150.39344262295083
+      ],
+      "squareOrientationDegreesModulo90": -41.781139748809636,
+      "image": "task2-rotation-probe/frame-017.png",
+      "sha256": "df909d1b43c24de8c2acca6792ce077088c30b33cba96f6e4b9422b98962eea7",
+      "conditionalOnsetMs": 971.6355312533603
+    },
+    {
+      "frameIndex": 75,
+      "pts": 7700,
+      "thresholdBlueExcess": 3,
+      "pixelCount": 1125,
+      "centroid": [
+        156.44355555555555,
+        150.59377777777777
+      ],
+      "squareOrientationDegreesModulo90": -40.146388902680094,
+      "image": "task2-rotation-probe/frame-018.png",
+      "sha256": "523f6ff9720730fdb6b47e9ae562456306ddc4ddb865703c13a9d85cbbdca534",
+      "conditionalOnsetMs": 959.4345954040263
+    },
+    {
+      "frameIndex": 75,
+      "pts": 7700,
+      "thresholdBlueExcess": 6,
+      "pixelCount": 1079,
+      "centroid": [
+        156.38368860055607,
+        150.2344763670065
+      ],
+      "squareOrientationDegreesModulo90": -40.72183094573075,
+      "image": "task2-rotation-probe/frame-018.png",
+      "sha256": "523f6ff9720730fdb6b47e9ae562456306ddc4ddb865703c13a9d85cbbdca534",
+      "conditionalOnsetMs": 969.6448828788184
+    },
+    {
+      "frameIndex": 75,
+      "pts": 7700,
+      "thresholdBlueExcess": 10,
+      "pixelCount": 996,
+      "centroid": [
+        155.96184738955824,
+        150.29116465863453
+      ],
+      "squareOrientationDegreesModulo90": -41.64276142961851,
+      "image": "task2-rotation-probe/frame-018.png",
+      "sha256": "523f6ff9720730fdb6b47e9ae562456306ddc4ddb865703c13a9d85cbbdca534",
+      "conditionalOnsetMs": 985.8750365118885
+    }
+  ]
+}

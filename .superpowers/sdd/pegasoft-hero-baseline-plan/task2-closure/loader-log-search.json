@@ -1,0 +1,389 @@
+{
+  "date": "2026-10-02",
+  "scope": "User-requested saved loader log search: top-level existing logs and retained rotation-probe logs; no whole chat/session history scan",
+  "logsSearched": 70,
+  "patterns": "animationstart|animation-start|onsetIntervalPts|sourceOnset|onset interval|vectrfl",
+  "matches": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-verification.log",
+      "line": 1,
+      "text": "{\"syntheticRecovery\": \"18/18 within 0.25 degree and 0.25px validation tolerances; not recording error bounds\", \"recordingFrameHashes\": \"16/16 match\", \"oneFrameSpreadGate\": \"FAIL\", \"recordingErrorEnvelopeGate\": \"FAIL\", \"phaseQualification\": \"BLOCKED\", \"sourceOnsetContract\": \"unfilled\"}"
+    }
+  ],
+  "nativeClockMentions": [
+    ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-red.log",
+    ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-typecheck.log"
+  ],
+  "playwrightTraceMentions": [
+    ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-causal-history.log",
+    ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-pass2.log",
+    ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-pass3.log",
+    ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-capture.log"
+  ],
+  "sourceOnsetPacketStatus": "author-candidate-not-independently-qualified",
+  "sourceOnsetPacketLimit": "Presentation onset is not independently proven CSS animation onset. Do not populate loaderPhaseContracts or derive a guessed capture-clock offset from these frames. No new browser capture ran.",
+  "sourceAgeContractsUnfilled": 2,
+  "verdict": "Loader logs and qualification packet exist, but no recording-session animation-start telemetry was found in the searched saved logs. Native clock mentions and Playwright trace references are local capture/test evidence. The source packet expressly retains presentation onset as unqualified; no source age populated.",
+  "inputs": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/contract-green.log",
+      "bytes": 1667,
+      "sha256": "78e23df7e8bd8e0d2835340737ff0d0916c8a79663bee130c4f5580af1a2e43c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-app-tests.log",
+      "bytes": 3141,
+      "sha256": "4929e4f2603c90c131807ad788361ab917a831f6350e8da15dd829bef5e83ca4"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-batching-green.log",
+      "bytes": 3298,
+      "sha256": "acf3b1d1cb3bffe4719a6957a878b0d301ab5729d83c24efc960ff049a100840"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-batching-red.log",
+      "bytes": 2585,
+      "sha256": "3e269676070225838dcb0c288912e99963d2fcd7240a9f42b95c51af642ed1ca"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-batched.log",
+      "bytes": 3771,
+      "sha256": "628cd41fbc7552b5bb572178c832f2e5498b6f35b09dd823907a8a81c9406c19"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-causal-history.log",
+      "bytes": 14215,
+      "sha256": "791f3b49b167db4e35e7e72690e5f20e5f5511e0daee927a1c466d2b66019887"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-pass1.log",
+      "bytes": 2872,
+      "sha256": "92579d670a1d03fff14e677640d640d893dfa9fc54afb06bbbc319e0a641f878"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-pass2.log",
+      "bytes": 115974,
+      "sha256": "950bb6ab20058673e9f1d394ee285c0b1839dfecbfc90beed9bb827ac4ff165a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-capture-pass3.log",
+      "bytes": 15442,
+      "sha256": "185e67b3f35df7a5a6cdaf71f876f3f9d6e6652793fa441ce7ebd5d06381361f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-causal-green.log",
+      "bytes": 3173,
+      "sha256": "682d8f591479c8d5aec95357ba8e36ee14f7142c5744505fa10e88c32d1d2700"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-causal-red.log",
+      "bytes": 2538,
+      "sha256": "74121f4de65a4d84efea3a3e247beb582852f4cb9c86c8b2a3b1db3c23b2ab07"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-contract-final.log",
+      "bytes": 2950,
+      "sha256": "62ea7aa538f0ba1eac01a1bc471c852a73588a255b79e0d4451e85ea97a3c425"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-contract-green2.log",
+      "bytes": 2719,
+      "sha256": "0dc614568818fa6866d45570fa97131a074c0de9ab2ef7dc51ff4782b1ae779c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-contract-green3.log",
+      "bytes": 2835,
+      "sha256": "dd2fc41247c8c01ab0bd7968b009b98f18fce4b0871fe00c61775f9b784aacca"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-contract-verified.log",
+      "bytes": 2950,
+      "sha256": "689094d8b7d5e54ae5b082841507765ed014c40deef795966d5ada72b903bffb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-contract.log",
+      "bytes": 2510,
+      "sha256": "d513c8c21cb02eec9b0616586e2330d4ecf93a92399fa6393a7478873a38977f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-diagnostics-build.log",
+      "bytes": 4525,
+      "sha256": "13b94aaa0d40a589e9dd1104eebe1e1b716c97691da00264ce7b7aaa7485dadb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-entry-red.log",
+      "bytes": 2434,
+      "sha256": "3cb5f61d2a1861a71bc48213b0a87999f7510d89a3961adecd02542c895c6452"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-lifecycle-red.log",
+      "bytes": 2737,
+      "sha256": "eebbb5e3afd25dea44dc31d2d7feca3a152225ba3e7978b28e0ef1fe2c5cf4ca"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-lint.log",
+      "bytes": 6174,
+      "sha256": "968b88d17f34509bcb19ee32ac443941ea8c9a2ba9417618619948baf542cf44"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-nonfinite-red.log",
+      "bytes": 2587,
+      "sha256": "83149fbeff2d23f4964425b829e099f86044f708e6d497244cdef5db9dae4da8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-scroll-red.log",
+      "bytes": 2512,
+      "sha256": "92b4101a16163dfab8c16e1375a0401468e5e79948b94c8c399f599abbe98458"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-typecheck-delivery.log",
+      "bytes": 545,
+      "sha256": "ecdae9430291fad6a51aece356a6db124a1788930fc66b0b541646ca891fcb17"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-typecheck-final.log",
+      "bytes": 2089,
+      "sha256": "ec4ae5b4955b36e60cd764f7e7bb2e8cbd533c5930d4600b3c5cdd94bb3327aa"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task1-typecheck.log",
+      "bytes": 961,
+      "sha256": "33cc531dc7660d144bcae1bac8315edf65deaaec1a783e10b085bed61db6c9ef"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-browser-final.log",
+      "bytes": 1895,
+      "sha256": "84b5332d36101243c3c707bc2008f2362119550ca956390eb48ca13e1fcf4ef1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-browser-verified.log",
+      "bytes": 1895,
+      "sha256": "793c56875b7aa8ee4fd5cebd7a39688ce28458895cf22d403fff5650ed33d60e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-capture-contracts.log",
+      "bytes": 4320,
+      "sha256": "a0d07eff229f4ba8bfda324840b22472657c976e22e30b8977a234a1c24857d7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-green.log",
+      "bytes": 1894,
+      "sha256": "f6973c8495d347050cf2b10996aee568944a3c2e5237ce682fefb21cfc8af8e3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-lint-verified.log",
+      "bytes": 5541,
+      "sha256": "0692d9714f1255a9d0bb6ca5c34ab414f694241e95e0218651bca0e56b476a54"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-lint.log",
+      "bytes": 6372,
+      "sha256": "3bdf00481b5354fa774a283ce9d2a72d775ad2a7c4b8665aff626c79eaea4046"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-old-packet-rejection.log",
+      "bytes": 2504,
+      "sha256": "feab9db3e23ec265ba74fdc46449392f19fc646e3c191acbf49121b6d71ed7c8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-red.log",
+      "bytes": 7894,
+      "sha256": "f519b010260751a8fc13bdfe8b86eb3ab5d39a0c6cf6819f06d944a9b0e2dd0c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-typecheck-final.log",
+      "bytes": 1871,
+      "sha256": "f1dbd4f9230261b42d6ab0ad21dd53f9dedc08391e7699b3561d45cda94e44c6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-typecheck-verified.log",
+      "bytes": 543,
+      "sha256": "ec02db12ef4843fd6b41d2a61427a5d6fd61e64f81904620dfe588acd437280b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-typecheck.log",
+      "bytes": 4085,
+      "sha256": "f94abd8e2697314a946d7b488368c6be75038edda278068fc8d627f264f2734c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-capture-2026-10-01.log",
+      "bytes": 2210,
+      "sha256": "4d1f2eed3245e557ed2670bef74a212e11e61985ac853f9cd9b25239d36d1fb1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-capture-permitted-2026-10-01.log",
+      "bytes": 3867,
+      "sha256": "f6dc0084e40b9b8ddbc0d097dea87f95eda4fb16c4411677edc158087841534b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-compare-2026-10-01.log",
+      "bytes": 1532,
+      "sha256": "a582916a3753153bfcff05f7b6fbe4d39de86d5ef4bc0c25bc79914191773316"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-measurement-2026-10-01.log",
+      "bytes": 6861,
+      "sha256": "7924bafda79087218856bddc82a3da870cdb2a3a919ad9201be640e51030d350"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor-green.log",
+      "bytes": 7640,
+      "sha256": "e44baf3ed41c8c9263c67583c222d3973e553833cf834af7dc1a47ef01244552"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor-red.log",
+      "bytes": 14962,
+      "sha256": "14c1f916cfaa6b6e5b7487c7c0b653fd49fddd4346908abfcca75c141ed3a2ec"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-bracket-red.log",
+      "bytes": 10077,
+      "sha256": "37fe2bdb31f754fef980613fa9f9fa586b1675576dc3d4d7c24a44fda1859525"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-capture-font-verified.log",
+      "bytes": 3901,
+      "sha256": "6c90bf3bc9cf5adbcfe777d50fd1aac203cf6980b0c3da4c5154a9b3d759ab59"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-capture.log",
+      "bytes": 43275,
+      "sha256": "3d28abbc60b59b6b243d842d5a52b4b0ca5d42fb5fc491e66138f34617bd1602"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-clock-final.log",
+      "bytes": 1619,
+      "sha256": "dffe8c64aa65d6a1867dfa306f78dcf513e5e5695fd07b4938b65c3122d70ef3"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-compare-reviewed-overlay.log",
+      "bytes": 1220,
+      "sha256": "51af68c8cfbec35a2d9edd799d9f7e906f1b54445601d8399912591b5112f518"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-compare.log",
+      "bytes": 950,
+      "sha256": "cd210553fece835e2a46ee49cf9220c8bd19094c32083589537c2f843094e64b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-format.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-green.log",
+      "bytes": 6102,
+      "sha256": "e043a2584794b0a569a4438d7a174bbbe11c3954c17011c5eaabbbd4b9f1618c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-history-red.log",
+      "bytes": 7201,
+      "sha256": "2aee088f2b02f9592301f7cc6fd5fa913db3f344b8723363665d00d8e082d6b5"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-lint-final.log",
+      "bytes": 5541,
+      "sha256": "5465589b753e7cd29f8f6319ec16f3196ca6f2dab28df615b11a2d99f0a74786"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-lint.log",
+      "bytes": 5931,
+      "sha256": "88c10d6d2bb60becf74982c019bf0481e82482dcc925ca53c0fe5121ccacbd01"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-review-contracts.log",
+      "bytes": 6870,
+      "sha256": "225851f7c577bcd504c8876f9ad1f80c8fc304d6608a4aca1c3a8784d813c08b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-measurement-final.log",
+      "bytes": 6109,
+      "sha256": "4a909392fc9db931a9e73be9c9cab18f8900dd1fa80dccd5fdb82dbc9ae4f16e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-named-effect-contract-green.log",
+      "bytes": 7093,
+      "sha256": "a646401602cd3c967c67dc13ea809dd0607aab2e80f70968625ea96b41c5bc44"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-named-effect-contract-red.log",
+      "bytes": 9688,
+      "sha256": "c82c4cefe4fa17d82907a1ee7c65a674f50f0c7e56c0b0dc6e8173569192f7df"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-compare-valid.log",
+      "bytes": 3596,
+      "sha256": "d7f0dad634793e03c16024853f138b1486a1c00e9659d21be2424736e167dc2c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-compare.log",
+      "bytes": 1808,
+      "sha256": "591b31ecfb1fee52c1f1da2709349c455400863b96087183a4619a4acfbedffc"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-green.log",
+      "bytes": 6871,
+      "sha256": "f339b34569a349ff0c3b4d45d0a670032bcbe51ac80ffb7847457ee9b6763b66"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-red.log",
+      "bytes": 10494,
+      "sha256": "516e3a7e32d73a37ce3f1fc68ac23561a07ce4fce425435cc32239dbc5e9d4d4"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-onset-audit-tests.log",
+      "bytes": 6525,
+      "sha256": "34f3af8a92b292067f51e7f2bc8f4e9317d34ee40184440c0bdf3366ec46195b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-physical-red.log",
+      "bytes": 8595,
+      "sha256": "6edd144c75f87efd0efa10a6fd6176e360f0585a6efa410457294821f1399f17"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-red.log",
+      "bytes": 19091,
+      "sha256": "ab2d561f02cf83574b17caf6d2c4d15e3812baaa8874f4e538583de04255526d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-syntax.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-typecheck.log",
+      "bytes": 543,
+      "sha256": "e68d1344fcd8168fb96d9eae32a8f26f63253eb1073f665a68d3a76868e0165d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/check.log",
+      "bytes": 1097,
+      "sha256": "e105abb803acd8a600fcc93e3e041a91381778a988e2db815eeb324a275760d7"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-check.log",
+      "bytes": 463,
+      "sha256": "3b3b23eba666c02f08a4453923e00425317e601d82c531616d75dd1f0a8c2d3f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-verification.log",
+      "bytes": 286,
+      "sha256": "778c93adf46acd7e9c0105e98c077644b94b69b8e9a47efe24070c132416d1cb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-check.log",
+      "bytes": 913,
+      "sha256": "c208f67a6b55bed4e3a1e57e35de7f29dddcd5bc320bc7d3c9ccce70f56a5b25"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-qualification-packet.json",
+      "bytes": 10224,
+      "sha256": "106e78d91628c13c1d61e93e3978322ccd2272f1502bddc4f56805a049d5693f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json",
+      "bytes": 3068,
+      "sha256": "8e2a5dec0197d9a43ad383ff4048237ad43f1c5ba9cb578f487063fed96abec8"
+    }
+  ]
+}

@@ -4,7 +4,9 @@
     "allowJs": true,
     "lib": ["dom", "dom.iterable", "es2022"],
     "outDir": "out-tsc/playwright",
-    "sourceMap": false
+    "sourceMap": false,
+    "ignoreDeprecations": "5.0",
+    "rootDir": "."
   },
   "include": [
     "**/*.ts",

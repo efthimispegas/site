@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "packetComplete": true,
+  "scope": "One P2 beam ambiguity refinement; qualification blocked; no active integration",
+  "inputs": [
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+      "bytes": 1438555,
+      "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb"
+    },
+    {
+      "path": "docs/hero-reference/recording-anchors.json",
+      "bytes": 155189,
+      "sha256": "351fed91b69ddf4a45de4e4ead7d68c642ff01e7496f8062fa61c12bb5b163b1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/diagnostic.json",
+      "bytes": 434015,
+      "sha256": "8c64a63a2ceb4002827516f368f46f390df4edea5a7a821a6debf264046d8a67"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/diagnostics.json",
+      "bytes": 12821,
+      "sha256": "c0546ae95afb398dc8ff81b4dae4562fe3a85122d959c562ce47230d78b78934"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/screen-profile-diagnostics.mjs",
+      "bytes": 10934,
+      "sha256": "115e285baef8f9f0358dd9d7386ed08c61e3871ea56b0231318e7c64d24c3505"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/screen-structural-features.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/after/screen-profile-diagnostics.mjs",
+      "bytes": 11106,
+      "sha256": "a39ebffe550355b560486cc54ed56709059bb2b0dd476ad87fb80fa6b4db66da"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/after/screen-structural-features.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs",
+      "bytes": 11106,
+      "sha256": "a39ebffe550355b560486cc54ed56709059bb2b0dd476ad87fb80fa6b4db66da"
+    },
+    {
+      "path": "tools/hero-reference/measurement-contract.test.mjs",
+      "bytes": 53432,
+      "sha256": "bc6382e7ba4e3ff47dd0aac72747858fc95669e3bc9b2af711c82831e045131e"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+      "bytes": 1131505,
+      "sha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001918-journey-exit.png",
+      "bytes": 658503,
+      "sha256": "5f8fec7f851c47455e39f424d5b27548d104203f1303aaf4afd51e33e3ce2b5b"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/journey-exit.png",
+      "bytes": 254834,
+      "sha256": "c0dfeafbb840e65be60ff23bbe5bc08a0e14568899027eeb1688655d622eb19e"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/after/measurement-contract.test.mjs",
+      "bytes": 53432,
+      "sha256": "bc6382e7ba4e3ff47dd0aac72747858fc95669e3bc9b2af711c82831e045131e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/ambiguity-fixture-diagnostics.json",
+      "bytes": 163771,
+      "sha256": "7a99a1ec81b950feb5fc5d2b7ac038fb2b84ec12c00fed8172c9393aa8acc16f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/beam-raster-diagnostics.json",
+      "bytes": 1801482,
+      "sha256": "be66cf66454bbb00dd4b3a73458638d8f87eb1f5243e128f8b3a1987bd6dbb73"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/independent-review.json",
+      "bytes": 3284,
+      "sha256": "8e217d7318db47af63b7d5cc51fba1808f4021a9c0d6bea7d5ba9704d87ad492"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/measurement-contract.test.mjs",
+      "bytes": 52370,
+      "sha256": "e68db6ed21b97188f4d61b791fe18e033d53a25880baadd16576809abd92eb3f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/old-packet-verification.json",
+      "bytes": 302,
+      "sha256": "f4443f70120d5b4b3abf2390ecbc0d816019708e3dafe5f4961ac7dbe2ee73fb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/old-review-packet.json",
+      "bytes": 7486,
+      "sha256": "a3475dfa1f50b6f58039821fca9dafe4c45b220b5d8cfd2d408ed5bf00bf9cc1"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/checks.json",
+      "bytes": 1328,
+      "sha256": "c82ef11f45cba86f8f7e3e58215100c3ca0464ae0d7d16c2c6629df8c4e40ccc"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/exit-raster-diagnostics.json",
+      "bytes": 261096,
+      "sha256": "8470493cd2aa91d7d0b64c25759a65f5ec9c6958015f4fb156f59b2883bb74f8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/implementation.patch",
+      "bytes": 2971,
+      "sha256": "c9e36cff3a53a4c1592e0a4fd3491259c2ea2672671c4b89db349ea37964c750"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/input-pins.json",
+      "bytes": 3205,
+      "sha256": "a64cc168aa2e0f3786fde41654cb2038df0de317404a785429b77731e4173231"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/logs/green-test.log",
+      "bytes": 9811,
+      "sha256": "c149141f3b32cf56b81d06afabfaab9431cea4f434500c95084cbb6182e01f39"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/logs/lint.log",
+      "bytes": 5541,
+      "sha256": "d66bc5d7fc29c7d3f6664937b5bdc3357efba8bf24aef63960f6fcae2f510e64"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/logs/raster-reproduction.log",
+      "bytes": 246,
+      "sha256": "c1a26927b2379aff8acf3dc3aebf347d35a52735ae8cea05a5fc77ac6d1dbaef"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/logs/red-test.log",
+      "bytes": 11452,
+      "sha256": "9f252f092237c0098259a709a46cdc04cf4626f3559b9927de72ee27678dc9ce"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/logs/typecheck.log",
+      "bytes": 543,
+      "sha256": "1e69a7980ce3b7c658e45e19bb7e4aa9e6d7ea2eb345f202a050c9381269f2fb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/logs/whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/old-packet-preservation.json",
+      "bytes": 338,
+      "sha256": "096f140917b51e5643ce7d59efa780fdbe8b65603e65af943fb6f569e50bd650"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/outcome.json",
+      "bytes": 2739,
+      "sha256": "a58459f2a5cc753bcc208bd4c923bbfab1c61b4e31a5f8cc8e73d272f9ab0a4d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/reproduce.mjs",
+      "bytes": 7149,
+      "sha256": "75b05fcf932698b49af4ac00114c079b3d35361c0b4dd8f731d83a1f883d6799"
+    }
+  ],
+  "checksPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/checks.json",
+  "outcomePath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/outcome.json",
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/reproduce.mjs --verify"
+}

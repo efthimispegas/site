@@ -1,0 +1,36 @@
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+src/visual/hero-presentation-readback.spec.ts(46,52): error TS18047: 'sample.record' is possibly 'null'.
+src/visual/hero-presentation-readback.spec.ts(101,21): error TS2352: Conversion of type 'Window & typeof globalThis' to type 'Window & { __pegasoftHeroFrame: { appliedConsumers: { camera: { frameId: number; }; }; }; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property '__pegasoftHeroFrame' is missing in type 'Window & typeof globalThis' but required in type '{ __pegasoftHeroFrame: { appliedConsumers: { camera: { frameId: number; }; }; }; }'.
+src/visual/hero-presentation-readback.spec.ts(113,21): error TS2352: Conversion of type 'Window & typeof globalThis' to type 'Window & { __pegasoftHeroFrame: { renderedAtMs?: number | undefined; }; }' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Property '__pegasoftHeroFrame' is missing in type 'Window & typeof globalThis' but required in type '{ __pegasoftHeroFrame: { renderedAtMs?: number | undefined; }; }'.
+src/visual/hero-presentation-readback.spec.ts(133,79): error TS18047: 'sample.record' is possibly 'null'.
+src/visual/hero-presentation-readback.spec.ts(133,79): error TS2345: Argument of type 'number | undefined' is not assignable to parameter of type 'number | bigint'.
+  Type 'undefined' is not assignable to type 'number | bigint'.
+src/visual/hero-presentation-readback.spec.ts(201,10): error TS18047: 'stable.readback' is possibly 'null'.
+Warning: command "tsc --build tsconfig.json --emitDeclarationOnly" exited with non-zero status code
+
+
+ NX   Running target typecheck for project @site/pegasoft-e2e and 1 task it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:typecheck
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      1.8s
+  Cache:             0/1 hit (0%)
+  Critical path:     1.8s (2 tasks)
+  Recoverable time:  <1ms

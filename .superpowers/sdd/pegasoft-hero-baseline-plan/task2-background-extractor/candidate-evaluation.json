@@ -1,0 +1,568 @@
+{
+  "status": "owner candidate diagnostic; no current comparison or independent qualification",
+  "configPolicy": "ROIs and all min/max support/geometry gates unchanged; source masks not used",
+  "rows": [
+    {
+      "state": "activation-route",
+      "input": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-route.png",
+        "bytes": 421050,
+        "sha256": "5265413af2294199cf639bf447a655064670d3c696aceea22aee0a39838ea74d"
+      },
+      "priorSelectedPixels": 5139,
+      "candidateSelectedPixels": 188869,
+      "candidateMeasurement": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "first-destination building before route contact",
+        "bounds": {
+          "rasterPixels": [
+            1610,
+            948,
+            553,
+            536
+          ],
+          "cssPixels": [
+            805,
+            474,
+            276.5,
+            268
+          ],
+          "normalized": [
+            0.53382,
+            0.622865,
+            0.183355,
+            0.352168
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 188869,
+        "method": {
+          "id": "largest-neutral-structure-component",
+          "roiNormalized": [
+            0.525,
+            0.55,
+            0.225,
+            0.445
+          ],
+          "roiRasterPixels": [
+            1583,
+            837,
+            679,
+            678
+          ],
+          "predicate": {
+            "id": "background-separated-pale-neutral-structure",
+            "description": "r,g,b >= 125, b-r <= 28, b-g <= 14, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB; outside measured border-color interval plus a 4-RGB-unit uncertainty band"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 500,
+          "maximumComponentPixels": 260000,
+          "maximumComponentWidth": 700,
+          "maximumComponentHeight": 650,
+          "minimumComponentFillRatio": 0.08,
+          "minimumSelectedPixels": 70000,
+          "totalComponentCount": 18,
+          "eligibleComponentCount": 4,
+          "selectedComponentCount": 1,
+          "semanticMask": null,
+          "rationale": "The implementation-only ROI contains the complete destination building in the locked localhost composition while excluding process copy and most surrounding world context. A neutral RGB predicate rejects the pale-blue ground, red route, and blue logo; component support and size gates retain only filled implementation building surfaces. The independently measured result is compared with the source mask without transferring source geometry into this classifier.",
+          "sourceMethod": "source-semantic-mask",
+          "candidateInteriorFill": "enclosed-zero-support-8-neighbor"
+        }
+      },
+      "backgroundModel": {
+        "method": "dominant-border-color-cluster-4-level-seed",
+        "color": [
+          208,
+          225,
+          235
+        ],
+        "sampleCount": 2710,
+        "dominantSampleCount": 1750,
+        "dominantFraction": 0.6457564575645757,
+        "sides": [
+          "bottom",
+          "left",
+          "right",
+          "top"
+        ],
+        "minimum": [
+          204,
+          221,
+          232
+        ],
+        "maximum": [
+          209,
+          225,
+          235
+        ],
+        "uncertaintyDistanceRgb": 4,
+        "scope": "candidate pale-blue-background frames only; not independently qualified"
+      },
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 6995,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 3878
+      },
+      "quality": {
+        "status": "qualified",
+        "reasons": [],
+        "quantity": "selected-color-support",
+        "lowChromaFraction": 0.9931116276360864,
+        "crossSectionP10": 200,
+        "crossSectionP90": 438,
+        "touchesBoundary": false,
+        "physicalRadiusMeasured": false,
+        "glowEnvelopeMeasured": false
+      },
+      "qualification": {
+        "status": "blocked",
+        "reason": "Candidate color support is not an independently qualified complete semantic silhouette."
+      },
+      "negativeSamples": [
+        {
+          "name": "topLeft",
+          "pixel": [
+            1583,
+            837
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        },
+        {
+          "name": "topRight",
+          "pixel": [
+            2261,
+            837
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        },
+        {
+          "name": "bottomRight",
+          "pixel": [
+            2261,
+            1514
+          ],
+          "rgb": [
+            207,
+            224,
+            234
+          ],
+          "predicateMatches": true,
+          "componentLabel": 44,
+          "belongsToDominant": false,
+          "candidateSelected": false
+        }
+      ],
+      "overlay": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-route-candidate-support.png",
+        "bytes": 16768,
+        "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+      }
+    },
+    {
+      "state": "activation-contact",
+      "input": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-contact.png",
+        "bytes": 388415,
+        "sha256": "1d2135173ddc983a14d4ddc2e78a7a06f302d909eab24b394b3fc9961c0961fa"
+      },
+      "priorSelectedPixels": 1695,
+      "candidateSelectedPixels": 171906,
+      "candidateMeasurement": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "logo-bearing first-destination building at route contact",
+        "bounds": {
+          "rasterPixels": [
+            1345,
+            534,
+            519,
+            506
+          ],
+          "cssPixels": [
+            672.5,
+            267,
+            259.5,
+            253
+          ],
+          "normalized": [
+            0.445955,
+            0.350854,
+            0.172082,
+            0.332457
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 171906,
+        "method": {
+          "id": "largest-neutral-structure-component",
+          "roiNormalized": [
+            0.42,
+            0.25,
+            0.25,
+            0.47
+          ],
+          "roiRasterPixels": [
+            1266,
+            380,
+            755,
+            716
+          ],
+          "predicate": {
+            "id": "background-separated-pale-neutral-structure",
+            "description": "r,g,b >= 125, b-r <= 28, b-g <= 14, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB; outside measured border-color interval plus a 4-RGB-unit uncertainty band"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 500,
+          "maximumComponentPixels": 180000,
+          "maximumComponentWidth": 700,
+          "maximumComponentHeight": 650,
+          "minimumComponentFillRatio": 0.08,
+          "minimumSelectedPixels": 70000,
+          "totalComponentCount": 313,
+          "eligibleComponentCount": 3,
+          "selectedComponentCount": 1,
+          "semanticMask": null,
+          "rationale": "The implementation-only contact ROI follows the complete destination building in the locked localhost composition. The renderer-independent neutral predicate and component gates exclude the red route, blue logo, pale-blue ground, and small workers without reusing source mask geometry.",
+          "sourceMethod": "source-semantic-mask",
+          "candidateInteriorFill": "enclosed-zero-support-8-neighbor"
+        }
+      },
+      "backgroundModel": {
+        "method": "dominant-border-color-cluster-4-level-seed",
+        "color": [
+          208,
+          225,
+          235
+        ],
+        "sampleCount": 2938,
+        "dominantSampleCount": 2193,
+        "dominantFraction": 0.7464261402314499,
+        "sides": [
+          "bottom",
+          "left",
+          "right",
+          "top"
+        ],
+        "minimum": [
+          204,
+          221,
+          232
+        ],
+        "maximum": [
+          208,
+          225,
+          235
+        ],
+        "uncertaintyDistanceRgb": 4,
+        "scope": "candidate pale-blue-background frames only; not independently qualified"
+      },
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 8976,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 3943
+      },
+      "quality": {
+        "status": "qualified",
+        "reasons": [],
+        "quantity": "selected-color-support",
+        "lowChromaFraction": 0.9925947901760265,
+        "crossSectionP10": 199,
+        "crossSectionP90": 421,
+        "touchesBoundary": false,
+        "physicalRadiusMeasured": false,
+        "glowEnvelopeMeasured": false
+      },
+      "qualification": {
+        "status": "blocked",
+        "reason": "Candidate color support is not an independently qualified complete semantic silhouette."
+      },
+      "negativeSamples": [
+        {
+          "name": "topLeft",
+          "pixel": [
+            1266,
+            380
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        },
+        {
+          "name": "topRight",
+          "pixel": [
+            2020,
+            380
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        },
+        {
+          "name": "bottomLeft",
+          "pixel": [
+            1266,
+            1095
+          ],
+          "rgb": [
+            206,
+            223,
+            233
+          ],
+          "predicateMatches": true,
+          "componentLabel": 82,
+          "belongsToDominant": false,
+          "candidateSelected": false
+        },
+        {
+          "name": "bottomRight",
+          "pixel": [
+            2020,
+            1095
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        }
+      ],
+      "overlay": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-contact-candidate-support.png",
+        "bytes": 16695,
+        "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+      }
+    },
+    {
+      "state": "arrival-lockup",
+      "input": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+        "bytes": 288613,
+        "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+      },
+      "priorSelectedPixels": 0,
+      "candidateSelectedPixels": 33392,
+      "candidateMeasurement": {
+        "status": "observed",
+        "evidenceClass": "observed",
+        "label": "large frontal arrival arrow",
+        "bounds": {
+          "rasterPixels": [
+            1194,
+            531,
+            352,
+            461
+          ],
+          "cssPixels": [
+            597,
+            265.5,
+            176,
+            230.5
+          ],
+          "normalized": [
+            0.395889,
+            0.348883,
+            0.116711,
+            0.302891
+          ]
+        },
+        "geometry": null,
+        "pixelSupport": 33392,
+        "method": {
+          "id": "largest-neutral-structure-component",
+          "roiNormalized": [
+            0.396,
+            0.24,
+            0.16,
+            0.48
+          ],
+          "roiRasterPixels": [
+            1194,
+            365,
+            483,
+            731
+          ],
+          "predicate": {
+            "id": "background-separated-pale-neutral-structure",
+            "description": "r,g,b >= 125, b-r <= 28, b-g <= 14, and max(r,g,b)-min(r,g,b) <= 28 in 8-bit sRGB; outside measured border-color interval plus a 4-RGB-unit uncertainty band"
+          },
+          "sobelThreshold": null,
+          "dilationIterations": 0,
+          "connectivity": 8,
+          "minimumComponentPixels": 500,
+          "maximumComponentPixels": 180000,
+          "maximumComponentWidth": 600,
+          "maximumComponentHeight": 700,
+          "minimumComponentFillRatio": 0.08,
+          "minimumSelectedPixels": 20000,
+          "totalComponentCount": 5,
+          "eligibleComponentCount": 5,
+          "selectedComponentCount": 1,
+          "semanticMask": null,
+          "rationale": "The implementation-only ROI contains the complete localhost arrival arrow while excluding the incoming feed and surrounding square/diamond marks. A renderer-independent neutral predicate rejects the pale-blue background and cyan bloom; component support and geometry gates retain the filled arrow without applying the source silhouette to localhost pixels.",
+          "sourceMethod": "source-semantic-mask",
+          "candidateInteriorFill": "enclosed-zero-support-8-neighbor"
+        }
+      },
+      "backgroundModel": {
+        "method": "dominant-border-color-cluster-4-level-seed",
+        "color": [
+          208,
+          225,
+          235
+        ],
+        "sampleCount": 2424,
+        "dominantSampleCount": 1976,
+        "dominantFraction": 0.8151815181518152,
+        "sides": [
+          "bottom",
+          "left",
+          "right",
+          "top"
+        ],
+        "minimum": [
+          204,
+          222,
+          232
+        ],
+        "maximum": [
+          211,
+          227,
+          236
+        ],
+        "uncertaintyDistanceRgb": 4,
+        "scope": "candidate pale-blue-background frames only; not independently qualified"
+      },
+      "foregroundEvidence": {
+        "uncertaintyBandPixels": 605,
+        "eligibleSubjectCount": 1,
+        "filledInteriorPixels": 0
+      },
+      "quality": {
+        "status": "blocked",
+        "reasons": [
+          "Selected subject reaches the ROI/image boundary; full-subject extent is not established."
+        ],
+        "quantity": "selected-color-support",
+        "lowChromaFraction": 1,
+        "crossSectionP10": 47,
+        "crossSectionP90": 53,
+        "touchesBoundary": true,
+        "physicalRadiusMeasured": false,
+        "glowEnvelopeMeasured": false
+      },
+      "qualification": {
+        "status": "blocked",
+        "reason": "Candidate color support is not an independently qualified complete semantic silhouette."
+      },
+      "negativeSamples": [
+        {
+          "name": "topLeft",
+          "pixel": [
+            1194,
+            365
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        },
+        {
+          "name": "topRight",
+          "pixel": [
+            1676,
+            365
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        },
+        {
+          "name": "bottomLeft",
+          "pixel": [
+            1194,
+            1095
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        },
+        {
+          "name": "bottomRight",
+          "pixel": [
+            1676,
+            1095
+          ],
+          "rgb": [
+            208,
+            225,
+            235
+          ],
+          "predicateMatches": true,
+          "componentLabel": 1,
+          "belongsToDominant": true,
+          "candidateSelected": false
+        }
+      ],
+      "overlay": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/arrival-lockup-candidate-support.png",
+        "bytes": 15469,
+        "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+      }
+    }
+  ]
+}

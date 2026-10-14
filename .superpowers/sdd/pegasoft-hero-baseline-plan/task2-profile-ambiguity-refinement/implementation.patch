@@ -1,0 +1,48 @@
+diff --git a/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/screen-profile-diagnostics.mjs b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/after/screen-profile-diagnostics.mjs
+index 3bcacb8..69c451b 100644
+--- a/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/screen-profile-diagnostics.mjs
++++ b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/after/screen-profile-diagnostics.mjs
+@@ -108,9 +108,11 @@ export function measureBeamCrossSectionDiagnostic({
+     return result;
+   }
+   const groups = [];
++  // A dim bridge above the detection floor must not merge significant peaks.
++  const significantPeakThreshold = Math.max(minimumPeakExcess, peak.brightExcess / 2);
+   let group = null;
+   for (const sample of interior) {
+-    if (sample.brightExcess >= minimumPeakExcess) {
++    if (sample.brightExcess >= significantPeakThreshold) {
+       if (!group) { group = []; groups.push(group); }
+       group.push(sample);
+     } else group = null;
+diff --git a/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/measurement-contract.test.mjs b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/after/measurement-contract.test.mjs
+index 1f47237..364943f 100644
+--- a/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/before/measurement-contract.test.mjs
++++ b/.superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/after/measurement-contract.test.mjs
+@@ -1214,3 +1214,26 @@ test('beam sideband uncertainty includes raw strip pixels rather than median alo
+   assert.match(r.reasons.join('; '), /sideband.*noise|contaminat/i);
+   assert.deepEqual(r.samples.find(s => s.coordinate === 15).pixels[0].rgb, [255,255,255]);
+ });
++
++// Break caught: a dim bridge above minimumPeakExcess merges two significant
++// white peaks, falsely assigning a branch/contact union to one beam.
++test('beam ambiguity guard rejects significant peaks connected by a dim bridge', () => {
++  const r = profileCall(profileFixture([
++    ...isolatedProfileRows,
++    [48,52,[240,250,255]],
++    [44,47,[190,210,220]],
++  ]));
++  assert.equal(r.status, 'blocked');
++  assert.match(r.reasons.join('; '), /competing|ambiguous/i);
++  assert.equal(r.peakWidths.length, 0);
++  assert.equal(r.qualification.status, 'blocked');
++});
++// Break caught: counting each equal local maximum rejects a single plateau.
++test('beam ambiguity guard retains one flat bright plateau', () => {
++  const r = profileCall(profileFixture([[27,43,[240,250,255]]]));
++  assert.equal(r.status, 'observed-diagnostic');
++  assert.deepEqual(r.peakWidths[0].rasterBounds, [27,43]);
++  assert.equal(r.peakWidths[0].cssSpan, 8.5);
++  assert.equal(r.peakWidths[0].quantity, 'apparent-composited-bright-profile');
++  assert.equal(r.qualification.status, 'blocked');
++});

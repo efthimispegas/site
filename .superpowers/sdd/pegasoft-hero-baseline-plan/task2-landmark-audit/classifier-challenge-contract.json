@@ -1,0 +1,193 @@
+{
+  "status": "owner-prepared validation requirements; not an approved classifier",
+  "scope": "implementation-only first-destination building and arrival-arrow silhouettes",
+  "negativeExamples": [
+    {
+      "state": "activation-route",
+      "name": "topLeft",
+      "pixel": [
+        1583,
+        837
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "activation-route",
+      "name": "topRight",
+      "pixel": [
+        2261,
+        837
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "activation-route",
+      "name": "bottomRight",
+      "pixel": [
+        2261,
+        1514
+      ],
+      "rgb": [
+        207,
+        224,
+        234
+      ],
+      "predicateMatches": true,
+      "componentLabel": 44,
+      "belongsToDominant": false
+    },
+    {
+      "state": "activation-contact",
+      "name": "topLeft",
+      "pixel": [
+        1266,
+        380
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "activation-contact",
+      "name": "topRight",
+      "pixel": [
+        2020,
+        380
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "activation-contact",
+      "name": "bottomLeft",
+      "pixel": [
+        1266,
+        1095
+      ],
+      "rgb": [
+        206,
+        223,
+        233
+      ],
+      "predicateMatches": true,
+      "componentLabel": 82,
+      "belongsToDominant": false
+    },
+    {
+      "state": "activation-contact",
+      "name": "bottomRight",
+      "pixel": [
+        2020,
+        1095
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "arrival-lockup",
+      "name": "topLeft",
+      "pixel": [
+        1194,
+        365
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "arrival-lockup",
+      "name": "topRight",
+      "pixel": [
+        1676,
+        365
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "arrival-lockup",
+      "name": "bottomLeft",
+      "pixel": [
+        1194,
+        1095
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    },
+    {
+      "state": "arrival-lockup",
+      "name": "bottomRight",
+      "pixel": [
+        1676,
+        1095
+      ],
+      "rgb": [
+        208,
+        225,
+        235
+      ],
+      "predicateMatches": true,
+      "componentLabel": 1,
+      "belongsToDominant": true
+    }
+  ],
+  "requiredChallenges": [
+    "Background-only image must emit no landmark support, not a large component plus an arbitrary small residual.",
+    "Isolated complete subject must retain its filled support without depending on source mask coordinates.",
+    "Neighboring neutral objects, route, glyphs, ground shadow and bloom may not be assigned the intended landmark role.",
+    "Boundary contact must distinguish selected residue/ROI truncation from proven subject clipping; missing full-subject evidence remains blocked.",
+    "Existing ROIs, min/max support and geometry gates remain unchanged during qualification; do not achieve eligibility by loosening gates.",
+    "Ambiguous foreground/background edges require an explicit uncertainty band and independent review, not classifier self-acceptance.",
+    "Historical packet stays historical; new extractor/capture inputs need a newly authorized packet before current comparisons."
+  ],
+  "sourceMasksAreLocalClassifiers": false,
+  "phaseQualification": "blocked"
+}

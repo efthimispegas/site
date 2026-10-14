@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-02",
+  "status": "complete candidate refinement implementation/check/evidence checkpoint; independent qualification not granted",
+  "objective": "Prevent ambiguous connected contact/feed support from being consumed as complete-subject measurements while preserving diagnostic masks and all original gates.",
+  "ownedChanges": [
+    "candidate helper region in apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+    "four new candidate fixtures in tools/hero-reference/measurement-contract.test.mjs"
+  ],
+  "implementation": {
+    "redContact": "Filled selected contour adjoining excluded red-dominant support blocks measurement and candidate quality. No pixels are deleted.",
+    "feedShaft": "ROI-reaching selected support now blocks measurement and explicitly reports unresolved boundary separation, with unique predicate-positive context pixels outside the ROI. No outside-ROI pixels are selected.",
+    "interiors": "Existing enclosed fill is unchanged. Enclosed red-logo guard remains observed.",
+    "classifierRoiSupportGates": "unchanged",
+    "integration": "inactive; active comparison/capture still uses original helpers"
+  },
+  "results": [
+    {
+      "state": "activation-route",
+      "measurement": "observed",
+      "qualification": "blocked",
+      "support": 188869,
+      "changedSupportPixels": 0,
+      "filledInteriorPixels": 3878,
+      "redAdjacentContourPixels": 0,
+      "roiBoundarySupportPixels": 0,
+      "externalContinuationPixels": 0
+    },
+    {
+      "state": "activation-contact",
+      "measurement": "blocked",
+      "qualification": "blocked",
+      "support": 171906,
+      "changedSupportPixels": 0,
+      "filledInteriorPixels": 3943,
+      "redAdjacentContourPixels": 103,
+      "roiBoundarySupportPixels": 0,
+      "externalContinuationPixels": 0
+    },
+    {
+      "state": "arrival-lockup",
+      "measurement": "blocked",
+      "qualification": "blocked",
+      "support": 33392,
+      "changedSupportPixels": 0,
+      "filledInteriorPixels": 0,
+      "redAdjacentContourPixels": 0,
+      "roiBoundarySupportPixels": 29,
+      "externalContinuationPixels": 25
+    }
+  ],
+  "checks": {
+    "measurementContracts": {
+      "command": "pnpm nx run @site/pegasoft-e2e:hero-measurement-test",
+      "red": {
+        "exitCode": 1,
+        "tests": 71,
+        "pass": 69,
+        "fail": 2,
+        "expectedFailures": [
+          "candidate rejects contour-connected red ambiguity while preserving diagnostic building support",
+          "candidate blocks clipped endpoint separation while retaining shaft support"
+        ]
+      },
+      "green": {
+        "exitCode": 0,
+        "tests": 71,
+        "pass": 71,
+        "fail": 0
+      },
+      "baselineGuardCases": [
+        "detached red support remains observed",
+        "enclosed red logo remains filled"
+      ]
+    },
+    "typechecks": {
+      "command": "pnpm nx run @site/pegasoft-e2e:typecheck",
+      "exitCode": 0,
+      "targets": [
+        "@site/pegasoft:typecheck",
+        "@site/pegasoft-e2e:typecheck"
+      ],
+      "cacheHits": 0,
+      "targetsCount": 2
+    },
+    "lint": {
+      "command": "pnpm nx run @site/pegasoft-e2e:lint",
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 39
+    },
+    "whitespace": {
+      "command": "git diff --check -- apps/pegasoft-e2e/src/visual/screen-structural-features.mjs tools/hero-reference/measurement-contract.test.mjs",
+      "exitCode": 0,
+      "rawLog": "whitespace.log"
+    },
+    "rasterEvaluation": {
+      "command": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/evaluate-refinement.mjs",
+      "exitCodes": [
+        0,
+        0
+      ],
+      "byteIdenticalRuns": 2,
+      "pinnedInputs": 8,
+      "preservedPriorPacketPins": 32,
+      "maskPixelsChanged": [
+        0,
+        0,
+        0
+      ]
+    },
+    "captureOrBrowserExecution": false
+  },
+  "limits": [
+    "No clean contact-rail contour is asserted. The red-adjacency policy is a conservative veto and may block a valid physical contact; it is not an independent semantic classifier or error calibration.",
+    "No general feed-endpoint deletion rule is justified by the single pinned raster. Endpoint/shaft separation is explicitly blocked, with complete diagnostic support retained.",
+    "Four-unit color uncertainty remains uncalibrated as a contour error bound.",
+    "Historical rasters have no current capture-provenance acceptance. Source/local IoU and visual acceptance are not assigned.",
+    "The scope prohibited browser/capture execution; only the complete measurement suite and affected typecheck/lint were run.",
+    "Full source/test snapshots can include other saved WIP. candidate.patch and new-candidate-tests.mjs isolate this owners delta."
+  ],
+  "nextAction": "Calibrate implementation-only contour uncertainty and provide independently labeled connected-contaminant/feed-endpoint challenges. Seek one independent review of the complete refinement packet; keep integration and qualification blocked until justified separation and boundary accuracy are established.",
+  "immutableHistory": "Prior extractor packet, independent review, landmark diagnostics and their pins were not rewritten; before snapshots resolve the old source/test pins.",
+  "reviewPacket": "review-packet.json",
+  "evaluation": "raster-evaluation.json",
+  "candidateDelta": "candidate.patch",
+  "testDelta": "new-candidate-tests.mjs",
+  "repeatability": {
+    "status": "pass",
+    "byteIdenticalRuns": 2,
+    "artifacts": [
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/raster-evaluation.json",
+        "bytes": 28159,
+        "sha256": "e91199e4b23920e4a711c327ba210adc89b56221fc5902765f24a5e95f0d2caa"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-route-diagnostic-support.png",
+        "bytes": 16768,
+        "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-contact-diagnostic-support.png",
+        "bytes": 16695,
+        "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/arrival-lockup-diagnostic-support.png",
+        "bytes": 15469,
+        "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+      }
+    ]
+  }
+}

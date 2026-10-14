@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-02",
+  "status": "blocked; no justified new loader execution identified",
+  "checks": {
+    "retainedFitPins": 24,
+    "sourceAgeContractsUnfilled": 2,
+    "repeatReconstructionAttempt": false
+  },
+  "basis": "Synthetic pose recovery is verified within the tested perturbations. It supplies no conservative bound for the recorded codec/antialiasing residual. The 19.33ms conditional spread already exceeds one frame before any added uncertainty; no averaging, contract population, capture offset or gate widening is authorized.",
+  "prerequisiteOptions": [
+    {
+      "option": "Recording-session causal telemetry",
+      "requirement": "Evidence tying the original recording clock to effect-specific animation start and recorded sample; a new live page observation alone cannot retroactively bind the MOV."
+    },
+    {
+      "option": "Independently justified different estimator",
+      "requirement": "A recording-representative codec/antialiasing error envelope and effect identity, with conservative onset interval at most one frame; synthetic accuracy alone is insufficient."
+    }
+  ],
+  "localFollowup": "After source qualification, an authorized current-input capture must bind named native animation target/currentTime to the same screenshot. Do not backfill anonymous historical IDs.",
+  "nextAction": "Keep loader stopped until a prerequisite supplies new causal evidence or a justified estimator. Continue independent landmark/beam/exit lanes.",
+  "inputs": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json",
+      "bytes": 3068,
+      "sha256": "8e2a5dec0197d9a43ad383ff4048237ad43f1c5ba9cb578f487063fed96abec8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-manifest.json",
+      "bytes": 7510,
+      "sha256": "6fc111f48baa3a92d01aeeeaa7a8997911610cbbca730dfa9a976a10bab6ad3d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-independent-review.json",
+      "bytes": 21971,
+      "sha256": "f9dd7d20115571345970a3da78699029efca95f05e7edeca962b87a75d32bbfa"
+    }
+  ],
+  "qualificationGranted": false,
+  "runtimeEdits": false,
+  "newCaptures": false
+}

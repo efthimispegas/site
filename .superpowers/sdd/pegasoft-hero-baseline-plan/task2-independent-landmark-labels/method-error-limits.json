@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-03",
+  "method": "Raw-only manual visible-semantic witness annotation with exact integer raster crops and nearest-neighbor magnification.",
+  "sequence": ["Read CURRENT and relevant baseline Task 2 contracts.","Verify the two historical implementation image pins.","Inspect both full raw images with view_image at original resolution.","Create and inspect exact raw crops; choose conservative interior witnesses and describe boundary locator regions.","Record actual RGB samples, unresolved semantics and error limits without consulting candidate masks or algorithms."],
+  "exposureDisclosure": "This agent reviewed candidate evidence in earlier assignments. No candidate masks, algorithms, diagnostics or reference masks were reopened during this annotation pass. The packet is independent of current candidate output construction, but must not be called first-exposure blinded annotation.",
+  "candidateMasksReadThisPass": 0,
+  "candidateAlgorithmsReadThisPass": 0,
+  "referenceMasksReadThisPass": 0,
+  "inputPolicy": "Historical implementation RGB rasters only. Capture manifest supplies image identity and screenshot scaling, not semantic labels.",
+  "labelPolicy": "Polygons are deliberately small visible interior witnesses, not exact subject contours or acceptance masks. Boundary locator boxes identify where unresolved observations occur; their sides are not object boundaries. Endpoint-like appearance is separated from unestablished feed/shaft ownership.",
+  "scaling": {"raster":[3016,1522],"cssViewport":[1508,761],"screenshotDpr":2,"rasterToCss":"x/2,y/2","cropToRaster":"crop origin plus display coordinate divided by integer magnification","canvasBackingScalingInferred":false},
+  "errorLimits": {
+    "serializedCoordinateResolutionRasterPixels": 1,
+    "serializedCoordinateResolutionCssPixels": 0.5,
+    "coordinateResolutionIsContourAccuracy": false,
+    "guaranteedContourErrorRasterPixels": null,
+    "guaranteedContourErrorCssPixels": null,
+    "alphaOrCoverageObserved": false,
+    "effectiveOpacityRecovered": false,
+    "antialiasThresholdAccepted": false,
+    "cause": "Flattened RGB admits multiple combinations of surface colors, coverages, occlusion and compositing. Magnification exposes pixel samples but does not add coverage or role information.",
+    "perSegmentPolicy": "Every segment explicitly records uncalibrated or unresolvable uncertainty. No arbitrary +/- pixel radius is offered as a validated bound."
+  },
+  "blockers": [
+    "Contact rail/building fringe ownership and hidden rail continuation are unresolved.",
+    "Arrival bright rounded mark is visible, but feed-endpoint versus shaft-cap ownership and overlapping coverage are unresolved.",
+    "Complete subject contours and missed/extra-pixel error cannot be certified from these two flattened frames.",
+    "Prior candidate exposure prevents a first-exposure blinded-labeling claim.",
+    "Historical image pins do not establish current capture provenance or normal-playback visual acceptance."
+  ],
+  "permittedUse": "Independent challenge-set preparation and localized evidence requests; do not compute acceptance IoU from these partial polygons.",
+  "independentReview": "not performed; author must not independently review own labels",
+  "smallestNextEvidence": "Obtain same-frame independently identified implementation layer/coverage evidence at the contact fringe and arrival rounded-mark/shaft seam, then have an independent labeler or reviewer establish ownership and calibrate boundary error. New captures require explicit authorization.",
+  "execution": {"newCaptures":0,"runtimeEdits":0,"sharedSourceEdits":0,"sharedDocsEdits":0,"gateChanges":0,"delegation":0}
+}

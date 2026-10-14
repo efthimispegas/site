@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "packetComplete": true,
+  "scope": "Full-route beam challenge and calibration feasibility; qualification blocked",
+  "inputs": [
+    {
+      "path": "docs/hero-reference/recording/frame-000598-activation-route.png",
+      "bytes": 1625039,
+      "sha256": "0ab59bbdebf3fd0067658841a7b443c8d27375bd5429fc778752019538900180"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-route.png",
+      "bytes": 421050,
+      "sha256": "5265413af2294199cf639bf447a655064670d3c696aceea22aee0a39838ea74d"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001228-clearance-field-preview.png",
+      "bytes": 1583157,
+      "sha256": "42a8b8da9bed387e5aab1e767a0e6290aff44189d11b8e7653d7180936866268"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/clearance-field-preview.png",
+      "bytes": 430297,
+      "sha256": "85e2acf0dd37a020edb3e200d8b671addfeafd829cd02f2b30b50aaa013681ed"
+    },
+    {
+      "path": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+      "bytes": 1131505,
+      "sha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/labels.json",
+      "bytes": 20383,
+      "sha256": "795f6d4659c442ad7b2cb0f5121f476a903a331f3f2206d29f20b108e68a8908"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/frames.json",
+      "bytes": 1670,
+      "sha256": "7196ab7c7a2db9f148964fba7a33353cdfb572172a7ff248581d89b7f34cb630"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/snapshots/screen-profile-diagnostics.mjs",
+      "bytes": 11106,
+      "sha256": "a39ebffe550355b560486cc54ed56709059bb2b0dd476ad87fb80fa6b4db66da"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/snapshots/screen-structural-features.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/review-packet.json",
+      "bytes": 8666,
+      "sha256": "a2267f30572d72ad07ce17d053d6840deca03e8f6975b799a9a707bb6d24e35e"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/independent-review.json",
+      "bytes": 1888,
+      "sha256": "1719266bb453c043fd28c3385af57e59fccbaecee4045e1e049ac8de02cb2965"
+    },
+    {
+      "path": "docs/hero-reference/recording-anchors.json",
+      "bytes": 155189,
+      "sha256": "351fed91b69ddf4a45de4e4ead7d68c642ff01e7496f8062fa61c12bb5b163b1"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+      "bytes": 1438555,
+      "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/annotation-first-attempt.log",
+      "bytes": 537,
+      "sha256": "f62706e149e6db0721f06c36381890773b02bd88d012ff69746146ba116cd0ff"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/calibration-feasibility.json",
+      "bytes": 6451,
+      "sha256": "94d4e65bc5c7ead195827019d242584be894f52003b70b1f753a62cd952d1350"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/challenge-results.json",
+      "bytes": 10833513,
+      "sha256": "3ced97fe807113312219510b3bcf53a51acd821db37c78709917f5af9f36007d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/challenge-table.csv",
+      "bytes": 2190,
+      "sha256": "95bc8999ba8b5439b4c871f9774f2187bb007770fae20b7e44e8e2b4c703692f"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/checks.json",
+      "bytes": 1526,
+      "sha256": "04135a38cec61074c9c2b2ad1cbba9088a23a190b3a7cb5c4fb0fc8301087b17"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/evaluate.mjs",
+      "bytes": 8377,
+      "sha256": "ae97257049363ad5e874d47b8c18e6fa1207dd8466e08cea10109d78280962bb"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/evaluation.log",
+      "bytes": 9640,
+      "sha256": "d781f48c3cda69d765389f71d964f36cef6adaf84553d985f3f72d936052bfaf"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/input-pins.json",
+      "bytes": 3118,
+      "sha256": "06bcc887007b3c138514a07643094a40b8771f39213c26329e712f458cfca396"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/label-audit.json",
+      "bytes": 437,
+      "sha256": "9fdcf855da445ddf548ed0932c6094af5c6aeffb59b1570d2229a29bb41558e6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/labels-initial-draft.json",
+      "bytes": 19485,
+      "sha256": "20ce995f368e9c4d0621441fa02f977763a7d581d911d579c293a1ef266779a8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/outcome.json",
+      "bytes": 2334,
+      "sha256": "ec7c7a93d551983dc4a78e6b2d8166a36ac086ecf401377d25d0c13209d2b182"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/activation-route-local-sections.png",
+      "bytes": 133250,
+      "sha256": "7dbe20faaac8fef4fa432d0729e0b0e756d5d3f3725e789f8055b13092fd2fbd"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/activation-route-local.png",
+      "bytes": 128501,
+      "sha256": "7d4bd3846beecdec7392b4eefb18b658b25a68f0fc95614ba456a9a1fe92a507"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/activation-route-source-sections.png",
+      "bytes": 370084,
+      "sha256": "471c57e536539b0fed39059e3cc5bff532b37448d7e4db1d4afd46205e1fdce0"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/activation-route-source.png",
+      "bytes": 347991,
+      "sha256": "90e8b1bca4a702ebe87cb16b66fa4aa590ff1d94d43e1a09db5fc245801691a6"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/arrival-lockup-local-sections.png",
+      "bytes": 109820,
+      "sha256": "ac39b3c42c7e7f9a14e3a148fe551643fcdec098b7e781e42d7209e71a60083a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/arrival-lockup-local.png",
+      "bytes": 104654,
+      "sha256": "881bc844ea792a5c6bdd8d5ebd5c585fd0730c3e9b87c92594bafc34b6434cc0"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/arrival-lockup-source-sections.png",
+      "bytes": 303912,
+      "sha256": "69a77ae6b9ea01f41e01e986d53df19faf03b3a20ec49905ce10f3ddbc6050d8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/arrival-lockup-source.png",
+      "bytes": 285178,
+      "sha256": "856433350f0f48a0d9957ff81c36a8acb8ae08f356619ac3aa11da5ab3ecc383"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/clearance-field-preview-local-sections.png",
+      "bytes": 136320,
+      "sha256": "9ae492e517949b0f64aed80dbc754bcd1e70ee97516b5d76a66fe1c13b0e7097"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/clearance-field-preview-local.png",
+      "bytes": 125978,
+      "sha256": "4bc22936dd6a81958d5b2d436ad1396dae2d7919e61e22a98acd48b5e8ae4bff"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/clearance-field-preview-source-sections.png",
+      "bytes": 403108,
+      "sha256": "148017f58335cf0609176601bebc5d00470279d9ac1ea1b8b922c39f933ea453"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/previews/clearance-field-preview-source.png",
+      "bytes": 375928,
+      "sha256": "b3c72daf5ddb8d00ae3fe79fab051d8601edd7b4f162e78959c5601230ca103c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/seal.mjs",
+      "bytes": 4450,
+      "sha256": "51eb652ea7da73a14a53e6f2ad3a610f7e5d9549da1cc840988d273d75c5e51d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/summary.json",
+      "bytes": 91895,
+      "sha256": "c13de945ad45baffa0d465c1fd641963be6b90d101443238acb4dca477bafeab"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/verification.log",
+      "bytes": 170,
+      "sha256": "cf761444699e464452d3ac100579d5ff1efab24edd27085a6c8be57bf4dc9d42"
+    }
+  ],
+  "checksPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/checks.json",
+  "outcomePath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/outcome.json",
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/evaluate.mjs --verify",
+  "independentReview": "pending-root-commissioned-review"
+}

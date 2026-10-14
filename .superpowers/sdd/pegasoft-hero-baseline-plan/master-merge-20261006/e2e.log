@@ -1,0 +1,620 @@
+
+> nx run @site/pegasoft-e2e:e2e
+
+> playwright test
+
+(node:20369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:20369) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:20375) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:20378) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:20384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:20385) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[32m✔ test-contract provenance excludes mutable sprint summaries but keeps normative contracts [90m(0.76525ms)[39m[39m
+[32m✔ execution records genuine cell assertions and continues [90m(0.209042ms)[39m[39m
+[32m✔ explicit predicate timeout becomes a cell assertion while test timeout stays fatal [90m(0.355ms)[39m[39m
+[32m✔ execution stops after timeout and persists fatal result [90m(0.18975ms)[39m[39m
+[32m✔ execution stops after page closure and persists fatal result [90m(0.124708ms)[39m[39m
+[32m✔ execution stops after context closure and persists fatal result [90m(0.068541ms)[39m[39m
+[32m✔ execution stops after abort and persists fatal result [90m(0.090875ms)[39m[39m
+[32m✔ execution stops after filesystem I/O and persists fatal result [90m(0.071458ms)[39m[39m
+[32m✔ execution stops after unknown programming error and persists fatal result [90m(0.062792ms)[39m[39m
+[32m✔ resource cleanup closes open page and context [90m(0.265542ms)[39m[39m
+[32m✔ resource cleanup has a short independent deadline [90m(12.725792ms)[39m[39m
+
+[2mRunning [22m156[2m tests using [22m1[2m worker[22m
+
+[32m✔ attempt creation rejects reuse and pre-existing evidence [90m(38.590541ms)[39m[39m
+[1A[2K(node:20389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20389) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/156] [chromium] › src/hero-alternatives.spec.ts:249:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable
+[32m✔ validator accepts a complete synthetic packet without current-input checks [90m(1128.267208ms)[39m[39m
+[32m✔ validator rejects missing and duplicate shard IDs [90m(139.267792ms)[39m[39m
+[32m✔ validator rejects mixed plan/run provenance [90m(192.393625ms)[39m[39m
+[32m✔ validator rejects missing, corrupt, and hash-mismatched PNG evidence [90m(394.459917ms)[39m[39m
+[32m✔ validator rejects signature-only PNGs and reused or noncanonical image paths [90m(274.384875ms)[39m[39m
+[32m✔ validator rejects a valid non-PNG stored at a canonical PNG path [90m(143.362792ms)[39m[39m
+[32m✔ validator rejects missing and duplicate cell IDs and changed N/A category [90m(239.608083ms)[39m[39m
+[1A[2K[2/156] [chromium] › src/hero-alternatives.spec.ts:273:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable
+[32m✔ validator rejects target, rendered, and field-clock predicate failures [90m(2857.417875ms)[39m[39m
+[32m✔ validator rejects contract, scroll, first-eligible, and restored-clock failures [90m(2854.585ms)[39m[39m
+[32m✔ validator rejects reordered IDs, cross-shard reassignment, and changed N/A [90m(131.818625ms)[39m[39m
+[32m✔ validator rejects mixed attempts and malformed committed/restoration evidence [90m(763.940375ms)[39m[39m
+[32m✔ validator rejects packet accounting other than 360/336/24 [90m(160.351958ms)[39m[39m
+[32m✔ validator independently rejects stale build provenance [90m(5.352875ms)[39m[39m
+[32m✔ validator independently rejects stale implementation provenance [90m(5.123791ms)[39m[39m
+[32m✔ validator independently rejects stale testContract provenance [90m(3.094041ms)[39m[39m
+[32m✔ validator independently rejects stale reference provenance [90m(5.39125ms)[39m[39m
+[32m✔ validator independently rejects stale runnerConfig provenance [90m(3.04875ms)[39m[39m
+[1A[2K[3/156] [chromium] › src/hero-alternatives.spec.ts:304:5 › active Canvas context loss latches useful fallback and unlocks the page
+[1A[2K[4/156] [chromium] › src/hero-alternatives.spec.ts:340:5 › active Canvas context loss mid-journey latches fallback without a retry
+[1A[2K[5/156] [chromium] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render
+[1A[2K[31m  1) [chromium] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('[data-hero-reference-state]')
+    Expected: [32m"loading-resources"[39m
+    Received: [31m"frame-pending"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('[data-hero-reference-state]')[22m
+    [2m    5 × locator resolved to <div data-hero-step="1" data-hero-ready-at="0" data-hero-seed="43117" data-hero-motion="full" data-hero-fallback-at="0" data-hero-profile="desktop" data-hero-lifecycle="landing" data-hero-render-ready="false" data-hero-direct-entry="false" data-hero-pointer-trail="true" data-hero-fallback-ready="false" data-hero-attempt-id="_R_bslrlb_" data-hero-first-applied-frame="0" data-hero-reference-state="landing" data-hero-scene-progress="0.000000" data-hero-attempt-state="frame-pending" data-hero-attempt-r…>…</div>[22m
+    [2m      - unexpected value "frame-pending"[22m
+    [2m    9 × locator resolved to <div data-hero-step="1" data-hero-ready-at="0" data-hero-seed="43117" data-hero-motion="full" data-hero-fallback-at="0" data-hero-profile="desktop" data-hero-lifecycle="landing" data-hero-render-ready="false" data-hero-direct-entry="false" data-hero-pointer-trail="true" data-hero-fallback-ready="false" data-hero-attempt-id="_R_bslrlb_" data-hero-first-applied-frame="0" data-hero-scene-progress="0.000000" data-hero-attempt-state="frame-pending" data-hero-reference-state="landing-idle" data-hero-atte…>…</div>[22m
+    [2m      - unexpected value "frame-pending"[22m
+
+
+      414 |   );
+      415 |   await page.waitForTimeout(4_500);
+    > 416 |   await expect(state).toHaveAttribute(
+          |                       ^
+      417 |     'data-hero-attempt-state',
+      418 |     'loading-resources',
+      419 |   );
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:416:23[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-delayed--e6a10-pleted-post-resource-render-chromium/error-context.md[22m
+
+
+[1A[2K(node:20491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20491) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[6/156] [chromium] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline
+[1A[2K[31m  2) [chromium] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline [39m
+
+    TimeoutError: page.waitForFunction: Timeout 16000ms exceeded.
+
+      236 |   timeout: number,
+      237 | ) {
+    > 238 |   const observed = await page.waitForFunction(
+          |                               ^
+      239 |     (expectedState) => {
+      240 |       const scene = document.querySelector('[data-hero-reference-state]');
+      241 |       return scene?.getAttribute('data-hero-attempt-state') === expectedState;
+    [2m    at waitForAttemptState (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:238:31)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:472:9[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-never-re-bbfba-back-at-the-finite-deadline-chromium/error-context.md[22m
+
+
+[1A[2K(node:20554) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20554) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[7/156] [chromium] › src/hero-alternatives.spec.ts:481:5 › closed mobile navigation is hidden from assistive technology and keyboard focus
+[1A[2K[8/156] [chromium] › src/hero-alternatives.spec.ts:516:5 › static fallback is deterministic during ordinary initial loading
+[1A[2K[9/156] [chromium] › src/hero-alternatives.spec.ts:540:5 › expired loading deadline is checked on resume when its timer was throttled
+[1A[2K[31m  3) [chromium] › src/hero-alternatives.spec.ts:540:5 › expired loading deadline is checked on resume when its timer was throttled [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('[data-hero-reference-state]')
+    Expected: [32m"loading-resources"[39m
+    Received: [31m"fallback"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('[data-hero-reference-state]')[22m
+    [2m    2 × locator resolved to <div data-hero-step="1" data-hero-ready-at="0" data-hero-seed="43117" data-hero-motion="full" data-hero-profile="desktop" data-hero-lifecycle="landing" data-hero-render-ready="false" data-hero-direct-entry="false" data-hero-pointer-trail="true" data-hero-fallback-ready="true" data-hero-resources-ready-at="0" data-hero-attempt-id="_R_bslrlb_" data-hero-first-applied-frame="0" data-hero-attempt-state="fallback" data-hero-resources-started-at="0" data-hero-attempt-reason="deadline" data-hero-scene-pro…>…</div>[22m
+    [2m      - unexpected value "fallback"[22m
+
+
+      562 |   );
+      563 |   await page.waitForTimeout(15_100);
+    > 564 |   await expect(state).toHaveAttribute(
+          |                       ^
+      565 |     'data-hero-attempt-state',
+      566 |     'loading-resources',
+      567 |   );
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:564:23[22m
+
+    [31mTest timeout of 30000ms exceeded while running "afterEach" hook.[39m
+
+      11 | const HERO_URL = `/?__heroState=${REFERENCE_STATE}&__heroTime=2500`;
+      12 |
+    > 13 | test.afterEach(async ({ page, browser }, testInfo) => {
+         |      ^
+      14 |   if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+      15 |   const observed = await page.evaluate(() => {
+      16 |     const scene = document.querySelector('[data-hero-reference-state]');
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:13:6[22m
+
+    Error: page.evaluate: Test ended.
+
+      13 | test.afterEach(async ({ page, browser }, testInfo) => {
+      14 |   if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+    > 15 |   const observed = await page.evaluate(() => {
+         |                               ^
+      16 |     const scene = document.querySelector('[data-hero-reference-state]');
+      17 |     const loader = document.querySelector('[data-hidden][data-revealing]');
+      18 |     const style = loader ? getComputedStyle(loader) : null;
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:15:31[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-expired--41a07-hen-its-timer-was-throttled-chromium/error-context.md[22m
+
+
+[1A[2K(node:20614) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20614) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[10/156] [chromium] › src/hero-alternatives.spec.ts:580:5 › ready scene survives the loading deadline and settles reduced motion
+[1A[2K[31m  4) [chromium] › src/hero-alternatives.spec.ts:580:5 › ready scene survives the loading deadline and settles reduced motion [39m
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThanOrEqual[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: <= [32m100[39m
+    Received:    [31m114.20000000018626[39m
+
+      656 |   if (!settled)
+      657 |     throw new Error('No completed reduced-motion frame was observed');
+    > 658 |   expect(settled.elapsedMs).toBeLessThanOrEqual(100);
+          |                             ^
+      659 |   await testInfo.attach('reduced-motion-settlement', {
+      660 |     body: JSON.stringify(settled),
+      661 |     contentType: 'application/json',
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:658:29[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-ready-sc-7341c--and-settles-reduced-motion-chromium/error-context.md[22m
+
+
+[1A[2K(node:20635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20635) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[11/156] [chromium] › src/hero-alternatives.spec.ts:670:5 › route remount rejects abandoned resource and context callbacks
+[1A[2K[2m[WebServer] [22m[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[1A[2K[12/156] [chromium] › src/hero-alternatives.spec.ts:709:5 › successful capability probe with failed actual Canvas selects fallback
+[1A[2K[2m[WebServer] [22m[browser] THREE.WebGLRenderer: Error creating WebGL context. 
+[2m[WebServer] [22m    at HeroScene.useCallback[createRenderer] (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+[2m[WebServer] [22m  213 |       attemptStartedAt.current ??= performance.now();
+[2m[WebServer] [22m  214 |       try {
+[2m[WebServer] [22m> 215 |         return new WebGLRenderer({
+[2m[WebServer] [22m      |                ^
+[2m[WebServer] [22m  216 |           ...defaults,
+[2m[WebServer] [22m  217 |           alpha: true,
+[2m[WebServer] [22m  218 |           antialias: true, (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+
+[1A[2K[2m[WebServer] [22m[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[1A[2K[13/156] [chromium] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: recording-desktop
+[1A[2K[14/156] [chromium] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: desktop
+[1A[2K[15/156] [chromium] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: tablet
+[1A[2K[16/156] [chromium] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: mobile
+[1A[2K[17/156] [chromium] › src/hero-performance.spec.ts:233:7 › Phase 19 hero performance probe › records a full forward and reverse hero scrub
+[1A[2K[18/156] [chromium] › src/pegasoft.spec.ts:465:5 › homepage presents Pegasoft CTA and 3D/fallback surface
+[1A[2K[19/156] [chromium] › src/pegasoft.spec.ts:511:5 › work taxonomy keeps Concept Lab separate from client portfolio
+[1A[2K[20/156] [chromium] › src/pegasoft.spec.ts:524:5 › seo and geo utility routes respond
+[1A[2K[21/156] [chromium] › src/pegasoft.spec.ts:535:5 › mobile layout avoids horizontal overflow
+[1A[2K[22/156] [chromium] › src/pegasoft.spec.ts:545:5 › homepage has no serious or critical accessibility violations
+[1A[2K[23/156] [chromium] › src/pegasoft.spec.ts:560:5 › homepage hydrates without runtime errors and mounts WebGL or fallback
+[1A[2K[24/156] [chromium] › src/pegasoft.spec.ts:586:5 › development harness observes field-pulse-b from physical input and applied time
+[1A[2K[25/156] [chromium] › src/pegasoft.spec.ts:606:5 › hero state converges across forward, reverse, jump, resize, and restored reload entry
+[1A[2K[26/156] [chromium] › src/pegasoft.spec.ts:659:5 › desktop journeys complete at normal, slow, fast, and reverse rates
+[1A[2K[27/156] [chromium] › src/pegasoft.spec.ts:817:5 › the same physically reached applied field frame produces a stable capture
+[1A[2K[28/156] [chromium] › src/pegasoft.spec.ts:871:5 › forced fallback remains useful and state-addressable
+[1A[2K[29/156] [chromium] › src/pegasoft.spec.ts:891:5 › reduced motion selects discrete poses without desktop trail
+[1A[2K[30/156] [chromium] › src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering
+[1A[2K[31/156] [chromium] › src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs
+[1A[2K[32/156] [chromium] › src/visual/hero-capture-clock.spec.ts:68:5 › css_document_timeline_progresses_while_javascript_clock_is_paused
+[1A[2K[33/156] [chromium] › src/visual/hero-capture-clock.spec.ts:85:5 › css_transport_advances_input_delta_and_stays_stable_across_screenshot
+[1A[2K[34/156] [chromium] › src/visual/hero-capture-clock.spec.ts:108:5 › css_transition_created_in_timer_uses_remaining_interval
+[1A[2K[35/156] [chromium] › src/visual/hero-capture-clock.spec.ts:139:5 › css_transport_installed_before_navigation_preserves_timer_creation_time
+[1A[2K[36/156] [chromium] › src/visual/hero-capture-contract.spec.ts:26:5 › lifecycle_changes_between_assertions
+[1A[2K[37/156] [chromium] › src/visual/hero-capture-contract.spec.ts:34:5 › resource_readiness_delays_entry
+[1A[2K[38/156] [chromium] › src/visual/hero-capture-contract.spec.ts:43:5 › pulse_label_differs_from_applied_clock
+[1A[2K[39/156] [chromium] › src/visual/hero-capture-contract.spec.ts:54:5 › stale_consumer_rejects_frame
+[1A[2K[40/156] [chromium] › src/visual/hero-capture-contract.spec.ts:63:5 › pending_render_rejects_frame
+[1A[2K[41/156] [chromium] › src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify
+[1A[2K[42/156] [chromium] › src/visual/hero-capture-contract.spec.ts:75:5 › physical_entry_uses_viewport_and_flow_domains
+[1A[2K[43/156] [chromium] › src/visual/hero-capture-contract.spec.ts:79:5 › loader_age_uses_lifecycle_origin_not_rendered_age
+[1A[2K[44/156] [chromium] › src/visual/hero-capture-contract.spec.ts:88:5 › physical_entry_waits_for_actual_loader_clearance
+[1A[2K[45/156] [chromium] › src/visual/hero-capture-contract.spec.ts:96:5 › contact_clock_requires_real_history_above_point72
+[1A[2K[46/156] [chromium] › src/visual/hero-capture-contract.spec.ts:107:5 › incomplete_clock_history_cannot_qualify
+[1A[2K[47/156] [chromium] › src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window
+[1A[2K[48/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:88:5 › provenance_saved_field_contact_passes_independent_validator_pins
+[1A[2K[49/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:147:5 › provenance_stale_camera_readback_rejected
+[1A[2K[50/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:153:5 › provenance_missing_route_readback_rejected
+[1A[2K[51/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:159:5 › provenance_acknowledgment_without_actual_object_readback_rejected
+[1A[2K[52/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:165:5 › provenance_field_clock_disagrees_with_completed_frame_rejected
+[1A[2K[53/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:171:5 › provenance_unknown_physical_height_is_not_guessed_from_viewport
+[1A[2K[54/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:177:5 › provenance_saved_journey_exit_preserves_material_readback_roundtrip
+[1A[2K[55/156] [chromium] › src/visual/hero-capture-provenance.spec.ts:206:5 › provenance_survives_durable_outcome_and_manifest_finalization
+[1A[2K[56/156] [chromium] › src/visual/hero-capture-run.spec.ts:43:5 › restart_preserves_run_artifacts
+[1A[2K[57/156] [chromium] › src/visual/hero-capture-run.spec.ts:64:5 › capture_run_preserves_historical_and_concurrent_outputs
+[1A[2K[58/156] [chromium] › src/visual/hero-capture-run.spec.ts:78:5 › capture_run_failed_and_missing_states_are_explicit
+[1A[2K[59/156] [chromium] › src/visual/hero-capture-run.spec.ts:108:5 › capture_run_complete_manifest_hashes_all_artifacts
+[1A[2K[60/156] [chromium] › src/visual/hero-capture-run.spec.ts:147:5 › capture_run_missing_or_changed_artifact_cannot_complete
+[1A[2K[61/156] [chromium] › src/visual/hero-capture-run.spec.ts:166:5 › capture_run_foreign_measurement_identity_cannot_complete
+[1A[2K[62/156] [chromium] › src/visual/hero-capture-run.spec.ts:180:5 › capture_run_failure_survives_later_success
+[1A[2K[63/156] [chromium] › src/visual/hero-capture-run.spec.ts:199:5 › capture_run_failed_manifest_hashes_empty_partial_artifacts
+[1A[2K[64/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:40:5 › same-task readback intersects nested overflow and rectangular inset clips
+[1A[2K[65/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:51:5 › readback records ancestor CSS opacity product and preserves zero
+[1A[2K[66/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:65:5 › readback rejects nonrectangular and transformed clipping without inventing a plane
+[1A[2K[67/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:83:5 › readback marks unsupported compositing separately from observed CSS values
+[1A[2K[68/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:95:5 › readback rejects frame mismatch and incomplete consumer application
+[1A[2K[69/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:110:5 › readback cannot bind pending renders or an ambiguous canvas selection
+[1A[2K[70/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:127:5 › running native opacity animation remains temporally uncertain on a completed frame
+[1A[2K[71/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:142:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection
+[1A[2K[72/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:151:5 › readback retains DOM values but cannot invent a missing completed frame
+[1A[2K[73/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:171:5 › bracket parity masks DOM readback when opacity changes around acquisition
+[1A[2K[74/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:183:5 › bracket parity compares the initial acquisition clipping too
+[1A[2K[75/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:196:5 › bracket parity exposes only stable supported DOM quantities
+[1A[2K[76/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:212:5 › capture acquisition retains presentation from its own completed-frame task
+[1A[2K[77/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand strict blocks rectangular readback
+[1A[2K[78/156] [chromium] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand content blocks rectangular readback
+[1A[2K(node:20766) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20766) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[79/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:249:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable
+[1A[2K[80/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:273:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable
+[1A[2K[81/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:304:5 › active Canvas context loss latches useful fallback and unlocks the page
+[1A[2K[82/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:340:5 › active Canvas context loss mid-journey latches fallback without a retry
+[1A[2K[2m[WebServer] [22m[browser] THREE.WebGLRenderer: WEBGL_lose_context extension not supported.
+
+[1A[2K[83/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render
+[1A[2K[31m  5) [Mobile Chrome] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('[data-hero-reference-state]')
+    Expected: [32m"loading-resources"[39m
+    Received: [31m"frame-pending"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('[data-hero-reference-state]')[22m
+    [2m    6 × locator resolved to <div data-hero-step="1" data-hero-ready-at="0" data-hero-seed="43117" data-hero-motion="full" data-hero-fallback-at="0" data-hero-profile="mobile" data-hero-lifecycle="landing" data-hero-render-ready="false" data-hero-direct-entry="false" data-hero-pointer-trail="false" data-hero-fallback-ready="false" data-hero-attempt-id="_R_bslrlb_" data-hero-first-applied-frame="0" data-hero-resources-ready-at="5594" data-hero-reference-state="landing" data-hero-scene-progress="0.000000" data-hero-attempt-state…>…</div>[22m
+    [2m      - unexpected value "frame-pending"[22m
+    [2m    8 × locator resolved to <div data-hero-step="1" data-hero-ready-at="0" data-hero-seed="43117" data-hero-motion="full" data-hero-fallback-at="0" data-hero-profile="mobile" data-hero-lifecycle="landing" data-hero-render-ready="false" data-hero-direct-entry="false" data-hero-pointer-trail="false" data-hero-fallback-ready="false" data-hero-attempt-id="_R_bslrlb_" data-hero-first-applied-frame="0" data-hero-resources-ready-at="5594" data-hero-scene-progress="0.000000" data-hero-attempt-state="frame-pending" data-hero-reference…>…</div>[22m
+    [2m      - unexpected value "frame-pending"[22m
+
+
+      414 |   );
+      415 |   await page.waitForTimeout(4_500);
+    > 416 |   await expect(state).toHaveAttribute(
+          |                       ^
+      417 |     'data-hero-attempt-state',
+      418 |     'loading-resources',
+      419 |   );
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:416:23[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-delayed--e6a10-pleted-post-resource-render-Mobile-Chrome/error-context.md[22m
+
+
+[1A[2K(node:20796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[84/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline
+[1A[2K[31m  6) [Mobile Chrome] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline [39m
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    [31mTest timeout of 30000ms exceeded while running "afterEach" hook.[39m
+
+      11 | const HERO_URL = `/?__heroState=${REFERENCE_STATE}&__heroTime=2500`;
+      12 |
+    > 13 | test.afterEach(async ({ page, browser }, testInfo) => {
+         |      ^
+      14 |   if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+      15 |   const observed = await page.evaluate(() => {
+      16 |     const scene = document.querySelector('[data-hero-reference-state]');
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:13:6[22m
+
+    Error: page.evaluate: Test ended.
+
+      13 | test.afterEach(async ({ page, browser }, testInfo) => {
+      14 |   if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+    > 15 |   const observed = await page.evaluate(() => {
+         |                               ^
+      16 |     const scene = document.querySelector('[data-hero-reference-state]');
+      17 |     const loader = document.querySelector('[data-hidden][data-revealing]');
+      18 |     const style = loader ? getComputedStyle(loader) : null;
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:15:31[22m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeHidden[2m([22m[2m)[22m failed
+
+    Locator:  locator('[aria-hidden="true"][data-direct][data-hidden][data-revealing]')
+    Expected: hidden
+    Received: undefined
+
+    Call log:
+    [2m  - Expect "toBeHidden" with timeout 5000ms[22m
+    [2m  - waiting for locator('[aria-hidden="true"][data-direct][data-hidden][data-revealing]')[22m
+
+
+      125 |   await expect(loader).toHaveCount(1);
+      126 |   await expect(loader).toHaveAttribute('data-hidden', 'true');
+    > 127 |   await expect(loader).toBeHidden();
+          |                        ^
+      128 |   await expect(loader).toHaveCSS('pointer-events', 'none');
+      129 |   await expect(page.locator('body')).not.toHaveClass(/pegasoft-locked/u);
+      130 | }
+    [2m    at expectLoaderDoesNotBlock (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:127:24)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:477:3[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-never-re-bbfba-back-at-the-finite-deadline-Mobile-Chrome/error-context.md[22m
+
+
+[1A[2K(node:20822) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20822) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[85/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:481:5 › closed mobile navigation is hidden from assistive technology and keyboard focus
+[1A[2K[86/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:516:5 › static fallback is deterministic during ordinary initial loading
+[1A[2K[87/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:540:5 › expired loading deadline is checked on resume when its timer was throttled
+[1A[2K[31m  7) [Mobile Chrome] › src/hero-alternatives.spec.ts:540:5 › expired loading deadline is checked on resume when its timer was throttled [39m
+
+    Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoHaveAttribute[2m([22m[32mexpected[39m[2m)[22m failed
+
+    Locator:  locator('[data-hero-reference-state]')
+    Expected: [32m"loading-resources"[39m
+    Received: [31m"fallback"[39m
+    Timeout:  5000ms
+
+    Call log:
+    [2m  - Expect "toHaveAttribute" with timeout 5000ms[22m
+    [2m  - waiting for locator('[data-hero-reference-state]')[22m
+    [2m    3 × locator resolved to <div data-hero-step="1" data-hero-ready-at="0" data-hero-seed="43117" data-hero-motion="full" data-hero-profile="mobile" data-hero-lifecycle="landing" data-hero-render-ready="false" data-hero-direct-entry="false" data-hero-fallback-ready="true" data-hero-pointer-trail="false" data-hero-resources-ready-at="0" data-hero-attempt-id="_R_bslrlb_" data-hero-first-applied-frame="0" data-hero-attempt-state="fallback" data-hero-resources-started-at="0" data-hero-attempt-reason="deadline" data-hero-scene-pro…>…</div>[22m
+    [2m      - unexpected value "fallback"[22m
+
+
+      562 |   );
+      563 |   await page.waitForTimeout(15_100);
+    > 564 |   await expect(state).toHaveAttribute(
+          |                       ^
+      565 |     'data-hero-attempt-state',
+      566 |     'loading-resources',
+      567 |   );
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:564:23[22m
+
+    [31mTest timeout of 30000ms exceeded while running "afterEach" hook.[39m
+
+      11 | const HERO_URL = `/?__heroState=${REFERENCE_STATE}&__heroTime=2500`;
+      12 |
+    > 13 | test.afterEach(async ({ page, browser }, testInfo) => {
+         |      ^
+      14 |   if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+      15 |   const observed = await page.evaluate(() => {
+      16 |     const scene = document.querySelector('[data-hero-reference-state]');
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:13:6[22m
+
+    Error: page.evaluate: Test ended.
+
+      13 | test.afterEach(async ({ page, browser }, testInfo) => {
+      14 |   if (testInfo.status === testInfo.expectedStatus || page.isClosed()) return;
+    > 15 |   const observed = await page.evaluate(() => {
+         |                               ^
+      16 |     const scene = document.querySelector('[data-hero-reference-state]');
+      17 |     const loader = document.querySelector('[data-hidden][data-revealing]');
+      18 |     const style = loader ? getComputedStyle(loader) : null;
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:15:31[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-expired--41a07-hen-its-timer-was-throttled-Mobile-Chrome/error-context.md[22m
+
+
+[1A[2K(node:20840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[88/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:580:5 › ready scene survives the loading deadline and settles reduced motion
+[1A[2K[89/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:670:5 › route remount rejects abandoned resource and context callbacks
+[1A[2K[2m[WebServer] [22m[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+
+[1A[2K[90/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:709:5 › successful capability probe with failed actual Canvas selects fallback
+[1A[2K[2m[WebServer] [22m[browser] THREE.WebGLRenderer: Error creating WebGL context. 
+[2m[WebServer] [22m    at HeroScene.useCallback[createRenderer] (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+[2m[WebServer] [22m  213 |       attemptStartedAt.current ??= performance.now();
+[2m[WebServer] [22m  214 |       try {
+[2m[WebServer] [22m> 215 |         return new WebGLRenderer({
+[2m[WebServer] [22m      |                ^
+[2m[WebServer] [22m  216 |           ...defaults,
+[2m[WebServer] [22m  217 |           alpha: true,
+[2m[WebServer] [22m  218 |           antialias: true, (src/app/shared/hero-scene/hero-scene.tsx:215:16)
+
+[1A[2K[31m  8) [Mobile Chrome] › src/hero-alternatives.spec.ts:709:5 › successful capability probe with failed actual Canvas selects fallback [39m
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('a[href="/services"]').first()[22m
+    [2m    - locator resolved to <a href="/services">Services</a>[22m
+    [2m  - attempting click action[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m    - waiting 20ms[22m
+    [2m    2 × waiting for element to be visible, enabled and stable[22m
+    [2m      - element is not visible[22m
+    [2m    - retrying click action[22m
+    [2m      - waiting 100ms[22m
+    [2m    56 × waiting for element to be visible, enabled and stable[22m
+    [2m       - element is not visible[22m
+    [2m     - retrying click action[22m
+    [2m       - waiting 500ms[22m
+
+
+      752 |     (window as unknown as { __s6AllowContext(): void }).__s6AllowContext(),
+      753 |   );
+    > 754 |   await page.locator('a[href="/services"]').first().click();
+          |                                                     ^
+      755 |   await expect(page).toHaveURL(/\/services$/);
+      756 |   await page.goBack();
+      757 |   await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready');
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:754:53[22m
+
+[2m    Error Context: test-output/playwright/output/hero-alternatives-successf-e08ea-ual-Canvas-selects-fallback-Mobile-Chrome/error-context.md[22m
+
+
+[1A[2K(node:20853) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:20853) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[91/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: recording-desktop
+[1A[2K[92/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: desktop
+[1A[2K[93/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: tablet
+[1A[2K[94/156] [Mobile Chrome] › src/hero-alternatives.spec.ts:768:7 › ordinary entry visible ink, cue, CTA and accessibility: mobile
+[1A[2K[95/156] [Mobile Chrome] › src/hero-performance.spec.ts:233:7 › Phase 19 hero performance probe › records a full forward and reverse hero scrub
+[1A[2K[96/156] [Mobile Chrome] › src/pegasoft.spec.ts:465:5 › homepage presents Pegasoft CTA and 3D/fallback surface
+[1A[2K[97/156] [Mobile Chrome] › src/pegasoft.spec.ts:511:5 › work taxonomy keeps Concept Lab separate from client portfolio
+[1A[2K[98/156] [Mobile Chrome] › src/pegasoft.spec.ts:524:5 › seo and geo utility routes respond
+[1A[2K[99/156] [Mobile Chrome] › src/pegasoft.spec.ts:535:5 › mobile layout avoids horizontal overflow
+[1A[2K[100/156] [Mobile Chrome] › src/pegasoft.spec.ts:545:5 › homepage has no serious or critical accessibility violations
+[1A[2K[101/156] [Mobile Chrome] › src/pegasoft.spec.ts:560:5 › homepage hydrates without runtime errors and mounts WebGL or fallback
+[1A[2K[102/156] [Mobile Chrome] › src/pegasoft.spec.ts:586:5 › development harness observes field-pulse-b from physical input and applied time
+[1A[2K[103/156] [Mobile Chrome] › src/pegasoft.spec.ts:606:5 › hero state converges across forward, reverse, jump, resize, and restored reload entry
+[1A[2K[104/156] [Mobile Chrome] › src/pegasoft.spec.ts:659:5 › desktop journeys complete at normal, slow, fast, and reverse rates
+[1A[2K[105/156] [Mobile Chrome] › src/pegasoft.spec.ts:817:5 › the same physically reached applied field frame produces a stable capture
+[1A[2K[106/156] [Mobile Chrome] › src/pegasoft.spec.ts:871:5 › forced fallback remains useful and state-addressable
+[1A[2K[107/156] [Mobile Chrome] › src/pegasoft.spec.ts:891:5 › reduced motion selects discrete poses without desktop trail
+[1A[2K[108/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:26:5 › native animation name and target binding survive screenshot and DOM reordering
+[1A[2K[109/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:42:5 › same-name SVG effects retain distinct native targets without element IDs
+[1A[2K[110/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:68:5 › css_document_timeline_progresses_while_javascript_clock_is_paused
+[1A[2K[111/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:85:5 › css_transport_advances_input_delta_and_stays_stable_across_screenshot
+[1A[2K[112/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:108:5 › css_transition_created_in_timer_uses_remaining_interval
+[1A[2K[113/156] [Mobile Chrome] › src/visual/hero-capture-clock.spec.ts:139:5 › css_transport_installed_before_navigation_preserves_timer_creation_time
+[1A[2K[114/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:26:5 › lifecycle_changes_between_assertions
+[1A[2K[115/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:34:5 › resource_readiness_delays_entry
+[1A[2K[116/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:43:5 › pulse_label_differs_from_applied_clock
+[1A[2K[117/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:54:5 › stale_consumer_rejects_frame
+[1A[2K[118/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:63:5 › pending_render_rejects_frame
+[1A[2K[119/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:69:5 › nonfinite_frame_cannot_qualify
+[1A[2K[120/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:75:5 › physical_entry_uses_viewport_and_flow_domains
+[1A[2K[121/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:79:5 › loader_age_uses_lifecycle_origin_not_rendered_age
+[1A[2K[122/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:88:5 › physical_entry_waits_for_actual_loader_clearance
+[1A[2K[123/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:96:5 › contact_clock_requires_real_history_above_point72
+[1A[2K[124/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:107:5 › incomplete_clock_history_cannot_qualify
+[1A[2K[125/156] [Mobile Chrome] › src/visual/hero-capture-contract.spec.ts:111:5 › clock_transport_batches_without_overshooting_event_window
+[1A[2K[126/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:88:5 › provenance_saved_field_contact_passes_independent_validator_pins
+[1A[2K[127/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:147:5 › provenance_stale_camera_readback_rejected
+[1A[2K[128/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:153:5 › provenance_missing_route_readback_rejected
+[1A[2K[129/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:159:5 › provenance_acknowledgment_without_actual_object_readback_rejected
+[1A[2K[130/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:165:5 › provenance_field_clock_disagrees_with_completed_frame_rejected
+[1A[2K[131/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:171:5 › provenance_unknown_physical_height_is_not_guessed_from_viewport
+[1A[2K[132/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:177:5 › provenance_saved_journey_exit_preserves_material_readback_roundtrip
+[1A[2K[133/156] [Mobile Chrome] › src/visual/hero-capture-provenance.spec.ts:206:5 › provenance_survives_durable_outcome_and_manifest_finalization
+[1A[2K[134/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:43:5 › restart_preserves_run_artifacts
+[1A[2K[135/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:64:5 › capture_run_preserves_historical_and_concurrent_outputs
+[1A[2K[136/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:78:5 › capture_run_failed_and_missing_states_are_explicit
+[1A[2K[137/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:108:5 › capture_run_complete_manifest_hashes_all_artifacts
+[1A[2K[138/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:147:5 › capture_run_missing_or_changed_artifact_cannot_complete
+[1A[2K[139/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:166:5 › capture_run_foreign_measurement_identity_cannot_complete
+[1A[2K[140/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:180:5 › capture_run_failure_survives_later_success
+[1A[2K[141/156] [Mobile Chrome] › src/visual/hero-capture-run.spec.ts:199:5 › capture_run_failed_manifest_hashes_empty_partial_artifacts
+[1A[2K[142/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:40:5 › same-task readback intersects nested overflow and rectangular inset clips
+[1A[2K[143/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:51:5 › readback records ancestor CSS opacity product and preserves zero
+[1A[2K[144/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:65:5 › readback rejects nonrectangular and transformed clipping without inventing a plane
+[1A[2K[145/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:83:5 › readback marks unsupported compositing separately from observed CSS values
+[1A[2K[146/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:95:5 › readback rejects frame mismatch and incomplete consumer application
+[1A[2K[147/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:110:5 › readback cannot bind pending renders or an ambiguous canvas selection
+[1A[2K[148/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:127:5 › running native opacity animation remains temporally uncertain on a completed frame
+[1A[2K[149/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:142:5 › fixed descendant clipping ambiguity reports a barrier rather than a false intersection
+[1A[2K[150/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:151:5 › readback retains DOM values but cannot invent a missing completed frame
+[1A[2K[151/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:171:5 › bracket parity masks DOM readback when opacity changes around acquisition
+[1A[2K[152/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:183:5 › bracket parity compares the initial acquisition clipping too
+[1A[2K[153/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:196:5 › bracket parity exposes only stable supported DOM quantities
+[1A[2K[154/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:212:5 › capture acquisition retains presentation from its own completed-frame task
+[1A[2K[155/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand strict blocks rectangular readback
+[1A[2K[156/156] [Mobile Chrome] › src/visual/hero-presentation-readback.spec.ts:222:7 › paint containment shorthand content blocks rectangular readback
+[1A[2K[31m  8 failed[39m
+[31m    [chromium] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render [39m
+[31m    [chromium] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline [39m
+[31m    [chromium] › src/hero-alternatives.spec.ts:540:5 › expired loading deadline is checked on resume when its timer was throttled [39m
+[31m    [chromium] › src/hero-alternatives.spec.ts:580:5 › ready scene survives the loading deadline and settles reduced motion [39m
+[31m    [Mobile Chrome] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render [39m
+[31m    [Mobile Chrome] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline [39m
+[31m    [Mobile Chrome] › src/hero-alternatives.spec.ts:540:5 › expired loading deadline is checked on resume when its timer was throttled [39m
+[31m    [Mobile Chrome] › src/hero-alternatives.spec.ts:709:5 › successful capability probe with failed actual Canvas selects fallback [39m
+[33m  4 skipped[39m
+[32m  144 passed[39m[2m (9.8m)[22m
+Warning: command "playwright test" exited with non-zero status code
+
+
+ NX   Running target e2e for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:e2e
+
+Hint: run the command with --verbose for more details.
+

@@ -1,0 +1,99 @@
+
+> nx run @site/pegasoft-e2e:e2e --grep=delayed essential|never-resolving|expired loading|ready scene survives|successful capability probe --max-failures=1 --retries=0 --reporter=line --trace=retain-on-failure --output=/tmp/pegasoft-repair-e2e-reproduced
+
+> playwright test --grep="delayed essential|never-resolving|expired loading|ready scene survives|successful capability probe" --max-failures=1 --retries=0 --reporter=line --trace=retain-on-failure --output=/tmp/pegasoft-repair-e2e-reproduced
+
+(node:72722) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:72732) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:72733) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:72739) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[32m✔ test-contract provenance excludes mutable sprint summaries but keeps normative contracts [90m(0.706458ms)[39m[39m
+[32m✔ execution records genuine cell assertions and continues [90m(0.185625ms)[39m[39m
+[32m✔ explicit predicate timeout becomes a cell assertion while test timeout stays fatal [90m(0.336584ms)[39m[39m
+[32m✔ execution stops after timeout and persists fatal result [90m(0.193541ms)[39m[39m
+[32m✔ execution stops after page closure and persists fatal result [90m(0.156875ms)[39m[39m
+[32m✔ execution stops after context closure and persists fatal result [90m(0.072ms)[39m[39m
+[32m✔ execution stops after abort and persists fatal result [90m(0.089875ms)[39m[39m
+[32m✔ execution stops after filesystem I/O and persists fatal result [90m(0.071542ms)[39m[39m
+[32m✔ execution stops after unknown programming error and persists fatal result [90m(0.068042ms)[39m[39m
+[32m✔ resource cleanup closes open page and context [90m(0.186916ms)[39m[39m
+
+Running 10 tests using 1 worker
+
+[32m✔ resource cleanup has a short independent deadline [90m(18.656708ms)[39m[39m
+[32m✔ attempt creation rejects reuse and pre-existing evidence [90m(20.21375ms)[39m[39m
+(node:72746) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/10] [chromium] › src/hero-alternatives.spec.ts:379:5 › delayed essential resources require a completed post-resource render
+[32m✔ validator accepts a complete synthetic packet without current-input checks [90m(672.060083ms)[39m[39m
+[32m✔ validator rejects missing and duplicate shard IDs [90m(84.792833ms)[39m[39m
+[32m✔ validator rejects mixed plan/run provenance [90m(88.343125ms)[39m[39m
+[32m✔ validator rejects missing, corrupt, and hash-mismatched PNG evidence [90m(262.819375ms)[39m[39m
+[32m✔ validator rejects signature-only PNGs and reused or noncanonical image paths [90m(190.461083ms)[39m[39m
+[32m✔ validator rejects a valid non-PNG stored at a canonical PNG path [90m(87.731541ms)[39m[39m
+[32m✔ validator rejects missing and duplicate cell IDs and changed N/A category [90m(89.493209ms)[39m[39m
+[32m✔ validator rejects target, rendered, and field-clock predicate failures [90m(1248.272916ms)[39m[39m
+[32m✔ validator rejects contract, scroll, first-eligible, and restored-clock failures [90m(1546.713583ms)[39m[39m
+[32m✔ validator rejects reordered IDs, cross-shard reassignment, and changed N/A [90m(100.372541ms)[39m[39m
+[32m✔ validator rejects mixed attempts and malformed committed/restoration evidence [90m(424.798666ms)[39m[39m
+[32m✔ validator rejects packet accounting other than 360/336/24 [90m(89.728292ms)[39m[39m
+[32m✔ validator independently rejects stale build provenance [90m(1.996708ms)[39m[39m
+[32m✔ validator independently rejects stale implementation provenance [90m(1.452292ms)[39m[39m
+[32m✔ validator independently rejects stale testContract provenance [90m(1.833291ms)[39m[39m
+[32m✔ validator independently rejects stale reference provenance [90m(1.715459ms)[39m[39m
+[32m✔ validator independently rejects stale runnerConfig provenance [90m(2.052ms)[39m[39m
+[2/10] [chromium] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline
+  1) [chromium] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline 
+
+    Test timeout of 30000ms exceeded.
+
+    TimeoutError: page.waitForFunction: Timeout 16000ms exceeded.
+
+      236 |   timeout: number,
+      237 | ) {
+    > 238 |   const observed = await page.waitForFunction(
+          |                               ^
+      239 |     (expectedState) => {
+      240 |       const scene = document.querySelector('[data-hero-reference-state]');
+      241 |       return scene?.getAttribute('data-hero-attempt-state') === expectedState;
+        at waitForAttemptState (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:238:31)
+        at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:472:9
+
+    Error Context: ../../../../../../tmp/pegasoft-repair-e2e-reproduced/hero-alternatives-never-re-bbfba-back-at-the-finite-deadline-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../../../../tmp/pegasoft-repair-e2e-reproduced/hero-alternatives-never-re-bbfba-back-at-the-finite-deadline-chromium/trace.zip
+    Usage:
+
+        pnpm exec playwright show-trace ../../../../../../tmp/pegasoft-repair-e2e-reproduced/hero-alternatives-never-re-bbfba-back-at-the-finite-deadline-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+Testing stopped early after 1 maximum allowed failures.
+
+  1 failed
+    [chromium] › src/hero-alternatives.spec.ts:460:5 › never-resolving essential resources reach useful fallback at the finite deadline 
+  8 did not run
+  1 passed (44.5s)
+  1 error was not a part of any test, see above for details
+Warning: command "playwright test --grep="delayed essential|never-resolving|expired loading|ready scene survives|successful capability probe" --max-failures=1 --retries=0 --reporter=line --trace=retain-on-failure --output=/tmp/pegasoft-repair-e2e-reproduced" exited with non-zero status code
+
+
+ NX   Running target e2e for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:e2e
+
+Hint: run the command with --verbose for more details.
+

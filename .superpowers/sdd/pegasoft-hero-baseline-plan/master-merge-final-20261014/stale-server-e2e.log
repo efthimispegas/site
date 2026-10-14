@@ -1,0 +1,136 @@
+
+> nx run @site/pegasoft-e2e:e2e --retries=0 --reporter=line,json --max-failures=3 --output=/tmp/pegasoft-merge-final-e2e
+
+> playwright test --retries=0 --reporter=line,json --max-failures=3 --output=/tmp/pegasoft-merge-final-e2e
+
+(node:75854) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ test-contract provenance excludes mutable sprint summaries but keeps normative contracts [90m(1.283792ms)[39m[39m
+[32m✔ execution records genuine cell assertions and continues [90m(0.282541ms)[39m[39m
+[32m✔ explicit predicate timeout becomes a cell assertion while test timeout stays fatal [90m(0.396792ms)[39m[39m
+[32m✔ execution stops after timeout and persists fatal result [90m(0.222416ms)[39m[39m
+[32m✔ execution stops after page closure and persists fatal result [90m(0.144542ms)[39m[39m
+[32m✔ execution stops after context closure and persists fatal result [90m(0.07825ms)[39m[39m
+[32m✔ execution stops after abort and persists fatal result [90m(0.098375ms)[39m[39m
+[32m✔ execution stops after filesystem I/O and persists fatal result [90m(0.07ms)[39m[39m
+[32m✔ execution stops after unknown programming error and persists fatal result [90m(0.08075ms)[39m[39m
+[32m✔ resource cleanup closes open page and context [90m(0.221125ms)[39m[39m
+
+Running 156 tests using 1 worker
+
+[32m✔ resource cleanup has a short independent deadline [90m(143.945625ms)[39m[39m
+[32m✔ attempt creation rejects reuse and pre-existing evidence [90m(15.266083ms)[39m[39m
+(node:75862) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/156] [chromium] › src/hero-alternatives.spec.ts:266:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable
+[32m✔ validator accepts a complete synthetic packet without current-input checks [90m(1102.878833ms)[39m[39m
+[32m✔ validator rejects missing and duplicate shard IDs [90m(106.694792ms)[39m[39m
+[32m✔ validator rejects mixed plan/run provenance [90m(130.185917ms)[39m[39m
+[32m✔ validator rejects missing, corrupt, and hash-mismatched PNG evidence [90m(327.382875ms)[39m[39m
+[32m✔ validator rejects signature-only PNGs and reused or noncanonical image paths [90m(212.098125ms)[39m[39m
+[32m✔ validator rejects a valid non-PNG stored at a canonical PNG path [90m(138.387792ms)[39m[39m
+[32m✔ validator rejects missing and duplicate cell IDs and changed N/A category [90m(132.374ms)[39m[39m
+[32m✔ validator rejects target, rendered, and field-clock predicate failures [90m(1476.741125ms)[39m[39m
+[32m✔ validator rejects contract, scroll, first-eligible, and restored-clock failures [90m(2248.476958ms)[39m[39m
+[32m✔ validator rejects reordered IDs, cross-shard reassignment, and changed N/A [90m(129.603084ms)[39m[39m
+[32m✔ validator rejects mixed attempts and malformed committed/restoration evidence [90m(538.583125ms)[39m[39m
+[32m✔ validator rejects packet accounting other than 360/336/24 [90m(96.513458ms)[39m[39m
+[32m✔ validator independently rejects stale build provenance [90m(2.195042ms)[39m[39m
+[32m✔ validator independently rejects stale implementation provenance [90m(1.939ms)[39m[39m
+[32m✔ validator independently rejects stale testContract provenance [90m(1.698541ms)[39m[39m
+[32m✔ validator independently rejects stale reference provenance [90m(1.520291ms)[39m[39m
+[32m✔ validator independently rejects stale runnerConfig provenance [90m(1.669125ms)[39m[39m
+  1) [chromium] › src/hero-alternatives.spec.ts:266:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://127.0.0.1:4200/?__heroState=landing-idle&__heroTime=2500", waiting until "load"
+
+
+      270 |
+      271 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+    > 272 |   await page.goto(HERO_URL);
+          |              ^
+      273 |
+      274 |   const state = await waitForNamedHeroState(page);
+      275 |   await expect(state).toHaveAttribute('data-hero-motion', 'reduced');
+        at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:272:14
+
+    Error Context: ../../../../../../tmp/pegasoft-merge-final-e2e/hero-alternatives-reduced--52497-stic-and-keyboard-reachable-chromium/error-context.md
+
+
+(node:75920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/156] [chromium] › src/hero-alternatives.spec.ts:290:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable
+  2) [chromium] › src/hero-alternatives.spec.ts:290:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://127.0.0.1:4200/?__heroState=landing-idle&__heroTime=2500&__heroFallback=1", waiting until "load"
+
+
+      293 |   const errors = captureRuntimeErrors(page);
+      294 |
+    > 295 |   await page.goto(`${HERO_URL}&__heroFallback=1`);
+          |              ^
+      296 |
+      297 |   const state = await waitForNamedHeroState(page);
+      298 |   await expect(state).toHaveAttribute('data-hero-motion', 'static');
+        at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:295:14
+
+    Error Context: ../../../../../../tmp/pegasoft-merge-final-e2e/hero-alternatives-forced-W-7b87e-stic-and-keyboard-reachable-chromium/error-context.md
+
+
+(node:76021) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/156] [chromium] › src/hero-alternatives.spec.ts:321:5 › active Canvas context loss latches useful fallback and unlocks the page
+  3) [chromium] › src/hero-alternatives.spec.ts:321:5 › active Canvas context loss latches useful fallback and unlocks the page 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.goto: net::ERR_ABORTED; maybe frame was detached?
+    Call log:
+      - navigating to "http://127.0.0.1:4200/?__heroState=landing-idle&__heroTime=2500", waiting until "load"
+
+
+      323 | }, testInfo) => {
+      324 |   const errors = captureRuntimeErrors(page);
+    > 325 |   await page.goto(HERO_URL);
+          |              ^
+      326 |
+      327 |   const state = await waitForNamedHeroState(page);
+      328 |   await expect(state).toHaveAttribute('data-hero-attempt-state', 'ready');
+        at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/hero-alternatives.spec.ts:325:14
+
+    Error Context: ../../../../../../tmp/pegasoft-merge-final-e2e/hero-alternatives-active-C-37449-llback-and-unlocks-the-page-chromium/error-context.md
+
+
+Testing stopped early after 3 maximum allowed failures.
+
+  3 failed
+    [chromium] › src/hero-alternatives.spec.ts:266:5 › reduced motion is useful, non-blocking, deterministic, and keyboard reachable 
+    [chromium] › src/hero-alternatives.spec.ts:290:5 › forced WebGL fallback is useful, non-blocking, deterministic, and keyboard reachable 
+    [chromium] › src/hero-alternatives.spec.ts:321:5 › active Canvas context loss latches useful fallback and unlocks the page 
+  153 did not run
+  1 error was not a part of any test, see above for details
+Warning: command "playwright test --retries=0 --reporter=line,json --max-failures=3 --output=/tmp/pegasoft-merge-final-e2e" exited with non-zero status code
+
+
+ NX   Running target e2e for project @site/pegasoft-e2e failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:e2e
+
+Hint: run the command with --verbose for more details.
+

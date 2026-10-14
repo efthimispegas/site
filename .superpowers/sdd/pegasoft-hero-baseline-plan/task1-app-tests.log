@@ -1,0 +1,56 @@
+
+> nx run @site/pegasoft:test --run
+
+> vitest --run
+
+(node:65278) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+ RUN  v4.1.8 /Users/whiskey/Work/site/apps/pegasoft
+
+(node:65292) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65293) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65291) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65287) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65284) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65285) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65286) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65288) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65290) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-attempt.spec.ts (5 tests) 2ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-frame-driver.spec.ts (5 tests) 4ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-sequence.spec.ts (9 tests) 8ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-contract.spec.ts (12 tests) 6ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-profile.spec.ts (146 tests) 13ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-controller.spec.ts (9 tests) 8ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-model.spec.ts (8 tests) 6ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-route-rendering.spec.ts (10 tests) 11ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-world-layout.spec.ts (8 tests) 36ms
+ ✓ |@site/pegasoft| src/app/shared/hero-scene/hero-frame-state.spec.ts (26 tests) 97ms
+
+ Test Files  10 passed (10)
+      Tests  238 passed (238)
+   Start at  16:00:12
+   Duration  310ms (transform 435ms, setup 0ms, import 693ms, tests 191ms, environment 1ms)
+
+
+
+
+ NX   Successfully ran target test for project @site/pegasoft
+
+
+  Run duration:      489ms
+  Cache:             0/1 hit (0%)
+  Critical path:     482ms (1 task)
+  Recoverable time:  <1ms

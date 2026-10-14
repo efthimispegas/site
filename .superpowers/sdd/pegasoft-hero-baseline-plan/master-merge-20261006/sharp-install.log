@@ -1,0 +1,13 @@
+ WARN  `node_modules` is present. Lockfile only installation will make it out-of-date
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@9.39.4: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 442, reused 0, downloaded 0, added 0
+Progress: resolved 1379, reused 0, downloaded 0, added 0
+ WARN  5 deprecated subdependencies found: glob@8.1.0, inflight@1.0.6, tsconfck@3.1.6, uuid@8.3.2, whatwg-encoding@2.0.0
+Progress: resolved 1599, reused 0, downloaded 0, added 0, done
+
+devDependencies:
++ sharp ^0.35.4
+
+Already up to date
+Done in 3.3s using pnpm v10.8.1

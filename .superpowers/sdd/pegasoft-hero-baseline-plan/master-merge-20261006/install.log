@@ -1,0 +1,117 @@
+ WARN  using --force I sure hope you know what you are doing
+Scope: all 8 workspace projects
+Progress: resolved 1, reused 0, downloaded 0, added 0
+ WARN  deprecated eslint@9.39.4: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Progress: resolved 50, reused 46, downloaded 3, added 0
+Progress: resolved 547, reused 542, downloaded 4, added 0
+Progress: resolved 562, reused 544, downloaded 4, added 0
+Progress: resolved 563, reused 545, downloaded 4, added 0
+Progress: resolved 567, reused 549, downloaded 5, added 0
+Progress: resolved 570, reused 552, downloaded 7, added 0
+Progress: resolved 595, reused 575, downloaded 10, added 0
+Progress: resolved 690, reused 662, downloaded 14, added 0
+Progress: resolved 698, reused 666, downloaded 16, added 0
+Progress: resolved 701, reused 667, downloaded 16, added 0
+Progress: resolved 701, reused 667, downloaded 17, added 0
+Progress: resolved 707, reused 672, downloaded 17, added 0
+Progress: resolved 726, reused 691, downloaded 18, added 0
+Progress: resolved 734, reused 699, downloaded 18, added 0
+Progress: resolved 743, reused 708, downloaded 18, added 0
+Progress: resolved 744, reused 709, downloaded 18, added 0
+Progress: resolved 744, reused 709, downloaded 19, added 0
+Progress: resolved 758, reused 721, downloaded 22, added 0
+Progress: resolved 770, reused 732, downloaded 23, added 0
+Progress: resolved 779, reused 741, downloaded 23, added 0
+Progress: resolved 787, reused 748, downloaded 23, added 0
+Progress: resolved 789, reused 750, downloaded 23, added 0
+Progress: resolved 792, reused 753, downloaded 26, added 0
+Progress: resolved 804, reused 765, downloaded 26, added 0
+Progress: resolved 822, reused 783, downloaded 27, added 0
+Progress: resolved 830, reused 791, downloaded 27, added 0
+Progress: resolved 835, reused 796, downloaded 27, added 0
+Progress: resolved 851, reused 812, downloaded 29, added 0
+Progress: resolved 859, reused 820, downloaded 30, added 0
+Progress: resolved 859, reused 820, downloaded 32, added 0
+Progress: resolved 916, reused 866, downloaded 36, added 0
+Progress: resolved 923, reused 868, downloaded 39, added 0
+Progress: resolved 932, reused 871, downloaded 43, added 0
+Progress: resolved 934, reused 871, downloaded 45, added 0
+Progress: resolved 935, reused 872, downloaded 47, added 0
+Progress: resolved 948, reused 876, downloaded 53, added 0
+Progress: resolved 980, reused 894, downloaded 65, added 0
+Progress: resolved 1024, reused 938, downloaded 69, added 0
+Progress: resolved 1051, reused 964, downloaded 70, added 0
+Progress: resolved 1064, reused 976, downloaded 76, added 0
+Progress: resolved 1125, reused 1032, downloaded 83, added 0
+Progress: resolved 1168, reused 1067, downloaded 94, added 0
+Progress: resolved 1232, reused 1125, downloaded 97, added 0
+Progress: resolved 1250, reused 1127, downloaded 106, added 0
+Progress: resolved 1297, reused 1150, downloaded 130, added 0
+Progress: resolved 1346, reused 1189, downloaded 144, added 0
+Progress: resolved 1472, reused 1306, downloaded 153, added 0
+Progress: resolved 1549, reused 1364, downloaded 171, added 0
+Progress: resolved 1594, reused 1397, downloaded 187, added 0
+Progress: resolved 1598, reused 1399, downloaded 196, added 0
+ WARN  5 deprecated subdependencies found: glob@8.1.0, inflight@1.0.6, tsconfck@3.1.6, uuid@8.3.2, whatwg-encoding@2.0.0
+Packages: +1611 -6
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+Progress: resolved 1599, reused 1399, downloaded 198, added 58
+Progress: resolved 1599, reused 1399, downloaded 199, added 477
+Progress: resolved 1599, reused 1399, downloaded 199, added 861
+Progress: resolved 1599, reused 1399, downloaded 199, added 1310
+Progress: resolved 1599, reused 1399, downloaded 199, added 1556
+Progress: resolved 1599, reused 1399, downloaded 199, added 1604
+Progress: resolved 1599, reused 1399, downloaded 199, added 1609
+Progress: resolved 1599, reused 1399, downloaded 199, added 1610
+Progress: resolved 1599, reused 1399, downloaded 200, added 1610
+Progress: resolved 1599, reused 1399, downloaded 200, added 1611, done
+
+dependencies:
+- next 16.3.4
++ next 16.2.12 (16.3.8 is available)
+- three 0.182.0
++ three 0.185.1 (0.186.1 is available)
+
+devDependencies:
+- @nx/devkit 23.2.0
++ @nx/devkit 22.7.5 (23.2.0 is available)
+- @nx/eslint 23.2.0
++ @nx/eslint 22.7.5 (23.2.0 is available)
+- @nx/eslint-plugin 23.2.0
++ @nx/eslint-plugin 22.7.5 (23.2.0 is available)
+- @nx/js 23.2.0
++ @nx/js 22.7.5 (23.2.0 is available)
+- @nx/next 23.2.0
++ @nx/next 22.7.5 (23.2.0 is available)
+- @nx/playwright 23.2.0
++ @nx/playwright 22.7.5 (23.2.0 is available)
+- @nx/vitest 23.2.0
++ @nx/vitest 22.7.5 (23.2.0 is available)
+- @nx/workspace 23.2.0
++ @nx/workspace 22.7.5 (23.2.0 is available)
+- @swc/core 1.15.41
++ @swc/core 1.15.47 (1.16.13 is available)
+- eslint-plugin-import 2.31.0
++ eslint-plugin-import 2.32.0
+- eslint-plugin-playwright 2.10.4
++ eslint-plugin-playwright 2.12.1
+- jsdom 30.0.1
++ jsdom 29.1.1 (30.1.2 is available)
+- nx 23.2.0
++ nx 22.7.5 (23.2.1 is available)
+- prettier 3.8.4
++ prettier 3.9.9
+- sharp 0.35.4
+- typescript 6.0.3
++ typescript 5.9.3 (7.0.2 is available)
+
+╭ Warning ─────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│   Ignored build scripts: @parcel/watcher, @swc/core, less, nx, sharp,        │
+│   unrs-resolver.                                                             │
+│   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+│   to run scripts.                                                            │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+Done in 1m 17.5s using pnpm v10.8.1

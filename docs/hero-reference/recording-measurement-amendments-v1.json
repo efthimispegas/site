@@ -1,0 +1,378 @@
+{
+  "schemaVersion": 1,
+  "status": "reviewed",
+  "algorithmRevision": "connected-component-membership-v2",
+  "baseManifestPath": "docs/hero-reference/recording-anchors.json",
+  "baseManifestSha256": "351fed91b69ddf4a45de4e4ead7d68c642ff01e7496f8062fa61c12bb5b163b1",
+  "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+  "classifierSha256": "1a186aef346255395307ee81ee908ded95a15a677876a277eb7ec2152ec8a69b",
+  "review": {
+    "reviewer": "/root/repair_reviewer",
+    "reviewRef": "docs/hero-reference/repairs/s4/review.md",
+    "scope": "12 source measurement records /42 numeric leaves only; no world coordinates, art or historical local captures",
+    "acceptedBy": "root"
+  },
+  "targetChanged": false,
+  "amendments": [
+    {
+      "stateId": "clearance-travel",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001078-clearance-travel.png",
+        "sha256": "621c0d2d39a3ddc4f8cc8e7fd1a3a3053122c7b20b0dd46a211066698e8556c9"
+      },
+      "changes": [
+        {
+          "path": "rasterPixels.direction.0",
+          "recorded": 0.866865,
+          "recomputed": 0.872963,
+          "jsonPointer": "/states/6/screenBounds/routeGeometry/rasterPixels/direction/0"
+        },
+        {
+          "path": "rasterPixels.direction.1",
+          "recorded": 0.498543,
+          "recomputed": 0.487787,
+          "jsonPointer": "/states/6/screenBounds/routeGeometry/rasterPixels/direction/1"
+        },
+        {
+          "path": "rasterPixels.principalSpan",
+          "recorded": 1081.659,
+          "recomputed": 1081.808,
+          "jsonPointer": "/states/6/screenBounds/routeGeometry/rasterPixels/principalSpan"
+        },
+        {
+          "path": "rasterPixels.equivalentSelectedCoreThickness",
+          "recorded": 16.012,
+          "recomputed": 15.298,
+          "jsonPointer": "/states/6/screenBounds/routeGeometry/rasterPixels/equivalentSelectedCoreThickness"
+        },
+        {
+          "path": "cssPixels.principalSpan",
+          "recorded": 540.83,
+          "recomputed": 540.904,
+          "jsonPointer": "/states/6/screenBounds/routeGeometry/cssPixels/principalSpan"
+        },
+        {
+          "path": "cssPixels.equivalentSelectedCoreThickness",
+          "recorded": 8.006,
+          "recomputed": 7.649,
+          "jsonPointer": "/states/6/screenBounds/routeGeometry/cssPixels/equivalentSelectedCoreThickness"
+        }
+      ]
+    },
+    {
+      "stateId": "clearance-field-preview",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001228-clearance-field-preview.png",
+        "sha256": "42a8b8da9bed387e5aab1e767a0e6290aff44189d11b8e7653d7180936866268"
+      },
+      "changes": [
+        {
+          "path": "rasterPixels.direction.0",
+          "recorded": 0.921898,
+          "recomputed": 0.922055,
+          "jsonPointer": "/states/7/screenBounds/routeGeometry/rasterPixels/direction/0"
+        },
+        {
+          "path": "rasterPixels.direction.1",
+          "recorded": -0.387433,
+          "recomputed": -0.387059,
+          "jsonPointer": "/states/7/screenBounds/routeGeometry/rasterPixels/direction/1"
+        },
+        {
+          "path": "rasterPixels.principalSpan",
+          "recorded": 956.705,
+          "recomputed": 956.703,
+          "jsonPointer": "/states/7/screenBounds/routeGeometry/rasterPixels/principalSpan"
+        },
+        {
+          "path": "rasterPixels.equivalentSelectedCoreThickness",
+          "recorded": 6.838,
+          "recomputed": 6.508,
+          "jsonPointer": "/states/7/screenBounds/routeGeometry/rasterPixels/equivalentSelectedCoreThickness"
+        },
+        {
+          "path": "cssPixels.equivalentSelectedCoreThickness",
+          "recorded": 3.419,
+          "recomputed": 3.254,
+          "jsonPointer": "/states/7/screenBounds/routeGeometry/cssPixels/equivalentSelectedCoreThickness"
+        }
+      ]
+    },
+    {
+      "stateId": "clearance-field-preview",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001228-clearance-field-preview.png",
+        "sha256": "42a8b8da9bed387e5aab1e767a0e6290aff44189d11b8e7653d7180936866268"
+      },
+      "changes": [
+        {
+          "path": "selectedPixelOccupancy",
+          "recorded": 0.461036,
+          "recomputed": 0.449165,
+          "jsonPointer": "/states/7/screenBounds/fieldProfileComponentProfile/selectedPixelOccupancy"
+        }
+      ]
+    },
+    {
+      "stateId": "field-approach",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001288-field-approach.png",
+        "sha256": "df0381011892710f879b805b2f149adfb95dbe8e95c2a7097d7d716a181faf35"
+      },
+      "changes": [
+        {
+          "path": "rasterPixels.direction.0",
+          "recorded": 0.918962,
+          "recomputed": 0.91921,
+          "jsonPointer": "/states/8/screenBounds/routeGeometry/rasterPixels/direction/0"
+        },
+        {
+          "path": "rasterPixels.direction.1",
+          "recorded": -0.394346,
+          "recomputed": -0.393768,
+          "jsonPointer": "/states/8/screenBounds/routeGeometry/rasterPixels/direction/1"
+        },
+        {
+          "path": "rasterPixels.principalSpan",
+          "recorded": 1513.961,
+          "recomputed": 1513.964,
+          "jsonPointer": "/states/8/screenBounds/routeGeometry/rasterPixels/principalSpan"
+        },
+        {
+          "path": "rasterPixels.equivalentSelectedCoreThickness",
+          "recorded": 10.243,
+          "recomputed": 10.019,
+          "jsonPointer": "/states/8/screenBounds/routeGeometry/rasterPixels/equivalentSelectedCoreThickness"
+        },
+        {
+          "path": "cssPixels.principalSpan",
+          "recorded": 756.981,
+          "recomputed": 756.982,
+          "jsonPointer": "/states/8/screenBounds/routeGeometry/cssPixels/principalSpan"
+        },
+        {
+          "path": "cssPixels.equivalentSelectedCoreThickness",
+          "recorded": 5.121,
+          "recomputed": 5.009,
+          "jsonPointer": "/states/8/screenBounds/routeGeometry/cssPixels/equivalentSelectedCoreThickness"
+        }
+      ]
+    },
+    {
+      "stateId": "field-approach",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001288-field-approach.png",
+        "sha256": "df0381011892710f879b805b2f149adfb95dbe8e95c2a7097d7d716a181faf35"
+      },
+      "changes": [
+        {
+          "path": "selectedPixelOccupancy",
+          "recorded": 0.485673,
+          "recomputed": 0.480327,
+          "jsonPointer": "/states/8/screenBounds/fieldProfileComponentProfile/selectedPixelOccupancy"
+        }
+      ]
+    },
+    {
+      "stateId": "field-contact",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001390-field-contact.png",
+        "sha256": "f14b7ffe780fcdb2ee6a9a90211efd592267291017974340c0228a822832cfdc"
+      },
+      "changes": [
+        {
+          "path": "rasterPixels.direction.0",
+          "recorded": 0.934141,
+          "recomputed": 0.934181,
+          "jsonPointer": "/states/9/screenBounds/routeGeometry/rasterPixels/direction/0"
+        },
+        {
+          "path": "rasterPixels.direction.1",
+          "recorded": -0.356904,
+          "recomputed": -0.356799,
+          "jsonPointer": "/states/9/screenBounds/routeGeometry/rasterPixels/direction/1"
+        },
+        {
+          "path": "rasterPixels.principalSpan",
+          "recorded": 1564.06,
+          "recomputed": 1564.056,
+          "jsonPointer": "/states/9/screenBounds/routeGeometry/rasterPixels/principalSpan"
+        },
+        {
+          "path": "rasterPixels.equivalentSelectedCoreThickness",
+          "recorded": 7.032,
+          "recomputed": 6.887,
+          "jsonPointer": "/states/9/screenBounds/routeGeometry/rasterPixels/equivalentSelectedCoreThickness"
+        },
+        {
+          "path": "cssPixels.principalSpan",
+          "recorded": 782.03,
+          "recomputed": 782.028,
+          "jsonPointer": "/states/9/screenBounds/routeGeometry/cssPixels/principalSpan"
+        },
+        {
+          "path": "cssPixels.equivalentSelectedCoreThickness",
+          "recorded": 3.516,
+          "recomputed": 3.443,
+          "jsonPointer": "/states/9/screenBounds/routeGeometry/cssPixels/equivalentSelectedCoreThickness"
+        }
+      ]
+    },
+    {
+      "stateId": "field-contact",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001390-field-contact.png",
+        "sha256": "f14b7ffe780fcdb2ee6a9a90211efd592267291017974340c0228a822832cfdc"
+      },
+      "changes": [
+        {
+          "path": "selectedPixelOccupancy",
+          "recorded": 0.417542,
+          "recomputed": 0.416287,
+          "jsonPointer": "/states/9/screenBounds/fieldProfileComponentProfile/selectedPixelOccupancy"
+        }
+      ]
+    },
+    {
+      "stateId": "field-pulse-a",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001408-field-pulse-a.png",
+        "sha256": "156123978b207b9a46c266d35aaec5627567cf8055750baa6a3e3bb0ed793404"
+      },
+      "changes": [
+        {
+          "path": "rasterPixels.direction.0",
+          "recorded": 0.983304,
+          "recomputed": 0.983414,
+          "jsonPointer": "/states/10/screenBounds/routeGeometry/rasterPixels/direction/0"
+        },
+        {
+          "path": "rasterPixels.direction.1",
+          "recorded": -0.181968,
+          "recomputed": -0.181375,
+          "jsonPointer": "/states/10/screenBounds/routeGeometry/rasterPixels/direction/1"
+        },
+        {
+          "path": "rasterPixels.principalSpan",
+          "recorded": 1255.184,
+          "recomputed": 1255.212,
+          "jsonPointer": "/states/10/screenBounds/routeGeometry/rasterPixels/principalSpan"
+        },
+        {
+          "path": "rasterPixels.equivalentSelectedCoreThickness",
+          "recorded": 6.259,
+          "recomputed": 5.917,
+          "jsonPointer": "/states/10/screenBounds/routeGeometry/rasterPixels/equivalentSelectedCoreThickness"
+        },
+        {
+          "path": "cssPixels.principalSpan",
+          "recorded": 627.592,
+          "recomputed": 627.606,
+          "jsonPointer": "/states/10/screenBounds/routeGeometry/cssPixels/principalSpan"
+        },
+        {
+          "path": "cssPixels.equivalentSelectedCoreThickness",
+          "recorded": 3.129,
+          "recomputed": 2.958,
+          "jsonPointer": "/states/10/screenBounds/routeGeometry/cssPixels/equivalentSelectedCoreThickness"
+        }
+      ]
+    },
+    {
+      "stateId": "field-pulse-a",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001408-field-pulse-a.png",
+        "sha256": "156123978b207b9a46c266d35aaec5627567cf8055750baa6a3e3bb0ed793404"
+      },
+      "changes": [
+        {
+          "path": "selectedPixelOccupancy",
+          "recorded": 0.337232,
+          "recomputed": 0.336481,
+          "jsonPointer": "/states/10/screenBounds/fieldProfileComponentProfile/selectedPixelOccupancy"
+        }
+      ]
+    },
+    {
+      "stateId": "field-pulse-b",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001558-field-pulse-b.png",
+        "sha256": "e5a6fc292809185e8a83be83db0e94fc2db2a2cfffbd9f72a933b2e1168160a4"
+      },
+      "changes": [
+        {
+          "path": "rasterPixels.direction.0",
+          "recorded": 0.99375,
+          "recomputed": 0.993749,
+          "jsonPointer": "/states/11/screenBounds/routeGeometry/rasterPixels/direction/0"
+        },
+        {
+          "path": "rasterPixels.direction.1",
+          "recorded": -0.111628,
+          "recomputed": -0.111637,
+          "jsonPointer": "/states/11/screenBounds/routeGeometry/rasterPixels/direction/1"
+        },
+        {
+          "path": "rasterPixels.equivalentSelectedCoreThickness",
+          "recorded": 6.464,
+          "recomputed": 6.462,
+          "jsonPointer": "/states/11/screenBounds/routeGeometry/rasterPixels/equivalentSelectedCoreThickness"
+        },
+        {
+          "path": "cssPixels.equivalentSelectedCoreThickness",
+          "recorded": 3.232,
+          "recomputed": 3.231,
+          "jsonPointer": "/states/11/screenBounds/routeGeometry/cssPixels/equivalentSelectedCoreThickness"
+        }
+      ]
+    },
+    {
+      "stateId": "field-pulse-b",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001558-field-pulse-b.png",
+        "sha256": "e5a6fc292809185e8a83be83db0e94fc2db2a2cfffbd9f72a933b2e1168160a4"
+      },
+      "changes": [
+        {
+          "path": "selectedPixelOccupancy",
+          "recorded": 0.163539,
+          "recomputed": 0.162297,
+          "jsonPointer": "/states/11/screenBounds/fieldProfileComponentProfile/selectedPixelOccupancy"
+        }
+      ]
+    },
+    {
+      "stateId": "arrival-lockup",
+      "inputImage": {
+        "path": "docs/hero-reference/recording/frame-001858-arrival-lockup.png",
+        "sha256": "f3b6e215067ab8986e81b064221b2142c30d229728c1d15dfedf216f1cb57d96"
+      },
+      "changes": [
+        {
+          "path": "rasterPixels.direction.0",
+          "recorded": 0.999928,
+          "recomputed": 0.999929,
+          "jsonPointer": "/states/13/screenBounds/routeGeometry/rasterPixels/direction/0"
+        },
+        {
+          "path": "rasterPixels.direction.1",
+          "recorded": -0.011959,
+          "recomputed": -0.011938,
+          "jsonPointer": "/states/13/screenBounds/routeGeometry/rasterPixels/direction/1"
+        },
+        {
+          "path": "rasterPixels.equivalentSelectedCoreThickness",
+          "recorded": 7.198,
+          "recomputed": 7.18,
+          "jsonPointer": "/states/13/screenBounds/routeGeometry/rasterPixels/equivalentSelectedCoreThickness"
+        },
+        {
+          "path": "cssPixels.equivalentSelectedCoreThickness",
+          "recorded": 3.599,
+          "recomputed": 3.59,
+          "jsonPointer": "/states/13/screenBounds/routeGeometry/cssPixels/equivalentSelectedCoreThickness"
+        }
+      ]
+    }
+  ]
+}

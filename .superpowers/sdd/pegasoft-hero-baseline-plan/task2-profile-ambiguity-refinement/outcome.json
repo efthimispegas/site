@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "implementationStatus": "complete-inactive-refinement",
+  "qualificationStatus": "blocked",
+  "addressedFinding": "Connected bright peaks escape competing-peak rejection, P2, Oct3 independent review",
+  "findingReproducedBeforeChange": true,
+  "change": "Group significant regions using max(minimumPeakExcess, half the measured maximum), reusing the existing half-maximum peak significance criterion. A dim connection above the detection floor cannot merge distinct significant regions. Flat connected plateaus remain one region.",
+  "scope": "Beam ambiguity guard only; two appended tests after unchanged83-test prefix. No changes to declared profile widths, sideband/background calibration, exit classifier/readback, integration or runtime.",
+  "checks": "checks.json",
+  "evidence": {
+    "literalBeforeAfterAndPlateau": "ambiguity-fixture-diagnostics.json",
+    "fourSavedBeamProfiles": "beam-raster-diagnostics.json",
+    "bothSavedExitRegressions": "exit-raster-diagnostics.json",
+    "before": "before/",
+    "after": "after/",
+    "patch": "implementation.patch",
+    "oldPacketPreservation": "old-packet-preservation.json"
+  },
+  "historicalLimits": "All saved image/profile results are historical diagnostics under the refined method, not new acquisition or current capture provenance. Old packet files and scripts are unchanged. Its live module/test pins intentionally become stale after this refinement; BEFORE snapshots preserve their exact original bytes.",
+  "remainingBlockers": [
+    "Half-maximum grouping is a conservative ambiguity veto, not a calibrated semantic-core or halo definition. Higher connecting support and other branch/dot/contact/pulse/residual ambiguity still need independent challenges and review.",
+    "Core/halo quantities and edge-error bounds remain unqualified; no physical radius is inferred.",
+    "Local exit boundary remains blocked under unchanged contrast/dominance gates. Applied crop/effective world-opacity remain unavailable for historical rasters; continuous exit correspondence is unverified.",
+    "Source onset/animation age, landmark contour/crop semantics and current capture provenance remain blocked. Task3 cannot consume diagnostics as qualified geometry."
+  ],
+  "newCaptures": 0,
+  "runtimeChanges": 0,
+  "sourceMasksUsed": false,
+  "activeIntegration": false,
+  "independentReReview": "Parent-owned; not performed by implementation owner",
+  "reproductionCommand": "node .superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/reproduce.mjs --verify",
+  "stopCondition": "Complete checked refinement packet. Parent updates authority/ledger and commissions the affected independent re-review. Qualification stays blocked."
+}

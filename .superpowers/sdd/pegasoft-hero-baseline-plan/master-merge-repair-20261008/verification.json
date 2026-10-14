@@ -1,0 +1,494 @@
+{
+  "date": "2026-10-08",
+  "status": "paused-by-user",
+  "branch": "codex/hero-reference-rebaseline",
+  "heroParent": "61bb7b88cf36c27fa456f13b923b1b7bb42dc5e0",
+  "incomingMaster": "d8b950b2a3fb4ba3194ba14686dbbc688b7d7d0e",
+  "mergeFinalized": false,
+  "pushed": false,
+  "deployed": false,
+  "scope": "Scheduled dependency/E2E merge-risk repairs and documentation alignment; stopped at the user checkpoint request.",
+  "runtime": {
+    "node": "24.19.0",
+    "pnpm": "10.8.1",
+    "nx": "22.7.12",
+    "next": "16.3.8",
+    "sharp": "0.35.5",
+    "typescript": "5.9.3"
+  },
+  "completedChanges": [
+    "Nx/Next/Sharp patches; scoped Nx axios, brace-expansion and smol-toml overrides; restored configured runtime pins.",
+    "Use demand rendering while essential resources load; full rendering begins at frame-pending. Preserve completed-frame readiness and timing assertions.",
+    "Observe loading before the load event; throttle the actual rescheduled deadline callback with proof that the hook activated; use visible mobile navigation.",
+    "Bound failure diagnostics to 2 seconds. Align default E2E with established Chrome channel; preserve E2E_BROWSER_CHANNEL=chromium diagnostic option; CI installs both browsers.",
+    "Wait for the rendered Individual entrance opacity before unchanged accessibility audit.",
+    "Compact status and align canonical plan, discovery index and historical S7 consumer."
+  ],
+  "checks": {
+    "frozen-install": {
+      "command": [
+        "pnpm",
+        "install",
+        "--frozen-lockfile"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.57
+    },
+    "core-checks": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run-many",
+        "--targets=typecheck,lint,test",
+        "--skipNxCache",
+        "--parallel=2"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 6.67
+    },
+    "build": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run-many",
+        "--targets=build",
+        "--projects=@site/pegasoft,@site/individual",
+        "--skipNxCache",
+        "--parallel=1"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 11.71
+    },
+    "measurement": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-measurement-test"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 1.03
+    },
+    "s7-harness": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-s7-harness-test"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 5.14
+    },
+    "capture-contracts": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-capture-contract-test"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 2.84
+    },
+    "clock-fixtures": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-capture-clock-test"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 2.81
+    },
+    "production-smoke": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:hero-production-smoke"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 13.58
+    },
+    "before-final-e2e": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:e2e",
+        "--skipNxCache",
+        "--retries=0",
+        "--reporter=line,json",
+        "--trace=retain-on-failure",
+        "--output=/tmp/pegasoft-repair-e2e-full"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 4640.69
+    },
+    "before-final-individual-e2e": {
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/individual-e2e:e2e",
+        "--skipNxCache",
+        "--retries=0",
+        "--reporter=line"
+      ],
+      "exitCode": 1,
+      "durationSeconds": 5.62
+    },
+    "e2e": {
+      "status": "interrupted-by-user",
+      "exitCode": 130,
+      "command": [
+        "pnpm",
+        "nx",
+        "run",
+        "@site/pegasoft-e2e:e2e",
+        "--skipNxCache",
+        "--retries=0",
+        "--reporter=line,json",
+        "--max-failures=3"
+      ],
+      "browserChannel": "chrome",
+      "aggregateResultAvailable": false,
+      "resume": "Rerun the complete suite; the interrupted log is not acceptance."
+    },
+    "individual-e2e": {
+      "status": "not-rerun-after-fix",
+      "resume": "Rerun after the entrance-opacity wait change."
+    },
+    "final-types-lint": {
+      "status": "passed",
+      "projects": [
+        "@site/pegasoft-e2e",
+        "@site/individual-e2e"
+      ],
+      "lintErrors": 0,
+      "lintWarnings": 39,
+      "log": "final-types-lint.log"
+    },
+    "format": {
+      "status": "write-completed-final-check-pending",
+      "log": "format-write.log"
+    },
+    "browser-localhost": {
+      "status": "passed",
+      "routes": [
+        "http://127.0.0.1:4330/",
+        "http://127.0.0.1:4330/services",
+        "http://127.0.0.1:4331/",
+        "http://127.0.0.1:4331/work"
+      ],
+      "browserConsoleErrors": [],
+      "limits": "Rendered/runtime and genuine navigation verification only; no hero visual acceptance.",
+      "httpLog": "localhost-http.json",
+      "screenshots": [
+        "pegasoft-localhost.jpg",
+        "pegasoft-services.jpg",
+        "individual-localhost.jpg",
+        "individual-work.jpg"
+      ]
+    }
+  },
+  "focusedLifecycle": {
+    "status": "passed-before-final-test-config-amendments",
+    "passed": 10,
+    "retries": 0,
+    "log": "focused-e2e.log",
+    "limits": "A focused result does not replace the full suite on the final configuration."
+  },
+  "lastCompleteE2E": {
+    "browser": "bundled Chromium headless-shell",
+    "pegasoft": {
+      "passed": 148,
+      "failed": 4,
+      "skipped": 4,
+      "log": "before-final-e2e.log",
+      "results": "before-final-e2e-results.json"
+    },
+    "individual": {
+      "passed": 7,
+      "failed": 1,
+      "log": "before-final-individual-e2e.log"
+    },
+    "attribution": "Pegasoft failures include prolonged browser stalls; Individual audited a partially transparent entrance frame. Latest fixes require complete reruns."
+  },
+  "audit": {
+    "status": "failed",
+    "counts": {
+      "info": 0,
+      "low": 0,
+      "moderate": 1,
+      "high": 1,
+      "critical": 0
+    },
+    "log": "audit.json",
+    "unpatchedHigh": {
+      "package": "braces",
+      "version": "3.0.3",
+      "advisory": "GHSA-vfj7-8cjw-p6xm",
+      "source": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+      "path": ". > @next/eslint-plugin-next > fast-glob > micromatch > braces",
+      "patchedVersion": null
+    },
+    "remainingModerate": {
+      "package": "uuid",
+      "advisory": "GHSA-w5hq-g745-h8pq",
+      "path": ". > @nx/next > @nx/webpack > webpack-dev-server > sockjs > uuid"
+    }
+  },
+  "preserved": {
+    "envIgnored": true,
+    "frozenFixtureChanges": [],
+    "conceptBranch": "3b7634c70310a462859aa450213cb642fb793fe1",
+    "conceptWorktreeStatus": "Unrelated dirty work is present; this maintenance batch made no edits in that worktree.",
+    "oldPacket": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-20261006/verification.json"
+  },
+  "accountSnapshot": {
+    "fiveHourUsedPercent": 88,
+    "weeklyUsedPercent": 26,
+    "ordinaryUsageAllowed": true,
+    "pauseThresholdPercent": 95,
+    "snapshotIsNotTaskCost": true
+  },
+  "resume": [
+    "Recheck branch/MERGE_HEAD, usage and configured runtime; preserve the mixed staged/unstaged maintenance work.",
+    "Rerun complete @site/pegasoft-e2e:e2e with Chrome and @site/individual-e2e:e2e. Verify final formatting; keep assertion/time/provenance budgets intact.",
+    "After any fixture tests, preserve fresh outputs here and restore older tracked fixture JSONs. Reuse completed unchanged-input checks; rerun affected checks.",
+    "Resolve the high braces advisory through a verified upstream fix or separately approved mitigation. Do not ignore it or finalize the merge while the required audit fails.",
+    "Update this packet and canonical maintenance gate. Finalize only after all required checks pass; no push/deploy. Hero source-authority/Phase 16 gates remain open."
+  ],
+  "limits": [
+    "No new reference capture or geometry/material changes. No Phase 16 qualification or personal visual acceptance.",
+    "Final Chrome full E2E and revised Individual accessibility test are not yet qualified.",
+    "Checkpoint files remain local/mixed staged and unstaged; no new commit was made."
+  ],
+  "inputPins": {
+    ".github/workflows/ci.yml": "598bf9aa23c8eee7dccf116e13bde03ea4dee70e6e6ec0ea6e66ee75d96b70b4",
+    "package.json": "954aa13a92ab46f49611e27dba6a6403b74d819179b9ce52a3ce6491474c111a",
+    "pnpm-lock.yaml": "a069afda2fa722f265aa1cd8c7650dccf3b26e4e7aab6ed5068eb4df406b6e42",
+    "apps/pegasoft/package.json": "297b7b6c35664734621af9cfa4576e8d9296e983bd852577454c0d5d43b36531",
+    "apps/individual/package.json": "8d3233cf010a62b56b99185cf0e72ec51e3335fa1e019e6a2f66384004302837",
+    "apps/pegasoft-e2e/playwright.config.ts": "13ac945e77140bf45d5b5d41d6e993e88a1c0f567df1bdc17c29ae8f08ddaef9",
+    "apps/pegasoft-e2e/src/hero-alternatives.spec.ts": "fd3f77f5ffb0a379898e029fb10cb27acf6380c0676dc257433cdb97c42a9f2b",
+    "apps/individual-e2e/src/individual.spec.ts": "3dcaec6537d348529cef625312f8823f86272ff288834c0698b9fe0a6e642231",
+    "apps/pegasoft/src/app/shared/hero-scene/hero-scene.tsx": "644fe8827ff6ed7f642794c0b199d300370116d2778b251c900f4f36c73d609b"
+  },
+  "artifacts": {
+    "dependency-update.log": {
+      "sha256": "634cad2a8de83420de87d793c66e6e903150df90373ad60db0d526da8e6b4c99",
+      "bytes": 1917
+    },
+    "before-final-e2e-results.json": {
+      "sha256": "920b565a8c8fedb7e411ab65ce0138c101dc89cc461ab35e23ada88334a5ddf9",
+      "bytes": 212508
+    },
+    "production-smoke.log": {
+      "sha256": "d2dad1ba5928eeaecc2cd21d64356308e353540a81c4dfb52a6bdd1a12a3527f",
+      "bytes": 1638
+    },
+    "e2e-reproduction.log": {
+      "sha256": "952d35d53618d05dce4d61e6e3bf152500fff2117d2fd70a2ad41704add0fc28",
+      "bytes": 7236
+    },
+    "focused-e2e.log": {
+      "sha256": "a8981b8c5299f4f2ee0107498fa95be200948e70e24a228db7f148686da6fcef",
+      "bytes": 7683
+    },
+    "audit.json": {
+      "sha256": "c11cfa779d9a6dd96d1f7334314e0fe6231770c15c5800cd925107727dcbfc61",
+      "bytes": 6688
+    },
+    "localhost-http.json": {
+      "sha256": "24b1d372e78b3e06836105a8f9656d04cfcd5f0254eacbc7405ab7e27f20c7b9",
+      "bytes": 647
+    },
+    "localhost-pegasoft.log": {
+      "sha256": "f7a960986ec51c10acb70465dd9f53956bb10343a6dbd949811808c86155f2eb",
+      "bytes": 3623
+    },
+    "core-checks.log": {
+      "sha256": "5b12da1bb0ea3cc9f3af276a34bc9ec162ec253078ed85f0c207206e206e46d4",
+      "bytes": 12492
+    },
+    "s7-harness.log": {
+      "sha256": "333188e5622c9acddf0becd65df918426ff6702b38883fbdef49d78c9c2c71bf",
+      "bytes": 3695
+    },
+    "localhost-individual.log": {
+      "sha256": "48ab9343f857f350324c325fd410cacab1e668fdd0030c8695d6db1464911b3b",
+      "bytes": 3449
+    },
+    "individual-localhost.jpg": {
+      "sha256": "ea3931a421c29891129ccd519e2da9e0964e5e24a44449aeef0beaae59e57459",
+      "bytes": 34938
+    },
+    "frozen-install.log": {
+      "sha256": "dfd2179a400e8289b63cb412755e6754ccaf880817461157f3de537ba9c6f8d1",
+      "bytes": 1026
+    },
+    "e2e-repair-pass1.log": {
+      "sha256": "31eab45c3f3ebd4e7ee733788fcf30b8ed5bc50f0d8987ded4461da0cee014c6",
+      "bytes": 7093
+    },
+    "repair-source.diff": {
+      "sha256": "8da42b1f04f1c391aca2099a0f0b98a71062998ade1fb9e409e6f4453e6ec824",
+      "bytes": 569701
+    },
+    "individual-work.jpg": {
+      "sha256": "b2e8b9d5d5c0e93d770a77b389e0fd54be320abbbb7d7595758777aa5ce6420f",
+      "bytes": 43671
+    },
+    "pegasoft-services.jpg": {
+      "sha256": "ee30a0c3667c5f7c2e9013dbf0318f695660783af8338f20f204327edee501c8",
+      "bytes": 55406
+    },
+    "measurement.log": {
+      "sha256": "2aab037c4cdfe966effc87eb70d454dfcbe484233b5c834552f259861bf6fdaf",
+      "bytes": 9700
+    },
+    "browser-install.log": {
+      "sha256": "f4e71c3835022801119d1bb97f6d2e7795bae8dadda22a37f28c4a7c070c86b1",
+      "bytes": 6841
+    },
+    "before-final-e2e.log": {
+      "sha256": "d7aa3c4a13e2e1bd8e6b457cab426ccd4759393af26438ff963bac0ccc03a249",
+      "bytes": 36571
+    },
+    "check-execution.json": {
+      "sha256": "a64fc08797d20231dcab448329b942c41192435b7dc297529b2bf1195d1e1874",
+      "bytes": 3555
+    },
+    "final-types-lint.log": {
+      "sha256": "4d6b63c820d110a10bde2ee2678ffceb915f06769795e2ee806be2650d2fcbe4",
+      "bytes": 6457
+    },
+    "pegasoft-localhost.jpg": {
+      "sha256": "a8a127cb73482e20f60f9d4925ff6e5663188ef915ab86d1b3bf427840cb8610",
+      "bytes": 37029
+    },
+    "clock-fixtures.log": {
+      "sha256": "d891c9fc3955ddb3d7eade5ebca2a87400d6fcfeb8042bee3206aa570dec0def",
+      "bytes": 1326
+    },
+    "e2e.log": {
+      "sha256": "2f293959918fd6cd376bb3e379fd755d5f53868c2e41e33bf4a702c16eb60004",
+      "bytes": 4420
+    },
+    "before-final-individual-e2e.log": {
+      "sha256": "22006d6a8a11b8273c51dde718b2384574ea5ff1f0d31b8a5d900c8b17ab393a",
+      "bytes": 6650
+    },
+    "intermediate-audit.json": {
+      "sha256": "374d66c34d71aed6d3c663ed9b92344ef0f1cad804511737b83517a0de379dc0",
+      "bytes": 160609
+    },
+    "install.log": {
+      "sha256": "0d89aacd3e835508580263387b9a5a66cd5d4b7a5161510556ad8fc1cc06c04c",
+      "bytes": 1837
+    },
+    "format-write.log": {
+      "sha256": "d898ddaef2462b17afc969769b57df036358d28e04a2fc4f54f7fc621ad699bb",
+      "bytes": 91
+    },
+    "capture-contracts.log": {
+      "sha256": "9df2c872d025bc22aacdc81a910961224e5c5f6ed943b6628349f8d4f7c34391",
+      "bytes": 5603
+    },
+    "build.log": {
+      "sha256": "4e872f216b7e7b1353e9960fd6f99d164ee64bb3363c988ba8e24bee33115f37",
+      "bytes": 6181
+    },
+    "generated-fixtures/capture-integration.json": {
+      "sha256": "85eac86cc113f8fb0701343b4eaa3ac3f9b6a1bea00f293ecd1be2bd33b8c412",
+      "bytes": 1414
+    },
+    "generated-fixtures/frame-mismatch.json": {
+      "sha256": "49074b05ba5cf6c352a526e4130f01a9f3ebf71f6b2749eb9816a6f006c0bf74",
+      "bytes": 3088
+    },
+    "generated-fixtures/opacity-product-zero.json": {
+      "sha256": "f4de569ebd6719dcb4a62ef3f5c89f1a222e5f2b83f79b72cea0cc28a080624b",
+      "bytes": 3118
+    },
+    "generated-fixtures/bracket-initial-clip-mismatch.json": {
+      "sha256": "023739baf2ff82872f814fe0a86c2dcc7438a38ee004728fc7106920ffecaedf",
+      "bytes": 4762
+    },
+    "generated-fixtures/bracket-opacity-mismatch.json": {
+      "sha256": "94c128354d0cd535e1932e4e77a807b96c4c11fc880168eb50fd6d5dc5a8231e",
+      "bytes": 4759
+    },
+    "generated-fixtures/unsupported-opacity-filter.json": {
+      "sha256": "f7939421f420c00a9ed1308510f99e27d8c169ab21336ed8579bb84421fe0d88",
+      "bytes": 1417
+    },
+    "generated-fixtures/unsupported-rounded.json": {
+      "sha256": "87c5024bf11a2d11b19edb844aff492bcc8148cc184467fc85da31c2b33e4e19",
+      "bytes": 1374
+    },
+    "generated-fixtures/unsupported-rotation.json": {
+      "sha256": "0eaa5afb81363080e16ad7935ab9011eaa9a6bb497f0995d9ba8a682db131921",
+      "bytes": 1350
+    },
+    "generated-fixtures/containment-content.json": {
+      "sha256": "0673ed4d9b1d0773c942934f9779a580238103a1f31d2d638574ac5215cf6fce",
+      "bytes": 1590
+    },
+    "generated-fixtures/unsupported-shape.json": {
+      "sha256": "5e0336e25c6782d167dc44d51bf482330b48f411f559984159902d1438d03e9d",
+      "bytes": 1375
+    },
+    "generated-fixtures/bracket-supported-animation-control.json": {
+      "sha256": "0fc23e6956e5dd040ab57b64da9c5ed103cc871dd4378827815c1a5351a50b6a",
+      "bytes": 3486
+    },
+    "generated-fixtures/pending-ambiguous.json": {
+      "sha256": "b46f3030c62ca2d1957903b1483db0d491a544113214d829cfccc48417cc399e",
+      "bytes": 2950
+    },
+    "generated-fixtures/containment-strict.json": {
+      "sha256": "f53336c23d30dce4b273970b227c110f0c21e87aa936409e6d3668649c3cc842",
+      "bytes": 1603
+    },
+    "generated-fixtures/unsupported-opacity-boxless.json": {
+      "sha256": "758fecb7a2498645bd49ece21c7fe5964cf1e843e785621d5783d5696cae7e80",
+      "bytes": 1371
+    },
+    "generated-fixtures/unsupported-overflow-radius.json": {
+      "sha256": "7387eedfff841f1fe438496d08ce24034ae0d31da7e8ad102e44075298d7d07c",
+      "bytes": 1352
+    },
+    "generated-fixtures/fixed-overflow-barrier.json": {
+      "sha256": "989edcb45e58589df0f0267974efabd4a2029a0ef1442aa65a6a0314d7cbe5de",
+      "bytes": 1369
+    },
+    "generated-fixtures/nested-clips.json": {
+      "sha256": "0f93694cdece1ab72a208dfb449867b381cda5b3541d66bbb097aa5e03f0c23a",
+      "bytes": 1397
+    },
+    "generated-fixtures/missing-frame.json": {
+      "sha256": "cffd9902f20dd29dc6a65a1b08942a46c76a68ae38197a83a3b7e5fa06e950b7",
+      "bytes": 953
+    },
+    "generated-fixtures/real-animation-timing.json": {
+      "sha256": "ade6d48b34a1280805455374e07ee3c5fe5fc7b3842b6b00717bea969c4fbed8",
+      "bytes": 1394
+    }
+  },
+  "checkpointPins": {
+    "docs/ledger/CURRENT.md": "7b4466a0e95a04d146d806ad9d4ba3c6206ecaf7c164efb5b984a924ee6cb562",
+    "docs/ledger/INDEX.md": "5146c0db5488a17ecc49850b2a88c2663aa3f05115a4c96de59527d5770d560d",
+    "docs/ledger/document-index.json": "3aa2e94d8e57cb4b8c8851c201d4909db4db590041f2fc8fb41b86fc5f876268",
+    "docs/pegasoft-hero-baseline-plan.md": "62b2f2fd323ff09079db280bb8d415de85b4e4ba85ba44545241100930a36b5d",
+    "docs/hero-reference/repair-sprint-ledger.json": "18b1380effa34cc59b9257f48282153a7aec47c9ac89abdc6c7ba5a938da2bf6",
+    "docs/hero-reference/repairs/s7/status.md": "f4585424ad06d5559cdb2540b80d8f7f906e0529f29dec532ad68f7854ce2025",
+    "tools/docs/build-ledger.mjs": "f1c4611020a5f666a1ce22bfe424fab7f4d63962b4a4775feec53bd56e29eecf"
+  },
+  "checkpointValidation": {
+    "jsonAndLinks": "passed",
+    "inputPins": "verified",
+    "fullRuntimeChecks": "paused; pending checks remain explicit"
+  }
+}

@@ -24,5 +24,8 @@
     {
       "path": "./libs/motion-system"
     }
-  ]
+  ],
+  "compilerOptions": {
+    "ignoreDeprecations": "5.0"
+  }
 }

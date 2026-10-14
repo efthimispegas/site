@@ -1,0 +1,2349 @@
+{
+  "schemaVersion": 1,
+  "planDate": "2026-09-15",
+  "planRef": "docs/pegasoft-hero-baseline-plan.md",
+  "auditRef": "docs/hero-reference/foundation-audit-2026-09-15.md",
+  "scope": "Historical foundation-repair evidence; current authorization, phase scope and completion are defined solely by the canonical baseline-phase tracker.",
+  "executionAuthorization": {
+    "status": "authorized",
+    "authorizedSprintIds": [
+      "S0",
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8"
+    ],
+    "confirmationRef": "User message: Start the sprints in parallel where possible delegate work to multiple subagents.",
+    "authorizedAtUtc": "2026-09-15T16:43:18.827Z"
+  },
+  "phaseRelease": {
+    "status": "authorized",
+    "requires": "S8 qualified plus user decision to proceed",
+    "confirmationRef": "User message: Start the R3 visual recovery plan.",
+    "authorizedAtUtc": "2026-09-28T13:32:38Z",
+    "currentCheckpoint": "See docs/pegasoft-hero-baseline-plan.md#canonical-baseline-phase-tracker for live phase status and authorization; this ledger retains dated evidence only."
+  },
+  "coordination": {
+    "ledgerOwner": "root",
+    "maxConcurrentImplementationWorkers": 2,
+    "independentReviewerRequired": true,
+    "dependenciesControlDispatch": true,
+    "wavesAreAdvisory": true,
+    "sharedBrowserAndBuildJobs": "serialized",
+    "statusSequence": [
+      "planned",
+      "ready",
+      "in-progress",
+      "implemented",
+      "in-review",
+      "completed"
+    ],
+    "blockedStatus": "blocked"
+  },
+  "sprints": [
+    {
+      "id": "S0",
+      "title": "Repair contracts and failure baseline",
+      "ownerRole": "evidence-contracts",
+      "dependsOn": [],
+      "auditFindings": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10"
+      ],
+      "status": "completed",
+      "assignedAgentId": "/root/s0_contracts",
+      "reviewerAgentId": "/root/repair_reviewer",
+      "startedAtUtc": "2026-09-15T16:43:18.827Z",
+      "finishedAtUtc": "2026-09-15 16:54:32 UTC",
+      "implementationRevision": "f47854d412637d9003d825bdce417b742bc623fa",
+      "workingDiffDigest": "61cf036c091673ed71bb3f760feace7c8fbd270122022e7a7e5a6d8fbe2f29ee",
+      "exitSummary": "10/10 findings mapped; source semantics and executable contracts locked; reproducible before-cases.",
+      "evidence": [
+        "docs/hero-reference/repairs/s0/source/source-contract.md",
+        "docs/hero-reference/repairs/s0/source/artifact-manifest.json",
+        "docs/hero-reference/repairs/s0/contracts/before-results.json",
+        "docs/hero-reference/repairs/s0/contracts/repair-matrix.mjs",
+        "docs/hero-reference/repairs/s0/browser/local-before-cases.json"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s0/review.md",
+      "reviewDecision": "accepted-by-root-after-independent-review",
+      "blockers": [],
+      "remainingVisualWork": [
+        "R3+ graphics and scene integration remain unaccepted. All336 applicable S7browsercells remain planned."
+      ],
+      "actualCheckCounts": {
+        "auditFindingsMapped": 10,
+        "matrixCells": 360,
+        "matrixApplicable": 336,
+        "matrixNotApplicable": 24,
+        "baselineUnitTests": 42,
+        "baselineTypecheckTargets": 2,
+        "baselineLintTargets": 2,
+        "liveProfiles": 5
+      },
+      "supportingAgentIds": [
+        "/root/s0_source"
+      ]
+    },
+    {
+      "id": "S1",
+      "title": "Physical progress and DOM/scene mapping",
+      "ownerRole": "progress",
+      "dependsOn": [
+        "S0"
+      ],
+      "auditFindings": [
+        "A01",
+        "A05"
+      ],
+      "status": "completed",
+      "assignedAgentId": "/root/s0_source",
+      "reviewerAgentId": "/root/repair_reviewer",
+      "startedAtUtc": "2026-09-15 16:54:32 UTC",
+      "finishedAtUtc": "2026-09-15T17:39:36Z",
+      "implementationRevision": "f47854d412637d9003d825bdce417b742bc623fa",
+      "workingDiffDigest": "aabce1b61dc4de55fa84580bda37d06c33fb06e85a07b822fe4243b63975e81f",
+      "exitSummary": "Source-formula/boundary tests pass; early scroll moves scene; direct state no longer supplies expected copy step.",
+      "evidence": [
+        "docs/hero-reference/repairs/s1/manifest.json",
+        "docs/hero-reference/repairs/s1/browser-progress-final.json",
+        "docs/hero-reference/repairs/s1/regression-results.json"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s1/review.md",
+      "reviewDecision": "accepted-by-root-after-independent-review",
+      "blockers": [],
+      "remainingVisualWork": [
+        "S2 renderer label overrides and shared applied-frame clocks remain open; S6 lifecycle/layout and S7 full browser/production qualification remain open. No visual acceptance."
+      ],
+      "actualCheckCounts": {
+        "unitTests": 45,
+        "formulaOracleRows": 245,
+        "beforeFailAfterPassCases": 4,
+        "ordinaryBrowserSamples": 4,
+        "directNormalBrowserPairs": 4
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Shared rendered state and local clocks",
+      "ownerRole": "frame-state",
+      "dependsOn": [
+        "S1"
+      ],
+      "auditFindings": [
+        "A02",
+        "A04",
+        "A05"
+      ],
+      "status": "completed",
+      "assignedAgentId": "/root/s0_source",
+      "reviewerAgentId": "/root/repair_reviewer",
+      "startedAtUtc": "2026-09-15T17:39:36Z",
+      "finishedAtUtc": "2026-09-15T20:29:45Z",
+      "implementationRevision": "f47854d412637d9003d825bdce417b742bc623fa",
+      "workingDiffDigest": "2b3c2e4346490ed992c4a70aac01d12082d950f2bcc1df8d21a15f52901d74af",
+      "workingDiffDigestScope": "Tracked S2 consumer/model diff; new frame/driver modules and evidence are pinned in artifact-manifest.json.",
+      "exitSummary": "Coupled consumers agree per frame within 1e-6; rate/jump/reverse/reset matrix passes; source camera unchanged.",
+      "evidence": [
+        "docs/hero-reference/repairs/s2/README.md",
+        "docs/hero-reference/repairs/s2/artifact-manifest.json",
+        "docs/hero-reference/repairs/s2/regression-results.json",
+        "docs/hero-reference/repairs/s2/source-segments.json",
+        "docs/hero-reference/repairs/s2/runs/2dd9683e-cf38-4930-9a3f-455ef9cc6ffa/browser-frames.json"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s2/review.md",
+      "reviewDecision": "accepted-by-root-after-independent-review",
+      "blockers": [],
+      "remainingVisualWork": [
+        "S3 geometry/depth/radii, S5 profiles, S6 readiness/recovery/layout and S7 shipping/normal-motion qualification remain open. Controlled-time frame validation is not final visual, screen-space settling or hardware-refresh acceptance."
+      ],
+      "actualCheckCounts": {
+        "unitTests": 73,
+        "validatedBrowserFrames": 11562,
+        "independentlyCheckedPersistedRecordInstances": 464,
+        "beforeAfterDampingFrames": 210,
+        "verifiedEvidenceFiles": 26,
+        "verifiedSourceExcerpts": 5
+      }
+    },
+    {
+      "id": "S3",
+      "title": "Route consumers, occlusion, proxy hygiene",
+      "ownerRole": "routes",
+      "dependsOn": [
+        "S2",
+        "S4"
+      ],
+      "auditFindings": [
+        "A03",
+        "A06",
+        "A08"
+      ],
+      "status": "accepted",
+      "assignedAgentId": "/root/s0_source",
+      "reviewerAgentId": "/root/s3_independent_review",
+      "startedAtUtc": "2026-09-15T20:29:45Z",
+      "finishedAtUtc": "2026-09-16T10:44:10Z",
+      "implementationRevision": "f47854d412637d9003d825bdce417b742bc623fa",
+      "workingDiffDigest": null,
+      "exitSummary": "Four shared feeder definitions; no invented idle paths; rendered depth cases and real ground coverage pass.",
+      "evidence": [
+        "docs/hero-reference/repairs/s3/manifest.json",
+        "docs/hero-reference/repairs/s3/acceptance-summary.json",
+        "docs/hero-reference/repairs/s3/regression-results.json",
+        "docs/hero-reference/repairs/s3/runs/51efe11b-e920-4978-82b5-dc2f831ac838/depth-results.json",
+        "docs/hero-reference/repairs/s3/context-runs/f24c1fb4-e0d6-4b59-a0ab-162ddda851ca/context-results.json",
+        "docs/hero-reference/repairs/s3/review.md"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s3/review.md",
+      "reviewDecision": "accepted-bounded-s3-scope-only",
+      "blockers": [],
+      "remainingVisualWork": [
+        "final route width and visual fidelity",
+        "shader/glow equivalence and city art",
+        "physical-device performance",
+        "S6 readiness and visible-DOM work",
+        "S7 qualification, S8 integration, and R3 or later visual implementation"
+      ],
+      "actualCheckCounts": {
+        "currentPinnedImplementationFiles": {
+          "depth": "8/8",
+          "ordinaryContext": "38/38"
+        },
+        "artifactIntegrity": {
+          "depth": "13/13",
+          "ordinaryContext": "6/6"
+        },
+        "renderedDepthCases": 12,
+        "ordinaryContexts": 4,
+        "ground": {
+          "poses": 1830,
+          "rays": 16470,
+          "exposedEdges": 0
+        },
+        "freshRegressionProof": "passed",
+        "freshRouteTests": "10/10",
+        "freshGroundTests": "8/8"
+      }
+    },
+    {
+      "id": "S4",
+      "title": "Comparison gates and provenance",
+      "ownerRole": "measurement",
+      "dependsOn": [
+        "S0"
+      ],
+      "auditFindings": [
+        "A07",
+        "A08",
+        "A10"
+      ],
+      "status": "completed",
+      "assignedAgentId": "/root/s0_contracts",
+      "reviewerAgentId": "/root/repair_reviewer",
+      "startedAtUtc": "2026-09-15 16:54:32 UTC",
+      "finishedAtUtc": "2026-09-15T19:54:23Z",
+      "implementationRevision": "f47854d412637d9003d825bdce417b742bc623fa",
+      "workingDiffDigest": "dd5ee2db6a54c8995ae329991c8e1f362b7390e9b459bb8a3e412549e1ba3955",
+      "workingDiffDigestScope": "Tracked classifier/comparator diff; new helper/test bytes are separately pinned by the reviewed evidence.",
+      "exitSummary": "Positive and corrupted classifier/gate fixtures behave correctly; source masks not transferred; provenance enforced.",
+      "evidence": [
+        "docs/hero-reference/repairs/s4/implementation-report.md",
+        "docs/hero-reference/repairs/s4/remeasurement-proposal.json",
+        "docs/hero-reference/recording-measurement-amendments-v1.json",
+        "docs/hero-reference/repairs/s4-root-integration.json",
+        "apps/pegasoft-e2e/test-output/hero-reference/repair-s4-classifiers/review-manifest.json"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s4/review.md",
+      "reviewDecision": "accepted-by-root-after-independent-review",
+      "blockers": [],
+      "remainingVisualWork": [
+        "All 15 historical structural states still fail. Fresh runtime text/motion/provenance and final visual approval remain unqualified; S7 supplies fresh captures. Historical local measurements are not overwritten."
+      ],
+      "actualCheckCounts": {
+        "regressionControls": 38,
+        "independentlyReviewedOverlayPairs": 19,
+        "verifiedEvidenceFiles": 77,
+        "approvedSourceMeasurementRecords": 12,
+        "approvedSourceNumericalLeaves": 42,
+        "remainingSourceMeasurementDriftWithOverlay": 0
+      }
+    },
+    {
+      "id": "S5",
+      "title": "Production profiles and backing resolution",
+      "ownerRole": "profiles",
+      "dependsOn": [
+        "S2"
+      ],
+      "auditFindings": [
+        "A04",
+        "A06",
+        "A09"
+      ],
+      "status": "accepted",
+      "assignedAgentId": "/root/s0_contracts",
+      "reviewerAgentId": "/root/repair_reviewer",
+      "startedAtUtc": "2026-09-15T20:29:45Z",
+      "finishedAtUtc": "2026-09-16T09:34:58Z",
+      "implementationRevision": "f47854d412637d9003d825bdce417b742bc623fa",
+      "workingDiffDigest": null,
+      "exitSummary": "No exact-recording style branch; source breakpoint/device rules tested; actual render-resolution evidence.",
+      "evidence": [
+        "docs/hero-reference/repairs/s5/review.md"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s5/review.md",
+      "reviewDecision": "accepted-bounded-s5-scope-only",
+      "blockers": [],
+      "remainingVisualWork": [
+        "visual fidelity",
+        "production-device performance",
+        "S6 readiness and visible-DOM work",
+        "S7 qualification and S8 integration"
+      ],
+      "actualCheckCounts": {
+        "freshUncachedAppTests": "222/222",
+        "profileTests": 146,
+        "finalManifestSha256": "eba14253c6fe7c65f7739133cc4a6a38ce580f0c901c94a9fd06042c970f11a0"
+      }
+    },
+    {
+      "id": "S6",
+      "title": "Readiness, failure recovery, visible DOM",
+      "ownerRole": "lifecycle-dom",
+      "dependsOn": [
+        "S3",
+        "S5"
+      ],
+      "auditFindings": [
+        "A01",
+        "A05",
+        "A07",
+        "A10"
+      ],
+      "status": "accepted",
+      "assignedAgentId": "/root",
+      "reviewerAgentId": "/root/s6_final_review",
+      "startedAtUtc": "2026-09-16",
+      "finishedAtUtc": "2026-09-20T12:08:40.675495+00:00",
+      "implementationRevision": "f47854d412637d9003d825bdce417b742bc623fa",
+      "workingDiffDigest": null,
+      "exitSummary": "Historical S6 exit snapshot: independent review accepted S6. Both runtime findings fixed;16/16browser,5unit,2typechecks pass;15measurements and8screenshots retained. Reduced-motion completed settlement59.8ms. S7 was not yet dispatched at that snapshot.",
+      "evidence": [
+        "docs/hero-reference/repairs/s6/status.md",
+        "apps/pegasoft/src/app/shared/hero-scene/hero-attempt.spec.ts",
+        "apps/pegasoft-e2e/src/hero-alternatives.spec.ts",
+        "docs/hero-reference/repairs/s6/runs/2026-09-18/manifest.json",
+        "docs/hero-reference/repairs/s6/runs/2026-09-19-final/manifest.json",
+        "docs/hero-reference/repairs/s6/review.md",
+        "docs/hero-reference/repairs/s6/acceptance.json"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s6/status.md",
+      "reviewDecision": "accepted-bounded-s6-scope-only",
+      "blockers": [],
+      "remainingVisualWork": [
+        "No final visual fidelity acceptance; R3 graphics implementation remains unauthorized."
+      ],
+      "actualCheckCounts": {
+        "typecheckPasses": 8,
+        "lifecycleUnitTests": 4,
+        "independentReviewFindings": 4,
+        "qualifiedBrowserRuns": 0,
+        "cleanBrowserRuns": 7,
+        "cleanBrowserCasesPassed": 8,
+        "cleanBrowserCasesFailed": 8,
+        "focusedDelayedResourceFailures": 6,
+        "focusedMobileNavigationPasses": 2,
+        "latestContinuation": {
+          "browserPassed": 16,
+          "browserFailed": 0,
+          "lifecycleUnitTests": 5,
+          "typecheckProjects": 2,
+          "retainedMeasurements": 15,
+          "reducedMotionSettlementMs": 59.8,
+          "independentReviews": 1
+        }
+      }
+    },
+    {
+      "id": "S7",
+      "title": "Browser and production qualification",
+      "ownerRole": "browser-qualification",
+      "dependsOn": [
+        "S3",
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "auditFindings": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10"
+      ],
+      "status": "accepted",
+      "assignedAgentId": "/root",
+      "reviewerAgentId": "01a0d439-1ffb-7052-9556-e217b21e45f4",
+      "startedAtUtc": "2026-09-21",
+      "finishedAtUtc": null,
+      "implementationRevision": null,
+      "workingDiffDigest": "dirty checkout preserved; S7 fail-fast runner, exclusive plan/attempt validator, negative controls, and checkpoint records added without runtime/art changes",
+      "exitSummary": "S7 v5 is accepted within bounded repair scope after removing mutable repair-sprints.md from testContract provenance. Strict validation passes at 360/360 rows (336 applicable pass, 24 predeclared N/A) with 672 raw images across 60/60 serial shards. Fresh shipping/context-loss smoke passed 4/4, and the final independent review returned APPROVE. Accepted count is 336/336; visual fidelity remains out of scope. S8 has a green requalification packet but remains blocked / draft after independent review; R3 remains gated.",
+      "evidence": [
+        "docs/hero-reference/repairs/s7/accounting-inventory.md",
+        "docs/hero-reference/repairs/s7/status.md",
+        "docs/hero-reference/repairs/s7/checkpoint-2026-09-21-loader-clear.md",
+        "docs/hero-reference/repairs/s7/checkpoint-2026-09-21-matrix-attempt.md",
+        "docs/hero-reference/repairs/s7/checkpoint-2026-09-22-restoration-clock.md",
+        "docs/hero-reference/repairs/s7/checkpoint-2026-09-22-source-contract-reframe.md",
+        "docs/hero-reference/repairs/s7/restoration-reachability-amendment-v1-draft.md",
+        "docs/hero-reference/repairs/s7/restoration-reachability-amendment-v1-review.md",
+        "docs/hero-reference/repairs/s7/checkpoint-2026-09-22-three-full-pass-stop.md",
+        "docs/hero-reference/repairs/s7/checkpoint-2026-09-23-fail-fast-shard-design.md",
+        "docs/hero-reference/repairs/s7/fail-fast-shard-design-review.md",
+        "docs/hero-reference/repairs/s7/checkpoint-2026-09-23-sharded-pass-1-stop.md",
+        "docs/hero-reference/repairs/s7/sharded-pass-1-review.md",
+        "docs/hero-reference/repairs/s7/runs/2026-09-22-restoration-amendment-proof-2/manifest.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-22-reverse-contact-proof/manifest.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-1-timeout/manifest.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-2-mobile-timeout/manifest.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-22-full-matrix-pass-3-stop/manifest.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-23-full-matrix-sharded-pass-1c/plan.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-23-full-matrix-sharded-pass-1c/shards/mobile--arrival-travel.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-23-full-matrix-sharded-pass-1c/playwright-results.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v4/plan.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v4/attempt.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v4/playwright-results.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v5/plan.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v5/attempt.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v5/playwright-results.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v5/manifest.json",
+        "docs/hero-reference/repairs/s7/runs/2026-09-24-css-repair-full-v5/handover.md",
+        "docs/hero-reference/repairs/s7/s7-matrix-accounting.md",
+        "docs/hero-reference/repairs/s7/runs/2026-09-21-loader-clear/s7-diagnostics-results.json",
+        "apps/pegasoft-e2e/playwright.s7.config.ts",
+        "apps/pegasoft-e2e/src/hero-production-smoke.spec.ts"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s7/status.md",
+      "reviewDecision": "APPROVE",
+      "blockers": [
+        "The original development-diagnostic smoke failure was corrected and retained as historical harness evidence; shipping smoke now passes 4/4 but cannot substitute for the required matrix.",
+        "The historical three-pass loader-clear blocker is fixed and the focused regression passes 2/2; it remains focused evidence, not a substitute for the full matrix.",
+        "The reviewed four-row restoration amendment is selected explicitly and its corrected first-eligible focused proof passes 4/4; the invalid pre-navigation recorder proof remains preserved and cannot be used.",
+        "The corrected ordinary reverse-contact recipe passes 4/4 without changing the 300 ms classifier, target, runtime, denominator, or timeout.",
+        "Three full-matrix passes failed. Pass 2 retained 322 passing observations but did not complete mobile. Pass 3 caught its own test timeout inside the per-cell loop and emitted 295 closed-page fallout records; no observation qualifies.",
+        "Historical: the earlier fail-fast same-build sharded runner and strict merge contract were independently reviewed and stopped without fallout after 71 pass observations. The mobile native-restoration shift and the v4 packet's pre-merge state are preserved as historical evidence; the v5 packet supersedes them for current S7 acceptance.",
+        "The post-stop harness adds a 10-second cell-predicate bound and passes 28/28 focused controls, but that change makes the executed plan historical. Do not rerun until runtime-change authority and a fresh review/build/plan are available.",
+        "Strict v4 packet validation on 2026-09-24 failed at the freshness gate: sealed testContract hash 3049c399447bd95ff7f421b6b5e5965d4b873250050a4e4256fd724467a7bbda differs from current-input hash 091beac83f1b822e1e78d5a9fd4c0abb466f0486917815da1547d839d8b6ce47. The v4 packet self-validates only with verifyCurrentInputs=false and remains historical.",
+        "v5 strict validation passed at 360/360 rows with 336 applicable passes, 24 predeclared N/A, 60/60 serial shards, and 672 raw images. Manifest and handover are complete, and final independent review returned APPROVE."
+      ],
+      "remainingVisualWork": [
+        "S7 is accepted within bounded repair scope; final visual fidelity remains out of scope.",
+        "S8 has a green requalification packet but remains blocked / draft after independent review; R3 remains unauthorized."
+      ],
+      "actualCheckCounts": {
+        "matrixCells": 360,
+        "matrixApplicable": 336,
+        "matrixNotApplicable": 24,
+        "qualifiedApplicableBrowserCells": 336,
+        "latestPacketSelfValidationTotal": 360,
+        "latestPacketSelfValidationApplicablePasses": 336,
+        "latestPacketSelfValidationNotApplicable": 24,
+        "latestPacketStrictValidationBlockedStaleTestContract": 1,
+        "latestPacketV5Total": 360,
+        "latestPacketV5ApplicablePasses": 336,
+        "latestPacketV5NotApplicable": 24,
+        "latestPacketV5RawImages": 672,
+        "latestPacketV5CompletedShards": 60,
+        "latestPacketV5StrictValidationPasses": 1,
+        "latestPacketV5IndependentReviewPendingUsageGate": 0,
+        "latestPacketV5ShippingSmokeAssertionsPassed": 4,
+        "latestPacketV5IndependentReviewApproved": 1,
+        "productionBuildPasses": 1,
+        "appAndE2eTypecheckPasses": 2,
+        "productionSmokeAssertionsBlockedHistorical": 4,
+        "productionSmokeAssertionsPassed": 4,
+        "productionSmokeReruns": 2,
+        "testEnabledDiagnosticsBuildPasses": 9,
+        "testEnabledDiagnosticsRunsBlocked": 3,
+        "testEnabledDiagnosticsFocusedProfilePasses": 2,
+        "testEnabledDiagnosticsAssertionsQualified": 0,
+        "matrixObservedApplicablePassesHistoricalFirstAttempt": 104,
+        "matrixApplicableFailuresHistoricalFirstAttempt": 64,
+        "matrixApplicableUnexecutedHistoricalFirstAttempt": 168,
+        "fullMatrixPassesAttempted": 4,
+        "bestIncompleteFullMatrixObservedPasses": 322,
+        "latestFullMatrixObservedPasses": 336,
+        "latestFullMatrixPreCloseFailureRecords": 0,
+        "latestFullMatrixClosedPageFalloutRecords": 0,
+        "latestShardedMatrixStartedShards": 60,
+        "latestShardedMatrixCompletedShards": 60,
+        "latestShardedMatrixFatalRunnerRecords": 0,
+        "latestShardedMatrixObservedNotApplicable": 24,
+        "latestShardedMatrixApplicableWithoutPass": 0,
+        "latestHarnessFocusedTestsPassed": 28,
+        "independentRunnerDesignReviewRounds": 2,
+        "restorationAmendmentFocusedProfilePasses": 4,
+        "ordinaryReverseContactFocusedProfilePasses": 4,
+        "restorationFocusedPassesAttempted": 3,
+        "latestRestorationFocusedPassed": 1,
+        "latestRestorationFocusedFailed": 1,
+        "postChangeAppUnitTestsPassed": 238,
+        "postChangeTypecheckTargetsPassed": 2,
+        "postChangeS6BrowserCasesPassed": 16,
+        "historicalQuotaPauseFiveHourUsedPercent": 99,
+        "latestQuotaCheckFiveHourUsedPercent": 36,
+        "restorationContractReviews": 1
+      }
+    },
+    {
+      "id": "S8",
+      "title": "Independent repair acceptance and handover",
+      "ownerRole": "independent-reviewer",
+      "dependsOn": [
+        "S0",
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7"
+      ],
+      "auditFindings": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10"
+      ],
+      "status": "qualified-awaiting-phase-authorization",
+      "assignedAgentId": "01a0d7b7-2462-76d3-b187-32bcac9d91be",
+      "reviewerAgentId": "01a0e46c-f94f-7ce1-a11f-6b1699db571f",
+      "startedAtUtc": "2026-09-25",
+      "finishedAtUtc": "2026-09-27",
+      "implementationRevision": null,
+      "workingDiffDigest": null,
+      "exitSummary": "Focused no-history independent review confirms the corrected smoke/build provenance, A01-A10 links and wording, retained same-build ordinary-playback clip, and sealed packet integrity. Repairs are qualified; awaiting phase authorization. Visual debt remains outside scope and R3 remains unauthorized.",
+      "evidence": [
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-integrated-acceptance/report.md",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-integrated-acceptance/logs/app-lint.log",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-integrated-acceptance/logs/e2e-lint.log",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/manifest.json",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/handover.md",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/a01-a10-mapping.md",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/independent-review.md",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/smoke/BLOCKED.md",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/normal-motion/metadata.json",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/normal-motion/BLOCKED.md",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-requalification-2/smoke/production-build-id.txt",
+        "apps/pegasoft-e2e/test-output/playwright/s7-production-results.json"
+      ],
+      "reportRef": "docs/hero-reference/repairs/s8/runs/2026-09-25-integrated-acceptance/report.md",
+      "reviewDecision": "APPROVE",
+      "blockers": [],
+      "remainingVisualWork": [
+        "Final visual fidelity, representative hardware performance, personal approval, and phase authorization remain separate obligations; R3 remains unauthorized."
+      ],
+      "actualCheckCounts": {
+        "appTypecheck": "pass",
+        "e2eTypecheck": "pass",
+        "appUnitTests": "pass",
+        "appBuild": "pass",
+        "appLint": "pass",
+        "e2eLint": "pass",
+        "shippingSmoke": "fresh 4/4 desktop/mobile ordinary render plus actual context-loss fallback",
+        "browserQualification": "60/60 shards; 336/336 applicable passed; strict validator passed"
+      }
+    }
+  ],
+  "taskDispatches": [
+    {
+      "date": "2026-09-26",
+      "taskId": "01a0df09-e980-7cf0-a2fa-4965f46da78c",
+      "title": "Fresh independent S8 closure review",
+      "model": "gpt-5.6-sol",
+      "scope": "Read-only normative S8 review of packet provenance, smoke/motion gates, A01-A10 mapping, visual-debt boundaries, and phase disposition; verdict file only",
+      "status": "completed",
+      "acceptanceState": "APPROVE-WITH-REQUIRED-CHANGES; S8 remains blocked",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 29,
+        "weeklyUsedPercent": 4
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 29,
+        "weeklyUsedPercent": 5
+      },
+      "usageScope": "Account-wide snapshots; fresh independent review wave"
+    },
+    {
+      "date": "2026-09-26",
+      "taskId": "01a0df07-d110-7fb2-ab9b-b11609a97b22",
+      "title": "S8 A01-A10 repair debt mapping",
+      "model": "gpt-6-luna",
+      "scope": "Own only compact evidence-grounded A01-A10 repaired-aspect and remaining-visual-debt table; no authorization, source edits, or shared-status writes",
+      "status": "completed",
+      "acceptanceState": "A01-A10 mapping created and validated; smoke and normal-motion gates remain unresolved",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 28,
+        "weeklyUsedPercent": 4
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 28,
+        "weeklyUsedPercent": 4
+      },
+      "usageScope": "Account-wide snapshots; serialized post-preparation mapping wave"
+    },
+    {
+      "date": "2026-09-26",
+      "taskId": "01a0df03-1a9a-7e41-9b57-df9f1be64453",
+      "title": "S8 closure provenance packet",
+      "model": "gpt-6-luna",
+      "scope": "Own only new requalification-2 closure manifest and handover; bind revision, working diff, packet, smoke, motion, and mapping artifacts; no source edits or commits",
+      "status": "completed",
+      "acceptanceState": "Draft manifest/handover prepared; final closure blocked by smoke and motion evidence",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 13,
+        "weeklyUsedPercent": 2
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 14,
+        "weeklyUsedPercent": 2
+      },
+      "usageScope": "Account-wide snapshots; parallel closure wave"
+    },
+    {
+      "date": "2026-09-26",
+      "taskId": "01a0df03-2cc0-79b0-a4c6-de05256c6802",
+      "title": "S8 production smoke evidence",
+      "model": "gpt-5.6-terra",
+      "scope": "Own only fresh ordinary production/context-loss smoke evidence and metadata; exclusive browser/build lease before normal-motion capture; no source edits or commits",
+      "status": "completed",
+      "acceptanceState": "Blocked before browser execution; no green smoke marker",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 13,
+        "weeklyUsedPercent": 2
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 14,
+        "weeklyUsedPercent": 2
+      },
+      "usageScope": "Account-wide snapshots; parallel closure wave"
+    },
+    {
+      "date": "2026-09-26",
+      "taskId": "01a0df03-3c05-73e3-a55e-6a89df06535a",
+      "title": "S8 normal-motion capture",
+      "model": "gpt-5.6-terra",
+      "scope": "Own only fresh ordinary normal-motion video and metadata after smoke build marker; no direct state/clock injection, source edits, or commits",
+      "status": "completed",
+      "acceptanceState": "Verified smoke marker supplied on resume; no compliant existing capture path exists, so no capture created; blocker recorded",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 13,
+        "weeklyUsedPercent": 2
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 14,
+        "weeklyUsedPercent": 2
+      },
+      "usageScope": "Account-wide snapshots; parallel closure wave"
+    },
+    {
+      "date": "2026-09-25",
+      "taskId": "01a0d7b7-2462-76d3-b187-32bcac9d91be",
+      "event": "reviewResumes",
+      "title": "S8 integrated repair acceptance",
+      "scope": "Sequential independent review of requalification-2 and scoped lint/timing fixes; no new agents or R3",
+      "status": "completed",
+      "acceptanceState": "Independent review completed: APPROVE-WITH-REQUIRED-CHANGES; S8 remains blocked",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 81,
+        "weeklyUsedPercent": 28
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 87,
+        "weeklyUsedPercent": 29
+      },
+      "usageScope": "Account-wide snapshots; existing reviewer resumed, not new parallel dispatch"
+    },
+    {
+      "date": "2026-09-25",
+      "taskId": "01a0d7cd-8c5c-7f71-b8be-f96db710f9e0",
+      "title": "Consolidate completed-task records and reduce agent context",
+      "model": "user-configured default",
+      "scope": "Consolidate redundant unsealed summaries; preserve evidence; compact current-status routing and completion-record policy",
+      "status": "completed",
+      "acceptanceState": "Completed: one mutable current-status narrative consolidated; no sealed evidence archived or changed.",
+      "evidence": [
+        "docs/hero-reference/repairs/s7/status.md",
+        "docs/hero-reference/repairs/s8/runs/2026-09-25-integrated-acceptance/report.md",
+        "docs/hero-reference/repair-sprint-ledger.json"
+      ],
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 53,
+        "weeklyUsedPercent": 24
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 55,
+        "weeklyUsedPercent": 24
+      },
+      "usageScope": "Account-wide snapshots, not task-attributable tokens"
+    },
+    {
+      "date": "2026-09-25",
+      "taskId": "01a0d7c4-f693-7a11-887d-9cb4ecdacab3",
+      "title": "Commit completed hero repairs through S7",
+      "model": "user-configured default",
+      "scope": "Exact-path accepted S0-S7 commit; preserve unrelated WIP and exclude S8 repair changes; no push",
+      "status": "dispatched",
+      "acceptanceState": "S7 accepted; commit not yet verified",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 36,
+        "weeklyUsedPercent": 21
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 43,
+        "weeklyUsedPercent": 22
+      },
+      "usageScope": "Account-wide snapshots, not task-attributable token consumption"
+    },
+    {
+      "date": "2026-09-25",
+      "taskId": "01a0d7c5-74bd-7d72-bd78-80eadbb58ce8",
+      "title": "Resolve S8 lint and browser qualification blockers",
+      "model": "user-configured default",
+      "scope": "Read-only diagnosis until S7 commit completes, then minimal lint fixes and serialized integrated requalification with independent review",
+      "status": "completed",
+      "acceptanceState": "Scoped repairs and full requalification completed; independent review APPROVE-WITH-REQUIRED-CHANGES; S8 remains blocked by closure gates",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 43,
+        "weeklyUsedPercent": 22
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 45,
+        "weeklyUsedPercent": 23
+      },
+      "usageScope": "Account-wide snapshots, not task-attributable token consumption"
+    },
+    {
+      "date": "2026-09-25",
+      "taskId": "01a0d7b6-b142-7fa3-ba9a-36e9d2c4db16",
+      "title": "Reconcile accepted S7 documentation",
+      "model": "user-configured default",
+      "scope": "Reconcile current summaries and historical blockers; no runtime or browser/build work",
+      "status": "dispatched",
+      "acceptanceState": "S7 accepted; documentation reconciliation in progress",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 10,
+        "weeklyUsedPercent": 17
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 12,
+        "weeklyUsedPercent": 18
+      },
+      "usageScope": "Account-wide snapshots, not task-attributable token consumption"
+    },
+    {
+      "date": "2026-09-25",
+      "taskId": "01a0d7b7-2462-76d3-b187-32bcac9d91be",
+      "title": "S8 integrated repair acceptance",
+      "model": "user-configured default",
+      "scope": "Fresh integrated checks, independent scope and visual-debt review; exclusive serialized browser/build work; no R3",
+      "status": "dispatched",
+      "acceptanceState": "S8 authorized and in progress, not accepted",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 12,
+        "weeklyUsedPercent": 18
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 15,
+        "weeklyUsedPercent": 18
+      },
+      "usageScope": "Account-wide snapshots, not task-attributable token consumption"
+    },
+    {
+      "date": "2026-09-24",
+      "taskId": "01a0d3f9-0f21-7433-8644-37ce892e8b93",
+      "title": "Qualify S7 v4 evidence packet",
+      "model": "user-configured default",
+      "scope": "Validate v4 integrity, complete manifest and handover, obtain independent S7 review; no S8/R3",
+      "status": "dispatched",
+      "acceptanceState": "336 observed applicable passes; 0 independently qualified",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 47,
+        "weeklyUsedPercent": 7
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 49,
+        "weeklyUsedPercent": 8
+      },
+      "usageScope": "Account-wide snapshots; not task-attributable token or credit consumption",
+      "dispatchPolicy": "Check usage before and after each new task/subagent, update ledger and report consumption; pause at 95 percent used"
+    },
+    {
+      "date": "2026-09-24",
+      "taskId": "client-new-thread:5546e8c0-f8e8-4afd-9518-8ecb31a8df18",
+      "title": "Independent review S7 provenance scope",
+      "model": "gpt-5.6-luna",
+      "scope": "Review removal of mutable repair-sprints.md from testContract provenance; no matrix, edits, commits, S8, or R3",
+      "status": "dispatched-setup-pending",
+      "acceptanceState": "Review proposed; 29/29 harness tests pass; fresh matrix not authorized until verdict",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 57,
+        "weeklyUsedPercent": 9
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 57,
+        "weeklyUsedPercent": 9
+      },
+      "usageScope": "Account-wide snapshots; not task-attributable token or credit consumption",
+      "dispatchPolicy": "Check usage before and after each new task/subagent, update ledger and report consumption; pause at 95 percent used"
+    },
+    {
+      "date": "2026-09-24",
+      "taskId": "01a0d406-664b-7fc0-a63a-114d1b134c38",
+      "title": "Read-only review S7 contract hash scope",
+      "model": "gpt-5.6-luna",
+      "scope": "Independent review of mutable-summary exclusion from testContract provenance; no edits, matrix, S8, or R3",
+      "status": "completed",
+      "acceptanceState": "APPROVE; fresh build/plan required; full matrix required for qualification claim",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 58,
+        "weeklyUsedPercent": 9
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 58,
+        "weeklyUsedPercent": 9
+      },
+      "usageScope": "Account-wide snapshots; not task-attributable token or credit consumption",
+      "dispatchPolicy": "Check usage before and after each new task/subagent, update ledger and report consumption; pause at 95 percent used"
+    },
+    {
+      "date": "2026-09-24",
+      "taskId": "01a0d439-1ffb-7052-9556-e217b21e45f4",
+      "title": "Final independent review S7 v5",
+      "model": "gpt-5.6-luna",
+      "scope": "Read-only normative acceptance review of frozen v5 manifest, handover, 60 shards, raw captures, restoration, and separate shipping evidence; no edits/build/browser/S8/R3",
+      "status": "completed",
+      "acceptanceState": "APPROVE; v5 accepted within bounded repair scope at 336/336",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 4,
+        "weeklyUsedPercent": 15
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 5,
+        "weeklyUsedPercent": 15
+      },
+      "usageScope": "Account-wide snapshots; not task-attributable token or credit consumption",
+      "dispatchPolicy": "Check usage before and after each new task/subagent, update ledger and report consumption; pause at 95 percent used"
+    },
+    {
+      "date": "2026-09-27",
+      "taskId": "current-s8-owner",
+      "title": "S8 closure corrections and focused independent review",
+      "model": "gpt-6-luna",
+      "scope": "Correct sealed S8 provenance contradictions, run focused checks, and obtain one no-history read-only closure review; no matrix/browser/build rerun or R3",
+      "status": "completed",
+      "acceptanceState": "APPROVE; repairs qualified; awaiting phase authorization",
+      "usageBeforeDispatch": {
+        "fiveHourUsedPercent": 7,
+        "weeklyUsedPercent": 32
+      },
+      "usageAfterDispatch": {
+        "fiveHourUsedPercent": 10,
+        "weeklyUsedPercent": 32
+      },
+      "usageScope": "Account-wide snapshots; not task-attributable token or credit consumption",
+      "reviewerAgentId": "01a0e46c-f94f-7ce1-a11f-6b1699db571f",
+      "dispatchPolicy": "Check usage before and after each new task/subagent, update ledger and report consumption; pause at 95 percent used"
+    }
+  ],
+  "recoveryUsageSnapshots": [
+    {
+      "date": "2026-09-30",
+      "batch": "task2-loader-phase-correspondence",
+      "point": "start",
+      "fiveHourUsedPercent": 1,
+      "weeklyUsedPercent": 16,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-09-30",
+      "batch": "task2-loader-phase-correspondence",
+      "point": "end",
+      "fiveHourUsedPercent": 13,
+      "weeklyUsedPercent": 18,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-09-30",
+      "batch": "task2-native-loader-age-binding",
+      "point": "start",
+      "fiveHourUsedPercent": 21,
+      "weeklyUsedPercent": 19,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-09-30",
+      "batch": "task2-native-loader-age-binding",
+      "point": "end",
+      "fiveHourUsedPercent": 26,
+      "weeklyUsedPercent": 20,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-09-30",
+      "batch": "task2-provenance-reconciliation",
+      "point": "start",
+      "fiveHourUsedPercent": 28,
+      "weeklyUsedPercent": 20,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-09-30",
+      "batch": "task2-provenance-reconciliation",
+      "point": "end",
+      "fiveHourUsedPercent": 32,
+      "weeklyUsedPercent": 21,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-authorized-capture-reconciliation",
+      "point": "start",
+      "fiveHourUsedPercent": 1,
+      "weeklyUsedPercent": 21,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-authorized-capture-reconciliation",
+      "point": "end",
+      "fiveHourUsedPercent": 11,
+      "weeklyUsedPercent": 22,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-independent-loader-review",
+      "point": "start",
+      "fiveHourUsedPercent": 12,
+      "weeklyUsedPercent": 23,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-independent-loader-review",
+      "point": "before-review-dispatch",
+      "fiveHourUsedPercent": 14,
+      "weeklyUsedPercent": 23,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-independent-loader-review",
+      "point": "end",
+      "fiveHourUsedPercent": 24,
+      "weeklyUsedPercent": 24,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-named-animation-telemetry",
+      "point": "start",
+      "fiveHourUsedPercent": 28,
+      "weeklyUsedPercent": 25,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-named-animation-telemetry",
+      "point": "end",
+      "fiveHourUsedPercent": 35,
+      "weeklyUsedPercent": 26,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-source-rotation-probe",
+      "point": "start",
+      "fiveHourUsedPercent": 40,
+      "weeklyUsedPercent": 27,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-source-rotation-probe",
+      "point": "end",
+      "fiveHourUsedPercent": 42,
+      "weeklyUsedPercent": 27,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-source-svg-geometry",
+      "point": "start",
+      "fiveHourUsedPercent": 44,
+      "weeklyUsedPercent": 28,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-source-svg-geometry",
+      "point": "end",
+      "fiveHourUsedPercent": 46,
+      "weeklyUsedPercent": 28,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-geometry-raster-estimator",
+      "point": "start",
+      "fiveHourUsedPercent": 47,
+      "weeklyUsedPercent": 28,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-geometry-raster-estimator",
+      "point": "end",
+      "fiveHourUsedPercent": 49,
+      "weeklyUsedPercent": 28,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-landmark-support-audit",
+      "point": "start",
+      "fiveHourUsedPercent": 50,
+      "weeklyUsedPercent": 29,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-01",
+      "batch": "task2-landmark-support-audit",
+      "point": "end",
+      "fiveHourUsedPercent": 55,
+      "weeklyUsedPercent": 29,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-background-separated-extractor",
+      "point": "start",
+      "fiveHourUsedPercent": 13,
+      "weeklyUsedPercent": 32,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-background-separated-extractor",
+      "point": "end",
+      "fiveHourUsedPercent": 19,
+      "weeklyUsedPercent": 33,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-independent-landmark-review",
+      "point": "before-review-dispatch",
+      "fiveHourUsedPercent": 21,
+      "weeklyUsedPercent": 33,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-independent-landmark-review",
+      "point": "end",
+      "fiveHourUsedPercent": 27,
+      "weeklyUsedPercent": 34,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-parallel-evidence",
+      "point": "before-dispatch",
+      "fiveHourUsedPercent": 0,
+      "weeklyUsedPercent": 34,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-parallel-evidence",
+      "point": "dispatch-and-loader-checkpoint; three evidence lanes running",
+      "fiveHourUsedPercent": 10,
+      "weeklyUsedPercent": 36,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-parallel-evidence-reconciliation",
+      "point": "start",
+      "fiveHourUsedPercent": 40,
+      "weeklyUsedPercent": 49,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-parallel-evidence-reconciliation",
+      "point": "end",
+      "fiveHourUsedPercent": 42,
+      "weeklyUsedPercent": 49,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-landmark-candidate-refinement",
+      "point": "before-assignment",
+      "fiveHourUsedPercent": 51,
+      "weeklyUsedPercent": 50,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-implementation-closure-attempt",
+      "point": "start-and-before-dispatch",
+      "fiveHourUsedPercent": 64,
+      "weeklyUsedPercent": 52,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-implementation-closure-attempt",
+      "point": "after-landmark-review-loader-log-search-and-fresh-measurement",
+      "fiveHourUsedPercent": 85,
+      "weeklyUsedPercent": 56,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-implementation-closure-attempt",
+      "point": "implementation-and-packet-complete",
+      "fiveHourUsedPercent": 91,
+      "weeklyUsedPercent": 57,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-02",
+      "batch": "task2-implementation-closure-attempt",
+      "point": "end-after-owner-closure-verification",
+      "fiveHourUsedPercent": 92,
+      "weeklyUsedPercent": 57,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "task2-spec-entry-and-profile-review",
+      "point": "session-start-and-before-review",
+      "fiveHourUsedPercent": 2,
+      "weeklyUsedPercent": 57,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-03",
+      "batch": "task2-connected-peak-refinement",
+      "point": "before-implementation-assignment",
+      "fiveHourUsedPercent": 10,
+      "weeklyUsedPercent": 58,
+      "ordinaryUsageAllowed": true,
+      "resetCreditRedeemed": false
+    },
+    {
+      "date": "2026-10-03T11:32:18.561057+00:00",
+      "checkpoint": "exit presentation checked batch",
+      "fiveHourUsedPercent": 58,
+      "weeklyUsedPercent": 74,
+      "pauseAtFiveHourUsedPercent": 95,
+      "scope": "account-wide; no reset or credits redeemed"
+    },
+    {
+      "date": "2026-10-03T11:36:44.060329+00:00",
+      "checkpoint": "exit presentation targeted review closure",
+      "fiveHourUsedPercent": 66,
+      "weeklyUsedPercent": 75,
+      "pauseAtFiveHourUsedPercent": 95,
+      "scope": "account-wide; no reset or credits redeemed"
+    },
+    {
+      "date": "2026-10-08",
+      "context": "master-merge-repair-user-checkpoint",
+      "fiveHourUsedPercent": 88,
+      "weeklyUsedPercent": 26,
+      "ordinaryUsageAllowed": true,
+      "scope": "Account snapshot; not task cost."
+    },
+    {
+      "date": "2026-10-14",
+      "context": "master-merge-final-validation",
+      "fiveHourUsedPercent": 61,
+      "weeklyUsedPercent": 45,
+      "ordinaryUsageAllowed": true,
+      "scope": "Account snapshot; not task cost."
+    }
+  ],
+  "recoveryTask2": {
+    "date": "2026-10-02",
+    "task": 2,
+    "status": "blocked",
+    "packetRunId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+    "outcome": "Inactive landmark/profile diagnostics implemented and checked. Connected-peak P2 reproduced, corrected and independently closed for its literal counterexample. Fresh measurement85/85, both typechecks, lint0errors/39warnings; refinement35pins/3repeatable outputs. Five qualification gates remain blocked. Written spec defined; user confirmed full Task2 qualification before geometry, no runtime geometry/current capture/visual acceptance.",
+    "checks": {
+      "capture": {
+        "exitCode": 0,
+        "passed": 15,
+        "failed": 0,
+        "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-capture-permitted-2026-10-01.log",
+        "manifest": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+        "manifestArtifactHashesPassed": 62
+      },
+      "sandboxCaptureStartup": {
+        "exitCode": 1,
+        "reason": "Local server listen denied by sandbox; reran with permitted server/Chrome access.",
+        "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-capture-2026-10-01.log"
+      },
+      "measurement": {
+        "passed": 57,
+        "failed": 0,
+        "exitCode": 0,
+        "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-measurement-2026-10-01.log"
+      },
+      "comparison": {
+        "exitCode": 1,
+        "strictProvenancePasses": 15,
+        "strictProvenanceFailures": 0,
+        "metricsProduced": true,
+        "structural": {
+          "pass": 0,
+          "fail": 8,
+          "blocked": 7
+        },
+        "raster": {
+          "pass": 0,
+          "fail": 15
+        },
+        "dom": {
+          "pass": 10,
+          "fail": 3,
+          "blocked": 0,
+          "not-applicable": 2
+        },
+        "report": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json",
+        "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-compare-2026-10-01.log"
+      },
+      "captureTypechecks": {
+        "outcome": "pass",
+        "command": "pnpm nx run @site/pegasoft-e2e:hero-capture dependsOn both typechecks",
+        "appCacheHit": true
+      }
+    },
+    "trackedDiff": {
+      "capturedSha256": "09d7036d7f388e2ae99b2e40911a7214ccada728f3a4fcdad0786f5c90be304c",
+      "currentSha256": "09d7036d7f388e2ae99b2e40911a7214ccada728f3a4fcdad0786f5c90be304c",
+      "retainedBytesPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-capture-2026-10-01.diff",
+      "preflightRecord": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-authorized-capture-2026-10-01-input.json",
+      "status": "pass; all 15 state pins match preflight and current WIP"
+    },
+    "savedLocalClockDiagnostics": {
+      "loader-mark": {
+        "animationIds": [
+          0,
+          1
+        ],
+        "currentTimeMs": 2000
+      },
+      "world-reveal": {
+        "animationIds": [
+          0,
+          1
+        ],
+        "currentTimeMs": 3500,
+        "transitionId": 3,
+        "transitionTimeMs": 605
+      },
+      "semanticMapping": "missing",
+      "loaderPhaseContracts": "missing"
+    },
+    "ruling": "Bind loader-animation-onset age to the reviewed native animation timeline, not discovery/navigation time or a fade transition. Cost if wrong: evidence remains blocked until the reviewer maps the intended effect to that timeline.",
+    "nextAction": "Pending explicit timed source authority/capture decision. Local readback prerequisite is complete and reviewed; all five qualification gates remain open. Task3 unstarted.",
+    "newCaptures": 15,
+    "runtimeEdits": false,
+    "tasks3to6": "not-started",
+    "reconciliation": {
+      "status": "pass",
+      "authorization": "User: Re-run capture and reconciliation attempt and update me on the next checkpoint",
+      "date": "2026-10-01",
+      "newCaptureBatchCount": 1,
+      "oldPacketPreserved": true,
+      "pinsBackfilled": false,
+      "remainingCorrespondenceBlockers": {
+        "loader-mark": [
+          "Independent loader phase review is missing.",
+          "Loader phase runId pin is missing or stale.",
+          "Loader phase stateId pin is missing or stale.",
+          "Loader phase recordingSha256 pin is missing or stale.",
+          "Loader phase referenceSha256 pin is missing or stale.",
+          "Loader phase implementationSha256 pin is missing or stale.",
+          "source loader onset/age is not pinned to one recording-frame interval.",
+          "implementation loader onset/age is not pinned to one recording-frame interval.",
+          "Local loader age is not bound to one independently identified captured native animation."
+        ],
+        "world-reveal": [
+          "implementation route source-predicate quality gate is blocked",
+          "Independent loader phase review is missing.",
+          "Loader phase runId pin is missing or stale.",
+          "Loader phase stateId pin is missing or stale.",
+          "Loader phase recordingSha256 pin is missing or stale.",
+          "Loader phase referenceSha256 pin is missing or stale.",
+          "Loader phase implementationSha256 pin is missing or stale.",
+          "source loader onset/age is not pinned to one recording-frame interval.",
+          "implementation loader onset/age is not pinned to one recording-frame interval.",
+          "Local loader age is not bound to one independently identified captured native animation.",
+          "Route classification is ambiguous or source/local predicates select different color support; core/physical-radius/glow cannot be treated as interchangeable.",
+          "Core/glow hue-band diagnostics do not qualify appearance; independent core/glow refinement is required, not a radius inferred from selected area."
+        ],
+        "landing-idle": [
+          "implementation route source-predicate quality gate is blocked",
+          "Route classification is ambiguous or source/local predicates select different color support; core/physical-radius/glow cannot be treated as interchangeable.",
+          "Core/glow hue-band diagnostics do not qualify appearance; independent core/glow refinement is required, not a radius inferred from selected area."
+        ],
+        "activation-route": [
+          "implementation landmark renderer-independent quality gate is blocked",
+          "Route classification is ambiguous or source/local predicates select different color support; core/physical-radius/glow cannot be treated as interchangeable.",
+          "Landmark classifier reaches a selection boundary or has unavailable support; unchanged IoU/centroid cannot qualify a clipped subject.",
+          "Core/glow hue-band diagnostics do not qualify appearance; independent core/glow refinement is required, not a radius inferred from selected area."
+        ],
+        "activation-contact": [
+          "implementation landmark renderer-independent quality gate is blocked",
+          "Route classification is ambiguous or source/local predicates select different color support; core/physical-radius/glow cannot be treated as interchangeable.",
+          "Landmark classifier reaches a selection boundary or has unavailable support; unchanged IoU/centroid cannot qualify a clipped subject.",
+          "Core/glow hue-band diagnostics do not qualify appearance; independent core/glow refinement is required, not a radius inferred from selected area."
+        ],
+        "arrival-lockup": [
+          "implementation landmark renderer-independent quality gate is blocked",
+          "Route classification is ambiguous or source/local predicates select different color support; core/physical-radius/glow cannot be treated as interchangeable.",
+          "Landmark classifier reaches a selection boundary or has unavailable support; unchanged IoU/centroid cannot qualify a clipped subject.",
+          "Core/glow hue-band diagnostics do not qualify appearance; independent core/glow refinement is required, not a radius inferred from selected area."
+        ],
+        "journey-exit": [
+          "implementation boundary primary-structure bounds are not emitted"
+        ]
+      }
+    },
+    "sourceOnsetCandidate": {
+      "status": "independently-reviewed-insufficient-for-animation-age",
+      "quantity": "visible settled-page to loader presentation transition",
+      "lastPriorPage": {
+        "decodedFrameIndex": 56,
+        "pts": 5800,
+        "timeBase": "1/6000",
+        "timestampSeconds": 0.966667
+      },
+      "firstLoaderPresentation": {
+        "decodedFrameIndex": 57,
+        "pts": 5900,
+        "timeBase": "1/6000",
+        "timestampSeconds": 0.983333
+      },
+      "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+      "limitations": "Presentation onset is not independently proven CSS animation onset. Do not populate loaderPhaseContracts or derive a guessed capture-clock offset from these frames. No new browser capture ran.",
+      "artifacts": [
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-frames.json",
+          "bytes": 235608,
+          "sha256": "87245987ca4ceda9a58d135e713d24fc2c6c6a96a8d31788fcb6fbf520ffe7eb"
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-01.png",
+          "bytes": 1037559,
+          "sha256": "459f05fffeea1a2783c4955a71238bb2c7fa91446a480c122c5889c0abc24d59"
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-02.png",
+          "bytes": 25744,
+          "sha256": "5f0e64ce9988756fcbb5bb6df86aedf3fd3b3170349bcda58a631b9807318cc7"
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-detail.png",
+          "bytes": 269334,
+          "sha256": "06f1f0234472bf467e2a9fcab2e1588a44ce5efe8582a03de8e1cd1e2776e0dc"
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-loader-sheet.png",
+          "bytes": 1484612,
+          "sha256": "d17ad51c4a8501d705469248619a50c26b0db4b5ad775c042cc3f50494a98bc9"
+        }
+      ],
+      "reviewRef": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-independent-review.json",
+      "reviewFinding": "Frames56/57 qualify background presentation only; no effect-specific animation age."
+    },
+    "previousPacketCheckpoint": {
+      "packetRunId": "4c1c48b5-98a6-4a61-9ecf-02a503e7f27f",
+      "checks": {
+        "measurement": {
+          "passed": 57,
+          "failed": 0,
+          "exitCode": 0,
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-green.log"
+        },
+        "regressions": {
+          "redFailures": 3,
+          "greenPasses": 3,
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-red.log"
+        },
+        "comparison": {
+          "exitCode": 1,
+          "provenanceFailures": 15,
+          "metricsProduced": false,
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-compare-valid.log"
+        },
+        "initialComparisonInvocation": {
+          "exitCode": 1,
+          "reason": "Equals-form capture-root flag rejected; reran with documented Nx args forwarding.",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-native-age-compare.log"
+        },
+        "syntax": "pass",
+        "whitespace": "pass"
+      },
+      "trackedDiff": {
+        "capturedSha256": "a283128f7d6e25c28f8734f1a36c7db6427f11a67004dc66472156e1210baa27",
+        "currentSha256": "09d7036d7f388e2ae99b2e40911a7214ccada728f3a4fcdad0786f5c90be304c",
+        "changedToolsIgnored": true,
+        "captureRunRetainsDiffBytes": false
+      },
+      "reconciliation": {
+        "status": "blocked",
+        "checked": "Saved run context and task workspace patches; full capture-time diff absent. Removing subsets of AGENTS.md, .gitignore and e2e project config from current diff does not reproduce the captured SHA256. No WIP reverted.",
+        "currentDiffArtifact": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-reconciliation-current.diff",
+        "currentDiffSha256": "09d7036d7f388e2ae99b2e40911a7214ccada728f3a4fcdad0786f5c90be304c",
+        "newCaptureAuthorization": "requested-pending",
+        "requestedCaptureBatchLimit": 1,
+        "requestedCaptureStateCount": 15
+      },
+      "status": "historical; old packet preserved, tracked-diff mismatch superseded by newly authorized packet"
+    },
+    "loaderQualificationReview": {
+      "status": "complete-blocked",
+      "packetPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-qualification-packet.json",
+      "packetSha256": "106e78d91628c13c1d61e93e3978322ccd2272f1502bddc4f56805a049d5693f",
+      "validationPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-packet-validation.json",
+      "validatedArtifactCount": 17,
+      "reviewPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-independent-review.json",
+      "reviewer": "/root/loader_evidence_review",
+      "authorization": "User selected Use one independent reviewer",
+      "contracts": {
+        "passed": 57,
+        "failed": 0,
+        "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-review-contracts.log"
+      },
+      "currentNativeAnimationAgeMs": {
+        "loader-mark": [
+          2016.666,
+          2016.666
+        ],
+        "world-reveal": [
+          3500,
+          3500
+        ]
+      },
+      "semanticIdentityPresent": false,
+      "noNewCapture": true,
+      "noRuntimeEdit": true,
+      "reviewSha256": "f9dd7d20115571345970a3da78699029efca95f05e7edeca962b87a75d32bbfa",
+      "independentLinkedArtifactsVerified": 20,
+      "recordingFramesRedecoded": 4,
+      "clockAgreementAcrossArtifacts": 2,
+      "remainingBlockers": [
+        "Source: effect-specific causal onset interval at or below one recording-frame width is unestablished; the verified 56/57 interval qualifies background presentation only.",
+        "Local: anonymous native animation IDs are not historically bound to animation name and target; observedAtMs is discovery time and currentTime is an anonymous effect readback.",
+        "Correspondence: no qualified equivalent source/local ages overlap at both anchors; local loader lacks source core assembly/rotation and ellipse draw/erase effects."
+      ],
+      "acceptanceLimits": {
+        "graphics": false,
+        "motion": false,
+        "finalVisualAcceptance": false,
+        "sourceOrLocalOnsetSelfQualification": false
+      }
+    },
+    "namedTelemetryCheckpoint": {
+      "date": "2026-10-01",
+      "status": "implementation-verified; source age remains blocked",
+      "outcome": "Capture clock records native animationName/transitionProperty, target DOM identity and unique capture-time selector, pseudo-element and JSON-safe authored effect timing. Matching rejects unnamed/unbound targets and different source/local semantic effects. Transport/timer behavior unchanged in fixture regressions.",
+      "ownedFiles": [
+        "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+        "apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts",
+        "tools/hero-reference/measurement-contract.mjs",
+        "tools/hero-reference/measurement-contract.test.mjs"
+      ],
+      "checks": {
+        "clockFixtures": {
+          "passed": 6,
+          "failed": 0,
+          "redFailures": 3,
+          "redLog": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-red.log",
+          "greenLog": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-browser-verified.log"
+        },
+        "measurement": {
+          "passed": 59,
+          "failed": 0,
+          "redFailures": 2,
+          "redLog": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-named-effect-contract-red.log",
+          "greenLog": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-named-effect-contract-green.log"
+        },
+        "captureContracts": {
+          "passed": 28,
+          "failed": 0,
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-capture-contracts.log"
+        },
+        "typechecks": {
+          "status": "pass",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-typecheck-verified.log",
+          "retainedFailedLogs": [
+            ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-typecheck.log",
+            ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-typecheck-final.log"
+          ]
+        },
+        "lint": {
+          "status": "pass",
+          "errors": 0,
+          "warnings": 39,
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-lint-verified.log"
+        },
+        "oldPacketComparison": {
+          "exitCode": 1,
+          "reason": "Capture input tree changed; old anonymous packet cannot qualify current telemetry. Historical report preserved.",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-animation-identity-old-packet-rejection.log"
+        },
+        "sourceOnsetContract": {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json",
+          "stateCount": 2,
+          "status": "unfilled; source ages deliberately null"
+        },
+        "whitespace": "pass"
+      },
+      "artifactPins": [
+        {
+          "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+          "bytes": 8785,
+          "sha256": "e4a907ff1f2846df7d307b9776f554e74477996d09bc6669613b00fe331a1757"
+        },
+        {
+          "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts",
+          "bytes": 6990,
+          "sha256": "9152d18346dae261b901fd3bb1434bd22a3c14642a57a47d32d094e687d21007"
+        },
+        {
+          "path": "tools/hero-reference/measurement-contract.mjs",
+          "bytes": 36841,
+          "sha256": "24b6bde1bd63b3a58375c7fbc507745bb0e3178000da10cf324a8548e95df6a4"
+        },
+        {
+          "path": "tools/hero-reference/measurement-contract.test.mjs",
+          "bytes": 37942,
+          "sha256": "73a884b1ceb7235017fd7e7feeb290c169a3370abee5b52d8722a396f6189cb1"
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json",
+          "bytes": 3068,
+          "sha256": "8e2a5dec0197d9a43ad383ff4048237ad43f1c5ba9cb578f487063fed96abec8"
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-retained-clock-before-identity.ts",
+          "bytes": 5820,
+          "sha256": "7f40a5c46a5606088f8be2a4add3893cf4868ed19a3bae0b84dff28cd962916e"
+        },
+        {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-retained-clock-tests-before-identity.ts",
+          "bytes": 4279,
+          "sha256": "09bcf1acfcdb130b6f294b6249375122e0990bdbcd2c7995b74461f364bebf8e"
+        }
+      ],
+      "historicalSourceResolution": [
+        {
+          "logicalPath": "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+          "retainedPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-retained-clock-before-identity.ts",
+          "captureSha256": "7f40a5c46a5606088f8be2a4add3893cf4868ed19a3bae0b84dff28cd962916e"
+        },
+        {
+          "logicalPath": "apps/pegasoft-e2e/src/visual/hero-capture-clock.spec.ts",
+          "retainedPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-retained-clock-tests-before-identity.ts",
+          "captureSha256": "09bcf1acfcdb130b6f294b6249375122e0990bdbcd2c7995b74461f364bebf8e"
+        }
+      ],
+      "referenceCaptureBatches": 0,
+      "runtimeGeometryOrSurfaceEdits": false,
+      "qualification": "not-accepted"
+    },
+    "sourceRotationProbe": {
+      "status": "blocked; owner diagnostic only; no independent qualification",
+      "artifact": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/checkpoint.json",
+        "bytes": 13992,
+        "sha256": "bf3128e5194bde644b748ca1a2862dd0418d2c44c8a7ce798416074e0f06e89a"
+      },
+      "outcome": "52 raster observations across 18 frames and three thresholds; conditional estimates span 106.93ms, exceeding one frame. Not a certified onset bound.",
+      "checks": {
+        "pinnedInputHashes": "3/3 pass",
+        "extractedCrops": "43/43 retained",
+        "diagnosticRowsAndHashes": "52/52 pass",
+        "analysisRerun": "exit 0",
+        "qualification": "blocked"
+      },
+      "nextAction": "Pin recording-matched cube geometry/effect identity (or select another effect with pinned geometry) and validate a raster estimator error bound before independent qualification and capture-input selection.",
+      "newReferenceCaptures": 0,
+      "runtimeEdits": false
+    },
+    "sourceGeometryCheckpoint": {
+      "status": "locked authored geometry recovered; recording transform diagnostic; onset unqualified",
+      "manifest": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-manifest.json",
+        "bytes": 1459,
+        "sha256": "9265c5524a255f58e35c3118fd499757d33ac9499998e1193c92645f6c2f1d78"
+      },
+      "outcome": "Recovered HTML bytes match locked audit SHA exactly; cube_01 authored orientation, path and timing are pinned. Static frame places SVG center 4.5\u20135px right and 6px down from crop center; corrected positional residual remains 0.48\u20137.93px across 48 conditional rows.",
+      "checks": {
+        "historicalHtmlHash": "pass",
+        "sourceArtifacts": "6/6 pass",
+        "analysisRerun": "exit 0",
+        "phaseQualification": "blocked"
+      },
+      "nextAction": "Validate a geometry-based raster estimator with a conservative antialias/codec error bound; reject mean-centered or single-threshold timing claims. Use a different pinned source effect if the cube cannot satisfy one-frame onset precision."
+    },
+    "rasterEstimatorCheckpoint": {
+      "status": "insufficient source-onset evidence; cube estimator rejected for qualification",
+      "manifest": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-manifest.json",
+        "bytes": 7510,
+        "sha256": "6fc111f48baa3a92d01aeeeaa7a8997911610cbbca730dfa9a976a10bab6ad3d"
+      },
+      "outcome": "18/18 synthetic recovery cases meet 0.25deg/0.25px validation tolerances; 16/16 frame hashes verified. Recorded conditional onset spread 19.33ms fails 16.67ms gate; recording residual exceeds tested synthetic envelope.",
+      "checks": {
+        "syntheticRecovery": "18/18 within 0.25 degree and 0.25px validation tolerances; not recording error bounds",
+        "recordingFrameHashes": "16/16 match",
+        "oneFrameSpreadGate": "FAIL",
+        "recordingErrorEnvelopeGate": "FAIL",
+        "phaseQualification": "BLOCKED",
+        "sourceOnsetContract": "unfilled"
+      },
+      "stopCondition": "Three source-onset approaches are insufficient. Stop loader reconstruction retries on this evidence; preserve the blocker and progress only an independent Task 2 measurement item.",
+      "nextAction": "Qualify clipped activation/arrival landmark support from the retained frame/mask evidence. Loader age remains blocked and may not be consumed by Task 3. Reopen onset only with new causal evidence or an independently justified method, not another identical retry."
+    },
+    "landmarkSupportAudit": {
+      "status": "verified classifier/background ambiguity; silhouettes unqualified",
+      "manifest": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-audit/manifest.json",
+        "bytes": 3205,
+        "sha256": "72cfa9d4d18e95e49b5d5966216b2c63a3c128cdf6ba207089ee4cdc1b45e22e"
+      },
+      "outcome": "3/3 historical landmark support/quality reproduced. Dominant components cover entire ROI and fail existing size gates; pale background matches at 11/12 corner samples. Residual selected support 5139/1695/0 is not a complete intended silhouette.",
+      "checks": {
+        "historicalReproduction": "3/3 exact support and quality",
+        "savedCaptureImagePins": "3/3 bytes/hash match manifest",
+        "sourceMaskPins": "3/3 match; source-only scope retained",
+        "sourceFrameAndOverlayPins": "6/6 match",
+        "snapshotOriginalPrefix": "exact original bytes plus export-only suffix",
+        "dominantComponentsReachWholeRoi": "3/3",
+        "backgroundAdmissionSamples": 11,
+        "phaseQualification": "blocked"
+      },
+      "nextAction": "Design and validate an independent foreground/background silhouette extractor against the saved negative samples and semantic-object challenges, then package it for independent qualification."
+    },
+    "backgroundSeparatedExtractor": {
+      "date": "2026-10-02",
+      "status": "independently reviewed; partial historical subject corroboration only",
+      "reviewPacket": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/review-packet.json",
+        "bytes": 10902,
+        "sha256": "c80f6c1923b224cc6a709e03f64c9b3672dc3ddc04789b9f35600d6fa66b4162"
+      },
+      "outcome": "Independent review corroborates activation-route subject identification for its pinned historical raster only. Contact has connected rail-fringe contamination; arrival reaches the unchanged ROI boundary. Contour-error qualification remains blocked; candidate stays inactive and Task 2 unqualified.",
+      "checks": {
+        "measurementContracts": {
+          "status": "pass",
+          "count": 67,
+          "redGreen": "5 new API cases, 1 palette case and 1 enclosed-hole case observed failing before their implementations; exterior-notch regression remains green"
+        },
+        "captureContractFixtures": {
+          "command": "pnpm nx run @site/pegasoft-e2e:hero-capture-contract-test",
+          "status": "pass",
+          "count": 28,
+          "exitCode": 0,
+          "kind": "isolated browser fixtures; not a reference capture batch"
+        },
+        "typechecks": "both pass; Nx cache 0/2 hits",
+        "lint": "pass: 0 errors/39 existing warnings",
+        "whitespace": "git diff --check pass",
+        "savedImages": "3/3 manifest pins match",
+        "negativeSamples": "11/11 excluded",
+        "roiAndSupportGates": "unchanged",
+        "activeComparator": "candidate not integrated",
+        "independentQualification": "route historical subject inspection only; contact/arrival and contour-error qualification blocked",
+        "arrivalBoundary": "blocked"
+      },
+      "nextAction": "Keep the candidate unintegrated. Produce bounded implementation-only contour evidence for the contact rail junction and arrival feed/shaft boundary, plus an explicit accounting of subject-edge uncertainty and filled interiors on the pinned rasters. Preserve all existing ROI/support gates and source-mask boundaries. Current capture provenance remains a separate requirement."
+    },
+    "landmarkIndependentReview": {
+      "date": "2026-10-02",
+      "status": "completed; partial corroboration only",
+      "userAuthorization": "Approved one bounded read-only reviewer for completed landmark extractor packet",
+      "reviewer": "/root/landmark_evidence_review",
+      "packetPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/review-packet.json",
+      "packetSha256": "c80f6c1923b224cc6a709e03f64c9b3672dc3ddc04789b9f35600d6fa66b4162",
+      "preDispatchIntegrity": "32/32 linked hashes verified",
+      "scope": "Independent qualification only; no edits/captures/delegation",
+      "reportPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/independent-review.json",
+      "reportSha256": "76a96bbfdaec5b72c4d355030619a237338ea6fe7df3318f03239da8e15467af",
+      "reportBytes": 6382,
+      "overallVerdict": "Partial corroboration only. Activation-route isolates the intended building in its pinned historical raster. Activation-contact is not a clean semantic silhouette. Arrival remains correctly blocked. Do not integrate or grant structural acceptance from this packet.",
+      "perState": [
+        {
+          "state": "activation-route",
+          "qualification": "qualified-for-pinned-historical-raster-subject-inspection-only",
+          "selectedPixels": 188869,
+          "basis": "Independent inspection of the unmasked raster and saved binary mask corroborates the complete connected left annex, center tower and right volume. The logo and window interiors are included. No visible ground, shadow, worker, tree or neighboring-building support is selected.",
+          "limits": "This is subject identification for the saved input, not validated boundary error, current capture provenance, source/local IoU, structural acceptance or final visual acceptance."
+        },
+        {
+          "state": "activation-contact",
+          "qualification": "blocked",
+          "selectedPixels": 171906,
+          "basis": "The complete building body is recovered, and surrounding workers and structures are excluded, but thin diagonal red-rail fringes remain attached at the upper-left contact edge. The saved mask therefore does not satisfy clean exclusion of the contact rails."
+        },
+        {
+          "state": "arrival-lockup",
+          "qualification": "blocked",
+          "selectedPixels": 33392,
+          "basis": "Selected support begins at raster x=1194, exactly the unchanged ROI left edge. The full arrow/feed junction is unresolved, and the selected left end includes a rounded projection near the bright feed endpoint. The boundary gate correctly prevents qualification."
+        }
+      ],
+      "findings": [
+        {
+          "severity": "P2",
+          "title": "Connected rail fringe survives foreground separation",
+          "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+          "lines": [
+            1852,
+            1857
+          ],
+          "evidence": "In activation-contact, mask pixel (1438,634) is selected with RGB [213,201,213]. Its neighboring unmasked pixels (1434,634) and (1435,634) are red rail core [255,77,103], followed by rail antialias colors [252,87,112] and [237,130,150]. Background separates the selected fringe from the building edge near x=1445. Additional selected diagonal projections occur around y=655-667 and y=682-691.",
+          "impact": "One eligible connected component and qualified RGB-support quality still admit non-building rail support. Contact semantic qualification must remain blocked.",
+          "relatedTestLines": "/Users/whiskey/Work/site/tools/hero-reference/measurement-contract.test.mjs:976-980"
+        },
+        {
+          "severity": "P2",
+          "title": "RGB uncertainty is not a demonstrated contour-error bound",
+          "file": "/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+          "lines": [
+            1830,
+            1864
+          ],
+          "evidence": "The four-unit exclusion distance is fixed candidate policy. The reported uncertainty counts cover all qualifying ROI colors, without locating subject-edge uncertainty or measuring missed/extra contour support. The observed contact rail fringe falls beyond that band and is selected.",
+          "impact": "The packet supports a bounded diagnostic extractor, but cannot establish conservative full-silhouette boundary accuracy."
+        }
+      ],
+      "verifiedChecks": {
+        "packetHash": "matches assigned hash",
+        "linkedHashesAndSizes": "32/32 match",
+        "savedMaskSupportCounts": "All three independently counted totals match candidate-evaluation.json",
+        "savedNegativeSamples": "11/11 are excluded in the saved binary masks",
+        "measurementLog": "Saved final log records 67 passing tests and zero failures",
+        "redGreenLogs": "Saved API, palette and enclosed-hole logs show failure followed by passing runs",
+        "typecheckLogs": "Saved final log records both targets passing with 0/2 cache hits",
+        "lintLog": "Saved final log records zero errors and 39 warnings",
+        "captureFixturesAndWhitespace": "Passes are recorded in checks.json; no linked raw fixture or whitespace log independently establishes them",
+        "execution": "No application execution, test reruns, captures, edits or delegation performed"
+      },
+      "nextAction": "Keep the candidate unintegrated. Produce bounded implementation-only contour evidence for the contact rail junction and arrival feed/shaft boundary, plus an explicit accounting of subject-edge uncertainty and filled interiors on the pinned rasters. Preserve all existing ROI/support gates and source-mask boundaries. Current capture provenance remains a separate requirement."
+    },
+    "parallelEvidenceBatch": {
+      "date": "2026-10-02",
+      "status": "completed; owner verified bounded diagnostics; all qualification gates remain blocked",
+      "authorization": "User requested subagents for non-conflicting Task 2 work packages",
+      "owners": {
+        "landmarks": "/root/task2_landmark_contours",
+        "beam": "/root/task2_beam_correspondence",
+        "exit": "/root/landmark_evidence_review",
+        "loaderViability": "/root"
+      },
+      "ownership": "Each agent writes only its task2-parallel subfolder; root owns shared ledger/plan and loader folder. Existing evidence immutable. No runtime/shared code edits or new captures. Exit producer cannot independently review its own output.",
+      "deferred": [
+        "complete-packet independent review and qualified integration",
+        "authorized current-input capture and ordered comparison"
+      ],
+      "stopCondition": "Pinned reproducible evidence or concrete blocker per lane; no qualification inferred from diagnostics",
+      "loaderViability": {
+        "status": "blocked; no justified new execution identified",
+        "manifest": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/loader/manifest.json",
+        "sha256": "a60d3af52deb0ba09c680e8627871ef08a97cb2959a3a8f67ccd29e5edf90f48",
+        "retainedFitPinsVerified": 24,
+        "sourceAgeContractsUnfilled": 2
+      },
+      "checkpointChecks": {
+        "allLanePinsVerified": 70,
+        "existingCandidatePinsUnchanged": 32,
+        "landmarkReproduction": "3 masks pixel-identical; 2 byte-identical runs",
+        "beamReproduction": "11/11 outputs byte-identical",
+        "exitReproduction": "3/3 outputs byte-identical",
+        "runtimeEdits": false,
+        "newCaptures": false,
+        "whitespace": "git diff --check pass"
+      },
+      "lanes": {
+        "landmarks": {
+          "status": "bounded evidence checkpoint complete; qualification blocked",
+          "manifest": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/manifest.json",
+            "bytes": 5609,
+            "sha256": "4d1bc333f5ad9b159595bd6256152230be4dd8720aaf1d2b58bda75bf6d58155"
+          },
+          "outcome": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/outcome.json",
+            "bytes": 4015,
+            "sha256": "45a6794b45fbdc3c43bddbe16a62e8e056d2cf4978392a58449462005f7b6c06"
+          },
+          "verifiedPins": 21
+        },
+        "beam": {
+          "status": "bounded evidence checkpoint complete; qualification blocked",
+          "manifest": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/manifest.json",
+            "bytes": 7695,
+            "sha256": "0a05ef3e2719560cd1cae57edf17c057c485e05c53ed418447540804680ec49a"
+          },
+          "outcome": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/beam/outcome.json",
+            "bytes": 7046,
+            "sha256": "4d4e3d32e17463e33a0131fea5e76de034b76e0ac09c3cb3163d25fce81e01e2"
+          },
+          "verifiedPins": 30
+        },
+        "exit": {
+          "status": "bounded evidence checkpoint complete; qualification blocked",
+          "manifest": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/manifest.json",
+            "bytes": 4645,
+            "sha256": "58ce55fd65e06207bea8035d6ce8b34dbf64eed0beaa7de4fb8710a342f7ca61"
+          },
+          "outcome": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/exit/outcome.json",
+            "bytes": 1484,
+            "sha256": "5e86a447ee66c5792b5e1700c09299259703e28962208cdeef519ccfb8a21aa6"
+          },
+          "verifiedPins": 14
+        },
+        "loader": {
+          "status": "bounded evidence checkpoint complete; qualification blocked",
+          "manifest": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/loader/manifest.json",
+            "bytes": 1221,
+            "sha256": "a60d3af52deb0ba09c680e8627871ef08a97cb2959a3a8f67ccd29e5edf90f48"
+          },
+          "outcome": {
+            "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/loader/outcome.json",
+            "bytes": 2246,
+            "sha256": "df6afc7e1b7d84be56a9f0dd24fa1a070462917a665197ed095135cb5a58fc15"
+          },
+          "verifiedPins": 5
+        }
+      },
+      "findings": {
+        "landmarks": "Connected contact rail fringe survives foreground separation. Arrival boundary selects bright feed endpoint, not proof of shaft clipping. ROI-wide uncertainty is not contour-error bound.",
+        "beam": "16/16 tested halo corner samples admit background; source bright peak fails core predicate. Profile widths are diagnostics, not physical radius or qualified core thickness.",
+        "exit": "Local contrast 16.366<20 and dominance 1.998<3 remain blocked. Diagnostic boundary delta 2.932 CSS px is not accepted geometry.",
+        "loader": "Two source-age contracts remain unfilled; new causal evidence or independently justified recording-error estimator required."
+      },
+      "nextAction": "Implement candidate-only connected-contaminant ambiguity rejection and feed-endpoint separation with pinned negative/shaft-retention challenges, preserving all current ROI/support gates. Keep candidate inactive; then calibrate subject-edge envelopes before complete-packet independent review. Beam cross-section and exit score/readback helpers remain separately scoped pending implementation."
+    },
+    "landmarkCandidateRefinement": {
+      "date": "2026-10-02",
+      "status": "complete bounded implementation/check/evidence packet; independent review accepted conservative veto only",
+      "owner": "/root/task2_landmark_contours",
+      "authorization": "User: Proceed with next assignment; earlier subagent authorization persists",
+      "ownedFiles": [
+        "apps/pegasoft-e2e/src/visual/screen-structural-features.mjs (candidate helper only)",
+        "tools/hero-reference/measurement-contract.test.mjs (candidate tests only)",
+        ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/"
+      ],
+      "scope": "Connected-contaminant ambiguity rejection and feed-endpoint separation; preserve original ROI/support/classifiers, shaft/building support and inactive integration. No source masks, runtime edits or new captures.",
+      "checksRequired": [
+        "tests first RED/GREEN and complete measurement suite",
+        "affected typecheck/lint",
+        "reproducible pinned saved-raster challenges",
+        "immutable BEFORE snapshots and hashed packet"
+      ],
+      "stopCondition": "Complete bounded implementation/check/evidence checkpoint; retain ambiguity blocker if clean separation lacks justified general rule; no independent qualification",
+      "assignmentChecks": {
+        "ownershipRecorded": true,
+        "whitespace": "pass",
+        "currentStatusWords": 196
+      },
+      "manifest": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/manifest.json",
+        "bytes": 11240,
+        "sha256": "522574e868784df445db7e3d1d47498fba3f8e6d1fa6a7c7278d2a82c36d9ed0"
+      },
+      "reviewPacket": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/review-packet.json",
+        "bytes": 6590,
+        "sha256": "31cbc35965acb6dbb1a96d4716021a5e5099a0c57a46e593c922051f71bd3247"
+      },
+      "ownerVerifiedPins": 41,
+      "freshOwnerMeasurementTests": {
+        "passed": 71,
+        "failed": 0
+      },
+      "supportPixelsChanged": [
+        0,
+        0,
+        0
+      ],
+      "contactRedAdjacentContourPixels": 103,
+      "arrivalBoundarySupportPixels": 29,
+      "arrivalExternalContinuationPixels": 25,
+      "independentReviewer": "/root/landmark_evidence_review",
+      "historicalPinResolution": "BEFORE snapshots resolve old source/test input pins; do not rewrite historic packets",
+      "independentReview": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/independent-review.json",
+        "bytes": 4740,
+        "sha256": "ac87feb83ee85f593e0635d2ccd7ef027ba5b0d2b2ff990aa88f85a0014a911a",
+        "reviewer": "/root/landmark_evidence_review",
+        "implementationFindings": 0,
+        "semanticQualification": "blocked",
+        "contourErrorQualification": "blocked"
+      }
+    },
+    "profileDiagnosticImplementation": {
+      "date": "2026-10-02",
+      "status": "complete inactive implementation/check/evidence packet; independent qualification not granted",
+      "owner": "/root/task2_beam_correspondence",
+      "ownedFiles": [
+        "apps/pegasoft-e2e/src/visual/screen-profile-diagnostics.mjs",
+        "tools/hero-reference/measurement-contract.test.mjs (appended new tests only)",
+        ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/"
+      ],
+      "scope": "Inactive independent beam profiles and exit row scores; raw samples/sensitivity/uncertainty retained. No physical-radius claims, fabricated readbacks, gate relaxation or integration.",
+      "stopCondition": "Complete checked pinned implementation packet; semantic/current-capture qualification remains separate",
+      "reviewPacket": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/review-packet.json",
+        "bytes": 7486,
+        "sha256": "a3475dfa1f50b6f58039821fca9dafe4c45b220b5d8cfd2d408ed5bf00bf9cc1"
+      },
+      "verifiedPins": 31,
+      "ownerRepeatability": "2/2 byte-identical outputs; four beam profiles and two exit classifier reproductions",
+      "checks": {
+        "measurementTests": 83,
+        "failed": 0,
+        "originalTestsPreserved": 71,
+        "typechecks": "both pass; 0/2 cache hits",
+        "lint": "0 errors/39 warnings",
+        "whitespace": "pass",
+        "qualification": "blocked",
+        "activeIntegration": false
+      },
+      "independentReview": {
+        "date": "2026-10-03",
+        "status": "completed; one targeted P2 ambiguity finding; qualification remains blocked",
+        "reviewer": "/root/task2_landmark_contours",
+        "scope": "New beam/exit module and12tests only; exclude reviewer-authored landmark code",
+        "packetPath": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/review-packet.json",
+        "packetSha256": "a3475dfa1f50b6f58039821fca9dafe4c45b220b5d8cfd2d408ed5bf00bf9cc1",
+        "report": {
+          "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-diagnostics/independent-review.json",
+          "bytes": 3284,
+          "sha256": "8e217d7318db47af63b7d5cc51fba1808f4021a9c0d6bea7d5ba9704d87ad492"
+        },
+        "implementationFindings": 1
+      }
+    },
+    "loaderLogSearch": {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/loader-log-search.json",
+      "sha256": "0c91a7343b631892440e7696ba63acba173f46c271a7d56157ea6580ae2bd1df",
+      "userRequest": "Search inside the .superpowers/sdd/pegasoft-hero-baseline-plan log for a loader log",
+      "logsSearched": 70,
+      "outcome": "Loader packet and local clock/test logs found; no original recording-session animation-start telemetry found. Two source ages remain unfilled.",
+      "qualificationGranted": false
+    },
+    "closureAttempt": {
+      "date": "2026-10-02",
+      "status": "blocked; implementation/check/evidence inventory complete",
+      "packet": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/closure-packet.json",
+        "bytes": 6278,
+        "sha256": "83fd057bda6e21953d586d4a353663fd5e5649d48240969a2d21865c085da6f2"
+      },
+      "blockedGateCount": 5,
+      "profileImplementation": "complete-inactive; no independent semantic/error qualification",
+      "task2Complete": false,
+      "freshMeasurementTests": {
+        "passed": 83,
+        "failed": 0,
+        "skipped": 0,
+        "rawLog": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/live-measurement.log"
+      },
+      "loaderLogSearchChecks": {
+        "searchedLogs": 70,
+        "pinnedSearchInputs": 72,
+        "byteIdenticalRepeat": true
+      },
+      "currentCaptureProof": "Recorded native clock source/spec hashes differ from current inputs; closure packet retains both digests.",
+      "manifest": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/manifest.json",
+        "bytes": 3024,
+        "sha256": "4412378856dd450bd0e909b3a93bfc05fb8d7179b053254a22f0246bdfa55eb4"
+      }
+    },
+    "specImplementationEntry": {
+      "date": "2026-10-03",
+      "status": "resolved: full Task2 qualification before geometry",
+      "writtenSpecAuthority": "docs/pegasoft-hero-baseline-plan.md: Spec, source contracts, Accuracy and acceptance contract, Phases16\u201319",
+      "writtenSpecDisposition": "defined; no separate specification phase is declared by the current plan",
+      "userRequest": "Continue with next prerequisite and close the spec phase in order to start implementation of the bound hero world",
+      "candidateSlice": {
+        "task": 3,
+        "scope": "opening-to-activation-contact geometry candidate only",
+        "ownedFiles": [
+          "apps/pegasoft/src/app/shared/hero-scene/stages/landing-graphics.tsx",
+          "apps/pegasoft/src/app/shared/hero-scene/stages/activation.tsx",
+          "apps/pegasoft/src/app/shared/hero-scene/stages/primitives.tsx"
+        ],
+        "preserve": [
+          "physical input and single rendered-frame ownership",
+          "approved Pegasoft identity/copy and accessibility alternatives",
+          "original meshes and source-derived camera/semantic landmarks",
+          "all tolerances/provenance/history",
+          "unrelated WIP"
+        ],
+        "acceptance": "Task3 starts only after all Task2 qualification gates close. Entry does not accept Phase16 or final visible fidelity; later phase and personal normal-playback acceptance remain required."
+      },
+      "userDecision": "finish task2 qualification first, then start work carrying the gates forward",
+      "gateDisposition": "Close all Task2 qualification gates before Task3; carry later phase and personal visual acceptance gates forward"
+    },
+    "profileAmbiguityRefinement": {
+      "date": "2026-10-03",
+      "status": "complete; reviewed literal P2 closed; qualification blocked",
+      "owner": "/root/task2_beam_correspondence",
+      "finding": "Connected bright peaks escape competing-peak rejection",
+      "scope": "Literal RED fixture then conservative peak-region ambiguity guard; preserve single plateaus/exit/sideband gates and inactive qualification status",
+      "artifactDirectory": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/",
+      "stopCondition": "Reached: checked packet and targeted independent re-review complete; user confirmed full Task2 qualification before geometry",
+      "packet": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/review-packet.json",
+        "sha256": "a2267f30572d72ad07ce17d053d6840deca03e8f6975b799a9a707bb6d24e35e",
+        "pinsVerified": 35,
+        "repeatedOutputs": 3
+      },
+      "checks": {
+        "red": {
+          "pass": 84,
+          "fail": 1
+        },
+        "green": {
+          "pass": 85,
+          "fail": 0
+        },
+        "rootFreshMeasurement": {
+          "pass": 85,
+          "fail": 0,
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/2026-10-03/owner-measurement.log"
+        },
+        "typechecks": "both pass",
+        "lint": {
+          "errors": 0,
+          "existingWarnings": 39
+        },
+        "savedBeamProfilesUnchanged": 4,
+        "savedExitResultsUnchanged": 2
+      },
+      "qualification": "blocked; inactive",
+      "usageBeforeTargetedReview": {
+        "fiveHourUsedPercent": 22,
+        "weeklyUsedPercent": 60,
+        "scope": "account-wide; not task-attributable"
+      },
+      "independentReview": {
+        "reviewer": "/root/task2_landmark_contours",
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-profile-ambiguity-refinement/independent-review.json",
+        "sha256": "1719266bb453c043fd28c3385af57e59fccbaecee4045e1e049ac8de02cb2965",
+        "verdict": "Targeted P2 closure corroborated; qualification remains blocked.",
+        "remainingActionableFindings": 0
+      }
+    },
+    "autonomousQualification": {
+      "date": "2026-10-03",
+      "authorization": "Continue next steps until Task2 finishes or free five-hour allowance has5% remaining",
+      "pauseAtFiveHourUsedPercent": 95,
+      "startUsage": {
+        "fiveHourUsedPercent": 27,
+        "weeklyUsedPercent": 61
+      },
+      "activePrerequisites": [],
+      "runtimeGeometry": "not started",
+      "loaderReconstruction": "Stopped; do not repeat three insufficient methods without new evidence or independent justification",
+      "usageAfterIndependentEvidenceBatch": {
+        "fiveHourUsedPercent": 38,
+        "weeklyUsedPercent": 63,
+        "scope": "account-wide; not task-attributable"
+      },
+      "loaderEvidenceRequest": "User confirmed none. Novel-method feasibility independently reviewed: no proceed on retained evidence; timed source-reference authority/capture decision required.",
+      "usageAfterLandmarkEvidenceVerification": {
+        "fiveHourUsedPercent": 45,
+        "weeklyUsedPercent": 64,
+        "scope": "account-wide, no reset or credit action requested"
+      },
+      "usageBeforeLoaderFeasibility": {
+        "fiveHourUsedPercent": 0,
+        "weeklyUsedPercent": 65,
+        "fiveHourResetAt": 1791034700,
+        "scope": "account window automatically reset; no credits or reset redeemed"
+      },
+      "checkpoint": "Authorized local presentation implementation/checks/review completed. Qualification awaits source authority/capture decision and independently calibratable source evidence; do not burn allowance on repeated insufficient fits."
+    },
+    "exitReadbackAvailability": {
+      "date": "2026-10-03",
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/2026-10-03/exit-readback-availability.json",
+      "sha256": "0be0b9797a1b9ee7fe616c999c87ec01640495b967326429712c092675781339",
+      "status": "blocked; named material opacities exist, crop/effective world opacity unavailable",
+      "observedFrameId": 267,
+      "materialOpacity": {
+        "arrival-wake": 0.44,
+        "arrival-feed": 0.82,
+        "contact": 1
+      },
+      "limits": "Material opacity cannot substitute for world/composited opacity or crop; one sample cannot qualify continuity."
+    },
+    "independentLandmarkLabels": {
+      "date": "2026-10-03",
+      "status": "partial witnesses only; qualification blocked",
+      "manifest": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/manifest.json",
+        "sha256": "e480a5570338f8408ac4f782dd630fb5b637dbca4bf63a316e18174593c4a1fb"
+      },
+      "checks": {
+        "pins": 13,
+        "repeatableOutputs": 3
+      },
+      "firstExposureBlinded": false,
+      "fullSilhouettes": 0,
+      "calibratedContourError": null,
+      "nextRequiredEvidence": "Obtain same-frame independently identified implementation layer/coverage evidence at the contact fringe and arrival rounded-mark/shaft seam, then have an independent labeler or reviewer establish ownership and calibrate boundary error. New captures require explicit authorization.",
+      "ownerVerification": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-independent-landmark-labels/owner-verification.json"
+    },
+    "loaderMethodFeasibility": {
+      "date": "2026-10-03",
+      "status": "independently reviewed no-proceed on retained evidence",
+      "manifest": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-method-feasibility/manifest.json",
+        "sha256": "2421a613e06fc6421a1040dd263e8aee78f67c05e511f0455bc07d11c3260dbf",
+        "pinsVerified": 10
+      },
+      "feasibility": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-method-feasibility/feasibility.json",
+        "sha256": "e98d4a89b4933198e6da586473edbaa5e6154f4398ea88f695f3d3227bf9be82"
+      },
+      "review": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-method-feasibility/independent-review.json",
+        "sha256": "7335a0e4356f82d317bd8f361498da353cb013c13f1cdd85d99beeabbcf3452e"
+      },
+      "userOriginalSessionTrace": "none",
+      "sourceAgeContractsUnfilled": 2,
+      "nextAction": "Original matched timing/error evidence or explicitly authorized replacement timed reference; no fourth fit"
+    },
+    "beamFullRouteQualification": {
+      "date": "2026-10-03",
+      "status": "independently reviewed challenge/calibration boundaries; qualification blocked",
+      "packet": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/review-packet.json",
+        "sha256": "79731ccdc88ae04d968e6f17c546ca0f4177c8a7882911f6b6c5baab69164473"
+      },
+      "checks": {
+        "pinsVerified": 40,
+        "repeatableOutputs": 15,
+        "rawImages": 6,
+        "sections": 27,
+        "observedDiagnostics": 5,
+        "blockedDiagnostics": 22,
+        "qualified": 0
+      },
+      "limits": "Positive-bright helper misses dark red; dot/copy contaminate residual envelopes; no calibrated core/halo or unavailable/pulse extent proof.",
+      "independentReview": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-beam-full-route-qualification/independent-review.json",
+        "sha256": "02440253cc97bafcd35a09d0eac398ced141ecef83ac92cea7e8e034f506a287",
+        "reviewer": "/root/landmark_evidence_review",
+        "verdict": "ACCEPT_BOUNDED_CHALLENGE_AND_FEASIBILITY_CONCLUSIONS; QUALIFICATION_BLOCKED",
+        "findings": 0
+      }
+    },
+    "referenceAuthorityDecision": {
+      "status": "concrete timed-source proposal prepared; user authorization required",
+      "reason": "User confirms no original trace; independent review finds no defensible <=one-frame estimator on retained inputs. Original hash-locked MOV remains unqualified for loader age.",
+      "proposedAction": "Acquire a synchronized named-effect timed source reference and explicitly version the recording authority used for Task2 correspondence. Preserve original MOV/anchors as immutable visual goals and history; do not claim the new session qualifies the original MOV.",
+      "preconditions": [
+        "Explicit user authorization to add or replace timed-reference authority and perform the capture batch",
+        "Verify reference source version against retained CSS/HTML/bundle/asset pins; mismatches need review before capture",
+        "Retain viewport1508x761/DPR2, physical playback/input and same-frame native effect/start/currentTime/target bindings",
+        "Hash raw recording/frames/trace, correlate native age to frame timestamps within16.67ms, keep source/local roles explicit",
+        "Obtain independent review of the complete new correspondence packet; close remaining silhouette/core/halo/exit/current-local-capture gates before Task3"
+      ],
+      "acceptanceLimits": "No changed masks/tolerances, source assets copied into local geometry, retroactive original-MOV qualification, phase acceptance or personal visual acceptance is granted.",
+      "readOnlySourcePreflight": {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-closure/2026-10-03/reference-source-preflight.json",
+        "sha256": "61f6c4a60081f8043deb37a464484ad9293275798ca9f84406308e0ff3424d09",
+        "httpStatus": 200,
+        "htmlBytes": 25201,
+        "htmlMatchesLockedHash": true,
+        "cssBytes": 75910,
+        "cssMatchesLockedHash": true,
+        "limits": "HTML/CSS version only; full renderer/asset tree and original native timing are not certified. No visual capture or reference-authority change."
+      }
+    },
+    "exitPresentationReadback": {
+      "date": "2026-10-03",
+      "status": "implemented, checked and independently reviewed; qualification blocked",
+      "owner": "/root",
+      "packet": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/review-packet.json",
+      "sha256": "a02da950c02b2cbfe8b36742a48920c1a756ff3f00eb9beef4d562b0e8905833",
+      "pinsVerified": 52,
+      "checks": {
+        "captureContracts": "43/43 PASS (28 existing +15 browser fixtures)",
+        "bothTypechecks": "PASS",
+        "measurementContracts": "85/85 PASS",
+        "lint": "0 errors /39 existing warnings"
+      },
+      "outcome": "Acquisition retains same-task conservative rectangular DOM clipping and ancestor CSS opacity with completed-frame record. Initial/before/after screenshot presentations and stable parity retained. Unsupported or animated presentation blocks readback.",
+      "limits": "No actual hero capture/continuous exit/world crop plane/effective material or composited opacity/visual acceptance proof. All Task2 gates remain open.",
+      "nextAction": "Await explicit timed source authority/capture authorization; close all remaining gates before Task3.",
+      "independentReview": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-exit-presentation-readback/independent-review.json",
+      "reviewFindingResolution": "P2 strict/content paint containment corrected; RED41pass/2fail, GREEN43/43, affected typecheck/lint pass; independent targeted review closes finding."
+    },
+    "commitCheckpoint": {
+      "date": "2026-10-06",
+      "branch": "codex/hero-reference-rebaseline",
+      "parent_commit": "6312f665ff64f5734ce1ae17a821f3512e9304bb",
+      "scope": "Hero graphics candidates, capture/measurement/readback harness, local helper dependencies, authority/evidence, generated Next declarations, AGENTS.md and credential exclusion.",
+      "checks": {
+        "core-checks": {
+          "status": "passed",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/commit-checkpoint-20261006/core-checks.log",
+          "sha256": "e07d617d0165966cc6a40bc8112468cf6b845d10a7724f5cb5d3fce900464a94"
+        },
+        "measurement": {
+          "status": "passed",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/commit-checkpoint-20261006/measurement.log",
+          "sha256": "5593a32ff73ea19a85df88dc0a7090a9e8532bf2dbdc984a707c11ae2093b82b"
+        },
+        "contract": {
+          "status": "passed",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/commit-checkpoint-20261006/contract.log",
+          "sha256": "a83d0e2da046880a3713cedad339a018f9d5712be0f173e9b45121dcb2e239c7"
+        },
+        "harness": {
+          "status": "passed",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/commit-checkpoint-20261006/harness.log",
+          "sha256": "acfbe976384c90c1081e59ffbdada4eaa4293724c373d9e8f3870b51218c3c9d"
+        },
+        "clock": {
+          "status": "passed",
+          "log": ".superpowers/sdd/pegasoft-hero-baseline-plan/commit-checkpoint-20261006/clock.log",
+          "sha256": "32195087ad00eeb1576bf10a26da3c4129cb30acb8c068dd1a920d46c2b83199"
+        }
+      },
+      "limits": "Checkpoint commit only. Phase 16 Task 2 remains unqualified; no new hero capture, source-authority decision, runtime refinement or visual acceptance. Historical bulk repair captures remain local under the existing ignore policy.",
+      "env": "Existing .env is unchanged and excluded via /.env."
+    },
+    "masterMergeCheckpoint": {
+      "date": "2026-10-14",
+      "status": "completed",
+      "packet": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-final-20261014/verification.json",
+      "incomingMaster": "d8b950b2a3fb4ba3194ba14686dbbc688b7d7d0e",
+      "heroParent": "61bb7b88cf36c27fa456f13b923b1b7bb42dc5e0",
+      "mergeFinalized": true,
+      "outcome": "Required maintenance checks pass. Complete E2E is green; the user-approved single-CVE audit exception is retained with raw reports. No hero visual acceptance.",
+      "nextAction": "Stop maintenance work. Review the audit exception by 2026-10-28; hero Task 2 awaits a new user instruction/source-authority decision.",
+      "limits": "No push or deployment. Frozen evidence, ignored .env and unrelated concept work are preserved.",
+      "priorCheckpoint": ".superpowers/sdd/pegasoft-hero-baseline-plan/master-merge-repair-20261008/verification.json"
+    }
+  },
+  "waves": [
+    [
+      "S0"
+    ],
+    [
+      "S1",
+      "S4"
+    ],
+    [
+      "S2"
+    ],
+    [
+      "S3",
+      "S5"
+    ],
+    [
+      "S6"
+    ],
+    [
+      "S7"
+    ],
+    [
+      "S8"
+    ]
+  ],
+  "note": "S0-S7 are accepted within bounded repair scope. S7 v5 has 336/336 applicable passes, 24/24 predeclared N/A observations, strict provenance validation, separate shipping smoke 4/4, complete manifest/handover, and final independent APPROVE. S8 repairs are qualified. The initial R3 landing slice failed personal visual review and is re-baselined as a bounded landing-to-activation slice; later scenes remain closed until that slice passes."
+}

@@ -1,0 +1,43 @@
+{
+  "attributes": {
+    "id": "outer",
+    "data-hero-render-ready": "true"
+  },
+  "canvasVisible": true,
+  "fontsReady": true,
+  "loaderCleared": false,
+  "lifecycleElapsedMs": null,
+  "record": null,
+  "presentation": {
+    "status": "uncertain",
+    "binding": {
+      "status": "unavailable",
+      "frameId": null
+    },
+    "clipping": {
+      "status": "supported-rectangular",
+      "intersection": {
+        "x": 0,
+        "y": 0,
+        "width": 240,
+        "height": 220
+      },
+      "horizontalCropPlaneCssY": null,
+      "reasons": []
+    },
+    "opacity": {
+      "status": "observed-css-opacity-product",
+      "quantity": "ancestor-css-group-opacity-product",
+      "cssOpacityProduct": 1,
+      "sceneMaterialOpacity": null,
+      "reasons": []
+    },
+    "temporal": {
+      "status": "static-at-sample"
+    },
+    "timing": {
+      "sampleStartedAtMs": 36.899999998509884,
+      "sampleEndedAtMs": 37.399999998509884
+    }
+  }
+}

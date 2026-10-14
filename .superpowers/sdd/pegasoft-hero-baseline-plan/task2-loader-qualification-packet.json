@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-01",
+  "scope": "Task 2 loader correspondence only. No runtime edits, capture batch, offset inference or self-qualification.",
+  "runId": "4cbfe8c6-b763-444d-a84b-2d5301969fd6",
+  "captureManifest": {
+    "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/capture-manifest.json",
+    "bytes": 1438555,
+    "sha256": "8a11e60c66be30169bc05e0b74fe62a2e4b86e5be512f3ba08704977a41eefeb"
+  },
+  "existingComparison": {
+    "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/comparisons/040854b4-8609-4319-8d88-ee708c76406c/comparison-report.json",
+    "bytes": 771737,
+    "sha256": "1120df04f11305c48f979032b3515998cfd9151413007097eb922a7b7fc64a97"
+  },
+  "sourceOnset": {
+    "status": "author-candidate-not-independently-qualified",
+    "quantity": "visible settled-page to loader presentation transition",
+    "lastPriorPage": {
+      "decodedFrameIndex": 56,
+      "pts": 5800,
+      "timeBase": "1/6000",
+      "timestampSeconds": 0.966667
+    },
+    "firstLoaderPresentation": {
+      "decodedFrameIndex": 57,
+      "pts": 5900,
+      "timeBase": "1/6000",
+      "timestampSeconds": 0.983333
+    },
+    "recordingSha256": "de2d5e03a9bb8c1ef93278088f9f205b48710a3ce9568a648b96d619cfaeb321",
+    "limitations": "Presentation onset is not independently proven CSS animation onset. Do not populate loaderPhaseContracts or derive a guessed capture-clock offset from these frames. No new browser capture ran.",
+    "artifacts": [
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-frames.json",
+        "bytes": 235608,
+        "sha256": "87245987ca4ceda9a58d135e713d24fc2c6c6a96a8d31788fcb6fbf520ffe7eb"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-01.png",
+        "bytes": 1037559,
+        "sha256": "459f05fffeea1a2783c4955a71238bb2c7fa91446a480c122c5889c0abc24d59"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-02.png",
+        "bytes": 25744,
+        "sha256": "5f0e64ce9988756fcbb5bb6df86aedf3fd3b3170349bcda58a631b9807318cc7"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-onset-detail.png",
+        "bytes": 269334,
+        "sha256": "06f1f0234472bf467e2a9fcab2e1588a44ce5efe8582a03de8e1cd1e2776e0dc"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-source-loader-sheet.png",
+        "bytes": 1484612,
+        "sha256": "d17ad51c4a8501d705469248619a50c26b0db4b5ad775c042cc3f50494a98bc9"
+      }
+    ]
+  },
+  "sourceCss": {
+    "path": "docs/hero-reference/live/locked-reference-loader.css",
+    "bytes": 75910,
+    "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c"
+  },
+  "sourceCssFragments": [
+    "#loader .loader__logo{color:var(--color-highlight);z-index:1;width:clamp(80px,min((100vw - 120px) * .064,(100vh - 60px) * .12),96px);height:clamp(80px,min((100vw - 120px) * .064,(100vh - 60px) * .12),96px);animation:logo-rotate 1.5s ease-out forwards}",
+    "#loader .loader__logo .arrow-mask-line{stroke-dasharray:60;stroke-dashoffset:60;animation:draw-line .5s ease-out both .8s}",
+    "#loader .loader__logo [id^=cube_]{animation:cube-fade .4s ease both,cube-slide .4s ease-out both}",
+    "#loader .loader__ellipse ellipse{fill:none;stroke:#585765;stroke-width:1;stroke-dasharray:2 4;animation:dash-move 4s linear infinite}",
+    "#loader .loader__ellipse .loader__draw{stroke-dasharray:3700;stroke-dashoffset:3700;animation:draw-line 2s ease-out forwards}",
+    "#loader .loader__ellipse .loader__draw--inner{stroke-dasharray:2520;stroke-dashoffset:2520;animation:draw-line 1.8s ease-out forwards .2s}"
+  ],
+  "localSource": [
+    {
+      "path": "apps/pegasoft/src/app/shared/hero-scene/hero-shell.module.css",
+      "bytes": 12276,
+      "sha256": "048a3f681b6d7ada9e6dd86cff6c5350831a40ec2383dc1bde75eb999e3d242d"
+    },
+    {
+      "path": "apps/pegasoft/src/app/shared/pegasoft-home.tsx",
+      "bytes": 33548,
+      "sha256": "e33c81bcc1ca9a099589af7e1662e9e9b3374fd19e8d001a158a741cb5474834"
+    },
+    {
+      "path": "apps/pegasoft-e2e/src/visual/hero-capture-clock.ts",
+      "bytes": 5820,
+      "sha256": "7f40a5c46a5606088f8be2a4add3893cf4868ed19a3bae0b84dff28cd962916e"
+    }
+  ],
+  "states": [
+    {
+      "stateId": "loader-mark",
+      "referenceAnchor": {
+        "status": "observed",
+        "decodedFrameIndex": 118,
+        "bestEffortTimestampPts": 12000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 2,
+        "timestamp": "00:00:02.000000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000118-loader-mark.png",
+        "captureSha256": "c019c823b6c21544db0ce32d5e26481148326f721845b34a707b1bbe1bf9933f",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,118)'\" -frames:v 1 docs/hero-reference/recording/frame-000118-loader-mark.png"
+      },
+      "measurement": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/measurements/loader-mark.json",
+        "bytes": 67016,
+        "sha256": "fcdceafa594fa8beebb2d29dd9bdafd408cc3f650076e5b1d8055490a90fb36d"
+      },
+      "implementation": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/loader-mark.png",
+        "bytes": 48512,
+        "sha256": "bd9ce16d298c0adb7613f0dc50c68f2cdc6f4f1b68a1c19166b5af1c67292626"
+      },
+      "observation": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/observations/loader-mark.json",
+        "bytes": 37191,
+        "sha256": "5550501ddb87c5cc60376cb7400fc07cc10a1e7cfaaf5735e198bfcddd42d0b4"
+      },
+      "clock": {
+        "nowMs": 2004,
+        "animations": [
+          {
+            "id": 0,
+            "kind": "animation",
+            "observedAtMs": 4,
+            "initialTimeMs": 16.665999999999997,
+            "currentTime": 2016.666
+          },
+          {
+            "id": 1,
+            "kind": "animation",
+            "observedAtMs": 4,
+            "initialTimeMs": 16.665999999999997,
+            "currentTime": 2016.666
+          }
+        ]
+      },
+      "semanticIdentityPresentInCapturedClock": false
+    },
+    {
+      "stateId": "world-reveal",
+      "referenceAnchor": {
+        "status": "observed",
+        "decodedFrameIndex": 208,
+        "bestEffortTimestampPts": 21000,
+        "timeBase": "1/6000",
+        "timestampSeconds": 3.5,
+        "timestamp": "00:00:03.500000",
+        "pictureType": "B",
+        "selectionType": "representative",
+        "capturePath": "docs/hero-reference/recording/frame-000208-world-reveal.png",
+        "captureSha256": "87c9b513db35d2fc13c2a26e11ed54f06060e2eb034cbff0f10fc6eb47c9e690",
+        "extractionCommand": "ffmpeg -hide_banner -loglevel error -i docs/vectrfl_recording.mov -vf \"select='eq(n,208)'\" -frames:v 1 docs/hero-reference/recording/frame-000208-world-reveal.png"
+      },
+      "measurement": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/measurements/world-reveal.json",
+        "bytes": 88917,
+        "sha256": "5268cb866993b0e6ba37bfa5c379d9a9c1c7131e4b2e2bcd8cfef2748092421e"
+      },
+      "implementation": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/world-reveal.png",
+        "bytes": 312690,
+        "sha256": "f6794769190e5d70e874d4f907e15b7ba0447a23cb3353fa285ef82dcf7d06f6"
+      },
+      "observation": {
+        "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/observations/world-reveal.json",
+        "bytes": 38586,
+        "sha256": "53f758beba6d660a70751429e7ebf60ea5fade190d48ca051a1617b09a699e5e"
+      },
+      "clock": {
+        "nowMs": 3501,
+        "animations": [
+          {
+            "id": 0,
+            "kind": "animation",
+            "observedAtMs": 1,
+            "initialTimeMs": 0,
+            "currentTime": 3500
+          },
+          {
+            "id": 1,
+            "kind": "animation",
+            "observedAtMs": 1,
+            "initialTimeMs": 0,
+            "currentTime": 3500
+          },
+          {
+            "id": 3,
+            "kind": "transition",
+            "observedAtMs": 2896,
+            "initialTimeMs": 0,
+            "currentTime": 605
+          }
+        ]
+      },
+      "semanticIdentityPresentInCapturedClock": false
+    }
+  ],
+  "findings": [
+    {
+      "status": "source-observed",
+      "finding": "Local loader uses loader-dash-move on both ellipse SVGs. It has no reference logo-rotate, cube-fade/cube-slide, arrow draw-line or loader-draw/erase-line effects."
+    },
+    {
+      "status": "capture-observed",
+      "finding": "Both captured animation IDs lack animationName and target identity. Loader-mark native times are 2016.666ms; world-reveal native animation times are 3500ms. A world-reveal transition is 605ms and must not replace animation age."
+    },
+    {
+      "status": "author-candidate",
+      "finding": "Source page-to-loader presentation transition is between recording frames56/57, PTS5800/5900 at1/6000. This does not independently pin CSS animation-onset age."
+    }
+  ],
+  "reviewQuestions": [
+    "Does the retained recording plus exact locked CSS establish a source animation-onset interval no wider than one frame? Identify the causal proof; otherwise retain blocked status.",
+    "Can the captured anonymous native IDs be mapped to a specific source/local semantic effect using existing evidence, without trusting requested age or DOM order?",
+    "Do any independently established source/local ages overlap at both anchors? Missing evidence or non-equivalent effects must remain blocked."
+  ],
+  "reviewRule": "Reviewer supplies findings bound to this packet SHA256; do not backfill captured fields or set reviewerType to the owner. No graphics/motion/final visual acceptance."
+}

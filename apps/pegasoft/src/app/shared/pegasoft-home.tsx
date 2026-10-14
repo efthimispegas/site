@@ -4,8 +4,25 @@ import clsx from 'clsx';
 import type { CSSProperties } from 'react';
 import Link from 'next/link';
 import { ArrowRight, ChevronDown, Menu, X } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
-import { PegasoftFieldScene } from './pegasoft-field-scene';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import type {
+  HeroJourneySnapshot,
+  HeroPageScrollMeasurement,
+} from './hero-scene/hero-contract';
+import type { HeroDevelopmentDiagnostics } from './hero-scene/hero-development-diagnostics';
+import type { HeroAttemptState } from './hero-scene/hero-attempt';
+import { HeroScene } from './hero-scene/hero-scene';
+import { HERO_TEST_DIAGNOSTICS } from './hero-scene/hero-test-diagnostics';
+import {
+  getScrollYForRawJourneyProgress,
+  getScrollYForSceneProgress,
+  getEffectiveHeroHeight,
+  isHeroMobileDevice,
+  HERO_STEP_STARTS,
+  HERO_STEP_NAVIGATION_OFFSETS,
+} from './hero-scene/hero-sequence';
+import heroStyles from './hero-scene/hero-shell.module.css';
+import { useHeroJourneyController } from './hero-scene/use-hero-controller';
 import styles from './pegasoft-home.module.css';
 
 const flowSteps = [
@@ -73,14 +90,118 @@ const faqItems = [
   },
 ];
 
-function PegasoftLoader({ hidden }: { hidden: boolean }) {
+const INITIAL_PAGE_MEASUREMENT: HeroPageScrollMeasurement = {
+  measurementSequence: 0,
+  measuredAtMs: 0,
+  viewportWidth: 1440,
+  effectiveHeroHeight: 900,
+  wrapperHeight: 900,
+  scrollY: 0,
+  viewportHeight: 900,
+  flowDocumentTop: 0,
+  flowHeight: 900,
+  fieldSectionViewportTop: null,
+};
+
+type HeroShellDiagnosticsFactory = (
+  snapshot: HeroJourneySnapshot,
+) => HeroDevelopmentDiagnostics;
+
+function pageMeasurementsMatch(
+  current: HeroPageScrollMeasurement,
+  next: HeroPageScrollMeasurement,
+) {
+  const fieldTopMatches =
+    current.fieldSectionViewportTop === next.fieldSectionViewportTop ||
+    (current.fieldSectionViewportTop !== null &&
+      next.fieldSectionViewportTop !== null &&
+      Math.abs(current.fieldSectionViewportTop - next.fieldSectionViewportTop) <
+        0.01);
+
   return (
-    <div className="pegasoft-loader" data-hidden={hidden} aria-hidden="true">
-      <div className="pegasoft-loader__core">P</div>
-      <svg className="pegasoft-loader__ellipse pegasoft-loader__ellipse--outer" viewBox="0 0 1500 800">
+    Math.abs(current.scrollY - next.scrollY) < 0.01 &&
+    Math.abs(current.viewportHeight - next.viewportHeight) < 0.01 &&
+    Math.abs(current.flowDocumentTop - next.flowDocumentTop) < 0.01 &&
+    current.viewportWidth === next.viewportWidth &&
+    current.effectiveHeroHeight === next.effectiveHeroHeight &&
+    current.wrapperHeight === next.wrapperHeight &&
+    Math.abs(current.flowHeight - next.flowHeight) < 0.01 &&
+    fieldTopMatches
+  );
+}
+
+function PegasoftLoader({
+  hidden,
+  revealing,
+  direct,
+}: {
+  hidden: boolean;
+  revealing: boolean;
+  direct: boolean;
+}) {
+  return (
+    <div
+      className={heroStyles.loader}
+      data-hidden={hidden}
+      data-revealing={revealing}
+      data-direct={direct}
+      aria-hidden="true"
+    >
+      <svg
+        className={heroStyles.loaderCore}
+        width="96"
+        height="96"
+        viewBox="0 0 96 96"
+        fill="none"
+        overflow="visible"
+      >
+        <defs>
+          <mask id="pegasoft-loader-arrow-mask">
+            <path
+              d="M14.0002 13.9917L47.0002 46.9917"
+              stroke="white"
+              strokeWidth="16.1"
+            />
+            <path
+              d="M14.0002 81.9917L47.0002 48.9917"
+              stroke="white"
+              strokeWidth="16.1"
+            />
+            <path d="M0 47.9917H56" stroke="white" strokeWidth="16.1" />
+          </mask>
+        </defs>
+        <g fill="currentColor">
+          <path d="M39.9963 96.0002H55.9926V80.0039H39.9963V96.0002Z" />
+          <path d="M76.2787 87.59L64.9673 76.2787L76.2787 64.9673L87.59 76.2787L76.2787 87.59Z" />
+          <path d="M80.0039 55.9926V39.9963H96.0001V55.9926H80.0039Z" />
+          <path d="M76.2899 8.39893L87.6013 19.7103L76.2899 31.0217L64.9785 19.7103L76.2899 8.39893Z" />
+          <path d="M40.0076 0H56.0038V15.9962H40.0076V0Z" />
+          <path d="M19.7216 87.59L31.033 76.2787L19.7216 64.9673L8.41019 76.2787L19.7216 87.59Z" />
+          <path d="M15.9963 55.9926V39.9963H9.91821e-05V55.9926H15.9963Z" />
+          <path d="M19.7103 8.39893L8.39896 19.7103L19.7103 31.0217L31.0217 19.7103L19.7103 8.39893Z" />
+        </g>
+        <path
+          d="M53.6557 53.6557C56.7827 50.5287 56.7827 45.4713 53.6557 42.3443V42.3556L19.7103 8.41016L13.7046 14.4158L8.39887 19.7215L28.6736 40.0188H0V56.015H28.6849L19.7103 64.9784L8.39887 76.2897L19.7103 87.6011L53.6557 53.6557Z"
+          fill="currentColor"
+          mask="url(#pegasoft-loader-arrow-mask)"
+        />
+      </svg>
+      <svg
+        className={clsx(
+          heroStyles.loaderEllipse,
+          heroStyles.loaderEllipseOuter,
+        )}
+        viewBox="0 0 1500 800"
+      >
         <ellipse cx="750" cy="400" rx="749" ry="399" />
       </svg>
-      <svg className="pegasoft-loader__ellipse pegasoft-loader__ellipse--inner" viewBox="0 0 800 800">
+      <svg
+        className={clsx(
+          heroStyles.loaderEllipse,
+          heroStyles.loaderEllipseInner,
+        )}
+        viewBox="0 0 800 800"
+      >
         <ellipse cx="400" cy="400" rx="399" ry="399" />
       </svg>
     </div>
@@ -92,58 +213,71 @@ export function PegasoftHome() {
     process.env['NEXT_PUBLIC_BOOKING_URL'] ?? 'mailto:hello@pegasoft.studio';
 
   const flowRef = useRef<HTMLElement>(null);
+  const flowWrapperRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLElement>(null);
   const standardsRef = useRef<HTMLElement>(null);
   const faqRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLElement>(null);
+  const mobileMenuButtonRef = useRef<HTMLButtonElement>(null);
+  const mobileNavigationRef = useRef<HTMLElement>(null);
   const featureRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const initializedDirectStateRef = useRef<string | null>(null);
 
-  const [loaderHidden, setLoaderHidden] = useState(false);
-  const [sceneReady, setSceneReady] = useState(false);
-  const [pageReady, setPageReady] = useState(false);
-  const [heroHidden, setHeroHidden] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeFlowIndex, setActiveFlowIndex] = useState(0);
-  const [flowProgress, setFlowProgress] = useState(0);
+  const [heroAttemptState, setHeroAttemptState] =
+    useState<HeroAttemptState>('initializing');
+  const [pageMeasurement, setPageMeasurement] =
+    useState<HeroPageScrollMeasurement>(INITIAL_PAGE_MEASUREMENT);
   const [activeFaqIndex, setActiveFaqIndex] = useState(0);
   const [headerWhite, setHeaderWhite] = useState(false);
-  const [heroExitProgress, setHeroExitProgress] = useState(0);
-  const [flowRevealProgress, setFlowRevealProgress] = useState(0);
-  const [fieldVisibility, setFieldVisibility] = useState(1);
+  const [getDevelopmentHeroDiagnostics, setGetDevelopmentHeroDiagnostics] =
+    useState<HeroShellDiagnosticsFactory | null>(null);
+  const heroJourney = useHeroJourneyController(pageMeasurement);
+  const developmentHeroDiagnostics =
+    getDevelopmentHeroDiagnostics?.(heroJourney) ?? {};
+  const usableFallback = heroAttemptState === 'fallback';
+  const sceneReady = heroAttemptState === 'ready';
+  const loaderCanReveal =
+    usableFallback ||
+    heroJourney.motion === 'reduced' ||
+    (sceneReady && heroJourney.localClocks.loaderMs >= 2200);
+  const loaderHidden =
+    usableFallback ||
+    heroJourney.motion === 'reduced' ||
+    (sceneReady && heroJourney.localClocks.loaderMs >= 3500);
+  const loaderRevealing = loaderCanReveal && !loaderHidden;
+  const pageReady = loaderHidden;
+  const fieldClipBottom = Math.min(
+    pageMeasurement.viewportHeight,
+    Math.max(
+      0,
+      pageMeasurement.viewportHeight -
+        (pageMeasurement.fieldSectionViewportTop ??
+          pageMeasurement.viewportHeight),
+    ),
+  );
 
   useEffect(() => {
-    const reduceMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)',
-    ).matches;
-
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-    window.scrollTo(0, 0);
-
-    if (reduceMotion) {
-      setSceneReady(true);
-      setPageReady(true);
-      setLoaderHidden(true);
+    if (process.env.NODE_ENV === 'production' && !HERO_TEST_DIAGNOSTICS) {
       return;
     }
 
-    const sceneTimer = window.setTimeout(() => {
-      setSceneReady(true);
-    }, 1180);
-    const revealTimer = window.setTimeout(() => {
-      setPageReady(true);
-    }, 1720);
-    const hideTimer = window.setTimeout(() => {
-      setLoaderHidden(true);
-    }, 2140);
+    let active = true;
+
+    void import('./hero-scene/hero-development-diagnostics').then(
+      ({ getHeroShellDevelopmentDiagnostics }) => {
+        if (active) {
+          setGetDevelopmentHeroDiagnostics(
+            () => getHeroShellDevelopmentDiagnostics,
+          );
+        }
+      },
+    );
 
     return () => {
-      window.clearTimeout(sceneTimer);
-      window.clearTimeout(revealTimer);
-      window.clearTimeout(hideTimer);
+      active = false;
     };
   }, []);
 
@@ -156,6 +290,38 @@ export function PegasoftHome() {
     return () => document.body.classList.remove('pegasoft-locked');
   }, [loaderHidden, mobileMenuOpen]);
 
+  useLayoutEffect(() => {
+    const request = heroJourney.captureRequest;
+    if (
+      (process.env.NODE_ENV === 'production' && !HERO_TEST_DIAGNOSTICS) ||
+      !request ||
+      !heroJourney.progress.valid ||
+      !loaderHidden
+    )
+      return;
+    if (initializedDirectStateRef.current === request.stateKey) return;
+
+    // Recipe selection becomes a physical scroll event. The next normal page
+    // measurement determines copy, lifecycle, and DOM progress without overrides.
+    const documentRoot = document.documentElement;
+    const previousScrollBehavior = documentRoot.style.scrollBehavior;
+    documentRoot.style.scrollBehavior = 'auto';
+    window.scrollTo({
+      top: getScrollYForSceneProgress(
+        request.sceneTargetSelection,
+        pageMeasurement,
+      ),
+      behavior: 'auto',
+    });
+    initializedDirectStateRef.current = request.stateKey;
+    documentRoot.style.scrollBehavior = previousScrollBehavior;
+  }, [
+    heroJourney.captureRequest,
+    heroJourney.progress.valid,
+    loaderHidden,
+    pageMeasurement,
+  ]);
+
   useEffect(() => {
     const onResize = () => {
       if (window.innerWidth > 820) {
@@ -166,6 +332,38 @@ export function PegasoftHome() {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) {
+      return;
+    }
+
+    const navigation = mobileNavigationRef.current;
+    const initialFocus = navigation?.querySelector<HTMLElement>(
+      '[data-mobile-nav-initial-focus]',
+    );
+    const focusFrame = window.requestAnimationFrame(() => {
+      initialFocus?.focus();
+    });
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') {
+        return;
+      }
+
+      event.preventDefault();
+      setMobileMenuOpen(false);
+      window.requestAnimationFrame(() => {
+        mobileMenuButtonRef.current?.focus();
+      });
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     let frame = 0;
@@ -181,17 +379,10 @@ export function PegasoftHome() {
       }
     };
 
-    const updateFeatures = () => {
-      const section = featuresRef.current;
-      if (!section) {
-        return;
-      }
-
+    const updateFeatures = (section: HTMLElement, rect: DOMRect) => {
       const total = section.offsetHeight - window.innerHeight;
       const progress =
-        total <= 0
-          ? 1
-          : Math.min(1, Math.max(0, -section.getBoundingClientRect().top / total));
+        total <= 0 ? 1 : Math.min(1, Math.max(0, -rect.top / total));
       const segment = 1 / features.length;
       const overlap = segment * 0.3;
 
@@ -207,50 +398,8 @@ export function PegasoftHome() {
           Math.max(0, (progress - start) / (end - start)),
         );
 
-        item.style.opacity = `${0.22 + local * 0.78}`;
         item.style.transform = `translate3d(0, ${(1 - local) * 80}px, 0)`;
       });
-
-      const rect = section.getBoundingClientRect();
-      const fadeStart = window.innerHeight * 0.78;
-      const fadeEnd = window.innerHeight * 0.18;
-      const nextVisibility =
-        rect.top >= fadeStart
-          ? 1
-          : rect.top <= fadeEnd
-            ? 0
-            : (rect.top - fadeEnd) / (fadeStart - fadeEnd);
-
-      setFieldVisibility((previous) =>
-        Math.abs(previous - nextVisibility) < 0.01 ? previous : nextVisibility,
-      );
-    };
-
-    const updateFlow = () => {
-      const flowSection = flowRef.current;
-      if (!flowSection) {
-        return;
-      }
-
-      const total = flowSection.offsetHeight - window.innerHeight;
-      const progress =
-        total <= 0
-          ? 0
-          : Math.min(
-              1,
-              Math.max(0, -flowSection.getBoundingClientRect().top / total),
-            );
-      const nextActive = Math.min(
-        flowSteps.length - 1,
-        Math.floor(progress * flowSteps.length + 0.0001),
-      );
-
-      setActiveFlowIndex((previous) =>
-        previous === nextActive ? previous : nextActive,
-      );
-      setFlowProgress((previous) =>
-        Math.abs(previous - progress) < 0.001 ? previous : progress,
-      );
     };
 
     const updateHeader = () => {
@@ -258,12 +407,6 @@ export function PegasoftHome() {
         Boolean,
       ) as HTMLElement[];
       const headerHeight = headerRef.current?.offsetHeight ?? 80;
-      const landingWindow = window.innerHeight * 0.18 || 1;
-      const exitProgress = Math.min(1, Math.max(0, window.scrollY / landingWindow));
-      const revealProgress = Math.min(
-        1,
-        Math.max(0, (exitProgress - 0.12) / 0.88),
-      );
       const shouldWhite = darkTargets.some((target) => {
         const rect = target.getBoundingClientRect();
         return rect.top < headerHeight && rect.bottom > 0;
@@ -272,27 +415,58 @@ export function PegasoftHome() {
       setHeaderWhite((previous) =>
         previous === shouldWhite ? previous : shouldWhite,
       );
-      setHeroHidden(window.scrollY > window.innerHeight * 0.08);
-      setHeroExitProgress((previous) =>
-        Math.abs(previous - exitProgress) < 0.01 ? previous : exitProgress,
-      );
-      setFlowRevealProgress((previous) =>
-        Math.abs(previous - revealProgress) < 0.01 ? previous : revealProgress,
-      );
     };
 
+    let measurementSequence = 0;
+    let effectiveHeroHeight = 0;
+    let orientationReset = false;
+    const sourceMobileDevice = isHeroMobileDevice(
+      navigator.userAgent,
+      'ontouchend' in document,
+      Boolean((window as Window & { MSStream?: unknown }).MSStream),
+    );
     const update = () => {
       frame = 0;
+      const flowSection = flowRef.current;
+      const featureSection = featuresRef.current;
+      const flowRect = flowSection?.getBoundingClientRect();
+      const featureRect = featureSection?.getBoundingClientRect();
+      effectiveHeroHeight = getEffectiveHeroHeight(
+        window.innerHeight,
+        effectiveHeroHeight,
+        sourceMobileDevice,
+        orientationReset,
+      );
+      orientationReset = false;
+      const nextMeasurement: HeroPageScrollMeasurement = {
+        measurementSequence: ++measurementSequence,
+        measuredAtMs: performance.now(),
+        viewportWidth: window.innerWidth,
+        effectiveHeroHeight,
+        wrapperHeight: flowWrapperRef.current?.offsetHeight ?? 0,
+        scrollY: window.scrollY,
+        viewportHeight: window.innerHeight,
+        flowDocumentTop: (flowRect?.top ?? 0) + window.scrollY,
+        flowHeight: flowSection?.offsetHeight ?? window.innerHeight,
+        fieldSectionViewportTop: featureRect?.top ?? null,
+      };
+
+      setPageMeasurement((current) =>
+        pageMeasurementsMatch(current, nextMeasurement)
+          ? current
+          : nextMeasurement,
+      );
       updateHeader();
-      updateFlow();
-      updateFeatures();
+      if (featureSection && featureRect) {
+        updateFeatures(featureSection, featureRect);
+      }
       revealSection(standardsRef.current);
       revealSection(faqRef.current);
       revealSection(ctaRef.current);
       revealSection(footerRef.current);
     };
 
-    const onScroll = () => {
+    const scheduleUpdate = () => {
       if (frame) {
         return;
       }
@@ -300,52 +474,75 @@ export function PegasoftHome() {
       frame = window.requestAnimationFrame(update);
     };
 
+    const scheduleOrientationUpdate = () => {
+      orientationReset = true;
+      scheduleUpdate();
+    };
     update();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
+    const geometryObserver = new ResizeObserver(scheduleUpdate);
+    const flowSection = flowRef.current;
+    const featureSection = featuresRef.current;
+
+    if (flowSection) {
+      geometryObserver.observe(flowSection);
+    }
+    if (featureSection) {
+      geometryObserver.observe(featureSection);
+    }
+
+    if (flowWrapperRef.current)
+      geometryObserver.observe(flowWrapperRef.current);
+    window.addEventListener('orientationchange', scheduleOrientationUpdate);
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    window.visualViewport?.addEventListener('resize', scheduleUpdate);
 
     return () => {
       if (frame) {
         window.cancelAnimationFrame(frame);
       }
 
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
+      geometryObserver.disconnect();
+      window.removeEventListener(
+        'orientationchange',
+        scheduleOrientationUpdate,
+      );
+      window.removeEventListener('scroll', scheduleUpdate);
+      window.removeEventListener('resize', scheduleUpdate);
+      window.visualViewport?.removeEventListener('resize', scheduleUpdate);
     };
   }, []);
 
   const scrollToProcess = () => {
-    const flowSection = flowRef.current;
-    if (!flowSection) {
-      return;
-    }
-
-    const rect = flowSection.getBoundingClientRect();
     window.scrollTo({
-      top: window.scrollY + rect.top,
+      top: pageMeasurement.flowDocumentTop,
       behavior: 'smooth',
     });
   };
 
   const jumpToFlowStep = (index: number) => {
-    const flowSection = flowRef.current;
-    if (!flowSection) {
-      return;
-    }
-
-    const total = flowSection.offsetHeight - window.innerHeight;
-    const top = window.scrollY + flowSection.getBoundingClientRect().top;
-    const stepTop = top + (total / flowSteps.length) * index;
-
     window.scrollTo({
-      top: stepTop,
+      top: getScrollYForRawJourneyProgress(
+        HERO_STEP_STARTS[index] + HERO_STEP_NAVIGATION_OFFSETS[index],
+        pageMeasurement,
+      ),
       behavior: 'smooth',
     });
   };
-
   return (
-    <div className={clsx(styles.root, 'pegasoft-vectr-page')}>
-      <PegasoftLoader hidden={loaderHidden} />
+    <div
+      className={clsx(styles.root, 'pegasoft-vectr-page')}
+      style={
+        {
+          '--color-bg': '#d0e1eb',
+        } as CSSProperties
+      }
+    >
+      <PegasoftLoader
+        hidden={loaderHidden}
+        revealing={loaderRevealing}
+        direct={heroJourney.directEntry}
+      />
 
       <header
         ref={headerRef}
@@ -375,10 +572,12 @@ export function PegasoftHome() {
           </div>
 
           <button
+            ref={mobileMenuButtonRef}
             className="menu-btn"
             type="button"
             aria-label="Toggle menu"
             aria-expanded={mobileMenuOpen}
+            aria-controls="pegasoft-mobile-navigation"
             onClick={() => setMobileMenuOpen((value) => !value)}
           >
             {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -389,15 +588,24 @@ export function PegasoftHome() {
           className={clsx('mobile-nav__overlay', {
             show: mobileMenuOpen,
           })}
-          onClick={() => setMobileMenuOpen(false)}
+          onClick={() => {
+            setMobileMenuOpen(false);
+            window.requestAnimationFrame(() => {
+              mobileMenuButtonRef.current?.focus();
+            });
+          }}
         />
 
         <nav
+          ref={mobileNavigationRef}
+          id="pegasoft-mobile-navigation"
           className={clsx('mobile-nav', {
             'is-open': mobileMenuOpen,
             'is-closing': !mobileMenuOpen,
           })}
           aria-label="Mobile navigation"
+          aria-hidden={!mobileMenuOpen}
+          inert={!mobileMenuOpen}
         >
           <div className="mobile-nav__panel-bg" />
           <div className="mobile-nav__panel">
@@ -406,6 +614,7 @@ export function PegasoftHome() {
                 className="mobile-nav__logo"
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
+                tabIndex={mobileMenuOpen ? 0 : -1}
               >
                 PEGASOFT
               </Link>
@@ -413,24 +622,43 @@ export function PegasoftHome() {
                 className="mobile-nav__close"
                 type="button"
                 aria-label="Close menu"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.requestAnimationFrame(() => {
+                    mobileMenuButtonRef.current?.focus();
+                  });
+                }}
+                data-mobile-nav-initial-focus=""
+                tabIndex={mobileMenuOpen ? 0 : -1}
               >
                 <X size={18} />
               </button>
             </div>
             <ul className="mobile-nav__list">
               <li className="mobile-nav__item">
-                <Link href="/services" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  tabIndex={mobileMenuOpen ? 0 : -1}
+                >
                   Services
                 </Link>
               </li>
               <li className="mobile-nav__item">
-                <Link href="/work" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/work"
+                  onClick={() => setMobileMenuOpen(false)}
+                  tabIndex={mobileMenuOpen ? 0 : -1}
+                >
                   Work
                 </Link>
               </li>
               <li className="mobile-nav__item">
-                <Link href="/studio" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/studio"
+                  onClick={() => setMobileMenuOpen(false)}
+                  tabIndex={mobileMenuOpen ? 0 : -1}
+                >
                   Studio
                 </Link>
               </li>
@@ -441,12 +669,18 @@ export function PegasoftHome() {
                   href="/work/concepts"
                   className="pill-btn pill-btn--glass mobile-nav__cta"
                   onClick={() => setMobileMenuOpen(false)}
+                  tabIndex={mobileMenuOpen ? 0 : -1}
                 >
                   <span className="pill-btn-span">Concept Lab</span>
                 </Link>
               </div>
               <div className="mncta">
-                <a href={bookingUrl} className="pill-btn pill-btn--dark mobile-nav__cta">
+                <a
+                  href={bookingUrl}
+                  className="pill-btn pill-btn--dark mobile-nav__cta"
+                  onClick={() => setMobileMenuOpen(false)}
+                  tabIndex={mobileMenuOpen ? 0 : -1}
+                >
                   <span className="pill-btn-span">Book a Call</span>
                 </a>
               </div>
@@ -456,89 +690,119 @@ export function PegasoftHome() {
       </header>
 
       <div
-        className={clsx('top', {
-          'top--scene-live': sceneReady,
-          'top--copy-live': pageReady,
-          'top--loader-cleared': loaderHidden,
-        })}
+        className={heroStyles.top}
+        data-hero-shell=""
+        data-scene-live={sceneReady}
+        data-copy-live={pageReady}
+        data-loader-cleared={loaderHidden}
+        data-hero-attempt-state={heroAttemptState}
+        {...developmentHeroDiagnostics}
         style={
           {
-            '--hero-exit-progress': heroExitProgress.toFixed(4),
-            '--flow-reveal-progress': flowRevealProgress.toFixed(4),
-            '--field-visibility': fieldVisibility.toFixed(4),
+            '--hero-exit-progress':
+              heroJourney.dom.landingExitProgress.toFixed(4),
+            '--hero-fade-progress':
+              heroJourney.dom.landingFadeProgress.toFixed(4),
+            '--flow-reveal-progress':
+              heroJourney.dom.flowRevealProgress.toFixed(4),
+            '--field-visibility': heroJourney.dom.fieldVisibility.toFixed(4),
+            '--field-clip-bottom': `${fieldClipBottom}px`,
           } as CSSProperties
         }
       >
-        <PegasoftFieldScene
-          ready={sceneReady}
-          activeLifecycle={Math.max(0, Math.min(flowSteps.length - 1, activeFlowIndex))}
-          flowProgress={flowProgress}
+        <HeroScene
+          snapshot={heroJourney}
+          localEffectsActive={loaderHidden}
+          onAttemptStateChange={setHeroAttemptState}
         />
 
         <section
-          className={clsx('hero', {
-            show: pageReady,
-            hide: heroHidden,
+          className={clsx(heroStyles.hero, {
+            [heroStyles.heroVisible]: pageReady,
+            [heroStyles.heroHidden]: heroJourney.dom.landingHidden,
           })}
+          data-hero-copy="landing"
         >
-          <div className="hero__content">
-            <h1 className="hero__title">
+          <div className={heroStyles.heroContent}>
+            <h1 className={heroStyles.heroTitle}>
               <span>The New Standard</span>
               <span>in Product Delivery</span>
             </h1>
-            <p className="hero__subtitle">
-              <span>Design driven clarity. Production rigor.</span>
+            <p className={heroStyles.heroSubtitle}>
+              <span>Design clarity. Production rigor.</span>
               <span>
-                Pegasoft builds premium digital products and brand platforms
-                with interface systems that still hold together in code.
+                Pegasoft builds resilient digital products and brand systems
+                that hold together in production.
               </span>
             </p>
           </div>
-          <button className="hero__scroll-btn" type="button" onClick={scrollToProcess}>
+          <button
+            className={heroStyles.scrollButton}
+            type="button"
+            onClick={scrollToProcess}
+          >
             <span>
-              <span className="hsbtn-in">scroll to discover our process</span>
+              <span className={heroStyles.scrollLabel}>
+                scroll to discover our process
+              </span>
             </span>
           </button>
         </section>
 
-        <div className="hero-spacer" />
+        <div className={heroStyles.heroSpacer} />
 
-        <section ref={flowRef} className="flow">
-          <div className="flow__wrapper">
-            <div className="flow__steps">
+        <section ref={flowRef} className={heroStyles.flow} data-hero-process="">
+          <div ref={flowWrapperRef} className={heroStyles.flowWrapper}>
+            <div className={heroStyles.flowSteps}>
               {flowSteps.map((step, index) => (
                 <div
                   key={step.number}
-                  className={clsx('flow__step', {
-                    'flow__step--active': activeFlowIndex === index,
+                  className={clsx(heroStyles.flowStep, {
+                    [heroStyles.flowStepActive]:
+                      heroJourney.stepIndex === index,
                   })}
+                  data-hero-process-step={index + 1}
+                  data-active={heroJourney.stepIndex === index}
                   style={
                     {
                       '--flow-progress': Math.min(
                         1,
-                        Math.max(0, flowProgress * flowSteps.length - index),
+                        index < heroJourney.stepIndex
+                          ? 1
+                          : index === heroJourney.stepIndex
+                            ? heroJourney.stepProgress
+                            : 0,
                       ),
                     } as CSSProperties
                   }
                 >
                   <button
-                    className="flow__header"
+                    className={heroStyles.flowHeader}
                     type="button"
                     onClick={() => jumpToFlowStep(index)}
+                    aria-current={
+                      heroJourney.stepIndex === index ? 'step' : undefined
+                    }
+                    aria-expanded={heroJourney.stepIndex === index}
+                    aria-controls={`hero-flow-description-${index + 1}`}
                   >
-                    <div className="flow__number">
+                    <div className={heroStyles.flowNumber}>
                       <span>{step.number}</span>
                     </div>
-                    <h3 className="flow__title">{step.title}</h3>
+                    <h3 className={heroStyles.flowTitle}>{step.title}</h3>
                   </button>
-                  <div className="flow__body">
-                    <div className="flow__body-inner">
-                      <div className="flow__track">
-                        <div className="flow__track-bar">
-                          <div className="flow__track-fill" />
+                  <div
+                    id={`hero-flow-description-${index + 1}`}
+                    className={heroStyles.flowBody}
+                    aria-hidden={heroJourney.stepIndex !== index}
+                  >
+                    <div className={heroStyles.flowBodyInner}>
+                      <div className={heroStyles.flowTrack}>
+                        <div className={heroStyles.flowTrackBar}>
+                          <div className={heroStyles.flowTrackFill} />
                         </div>
                       </div>
-                      <p className="flow__description">{step.body}</p>
+                      <p className={heroStyles.flowDescription}>{step.body}</p>
                     </div>
                   </div>
                 </div>
@@ -547,7 +811,11 @@ export function PegasoftHome() {
           </div>
         </section>
 
-        <section ref={featuresRef} className="features">
+        <section
+          ref={featuresRef}
+          className="features"
+          data-hero-next-section=""
+        >
           <div className="features__sticky">
             <h2 className="features__title">
               Designed for ambitious studios,
@@ -568,7 +836,9 @@ export function PegasoftHome() {
                     </div>
                     <div className="feature-item__text">
                       <h3 className="feature-item__title">{feature.title}</h3>
-                      <p className="feature-item__description">{feature.body}</p>
+                      <p className="feature-item__description">
+                        {feature.body}
+                      </p>
                     </div>
                   </div>
                 </article>
@@ -672,8 +942,14 @@ export function PegasoftHome() {
               <span className="footer-nav-btn__bg" />
               <span className="footer-nav-btn__label">{item.label}</span>
               <span className="footer-nav-btn__arrows">
-                <ArrowRight className="footer-nav-btn__arrow footer-nav-btn__arrow--current" size={22} />
-                <ArrowRight className="footer-nav-btn__arrow footer-nav-btn__arrow--next" size={22} />
+                <ArrowRight
+                  className="footer-nav-btn__arrow footer-nav-btn__arrow--current"
+                  size={22}
+                />
+                <ArrowRight
+                  className="footer-nav-btn__arrow footer-nav-btn__arrow--next"
+                  size={22}
+                />
               </span>
             </Link>
           ))}

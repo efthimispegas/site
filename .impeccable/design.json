@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T17:03:57Z",
+  "title": "Design System: Pegasoft",
+  "extensions": {
+    "colorMeta": {
+      "hero-sky": { "role": "neutral", "displayName": "Hero sky", "canonical": "#c8dae5" },
+      "hero-ink": { "role": "neutral", "displayName": "Hero ink", "canonical": "#050419" },
+      "hero-indigo": { "role": "primary", "displayName": "Hero indigo", "canonical": "#3d4bdb" },
+      "scene-red-route": { "role": "secondary", "displayName": "Activation red", "canonical": "#ff4d67" },
+      "scene-blue-glow": { "role": "tertiary", "displayName": "Route blue glow", "canonical": "#0e94fb" }
+    },
+    "typographyMeta": {
+      "hero-display": { "displayName": "Hero display", "purpose": "Two-line landing headline" },
+      "hero-body": { "displayName": "Hero body", "purpose": "Landing supporting copy" }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "hero-reveal", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Loader and hero copy entrance" },
+      { "name": "hero-state", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Hero UI state transition" }
+    ],
+    "breakpoints": [
+      { "name": "hero-compact", "value": "820px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Hero dark pill",
+      "kind": "button",
+      "refersTo": "hero-pill-dark",
+      "description": "Dark hero action with visible hover and keyboard focus",
+      "html": "<button class=\"ds-hero-pill\">Explore</button>",
+      "css": ".ds-hero-pill{height:48px;padding:0 24px;border:0;border-radius:156px;background:#050419;color:#fcfcfc;font:500 14px 'Avenir Next',sans-serif;text-transform:uppercase;cursor:pointer;transition:background-color .3s cubic-bezier(.25,1,.5,1)}.ds-hero-pill:hover{background:#3d4bdb}.ds-hero-pill:focus-visible{outline:2px solid #3d4bdb;outline-offset:4px}"
+    },
+    {
+      "name": "Hero light pill",
+      "kind": "button",
+      "refersTo": "hero-pill-light",
+      "description": "Light hero action with dark text",
+      "html": "<button class=\"ds-hero-pill-light\">Contact</button>",
+      "css": ".ds-hero-pill-light{height:48px;padding:0 24px;border:0;border-radius:156px;background:#fcfcfc;color:#050419;font:500 14px 'Avenir Next',sans-serif;text-transform:uppercase;cursor:pointer}.ds-hero-pill-light:hover{background:#3d4bdb;color:#fcfcfc}.ds-hero-pill-light:focus-visible{outline:2px solid #3d4bdb;outline-offset:4px}"
+    },
+    {
+      "name": "Flow number",
+      "kind": "custom",
+      "description": "Numbered stage marker within the hero flow",
+      "html": "<span class=\"ds-flow-number\">01</span>",
+      "css": ".ds-flow-number{display:inline-grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#fcfcfc;color:#050419;font:500 14px 'Avenir Next',sans-serif}"
+    }
+  ],
+  "narrative": {
+    "northStar": "A guided industrial energy journey",
+    "overview": "A scroll-led spatial story with source-constrained composition, readable foreground copy, material depth, restrained interface chrome, and motion tied to the journey.",
+    "keyCharacteristics": ["Source-constrained composition", "Readable foreground copy", "Material depth", "Restrained interface chrome", "Motion tied to the journey"],
+    "rules": [
+      { "name": "Source Comparison Rule", "body": "Tune palette, core, glow, and surface response against matched reference frames before treating a local color as final.", "section": "colors" }
+    ],
+    "dos": ["Compare normal playback and matched stills to the reference", "Keep Pegasoft copy and accessibility alternatives", "Preserve continuous slow, fast, and reverse motion"],
+    "donts": ["Call a proxy scene or isolated technical check final visual acceptance", "Add decorative motion that competes with scroll responsiveness", "Silently promote later phase status"]
+  }
+}

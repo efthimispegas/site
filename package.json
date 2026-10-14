@@ -20,7 +20,7 @@
     "animejs": "^4.4.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.18.0",
-    "next": "~16.2.6",
+    "next": "~16.3.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "three": "~0.185.1"
@@ -28,15 +28,14 @@
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
     "@eslint/js": "^9.8.0",
-    "@next/eslint-plugin-next": "^16.2.6",
-    "@nx/devkit": "22.7.5",
-    "@nx/eslint": "22.7.5",
-    "@nx/eslint-plugin": "22.7.5",
-    "@nx/js": "22.7.5",
-    "@nx/next": "22.7.5",
-    "@nx/playwright": "22.7.5",
-    "@nx/vitest": "22.7.5",
-    "@nx/workspace": "22.7.5",
+    "@nx/devkit": "22.7.12",
+    "@nx/eslint": "22.7.12",
+    "@nx/eslint-plugin": "22.7.12",
+    "@nx/js": "22.7.12",
+    "@nx/next": "22.7.12",
+    "@nx/playwright": "22.7.12",
+    "@nx/vitest": "22.7.12",
+    "@nx/workspace": "22.7.12",
     "@playwright/test": "^1.36.0",
     "@swc-node/register": "~1.11.1",
     "@swc/cli": "~0.8.0",
@@ -51,7 +50,6 @@
     "@types/three": "~0.182.0",
     "@vitest/coverage-v8": "~4.1.0",
     "eslint": "^9.8.0",
-    "eslint-config-next": "^16.2.6",
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsx-a11y": "6.10.1",
@@ -59,13 +57,31 @@
     "eslint-plugin-react": "7.35.0",
     "eslint-plugin-react-hooks": "7.1.1",
     "jsdom": "^29.1.1",
-    "nx": "22.7.5",
+    "nx": "22.7.12",
     "prettier": "~3.9.6",
+    "sharp": "^0.35.5",
     "tslib": "^2.3.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.61.1",
     "vite": "^8.0.0",
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "~4.1.0"
+  },
+  "packageManager": "pnpm@10.8.1",
+  "engines": {
+    "node": "^24.19.0",
+    "pnpm": "10.8.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "nx>axios": "^1.20.0",
+      "nx>brace-expansion": "^5.0.11",
+      "nx>smol-toml": "^1.7.1"
+    },
+    "auditConfig": {
+      "ignoreCves": [
+        "CVE-2026-93687"
+      ]
+    }
   }
 }

@@ -1,0 +1,245 @@
+{
+  "date": "2026-10-02",
+  "status": "complete candidate refinement implementation/check/evidence checkpoint; independent qualification not granted",
+  "beforePins": [
+    {
+      "path": "apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+      "snapshot": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-before.mjs",
+      "bytes": 71162,
+      "sha256": "24fafcdb362dd631e809646168740f10e98a40ab901543620092d4726147092d"
+    },
+    {
+      "path": "tools/hero-reference/measurement-contract.test.mjs",
+      "snapshot": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/measurement-tests-before.mjs",
+      "bytes": 41823,
+      "sha256": "f4637f060f9b7ab4a27419602bdfb30dacaaf4d188ab9f9674a183ced8ce33af"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/review-packet.json",
+      "bytes": 10902,
+      "sha256": "c80f6c1923b224cc6a709e03f64c9b3672dc3ddc04789b9f35600d6fa66b4162"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/independent-review.json",
+      "bytes": 6382,
+      "sha256": "76a96bbfdaec5b72c4d355030619a237338ea6fe7df3318f03239da8e15467af"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-parallel/landmarks/manifest.json",
+      "bytes": 5609,
+      "sha256": "4d1bc333f5ad9b159595bd6256152230be4dd8720aaf1d2b58bda75bf6d58155"
+    }
+  ],
+  "liveInputPins": [
+    {
+      "path": "apps/pegasoft-e2e/src/visual/screen-structural-features.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": "tools/hero-reference/measurement-contract.test.mjs",
+      "bytes": 44669,
+      "sha256": "44abbf361d0c3df3a8ed8b4682f965036dcf1fc4f638d957a02a3ebadb4699ea"
+    }
+  ],
+  "rasterInputPins": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-before.mjs",
+      "bytes": 71162,
+      "sha256": "24fafcdb362dd631e809646168740f10e98a40ab901543620092d4726147092d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-after.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-route.png",
+      "bytes": 421050,
+      "sha256": "5265413af2294199cf639bf447a655064670d3c696aceea22aee0a39838ea74d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-route-candidate-support.png",
+      "bytes": 16768,
+      "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/activation-contact.png",
+      "bytes": 388415,
+      "sha256": "1d2135173ddc983a14d4ddc2e78a7a06f302d909eab24b394b3fc9961c0961fa"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/activation-contact-candidate-support.png",
+      "bytes": 16695,
+      "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+    },
+    {
+      "path": "apps/pegasoft-e2e/test-output/hero-reference/runs/4cbfe8c6-b763-444d-a84b-2d5301969fd6/implementation/arrival-lockup.png",
+      "bytes": 288613,
+      "sha256": "1fdcdae4dc3e52792cd7e50df558a9ac1a0ece7133a3d31669525b6518ee93fc"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-background-extractor/arrival-lockup-candidate-support.png",
+      "bytes": 15469,
+      "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-contact-diagnostic-support.png",
+      "bytes": 16695,
+      "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-route-diagnostic-support.png",
+      "bytes": 16768,
+      "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/after-pins.json",
+      "bytes": 918,
+      "sha256": "42d1b6dcd5089c6725fbb111dbd1ba7513a7fe473b82407ea2e0806399c20bf2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/arrival-lockup-diagnostic-support.png",
+      "bytes": 15469,
+      "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/before-pins.json",
+      "bytes": 1258,
+      "sha256": "b69e997ad3ad6b66bd8a0f6aada93f21c173defda526a825f7b10acafb25f1b5"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/candidate-after.mjs",
+      "bytes": 11619,
+      "sha256": "ddb6ab097da508f9bf2ee4459e08849d94506cedf4463e4b1836b4428591206a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/candidate-before.mjs",
+      "bytes": 7306,
+      "sha256": "fb72eeff7ec8df1bb6412d6c565245921f5e0bd53f97136a665bf7819f76b7b4"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/candidate.patch",
+      "bytes": 6375,
+      "sha256": "be4b2f3ff85be6ec49159d3ff56a22c614d705a40a5b1a35dcda311de5f5ab66"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/checks.json",
+      "bytes": 1617,
+      "sha256": "d348ab34e904b4c5374e87610e8094b521e700063ba4f41b43da066f4b2df58d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/evaluate-refinement.mjs",
+      "bytes": 5741,
+      "sha256": "b7b19a66304de10692da8886a4b8313a60f9b3752cd2bcbe3cdccecc3e142481"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/evaluation-run1.log",
+      "bytes": 718,
+      "sha256": "e4f21b18aaf2b02fd2ef111f45ab0062efbabfbaf3f079cbb05eee3cf9981393"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/evaluation-run2.log",
+      "bytes": 718,
+      "sha256": "e4f21b18aaf2b02fd2ef111f45ab0062efbabfbaf3f079cbb05eee3cf9981393"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/evaluation.log",
+      "bytes": 718,
+      "sha256": "e4f21b18aaf2b02fd2ef111f45ab0062efbabfbaf3f079cbb05eee3cf9981393"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-after.mjs",
+      "bytes": 75475,
+      "sha256": "67f5679992d6e213d6c48a5c62e7a6ca17c996c9bdbc460da764354130bce92d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/extractor-before.mjs",
+      "bytes": 71162,
+      "sha256": "24fafcdb362dd631e809646168740f10e98a40ab901543620092d4726147092d"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/lint.log",
+      "bytes": 5540,
+      "sha256": "ddf564512ca75aa27e192ebfcb08780b2b0801680f52d0d2abee71a7d8703d4b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/measurement-green.log",
+      "bytes": 8386,
+      "sha256": "3840dc78098890747506188090580712f89dee76bd0986b9920c5cea35fdb413"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/measurement-red.log",
+      "bytes": 11193,
+      "sha256": "a003816b4c3bbf03f40b92308bfbe478b892bfe1e1c745510d84f3e92b8291a4"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/measurement-tests-after.mjs",
+      "bytes": 44669,
+      "sha256": "44abbf361d0c3df3a8ed8b4682f965036dcf1fc4f638d957a02a3ebadb4699ea"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/measurement-tests-before.mjs",
+      "bytes": 41823,
+      "sha256": "f4637f060f9b7ab4a27419602bdfb30dacaaf4d188ab9f9674a183ced8ce33af"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/new-candidate-tests.mjs",
+      "bytes": 2846,
+      "sha256": "c7248c752d758045b648fecf7f7ef32fbdbd545b72db81d6a57fc1e78392c1db"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/package-refinement.mjs",
+      "bytes": 7034,
+      "sha256": "dfa7f998f6835e7e6725d10ec143580e25527810182c0870caa441190764e13b"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/raster-evaluation.json",
+      "bytes": 28159,
+      "sha256": "e91199e4b23920e4a711c327ba210adc89b56221fc5902765f24a5e95f0d2caa"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/review-packet.json",
+      "bytes": 6590,
+      "sha256": "31cbc35965acb6dbb1a96d4716021a5e5099a0c57a46e593c922051f71bd3247"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/typecheck.log",
+      "bytes": 543,
+      "sha256": "9d3456f8b90dca3185ad42ddf297616108ce6092d01f87667ffb301748689948"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/whitespace.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "repeatability": {
+    "byteIdenticalRuns": 2,
+    "artifacts": [
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/raster-evaluation.json",
+        "bytes": 28159,
+        "sha256": "e91199e4b23920e4a711c327ba210adc89b56221fc5902765f24a5e95f0d2caa"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-route-diagnostic-support.png",
+        "bytes": 16768,
+        "sha256": "631b432412d81d7050cb1036c8e82dd3e4b1e1f398a061f88e04bdd0aa7c4271"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/activation-contact-diagnostic-support.png",
+        "bytes": 16695,
+        "sha256": "81bd8fd1dfadaec0e755bed2199ee602501795270c37f8f39cbc88809e620286"
+      },
+      {
+        "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-landmark-candidate-refinement/arrival-lockup-diagnostic-support.png",
+        "bytes": 15469,
+        "sha256": "1722990fef2fb235d595cb6f9121e06665ebaefb4eac945cc4ea7c810fbcd78d"
+      }
+    ]
+  },
+  "qualification": "blocked"
+}

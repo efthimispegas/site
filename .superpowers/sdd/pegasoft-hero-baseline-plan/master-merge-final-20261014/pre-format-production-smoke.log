@@ -1,0 +1,35 @@
+
+> nx run @site/pegasoft-e2e:hero-production-smoke
+
+> playwright test --config=playwright.s7.config.ts
+
+(node:83912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[WebServer] (node:83918) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+[WebServer] (node:83919) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 4 tests using 1 worker
+
+(node:83925) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] [desktop-chrome] › src/hero-production-smoke.spec.ts:3:5 › shipping build renders an ordinary usable hero
+[2/4] [desktop-chrome] › src/hero-production-smoke.spec.ts:22:5 › shipping build handles an actual canvas context loss with useful fallback
+(node:83951) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/4] [mobile-chrome] › src/hero-production-smoke.spec.ts:3:5 › shipping build renders an ordinary usable hero
+[4/4] [mobile-chrome] › src/hero-production-smoke.spec.ts:22:5 › shipping build handles an actual canvas context loss with useful fallback
+  4 passed (14.4s)
+
+
+
+ NX   Successfully ran target hero-production-smoke for project @site/pegasoft-e2e
+
+

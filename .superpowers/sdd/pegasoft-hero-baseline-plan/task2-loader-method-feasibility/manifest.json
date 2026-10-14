@@ -1,0 +1,64 @@
+{
+  "status": "Feasibility only; NO_PROCEED, no qualification",
+  "inputs": [
+    {
+      "path": "docs/ledger/CURRENT.md",
+      "bytes": 9620,
+      "sha256": "9e84f2d0630e233bb790203b4fd491584185be102f86df640a5c6ff410e8f011"
+    },
+    {
+      "path": "docs/pegasoft-hero-baseline-plan.md",
+      "bytes": 69055,
+      "sha256": "30a43c2ae18f2be45039d36d377dfdc560f4eb5e1901e7fb4841a1dac28b0bd9"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-onset-evidence-contract.json",
+      "bytes": 3068,
+      "sha256": "8e2a5dec0197d9a43ad383ff4048237ad43f1c5ba9cb578f487063fed96abec8"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/checkpoint.json",
+      "bytes": 13992,
+      "sha256": "bf3128e5194bde644b748ca1a2862dd0418d2c44c8a7ce798416074e0f06e89a"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-manifest.json",
+      "bytes": 1459,
+      "sha256": "9265c5524a255f58e35c3118fd499757d33ac9499998e1193c92645f6c2f1d78"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/source-geometry-checkpoint.json",
+      "bytes": 26157,
+      "sha256": "5a31f30d9b6f1aba0a242a60beb794acb7a3075052a28acaffc20ba9d765b26c"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-rotation-probe/raster-fit-manifest.json",
+      "bytes": 7510,
+      "sha256": "6fc111f48baa3a92d01aeeeaa7a8997911610cbbca730dfa9a976a10bab6ad3d"
+    },
+    {
+      "path": "docs/hero-reference/live/locked-reference-loader.css",
+      "bytes": 75910,
+      "sha256": "cc1ac4c193d083000320123bad183188ced2a082819dbd3a615dbad00ed5700c"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-method-feasibility/read-scope.json",
+      "bytes": 13250,
+      "sha256": "03d4dc9862258ff892fa7e088ffdc0c9972575377aa1469b15dc209cb590cca2"
+    },
+    {
+      "path": ".superpowers/sdd/pegasoft-hero-baseline-plan/task2-loader-method-feasibility/feasibility.json",
+      "bytes": 6150,
+      "sha256": "e98d4a89b4933198e6da586473edbaa5e6154f4398ea88f695f3d3227bf9be82"
+    }
+  ],
+  "checks": {
+    "readInputsUnchangedAtPackaging": true,
+    "artifactsParse": true,
+    "selectedDeclaredPinsVerified": 3,
+    "noAlgorithmExecution": true
+  },
+  "verificationLimits": "Hashes validate evidence identity/package integrity only; no semantic or timing self-review."
+}

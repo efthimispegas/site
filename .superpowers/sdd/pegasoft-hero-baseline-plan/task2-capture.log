@@ -1,0 +1,724 @@
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on:
+
+
+✔  nx run @site/pegasoft:typecheck
+
+> nx run @site/pegasoft-e2e:typecheck  [local cache]
+
+> tsc --build tsconfig.json --emitDeclarationOnly
+
+
+> nx run @site/pegasoft-e2e:hero-capture
+
+> playwright test --config=playwright.visual.config.ts
+
+(node:72975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:72975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[1A[2K[2m[WebServer] [22m(node:73014) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1A[2K[2m[WebServer] [22m(node:73015) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[2m[WebServer] [22m(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2mRunning [22m15[2m tests using [22m1[2m worker[22m
+
+[1A[2K(node:73023) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73023) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[1/15] src/visual/hero-reference.visual.ts:473:7 › capture loader-mark at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture loader-mark at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  1) src/visual/hero-reference.visual.ts:473:7 › capture loader-mark at the recording profile [2m──────[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-77abb-rk-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-77abb-rk-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-77abb-rk-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73145) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73145) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[2/15] src/visual/hero-reference.visual.ts:473:7 › capture world-reveal at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture world-reveal at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  2) src/visual/hero-reference.visual.ts:473:7 › capture world-reveal at the recording profile [2m─────[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-2cb38-al-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-2cb38-al-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-2cb38-al-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[3/15] src/visual/hero-reference.visual.ts:473:7 › capture landing at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture landing at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  3) src/visual/hero-reference.visual.ts:473:7 › capture landing at the recording profile [2m──────────[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-c8d9a-ng-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-c8d9a-ng-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-c8d9a-ng-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73327) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73327) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[4/15] src/visual/hero-reference.visual.ts:473:7 › capture landing-idle at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture landing-idle at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  4) src/visual/hero-reference.visual.ts:473:7 › capture landing-idle at the recording profile [2m─────[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-a3696-le-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-a3696-le-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-a3696-le-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73418) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73418) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[5/15] src/visual/hero-reference.visual.ts:473:7 › capture activation-route at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture activation-route at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  5) src/visual/hero-reference.visual.ts:473:7 › capture activation-route at the recording profile [2m─[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-0680f-te-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-0680f-te-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-0680f-te-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73509) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73509) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[6/15] src/visual/hero-reference.visual.ts:473:7 › capture activation-contact at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture activation-contact at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  6) src/visual/hero-reference.visual.ts:473:7 › capture activation-contact at the recording profile [39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-8590d-ct-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-8590d-ct-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-8590d-ct-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73601) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73601) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[7/15] src/visual/hero-reference.visual.ts:473:7 › capture clearance-travel at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture clearance-travel at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  7) src/visual/hero-reference.visual.ts:473:7 › capture clearance-travel at the recording profile [2m─[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-9e463-el-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-9e463-el-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-9e463-el-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[8/15] src/visual/hero-reference.visual.ts:473:7 › capture clearance-field-preview at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture clearance-field-preview at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  8) src/visual/hero-reference.visual.ts:473:7 › capture clearance-field-preview at the recording profile [39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-563ce-ew-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-563ce-ew-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-563ce-ew-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73787) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73787) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[9/15] src/visual/hero-reference.visual.ts:473:7 › capture field-approach at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture field-approach at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  9) src/visual/hero-reference.visual.ts:473:7 › capture field-approach at the recording profile [2m───[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-7e1c6-ch-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-7e1c6-ch-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-7e1c6-ch-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[10/15] src/visual/hero-reference.visual.ts:473:7 › capture field-contact at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture field-contact at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  10) src/visual/hero-reference.visual.ts:473:7 › capture field-contact at the recording profile [2m───[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-e29f2-ct-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-e29f2-ct-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-e29f2-ct-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:73975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:73975) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[11/15] src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-a at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture field-pulse-a at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  11) src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-a at the recording profile [2m───[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-fdf83--a-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-fdf83--a-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-fdf83--a-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:74066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:74066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[12/15] src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-b at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture field-pulse-b at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  12) src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-b at the recording profile [2m───[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-eecbd--b-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-eecbd--b-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-eecbd--b-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:74160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:74160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[13/15] src/visual/hero-reference.visual.ts:473:7 › capture arrival-travel at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture arrival-travel at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  13) src/visual/hero-reference.visual.ts:473:7 › capture arrival-travel at the recording profile [2m──[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-74285-el-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-74285-el-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-74285-el-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:74253) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:74253) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[14/15] src/visual/hero-reference.visual.ts:473:7 › capture arrival-lockup at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture arrival-lockup at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  14) src/visual/hero-reference.visual.ts:473:7 › capture arrival-lockup at the recording profile [2m──[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-033e2-up-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-033e2-up-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-033e2-up-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2K(node:74351) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K(node:74351) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1A[2K[15/15] src/visual/hero-reference.visual.ts:473:7 › capture journey-exit at the recording profile
+[1A[2K[2msrc/visual/hero-reference.visual.ts:473:7 › capture journey-exit at the recording profile[22m
+
+
+[1A[2K
+
+[1A[2K
+
+[1A[2K[31m  15) src/visual/hero-reference.visual.ts:473:7 › capture journey-exit at the recording profile [2m────[22m[39m
+
+    Error: No verified asset for painted font Avenir Next/AvenirNext-Bold
+
+    [90m   at [39mhero-capture-identity.ts:45
+
+      43 |         if (font.glyphCount <= 0) continue;
+      44 |         const file = knownFiles[font.postScriptName];
+    > 45 |         if (!file || font.isCustomFont) throw new Error(`No verified asset for painted font ${font.familyName}/${font.postScriptName}`);
+         |                                               ^
+      46 |         families.set(font.postScriptName, { family: font.familyName, loaded: true, assetSha256: hash(readFileSync(file)) });
+      47 |       }
+      48 |     }
+    [2m    at readPaintedFonts (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-identity.ts:45:47)[22m
+    [2m    at /Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-reference.visual.ts:493:26[22m
+
+[2m    Error Context: test-output/playwright/hero-reference/hero-reference.visual.ts-c-439b4-it-at-the-recording-profile/error-context.md[22m
+
+[2m    attachment #2: [1mtrace[2m (application/zip) [2m─────────────────────────────────────────────────────────[2m[22m
+[2m    test-output/playwright/hero-reference/hero-reference.visual.ts-c-439b4-it-at-the-recording-profile/trace.zip[22m
+[2m    Usage:[22m
+
+[2m        pnpm exec playwright show-trace test-output/playwright/hero-reference/hero-reference.visual.ts-c-439b4-it-at-the-recording-profile/trace.zip[22m
+
+[2m    [2m────────────────────────────────────────────────────────────────────────────────────────────────[2m[22m
+
+
+[1A[2KError: Capture failed; preserved manifest: /Users/whiskey/Work/site/apps/pegasoft-e2e/test-output/hero-reference/runs/7eb372aa-d52a-4b9b-acf9-58cd070dd859/capture-manifest.json (15 failures)
+
+[90m   at [39mhero-capture-global-teardown.ts:7
+
+   5 |   const manifest = await finalizeCaptureRun(context);
+   6 |   if (manifest.status !== 'complete') {
+>  7 |     throw new Error(
+     |           ^
+   8 |       `Capture failed; preserved manifest: ${context.outputRoot}/capture-manifest.json (${manifest.failures.length} failures)`,
+   9 |     );
+  10 |   }
+[2m    at captureGlobalTeardown (/Users/whiskey/Work/site/apps/pegasoft-e2e/src/visual/hero-capture-global-teardown.ts:7:11)[22m
+
+[1A[2K[31m  15 failed[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture loader-mark at the recording profile [2m───────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture world-reveal at the recording profile [2m──────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture landing at the recording profile [2m───────────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture landing-idle at the recording profile [2m──────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture activation-route at the recording profile [2m──[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture activation-contact at the recording profile [39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture clearance-travel at the recording profile [2m──[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture clearance-field-preview at the recording profile [39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture field-approach at the recording profile [2m────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture field-contact at the recording profile [2m─────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-a at the recording profile [2m─────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture field-pulse-b at the recording profile [2m─────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture arrival-travel at the recording profile [2m────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture arrival-lockup at the recording profile [2m────[22m[39m
+[31m    src/visual/hero-reference.visual.ts:473:7 › capture journey-exit at the recording profile [2m──────[22m[39m
+[31m  1 error was not a part of any test, see above for details[39m
+Warning: command "playwright test --config=playwright.visual.config.ts" exited with non-zero status code
+
+
+ NX   Running target hero-capture for project @site/pegasoft-e2e and 2 tasks it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-e2e:hero-capture
+
+
+Output of 1 successful task was not shown. Run with --verbose or --output-style=static to see it.
+Hint: run the command with --verbose for more details.
+
+  Run duration:      58.7s
+  Cache:             1/2 hit (50%)
+  Critical path:     58.7s (3 tasks)
+  Recoverable time:  <1ms
+
+  Recommendations:
+    - Speed up or split the longest tasks on the critical path:
+        @site/pegasoft-e2e:hero-capture    57.8s
