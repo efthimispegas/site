@@ -10,12 +10,12 @@
     {
       "path": "src/main.js",
       "previousSha256": "9ec90eccbbe26c3821d3e6943d801db9afcbbbcb5645307bb4be63fa771b4d4c",
-      "sha256": "299908a5ab73ab510ca90f7103815af7fbff1eacd2c2b13ff8d17eb2bce93f2b"
+      "sha256": "11b247b20fc3c702adb80c10945a811c4b4386a7a20cffafbe6e6ced11534c39"
     },
     {
       "path": "index.html",
       "previousSha256": "9839791071b57caf2508c466bc315c09c207ee90539f7025f688edae0fe70641",
-      "sha256": "b424f1b3bbe89a54525792263ee8f29f21514fe3b3673d0e02efd0274f674931"
+      "sha256": "4c314f8b2e0b9484fb6adc89cc9a1eaea3b7efdba3af01575264f119031fda45"
     }
   ],
   "addedFiles": [
@@ -25,7 +25,7 @@
     },
     {
       "path": "src/website-motion.css",
-      "sha256": "502b9c158ac2319ed8d24d7866ae2aeeb891080076ca8cbea9038121fce63551"
+      "sha256": "e4c449f1226d82fadc58ca59cd212948310e1cd232dbb1f73e7b7f16f8fb6f13"
     },
     {
       "path": "src/particle-wordmark.js",
@@ -189,19 +189,19 @@
     "files": [
       {
         "path": "src/content-sections.css",
-        "sha256": "f346f1fb58b91c034aa0116a3acff9ae22ed6afb82b38137ab10fa869f0587bb"
+        "sha256": "41f5f1b79cb0a8e4649044ed2f563b7656215959b137234323c71b562e351ff1"
       },
       {
         "path": "src/content-controller.js",
-        "sha256": "5905e7b315afb8a68bd0b58ef2113cf286b54a35b721843bf1728a0c0ccd8c94"
+        "sha256": "f6b7c578a596c15da726770d72d2547997dc71f5897d203dae310cf18615817e"
       },
       {
         "path": "src/contact-form.js",
-        "sha256": "6e34520b505ce9ed2a92e270adeeaac42875b28ac6caca2dbe8fc16118409570"
+        "sha256": "6b3c84b67d1c016db2c47badccc4effc8d093bb815fba40308c42bbff7199c0e"
       },
       {
         "path": "src/partner-wall.js",
-        "sha256": "b92d895d4cc8c94baad05f981355c3ce3b9ee65325a4ada4b65a04546b981a60"
+        "sha256": "4b812f7e05b96fb0a26f45e4fdbe15c896fad4d29f9cb9eb5cfab0cfaa16cdd7"
       },
       {
         "path": "public/licenses/react-bits.txt",
@@ -218,6 +218,10 @@
         "sha256": "9150a155c3753d0737455a5202d9394f0bdc16e2a6d40c5d59f3a13c1fd51bc3"
       }
     ]
+  },
+  "careersAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/content-review/20261019/careers/request.json",
+    "requestSha256": "d1d0b1c6b1a744f5d52db071db74aeedfbc40cb5be55e6d663592e45c20389b5"
   },
   "performanceAmendment": {
     "request": "artifacts/pegasoft-concept/evidence/performance/20261019/request.json",
@@ -255,5 +259,17 @@
         "sha256": "5812839b1e47141ca423d6d9d88094543763e23548d30148553194e6229fcd07"
       }
     ]
+  },
+  "footerCookieAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/content-review/20261021/footer-cookies/amendment/request.json",
+    "requestSha256": "d473fa8a3a620c6c8497a8efa0855863d93cb4cb097e2d943ac61a3f177a2f78",
+    "files": [
+      {
+        "path": "src/cookie-consent.js",
+        "sha256": "2e56b62fa2482bc5e5cb885af5f0c7217403e5fa86f5d4f40bfca42ca2eb120e"
+      }
+    ],
+    "scaleRequest": "artifacts/pegasoft-concept/evidence/content-review/20261021/footer-cookies/amendment/notice-scale-request.json",
+    "scaleRequestSha256": "83dcaf568c3bcc85d1029188defd28aa9155e7c3c4ac0fb9e15bd2462b13cc4d"
   }
 }

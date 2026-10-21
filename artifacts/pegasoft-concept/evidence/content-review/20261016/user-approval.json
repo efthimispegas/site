@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-16",
+  "authority": "Testimonials/partners sections will remain open for review when real content is available. Visually approved. Proceed with next review phase",
+  "sourceCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "sourceManifestSha256": "68e0ef8c5a160eb51fd8012570ed4db3508488bd73edb78f8d7cf138ad1a2728",
+  "scope": "Trusted testimonial carousel and partner wall visual layout/interactions",
+  "visualAcceptance": true,
+  "factualContentAcceptance": false,
+  "openUntilRealContent": [
+    "quotes",
+    "portraits",
+    "names/roles",
+    "partner identities/logos/relationships/links"
+  ],
+  "comparisonPacket": "../20261014/hover-amendment/review.json",
+  "comparisonPacketSha256": "249ab96c7b70472048e1615bc4477958bb33b30a7f1c2166ddaf06a58a3e83e3",
+  "sourceInputs": [
+    {
+      "path": "index.html",
+      "sha256": "f22ed5d88911d634b04d19d9e919a3339c5edeccf365257430fb9e7644862860",
+      "snapshot": "artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/source/index.html.snapshot"
+    },
+    {
+      "path": "src/journey-host.js",
+      "sha256": "1a4cebfec00244ae85a07b718d919bdada21b84b526d826e2d423044a9b01846",
+      "snapshot": "artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/source/src/journey-host.js.snapshot"
+    },
+    {
+      "path": "src/content-controller.js",
+      "sha256": "5905e7b315afb8a68bd0b58ef2113cf286b54a35b721843bf1728a0c0ccd8c94",
+      "snapshot": "artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/source/src/content-controller.js.snapshot"
+    },
+    {
+      "path": "src/partner-wall.js",
+      "sha256": "b92d895d4cc8c94baad05f981355c3ce3b9ee65325a4ada4b65a04546b981a60",
+      "snapshot": "artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/source/src/partner-wall.js.snapshot"
+    },
+    {
+      "path": "src/content-sections.css",
+      "sha256": "f346f1fb58b91c034aa0116a3acff9ae22ed6afb82b38137ab10fa869f0587bb",
+      "snapshot": "artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/source/src/content-sections.css.snapshot"
+    },
+    {
+      "path": "src/website-motion-controller.js",
+      "sha256": "a700ab17456f167b225542c3f11ff4dc57275d962a8f2e868560af71b3ba92fb",
+      "snapshot": "artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/source/src/website-motion-controller.js.snapshot"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "68e0ef8c5a160eb51fd8012570ed4db3508488bd73edb78f8d7cf138ad1a2728",
+      "snapshot": "artifacts/pegasoft-concept/evidence/content-review/20261014/hover-amendment/source/website-motion-manifest.json.snapshot"
+    }
+  ],
+  "next": "Insights editorial content/layout review; retain approved motion and all factual-content gates"
+}

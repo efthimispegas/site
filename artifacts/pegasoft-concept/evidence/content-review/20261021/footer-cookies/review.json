@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-21",
+  "status": "Ready for personal footer/cookie interaction review",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "sourceState": "Existing uncommitted homepage WIP; no application source changed for this review",
+  "urls": {
+    "Greek": "http://127.0.0.1:8771/el/?revision=footer-cookies-20261021#contact",
+    "English": "http://127.0.0.1:8771/en/?revision=footer-cookies-20261021#contact"
+  },
+  "scope": [
+    "Footer Industries/Services selection and marquee content",
+    "Cookie preferences opening, save confirmation, closing, keyboard Escape and trigger focus restoration",
+    "Greek/English dialog fit at desktop/mobile viewport sizes"
+  ],
+  "checks": {
+    "browser": "browser-check.json",
+    "build": "Reuses successful #24 build/lint/33-test verification; application source unchanged",
+    "save": "Both languages display save confirmation and close dialog",
+    "persistenceLimit": "LocalStorage readback unsupported by current browser APIs; persistence across browser restart not independently verified"
+  },
+  "acceptanceLimits": [
+    "Footer/cookie personal interaction approval pending",
+    "All Greek/English copy, company/legal facts and tracker policy remain pending",
+    "Separate-page navigation and contact submission endpoints remain deferred",
+    "Physical-phone and complete bilingual website acceptance remain open",
+    "SEO follows completed site review",
+    "Approved graphics/motion are unchanged"
+  ],
+  "evidence": {
+    "cookies-el-mobile.jpg": "1e50b533f1cd3be9cb017bfcf313c0ebb7759f2d0f92eb635dcbf1bfd6dd4ab1",
+    "cookies-en-mobile.jpg": "61ba0a79223a9d88ceef05d8382624db874d55cd326fcc4ff620f18d7be9c7c0",
+    "browser-check.json": "0feba5c1cf2b4c1d0e226d320a7303f0441211c721aa5a57a65c262e76c546f8",
+    "cookies-el-desktop.jpg": "9ce080abefac6a46efc83a41ac4cb5239f20b8b2d1ba581520d5986cb5ea20f0"
+  }
+}

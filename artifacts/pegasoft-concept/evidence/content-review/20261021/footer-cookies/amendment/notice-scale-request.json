@@ -1,0 +1,7 @@
+{
+  "date": "2026-10-21",
+  "request": "Make the popup 25% smaller including its content;preserve Pegasoft tokens,theme and palette without new font sizes/styles.",
+  "implementation": "Uniform .75 scale at the bottom-right transform origin;unchanged Manrope/DM declarations,weights and size tokens;existing porcelain/ink/blue palette values.",
+  "before": "notice-before-scale.css",
+  "beforeSha256": "90996fd35a1d4adaef0b552612a7f9fdd5d5e34b3305b6e2d9276c5b2f3c638b"
+}

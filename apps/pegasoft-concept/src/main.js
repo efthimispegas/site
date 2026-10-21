@@ -8,5 +8,5 @@ import {createJourneyHost} from './journey-host.js';
 
 export const journey = createJourneyHost(document.querySelector('main'));
 const ready=journey.mount();
-export const content=createContentController({root:document.querySelector('main'),journey});content.mount();ready.then(()=>content.followInitialHash());
+export const content=createContentController({root:document.querySelector('main'),journey});content.mount();ready.then(()=>{content.showLandingConsent();content.followInitialHash();});
 if (import.meta.hot) import.meta.hot.dispose(() => {content.dispose();journey.dispose();});

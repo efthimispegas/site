@@ -1,0 +1,85 @@
+{
+  "date": "2026-10-21",
+  "status": "User approved cookie popup and footer switch on21 October2026",
+  "request": "request.json",
+  "scaleRequest": "notice-scale-request.json",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "sourceState": "Local uncommitted WIP;not deployed",
+  "urls": {
+    "Greek": "http://127.0.0.1:8771/el/?revision=consent-size-20261021",
+    "English": "http://127.0.0.1:8771/en/?revision=consent-size-20261021",
+    "footer": "http://127.0.0.1:8771/el/?revision=consent-size-20261021#contact"
+  },
+  "implementation": [
+    "Reference gray pill track,white sliding selection,equal category buttons and marquee association",
+    "Nonmodal bottom-right landing notice after hero reveal;Accept all/Reject all and settings link",
+    "Explicit versioned choices persist;legacy manual settings do not suppress the new notice;storage denial handled",
+    "No optional trackers are enabled by either choice",
+    "Entire popup uniformly scaled .75 at bottom-right origin;existing typography declarations retained;Pegasoft porcelain,ink,blue palette"
+  ],
+  "checks": {
+    "Nx": "build,lint,provenance checks and34 tests passed",
+    "log": "nx-checks.log",
+    "browser": "browser-check.json",
+    "scaleBrowser": "scale-browser-check.json",
+    "persistence": "Both Accept and Reject dismissed notice after page reload on separate local origins",
+    "mobile": "Greek notice and category switch inspected at390x844;not physical-phone acceptance"
+  },
+  "screenshots": [
+    "landing-en-desktop-scaled.jpg",
+    "landing-el-mobile-scaled.jpg",
+    "switch-en-desktop.jpg",
+    "switch-el-mobile.jpg"
+  ],
+  "acceptanceLimits": [
+    "All bilingual wording,legal facts and tracker policy remain pending",
+    "Separate-page destinations and contact/upload endpoints deferred",
+    "Whole-site and physical-phone acceptance separate;SEO after site review",
+    "No deployment,commit or push performed"
+  ],
+  "sources": [
+    {
+      "path": "apps/pegasoft-concept/index.html",
+      "sha256": "1c07cb81040bc3f19bb164acf6756097f077ed38d745376748003e7a43212a3b"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/content-controller.js",
+      "sha256": "f6b7c578a596c15da726770d72d2547997dc71f5897d203dae310cf18615817e"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/content-sections.css",
+      "sha256": "41f5f1b79cb0a8e4649044ed2f563b7656215959b137234323c71b562e351ff1"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/website-motion.css",
+      "sha256": "e4c449f1226d82fadc58ca59cd212948310e1cd232dbb1f73e7b7f16f8fb6f13"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/cookie-consent.js",
+      "sha256": "2e56b62fa2482bc5e5cb885af5f0c7217403e5fa86f5d4f40bfca42ca2eb120e"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/main.js",
+      "sha256": "e39351415778b0ce801f210c439c14e030fa394026f2f27c503a035edbf19c13"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/locales/el.js",
+      "sha256": "b4e384ead6430964c464585a78a0271d4a72db576ba167182c3cd73b691589ed"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/localization.test.mjs",
+      "sha256": "3d02fd22413f9dcc459e20c2a0317b0cbdca0fb275663da83927fd7db4af35f8"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/verify-website-motion.mjs",
+      "sha256": "9c089eb47c2b9de8b44cbdd4075fbf3c0b97be9e4a257ad232dfa58ba1b3ee37"
+    },
+    {
+      "path": "apps/pegasoft-concept/website-motion-manifest.json",
+      "sha256": "2b9014b332028333cde154b14e97684fa08517f3c300c549186ae794a7c2d6d3"
+    }
+  ],
+  "approval": "user-approval.json",
+  "subsequentAmendment": "Greek mobile services title is separately reviewed at evidence/localization/20261021/services-heading/review.json"
+}

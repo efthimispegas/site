@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-16",
+  "sourceCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "source": "source.json",
+  "sourceSha256": "d42d1f6a94021debe5e2eff2f221c1950cbd4faab6498094070e160e44dce8fb",
+  "runtimeUnchanged": true,
+  "userAccepted": false,
+  "status": "Ready for personal Insights content/layout review",
+  "reviewUrl": "http://127.0.0.1:8771/?revision=insights-review-20261016#insights",
+  "checks": {
+    "nxBuild": "passed",
+    "browser": "passed",
+    "checks": "checks.json",
+    "checksSha256": "97afcc33cc1288d0119a27b2d6bf7b71fda13717619c1ab5c49b204339b79392",
+    "logs": [
+      {
+        "path": "build.log",
+        "sha256": "58c5ecc4d1a5c55ca29945a9955aea082e1b08a362d2397d2130f1a352e3618b"
+      },
+      {
+        "path": "runtime.log",
+        "sha256": "b215ff190a08ad5dcf98fbe6ee599c5a3a2b5b7034c6b526eeeaa887f67ae648"
+      }
+    ]
+  },
+  "visualInspection": [
+    "1505-insights.png",
+    "820-insights.png",
+    "390-insights.png"
+  ],
+  "observations": [
+    "Heading remains unclipped at desktop/tablet/mobile widths.",
+    "Three editorial rows and preview imagery render coherently. Hover and keyboard selection work.",
+    "CTA label and outline share the approved accent. Forward/reverse arrival and reduced-motion checks pass."
+  ],
+  "pending": [
+    "Personal review of the Insights layout/content presentation",
+    "Final article copy, imagery and real article destinations; preview rows are buttons, not article links",
+    "Real testimonials/partners remain open despite visual approval",
+    "FAQ/contact and remaining website details follow; whole-site qualification remains separate"
+  ],
+  "next": "Stop for personal review; no deployment or asset generation."
+}

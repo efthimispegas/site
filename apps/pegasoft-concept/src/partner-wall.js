@@ -1,3 +1,4 @@
+import {translate as t} from './locale-messages.js';
 /** DriftWall native adaptation of React Bits by David Haz (2026).
  * License: /licenses/react-bits.txt — MIT + Commons Clause.
  * This controller receives time from the application scheduler and owns no frame loop.
@@ -19,7 +20,7 @@ export function createPartnerWall({element,button}){
   paint();
  }
  function paint(){tracks.forEach((track,c)=>track.style.transform=`translate3d(0,${-offsets[c]}px,0)`);plane.style.transform=reduced?'none':`translate(-50%,-50%) scale(1.18) rotateX(${16+damped.y}deg) rotateY(${-14+damped.x}deg) translateZ(-120px)`;}
- function update({reducedMotion=reduced}={}){reduced=reducedMotion;element.dataset.reduced=String(reduced);const r=element.getBoundingClientRect();visible=r.bottom>0&&r.top<window.innerHeight;button.disabled=reduced;button.textContent=paused?'Resume partner motion':'Pause partner motion';button.setAttribute('aria-pressed',String(paused));paint();}
+ function update({reducedMotion=reduced}={}){reduced=reducedMotion;element.dataset.reduced=String(reduced);const r=element.getBoundingClientRect();visible=r.bottom>0&&r.top<window.innerHeight;button.disabled=reduced;const label=t(paused?'Resume partner motion':'Pause partner motion');if(button.textContent!==label)button.textContent=label;button.setAttribute('aria-pressed',String(paused));paint();}
  function tick(dt){
   if(!mounted||scope.disposed||!visible||reduced||paused||focused)return;
   // A stable column hit surface must not move underneath a hovering pointer.

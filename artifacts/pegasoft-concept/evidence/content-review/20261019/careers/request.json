@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-19",
+  "scope": "Careers application: name/email; optional mobile; exact ten role options from the latest user request; CV drag/drop and picker; other work/profile links. Local-only prototype, no endpoint or file upload.",
+  "roles": [
+    "Frontend software engineer",
+    "Backend software engineer",
+    "Fullstack software engineer",
+    "DevOps engineer",
+    "Sales specialist",
+    "Operations specialist",
+    "Administrator",
+    "Business specialist",
+    "Project manager",
+    "Other"
+  ],
+  "before": [
+    {
+      "path": "src/contact-form.js",
+      "sha256": "6e34520b505ce9ed2a92e270adeeaac42875b28ac6caca2dbe8fc16118409570"
+    },
+    {
+      "path": "src/content-sections.css",
+      "sha256": "f346f1fb58b91c034aa0116a3acff9ae22ed6afb82b38137ab10fa869f0587bb"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "18cf526604113179c70cd43bd318aa0e06623c520b46debe728d99e3e8571137"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-19",
+  "status": "Careers application implemented and verified; personal review pending",
+  "userAccepted": false,
+  "request": "request.json",
+  "reviewUrl": "http://127.0.0.1:8771/?revision=careers-application-20261019#contact",
+  "selectTab": "Careers",
+  "files": [
+    {
+      "path": "src/contact-form.js",
+      "sha256": "a7c12507071f8188a37d6ccd6e9dfe0bce4acba20006920fdddfc6d211883bf4"
+    },
+    {
+      "path": "src/content-sections.css",
+      "sha256": "f4ad95d724d8e98ac7a8aa5940c5dd2e952e8f6ff6ba0e36189ca8458b5e33e8"
+    }
+  ],
+  "checks": "checks.json",
+  "checksSha256": "50440746b77552bd75d0d004e8a70273cffa682a5665d470b08972ace1535e5b",
+  "nx": "nx.log",
+  "screenshots": [
+    "1505-application.png",
+    "390-cv.png"
+  ],
+  "behavior": [
+    "Exact ten latest role options",
+    "Optional mobile and optional multiline work/profile links",
+    "Native file picker and drag/drop; CV required for application review",
+    "File, role, mobile and links retained across audience tabs; CV removable",
+    "No file read/upload or message submission"
+  ],
+  "pending": [
+    "Personal review",
+    "Confirmed submission endpoint, file policy and privacy wording"
+  ]
+}

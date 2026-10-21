@@ -1,0 +1,43 @@
+{
+  "date": "2026-10-21",
+  "request": "Match the reference Industries/Services switch and show landing cookie consent like the supplied reference screenshot.",
+  "reference": "https://unitedcarriers.com/",
+  "scope": "Footer selector styling and accessible panel association; bilingual nonmodal landing notice, persisted accept/reject, existing settings reopening; no optional trackers or approved graphics changes.",
+  "beforeFiles": [
+    {
+      "path": "index.html",
+      "sha256": "e78fbe4eb2b8915d2142a91fbc29a67914727a3daefb6303d5d56af78e2eb725",
+      "snapshot": "before/index.html"
+    },
+    {
+      "path": "src/content-controller.js",
+      "sha256": "407494053b4c2c15f0fed494e71751a1e3cf8c96d144a4cd7bdf9f09906a4d30",
+      "snapshot": "before/src/content-controller.js"
+    },
+    {
+      "path": "src/content-sections.css",
+      "sha256": "f4ad95d724d8e98ac7a8aa5940c5dd2e952e8f6ff6ba0e36189ca8458b5e33e8",
+      "snapshot": "before/src/content-sections.css"
+    },
+    {
+      "path": "src/website-motion.css",
+      "sha256": "502b9c158ac2319ed8d24d7866ae2aeeb891080076ca8cbea9038121fce63551",
+      "snapshot": "before/src/website-motion.css"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "9d7d10f18f665daf868934a4866bf502e2abfc2965fbd4710fff5b2da4206b58",
+      "snapshot": "before/src/main.js"
+    },
+    {
+      "path": "src/locales/el.js",
+      "sha256": "b6632da03d4e0d416560d7ba2c7fe2897333b7070f09b70c71128f98d1bc0638",
+      "snapshot": "before/src/locales/el.js"
+    },
+    {
+      "path": "tools/localization.test.mjs",
+      "sha256": "f5a31ceb9c025a5677cc670ffd6eebb6f9902fcbe2f88683284b08eecc0a4f23",
+      "snapshot": "before/tools/localization.test.mjs"
+    }
+  ]
+}

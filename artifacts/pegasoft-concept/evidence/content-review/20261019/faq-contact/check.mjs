@@ -1,0 +1,65 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {resolve} from 'node:path';
+import {readFileSync,writeFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+const dir=import.meta.dirname,base='http://127.0.0.1:8771',url=base+'/?revision=faq-contact-review-20261019#faq';
+const result={sourceSha256:createHash('sha256').update(readFileSync(resolve(dir,'source.json'))).digest('hex'),userAccepted:false,observations:[]};
+const b=await chromium.launch({channel:'chrome',headless:true});
+try {
+ for(const viewport of [{width:1505,height:749},{width:820,height:900},{width:390,height:844}]) {
+  const ctx=await b.newContext({viewport}),p=await ctx.newPage(),errors=[],failed=[],writes=[],external=[];
+  p.on('pageerror',e=>errors.push(e.message));
+  p.on('response',r=>{if(r.status()>=400)failed.push({url:r.url(),status:r.status()});});
+  p.on('request',r=>{if(!['GET','HEAD'].includes(r.method()))writes.push({method:r.method(),url:r.url()});if(r.url().startsWith('http')&&new URL(r.url()).origin!==base)external.push(r.url());});
+  await p.goto(url);await p.waitForFunction(()=>document.querySelector('#stage').dataset.loaded==='true');
+  await p.waitForFunction(()=>Math.abs(document.querySelector('#faq').getBoundingClientRect().top-90)<5);
+  await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(100);
+  const summaries=p.locator('#faq summary');assert.equal(await summaries.count(),6);
+  await p.screenshot({path:resolve(dir,viewport.width+'-faq.png')});
+  await summaries.first().focus();await p.keyboard.press('Enter');
+  assert.equal(await p.locator('#faq details').first().getAttribute('open'),'');
+  assert.equal(await p.locator('#faq details').first().locator('p').isVisible(),true);
+  await p.keyboard.press('Space');assert.equal(await p.locator('#faq details').first().getAttribute('open'),null);
+  await summaries.nth(1).click();assert.equal(await p.locator('#faq details').nth(1).locator('p').isVisible(),true);
+  await p.screenshot({path:resolve(dir,viewport.width+'-faq-answer.png')});
+  await p.mouse.wheel(0,220);await p.waitForTimeout(150);const scrolled=await p.evaluate(()=>scrollY);await p.mouse.wheel(0,-140);await p.waitForTimeout(150);assert.ok(await p.evaluate(()=>scrollY)<scrolled);
+  await p.locator('#contact').scrollIntoViewIfNeeded();
+  const input=name=>p.locator('#contact [name="'+name+'"]'),tab=n=>p.locator('#contact-tab-'+n),submit=p.locator('#contact form button[type=submit]');
+  assert.equal(await p.locator('#contact form').count(),1);
+  await tab(0).click();
+  assert.deepEqual(await p.locator('#contact form [name]').evaluateAll(es=>es.map(e=>e.name)),['name','email','company','message']);
+  assert.equal(await input('company').evaluate(e=>e.required),false);
+  await p.screenshot({path:resolve(dir,viewport.width+'-contact.png')});
+  await input('name').fill('Review Person');await input('email').fill('invalid-email');await input('message').fill('Fictional review message');
+  await submit.click();assert.equal(await input('email').evaluate(e=>e.validity.valid),false);assert.equal(await p.locator('#contact-preview-status').textContent(),'');
+  await input('email').fill('review@example.invalid');await input('company').fill('Fictional Company');
+  await tab(0).focus();await p.keyboard.press('ArrowRight');assert.equal(await tab(1).getAttribute('aria-selected'),'true');
+  assert.deepEqual(await p.locator('#contact form [name]').evaluateAll(es=>es.map(e=>e.name)),['name','email','company','goals']);
+  assert.equal(await input('name').inputValue(),'Review Person');assert.equal(await input('company').inputValue(),'Fictional Company');
+  await input('goals').fill('A fictional review project');await submit.click();assert.match(await p.locator('#contact-preview-status').textContent(),/Nothing has been sent/);
+  await tab(2).click();assert.deepEqual(await p.locator('#contact form [name]').evaluateAll(es=>es.map(e=>e.name)),['name','email','firm','interest']);
+  await input('firm').fill('Fictional Firm');await input('interest').fill('Prototype review');await submit.click();assert.match(await p.locator('#contact-preview-status').textContent(),/Nothing has been sent/);
+  await tab(2).focus();await p.keyboard.press('End');assert.equal(await tab(3).getAttribute('aria-selected'),'true');
+  assert.deepEqual(await p.locator('#contact form [name]').evaluateAll(es=>es.map(e=>e.name)),['name','email','role','portfolio']);
+  await input('role').fill('Engineering');await input('portfolio').fill('not-a-url');await submit.click();assert.equal(await input('portfolio').evaluate(e=>e.validity.valid),false);
+  await input('portfolio').fill('https://example.invalid/portfolio');await submit.click();assert.match(await p.locator('#contact-preview-status').textContent(),/Nothing has been sent/);
+  await p.screenshot({path:resolve(dir,viewport.width+'-careers-validated.png')});
+  await tab(3).focus();await p.keyboard.press('ArrowRight');assert.equal(await tab(0).getAttribute('aria-selected'),'true');assert.equal(await input('message').inputValue(),'Fictional review message');
+  await p.keyboard.press('ArrowLeft');assert.equal(await tab(3).getAttribute('aria-selected'),'true');assert.equal(await input('role').inputValue(),'Engineering');
+  await p.keyboard.press('Home');assert.equal(await tab(0).getAttribute('aria-selected'),'true');
+  assert.equal(await p.locator('.contact-tabs [tabindex="0"]').count(),1);assert.equal(await p.locator('#contact-field-plan').getAttribute('aria-labelledby'),'contact-tab-0');
+  assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true);
+  assert.equal(await p.locator('#stage').evaluate(e=>e.journey.activeFrameLoops),1);
+  assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);assert.deepEqual(writes,[]);assert.deepEqual(external,[]);
+  result.observations.push({viewport,faqCount:6,faqPointerKeyboard:true,forwardReverseScroll:true,contactAudiences:4,tabKeyboard:true,sharedDrafts:true,invalidEmailUrlBlocked:true,localValidationOnly:true,errors,failed,writes,external});
+  await ctx.close();
+ }
+ const ctx=await b.newContext({viewport:{width:390,height:844},reducedMotion:'reduce'}),p=await ctx.newPage();
+ await p.goto(url);await p.locator('#faq summary').first().focus();await p.keyboard.press('Enter');assert.equal(await p.locator('#faq details').first().locator('p').isVisible(),true);
+ await p.locator('#contact-tab-0').focus();await p.keyboard.press('End');assert.equal(await p.locator('#contact-tab-3').getAttribute('aria-selected'),'true');
+ assert.equal(await p.locator('#stage').evaluate(e=>e.journey.activeFrameLoops),0);
+ await p.screenshot({path:resolve(dir,'390-reduced-contact.png')});await ctx.close();result.reducedMotion='passed';result.status='passed';
+} catch(e) {result.status='failed';result.failure=e.stack;process.exitCode=1;}
+finally {writeFileSync(resolve(dir,'checks.json'),JSON.stringify(result,null,2)+'\n');await b.close();}
+console.log(JSON.stringify({status:result.status,failure:result.failure}));

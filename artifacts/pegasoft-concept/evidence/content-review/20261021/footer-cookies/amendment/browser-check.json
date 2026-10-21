@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-21",
+  "desktopLanding": {
+    "height": 900,
+    "hidden": false,
+    "rect": {
+      "bottom": 876,
+      "height": 262.84375,
+      "left": 976,
+      "right": 1416,
+      "top": 613.15625,
+      "width": 440,
+      "x": 976,
+      "y": 613.15625
+    },
+    "width": 1440
+  },
+  "reject": {
+    "hidden": true,
+    "status": "Preferences saved. No optional trackers enabled."
+  },
+  "rejectAfterReload": {
+    "hidden": true,
+    "openingComplete": true
+  },
+  "accept": {
+    "hidden": true,
+    "status": "Οι προτιμήσεις αποθηκεύτηκαν. Δεν ενεργοποιήθηκαν προαιρετικοί μηχανισμοί παρακολούθησης."
+  },
+  "acceptAfterReload": {
+    "hidden": true,
+    "lang": "el",
+    "opening": true
+  },
+  "settings": {
+    "opened": true,
+    "closed": {
+      "banner": true,
+      "focus": true,
+      "open": false
+    }
+  },
+  "switchDesktop": {
+    "indicator": {
+      "background": "rgb(255, 255, 255)",
+      "transform": "matrix(1, 0, 0, 1, 76.4037, 0)"
+    },
+    "mode": "services",
+    "selected": [
+      {
+        "controls": "marquee",
+        "pressed": "false",
+        "text": "Industries"
+      },
+      {
+        "controls": "marquee",
+        "pressed": "true",
+        "text": "Services"
+      }
+    ],
+    "track": {
+      "bottom": 473.828125,
+      "height": 48,
+      "left": 72,
+      "right": 304,
+      "top": 425.828125,
+      "width": 232,
+      "x": 72,
+      "y": 425.828125
+    }
+  },
+  "switchKeyboard": {
+    "mode": "industries",
+    "pressed": "true"
+  },
+  "mobileGreek": {
+    "buttons": [
+      "Απόρριψη όλων",
+      "Αποδοχή όλων"
+    ],
+    "client": 356,
+    "height": 844,
+    "hidden": false,
+    "rect": {
+      "bottom": 828,
+      "height": 301.890625,
+      "left": 16,
+      "right": 374,
+      "top": 526.109375,
+      "width": 358,
+      "x": 16,
+      "y": 526.109375
+    },
+    "scroll": 356,
+    "width": 390
+  },
+  "switchMobile": {
+    "buttonWidths": [
+      112,
+      112
+    ],
+    "mode": "services",
+    "rect": {
+      "bottom": 445.8984375,
+      "height": 48,
+      "left": 19.5,
+      "right": 251.5,
+      "top": 397.8984375,
+      "width": 232,
+      "x": 19.5,
+      "y": 397.8984375
+    },
+    "width": 390
+  },
+  "notes": [
+    "Accept and Reject were exercised on separate local test origins (127.0.0.1 and localhost), then checked after reload.",
+    "Viewport emulation is not physical-phone acceptance.",
+    "No optional trackers installed or enabled; wording and legal review remain pending."
+  ]
+}

@@ -1,10 +1,13 @@
+import {translate as t} from './locale-messages.js';
 import {createScope} from '../review/runtime-lifecycle.js';
 import {createContactForm} from './contact-form.js';
+import {readConsent,storeConsent} from './cookie-consent.js';
 /** Ordinary DOM interactions. No animation clock, network submission or tracker loading. */
 export function createContentController({root,journey}){
  const document=root.ownerDocument,window=document.defaultView,scope=createScope(),$=s=>root.querySelector(s);
 
  let mounted=false,selected='General';const tabs=[...root.querySelectorAll('[data-contact-tab]')].filter(el=>el.getAttribute('role')==='tab'),panel=$('#contact-field-plan'),dialog=$('#cookie-preferences'),menu=document.querySelector('#mobile-navigation'),contactForm=createContactForm({panel,scope});
+ function saveConsent(choice){let storage;try{storage=window.localStorage;}catch{}const saved=storeConsent(storage,choice);$('#cookie-notice').hidden=true;$('#cookie-status').textContent=t(saved?'Preferences saved. No optional trackers enabled.':'Preferences apply to this visit only. This browser could not save them.');if(dialog.open)dialog.close();}
  function selectTab(value){selected=value;tabs.forEach(tab=>{const active=tab.dataset.contactTab===value;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;});contactForm.show(value);panel.setAttribute('aria-labelledby',tabs.find(tab=>tab.dataset.contactTab===value).id);$('#contact').dataset.tab=value;}
  function go(target){if(menu.open)menu.close();const reduced=window.matchMedia('(prefers-reduced-motion:reduce)').matches,behavior=reduced?'instant':'smooth';if(target==='services')journey.navigate('services');else if(target==='about')journey.navigate('about');else{if(target==='#website-footer')$('[data-footer-mode=industries]').click();$(target).scrollIntoView({block:'start',behavior});}}
  function mount(){if(mounted||scope.disposed)return;mounted=true;selectTab(selected);
@@ -13,13 +16,15 @@ export function createContentController({root,journey}){
   document.querySelectorAll('[data-careers-action]').forEach(el=>scope.listen(el,'click',()=>{selectTab('Careers');go('#contact');}));
   scope.listen($('#open-mobile-menu'),'click',()=>menu.showModal());scope.listen(document.querySelector('#close-mobile-menu'),'click',()=>menu.close());
   scope.listen($('#open-cookies'),'click',()=>{dialog.showModal();});scope.listen($('[data-close-cookies]'),'click',()=>dialog.close());
-  scope.listen($('#save-cookies'),'click',()=>{try{window.localStorage.setItem('pegasoft.cookie-preferences',JSON.stringify({necessary:true,analytics:false,marketing:false}));$('#cookie-status').textContent='Preferences saved. No optional trackers enabled.';dialog.close();}catch{$('#cookie-status').textContent='Preferences could not be stored in this browser. No optional trackers enabled.';}});
+  scope.listen($('#save-cookies'),'click',()=>saveConsent('settings'));
+  scope.listen($('[data-open-cookie-settings]'),'click',()=>dialog.showModal());
+  root.querySelectorAll('[data-cookie-choice]').forEach(button=>scope.listen(button,'click',()=>saveConsent(button.dataset.cookieChoice)));
   const rail=$('#testimonials-rail');
   function advance(direction){const card=rail.querySelector('article'),step=card.getBoundingClientRect().width+24;rail.scrollBy({left:direction*step,behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});}
   root.querySelectorAll('[data-testimonial-step]').forEach(button=>scope.listen(button,'click',()=>advance(Number(button.dataset.testimonialStep))));
   scope.listen(rail,'keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();advance(event.key==='ArrowRight'?1:-1);}else if(event.key==='Home'||event.key==='End'){event.preventDefault();rail.scrollTo({left:event.key==='Home'?0:rail.scrollWidth,behavior:'instant'});}});
-  scope.defer(()=>{if(dialog.open)dialog.close();if(menu.open)menu.close();});
+  scope.defer(()=>{$('#cookie-notice').hidden=true;if(dialog.open)dialog.close();if(menu.open)menu.close();});
  }
  function followInitialHash(){if(scope.disposed)return;const id=window.location.hash.slice(1);if(id==='trust-evidence'&&!document.body.classList.contains('static-journey')){journey.navigate('trust',{behavior:'instant'});return;}if(['trust-evidence','partners','insights','faq','contact'].includes(id))$('#'+id).scrollIntoView({block:'start',behavior:'instant'});}
- return {mount,followInitialHash,dispose(){scope.dispose();mounted=false;},get selected(){return selected;}};
+ return {mount,followInitialHash,showLandingConsent(){if(scope.disposed)return;let storage;try{storage=window.localStorage;}catch{}$('#cookie-notice').hidden=Boolean(readConsent(storage));},refreshLanguage(){panel.querySelectorAll('input,select,textarea').forEach(input=>input.setCustomValidity(''));},dispose(){scope.dispose();mounted=false;},get selected(){return selected;}};
 }

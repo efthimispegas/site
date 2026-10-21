@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-19",
+  "sourceCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "source": "source.json",
+  "sourceSha256": "b999511460cd9ed5691385b2e3cac74d689f010f6c1c5be53a64dd477a242a95",
+  "runtimeUnchanged": true,
+  "userAccepted": false,
+  "status": "FAQ/contact ready for personal review",
+  "reviewUrl": "http://127.0.0.1:8771/?revision=faq-contact-review-20261019#faq",
+  "contactUrl": "http://127.0.0.1:8771/?revision=faq-contact-review-20261019#contact",
+  "checks": {
+    "nxBuild": "passed",
+    "runtime": "passed",
+    "checks": "checks.json",
+    "checksSha256": "f1d7ff014c4fec77b6afca3602d7ca486ef3278912bdb6b3c83f6178eda4e66b",
+    "logs": [
+      {
+        "path": "build.log",
+        "sha256": "69f491f372dfa88fc3dec6fc78978df76bdbdf170db2e813125bc63eb77753ab"
+      },
+      {
+        "path": "runtime.log",
+        "sha256": "b215ff190a08ad5dcf98fbe6ee599c5a3a2b5b7034c6b526eeeaa887f67ae648"
+      }
+    ]
+  },
+  "visualInspection": [
+    "1505-faq.png",
+    "1505-contact.png",
+    "820-faq.png",
+    "820-contact.png",
+    "390-faq.png",
+    "390-contact.png"
+  ],
+  "observations": [
+    "Six native accordion rows; pointer and keyboard expansion/collapse pass.",
+    "General, Company owner, Investor and Careers fields render; keyboard tabs, shared draft values and audience-specific drafts verified.",
+    "Invalid email and URL blocked; valid local review displays explicitly that nothing was sent. No write requests or external requests observed.",
+    "Desktop/tablet/mobile screenshots inspected; reduced-motion keyboard interactions pass."
+  ],
+  "pending": [
+    "Personal FAQ/contact layout and interaction acceptance",
+    "Final FAQ answers and company/contact/legal details",
+    "Confirmed submission recipient, endpoint, privacy wording and real submission outcomes",
+    "Real testimonial/partner content and Insights articles/page links remain open",
+    "Navigation/footer/cookie details review follows; whole-site qualification and release remain separate"
+  ],
+  "next": "Stop at FAQ/contact personal review gate. No release, generation or remote form submission."
+}

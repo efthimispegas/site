@@ -1,0 +1,75 @@
+{
+  "status": "Navigation page destinations deferred by user;footer/cookie approval not inferred",
+  "date": "2026-10-19",
+  "url": "https://pegasoft-solutions.pages.dev/#contact",
+  "deploymentId": "42b4d180-818e-4773-bd96-37fdad8b9af8",
+  "scope": [
+    "Desktop/mobile navigation destinations",
+    "Footer Industries/Services control and links",
+    "Cookie dialog layout,dismissal,focus and save"
+  ],
+  "sourceChanges": "None to application runtime in this phase;plan/status/review records only",
+  "checks": [
+    {
+      "environment": "1280x720 desktop browser",
+      "outcome": "pass",
+      "checks": [
+        "Cookie dialog opens",
+        "Escape closes and restores focus to Cookie preferences",
+        "Reopen and save gives Preferences saved,no optional trackers",
+        "Footer Services switches visible text;Industries Enter restores industry text",
+        "Header Careers selects approved application with ten requested role choices"
+      ]
+    },
+    {
+      "environment": "390x844 browser viewport;not physical device",
+      "outcome": "pass",
+      "checks": [
+        "No horizontal page overflow",
+        "Mobile Menu opens with seven destinations",
+        "FAQ click closes menu and settles at90.16px scroll margin",
+        "Cookie dialog readable within viewport and closes with Escape",
+        "Viewport restored after checks"
+      ]
+    }
+  ],
+  "reusedEvidence": "../../../preview/20261019/cloudflare-pages/public-assets-social.json",
+  "reviewInstructions": [
+    "Use desktop header and mobile Menu to inspect destinations",
+    "Switch footer Industries and Services and inspect footer navigation",
+    "Open Cookie preferences;review essential-only control and Save/Close/Escape behavior"
+  ],
+  "pending": [
+    "Personal visual/interaction approval of current navigation/footer/cookie review",
+    "Real company/legal/contact/social details",
+    "Final privacy wording/tracker policy and form endpoints",
+    "Physical-phone startup review"
+  ],
+  "futureIndependentReviews": {
+    "localization": {
+      "languages": [
+        "el",
+        "en"
+      ],
+      "default": "el",
+      "status": "Required feature;not implemented",
+      "authority": "User confirmed Greek and English only;Greek default for Greece-first launch"
+    },
+    "seo": "After complete site review;independent gate"
+  },
+  "metaInvestigation": "Deferred by user until20 October after cache window;no further Meta actions in this phase",
+  "screenshots": [
+    "footer-desktop.jpg",
+    "cookies-desktop.jpg",
+    "mobile-menu.jpg",
+    "cookies-mobile.jpg"
+  ],
+  "deferredNavigation": [
+    "About",
+    "Contact",
+    "Insights",
+    "Careers",
+    "Let\u2019s talk"
+  ],
+  "decision": "Proceed to localization;these labels will point to separate pages. Current in-page smoke checks remain historical prototype evidence."
+}

@@ -1,0 +1,78 @@
+{
+  "desktop": {
+    "background": "rgb(237, 242, 247)",
+    "button": "rgb(20, 125, 255)",
+    "font": "15px / 21.75px DM, sans-serif",
+    "headingFont": "750 24px / 27.6px Manrope, sans-serif",
+    "height": 900,
+    "hidden": false,
+    "rect": {
+      "bottom": 876,
+      "height": 197.1328125,
+      "left": 1086,
+      "right": 1416,
+      "top": 678.8671875,
+      "width": 330,
+      "x": 1086,
+      "y": 678.8671875
+    },
+    "transform": "matrix(0.75, 0, 0, 0.75, 0, 0)",
+    "width": 1440
+  },
+  "mobileGreek": {
+    "buttons": [
+      {
+        "rect": {
+          "bottom": 782.25,
+          "height": 33,
+          "left": 122.75,
+          "right": 236.75,
+          "top": 749.25,
+          "width": 114,
+          "x": 122.75,
+          "y": 749.25
+        },
+        "text": "Απόρριψη όλων"
+      },
+      {
+        "rect": {
+          "bottom": 782.25,
+          "height": 33,
+          "left": 242.75,
+          "right": 356.75,
+          "top": 749.25,
+          "width": 114,
+          "x": 242.75,
+          "y": 749.25
+        },
+        "text": "Αποδοχή όλων"
+      }
+    ],
+    "clientWidth": 356,
+    "font": "15px / 21.75px DM, sans-serif",
+    "headingFont": "750 23px / 26.45px Manrope, sans-serif",
+    "hidden": false,
+    "rect": {
+      "bottom": 828,
+      "height": 226.41796875,
+      "left": 105.5,
+      "right": 374,
+      "top": 601.58203125,
+      "width": 268.5,
+      "x": 105.5,
+      "y": 601.58203125
+    },
+    "scrollWidth": 356,
+    "viewport": 390
+  },
+  "settings": {
+    "banner": true,
+    "dialog": false,
+    "focus": true
+  },
+  "notes": [
+    "Uniform .75 transform; font declarations unchanged.",
+    "Existing Pegasoft porcelain, ink and blue palette.",
+    "390x844 viewport checked; not physical-device acceptance."
+  ]
+}
