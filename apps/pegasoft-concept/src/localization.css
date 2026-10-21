@@ -1,0 +1,43 @@
+/* Localized body text uses the approved Manrope asset; English keeps its existing fonts. */
+.language-menu{position:relative;display:inline-flex;align-items:center;flex-shrink:0;color:inherit}
+.language-menu .language-trigger{display:grid;place-items:center;min-width:40px;min-height:40px;padding:4px;border:0;border-radius:6px;background:transparent;color:inherit;cursor:pointer;font-size:22px;line-height:1}
+.language-trigger [data-language-flag]{font:22px/1 "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.language-options{position:absolute;top:calc(100% + 8px);left:0;min-width:166px;padding:6px;background:#edf2f7;color:#05070a;border:1px solid #061e3b22;border-radius:10px;box-shadow:0 12px 32px #05070a26;z-index:50}
+.language-options[hidden]{display:none}
+.site-header-language .language-options button,#mobile-navigation .language-options button{display:block;width:100%;padding:10px 12px;text-align:left;font:500 13px/1.5 Manrope,sans-serif;white-space:nowrap;border:0;border-radius:5px;background:transparent;color:#05070a;cursor:pointer}
+.site-header-language .language-options button:hover,.site-header-language .language-options button:focus-visible,#mobile-navigation .language-options button:hover,#mobile-navigation .language-options button:focus-visible,.language-options button[aria-checked=true]{background:#147dff14;color:#147dff}
+.language-menu button:focus-visible{outline:2px solid #147dff;outline-offset:3px}
+.site-header-language{color:var(--header-ink)}
+#mobile-navigation .language-menu{margin:6px 0 16px;color:#05070a}
+#mobile-navigation .language-trigger{padding:4px;min-width:40px;width:auto}
+html[lang=el] #opening-stage .hero-body{max-width:42ch}
+html[lang=el] .contact-tabs{flex-wrap:wrap;row-gap:10px}
+html[lang=el] #cookie-preferences h2{font-size:25px}
+html[lang=el] .partner-wall__inner{overflow-wrap:anywhere}
+/* Greek glyphs are absent from the approved DM Sans subset. Retain sizes and weights. */
+html[lang=el] body,html[lang=el] :is(#site-header,#site-header-contact,#mobile-navigation,#opening-stage,#stage,#after-journey,#cookie-preferences),html[lang=el] :is(#site-header,#mobile-navigation,#opening-stage,#stage,#after-journey,#cookie-preferences) *{font-family:Manrope,sans-serif}
+@media(max-width:1100px){.site-header .nav-links{display:none}.site-header .site-menu-toggle{display:block;margin-left:auto;padding:8px 0;color:var(--header-ink)}}
+@media(max-width:760px){html[lang=el] #opening-stage .hero-copy{max-width:94%}html[lang=el] #cookie-preferences{padding:22px}html[lang=el] .contact-tabs button{white-space:normal}html[lang=el] .site-header{padding-right:calc(5vw + 160px)}}
+@media(max-width:360px){html[lang=el] .site-header-contact{font-size:11px;padding:10px 12px;gap:10px}html[lang=el] .site-header{padding-right:calc(5vw + 132px)}}
+
+html[lang=el] .language-menu [data-language-flag]{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+
+/* Language follows the separately blended CTA; both remain siblings of the transparent header. */
+.site-header{padding-right:calc(2.3vw + 232px)}
+.site-header-contact{right:calc(2.3vw + 52px)}
+.site-header-language{position:fixed;right:2.3vw;top:calc(clamp(70px,12svh,110px)/2);transform:translateY(-50%);z-index:32;--header-ink:#f5f8fc;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s}
+.site-header[data-tone=light]~.site-header-language{--header-ink:#05070a}
+.site-header[data-visible=true]~.site-header-language{opacity:1;visibility:visible;pointer-events:auto}
+.site-header-language .language-options{left:auto;right:0}
+@media(max-width:760px){.site-header,html[lang=el] .site-header{padding-right:calc(5vw + 202px)}.site-header-contact{right:calc(5vw + 44px)}.site-header-language{right:5vw;top:36px}.site-header-language .language-trigger{min-width:36px}}
+@media(max-width:360px){.site-header,html[lang=el] .site-header{padding-right:calc(5vw + 168px);gap:6px}.site-header .logo{font-size:20px}.site-header .site-menu-toggle{font-size:11px}.site-header-contact{font-size:11px;padding:10px 12px;gap:10px}}
+@media(prefers-reduced-motion:reduce){.site-header-language{transition:none}}
+
+/* Keep the longer Greek ship heading inside narrow viewports; retain the desktop/height scale. */
+html[lang=el] #ship-copy h2{font-size:min(64px,calc(var(--story-height,700px)*.091),12cqw)}
+
+/* #24: English descenders need room inside the desktop reveal mask. Negative margin preserves line spacing. */
+@media(min-width:680px){html[lang=en] #opening-stage .hero-copy .line{padding-bottom:.22em;margin-bottom:-.22em}}
+
+/* Greek mobile services heading reads across the truck departure, with the shared 64px title token. */
+@media(max-width:760px){html[lang=el] #stage #services-title{font-size:64px}}
