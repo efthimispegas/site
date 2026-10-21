@@ -1,10 +1,11 @@
+import {localizedPages} from './tools/localized-pages.mjs';
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
 import {staticCompression} from './tools/static-compression.mjs';
 
 export default defineConfig({
   root: import.meta.dirname,
-  plugins:[staticCompression()],
+  plugins:[localizedPages(),staticCompression()],
   server: { host: '127.0.0.1', port: 8770, strictPort: true },
   preview: { host: '127.0.0.1', port: 8771, strictPort: true },
   build: {

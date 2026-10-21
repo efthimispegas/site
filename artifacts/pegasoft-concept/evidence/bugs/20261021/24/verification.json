@@ -1,0 +1,78 @@
+{
+  "issue": 24,
+  "date": "2026-10-21",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "sourceState": "Uncommitted local worktree with pre-existing unrelated WIP",
+  "runtime": "Node 24.19.0 / pnpm 10.8.1 / Chromium in-app browser",
+  "url": "http://127.0.0.1:8771/en/?revision=bug24-fixed-20261021",
+  "fix": "English desktop >=680px reveal-mask bottom padding and balancing negative margin .08em -> .22em; font, positions and motion unchanged",
+  "checks": {
+    "nxBuild": "passed",
+    "nxLint": "passed",
+    "nxTest": "33 passed",
+    "browserAssertions": {
+      "desktopGlyphsFit": true,
+      "baselinePositionsUnchanged": true,
+      "greekPaddingUnchanged": true,
+      "mobilePaddingUnchanged": true,
+      "returnRestoresHeading": true,
+      "openingStateUnchanged": true
+    },
+    "visualInspection": "Full English descenders visible; normal partial/complete exit and reverse restoration inspected"
+  },
+  "limitations": [
+    "Local fix only; no commit, push or deployment performed",
+    "Physical-device and whole-site acceptance remain separate",
+    "All English/Greek copy remains pending content review"
+  ],
+  "files": [
+    {
+      "path": "apps/pegasoft-concept/src/localization.css",
+      "sha256": "3a4af2ecdd7f08d1a7114ac504bc91e825a90726b44e175f69cef89723e45c38"
+    },
+    {
+      "path": "apps/pegasoft-concept/website-motion-manifest.json",
+      "sha256": "e43f3fca7a28744cc70a9eee900743b2d80596ae1abc9b576d92534bfd0400c9"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/verify-website-motion.mjs",
+      "sha256": "7469374e47765ffc9ca77012f92623fb9b0d5cc6d82b2164a05aae9cf9efb98c"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/en/index.html",
+      "sha256": "11a2183f0de8d10307b19a459dd2d81c5421b4a375cce0f3b102cd5c9bd779fd"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/intro-controller-BKrmW-kh.css",
+      "sha256": "3da4cfb130b84f70373805aeba850dbbad54b0e717ca9509069fe1551ffc3b3c"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/index-B_v3NBAF.css",
+      "sha256": "cc178e1e50a30bdd5f941481c23bf195c39a4e825c1beb3e8da8ab6e7f4afb0f"
+    }
+  ],
+  "remoteState": {
+    "number": 24,
+    "state": "CLOSED",
+    "stateReason": "COMPLETED",
+    "closedAt": "2026-10-21T07:07:25Z",
+    "url": "https://github.com/efthimispegas/site/issues/24",
+    "projectItems": {
+      "nodes": [
+        {
+          "id": "PVTI_lAHOApdIvM4Bn4xJzhCVDmk",
+          "project": {
+            "title": "Pegasoft",
+            "url": "https://github.com/users/efthimispegas/projects/1"
+          },
+          "fieldValueByName": {
+            "name": "In review",
+            "optionId": "db31a0dd"
+          }
+        }
+      ]
+    }
+  },
+  "verificationComment": "https://github.com/efthimispegas/site/issues/24#issuecomment-6310198676"
+}

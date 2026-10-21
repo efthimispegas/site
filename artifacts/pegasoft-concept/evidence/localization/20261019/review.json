@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-19",
+  "status": "Language menu and overall localized presentation look good by user review;Greek ship heading corrected locally;all section content pending later review",
+  "request": "request.json",
+  "buildManifest": "build-manifest.json",
+  "reviewUrls": {
+    "Greek": "http://127.0.0.1:8771/el/?revision=ship-heading-fit-20261019",
+    "English": "http://127.0.0.1:8771/en/?revision=ship-heading-fit-20261019"
+  },
+  "implementation": [
+    "Greek launch default;explicit /el/ and /en/ URLs override saved preference",
+    "Flag-only trigger after the Let’s talk CTA;Greek/Greece and English/United Kingdom options anchored 8px below it",
+    "Same final header flag after the CTA on mobile;single menu",
+    "Static translated HTML, accessibility labels, forms, cookie copy, share metadata/artwork and regional decimal separator",
+    "Existing DOM and scene controllers remain mounted;form values and CV files are not translated",
+    "No renderer, geometry, material, camera or approved motion equation changes"
+  ],
+  "checks": {
+    "nx": [
+      "build passed",
+      "lint passed",
+      "test:33 passed,0 failed",
+      "accepted source/asset and amendment provenance checks passed"
+    ],
+    "log": "after-cta-nx-checks.log",
+    "browser": "after-cta-browser-check.json",
+    "limits": "Chromium desktop/mobile viewport checks, not physical-phone acceptance. Greek copy and responsive whole-site review remain pending."
+  },
+  "screenshots": {
+    "desktopFlagMenu": "language-after-cta-desktop.jpg",
+    "mobileFlagMenu": "language-after-cta-mobile.jpg",
+    "greekShipHeading": "ship-heading-fit-390.jpg"
+  },
+  "deferredNavigation": [
+    "About",
+    "Contact",
+    "Insights",
+    "Careers",
+    "Let’s talk"
+  ],
+  "acceptanceLimits": [
+    "Separate-page URLs, content and final navigation not implemented or reviewed;existing in-page actions remain prototypes",
+    "Footer/cookie approval not inferred from moving to localization",
+    "Greek translation and localized layouts require user review",
+    "Testimonial/partner identities, metrics, articles and company/legal facts remain unconfirmed",
+    "Contact submission and uploads remain disconnected",
+    "Physical-phone startup and whole-site acceptance remain open",
+    "SEO is independent after site review;Meta403 investigation deferred until20 October"
+  ],
+  "hosting": "Public Cloudflare preview remains previous English snapshot;this localization build is local only. No final release.",
+  "hashes": {
+    "buildManifest": "3e10f433ca7a8917d72bb1f2731343e3bb5233c176674d3b7a9940344ec2c29c",
+    "request": "3e75fca7a2d4d867a8896c90eaf92809ad211b6a62b9e8119c038323cc89eda1",
+    "nxLog": "b51bc19af133b9d0b5158351e40c61c2a47f25338de53e35402f2fec67452a64",
+    "browserCheck": "c93815a879e05b42ff96fcd1432aa0273562139b5d3aa956d74757de0f3e582c",
+    "screenshots": {
+      "desktopFlagMenu": "402ae7a69323789b391cb4800a406e794f4bb8b1dd538134a92189f0baa02595",
+      "mobileFlagMenu": "999d265f3cf40d79b0af13e3f379a80cbcfb8fde418fa44df0184e0f886292d8",
+      "greekShipHeading": "ea4087b77ca5b8400aeb85af684bb31886dec0ccf2e7f8d2d4f921542e0a9257"
+    },
+    "shipHeadingBrowser": "73860ef76ebc74dded00faa3097eac958262dad50e77d22a1ec17cd646cd6aae",
+    "shipHeadingChecks": "106fc3250d9f2bd5a9e9881bd919fe71e68d238f9eeb15cb29d81aaa7a54848d"
+  },
+  "userFeedback": {
+    "languageMenu": "Visually approved",
+    "localizedPresentation": "Positive visual feedback,with Greek ship-heading fit correction requested",
+    "allSectionContent": "Pending later section-by-section review in Greek and English",
+    "headingCorrection": "Responsive Greek-only font cap implemented;personal confirmation pending"
+  },
+  "shipHeadingCorrection": {
+    "beforeFont": "64px on 390px viewport",
+    "afterFonts": {
+      "320": "38.4px",
+      "390": "46.8px",
+      "1280": "64px"
+    },
+    "browserEvidence": "ship-heading-browser-check.json",
+    "checks": "ship-heading-nx-checks.log",
+    "scope": "Greek heading sizing only;desktop scale and motion equations retained"
+  },
+  "contentApproval": "All section copy in both languages remains pending personal review;visual feedback does not approve wording,figures or company claims."
+}

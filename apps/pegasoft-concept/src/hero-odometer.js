@@ -1,3 +1,4 @@
+import {decimalSeparator,formatNumber} from './locale-messages.js';
 /** Vanilla DOM adapter of the user-supplied React Bits Counter (JS + CSS).
  * Numeric places, near-integer rounding and ten vertically wrapped glyphs
  * retain the component's scheme. The app scheduler drives the spring directly.
@@ -25,7 +26,7 @@ export function createCounter(element,{value,places=counterPlaces(value),padding
  const inner=document.createElement('span');inner.className='counter-counter';Object.assign(inner.style,{gap:gap+'px',borderRadius:borderRadius+'px',paddingLeft:horizontalPadding+'px',paddingRight:horizontalPadding+'px',color:textColor,fontWeight,...counterStyle});element.append(inner);
  const wheels=places.map(place=>{
   const column=document.createElement('span');column.className='counter-digit';column.setAttribute('aria-hidden','true');Object.assign(column.style,digitStyle);inner.append(column);
-  if(place==='.'){column.textContent='.';column.style.width='fit-content';return {place,column};}
+  if(place==='.'){column.textContent=decimalSeparator();column.style.width='fit-content';return {place,column};}
   const glyphs=Array.from({length:10},(_,digit)=>{const glyph=document.createElement('span');glyph.className='counter-number';glyph.textContent=digit;column.append(glyph);return glyph;});
   return {place,column,glyphs,value:0,velocity:0};
  });
@@ -34,10 +35,10 @@ export function createCounter(element,{value,places=counterPlaces(value),padding
  if(suffix){const unit=document.createElement('span');unit.className='counter-suffix';unit.setAttribute('aria-hidden','true');unit.textContent=suffix;element.append(unit);}
  function resize(){const height=parseFloat(getComputedStyle(element).fontSize)+padding;for(const wheel of wheels)wheel.column.style.height=height+'px';}
  return {resize,render(target,dt=0,reduced=false){
-  if(disposed)return;const rounded=Math.round(target*10)/10;element.setAttribute('aria-label',String(rounded)+suffix);element.dataset.target=rounded;
+  if(disposed)return;const rounded=Math.round(target*10)/10;element.setAttribute('aria-label',formatNumber(rounded)+suffix);element.dataset.target=rounded;
   const targets=[],values=[];
   for(const wheel of wheels){
-   if(wheel.place==='.')continue;const n=roundedToPlace(rounded,wheel.place),next=reduced?{value:n,velocity:0}:settleWheel(wheel.value,wheel.velocity,n,dt);
+   if(wheel.place==='.'){const separator=decimalSeparator();if(wheel.column.textContent!==separator)wheel.column.textContent=separator;continue;}const n=roundedToPlace(rounded,wheel.place),next=reduced?{value:n,velocity:0}:settleWheel(wheel.value,wheel.velocity,n,dt);
    wheel.value=next.value;wheel.velocity=next.velocity;targets.push(n);values.push(wheel.value);
    wheel.glyphs.forEach((glyph,digit)=>glyph.style.transform=`translateY(${digitOffset(wheel.value,digit)*100}%)`);
   }

@@ -64,7 +64,7 @@
       "executor": "nx:run-commands",
       "cache": true,
       "options": {
-        "command": "node --test tools/packaging.test.mjs tools/cloud-motion.test.mjs tools/lifecycle.test.mjs tools/transport-timeline.test.mjs tools/counter.test.mjs",
+        "command": "node --test tools/packaging.test.mjs tools/cloud-motion.test.mjs tools/lifecycle.test.mjs tools/transport-timeline.test.mjs tools/counter.test.mjs tools/localization.test.mjs",
         "cwd": "apps/pegasoft-concept"
       },
       "dependsOn": []

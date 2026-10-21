@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-21",
+  "status": "Ready for personal Greek mobile services-heading review",
+  "request": "request.json",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "url": "http://127.0.0.1:8771/el/?revision=services-heading-20261021",
+  "implementation": "Greek mobile (<=760px) uses the existing64px heading size;horizontal overflow travels through the existing services progress range so the beginning and ending can be read during truck departure. English/desktop typography and vehicle/camera/story equations retained.",
+  "checks": {
+    "Nx": "build,lint,provenance and34 tests passed",
+    "log": "nx-checks.log",
+    "browser": "browser-check.json",
+    "viewports": [
+      "390x844",
+      "320x844"
+    ],
+    "forwardReverse": "Beginning visible around64%;ending inside viewport by76%;reverse restores beginning",
+    "English": "90px mobile font and original final transform retained"
+  },
+  "screenshots": [
+    "greek-start-390.jpg",
+    "greek-end-390.jpg",
+    "greek-start-320.jpg",
+    "greek-end-320.jpg"
+  ],
+  "sourceFiles": [
+    {
+      "path": "apps/pegasoft-concept/src/localization.css",
+      "sha256": "32bdc1df9ee1df5528ff0761cb1a07497b69abaabf0c1346641ee02562d02393"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/transport-controller.js",
+      "sha256": "f181d9213ab3ff72d2027afe6d7af02ea182722e6df0983f503a08062c42c880"
+    },
+    {
+      "path": "apps/pegasoft-concept/website-motion-manifest.json",
+      "sha256": "55c19824f4261305a24630ead2e1acfc78e3e28cac3f92338c7e4f1db1828d75"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/verify-website-motion.mjs",
+      "sha256": "bad59c582f5aa3bf0a8c127c05ec98d8de7b20e7324454b50458d3e1c7509e42"
+    }
+  ],
+  "limits": [
+    "Personal review pending",
+    "Chromium viewport checks;not physical-phone acceptance",
+    "Local uncommitted fix;not deployed",
+    "All section copy remains pending content review"
+  ]
+}

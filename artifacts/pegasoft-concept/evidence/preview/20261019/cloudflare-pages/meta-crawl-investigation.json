@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-19T19:23:13.792381+00:00",
+  "scope": "Investigate actual Meta Sharing Debugger403 for homepage/query URL; no site code or security settings changed.",
+  "mainHost": {
+    "url": "https://pegasoft-solutions.pages.dev/",
+    "debuggerStatus": 403,
+    "reason": "This response code could be due to a robots.txt block. Please allowlist facebookexternalhit on your sites robots.txt config to utilize Facebook scraping",
+    "rescrapeAttempt": "Still403"
+  },
+  "queryUrl": {
+    "url": "https://pegasoft-solutions.pages.dev/?share=instagram-20261019",
+    "debuggerStatus": 403
+  },
+  "currentRobots": {
+    "httpStatus": 200,
+    "body": "User-agent: *\nAllow: /\n"
+  },
+  "officialCurlSimulation": {
+    "httpStatus": 200,
+    "encoding": "gzip",
+    "range": "bytes=0-524288",
+    "htmlBytes": 28031,
+    "ogImagePresent": true
+  },
+  "freshHost": {
+    "url": "https://42b4d180.pegasoft-solutions.pages.dev/",
+    "debuggerStatus": 200,
+    "title": "Pegasoft \u2014 Every idea engineered to matter.",
+    "selectedImage": "https://42b4d180.pegasoft-solutions.pages.dev/assets/generation/cloud-family/K01/K01.png",
+    "heroCardAccepted": false,
+    "note": "Same deployed build fetched; requested hero image is on main hostname and Meta selected fallback image."
+  },
+  "history": "First deployment robots.txt disallowed crawling; social-card deployment changed it to Allow:/.",
+  "hypothesis": "Meta cached the original main-host robots exclusion. Strongly supported by main403/fresh-host200 and documented robots cache; not proven by origin request logs.",
+  "officialSource": "https://developers.facebook.com/documentation/sharing/webmasters/web-crawlers",
+  "sourceFinding": "Meta documents robots.txt caching for up to24hours.",
+  "status": "Deferred by user until20 October2026 after robots-cache window;do not continue investigation in current review.",
+  "nextAction": "After up to24hours from the social-card deployment, Scrape Again for main homepage and confirm actual Meta200 plus exact hero image. If403 persists, inspect host-side crawl logs or escalate to Meta webmasters; do not disable unrelated security protections.",
+  "evidence": [
+    "meta-debugger-403.jpg",
+    "meta-fresh-host-200.jpg"
+  ],
+  "deferredUntilDate": "2026-10-20",
+  "deferAuthority": "User: leave that investigation for tomorrow until cache limit is reached;proceed with site review."
+}

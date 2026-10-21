@@ -1,0 +1,31 @@
+import {chromium} from '/Users/whiskey/.codex/worktrees/pegasoft-concept/site/node_modules/@playwright/test/index.mjs';
+import {readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const root='/Users/whiskey/.codex/worktrees/pegasoft-concept/site';
+const out=root+'/artifacts/pegasoft-concept/evidence/preview/20261019';
+const base=(await readFile('/tmp/pegasoft-share-tunnel.log','utf8')).match(/https:\/\/[a-z0-9-]+\.trycloudflare\.com/)[0];
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const result={url:base,date:new Date().toISOString(),checks:[],errors:[],responses:[],config:{desktop:{width:1505,height:749},mobile:{width:390,height:844}}};
+try{
+ const context=await browser.newContext({viewport:result.config.desktop});const page=await context.newPage();
+ page.on('pageerror',e=>result.errors.push(e.message));page.on('response',r=>{if(r.status()>=400)result.responses.push({url:r.url(),status:r.status()});});
+ const response=await page.goto(base,{waitUntil:'domcontentloaded',timeout:60000});assert.equal(response.status(),200);assert.match(response.headers()['x-robots-tag'],/noindex/);result.checks.push('Public HTTPS homepage200; noindex response header');
+ const actual=await response.body(),expected=await readFile('/tmp/pegasoft-concept-share-20261019/index.html');assert.equal(createHash('sha256').update(actual).digest('hex'),createHash('sha256').update(expected).digest('hex'));result.checks.push('Remote HTML hash matches exact staged build');
+ await page.waitForFunction(()=>document.querySelector('#stage')?.dataset.loaded==='true'||document.querySelector('#stage')?.dataset.loaded==='error',{},{timeout:35000});
+ result.loaded=await page.locator('#stage').getAttribute('data-loaded');assert.equal(result.loaded,'true');result.checks.push('Full graphics initialize and opening completes through public URL');
+ await page.screenshot({path:out+'/public-desktop.png'});
+ await page.locator('#website-footer').scrollIntoViewIfNeeded();await page.waitForTimeout(250);
+ await page.locator('[data-footer-mode=services]').click();assert.equal(await page.locator('#website-footer').getAttribute('data-mode'),'services');
+ await page.locator('[data-footer-mode=industries]').click();assert.equal(await page.locator('#website-footer').getAttribute('data-mode'),'industries');result.checks.push('Footer industry/service switches work');
+ await page.locator('#open-cookies').click();assert(await page.locator('#cookie-preferences').evaluate(e=>e.open));await page.screenshot({path:out+'/public-cookies.png'});
+ await page.keyboard.press('Escape');assert.equal(await page.locator('#cookie-preferences').evaluate(e=>e.open),false);
+ await page.locator('#open-cookies').click();await page.locator('#save-cookies').click();assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('pegasoft.cookie-preferences'))),{necessary:true,analytics:false,marketing:false});result.checks.push('Cookie dialog Escape and save; optional categories disabled');
+ await page.locator('[data-contact-tab=Careers]').click();assert.equal(await page.locator('#contact-field-plan select option').count(),11);await page.screenshot({path:out+'/public-careers.png'});result.checks.push('Current approved Careers fields available remotely');
+ await context.close();
+ const mobile=await browser.newContext({viewport:result.config.mobile,reducedMotion:'reduce'});const p=await mobile.newPage();p.on('pageerror',e=>result.errors.push(e.message));
+ await p.goto(base,{waitUntil:'networkidle',timeout:60000});await p.locator('#open-mobile-menu').click();assert(await p.locator('#mobile-navigation').evaluate(e=>e.open));await p.screenshot({path:out+'/public-mobile-menu.png'});
+ await p.locator('#mobile-navigation [data-page-target="#faq"]').click();assert.equal(await p.locator('#mobile-navigation').evaluate(e=>e.open),false);assert.equal(await p.locator('#faq').evaluate(e=>Math.round(e.getBoundingClientRect().top)),await p.locator('#faq').evaluate(e=>parseFloat(getComputedStyle(e).scrollMarginTop)));
+ assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));result.checks.push('Mobile menu opens, closes on FAQ navigation; no horizontal overflow; reduced motion');
+ await mobile.close();assert.deepEqual(result.errors,[]);assert.deepEqual(result.responses,[]);result.passed=true;
+}catch(e){result.passed=false;result.failure=e.stack;process.exitCode=1;}finally{await browser.close();await writeFile(out+'/runtime-checks.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));}

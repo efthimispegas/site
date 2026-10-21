@@ -1,0 +1,59 @@
+{
+  "reproduction": {
+    "beforeDown": {
+      "focused": "<button type=\"button\" class=\"language-trigger\" data-language-trigger=\"\" aria-label=\"Γλώσσα: Ελληνικά\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-controls=\"language-options-header\"><span data-language-flag=\"\" aria-hidden=\"true\">🇬🇷</span></button>",
+      "header": "true",
+      "progress": 0.4909592013888889
+    },
+    "afterDown": {
+      "focused": "<button type=\"button\" class=\"language-trigger\" data-language-trigger=\"\" aria-label=\"Γλώσσα: Ελληνικά\" aria-haspopup=\"menu\" aria-expanded=\"false\" aria-controls=\"language-options-header\"><span data-language-flag=\"\" aria-hidden=\"true\">🇬🇷</span></button>",
+      "header": "true",
+      "progress": 0.542209201388889
+    }
+  },
+  "fixed": {
+    "pointerReturn": {
+      "focusOnFlag": true,
+      "header": "true",
+      "lang": "el"
+    },
+    "pointerDown": {
+      "focusOnFlag": false,
+      "header": "false",
+      "progress": 0.542209201388889
+    },
+    "up": "true",
+    "keyboardOpen": {
+      "focus": "el",
+      "open": true
+    },
+    "keyboardReturn": {
+      "focusOnFlag": true,
+      "header": "true",
+      "lang": "en"
+    },
+    "keyboardScroll": {
+      "focusOnFlag": false,
+      "header": "false"
+    },
+    "mobileReturn": {
+      "focusOnFlag": true,
+      "header": "true",
+      "lang": "el",
+      "width": 390
+    },
+    "mobileDown": {
+      "focusOnFlag": false,
+      "header": "false"
+    }
+  },
+  "assertions": {
+    "reproduced": true,
+    "pointerFixed": true,
+    "upReveals": true,
+    "keyboardPreserved": true,
+    "keyboardScrollHides": true,
+    "mobileFixed": true
+  },
+  "limits": "Chromium desktop/mobile viewport checks,not physical-phone acceptance;personal review pending."
+}

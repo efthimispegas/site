@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-21",
+  "request": "Fix header remaining visible after switching language mid-journey and resuming downward scrolling.",
+  "reproduction": "English to Greek mid-ship journey: after180px downward wheel input,flag trigger remains focused and header data-visible stays true.",
+  "scope": "Language menu scroll dismissal/focus only;retain keyboard option navigation,focus return until scroll,existing header fade/direction,assets and motion.",
+  "sourceBefore": "localization.before.js",
+  "sourceBeforeSha256": "ca44554da606ea558bc28eaaaf43c4ba9401aac07380868893f56a40626e6248"
+}

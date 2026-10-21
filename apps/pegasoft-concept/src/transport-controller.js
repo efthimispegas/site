@@ -16,7 +16,12 @@ export function createTransportController({root,stage}){
     const overlay=$('#services-overlay'),rail=$('#services-rail');
     overlay.style.opacity=String(services);overlay.style.top=(50-34*ease((p-gates.services)/(gates.upper-gates.services)))+'%';
     rail.style.transform='translateX('+(-Math.max(0,rail.scrollWidth-stage.clientWidth)*Math.max(0,Math.min(1,(p-(gates.release+.02/storySpanScale))/(.08/storySpanScale))))+'px)';
-    $('#services-title').style.opacity=String(services);$('#services-title').style.transform='translateX('+(2.5*(1-Math.max(0,Math.min(1,(p-(gates.release+.02/storySpanScale))/(.08/storySpanScale)))))+'vw)';
+    const title=$('#services-title'),titleProgress=Math.max(0,Math.min(1,(p-(gates.release+.02/storySpanScale))/(.08/storySpanScale)));
+    title.style.opacity=String(services);
+    if(root.ownerDocument.documentElement.lang==='el'&&stage.clientWidth<=760){
+      const width=stage.clientWidth,inset=Math.max(16,Math.min(32,width*.015)),overflow=Math.max(0,title.scrollWidth-width+2*inset);
+      title.style.transform='translateX('+(width*.025*(1-titleProgress)-overflow*titleProgress)+'px)';
+    }else title.style.transform='translateX('+(2.5*(1-titleProgress))+'vw)';
     overlay.setAttribute('aria-hidden',String(services<.01));
     $('#road-copy ol').style.setProperty('--road-row-gap',.36*h*.85+'px');
     const road=roadContentLayout(handoff?p:.97+p*.25,h,$('#road-copy ol').offsetHeight);

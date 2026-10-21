@@ -1,0 +1,49 @@
+{
+  "status": "deployed-and-verified",
+  "requestedHostname": "pegasoft-solutions.pages.dev",
+  "host": "Cloudflare Pages",
+  "method": "Direct Upload",
+  "projectName": "pegasoft-solutions",
+  "accountId": "54d2776ac031a46c5507cd1b6351d506",
+  "dashboardUrl": "https://dash.cloudflare.com/54d2776ac031a46c5507cd1b6351d506/pages/view/pegasoft-solutions",
+  "requiresLocalComputerToServe": false,
+  "autoUpdates": false,
+  "publicAccess": "Public development preview",
+  "productionRelease": false,
+  "archive": null,
+  "archiveSha256": null,
+  "blocker": null,
+  "gitHubPreparation": {
+    "repository": "https://github.com/efthimispegas/pegasoft-solutions",
+    "state": "empty repository created; no build pushed and Pages not enabled",
+    "reasonNotUsed": "User clarified hostname requirement; GitHub Pages URL would be a repository path under existing account hostname."
+  },
+  "updatedAt": "2026-10-19T18:59:15.737640+00:00",
+  "uploadMethod": "Folder picker;106/106 files uploaded",
+  "url": "https://pegasoft-solutions.pages.dev/",
+  "deploymentId": "42b4d180-818e-4773-bd96-37fdad8b9af8",
+  "immutableUrl": "https://42b4d180.pegasoft-solutions.pages.dev/",
+  "remoteVerification": {
+    "assetHashes": "public-assets-social.json",
+    "browser": "browser-check.json",
+    "all105PublicFilesMatch": true,
+    "shareMetadata": "social-sharing.json",
+    "configurationHeaders": "Crawl allowed;noindex/nosniff verified"
+  },
+  "socialPreview": {
+    "status": "Published standard clickable card",
+    "imageUrl": "https://pegasoft-solutions.pages.dev/assets/social/hero-card-20261019.jpg",
+    "imageSize": [
+      1200,
+      630
+    ],
+    "nativeAppShareTests": "Not performed; five crawler UA checks passed."
+  },
+  "previousDeployment": {
+    "id": "f11d913c-5b59-433f-962b-3c1c7c20a660",
+    "immutableUrl": "https://f11d913c.pegasoft-solutions.pages.dev/",
+    "assetCheck": "public-assets.json",
+    "buildManifest": "build-manifest.json"
+  },
+  "buildManifest": "build-manifest-social.json"
+}

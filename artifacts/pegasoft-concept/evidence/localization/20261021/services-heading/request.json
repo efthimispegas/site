@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-21",
+  "request": "Greek Our services title is clipped;make it smaller on mobile and let scrolling reveal the complete phrase during truck departure,without requiring the whole phrase on screen at once.",
+  "scope": "Greek mobile title sizing and horizontal text travel only;English and vehicle/camera/story timing unchanged.",
+  "beforeFiles": [
+    {
+      "path": "src/localization.css",
+      "snapshot": "before/src/localization.css",
+      "sha256": "3a4af2ecdd7f08d1a7114ac504bc91e825a90726b44e175f69cef89723e45c38"
+    },
+    {
+      "path": "src/transport-controller.js",
+      "snapshot": "before/src/transport-controller.js",
+      "sha256": "2f48949b757f1e8561b94b23dcf0c4ff37ba7bd616f9d7900cb77aafa1aa970d"
+    }
+  ]
+}

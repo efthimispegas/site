@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-19",
+  "before": {
+    "font": "64px",
+    "heading": {
+      "bottom": 588.5933837890625,
+      "height": 197.74215698242188,
+      "left": 31.203125,
+      "right": 358.796875,
+      "top": 390.8512268066406,
+      "width": 327.59375,
+      "x": 31.203125,
+      "y": 390.8512268066406
+    },
+    "progress": 0.5452073056176272,
+    "scrollWidth": 376,
+    "viewport": 390
+  },
+  "after": {
+    "mobile390": {
+      "font": "46.8px",
+      "heading": {
+        "bottom": 487.2418518066406,
+        "height": 96.390625,
+        "left": 31.203125,
+        "right": 358.796875,
+        "top": 390.8512268066406,
+        "width": 327.59375,
+        "x": 31.203125,
+        "y": 390.8512268066406
+      },
+      "progress": 0.5452073056176272,
+      "scrollWidth": 328,
+      "viewport": 390
+    },
+    "mobile320": {
+      "font": "38.4px",
+      "heading": {
+        "bottom": 421.90966796875,
+        "height": 79.09375,
+        "left": 25.6015625,
+        "right": 294.3984375,
+        "top": 342.81591796875,
+        "width": 268.796875,
+        "x": 25.6015625,
+        "y": 342.81591796875
+      },
+      "scrollWidth": 269,
+      "viewport": 320
+    },
+    "desktop": {
+      "font": "64px",
+      "heading": {
+        "bottom": 465.38525390625,
+        "height": 131.828125,
+        "left": 265,
+        "right": 1015,
+        "top": 333.55712890625,
+        "width": 750,
+        "x": 265,
+        "y": 333.55712890625
+      },
+      "scrollWidth": 750,
+      "viewport": 1280
+    }
+  },
+  "checks": {
+    "reproducedOverflow": true,
+    "mobile390Fits": true,
+    "mobile320Fits": true,
+    "desktopFontRetained": true,
+    "matchedProgress": true
+  },
+  "scope": "Greek-only heading typography;no copy rewrite or motion equation changes. Chromium viewport checks,not physical-phone acceptance."
+}

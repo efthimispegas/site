@@ -1,0 +1,99 @@
+{
+  "greekStart390": {
+    "font": "750 64px / 64px Manrope, sans-serif",
+    "motion": 0.6399492742890995,
+    "opacity": "0.963892",
+    "text": "ΟΙ ΥΠΗΡΕΣΙΕΣ ΜΑΣ",
+    "title": {
+      "bottom": 72.4375,
+      "height": 64,
+      "left": 14.897377014160156,
+      "right": 538.3192520141602,
+      "top": 8.4375,
+      "width": 523.421875,
+      "x": 14.897377014160156,
+      "y": 8.4375
+    },
+    "transform": "matrix(1, 0, 0, 1, -1.10262, 0)",
+    "width": 390
+  },
+  "greekMiddle390": {
+    "opacity": "1",
+    "progress": 0.6999018809241706,
+    "title": {
+      "bottom": 72.4375,
+      "height": 64,
+      "left": -66.95198059082031,
+      "right": 456.4698944091797,
+      "top": 8.4375,
+      "width": 523.421875,
+      "x": -66.95198059082031,
+      "y": 8.4375
+    }
+  },
+  "greekEnd390": {
+    "opacity": "1",
+    "progress": 0.7600914543838861,
+    "title": {
+      "bottom": 72.4375,
+      "height": 64,
+      "left": -149,
+      "right": 374.421875,
+      "top": 8.4375,
+      "width": 523.421875,
+      "x": -149,
+      "y": 8.4375
+    }
+  },
+  "greekEnd320": {
+    "font": "750 64px / 64px Manrope, sans-serif",
+    "progress": 0.7600914543838861,
+    "title": {
+      "bottom": 72.4375,
+      "height": 64,
+      "left": -219,
+      "right": 304.421875,
+      "top": 8.4375,
+      "width": 523.421875,
+      "x": -219,
+      "y": 8.4375
+    },
+    "width": 320
+  },
+  "greekReverse320": {
+    "opacity": "0.963892",
+    "progress": 0.6399492742890995,
+    "title": {
+      "bottom": 72.4375,
+      "height": 64,
+      "left": 8.90880012512207,
+      "right": 532.3306751251221,
+      "top": 8.4375,
+      "width": 523.421875,
+      "x": 8.90880012512207,
+      "y": 8.4375
+    },
+    "width": 320
+  },
+  "englishInitial": {
+    "font": "750 90px / 90px Manrope",
+    "height": 844,
+    "lang": "en",
+    "ready": "true",
+    "trackTop": 4891.4140625,
+    "width": 390
+  },
+  "englishEnd": {
+    "font": "750 90px / 90px Manrope",
+    "progress": 0.7600914543838861,
+    "transform": "matrix(1, 0, 0, 1, 0, 0)"
+  },
+  "assertions": {
+    "startVisible": true,
+    "endVisible390": true,
+    "endVisible320": true,
+    "reverses": true,
+    "englishMobile90px": true
+  },
+  "limits": "Viewport/browser verification;not physical-phone acceptance. Personal review pending."
+}

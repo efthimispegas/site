@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-19",
+  "environment": "Chromium in-app browser;local Vite production preview,not physical-device acceptance",
+  "finalBuild": "build-manifest.json",
+  "finalFlagMenu": {
+    "desktop": {
+      "triggerText": "🇬🇷",
+      "nextNavigationItem": "Σχετικά με εμάς",
+      "triggerBottom": 63.1953125,
+      "panelTop": 71.1953125,
+      "gap": 8,
+      "leftAligned": true,
+      "openingComplete": true
+    },
+    "mobile": {
+      "width": 390,
+      "scrollWidth": 390,
+      "gap": 8,
+      "leftAligned": true
+    },
+    "keyboard": {
+      "arrowDownOpensOnSelected": true,
+      "arrowDownThenEnterChangesLanguage": true,
+      "escapeClosesPanel": true,
+      "focusReturnsToTrigger": true,
+      "mobileDialogStaysOpenAfterLanguageEscape": true
+    },
+    "outsidePointerDismissal": true
+  },
+  "reusedLocalizationRegression": {
+    "build": "pre-menu-build-manifest.json",
+    "scene": {
+      "scrollEqual": true,
+      "progressEqual": true,
+      "cameraEqual": true,
+      "cargoEqual": true,
+      "shipEqual": true,
+      "counterPlayCountsEqual": true,
+      "beforeLocale": "el",
+      "afterLocale": "en",
+      "progress": 0.5393719311412082,
+      "chapter": "ship"
+    },
+    "form": {
+      "fieldsPreserved": true,
+      "filePreserved": true,
+      "scrollPreserved": true,
+      "localizedRoleLabel": "Μηχανικός λογισμικού Frontend"
+    },
+    "note": "These regression checks precede the later flag-menu presentation amendments. Scene,form and counter modules are unchanged;final menu selection and keyboard behavior were checked separately."
+  },
+  "acceptance": "Greek copy,localized layouts and flag menu remain pending personal review;no release or hosted update."
+}

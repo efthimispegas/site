@@ -1,0 +1,67 @@
+{
+  "request": "Standard clickable link card across WhatsApp, iMessage, Instagram DMs and LinkedIn using hero artwork, title and website URL.",
+  "artwork": "Clean1200x630 hero artwork using approved globe renderer/settings/fonts/copy. No webpage navigation or controls; no new generated model.",
+  "scope": "Static HTML Open Graph and Twitter card metadata; public JPEG. Recipient app controls final crop/card and caching; per-app delivery not yet observed.",
+  "seo": "Separate review after site review is finished; this is not SEO acceptance.",
+  "changedFiles": [
+    "index.html",
+    "public/assets/social/hero-card-20261019.jpg",
+    "tools/social-card.html",
+    "website-motion-manifest.json"
+  ],
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "ef7b62611794f92d2d799f884435b3b0e392d8659cd336a2637e5048810d2c12"
+    },
+    {
+      "path": "public/assets/social/hero-card-20261019.jpg",
+      "sha256": "fbcb44b8086f2c24a4552adf00176d72d77a08dbf5279a055b78d65b9a68a122"
+    },
+    {
+      "path": "tools/social-card.html",
+      "sha256": "83985883fd4ba65108549035489f1e0abf44022420375fc9501290eba7e560fc"
+    }
+  ],
+  "deployed": true,
+  "checkedAt": "2026-10-19T18:58:43.499760+00:00",
+  "crawlerUserAgents": [
+    {
+      "label": "Meta",
+      "http200": true,
+      "metadataReadableWithoutJavaScript": true,
+      "image": "https://pegasoft-solutions.pages.dev/assets/social/hero-card-20261019.jpg"
+    },
+    {
+      "label": "WhatsApp",
+      "http200": true,
+      "metadataReadableWithoutJavaScript": true,
+      "image": "https://pegasoft-solutions.pages.dev/assets/social/hero-card-20261019.jpg"
+    },
+    {
+      "label": "LinkedIn",
+      "http200": true,
+      "metadataReadableWithoutJavaScript": true,
+      "image": "https://pegasoft-solutions.pages.dev/assets/social/hero-card-20261019.jpg"
+    },
+    {
+      "label": "Apple",
+      "http200": true,
+      "metadataReadableWithoutJavaScript": true,
+      "image": "https://pegasoft-solutions.pages.dev/assets/social/hero-card-20261019.jpg"
+    },
+    {
+      "label": "X",
+      "http200": true,
+      "metadataReadableWithoutJavaScript": true,
+      "image": "https://pegasoft-solutions.pages.dev/assets/social/hero-card-20261019.jpg"
+    }
+  ],
+  "imageBytes": 72920,
+  "imageSha256": "fbcb44b8086f2c24a4552adf00176d72d77a08dbf5279a055b78d65b9a68a122",
+  "robots": "Crawling allowed so social crawlers can fetch metadata; noindex retained in HTML and response headers.",
+  "nativeAppShareTests": "User reports Messenger/iMessage cards work. Actual Meta main-host crawl403 confirmed; fresh deployment host200 but fallback cloud image, so Instagram hero card remains unresolved.",
+  "userReportAt": "2026-10-19T19:13:45.198946+00:00",
+  "instagramFollowup": "After up to24hours from the social-card deployment, Scrape Again for main homepage and confirm actual Meta200 plus exact hero image. If403 persists, inspect host-side crawl logs or escalate to Meta webmasters; do not disable unrelated security protections.",
+  "metaDebuggerInvestigation": "meta-crawl-investigation.json"
+}

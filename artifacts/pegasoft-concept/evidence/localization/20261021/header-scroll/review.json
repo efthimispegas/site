@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-21",
+  "status": "User approved21 October2026",
+  "request": "request.json",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "url": "http://127.0.0.1:8771/el/?revision=language-header-fix-20261021",
+  "cause": "Focus returns to the language flag after selection;existing header focus guard then overrides downward-scroll hiding.",
+  "fix": "Meaningful page scrolling closes the language menu and releases focus only when it remains inside that menu. Keyboard option navigation/focus return remain unchanged until page scrolling resumes. Existing header direction thresholds/fade and all scene equations retained.",
+  "checks": {
+    "reproduction": "before.jpg and browser-check.json",
+    "runtime": "English/Greek pointer switching,keyboard ArrowDown/End/Enter,PageDown,upward reveal,and390px mobile viewport passed",
+    "Nx": "build,lint,provenance and34 tests passed",
+    "log": "nx-checks.log",
+    "browser": "browser-check.json",
+    "screenshot": "after-down.jpg"
+  },
+  "sources": [
+    {
+      "path": "apps/pegasoft-concept/src/localization.js",
+      "sha256": "0072a94dee56f7c2ab856627b3b36d32beef0d1ee7163e8ee13b3bfa8b047de0"
+    },
+    {
+      "path": "apps/pegasoft-concept/website-motion-manifest.json",
+      "sha256": "16a2b6a41aea3b4ab6e348723624f397e2e8471f53282bc680cb632f42f80425"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/verify-website-motion.mjs",
+      "sha256": "75ccfe589f8835d2205d7b4c19920c8755225a6146ceca74a0ee6603f970925f"
+    }
+  ],
+  "limits": [
+    "Local uncommitted fix;no deployment",
+    "Physical-phone,whole-site and content acceptance remain separate",
+    "Greek mobile services heading remains a separate pending review"
+  ],
+  "approval": "user-approval.json"
+}

@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-19",
+  "request": "Proceed after deferring separate-page navigation review;implement the next localization phase.",
+  "languages": [
+    "el",
+    "en"
+  ],
+  "default": "el",
+  "acceptance": "Greek copy and localized layouts require personal review;no company facts invented;motion/assets remain approved originals.",
+  "deferredNavigation": [
+    "About",
+    "Contact",
+    "Insights",
+    "Careers",
+    "Let’s talk"
+  ],
+  "destinationPolicy": "Separate pages;URLs and final behavior not reviewed. Current in-page prototype actions are historical,not accepted final navigation.",
+  "sourceBranch": "codex/pegasoft-concept",
+  "sourceBase": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "workingTreeDirtyBeforeStart": true,
+  "beforeFiles": [
+    {
+      "path": "index.html",
+      "sha256": "ef7b62611794f92d2d799f884435b3b0e392d8659cd336a2637e5048810d2c12",
+      "snapshot": "before/index.html"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "299908a5ab73ab510ca90f7103815af7fbff1eacd2c2b13ff8d17eb2bce93f2b",
+      "snapshot": "before/src/main.js"
+    },
+    {
+      "path": "src/content-controller.js",
+      "sha256": "5905e7b315afb8a68bd0b58ef2113cf286b54a35b721843bf1728a0c0ccd8c94",
+      "snapshot": "before/src/content-controller.js"
+    },
+    {
+      "path": "src/contact-form.js",
+      "sha256": "a7c12507071f8188a37d6ccd6e9dfe0bce4acba20006920fdddfc6d211883bf4",
+      "snapshot": "before/src/contact-form.js"
+    },
+    {
+      "path": "src/partner-wall.js",
+      "sha256": "b92d895d4cc8c94baad05f981355c3ce3b9ee65325a4ada4b65a04546b981a60",
+      "snapshot": "before/src/partner-wall.js"
+    },
+    {
+      "path": "src/website-motion-controller.js",
+      "sha256": "a700ab17456f167b225542c3f11ff4dc57275d962a8f2e868560af71b3ba92fb",
+      "snapshot": "before/src/website-motion-controller.js"
+    },
+    {
+      "path": "src/hero-odometer.js",
+      "sha256": "0ab468b6e290ee17b58048e8030c79f2531bf7e196f0b2f52e8e0ff61cf928f1",
+      "snapshot": "before/src/hero-odometer.js"
+    },
+    {
+      "path": "src/journey-host.js",
+      "sha256": "bb44b2586499a516c9cce29ea362a6a1338a494cd4fe4668c62027d690b1a0c0",
+      "snapshot": "before/src/journey-host.js"
+    },
+    {
+      "path": "tools/social-card.html",
+      "sha256": "83985883fd4ba65108549035489f1e0abf44022420375fc9501290eba7e560fc",
+      "snapshot": "before/tools/social-card.html"
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "20062a8dbf0274bf86eb0d358c88bd6f48a7b4461ac2b9fc0a3e224825671f73",
+      "snapshot": "before/vite.config.js.snapshot"
+    },
+    {
+      "path": "project.json",
+      "sha256": "281562dac58c1e9eca3c3be8de321c59385ca0d4c922f227269d11678a580f15",
+      "snapshot": "before/project.json.snapshot"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "5560d1f5ec834cbc2d5d44f976042727a730d20d97c36e027078ec161e8b8242",
+      "snapshot": "before/website-motion-manifest.json"
+    },
+    {
+      "path": "tools/verify-website-motion.mjs",
+      "sha256": "0ae67abf4d0ae64042e97b3c6fea62a2754366bafef7dad2a9de0781a64ea831",
+      "snapshot": "before/tools/verify-website-motion.mjs"
+    }
+  ],
+  "languageMenuAmendment": {
+    "request": "Selected language value with country icon;dropdown of supported languages/countries placed immediately before About, rather than separate EL/EN buttons.",
+    "options": [
+      {
+        "locale": "el",
+        "label": "Ελληνικά",
+        "countryIcon": "Greece"
+      },
+      {
+        "locale": "en",
+        "label": "English",
+        "countryIcon": "United Kingdom"
+      }
+    ],
+    "mobile": "Same final header position after the CTA;single language control,not duplicated in the mobile menu",
+    "review": "Custom button/menu with keyboard navigation, focus return and outside dismissal;visual approval pending",
+    "latestRequest": "Move flag-only language menu to the end of the header,after the Let’s talk CTA;dropdown stays below its trigger.",
+    "placementBefore": [
+      {
+        "path": "index.html",
+        "sha256": "1c62bfa27459fe79f221a2653793eb1454a8ccd34856d0d3fdfc79dbd7922ee3"
+      },
+      {
+        "path": "src/localization.css",
+        "sha256": "6877829efd2f858d5f110844f18bb88385db11f809040c45fdd0b85208e7f034"
+      },
+      {
+        "path": "src/website-motion-controller.js",
+        "sha256": "eb3ce5e4e1e7e1944c549495223dac4996563d1714da46e81d1cd48f545042f2"
+      }
+    ]
+  },
+  "shipHeadingAmendment": {
+    "request": "Greek ship-section title overflows viewport;adjust its fit. Language menu and localized presentation look good. All section content remains pending review in a later phase.",
+    "beforeCss": "ship-heading-before.css",
+    "beforeCssSha256": "0b5ec89d167dd2e4b3dd907f0805ba68a86b0b00e8ed5a06e070edfad36bbae2",
+    "scope": "Greek heading font size only;no content rewrite or story-motion equation change",
+    "contentStatus": "All copy in Greek and English pending personal section-by-section review",
+    "visualStatus": "Language menu and overall localized presentation visually accepted,except reported heading correction"
+  }
+}

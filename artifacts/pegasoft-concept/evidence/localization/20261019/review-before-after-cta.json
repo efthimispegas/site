@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-19",
+  "status": "Historical comparison before user-requested move after CTA",
+  "request": "request.json",
+  "buildManifest": "before-after-cta-build-manifest.json",
+  "reviewUrls": {
+    "Greek": "http://127.0.0.1:8771/el/?revision=localization-20261019",
+    "English": "http://127.0.0.1:8771/en/?revision=localization-20261019"
+  },
+  "implementation": [
+    "Greek launch default;explicit /el/ and /en/ URLs override saved preference",
+    "Flag-only trigger immediately before About;Greek/Greece and English/United Kingdom options anchored 8px below it",
+    "Same flagged menu before About inside mobile navigation",
+    "Static translated HTML, accessibility labels, forms, cookie copy, share metadata/artwork and regional decimal separator",
+    "Existing DOM and scene controllers remain mounted;form values and CV files are not translated",
+    "No renderer, geometry, material, camera or approved motion equation changes"
+  ],
+  "checks": {
+    "nx": [
+      "build passed",
+      "lint passed",
+      "test:33 passed,0 failed",
+      "accepted source/asset and amendment provenance checks passed"
+    ],
+    "log": "nx-checks.log",
+    "browser": "browser-check.json",
+    "limits": "Chromium desktop/mobile viewport checks, not physical-phone acceptance. Greek copy and responsive whole-site review remain pending."
+  },
+  "screenshots": {
+    "desktopFlagMenu": "language-menu-desktop.jpg",
+    "mobileFlagMenu": "language-menu-mobile.jpg"
+  },
+  "deferredNavigation": [
+    "About",
+    "Contact",
+    "Insights",
+    "Careers",
+    "Let’s talk"
+  ],
+  "acceptanceLimits": [
+    "Separate-page URLs, content and final navigation not implemented or reviewed;existing in-page actions remain prototypes",
+    "Footer/cookie approval not inferred from moving to localization",
+    "Greek translation and localized layouts require user review",
+    "Testimonial/partner identities, metrics, articles and company/legal facts remain unconfirmed",
+    "Contact submission and uploads remain disconnected",
+    "Physical-phone startup and whole-site acceptance remain open",
+    "SEO is independent after site review;Meta403 investigation deferred until20 October"
+  ],
+  "hosting": "Public Cloudflare preview remains previous English snapshot;this localization build is local only. No final release.",
+  "hashes": {
+    "buildManifest": "cb998e851524c087fb274eb9ae9331fa8ad283d943dc17dc557c3efde2b9d30c",
+    "request": "fbb48ca42a616e56ad6badac7de70d442f2d41279856a684138cd3849795464e",
+    "nxLog": "5207cdc33c0cec2a16664a90024cf0fbf20a4870d77b6abd8ee0fc165afc41f1",
+    "browserCheck": "a9d9b86d319f12fff5b4d3a461e30a87329061e206828bb4751ed7768e1839fc",
+    "screenshots": {
+      "desktopFlagMenu": "a6f9bab1e377fbfd5db5335bdb8f701449760a6754c3f53938baf7b975c595d2",
+      "mobileFlagMenu": "ac1656c782610615fce5883d468f11ed3b68545274eccf94a85c496b5a476127"
+    }
+  }
+}

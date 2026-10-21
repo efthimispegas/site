@@ -1,3 +1,4 @@
+import {translate as t} from './locale-messages.js';
 import {createScope} from '../review/runtime-lifecycle.js';
 import {createParticleWordmark} from './particle-wordmark.js';
 import {createPartnerWall} from './partner-wall.js';
@@ -12,7 +13,7 @@ export function createWebsiteMotionController({root}){
  const testimonials=$('#trust-evidence'),trust=$('#trust'),staticStory=$('#static-story');
  const wall=createPartnerWall({element:$('#partner-wall'),button:$('#partner-motion-toggle')});
  const fine=window.matchMedia('(hover:hover) and (pointer:fine)'),floating=$('#section-contact'),cursor=$('#closing-cursor'),trails=[...root.querySelectorAll('.closing-trail')];
- const header=$('#site-header'),headerContact=$('#site-header-contact');let headerShown=true,headerReady=false,previousScroll=window.scrollY,scrollDirection=0,scrollTravel=0;
+ const header=$('#site-header'),headerContact=$('#site-header-contact'),headerLanguage=$('#site-header-language');let headerShown=true,headerReady=false,previousScroll=window.scrollY,scrollDirection=0,scrollTravel=0;
  function updateHeader(){
   if(!header)return;const y=Math.max(0,window.scrollY),delta=y-previousScroll;previousScroll=y;
   if(Math.abs(delta)>.1){const direction=Math.sign(delta);if(direction!==scrollDirection)scrollTravel=0;scrollDirection=direction;scrollTravel+=Math.abs(delta);if(scrollTravel>=4)headerShown=direction<0;}
@@ -23,7 +24,7 @@ export function createWebsiteMotionController({root}){
   else if(introRect&&introRect.top<=middle&&introRect.bottom>middle)light=Boolean(opening&&JSON.parse(opening).progress>=.19);
   else light=[$('#trust-evidence'),$('#partners'),$('#faq'),footer,...(!$('#static-story').hidden?[$('#static-story')]:[])].filter(Boolean).some(el=>{const r=el.getBoundingClientRect();return r.top<=middle&&r.bottom>middle;});
   header.dataset.tone=light?'light':'dark';
-  const shown=headerReady&&(headerShown||header.contains(document.activeElement)||headerContact?.contains(document.activeElement));header.dataset.ready=String(headerReady);header.dataset.visible=String(shown);header.inert=!shown;if(headerContact)headerContact.inert=!shown;
+  const shown=headerReady&&(headerShown||header.contains(document.activeElement)||headerContact?.contains(document.activeElement)||headerLanguage?.contains(document.activeElement));header.dataset.ready=String(headerReady);header.dataset.visible=String(shown);header.inert=!shown;if(headerContact)headerContact.inert=!shown;if(headerLanguage)headerLanguage.inert=!shown;
  }
  let scrollAnchor;const wordmark=$('#particle-wordmark'),particles=createParticleWordmark({canvas:wordmark});
  let mounted=false,reduced=false,visible=false,closingVisible=false,footerVisible=false,elapsed=0,last=null,marqueeOffset=0,marqueePaused=false,mode='industries',selected=0;
@@ -43,7 +44,7 @@ export function createWebsiteMotionController({root}){
  }
  function metrics(){syncPointer();}
  function selectPreview(index){selected=index;root.querySelectorAll('button[data-preview]').forEach((button,i)=>{button.setAttribute('aria-pressed',String(i===index));});root.querySelectorAll('[data-preview-image]').forEach((image,i)=>image.hidden=i!==index);editorial.dataset.preview=String(index);}
- function setMode(value){mode=value;marqueeOffset=0;const values=value==='industries'?sectors:services;root.querySelectorAll('[data-marquee-group]').forEach(group=>{group.replaceChildren(...values.map(text=>{const item=document.createElement('span');item.textContent=text;return item;}));});root.querySelectorAll('[data-footer-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.footerMode===value)));footer.dataset.mode=value;}
+ function setMode(value){mode=value;marqueeOffset=0;const values=value==='industries'?sectors:services;root.querySelectorAll('[data-marquee-group]').forEach(group=>{group.replaceChildren(...values.map(text=>{const item=document.createElement('span');item.textContent=t(text);return item;}));});root.querySelectorAll('[data-footer-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.footerMode===value)));footer.dataset.mode=value;}
  function update({reducedMotion=reduced}={}){
   if(scope.disposed)return;reduced=reducedMotion||document.body.classList.contains('static-journey');const testimonialParent=reduced?staticStory:trust;if(testimonials.parentElement!==testimonialParent)testimonialParent.append(testimonials);wall.update({reducedMotion:reduced});const h=window.innerHeight,entry=editorial.getBoundingClientRect(),cta=closing.getBoundingClientRect(),end=footer.getBoundingClientRect();
   visible=entry.bottom>0&&entry.top<h;closingVisible=cta.bottom>0&&cta.top<h;footerVisible=end.bottom>0&&end.top<h;
@@ -67,7 +68,7 @@ export function createWebsiteMotionController({root}){
  function contact(event){event.preventDefault();const target=$('#contact');target.scrollIntoView({behavior:reduced?'instant':'smooth',block:'center'});target.focus({preventScroll:true});}
  function mount(){
   if(mounted||scope.disposed)return;mounted=true;wall.mount();scope.defer(()=>wall.dispose());metrics();selectPreview(0);setMode(mode);
-  for(const target of [header,headerContact])if(target){scope.listen(target,'focusin',updateHeader);scope.listen(target,'focusout',updateHeader);}
+  for(const target of [header,headerContact,headerLanguage])if(target){scope.listen(target,'focusin',updateHeader);scope.listen(target,'focusout',updateHeader);}
   scope.listen(window,'pointermove',event=>{if(event.pointerType==='touch')return;pointer={x:event.clientX,y:event.clientY};keyboardActive=false;syncPointer();},{passive:true});
   scope.listen(document,'pointerleave',()=>{pointer=null;syncPointer();});
   scope.listen(window,'blur',()=>{pointer=null;syncPointer();});
@@ -87,5 +88,5 @@ export function createWebsiteMotionController({root}){
   scope.defer(()=>particles.dispose());
   particles.mount().then(()=>{if(!scope.disposed)update();});update();
  }
- return {mount,update,resize,tick,pause(){last=null;},dispose(){scope.dispose();floating.hidden=true;if(header){header.dataset.visible='false';header.inert=true;}if(headerContact)headerContact.inert=true;mounted=false;},get scrollAnchor(){return scrollAnchor;},get mounted(){return mounted}};
+ return {mount,update,resize,tick,pause(){last=null;},dispose(){scope.dispose();floating.hidden=true;if(header){header.dataset.visible='false';header.inert=true;}if(headerContact)headerContact.inert=true;if(headerLanguage)headerLanguage.inert=true;mounted=false;},get scrollAnchor(){return scrollAnchor;},get mounted(){return mounted}};
 }

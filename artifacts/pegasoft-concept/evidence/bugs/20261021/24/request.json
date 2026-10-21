@@ -1,0 +1,14 @@
+{
+  "request": "Fix English-only desktop hero headline clipping;after verification close GitHub issue24 and move its Pegasoft Project item to In review.",
+  "issue": "https://github.com/efthimispegas/site/issues/24",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "workingTreeDirtyBeforeStart": true,
+  "sourceBefore": {
+    "path": "src/localization.css",
+    "sha256": "6e11f709b8191fbe6cdc5dddc25cd5be952a2d8e807e6d2f6770f516eeceae65"
+  },
+  "sourceSnapshot": "localization.before.css",
+  "scope": "English desktop headline mask padding only;retain baselines,font size,weight,and all motion equations",
+  "date": "2026-10-21"
+}

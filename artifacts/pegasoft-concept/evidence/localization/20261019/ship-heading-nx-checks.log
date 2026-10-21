@@ -1,0 +1,88 @@
+
+ NX   Running targets build, lint for project @site/pegasoft-concept and 3 tasks it depends on:
+
+- @site/pegasoft-concept
+
+
+
+> nx run @site/pegasoft-concept:verify-website-motion
+
+> node tools/verify-website-motion.mjs
+
+{"status":"website_motion_inputs_and_outputs_verified_pending_personal_review"}
+
+> nx run @site/pegasoft-concept:verify-homepage
+
+> node tools/package-opening.mjs --check
+
+{"status":"opening_packaging_verified","files":5}
+> node tools/verify-homepage.mjs
+
+{"status":"homepage_input_and_output_pins_verified"}
+
+> nx run @site/pegasoft-concept:verify-baseline
+
+> node tools/package-reviewed-slice.mjs --check
+
+{"status":"baseline_verified","modules":23,"assets":20,"sourceInputs":45}
+
+> nx run @site/pegasoft-concept:build
+
+> pnpm exec vite build
+
+(node:65029) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65037) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v8.2.2 building client environment for production...
+transforming...
+[32m✓[0m 80 modules transformed.
+rendering chunks...
+computing gzip size...
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/footer-particles.html            [0m[1;2m    2.11 kB[0m[2m │ gzip:   0.98 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/loader.html                      [0m[1;2m    8.99 kB[0m[2m │ gzip:   2.55 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mreview/ship-jet-integration.html        [0m[1;2m   26.88 kB[0m[2m │ gzip:   7.87 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[32mindex.html                              [0m[1;2m   28.69 kB[0m[2m │ gzip:   7.06 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[32mocean-first-frame-Y2qqYz8L.png   [0m[1;2m1,826.35 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mloader-DvrqMyCi.css              [0m[1;2m    1.91 kB[0m[2m │ gzip:   0.74 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mfooterParticles-DGJvToZ4.css     [0m[1;2m    2.23 kB[0m[2m │ gzip:   0.95 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mindex-D2Jl5mQA.css               [0m[1;2m   30.38 kB[0m[2m │ gzip:   6.84 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[35mintro-controller-BKrmW-kh.css    [0m[1;2m   32.62 kB[0m[2m │ gzip:   7.35 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mruntime-lifecycle-2suabPVV.js    [0m[1;2m    1.89 kB[0m[2m │ gzip:   0.95 kB[0m[2m │ map:     4.51 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mloader-DSaGbo_o.js               [0m[1;2m    2.35 kB[0m[2m │ gzip:   1.06 kB[0m[2m │ map:     5.90 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mparticle-wordmark-DzpxbvHx.js    [0m[1;2m    2.78 kB[0m[2m │ gzip:   1.48 kB[0m[2m │ map:     8.42 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mfooterParticles-C4jtbkWB.js      [0m[1;2m    3.59 kB[0m[2m │ gzip:   1.65 kB[0m[2m │ map:     8.73 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36minspection-Dl1Y7ROI.js           [0m[1;2m    7.33 kB[0m[2m │ gzip:   3.04 kB[0m[2m │ map:    19.49 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mindex-CVcGTMmw.js                [0m[1;2m   40.01 kB[0m[2m │ gzip:  14.90 kB[0m[2m │ map:   112.71 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mintro-controller-Duaz2L85.js     [0m[1;2m   46.80 kB[0m[2m │ gzip:  16.54 kB[0m[2m │ map:    88.87 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mship-jet-controller-CN-iM7de.js  [0m[1;2m  142.08 kB[0m[2m │ gzip:  48.36 kB[0m[2m │ map:   506.47 kB[0m
+[2m../../dist/apps/pegasoft-concept/[0m[2massets/[0m[36mthree.module-C28h07Sx.js         [0m[33;1m  710.59 kB[0m[2m │ gzip: 182.08 kB[0m[2m │ map: 2,885.75 kB[0m
+
+✓ built in 517ms
+[plugin builtin:vite-reporter] [33;1m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[0m
+
+> nx run @site/pegasoft-concept:lint
+
+> node tools/check-source.mjs
+
+{"status":"syntax_passed","files":88}
+> pnpm exec eslint tools vite.config.js eslint.config.mjs review/cloud-motion.js review/runtime-lifecycle.js review/ship-jet-controller.js review/ship-jet-scene.js review/ship-jet-inspection.js review/ship-jet-integration.js review/cloud-story-layers.js review/jet-crossing.js review/ship-water.js src review/cloud-story-sequence.js
+
+(node:65122) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:65124) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+
+ NX   Successfully ran targets build, lint for project @site/pegasoft-concept and 3 tasks it depends on
+
+
+  Run duration:      5.8s
+  Cache:             0/5 hit (0%)
+  Critical path:     5.7s (1 task)
+  Recoverable time:  95ms (2% of the run)

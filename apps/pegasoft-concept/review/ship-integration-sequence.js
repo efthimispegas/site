@@ -8,9 +8,10 @@ export const gates={roadEnd:.12,deckStart:.12,transfer:.44,pullback:.38,reveal:.
 const blend=(p,a,b)=>ease((p-a)/(b-a));
 export function createShipSequence({legacy,rig,ship,cargo,road,floor,water,scene,camera,viewport}){
   const anchor=new T.Vector3(-4.9,9.816,-1.269),scale=legacy.scale;
-  const roadClip=new T.Plane(),deckClip=new T.Plane();
-  for(const group of [road,floor,legacy.truck])group.traverse(n=>{if(n.isMesh){n.material=n.material.clone();n.material.clippingPlanes=[roadClip];n.material.clipShadows=true;}});
-  ship.traverse(n=>{if(n.isMesh){n.material=n.material.clone();n.material.clippingPlanes=[deckClip];}});
+  const roadClip=new T.Plane(),deckClip=new T.Plane(),clones=new Map();
+  const clone=material=>{if(!clones.has(material))clones.set(material,material.clone());return clones.get(material);};
+  for(const group of [road,floor,legacy.truck])group.traverse(n=>{if(n.isMesh){n.material=clone(n.material);n.material.clippingPlanes=[roadClip];n.material.clipShadows=true;}});
+  ship.traverse(n=>{if(n.isMesh){n.material=clone(n.material);n.material.clippingPlanes=[deckClip];}});
   water.material.clippingPlanes=[deckClip];
   scene.add(ship,water);rig.root.visible=false;
   let endCamera,endTarget,endQuaternion,endDirection,finalDistance,trace;

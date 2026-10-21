@@ -1,0 +1,9 @@
+--- src/localization.css (before #24)
++++ src/localization.css (fixed #24)
+@@ -35,3 +35,6 @@
+ 
+ /* Keep the longer Greek ship heading inside narrow viewports; retain the desktop/height scale. */
+ html[lang=el] #ship-copy h2{font-size:min(64px,calc(var(--story-height,700px)*.091),12cqw)}
++
++/* #24: English descenders need room inside the desktop reveal mask. Negative margin preserves line spacing. */
++@media(min-width:680px){html[lang=en] #opening-stage .hero-copy .line{padding-bottom:.22em;margin-bottom:-.22em}}
