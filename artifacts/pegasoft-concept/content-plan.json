@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-19",
   "authority": "User: entire reference content is placeholder and must be replaced",
   "mandatory_action": "Replace all reference website content with approved Pegasoft content before full-site approval or release",
   "acceptance": "No borrowed reference copy, company claims, relationships, contacts or links in any rendered Pegasoft route or interaction state",
@@ -14,7 +14,8 @@
         "menu copy",
         "accessibility labels"
       ],
-      "status": "chapter destinations/mobile menu implemented for review; final destinations/copy pending"
+      "status": "About, Contact, Insights, Careers and Let’s talk will navigate to separate pages; their destination implementation/review is deferred. Existing in-page actions are prototypes only.",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "loader/hero",
@@ -28,7 +29,8 @@
         "network artwork",
         "news/utility strip"
       ],
-      "status": "motion and current headline/CTAs accepted; removed utility captions; final company copy remains content review"
+      "status": "motion and current headline/CTAs accepted; removed utility captions; final company copy remains content review",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "outcome/metrics",
@@ -40,7 +42,8 @@
         "about link"
       ],
       "status": "motion and once-only counters accepted; all demo values remain illustrative pending verification",
-      "review": "review/hero-outcome.html#viewer"
+      "review": "review/hero-outcome.html#viewer",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "lift/story",
@@ -50,7 +53,8 @@
         "story labels"
       ],
       "status": "lift/container motion visually approved; final story copy remains draft",
-      "accepted_lift": "generation/lift-family/reference-motion-approval.json"
+      "accepted_lift": "generation/lift-family/reference-motion-approval.json",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "services",
@@ -62,7 +66,8 @@
         "links",
         "truck artwork"
       ],
-      "status": "accepted motion; six capability labels remain draft content for final review"
+      "status": "accepted motion; six capability labels remain draft content for final review",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "road/reliability",
@@ -74,7 +79,8 @@
         "road/truck artwork",
         "speed label behavior"
       ],
-      "status": "draft"
+      "status": "draft",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "ship/scale",
@@ -85,7 +91,8 @@
         "icons",
         "ship/ocean/cloud imagery"
       ],
-      "status": "draft"
+      "status": "draft",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "jet/trust",
@@ -97,9 +104,11 @@
         "attribution/roles",
         "portraits"
       ],
-      "status": "approved design implemented: native DriftWall with stable column hover; fictional cards inside Trusted reveal; personal acceptance and real content pending",
-      "review": "review/trust-partners.html#viewer",
-      "review_group": "review/content-sections.html"
+      "status": "visually approved 16 October; real quotes/portraits/identities/logos and relationships remain open for content review",
+      "review": "http://127.0.0.1:8771/?revision=trusted-partners-20261014#trust-evidence",
+      "review_group": "review/content-sections.html",
+      "visualApproval": "evidence/content-review/20261016/user-approval.json",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "partners",
@@ -109,9 +118,11 @@
         "company names",
         "links"
       ],
-      "status": "approved design implemented: native DriftWall with stable column hover; fictional cards inside Trusted reveal; personal acceptance and real content pending",
-      "review": "review/trust-partners.html#partners",
-      "review_group": "review/content-sections.html"
+      "status": "visually approved 16 October; real quotes/portraits/identities/logos and relationships remain open for content review",
+      "review": "http://127.0.0.1:8771/?revision=trusted-partners-20261014#trust-evidence",
+      "review_group": "review/content-sections.html",
+      "visualApproval": "evidence/content-review/20261016/user-approval.json",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "insights",
@@ -125,7 +136,10 @@
         "links",
         "CTA"
       ],
-      "status": "editorial drafts/approval needed"
+      "status": "visually approved 19 October; real content, articles, Insights page links and article destinations remain pending",
+      "review": "http://127.0.0.1:8771/?revision=insights-review-20261016#insights",
+      "visualApproval": "evidence/content-review/20261019/insights-approval.json",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "FAQ",
@@ -136,7 +150,10 @@
         "answers",
         "contact prompt/link"
       ],
-      "status": "six draft answer rows and native keyboard accordion ready for review"
+      "status": "approved 19 October; accordion and current FAQ wording accepted",
+      "review": "http://127.0.0.1:8771/?revision=faq-contact-review-20261019#faq",
+      "approval": "evidence/startup/20261019/faq-approval.json",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "closing CTA",
@@ -146,7 +163,8 @@
         "cursor CTA text",
         "destination"
       ],
-      "status": "draft"
+      "status": "draft",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "footer",
@@ -166,7 +184,9 @@
         "particle wordmark",
         "payment assertions"
       ],
-      "status": "particle/marquee motion accepted; office/legal/contact/social details unconfirmed"
+      "status": "Particle/marquee motion and reference-style Industries/Services switch approved;office/legal/contact/social details unconfirmed.",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy.",
+      "switchApproval": "evidence/content-review/20261021/footer-cookies/amendment/user-approval.json"
     },
     {
       "section": "contact",
@@ -182,7 +202,11 @@
         "submission destinations",
         "privacy links"
       ],
-      "status": "fields approved for interactive local-only prototype; shared draft values and validation implemented; recipient/privacy/endpoint pending"
+      "status": "Careers local layout/interactions approved19 October. Other contact layouts, recipient/privacy/file policy and submission/upload endpoint remain pending.",
+      "review": "http://127.0.0.1:8771/?revision=faq-contact-review-20261019#contact",
+      "careersReview": "evidence/content-review/20261019/careers/review.json",
+      "careersApproval": "evidence/content-review/20261019/careers/user-approval.json",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy."
     },
     {
       "section": "cookies",
@@ -194,7 +218,9 @@
         "actual tracker inventory",
         "reopen label"
       ],
-      "status": "necessary-only preference dialog implemented for current no-optional-tracker inventory; legal/future tracker decisions pending"
+      "status": "Landing consent popup,25% reduction and current Pegasoft styling/interactions approved21 October2026. Final legal/tracker policy and bilingual content review remain separate.",
+      "contentStatus": "Pending later section-by-section review in Greek and English;earlier visual/interaction acceptance does not approve current copy.",
+      "approval": "evidence/content-review/20261021/footer-cookies/amendment/user-approval.json"
     }
   ],
   "final_checks": [
@@ -207,6 +233,130 @@
     "obtain final user review"
   ],
   "current_asset_status": "CURRENT.md",
-  "currentReview": "http://127.0.0.1:8771/?revision=content-review-20261014#trust-evidence",
-  "motionApproval": "evidence/website-motion/20261014/all-amendments-approved/user-approval.json"
+  "currentReview": "Loader inspector reopened with full controls;mobile horizon correction and Greek services heading awaiting personal review. Language-switch header fix approved.",
+  "motionApproval": "evidence/website-motion/20261014/all-amendments-approved/user-approval.json",
+  "performanceReview": "evidence/performance/20261019/review.json",
+  "externalPreview": "evidence/preview/20261019/cloudflare-pages/deployment.json",
+  "independentReviews": {
+    "localization": {
+      "status": "Menu and overall localized presentation visually accepted by user;Greek ship heading fitted and verified at 320/390/1280px,awaiting personal confirmation. All section copy in both languages remains pending later review.",
+      "languages": [
+        "el",
+        "en"
+      ],
+      "launchDefault": "el",
+      "market": "Greece-first launch",
+      "currentRuntime": "Greek and English locally; public preview remains previous English snapshot",
+      "scope": [
+        "locale-aware content",
+        "language switching and URL behavior",
+        "preference persistence and fallback",
+        "visible copy and forms/validation",
+        "accessibility and cookie text",
+        "localized share metadata",
+        "Greek font coverage and responsive/motion layout",
+        "human content approval"
+      ],
+      "timing": "After current site-detail review;before final bilingual site acceptance",
+      "authority": "User confirmed Greek and English only on19 October2026;Greek default from accepted question",
+      "review": "http://127.0.0.1:8771/el/?revision=localization-20261019"
+    },
+    "seo": {
+      "status": "Deferred",
+      "timing": "Separate review after site review is finished;not accepted by sharing metadata work"
+    },
+    "uiUxSizing": {
+      "issue": "https://github.com/efthimispegas/site/issues/25",
+      "status": "Open / Todo",
+      "date": "2026-10-21",
+      "scope": "Audit all font and UI element sizes in Greek/English across responsive and interaction states;benchmark accessibility/usability,rendering performance,approved references and current UI guidance/trends.",
+      "timing": "Dedicated UI/UX audit review;not started. Preserve approved branding/tokens/motion;present findings before broad changes."
+    },
+    "wholeWebsiteImpeccable": {
+      "status": "Tasks defined;execution pending",
+      "date": "2026-10-21",
+      "registry": "evidence/content-review/20261021/impeccable-tasks/task-registry.json",
+      "project": "https://github.com/users/efthimispegas/projects/1",
+      "newTasks": [
+        {
+          "title": "review: audit AI-generated patterns and UX integrity across all website sections",
+          "url": "https://github.com/efthimispegas/site/issues/26",
+          "status": "Todo"
+        },
+        {
+          "title": "review: audit animation purpose accessibility and runtime cost across the full journey",
+          "url": "https://github.com/efthimispegas/site/issues/27",
+          "status": "Todo"
+        },
+        {
+          "title": "review: audit section layout rhythm and responsive boundaries with proposed fixes",
+          "url": "https://github.com/efthimispegas/site/issues/28",
+          "status": "Todo"
+        },
+        {
+          "title": "style: typeset typography and repair button card token and palette inconsistencies",
+          "url": "https://github.com/efthimispegas/site/issues/29",
+          "status": "Todo"
+        },
+        {
+          "title": "design: propose Pegasoft-specific character and purposeful delight refinements",
+          "url": "https://github.com/efthimispegas/site/issues/30",
+          "status": "Todo"
+        },
+        {
+          "title": "perf: optimize whole-site UI and graphics from measured production-build bottlenecks",
+          "url": "https://github.com/efthimispegas/site/issues/31",
+          "status": "Todo"
+        },
+        {
+          "title": "style: polish the complete Pegasoft website after audit-driven corrections",
+          "url": "https://github.com/efthimispegas/site/issues/32",
+          "status": "Todo"
+        }
+      ],
+      "reusedTasks": [
+        {
+          "title": "review: audit typography and UI sizing across the bilingual website",
+          "url": "https://github.com/efthimispegas/site/issues/25",
+          "status": "Todo"
+        },
+        {
+          "title": "[PC-001] Review all Greek and English section copy",
+          "url": "https://github.com/users/efthimispegas/projects/1",
+          "status": "In review"
+        },
+        {
+          "title": "[PC-014] Complete full-site release qualification",
+          "url": "https://github.com/users/efthimispegas/projects/1",
+          "status": "Blocked"
+        }
+      ],
+      "scope": "All-section integrity/motion/layout assessment,existing sizing audit,reviewed typesetting/components/tokens/palette fixes,brand proposals,bilingual content map,measured optimization,final polish and existing production qualification.",
+      "nextAction": "Update Impeccable next turn per user instruction;then execute integrity audit #26."
+    }
+  },
+  "currentReviewPacket": "evidence/homepage-opening-outcome/20261021/title-speed/review.json",
+  "deferredNavigation": {
+    "authority": "User19 October: About,Contact,Insights,Careers,Let’s talk will navigate to separate pages;review deferred.",
+    "labels": [
+      "About",
+      "Contact",
+      "Insights",
+      "Careers",
+      "Let’s talk"
+    ],
+    "status": "Separate pages not implemented or reviewed;no final URLs invented."
+  },
+  "contentApproval": {
+    "status": "pending",
+    "scope": "All section copy in Greek and English",
+    "decision": "User will review content section by section in a later phase;visual approval does not approve wording or company claims.",
+    "date": "2026-10-19"
+  },
+  "loaderReReview": "evidence/loader-reassessment/20261021/approved-review.json",
+  "homepageReviewAmendments": {
+    "mobileHorizon": "User approved21October2026;see evidence/homepage-opening-outcome/20261021/mobile-horizon/user-approval.json",
+    "outcomeTitleSpeed": "Implemented at speedA until pinning;personal review pending;see evidence/homepage-opening-outcome/20261021/title-speed/review.json",
+    "partnersInsightsHorizon": "User approved21October2026;see evidence/website-motion/20261021/partners-insights-horizon/user-approval.json"
+  }
 }

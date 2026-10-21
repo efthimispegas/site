@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-21",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "commits": [
+    {
+      "context": "locale-core",
+      "commit": "31541424131673f3262e5168db059310a7dd116d",
+      "subject": "feat(concept): Add Greek and English locale infrastructure",
+      "checks": "locale-core-nx.log",
+      "checksSha256": "fc8a9116c041953c6dce747e534251988a386825a740b435f6eec994f9d56733"
+    },
+    {
+      "context": "performance",
+      "commit": "d8c2e6cee20be847a7e28168389b6f883d3343ca",
+      "subject": "perf(concept): Stabilize loading and transport rendering",
+      "checks": "performance-nx.log",
+      "checksSha256": "cedef434f7cfb1727f9503ddfc35606e516b6b22271980eb12d684cefc0df923"
+    },
+    {
+      "context": "forms-consent",
+      "commit": "35442ad5cf6871c1ea18864f2f7dde2182dde7a5",
+      "subject": "feat(concept): Extend Careers and landing consent controls",
+      "checks": "forms-consent-nx.log",
+      "checksSha256": "d7172e0b904a8f494f2e832680ebe9c976393a101bc2a93e7aa45f638fffc6db"
+    },
+    {
+      "context": "localization",
+      "commit": "4d12d60e9fd84b5dd09b83916fb22c8454f7348a",
+      "subject": "feat(concept): Connect bilingual navigation and social previews",
+      "checks": "localization-nx.log",
+      "checksSha256": "65d129bb1786fb737d0e9648cd1ad531f9cda4fa377be948da4abb40729c9142"
+    },
+    {
+      "context": "opening-horizons",
+      "commit": "62152a71b37d73b3687d89cc2e4e297c8fb38615",
+      "subject": "fix(concept): Apply loader and horizon review refinements",
+      "checks": "opening-horizons-nx.log",
+      "checksSha256": "8997a026aa84232b695083e6569fd6933ef2d5f4dabaf596fcdbc445c8d88767"
+    },
+    {
+      "context": "hosting-policy",
+      "commit": "65cfaf02c9d86d7cee372c469f9da6804ba24d79",
+      "subject": "build(concept): Preserve Cloudflare preview hosting policy",
+      "checks": "nx-final-checks.log"
+    }
+  ],
+  "method": "Each application context was built/linted/tested through Nx from an isolated staged-index snapshot before committing. Final working-tree production build also verified.",
+  "evidencePolicy": "Historical recordings,source snapshots and logs retain original bytes;raw log whitespace is not normalized.",
+  "credentialPatternScan": "No credential/private-key/JWT pattern matches in newly added text evidence/source."
+}

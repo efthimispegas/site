@@ -1,0 +1,30 @@
+{
+  "verifiedAt": "2026-10-21T09:28:56.438625+00:00",
+  "checks": {
+    "projectInventoryComplete": true,
+    "repositoryInventory": true,
+    "allNewIssuesAndProjectFieldsVerified": true,
+    "existingExtensionsAndStatusesVerified": true,
+    "unrelatedProjectMetadataAndDescriptionsPreserved": true,
+    "allThreeFullExtensionBodiesMatch": true
+  },
+  "projectBefore": 24,
+  "projectAfter": 31,
+  "newIssues": [
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ],
+  "newStatus": "Todo",
+  "existingStatuses": {
+    "sizing": "Todo",
+    "content": "In review",
+    "production": "Blocked"
+  },
+  "verificationType": "GitHub issue/Project readback and metadata preservation;no UI audit or production test claim.",
+  "creationRecovery": "GitHub automation added an issue before explicit Project add completed;reused its existing Project entry. No duplicate issue was created."
+}

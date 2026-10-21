@@ -2,12 +2,12 @@
   "date": "2026-10-14",
   "branch": "codex/pegasoft-concept",
   "source": "hover-amendment/source.json",
-  "uncommitted": true,
+  "uncommitted": false,
   "manifestSha256": "68e0ef8c5a160eb51fd8012570ed4db3508488bd73edb78f8d7cf138ad1a2728",
   "designApproval": "superpowers-design-gate.json",
   "creditAuthorization": "Proceed with credit consumption",
   "userAccepted": false,
-  "status": "implemented and technically verified; personal review pending",
+  "status": "FAQ approved; Careers application and whole-journey performance improvements ready for personal review. Real content remains open.",
   "nx": {
     "build": "passed",
     "lint": "passed",
@@ -83,14 +83,27 @@
   ],
   "license": "/licenses/react-bits.txt",
   "pending": [
-    "Personal acceptance of integrated visual result",
+    "Startup performance and contact personal review; real content remains open",
     "Authorized real testimonials, partners, company metrics and article destinations",
     "Contact recipient/backend/privacy, company and legal details",
     "Whole-site qualification and release authorization"
   ],
-  "reviewUrl": "http://127.0.0.1:8771/?revision=trusted-partners-20261014#trust-evidence",
-  "next": "Stop at personal review. No commit/deployment/generation.",
+  "reviewUrl": "http://127.0.0.1:8771/?revision=startup-fix-20261019",
+  "next": "Review FAQ/contact, then navigation/footer/cookie details. Real content and endpoint/legal remain open; no release.",
   "latestAmendment": "hover-amendment/review.json",
   "checks": "hover-amendment/checks.json",
-  "checksSha256": "d3e75d655687af8c5a22512475a91ef49ac53b6e8e7caec4bf9972265d678c09"
+  "checksSha256": "d3e75d655687af8c5a22512475a91ef49ac53b6e8e7caec4bf9972265d678c09",
+  "latestStatusDate": "2026-10-19",
+  "sourceCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "visualApproval": "../20261016/user-approval.json",
+  "visualApprovalSha256": "976dac7c5783bc936e07096b6adebb74d5299471eeaa4de565f8a0bf3f5647a6",
+  "visuallyAcceptedSections": [
+    "Trusted testimonial carousel",
+    "Partner wall",
+    "Insights homepage visual layout/interactions"
+  ],
+  "activeReview": "../../performance/20261019/review.json",
+  "insightsVisualApproval": "../20261019/insights-approval.json",
+  "faqApproval": "../../startup/20261019/faq-approval.json",
+  "careersReview": "../20261019/careers/review.json"
 }
