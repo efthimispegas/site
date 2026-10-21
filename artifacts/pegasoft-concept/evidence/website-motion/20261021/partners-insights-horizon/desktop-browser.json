@@ -1,0 +1,102 @@
+{
+  "samples": [
+    {
+      "height": 900,
+      "plane": "matrix(-1, 0, 0, -1, 0, 444.925)",
+      "reduced": "false",
+      "state": {
+        "active": true,
+        "originY": 1124.690782655346,
+        "progress": 0.47108183551198257,
+        "translateY": 444.92515765534586
+      },
+      "top": 679.765625,
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "plane": "matrix(-1, 0, 0, -1, 0, 248.911)",
+      "reduced": "false",
+      "state": {
+        "active": true,
+        "originY": 788.6764232913545,
+        "progress": 0.5800142973856209,
+        "translateY": 248.91079829135447
+      },
+      "top": 539.765625,
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "plane": "matrix(-1, 0, 0, -1, 0, 76.4813)",
+      "reduced": "false",
+      "state": {
+        "active": true,
+        "originY": 476.2469523019534,
+        "progress": 0.6889467592592593,
+        "translateY": 76.4813273019534
+      },
+      "top": 399.765625,
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "plane": "matrix(-1, 0, 0, -1, 0, -40.2545)",
+      "reduced": "false",
+      "state": {
+        "active": true,
+        "originY": 219.5111307161533,
+        "progress": 0.7978792211328976,
+        "translateY": -40.2544942838467
+      },
+      "top": 259.765625,
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "plane": "matrix(-1, 0, 0, -1, 0, -69.1879)",
+      "reduced": "false",
+      "state": {
+        "active": true,
+        "originY": 50.57771956296382,
+        "progress": 0.906811683006536,
+        "translateY": -69.18790543703618
+      },
+      "top": 119.765625,
+      "width": 1440
+    },
+    {
+      "height": 900,
+      "plane": "none",
+      "reduced": "false",
+      "state": {
+        "active": false,
+        "originY": 1.9984014443252818e-13,
+        "progress": 1,
+        "translateY": 20.2343750000002
+      },
+      "top": -20.234375,
+      "width": 1440
+    }
+  ],
+  "reverse": {
+    "height": 900,
+    "plane": "matrix(-1, 0, 0, -1, 0, 76.4813)",
+    "reduced": "false",
+    "state": {
+      "active": true,
+      "originY": 476.2469523019534,
+      "progress": 0.6889467592592593,
+      "translateY": 76.4813273019534
+    },
+    "top": 399.765625,
+    "width": 1440
+  },
+  "assertions": {
+    "reverseRestoresPose": true,
+    "rotated180": true,
+    "continuousAdvance": true,
+    "endsAtDarkChapter": true,
+    "settledLayerReleased": true
+  }
+}

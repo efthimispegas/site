@@ -1,0 +1,53 @@
+{
+  "samples": [
+    {
+      "height": 844,
+      "plane": "matrix(-1, 0, 0, -1, 0, 420.506)",
+      "reduced": "false",
+      "state": {
+        "active": true,
+        "originY": 1060.2949564715937,
+        "progress": 0.46915692372920736,
+        "translateY": 420.5058939715937
+      },
+      "top": 639.7890625,
+      "width": 390
+    },
+    {
+      "height": 844,
+      "plane": "matrix(-1, 0, 0, -1, 0, 420.506)",
+      "reduced": "false",
+      "state": {
+        "active": true,
+        "originY": 1060.2949564715937,
+        "progress": 0.46915692372920736,
+        "translateY": 420.5058939715937
+      },
+      "top": 639.7890625,
+      "width": 390
+    }
+  ],
+  "reverse": {
+    "height": 844,
+    "plane": "matrix(-1, 0, 0, -1, 0, 420.506)",
+    "reduced": "false",
+    "state": {
+      "active": true,
+      "originY": 1060.2949564715937,
+      "progress": 0.46915692372920736,
+      "translateY": 420.5058939715937
+    },
+    "top": 639.7890625,
+    "width": 390
+  },
+  "reduced": {
+    "background": "rgb(5, 7, 10)",
+    "display": "none",
+    "reduced": true
+  },
+  "assertions": {
+    "reverseRestoresPose": true,
+    "reducedLayerHidden": true,
+    "darkReducedBackground": true
+  }
+}

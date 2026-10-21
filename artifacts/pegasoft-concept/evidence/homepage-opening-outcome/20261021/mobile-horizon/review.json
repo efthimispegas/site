@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-21",
+  "status": "User approved mobile horizon correction21 October2026",
+  "request": "request.json",
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "url": "http://127.0.0.1:8771/el/?revision=mobile-horizon-fix-20261021",
+  "cause": "Mobile outcome pseudo-element paints an opaque42%-height rectangle immediately when outcomes become active;mobile title has another opaque background. Both cover the approved horizon before it clears.",
+  "implementation": "Keep both mobile reading backings transparent until introState.wipe is1. Restore them after the common desktop horizon reaches its endpoint. No change to desktop CSS,equations,scroll mapping,globe or opening presets.",
+  "checks": {
+    "Nx": "build,lint,provenance and34 tests passed",
+    "log": "nx-checks.log",
+    "browser": "browser-check.json",
+    "mobile": "390x844 Greek/English forward/reverse and horizon-clear boundary checks passed",
+    "desktopMode": "743x788 rendering inspected;mobile pseudo-element absent",
+    "limits": "Viewport tests are not physical-device acceptance. Before/after frames differ in progress as recorded in browser-check.json."
+  },
+  "screenshots": [
+    "mobile-before.jpg",
+    "mobile-after.jpg",
+    "mobile-greek-after.jpg",
+    "mobile-cleared.jpg",
+    "desktop-regression.jpg"
+  ],
+  "sources": [
+    {
+      "path": "apps/pegasoft-concept/src/outcome.css",
+      "sha256": "3c8013c5febf29b1dc9f8a81719ae15ac5a0f5bc02ecc28a2772cfb2e15d604b"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/intro-controller.js",
+      "sha256": "e127ac9ba50e2156b943bde353d4f7317d4bb62da990b841ecdce3a391e7dc45"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/verify-website-motion.mjs",
+      "sha256": "a6e7477abbc402d5d5ac6e4b7f71a9a419ab2fe3a8fa585426f96b964002d4f8"
+    },
+    {
+      "path": "apps/pegasoft-concept/website-motion-manifest.json",
+      "sha256": "404e98f8c40cc927f5d3a0d1642747437d11ccf4cc851cf5b742b735ef3d4904"
+    }
+  ],
+  "acceptanceLimits": [
+    "Local uncommitted work;not deployed",
+    "Personal review pending",
+    "Greek services title,content review,physical-phone and whole-site gates remain separate"
+  ],
+  "approval": "user-approval.json"
+}

@@ -1,0 +1,116 @@
+
+ NX   Running targets build, lint, test for project @site/pegasoft-concept and 3 tasks it depends on:
+
+- @site/pegasoft-concept
+
+
+✔  nx run @site/pegasoft-concept:verify-website-motion
+✔  nx run @site/pegasoft-concept:verify-homepage
+✔  nx run @site/pegasoft-concept:verify-baseline
+
+> nx run @site/pegasoft-concept:test
+
+> node --test tools/packaging.test.mjs tools/cloud-motion.test.mjs tools/lifecycle.test.mjs tools/transport-timeline.test.mjs tools/counter.test.mjs tools/localization.test.mjs
+
+(node:30081) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:30084) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ K01 has steady nonzero travel through veil, bank and jet crossing [90m(22.304375ms)[39m[39m
+[32m✔ K01 retains origin/bank, follows the veil route and continues smoothly past bank [90m(3.068584ms)[39m[39m
+[32m✔ K02 has steady nonzero travel through veil, bank and jet crossing [90m(17.890834ms)[39m[39m
+[32m✔ K02 retains origin/bank, follows the veil route and continues smoothly past bank [90m(14.900333ms)[39m[39m
+[32m✔ K03 has steady nonzero travel through veil, bank and jet crossing [90m(9.853083ms)[39m[39m
+[32m✔ K03 retains origin/bank, follows the veil route and continues smoothly past bank [90m(3.737833ms)[39m[39m
+(node:30085) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ decimal places preserve 98.5 and decimal carry without binary rounding loss [90m(2.010791ms)[39m[39m
+[32m✔ spring overshoots and returns to its appointed digit, in either direction [90m(0.349084ms)[39m[39m
+[32m✔ spring trajectory is stable at different frame rates [90m(0.655459ms)[39m[39m
+[32m✔ outcome overlaps horizon clearance and all five rows end within view [90m(0.238875ms)[39m[39m
+[32m✔ horizon uses twice the scroll while other phases retain their response and resize mapping [90m(1.698708ms)[39m[39m
+[32m✔ outcome title retains entry speed per scroll pixel through both horizon boundaries until pinned [90m(0.1665ms)[39m[39m
+[32m✔ counter targets latch once on entry, independent of reverse scroll or dwell [90m(0.165916ms)[39m[39m
+[31m✖ inverted editorial horizon preserves opening travel, resize and reverse without a second clock [90m(1.179416ms)[39m[39m
+(node:30086) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ scope removes listeners and restores property handlers exactly once [90m(2.538916ms)[39m[39m
+[32m✔ frame owner never duplicates requests and stop cancels pending work [90m(2.734917ms)[39m[39m
+[32m✔ stopping during a frame does not schedule a replacement callback [90m(0.6305ms)[39m[39m
+[32m✔ resource disposal deduplicates geometry, materials and textures across model roots [90m(1.49075ms)[39m[39m
+[32m✔ cooperative setup preserves operation order and yields before finishing a long batch [90m(4.18725ms)[39m[39m
+[32m✔ cooperative setup aborts between chunks without finishing cancelled work [90m(1.782125ms)[39m[39m
+[32m✔ initialization deadline rejects hung resources and lets settled tasks finish [90m(8.827542ms)[39m[39m
+[32m✔ truck service lines retain geometry for rigid travel and rebuild for articulation [90m(46.757042ms)[39m[39m
+[32m✔ startup input lock releases on readiness or disposal and removes its listeners [90m(1.201542ms)[39m[39m
+[32m✔ native model downloads decode exact bytes and support raw fallback and cancellation [90m(33.617583ms)[39m[39m
+(node:30087) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ Greek launch fallback; explicit URL wins preference, unknown locale falls back [90m(0.959542ms)[39m[39m
+[32m✔ switch URL preserves current location and query without creating nested locale prefixes [90m(0.381458ms)[39m[39m
+[32m✔ static bilingual pages translate content and metadata while preserving scripts and assets [90m(10.2045ms)[39m[39m
+[32m✔ catalog is reversible without ambiguous messages; identity brands remain unchanged [90m(5.107458ms)[39m[39m
+[32m✔ Greek numeric formatting changes presentation without changing metric targets [90m(0.161916ms)[39m[39m
+[32m✔ landing consent remembers explicit accept/reject without enabling absent trackers [90m(0.283834ms)[39m[39m
+(node:30088) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ packaged runtime assets retain approved bytes and contain no historical evidence [90m(50.587125ms)[39m[39m
+[32m✔ every imported Three.js entry resolves to the same approved vendored implementation [90m(5.834042ms)[39m[39m
+[32m✔ approved chapter clocks retain their duration, overlap and reversible mapping [90m(0.250833ms)[39m[39m
+[32m✔ frozen inputs and explicitly commissioned runtime amendments remain verified [90m(262.8455ms)[39m[39m
+(node:30089) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[32m✔ transport removes only approved duplicated overlap and retains chapter clocks [90m(1.012167ms)[39m[39m
+[32m✔ scroll coordinator preserves reversible local timing at desktop and small viewports [90m(4.8075ms)[39m[39m
+[34mℹ tests 36[39m
+[34mℹ suites 0[39m
+[34mℹ pass 35[39m
+[34mℹ fail 1[39m
+[34mℹ cancelled 0[39m
+[34mℹ skipped 0[39m
+[34mℹ todo 0[39m
+[34mℹ duration_ms 484.89[39m
+
+[31m✖ failing tests:[39m
+
+test at tools/counter.test.mjs:52:1
+[31m✖ inverted editorial horizon preserves opening travel, resize and reverse without a second clock [90m(1.179416ms)[39m[39m
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  [32m+ actual[39m [31m- expected[39m
+  
+  [32m+[39m 1.7497114868092467e-13
+  [31m- [39m0
+  
+      at TestContext.<anonymous> [90m(file:///Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/[39mtools/counter.test.mjs:64:10[90m)[39m
+  [90m    at Test.runInAsyncScope (node:async_hooks:227:14)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1382:25)[39m
+  [90m    at Test.processPendingSubtests (node:internal/test_runner/test:960:18)[39m
+  [90m    at Test.postRun (node:internal/test_runner/test:1522:19)[39m
+  [90m    at Test.run (node:internal/test_runner/test:1447:12)[39m
+  [90m    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)[39m
+  [90m    at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)[39m {
+    generatedMessage: [33mtrue[39m,
+    code: [32m'ERR_ASSERTION'[39m,
+    actual: [33m1.7497114868092467e-13[39m,
+    expected: [33m0[39m,
+    operator: [32m'strictEqual'[39m,
+    diff: [32m'simple'[39m
+  }
+Warning: command "node --test tools/packaging.test.mjs tools/cloud-motion.test.mjs tools/lifecycle.test.mjs tools/transport-timeline.test.mjs tools/counter.test.mjs tools/localization.test.mjs" exited with non-zero status code
+✔  nx run @site/pegasoft-concept:build
+✔  nx run @site/pegasoft-concept:lint
+
+
+
+ NX   Running targets build, lint, test for project @site/pegasoft-concept and 3 tasks it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-concept:test
+
+Output of 5 successful tasks were not shown. Run with --verbose or --output-style=static to see it.
+
+  Run duration:      4.3s
+  Cache:             0/5 hit (0%)
+  Critical path:     4.2s (1 task)
+  Recoverable time:  104ms (2% of the run)

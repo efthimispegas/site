@@ -1,0 +1,105 @@
+{
+  "approved": {
+    "ringEnd": 2,
+    "markStart": 0.67,
+    "pulseStart": 1.16,
+    "apertureStart": 1.6,
+    "apertureDuration": 1.04,
+    "headlineStart": 2.1,
+    "headlineDuration": 0.72,
+    "ringFrom": 0.84,
+    "ringTo": 1.96,
+    "ringFadeLead": 0.25,
+    "ringFadeDuration": 0.3,
+    "markDuration": 0.63,
+    "pulseDuration": 0.43,
+    "bounce": 0.08,
+    "settle": 0.36,
+    "beatDuration": 1.74,
+    "beatAmount": 0.109
+  },
+  "inspectorStartup": {
+    "apertureDuration": 1.04,
+    "apertureStart": 1.6,
+    "beatAmount": 0.109,
+    "beatDuration": 1.74,
+    "bounce": 0.08,
+    "headlineDuration": 0.72,
+    "headlineStart": 2.1,
+    "markDuration": 0.63,
+    "markStart": 0.67,
+    "pulseDuration": 0.43,
+    "pulseStart": 1.16,
+    "ringEnd": 2,
+    "ringFadeDuration": 0.3,
+    "ringFadeLead": 0.25,
+    "ringFrom": 0.84,
+    "ringTo": 1.96,
+    "settle": 0.36
+  },
+  "homepageStartup": {
+    "apertureDuration": 1.04,
+    "apertureStart": 1.6,
+    "beatAmount": 0.109,
+    "beatDuration": 1.74,
+    "bounce": 0.08,
+    "headlineDuration": 0.72,
+    "headlineStart": 2.1,
+    "markDuration": 0.63,
+    "markStart": 0.67,
+    "pulseDuration": 0.43,
+    "pulseStart": 1.16,
+    "ringEnd": 2,
+    "ringFadeDuration": 0.3,
+    "ringFadeLead": 0.25,
+    "ringFrom": 0.84,
+    "ringTo": 1.96,
+    "settle": 0.36
+  },
+  "modifiedRingEnd": 2.01,
+  "reset": {
+    "apertureDuration": 1.04,
+    "apertureStart": 1.6,
+    "beatAmount": 0.109,
+    "beatDuration": 1.74,
+    "bounce": 0.08,
+    "headlineDuration": 0.72,
+    "headlineStart": 2.1,
+    "markDuration": 0.63,
+    "markStart": 0.67,
+    "pulseDuration": 0.43,
+    "pulseStart": 1.16,
+    "ringEnd": 2,
+    "ringFadeDuration": 0.3,
+    "ringFadeLead": 0.25,
+    "ringFrom": 0.84,
+    "ringTo": 1.96,
+    "settle": 0.36
+  },
+  "waiting": {
+    "frames": 43,
+    "uniqueTransforms": 43,
+    "durations": [
+      "1.74s"
+    ]
+  },
+  "playback": {
+    "frames": 505,
+    "startsInRecession": true,
+    "complete": true,
+    "finalScale": 1.96,
+    "phases": [
+      "Ring recession / mark fade",
+      "Nested pulse / aperture",
+      "Heading entrance",
+      "Opening complete"
+    ]
+  },
+  "assertions": {
+    "startupExact": true,
+    "homepageExact": true,
+    "resetExact": true,
+    "normalPlaybackComplete": true,
+    "waitingBeatMoves": true
+  }
+}

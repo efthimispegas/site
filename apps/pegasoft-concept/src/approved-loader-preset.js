@@ -1,20 +1,20 @@
-/** Loader preset approved 14 October; ringFrom amended to .42 by direct user request. */
+/** Exact loader preset approved21 October2026;shared by homepage and inspector. */
 export const APPROVED_LOADER_PRESET=Object.freeze({
-  "ringEnd": 1.42,
-  "markStart": 1.21,
-  "pulseStart": 1.3,
+  "ringEnd": 2,
+  "markStart": 0.67,
+  "pulseStart": 1.16,
   "apertureStart": 1.6,
   "apertureDuration": 1.04,
   "headlineStart": 2.1,
   "headlineDuration": 0.72,
-  "ringFrom": 0.42,
-  "ringTo": 1.79,
+  "ringFrom": 0.84,
+  "ringTo": 1.96,
   "ringFadeLead": 0.25,
   "ringFadeDuration": 0.3,
-  "markDuration": 0.38,
-  "pulseDuration": 0.4,
-  "bounce": 0.04,
-  "settle": 0.38,
+  "markDuration": 0.63,
+  "pulseDuration": 0.43,
+  "bounce": 0.08,
+  "settle": 0.36,
   "beatDuration": 1.74,
   "beatAmount": 0.109
 });

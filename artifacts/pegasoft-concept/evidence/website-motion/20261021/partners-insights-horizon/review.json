@@ -1,0 +1,112 @@
+{
+  "date": "2026-10-21",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "branch": "codex/pegasoft-concept",
+  "sourceState": "Uncommitted local amendments;source hashes identify reviewed inputs.",
+  "environment": "Node24.19.0/pnpm10.8.1;production Vite preview http://127.0.0.1:8771;IAB desktop/mobile viewport emulation,not physical-phone acceptance.",
+  "status": "User visually approved21October2026;technical/runtime checks passed;local only.",
+  "request": "request.json",
+  "reviewUrls": [
+    "http://127.0.0.1:8771/el/?revision=partners-horizon-20261021",
+    "http://127.0.0.1:8771/en/?revision=partners-horizon-20261021"
+  ],
+  "location": "Scroll from the partner wall into Insights. Refresh still restarts at the approved opening.",
+  "implementation": [
+    "Same gradient stops and opening horizon easing/travel;180-degree rotation into the dark Insights background.",
+    "Same1.428-viewport scroll span,without adding page height or a frame loop.",
+    "Dark continuation blended into the curve;header tone follows the incoming dark world.",
+    "Decoration is hidden when settled and for reduced motion. Partner wall/content controllers and typography retained."
+  ],
+  "source": [
+    {
+      "path": "apps/pegasoft-concept/index.html",
+      "sha256": "45d6d393029258ae65bc8149a0fb255b556717b0e69939895f17dd498c933a2c"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/horizon-transition.js",
+      "sha256": "f9505cee17946279e7c82d55e5ea7faaeffa50d80735d92bbec66d1831c29817"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/outcome.css",
+      "sha256": "ce9468d9e14d63ba77ee7f217b6bf96e583f7a5b775d985055e887bb41198057"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/website-motion-controller.js",
+      "sha256": "c923848086a50e3fa6586b8a8ff276a2ec201db0e712cf9b83e26b16523e2e7f"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/website-motion.css",
+      "sha256": "3ce4d9c2f39cfe9e9122c46d56497100f682d7b46634934258e23b7c7ef36693"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/counter.test.mjs",
+      "sha256": "02d3bfd9bd3dcd856d015f692d7c481fc6c7a8296b56dd59daa22ac987e9e866"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/verify-website-motion.mjs",
+      "sha256": "a6fd79a0874259b92490c818f25b3545f3dd429dbbd96fa3cdea85508982422d"
+    },
+    {
+      "path": "apps/pegasoft-concept/website-motion-manifest.json",
+      "sha256": "b83a1856887df1108849d2642be4d33c30fbb4d2a8f7f5c2b95a8f855704c190"
+    }
+  ],
+  "build": [
+    {
+      "path": "dist/apps/pegasoft-concept/en/index.html",
+      "sha256": "a74569251780829305244e362ff829f8d34f9268fa1cd561329fe5da0178c2f3"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/index-D6QLVCds.js",
+      "sha256": "6bbcbaf5c549933007a7abd18b8392a7806d3f65447b1fdc4867001271207758"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/three.module-C28h07Sx.js",
+      "sha256": "55032f2750bb0cda4919660bf4353019a86cd4939541bf28c286ee66745d0108"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/runtime-lifecycle-2suabPVV.js",
+      "sha256": "80be5b46a19ab8c2d40b1f749fb40515775fb76c87022832c916119a26612ed1"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/intro-controller-CR8eURxc.js",
+      "sha256": "09fff925f6c13fb866d506a32059d99777ea3b5e488075a0153e9e3d261299b2"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/ship-jet-controller-CN-iM7de.js",
+      "sha256": "0f8fe21e591c89d1089ab8e57a7aab3d248d0bf76d2b7eb5e6e71c264dfb7077"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/particle-wordmark-DzpxbvHx.js",
+      "sha256": "4c8910dda7520dfede51efbb0d94dc1a17bc70c0b517858e0aba05837dafd01f"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/intro-controller-BLubZkFR.css",
+      "sha256": "fb3120f87e1dc98d1616b38bff703fa06762145314cc897c240e9a1de462ba86"
+    },
+    {
+      "path": "dist/apps/pegasoft-concept/assets/index-B5HdlE1z.css",
+      "sha256": "f6838663faa5d7a51798064ad5dabb8eb3a3d2cffce8544d5b5a88086c0e7f3c"
+    }
+  ],
+  "checks": [
+    "nx-final-checks.log",
+    "desktop-browser.json",
+    "mobile-browser.json",
+    "header-contrast.json"
+  ],
+  "captures": [
+    "desktop-mid.jpg",
+    "desktop-reverse.jpg",
+    "desktop-settled.jpg",
+    "mobile-entry.jpg",
+    "mobile-mid.jpg",
+    "mobile-settled.jpg"
+  ],
+  "limitations": [
+    "Viewport emulation does not qualify physical-phone performance.",
+    "Not committed,pushed or deployed."
+  ],
+  "technicalChecks": "Nx build,lint,baseline/homepage/motion provenance and36tests passed.",
+  "approval": "user-approval.json"
+}

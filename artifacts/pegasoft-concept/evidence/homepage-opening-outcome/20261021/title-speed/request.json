@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-21",
+  "request": "Outcome title must continue at its initial entry speed A through the horizon boundary until it pins at the top;remove later slower/delayed speed B.",
+  "scope": "Shared outcome-title scroll position only;retain desktop/mobile pin offsets,other content/counters,horizon equations and approved loader preset.",
+  "beforeFiles": [
+    {
+      "path": "src/intro-sequence.js",
+      "snapshot": "before/src/intro-sequence.js",
+      "sha256": "e5961848a0199315de791076437e9a885bb813a51f1972b3ce4aa805486ef399"
+    },
+    {
+      "path": "src/intro-controller.js",
+      "snapshot": "before/src/intro-controller.js",
+      "sha256": "e127ac9ba50e2156b943bde353d4f7317d4bb62da990b841ecdce3a391e7dc45"
+    },
+    {
+      "path": "tools/counter.test.mjs",
+      "snapshot": "before/tools/counter.test.mjs",
+      "sha256": "5ed2d4f22838a66598670bd62abf92ff1e545789d528a05e3b26bd245841864a"
+    }
+  ]
+}

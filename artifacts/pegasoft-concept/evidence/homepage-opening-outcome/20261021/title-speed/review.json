@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-21",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "branch": "codex/pegasoft-concept",
+  "sourceState": "Uncommitted local amendments;source hashes identify reviewed inputs.",
+  "environment": "Node24.19.0/pnpm10.8.1;production Vite preview http://127.0.0.1:8771;IAB desktop/mobile viewport emulation,not physical-phone acceptance.",
+  "status": "Implemented and runtime verified;pending personal visual review.",
+  "request": "request.json",
+  "changes": "One physical-scroll-distance title trajectory preserves entry speed A across the horizon boundary and pins at existing desktop/mobile offsets.",
+  "checks": [
+    "nx-checks.log",
+    "browser-check.json"
+  ],
+  "captures": [
+    "desktop-mode-pinned.jpg",
+    "mobile-pinned.jpg"
+  ],
+  "source": [
+    {
+      "path": "apps/pegasoft-concept/src/intro-sequence.js",
+      "sha256": "fc4b96ef363587a506b997cfd0cbe96ac45dac7e4810c5a076d6043a139f0b04"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/intro-controller.js",
+      "sha256": "1f010b0215dd8ee6fd9695c599220febc30beff6fce0ab73cbb4de120593bf6c"
+    },
+    {
+      "path": "apps/pegasoft-concept/tools/counter.test.mjs",
+      "sha256": "02d3bfd9bd3dcd856d015f692d7c481fc6c7a8296b56dd59daa22ac987e9e866"
+    }
+  ],
+  "limit": "No physical-phone or public deployment claim."
+}

@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-21",
+  "request": "Apply the same horizon parallax transition between partners and Insights, rotated 180 degrees to face upward.",
+  "scope": "Reuse the accepted gradient, scroll response and existing page scheduler. Preserve partner wall, Insights typography/content and existing opening. No new assets or framework.",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "beforeFiles": [
+    {
+      "path": "index.html",
+      "snapshot": "before/index.html",
+      "sha256": "1c07cb81040bc3f19bb164acf6756097f077ed38d745376748003e7a43212a3b"
+    },
+    {
+      "path": "src/outcome.css",
+      "snapshot": "before/src/outcome.css",
+      "sha256": "3c8013c5febf29b1dc9f8a81719ae15ac5a0f5bc02ecc28a2772cfb2e15d604b"
+    },
+    {
+      "path": "src/website-motion.css",
+      "snapshot": "before/src/website-motion.css",
+      "sha256": "e4c449f1226d82fadc58ca59cd212948310e1cd232dbb1f73e7b7f16f8fb6f13"
+    },
+    {
+      "path": "src/website-motion-controller.js",
+      "snapshot": "before/src/website-motion-controller.js",
+      "sha256": "b429c53c143d4573b9049e11670884705fc4ad9cabf0b11d27af66bc53bd538f"
+    },
+    {
+      "path": "tools/counter.test.mjs",
+      "snapshot": "before/tools/counter.test.mjs",
+      "sha256": "290de19524a0e9ea4ba916d50f924d64abfc690223f6cf023228a8d26b4a4724"
+    }
+  ],
+  "acceptance": "Pending personal visual review; local only."
+}

@@ -2,6 +2,7 @@ import {translate as t} from './locale-messages.js';
 import {createScope} from '../review/runtime-lifecycle.js';
 import {createParticleWordmark} from './particle-wordmark.js';
 import {createPartnerWall} from './partner-wall.js';
+import {invertedHorizonLayout} from './horizon-transition.js';
 
 const clamp=v=>Math.min(1,Math.max(0,v));
 const sectors=['Fintech','Digital banking','Trade & transit','Health & wellness','Telecom','Booking & education'];
@@ -14,6 +15,7 @@ export function createWebsiteMotionController({root}){
  const wall=createPartnerWall({element:$('#partner-wall'),button:$('#partner-motion-toggle')});
  const fine=window.matchMedia('(hover:hover) and (pointer:fine)'),floating=$('#section-contact'),cursor=$('#closing-cursor'),trails=[...root.querySelectorAll('.closing-trail')];
  const header=$('#site-header'),headerContact=$('#site-header-contact'),headerLanguage=$('#site-header-language');let headerShown=true,headerReady=false,previousScroll=window.scrollY,scrollDirection=0,scrollTravel=0;
+ let editorialHorizon=null;
  function updateHeader(){
   if(!header)return;const y=Math.max(0,window.scrollY),delta=y-previousScroll;previousScroll=y;
   if(Math.abs(delta)>.1){const direction=Math.sign(delta);if(direction!==scrollDirection)scrollTravel=0;scrollDirection=direction;scrollTravel+=Math.abs(delta);if(scrollTravel>=4)headerShown=direction<0;}
@@ -23,6 +25,7 @@ export function createWebsiteMotionController({root}){
   if(stageRect.top<=middle&&stageRect.bottom>middle){const motion=stage.dataset.motion&&JSON.parse(stage.dataset.motion);light=motion?.chapter==='handoff'||(motion?.chapter==='crossing'&&motion.jetProgress>.72);}
   else if(introRect&&introRect.top<=middle&&introRect.bottom>middle)light=Boolean(opening&&JSON.parse(opening).progress>=.19);
   else light=[$('#trust-evidence'),$('#partners'),$('#faq'),footer,...(!$('#static-story').hidden?[$('#static-story')]:[])].filter(Boolean).some(el=>{const r=el.getBoundingClientRect();return r.top<=middle&&r.bottom>middle;});
+  if(editorialHorizon?.active&&editorialHorizon.originY<window.innerHeight*.65)light=false;
   header.dataset.tone=light?'light':'dark';
   const shown=headerReady&&(headerShown||header.contains(document.activeElement)||headerContact?.contains(document.activeElement)||headerLanguage?.contains(document.activeElement));header.dataset.ready=String(headerReady);header.dataset.visible=String(shown);header.inert=!shown;if(headerContact)headerContact.inert=!shown;if(headerLanguage)headerLanguage.inert=!shown;
  }
@@ -47,13 +50,16 @@ export function createWebsiteMotionController({root}){
  function setMode(value){mode=value;marqueeOffset=0;const values=value==='industries'?sectors:services;root.querySelectorAll('[data-marquee-group]').forEach(group=>{group.replaceChildren(...values.map(text=>{const item=document.createElement('span');item.textContent=t(text);return item;}));});root.querySelectorAll('[data-footer-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.footerMode===value)));footer.dataset.mode=value;}
  function update({reducedMotion=reduced}={}){
   if(scope.disposed)return;reduced=reducedMotion||document.body.classList.contains('static-journey');const testimonialParent=reduced?staticStory:trust;if(testimonials.parentElement!==testimonialParent)testimonialParent.append(testimonials);wall.update({reducedMotion:reduced});const h=window.innerHeight,entry=editorial.getBoundingClientRect(),cta=closing.getBoundingClientRect(),end=footer.getBoundingClientRect();
+  const horizon=invertedHorizonLayout(entry.top,h,{reduced});editorialHorizon=horizon;
+  editorial.dataset.horizonActive=String(horizon.active);editorial.dataset.horizonReduced=String(reduced);
+  editorial.style.setProperty('--editorial-horizon-height',`${h}px`);editorial.style.setProperty('--editorial-horizon-width',`${entry.width}px`);editorial.style.setProperty('--editorial-horizon-y',`${horizon.translateY}px`);
   visible=entry.bottom>0&&entry.top<h;closingVisible=cta.bottom>0&&cta.top<h;footerVisible=end.bottom>0&&end.top<h;
   const arrival=clamp((h-entry.top)/(h*.85));editorial.style.setProperty('--arrival',reduced?1:arrival);editorial.style.setProperty('--arrival-shift',`${reduced?0:(1-arrival)*100}px`);
   const yielding=cta.top<h*.70,showLink=entry.top<h*.8&&!yielding;floating.hidden=!showLink;
   updateHeader();syncPointer(cta);closing.dataset.active=String(closingVisible);closing.dataset.reduced=String(reduced);footer.dataset.reduced=String(reduced);
   if(reduced){pointerActive=false;closing.dataset.pointer='false';$('#marquee-track').style.transform='none';particles.render(0,true);}
   const sections=[$('#trust-evidence'),$('#partners'),$('#faq'),editorial,closing,footer].filter(Boolean),coverage=el=>{const r=el.getBoundingClientRect();return Math.max(0,Math.min(h,r.bottom)-Math.max(0,r.top));},owner=sections.reduce((best,el)=>coverage(el)>coverage(best)?el:best,editorial),r=owner.getBoundingClientRect();scrollAnchor={element:owner,fraction:-r.top/Math.max(1,r.height)};
-  root.dataset.websiteMotion=JSON.stringify({editorial:arrival,visible,closingVisible,footerVisible,headerCta:showLink,selected,mode,reduced,elapsed});
+  root.dataset.websiteMotion=JSON.stringify({editorial:arrival,horizon,visible,closingVisible,footerVisible,headerCta:showLink,selected,mode,reduced,elapsed});
  }
  function resize(){metrics();particles.resize();wall.resize();update();}
  function tick(now){

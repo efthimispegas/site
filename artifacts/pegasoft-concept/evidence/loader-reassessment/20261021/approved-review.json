@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-21",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "branch": "codex/pegasoft-concept",
+  "sourceState": "Uncommitted local amendments;source hashes identify reviewed inputs.",
+  "environment": "Node24.19.0/pnpm10.8.1;production Vite preview http://127.0.0.1:8771;IAB desktop/mobile viewport emulation,not physical-phone acceptance.",
+  "status": "Exact preset user approved;applied locally;automated/runtime verification passed.",
+  "approval": "user-approval.json",
+  "checks": [
+    "approved-nx-checks.log",
+    "approved-browser-check.json",
+    "approved-playback.json"
+  ],
+  "screenshot": "approved-controls.jpg",
+  "source": [
+    {
+      "path": "apps/pegasoft-concept/src/approved-loader-preset.js",
+      "sha256": "4bed2b42adf3c74181840bfc36f5c617fe8e7616176b2a7b18755f104a6b27c2"
+    },
+    {
+      "path": "apps/pegasoft-concept/src/loader.css",
+      "sha256": "9c3f3170187954829e54026cdd541d7d5c050785dfa4bb598df884d6df11a647"
+    },
+    {
+      "path": "apps/pegasoft-concept/review/loader.html",
+      "sha256": "be18ba54a601b2e45cca8c797d5d3e45c6251baff34b7973de1e47df5c849413"
+    }
+  ],
+  "observations": [
+    "All17 preset fields match inspector startup,Reset and homepage.",
+    "Playback reaches complete;recession,mark,pulse and aperture phases observed.",
+    "Waiting beat changes transforms while loading."
+  ],
+  "deployment": "Not deployed."
+}

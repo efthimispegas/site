@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-21",
+  "request": "Mobile hero/horizon transition is clipped by a blank white box;match the approved desktop transition without a blank stage before outcomes.",
+  "scope": "Mobile outcome backing/layer composition only;retain desktop equations,scroll mapping,timing and approved globe.",
+  "beforeFiles": [
+    {
+      "path": "src/outcome.css",
+      "snapshot": "before/src/outcome.css",
+      "sha256": "d82d9896f6c07e14fa0093c7f8524ff5e59d7bee81dadaf1ec7c08230e7c2a8d"
+    },
+    {
+      "path": "src/intro-controller.js",
+      "snapshot": "before/src/intro-controller.js",
+      "sha256": "7ae35b831623d170eaf4d5f010a75ba0d53160aa7d44b92d0db37718b26ceba4"
+    }
+  ]
+}

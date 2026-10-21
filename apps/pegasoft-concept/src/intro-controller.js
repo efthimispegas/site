@@ -3,7 +3,7 @@ import {GLOBE_DEFAULTS,clamp} from './hero-opening-sequence.js';
 import {createCounter} from './hero-odometer.js';
 import {OUTCOME_METRICS,metricLayout,createMetricPlayback} from './outcome-metrics.js';
 import {LOADER_DEFAULTS,loaderState} from './loader-sequence.js';
-import {introState} from './intro-sequence.js';
+import {introState,outcomeTitlePosition} from './intro-sequence.js';
 import {createScope} from '../review/runtime-lifecycle.js';
 
 /** Scoped chapter lifecycle. The homepage owns its single frame scheduler. */
@@ -32,7 +32,7 @@ export function createIntroController({stage,settings=LOADER_DEFAULTS}){
   $('.hero-actions').style.opacity=opening.cta*(1-state.utilityExit);$('.hero-actions').style.transform=`translateY(${(1-opening.cta)*20-state.utilityExit*20}px)`;$('.hero-actions').inert=progress>.12||opening.cta<.95;
   const bottom=$('.hero-bottom');if(bottom)bottom.style.opacity=opening.body*(1-state.utilityExit);
   $('.horizon').style.transform=`translateY(${state.horizonY*h}px)`;const outcome=$('.outcome');outcome.hidden=!state.outcomeActive;outcome.dataset.horizonClear=String(state.wipe===1);
-  const titleY=w<680&&progress>=.19?.88-.80*clamp((progress-.19)/(.50-.19)):state.titleY,metrics=metricLayout(progress,w,h),metricsY=metrics.metricsY;
+  const titleY=w<680?outcomeTitlePosition(progress,{mobile:true}):state.titleY,metrics=metricLayout(progress,w,h),metricsY=metrics.metricsY;
   $('.outcome-title').style.transform=`translateY(${titleY*h}px)`;$('.metrics').style.transform=`translateY(${metricsY*h}px)`;
   const targets=playback.update(metrics.rowPositions,dt);counters.forEach((counter,i)=>counter.render(targets[i],dt,reduced));
   if(active)geometry=globe.render(rotationTime,sceneTime);

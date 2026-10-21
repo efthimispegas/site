@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-21",
+  "userStatement": "Loader settings changed to the supplied17-value preset. Approved.",
+  "preset": {
+    "ringEnd": 2,
+    "markStart": 0.67,
+    "pulseStart": 1.16,
+    "apertureStart": 1.6,
+    "apertureDuration": 1.04,
+    "headlineStart": 2.1,
+    "headlineDuration": 0.72,
+    "ringFrom": 0.84,
+    "ringTo": 1.96,
+    "ringFadeLead": 0.25,
+    "ringFadeDuration": 0.3,
+    "markDuration": 0.63,
+    "pulseDuration": 0.43,
+    "bounce": 0.08,
+    "settle": 0.36,
+    "beatDuration": 1.74,
+    "beatAmount": 0.109
+  },
+  "scope": "Homepage and loader inspector startup/Reset,including pre-JavaScript waiting scale;preserve globe and unrelated story motion.",
+  "beforeFiles": [
+    {
+      "path": "src/approved-loader-preset.js",
+      "snapshot": "approved-before/src/approved-loader-preset.js",
+      "sha256": "b50d04e4d4d75d27513ee385c15a2755582340693e9bd658c5e089bee276ca07"
+    },
+    {
+      "path": "src/loader.css",
+      "snapshot": "approved-before/src/loader.css",
+      "sha256": "2813c81cd0d2f1c75fcce1bc13dee9c828394d7cdb5877aeaccdd51e27bbaca7"
+    },
+    {
+      "path": "review/loader.html",
+      "snapshot": "approved-before/review/loader.html",
+      "sha256": "0e427de641d397aea8058186e5595a425277c4beb29dc187491a834e278961db"
+    }
+  ]
+}

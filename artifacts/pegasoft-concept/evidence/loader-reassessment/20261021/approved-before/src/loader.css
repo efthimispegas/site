@@ -1,0 +1,19 @@
+/* Runs on the compositor before geography/fonts and JavaScript are ready. */
+#opening-stage:not([data-loaded="true"]) .radar,#opening-stage[data-wait-preview="true"] .radar,#opening-stage[data-preparing="true"] .radar{animation:loader-wait-beat var(--loader-beat-duration,1.74s) ease-in-out infinite;will-change:transform}
+#opening-stage .radar{will-change:transform,opacity}
+@keyframes loader-wait-beat{0%,100%{transform:scale(var(--loader-ring-from,.42))}50%{transform:scale(calc(var(--loader-ring-from,.42) + var(--loader-beat-amount,.109)))}}
+@media(prefers-reduced-motion:reduce){#opening-stage .radar{animation:none!important}}
+/* Resource preparation and the inspector use the same continuous waiting beat. */
+#opening-stage[data-wait-preview="true"] .radar,#opening-stage[data-wait-preview="true"] .loader-mark,#opening-stage[data-preparing="true"] .radar,#opening-stage[data-preparing="true"] .loader-mark{opacity:1!important}
+#opening-stage[data-wait-preview="true"] .hero,#opening-stage[data-wait-preview="true"] .pulse,#opening-stage[data-wait-preview="true"] .outcome-world,#opening-stage[data-preparing="true"] .hero,#opening-stage[data-preparing="true"] .pulse,#opening-stage[data-preparing="true"] .outcome-world{visibility:hidden!important}
+
+/* Commissioned filled hero CTA; shared by the homepage and loader inspector. */
+#opening-stage .hero-nav .nav-contact{background:#edf2f7;color:#05070a;border-color:#edf2f7}
+#opening-stage .hero-nav .nav-contact:hover,#opening-stage .hero-nav .nav-contact:focus-visible{background:#147dff;color:#fff;border-color:#147dff}
+/* The dark hero shares the editorial heading's muted/bright treatment. */
+#opening-stage .hero-copy h2 .line:first-child>span{color:#546371}
+
+/* Upcoming chapters never expose an unfinished GPU frame during preparation. */
+#stage:not([data-loaded="true"])>canvas{visibility:hidden}
+#stage:not([data-loaded="true"]) #loading{inset:0;display:grid;place-content:center;justify-items:center;gap:12px;color:#061e3b;background:#edf2f7;padding:24px;font:500 14px DM}
+#stage:not([data-loaded="true"]) #loading::before{content:"pegasoft";font:750 28px Manrope;letter-spacing:-.05em}

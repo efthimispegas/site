@@ -5,6 +5,13 @@
 .after-journey button{cursor:pointer}
 #insights{--arrival-shift:100px;--arrival:0;position:relative;background:var(--ink);color:var(--paper);min-height:90svh;padding:14.4svh 5vw 12.8svh;isolation:isolate;scroll-margin-top:24px}
 #insights:before{content:'';position:absolute;inset:0 0 auto;height:16svh;background:radial-gradient(ellipse at 50% -90%,#147dff66,transparent 65%);z-index:-1}
+/* The opening's horizon faces upward here; this layer occupies no page height. */
+#insights[data-horizon-active=true]{background:var(--paper)}
+.editorial-horizon{position:absolute;left:0;right:0;top:calc(-1*var(--editorial-horizon-height,100svh));height:calc(2*var(--editorial-horizon-height,100svh));z-index:-1;pointer-events:none;overflow:hidden}
+.editorial-horizon-plane{position:absolute;left:0;right:0;bottom:var(--editorial-horizon-height,100svh);height:calc(3*var(--editorial-horizon-height,100svh));background:radial-gradient(ellipse max(calc(var(--editorial-horizon-width,100vw)*.9),calc(var(--editorial-horizon-height,100svh)*1.2)) var(--editorial-horizon-height,100svh) at 50% 0%,var(--pegasoft-horizon-colors));mask-image:radial-gradient(ellipse max(calc(var(--editorial-horizon-width,100vw)*.9),calc(var(--editorial-horizon-height,100svh)*1.2)) var(--editorial-horizon-height,100svh) at 50% 0%,#000 88%,transparent 100%);transform:translateY(var(--editorial-horizon-y,0px)) rotate(180deg)}
+.editorial-horizon:after{content:'';position:absolute;left:0;right:0;top:calc(var(--editorial-horizon-height,100svh)*.7 + var(--editorial-horizon-y,0px));bottom:0;background:linear-gradient(to bottom,transparent,var(--ink) calc(var(--editorial-horizon-height,100svh)*.3))}
+#insights[data-horizon-active=true] .editorial-horizon-plane{will-change:transform}
+#insights:not([data-horizon-active=true]) .editorial-horizon,#insights[data-horizon-reduced=true] .editorial-horizon{display:none}
 .editorial-heading{display:grid;grid-template-columns:20% 56% 24%;gap:0;overflow:hidden;padding-bottom:12px;margin-bottom:-12px}
 .editorial-heading h2{grid-column:2;font:750 clamp(32px,4.7vw,64px)/1.02 Manrope;letter-spacing:-.04em;max-width:650px;margin:0;transform:translateY(var(--arrival-shift));will-change:transform}
 .editorial-heading h2 span{color:#546371;display:block}

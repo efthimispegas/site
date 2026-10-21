@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-21",
+  "userRequest": "Bring up for review the loader animation with all its controls;re-review all loader elements intro/outro timing and settings.",
+  "status": "Completed: exact 21 October user-approved preset applied locally and verified",
+  "url": "http://127.0.0.1:8771/review/loader.html#viewer",
+  "controls": [
+    "Pause/restart",
+    "Frame backward/forward",
+    "1x/half/quarter speed",
+    "Timeline scrub",
+    "Reduced motion",
+    "Loading beat preview",
+    "Ring recession scales/end/fade",
+    "Mark fade",
+    "Nested pulse start/duration/bounce/settle",
+    "Loading beat period/amplitude",
+    "Aperture start/duration",
+    "Heading start/duration",
+    "Reset and preset output"
+  ],
+  "currentPreset": "user-approval.json",
+  "homepageHorizonFix": "../../homepage-opening-outcome/20261021/mobile-horizon/review.json",
+  "liveDraftSnapshot": "live-draft.json",
+  "liveDraftLimit": "Historical pre-approval snapshot;superseded by user-approval.json.",
+  "screenshot": "controls-live.jpg",
+  "verification": "approved-review.json"
+}
