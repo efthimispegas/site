@@ -1,0 +1,8 @@
+#opening-stage .counter-container{position:relative;display:inline-flex;align-items:flex-start;white-space:nowrap}
+#opening-stage .counter-counter{position:relative;display:flex;overflow:hidden;line-height:1}
+#opening-stage .counter-digit{position:relative;width:1ch;font-variant-numeric:tabular-nums;line-height:1}
+#opening-stage .counter-number{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;will-change:transform}
+#opening-stage .gradient-container{pointer-events:none;position:absolute;inset:0}
+#opening-stage .top-gradient{position:absolute;top:0;width:100%}
+#opening-stage .bottom-gradient{position:absolute;bottom:0;width:100%}
+#opening-stage .counter-suffix{font-size:.38em;margin-left:.10em;margin-top:.15em;line-height:1.1}
