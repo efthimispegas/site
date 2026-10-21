@@ -1,0 +1,47 @@
+{
+  "status": "Published and remotely verified",
+  "publishedAt": "2026-10-21",
+  "sourceCommit": "30d82698beb0c2b5b735cb60b37475a6513fd1b7",
+  "branch": "codex/pegasoft-concept",
+  "project": "pegasoft-solutions",
+  "deploymentId": "7c7bd420-ca4c-416e-90d3-76c34efd4aaa",
+  "url": "https://pegasoft-solutions.pages.dev/",
+  "immutableUrl": "https://7c7bd420.pegasoft-solutions.pages.dev/",
+  "method": "Direct Upload to existing Cloudflare Pages project",
+  "filesUploaded": 110,
+  "publicFilesVerified": 109,
+  "allPublicHashesMatch": true,
+  "checks": {
+    "nx": "Build, lint, 36 tests and required provenance checks passed; nx-final-checks.log",
+    "remote": "remote-verification.json",
+    "browser": "browser-check.json",
+    "immutableBuildInfo": "Source commit verified at immutable deployment URL"
+  },
+  "previewPolicy": "Existing noindex/nofollow/noarchive and nosniff headers preserved. This remains a development preview.",
+  "acceptance": "Publication does not close pending personal, content, legal, backend, physical-device, SEO or whole-site acceptance gates.",
+  "cleanup": {
+    "issue": "https://github.com/efthimispegas/site/issues/33",
+    "itemId": "PVTI_lAHOApdIvM4Bn4xJzhCaCLE",
+    "project": "https://github.com/users/efthimispegas/projects/1",
+    "status": "Blocked",
+    "duplicateCheck": {
+      "projectItems": 31,
+      "repositoryIssues": 9,
+      "equivalentTasks": 0
+    },
+    "blockedBy": [
+      "Open personal reviews",
+      "Audits #25–32",
+      "PC-014 production qualification",
+      "Evidence-bound build/provenance inputs"
+    ],
+    "action": "No evidence deletion or history rewrite performed."
+  },
+  "proof": [
+    "cloudflare-success.jpg",
+    "live-greek-desktop.jpg",
+    "live-english-desktop.jpg",
+    "live-lift.jpg",
+    "live-partners-horizon.jpg"
+  ]
+}
