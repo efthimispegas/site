@@ -1,0 +1,20 @@
+{
+  "errors": [],
+  "checks": [
+    "Outcome and counter reels render after startup",
+    "Slow model downloads do not extend opening; fast scroll holds at pending chapter without exposing warmup",
+    "Viewport rotation during preparation retains live journey",
+    "Refresh from journey resets to loader/top",
+    "Reduced-motion fallback unlocks immediately"
+  ],
+  "parity": [],
+  "desktopOpeningMs": 2898,
+  "slowModelOpeningMs": 2817,
+  "pending": {
+    "y": 4891,
+    "storyStart": 4891.40625,
+    "progress": 0,
+    "canvasVisibility": "not-created"
+  },
+  "passed": true
+}

@@ -1,0 +1,122 @@
+{
+  "errors": [],
+  "passes": [
+    {
+      "direction": 1,
+      "boundaries": [
+        {
+          "progress": 0,
+          "state": "true",
+          "trace": "Stacked pickup"
+        },
+        {
+          "progress": 0,
+          "state": "true",
+          "trace": "Stacked pickup"
+        },
+        {
+          "progress": 0,
+          "state": "true",
+          "trace": "Stacked pickup"
+        },
+        {
+          "progress": 0.10620910958630868,
+          "state": "true",
+          "trace": "Truck alignment"
+        },
+        {
+          "progress": 0.25248376018935914,
+          "state": "true",
+          "trace": "Downward road turn"
+        },
+        {
+          "progress": 0.3698154224456235,
+          "state": "true",
+          "trace": "Deck rises · road clears"
+        },
+        {
+          "progress": 0.47708349955452717,
+          "state": "true",
+          "trace": "Continuous vessel pullback"
+        },
+        {
+          "progress": 0.5843515766634308,
+          "state": "true",
+          "trace": "Continuous vessel pullback"
+        },
+        {
+          "progress": 0.7061434383629651,
+          "state": "true",
+          "trace": "Cloud layers · camera rises"
+        },
+        {
+          "progress": 0.8280389805321738,
+          "state": "true",
+          "trace": "Jet enters · ship still visible"
+        }
+      ],
+      "frames": 329,
+      "p95Gap": 16.799999999999272,
+      "maxGap": 199.90000000000055
+    },
+    {
+      "direction": -1,
+      "boundaries": [
+        {
+          "progress": 0.9255554142675408,
+          "state": "true",
+          "trace": "Jet crossing · trust reveal"
+        },
+        {
+          "progress": 0.803659872098332,
+          "state": "true",
+          "trace": "Cloud banks · central ship gap"
+        },
+        {
+          "progress": 0.6817643299291234,
+          "state": "true",
+          "trace": "First veil · ship recedes"
+        },
+        {
+          "progress": 0.5628979612416501,
+          "state": "true",
+          "trace": "Continuous vessel pullback"
+        },
+        {
+          "progress": 0.45562988413274647,
+          "state": "true",
+          "trace": "Continuous vessel pullback"
+        },
+        {
+          "progress": 0.34836180702384273,
+          "state": "true",
+          "trace": "Deck rises · road clears"
+        },
+        {
+          "progress": 0.22322883006874908,
+          "state": "true",
+          "trace": "Truck departure"
+        },
+        {
+          "progress": 0.07695417946569859,
+          "state": "true",
+          "trace": "Short reverse · camera reveal"
+        },
+        {
+          "progress": 0,
+          "state": "true",
+          "trace": "Stacked pickup"
+        },
+        {
+          "progress": 0,
+          "state": "true",
+          "trace": "Stacked pickup"
+        }
+      ],
+      "frames": 298,
+      "p95Gap": 16.799999999999272,
+      "maxGap": 16.80000000000109
+    }
+  ],
+  "status": "passed"
+}

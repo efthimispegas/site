@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-19",
+  "request": "First-mount animations lag/glitch; loading gets stuck on first website load. FAQ approved.",
+  "scope": "Cooperative scene initialization, shader preparation, visible-chapter scheduling and bounded initialization fallback. Preserve assets, geometry, materials, camera, motion equations and presets.",
+  "before": [
+    {
+      "path": "src/journey-host.js",
+      "sha256": "1a4cebfec00244ae85a07b718d919bdada21b84b526d826e2d423044a9b01846"
+    },
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "cde0e5a4fa0b425d8b39a2dbf688dfb1d02fa5a4079d891ed0dae6ab62ee58c2"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "88db6a0bb7fe8372ea69f6fd306b5a3c0b586714b8f014969d4a3526c36dd3a5"
+    },
+    {
+      "path": "review/ship-jet-scene.js",
+      "sha256": "2b7f1ae4398e549cfc5c29396c0b4d40be2396ba4c704da1d79d6c445ea59325"
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "ff9f6be876ad94862f8593967d765a4a671f1a735a77e73e1d998382c7153b9c"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "68e0ef8c5a160eb51fd8012570ed4db3508488bd73edb78f8d7cf138ad1a2728"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7"
+    },
+    {
+      "path": "review/ship-road.js",
+      "sha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94"
+    }
+  ]
+}

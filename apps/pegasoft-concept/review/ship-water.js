@@ -1,18 +1,24 @@
 import { assets } from "./runtime-assets.js";
+import oceanPosterUrl from '../src/assets/ocean-first-frame.png?url';
 import * as T from './vendor/three/build/three.module.js';
 export async function makeWater({scope,eventTarget=document,mediaParent=eventTarget.ownerDocument?.body||eventTarget.body,assetUrls=assets}={}){
  if(scope.disposed)throw new DOMException('Scene disposed','AbortError');
  const url=new URL(assetUrls["generation/ship-family/water-plate/ocean-motion.mp4"],import.meta.url).href;
- const videos=await Promise.all([0,1].map(()=>new Promise((resolve,reject)=>{
-  const v=document.createElement('video');v.src=url;v.muted=true;v.playsInline=true;v.preload='auto';v.setAttribute('aria-hidden','true');v.style.display='none';mediaParent.append(v);
-  scope.defer(()=>{v.onloadeddata=null;v.onerror=null;v.pause();v.removeAttribute('src');v.load();v.remove();});
-  const abort=()=>reject(new DOMException('Scene disposed','AbortError'));scope.signal.addEventListener('abort',abort,{once:true});scope.defer(()=>scope.signal.removeEventListener('abort',abort));
-  v.onloadeddata=()=>resolve(v);v.onerror=()=>reject(Error('Generated ocean clip could not load.'));v.load();
- })));
+ // A mobile browser may suppress loadeddata or autoplay. Later-chapter media
+ // must never hold the globe, loader or transport models behind that policy.
+ const poster=await new T.TextureLoader().loadAsync(oceanPosterUrl);
+ poster.wrapS=poster.wrapT=T.MirroredRepeatWrapping;poster.minFilter=T.LinearFilter;poster.magFilter=T.LinearFilter;
+ scope.defer(()=>poster.dispose());
  if(scope.disposed)throw new DOMException('Scene disposed','AbortError');
+ const videos=[0,1].map(()=>{
+  const v=document.createElement('video');v.muted=true;v.defaultMuted=true;v.playsInline=true;v.preload='auto';v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('aria-hidden','true');v.style.display='none';mediaParent.append(v);
+  scope.defer(()=>{v.pause();v.removeAttribute('src');v.load();v.remove();});
+  v.src=url;v.load();return v;
+ });
  const textures=videos.map(v=>{const t=new T.VideoTexture(v);t.wrapS=t.wrapT=T.MirroredRepeatWrapping;t.minFilter=T.LinearFilter;t.magFilter=T.LinearFilter;return t;});
+ scope.defer(()=>textures.forEach(t=>t.dispose()));
  let active=0,started=false;
- const uniforms={scale:{value:1},shipInverse:{value:new T.Matrix4()},plateA:{value:textures[0]},plateB:{value:textures[1]},blend:{value:0}};
+ const uniforms={scale:{value:1},shipInverse:{value:new T.Matrix4()},plateA:{value:poster},plateB:{value:poster},blend:{value:0}};
  const material=new T.ShaderMaterial({clipping:true,uniforms,vertexShader:`
  #include <common>
  #include <clipping_planes_pars_vertex>
@@ -53,16 +59,21 @@ export async function makeWater({scope,eventTarget=document,mediaParent=eventTar
  gl_FragColor=vec4(mix(sea,wake,foam),1.0);
  }`});
  const water=new T.Mesh(new T.PlaneGeometry(15000,15000),material);water.rotation.x=-Math.PI/2;water.frustumCulled=false;
- function resume(){if(!scope.disposed&&!started){videos[active].play().then(()=>{started=true;}).catch(()=>{});}}
- scope.listen(eventTarget,'pointerdown',resume);scope.listen(eventTarget,'keydown',resume);resume();
+ let starting=false;
+ function resume(){if(!scope.disposed&&!started&&!starting){starting=true;videos[active].play().then(()=>{if(!scope.disposed)started=true;}).catch(()=>{}).finally(()=>{starting=false;});}}
+ scope.listen(eventTarget,'pointerdown',resume);scope.listen(eventTarget,'touchend',resume,{passive:true});scope.listen(eventTarget,'keydown',resume);
+ for(const v of videos)scope.listen(v,'loadeddata',resume);
+ resume();
  water.userData.tick=()=>{
   const current=videos[active],next=videos[1-active],overlap=.8;
-  if(!started)return true;
-  if(current.currentTime>=current.duration-overlap){
+  uniforms.plateA.value=current.readyState>=2?textures[active]:poster;
+  uniforms.plateB.value=next.readyState>=2?textures[1-active]:uniforms.plateA.value;
+  if(!started||current.readyState<2)return true;
+  if(next.readyState>=2&&current.currentTime>=current.duration-overlap){
    if(next.paused)next.play().catch(()=>{});
    uniforms.blend.value=T.MathUtils.clamp((current.currentTime-current.duration+overlap)/overlap,0,1);
   }
-  if(current.ended){current.pause();current.currentTime=0;active=1-active;uniforms.plateA.value=textures[active];uniforms.plateB.value=textures[1-active];uniforms.blend.value=0;}
+  if(current.ended){current.pause();current.currentTime=0;if(next.readyState>=2)active=1-active;uniforms.plateA.value=videos[active].readyState>=2?textures[active]:poster;uniforms.plateB.value=videos[1-active].readyState>=2?textures[1-active]:uniforms.plateA.value;started=!videos[active].paused;uniforms.blend.value=0;resume();}
   water.userData.time=videos[active].currentTime;return true;
  };
  return water;

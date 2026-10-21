@@ -1,0 +1,324 @@
+{
+  "date": "2026-10-19",
+  "status": "Performance audit and scoped improvements technically verified; personal review pending",
+  "userAccepted": false,
+  "source": "source.json",
+  "sourceSha256": "8ff597462f1f2e59ff236b44174a16dc82c8aafddbcc43a18c3d0052febac44b",
+  "request": "request.json",
+  "reviewUrl": "http://127.0.0.1:8771/?revision=motion-performance-20261019",
+  "scope": "Opening/globe, lift, truck, highway, ship/water, clouds, jet, partners, Insights, CTA and footer. Desktop/mobile viewports at DPR2 plus a 4x CPU-slowdown stress run.",
+  "findings": [
+    "Truck service hoses regenerated and GPU geometry discarded repeatedly, including while rigidly travelling straight and in later chapters.",
+    "A redundant neutral truck pose rebuilt service lines before immediately applying departure articulation.",
+    "Independent clones of equivalent clip materials caused excessive renderer material/program-state work."
+  ],
+  "changes": [
+    "Retain identical truck service-line geometry during rigid travel; update when trailer-relative pose changes.",
+    "Avoid overwritten neutral departure pose; preserve the final approved steering/wheel transforms.",
+    "Cache four exact lift-hose endpoint attribute sets rather than repeatedly recomputing normals.",
+    "Clone each original clipping material once per scene setup; preserve all material properties, planes, textures and geometry."
+  ],
+  "checks": {
+    "buildLintTests": "nx.log",
+    "addedAttachmentContract": "contracts.log",
+    "dynamicLiftAttributeParity": "rig-parity.json",
+    "cameraAttachmentCloudJetParity": "frame-comparison.json",
+    "auditBefore": "before.json",
+    "auditAfter": "after.json"
+  },
+  "comparison": [
+    {
+      "config": {
+        "width": 1505,
+        "height": 749,
+        "dpr": 2,
+        "cpu": 1
+      },
+      "phases": [
+        {
+          "phase": "opening",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 0,
+          "afterUpdateP95Ms": 0,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        },
+        {
+          "phase": "lift",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 14.699999999254942,
+          "afterUpdateP95Ms": 13.5,
+          "beforeRenderP95Ms": 4.899999998509884,
+          "afterRenderP95Ms": 4.699999999254942
+        },
+        {
+          "phase": "truck",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 7.199999999254942,
+          "afterUpdateP95Ms": 2.199999999254942,
+          "beforeRenderP95Ms": 10.300000000745058,
+          "afterRenderP95Ms": 3.800000000745058
+        },
+        {
+          "phase": "highway",
+          "beforeP95GapMs": 33.29999999999927,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 8,
+          "afterUpdateP95Ms": 3.199999999254942,
+          "beforeRenderP95Ms": 14.5,
+          "afterRenderP95Ms": 3.400000000372529
+        },
+        {
+          "phase": "ship",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 8.200000001117587,
+          "afterUpdateP95Ms": 2,
+          "beforeRenderP95Ms": 2.900000000372529,
+          "afterRenderP95Ms": 2
+        },
+        {
+          "phase": "clouds",
+          "beforeP95GapMs": 33.39999999999782,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 6.599999999627471,
+          "afterUpdateP95Ms": 2,
+          "beforeRenderP95Ms": 2.400000000372529,
+          "afterRenderP95Ms": 1.900000000372529
+        },
+        {
+          "phase": "jet",
+          "beforeP95GapMs": 33.400000000001455,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 7.099999999627471,
+          "afterUpdateP95Ms": 2.5,
+          "beforeRenderP95Ms": 2.400000000372529,
+          "afterRenderP95Ms": 2.5
+        },
+        {
+          "phase": "partners",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 5.800000000745058,
+          "afterUpdateP95Ms": 3.599999999627471,
+          "beforeRenderP95Ms": 2.299999998882413,
+          "afterRenderP95Ms": 2
+        },
+        {
+          "phase": "insights",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 5.600000001490116,
+          "afterUpdateP95Ms": 3.700000001117587,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        },
+        {
+          "phase": "cta",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 5.5,
+          "afterUpdateP95Ms": 1.900000000372529,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        },
+        {
+          "phase": "footer",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 5.599999999627471,
+          "afterUpdateP95Ms": 1.900000000372529,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        }
+      ]
+    },
+    {
+      "config": {
+        "width": 390,
+        "height": 844,
+        "dpr": 2,
+        "cpu": 1
+      },
+      "phases": [
+        {
+          "phase": "opening",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.800000000000182,
+          "beforeUpdateP95Ms": 0,
+          "afterUpdateP95Ms": 0,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        },
+        {
+          "phase": "lift",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 13.699999999254942,
+          "afterUpdateP95Ms": 14.299999998882413,
+          "beforeRenderP95Ms": 4.899999998509884,
+          "afterRenderP95Ms": 4.100000001490116
+        },
+        {
+          "phase": "truck",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 6.099999999627471,
+          "afterUpdateP95Ms": 1.5,
+          "beforeRenderP95Ms": 11,
+          "afterRenderP95Ms": 3.400000000372529
+        },
+        {
+          "phase": "highway",
+          "beforeP95GapMs": 16.80000000000109,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 6.400000000372529,
+          "afterUpdateP95Ms": 3,
+          "beforeRenderP95Ms": 11.800000000745058,
+          "afterRenderP95Ms": 3.5
+        },
+        {
+          "phase": "ship",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.80000000000109,
+          "beforeUpdateP95Ms": 5.800000000745058,
+          "afterUpdateP95Ms": 2.400000000372529,
+          "beforeRenderP95Ms": 2,
+          "afterRenderP95Ms": 2.200000001117587
+        },
+        {
+          "phase": "clouds",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 5.600000001490116,
+          "afterUpdateP95Ms": 2,
+          "beforeRenderP95Ms": 1.700000001117587,
+          "afterRenderP95Ms": 2.199999999254942
+        },
+        {
+          "phase": "jet",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 6.099999999627471,
+          "afterUpdateP95Ms": 2,
+          "beforeRenderP95Ms": 2.099999999627471,
+          "afterRenderP95Ms": 2.199999999254942
+        },
+        {
+          "phase": "partners",
+          "beforeP95GapMs": 16.700000000000728,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 5.5,
+          "afterUpdateP95Ms": 2.100000001490116,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        },
+        {
+          "phase": "insights",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 5.300000000745058,
+          "afterUpdateP95Ms": 3.700000001117587,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        },
+        {
+          "phase": "cta",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 5.5,
+          "afterUpdateP95Ms": 2.5,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        },
+        {
+          "phase": "footer",
+          "beforeP95GapMs": 16.799999999999272,
+          "afterP95GapMs": 16.799999999999272,
+          "beforeUpdateP95Ms": 5.200000001117587,
+          "afterUpdateP95Ms": 1.700000001117587,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        }
+      ]
+    },
+    {
+      "config": {
+        "width": 1280,
+        "height": 900,
+        "dpr": 1,
+        "cpu": 4
+      },
+      "phases": [
+        {
+          "phase": "truck",
+          "beforeP95GapMs": 83.40000000000146,
+          "afterP95GapMs": 33.399999999999636,
+          "beforeUpdateP95Ms": 28.09999999962747,
+          "afterUpdateP95Ms": 8.400000000372529,
+          "beforeRenderP95Ms": 52.09999999962747,
+          "afterRenderP95Ms": 17.800000000745058
+        },
+        {
+          "phase": "jet",
+          "beforeP95GapMs": 50.100000000000364,
+          "afterP95GapMs": 33.400000000001455,
+          "beforeUpdateP95Ms": 30.199999999254942,
+          "afterUpdateP95Ms": 12.5,
+          "beforeRenderP95Ms": 12.400000000372529,
+          "afterRenderP95Ms": 13
+        },
+        {
+          "phase": "footer",
+          "beforeP95GapMs": 50.099999999998545,
+          "afterP95GapMs": 16.700000000000728,
+          "beforeUpdateP95Ms": 26.300000000745058,
+          "afterUpdateP95Ms": 6.899999998509884,
+          "beforeRenderP95Ms": 0,
+          "afterRenderP95Ms": 0
+        }
+      ]
+    }
+  ],
+  "evidenceHashes": [
+    {
+      "path": "before.json",
+      "sha256": "74cc920aa2dfd1626ae1a603953c22216a6db0c126e4e662dd47205b2a1ff11b"
+    },
+    {
+      "path": "after.json",
+      "sha256": "4b969e0805b8f485e418475a191c4373dcd308e7d4e245452a0b7b08f1f1814c"
+    },
+    {
+      "path": "rig-parity.json",
+      "sha256": "61540d44af72a83ea629ffcbf7a5b9672febf6924576e29e483bd0294b781a48"
+    },
+    {
+      "path": "frame-comparison.json",
+      "sha256": "39e82e78ca5d97c897df14fef278b4e1a807cee514c33a563ae9219cad5634fa"
+    },
+    {
+      "path": "nx.log",
+      "sha256": "4b66e383ffc09945851b863b9b359519e691a0533a21d0c92b3e2bc0ced09499"
+    },
+    {
+      "path": "contracts.log",
+      "sha256": "1001c34044a9c3f2696a0e8cd73ae4a1b166653bfb7e619e34eec85c15bdb3a7"
+    }
+  ],
+  "visualInspection": [
+    "after-frame-0.18.png",
+    "after-frame-0.93.png"
+  ],
+  "limits": [
+    "Headless Chrome on this host with viewport/DPR emulation, not measured physical mobile hardware. CPU4 is a stress scenario; its truck/jet p95 is ~33ms rather than a universal 60fps claim.",
+    "Synthetic continuous scroll audits are paired with prior genuine-wheel checks and transform/geometry contracts; personal laptop/trackpad review remains necessary.",
+    "Before graphics bytes are preserved in before-source; its manifest snapshot was captured after the unrelated Careers form edit. The audit comparison concerns unchanged graphics inputs and matching phase/viewport conditions.",
+    "No asset compression, pixel-ratio reduction, shorter timeline, added damping or changed camera/geometry/filter settings.",
+    "Whole-site release qualification and real content remain open."
+  ],
+  "next": "Review motion with normal trackpad/wheel input and Careers application. No commit/push/deployment or generation."
+}

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-19",
+  "status": "Implemented; Nx, mobile browser, fault, boundary, parity and final public build checks passed; personal phone review pending",
+  "userAccepted": false,
+  "request": "request.json",
+  "source": "source.json",
+  "build": "build-manifest.json",
+  "nx": "nx-final.log",
+  "runtime": "after-final.json",
+  "boundaries": "boundary-followup.json",
+  "motionParity": "boundaries.json",
+  "mediaFaultBefore": "before-media-fault.json",
+  "scriptFailure": "module-failure.json",
+  "public": "public-check.json",
+  "reviewUrl": "https://engaging-opposed-repair-clerk.trycloudflare.com/?revision=mobile-startup-20261019",
+  "changes": [
+    "Critical startup input lock before modules load; unlock after full aperture reveal, no skipped headline/CTA timing",
+    "Low-priority lossless compressed model prefetch; parse/build/warmup while hero/outcomes are readable; pending chapter holds at first frame",
+    "Ocean video no longer owns overall initialization; native-size lossless frame0 fallback from approved clip",
+    "Production minification; all original models/media unchanged",
+    "Resource deadlines bounded independently from the timed opening; script-fetch failure unlocks readable static fallback"
+  ],
+  "evidenceLimits": [
+    "Mobile browser viewports on desktop Chromium/WebKit; physical-phone confirmation remains pending",
+    "Camera/attachment traces at six positions match prior frozen build; no asset or motion redesign",
+    "Older devices without native decompression use original model URLs",
+    "Shared tunnel requires local computer/server/tunnel; no production release"
+  ],
+  "diagnostics": [
+    "after-overlap-diagnostic.json: test initially collided with native touch inertia; harness now stops inertia before controlled boundary captures",
+    "gzip-auto-decoding-diagnostic.json: .gz response was auto-decoded, causing raw fallback; fixed by opaque .gz.bin payloads",
+    "stale-preview-diagnostic.json: entry hash caught build/snapshot mismatch; republished final snapshot before final public check"
+  ],
+  "measurements": {
+    "beforeThrottledChromiumStartupMs": 7982,
+    "afterThrottledChromiumOpeningMs": 3287,
+    "publicMobileOpeningMs": 3475,
+    "publicTransportPreparedMs": 6249,
+    "note": "Opening readiness is now independent of later GPU/model preparation. Resource timings are browser/viewport measurements, not physical-phone benchmarks."
+  }
+}

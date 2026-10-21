@@ -1,0 +1,111 @@
+{
+  "errors": [],
+  "checks": [
+    "Outcome and counter reels render after startup",
+    "Slow model downloads do not extend opening; fast scroll holds at pending chapter without exposing warmup",
+    "Viewport rotation during preparation retains live journey",
+    "Refresh from journey resets to loader/top",
+    "Reduced-motion fallback unlocks immediately"
+  ],
+  "parity": [
+    {
+      "progress": 0,
+      "passed": true,
+      "keys": [
+        "camera",
+        "quaternion",
+        "target",
+        "cargoMatrix",
+        "hullScreen",
+        "clouds",
+        "jet",
+        "grabberMatrix",
+        "grabberScale"
+      ]
+    },
+    {
+      "progress": 0.18,
+      "passed": true,
+      "keys": [
+        "camera",
+        "quaternion",
+        "target",
+        "cargoMatrix",
+        "hullScreen",
+        "clouds",
+        "jet",
+        "grabberMatrix",
+        "grabberScale"
+      ]
+    },
+    {
+      "progress": 0.36,
+      "passed": true,
+      "keys": [
+        "camera",
+        "quaternion",
+        "target",
+        "cargoMatrix",
+        "shipMatrix",
+        "shipPosition",
+        "hullScreen",
+        "clouds",
+        "jet"
+      ]
+    },
+    {
+      "progress": 0.5,
+      "passed": true,
+      "keys": [
+        "camera",
+        "quaternion",
+        "target",
+        "cargoMatrix",
+        "shipMatrix",
+        "shipPosition",
+        "hullScreen",
+        "clouds",
+        "jet"
+      ]
+    },
+    {
+      "progress": 0.72,
+      "passed": true,
+      "keys": [
+        "camera",
+        "quaternion",
+        "target",
+        "cargoMatrix",
+        "shipMatrix",
+        "shipPosition",
+        "hullScreen",
+        "clouds",
+        "jet"
+      ]
+    },
+    {
+      "progress": 0.93,
+      "passed": true,
+      "keys": [
+        "camera",
+        "quaternion",
+        "target",
+        "cargoMatrix",
+        "shipMatrix",
+        "shipPosition",
+        "hullScreen",
+        "clouds",
+        "jet"
+      ]
+    }
+  ],
+  "desktopOpeningMs": 4034,
+  "slowModelOpeningMs": 3967,
+  "pending": {
+    "y": 4891,
+    "storyStart": 4891.40625,
+    "progress": 0,
+    "canvasVisibility": "hidden"
+  },
+  "passed": true
+}

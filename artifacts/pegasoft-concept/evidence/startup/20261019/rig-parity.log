@@ -1,0 +1,19 @@
+{"status":"failed","failure":"page.evaluate: Error: Frozen rig inaccessible\n    at eval (eval at evaluate (:302:30), <anonymous>:4:57)\n    at async <anonymous>:328:30\n    at /Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/startup/20261019/rig-parity.mjs:3:63"}
+Error: Command failed: "node" "/Users/whiskey/.codex/worktrees/pegasoft-concept/site/artifacts/pegasoft-concept/evidence/startup/20261019/rig-parity.mjs"
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:942:11)
+    at execSync (node:child_process:1014:15)
+    at /Users/whiskey/.codex/worktrees/pegasoft-concept/site/node_modules/.pnpm/nx@23.2.0_@swc-node+register@1.11.1_@swc+core@1.15.41_@swc+helpers@0.5.23__@swc+types@0_5b520c5bd2ff5ae9977c168395532ff3/node_modules/nx/dist/src/command-line/exec/exec.js:61:38
+    at Array.forEach (<anonymous>)
+    at runScriptAsNxTarget (/Users/whiskey/.codex/worktrees/pegasoft-concept/site/node_modules/.pnpm/nx@23.2.0_@swc-node+register@1.11.1_@swc+core@1.15.41_@swc+helpers@0.5.23__@swc+types@0_5b520c5bd2ff5ae9977c168395532ff3/node_modules/nx/dist/src/command-line/exec/exec.js:59:19)
+    at Object.nxExecCommand (/Users/whiskey/.codex/worktrees/pegasoft-concept/site/node_modules/.pnpm/nx@23.2.0_@swc-node+register@1.11.1_@swc+core@1.15.41_@swc+helpers@0.5.23__@swc+types@0_5b520c5bd2ff5ae9977c168395532ff3/node_modules/nx/dist/src/command-line/exec/exec.js:43:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async Object.handler (/Users/whiskey/.codex/worktrees/pegasoft-concept/site/node_modules/.pnpm/nx@23.2.0_@swc-node+register@1.11.1_@swc+core@1.15.41_@swc+helpers@0.5.23__@swc+types@0_5b520c5bd2ff5ae9977c168395532ff3/node_modules/nx/dist/src/command-line/exec/command-object.js:12:13) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 17752,
+  stdout: null,
+  stderr: null
+}

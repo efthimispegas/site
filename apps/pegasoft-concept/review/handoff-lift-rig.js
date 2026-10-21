@@ -1,7 +1,8 @@
 // Derived verbatim rig/accepted pickup from lift-container.js; do not edit approved source.
 // source sha256: 581754afb758ebeb44063a8c97ca39552f2b3b6923037c8423b561df82f0f2c1
+import {runInSlices} from '../src/cooperative-work.js';
 import {amendWheels} from './lift-wheels.js';
-import {amendCab} from './lift-cab.js';
+import {amendCabSteps} from './lift-cab.js';
 import {createContainerAttachment} from './lift-container-contact.js';
 import {motionAt,progressForFrame,settleWindow,motionSpanVH,reviewDuration} from './lift-motion-contract.js';
 export function createLiftRig(THREE,scene,camera,productionScene,attachmentOwnership,wheelOwnership,wordmarkTexture,viewport,pickupConfig={}){
@@ -11,13 +12,13 @@ export function createLiftRig(THREE,scene,camera,productionScene,attachmentOwner
  const $=id=>ui[id]||(ui[id]={value:'0',checked:false,textContent:'',style:{setProperty(){}},setAttribute(){}});
  scene.add(root);
 function role(x,y,z){if(x<-.62&&y>-.08)return 'spreader';if(x>.03&&x<.38&&y>-.31&&y<.19&&Math.abs(z)>.07&&Math.abs(z)<.17&&Math.abs(y-(1.475*x-.307))<.04)return `raising_ram_${z>0?'left':'right'}`;return 'chassis';}
-function split(mesh){const overrides=new Set();for(const[a,b]of attachmentOwnership.spreader_triangle_ranges_by_position_count[String(mesh.geometry.attributes.position.count)]||[])for(let i=a;i<=b;i++)overrides.add(i);const wheelRoles=new Map();for(const[label,ranges]of Object.entries(wheelOwnership.wheel_triangle_ranges_by_position_count[String(mesh.geometry.attributes.position.count)]||{}))for(const[a,b]of ranges)for(let i=a;i<=b;i++)wheelRoles.set(i,label);const g=mesh.geometry,p=g.attributes.position,index=g.index,groups=new Map();const count=index?index.count:p.count;for(let i=0;i<count;i+=3){const ids=[0,1,2].map(k=>index?index.getX(i+k):i+k),center=new THREE.Vector3();ids.forEach(id=>center.add(new THREE.Vector3().fromBufferAttribute(p,id).multiplyScalar(1/3)));const key=overrides.has(i/3)?'spreader':wheelRoles.get(i/3)||role(center.x,center.y,center.z);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(...ids);}const out=[];for(const[key,ids]of groups){const geometry=new THREE.BufferGeometry();for(const[name,a]of Object.entries(g.attributes)){const arr=[];ids.forEach(id=>{for(let k=0;k<a.itemSize;k++)arr.push(a.array[id*a.itemSize+k]);});geometry.setAttribute(name,new THREE.Float32BufferAttribute(arr,a.itemSize));}const piece=new THREE.Mesh(geometry,mesh.material);piece.name=key;partCounts[key]=(partCounts[key]||0)+ids.length/3;out.push(piece);}return out;}
+function* split(mesh){const overrides=new Set();for(const[a,b]of attachmentOwnership.spreader_triangle_ranges_by_position_count[String(mesh.geometry.attributes.position.count)]||[])for(let i=a;i<=b;i++)overrides.add(i);const wheelRoles=new Map();for(const[label,ranges]of Object.entries(wheelOwnership.wheel_triangle_ranges_by_position_count[String(mesh.geometry.attributes.position.count)]||{}))for(const[a,b]of ranges)for(let i=a;i<=b;i++)wheelRoles.set(i,label);const g=mesh.geometry,p=g.attributes.position,index=g.index,groups=new Map();const count=index?index.count:p.count;for(let i=0;i<count;i+=3){if(i%1536===0)yield;const ids=[0,1,2].map(k=>index?index.getX(i+k):i+k),center=new THREE.Vector3();ids.forEach(id=>center.add(new THREE.Vector3().fromBufferAttribute(p,id).multiplyScalar(1/3)));const key=overrides.has(i/3)?'spreader':wheelRoles.get(i/3)||role(center.x,center.y,center.z);if(!groups.has(key))groups.set(key,[]);groups.get(key).push(...ids);}const out=[];for(const[key,ids]of groups){const geometry=new THREE.BufferGeometry();for(const[name,a]of Object.entries(g.attributes)){const arr=[];for(let n=0;n<ids.length;n++){if(n%2048===0)yield;const id=ids[n];for(let k=0;k<a.itemSize;k++)arr.push(a.array[id*a.itemSize+k]);}geometry.setAttribute(name,new THREE.Float32BufferAttribute(arr,a.itemSize));}const piece=new THREE.Mesh(geometry,mesh.material);piece.name=key;partCounts[key]=(partCounts[key]||0)+ids.length/3;out.push(piece);}return out;}
 function rebased(mesh,center){mesh.geometry=mesh.geometry.clone();mesh.geometry.translate(-center.x,-center.y,-center.z);return mesh;}
-function capOpening(mesh,frontX){const g=mesh.geometry,p=g.attributes.position,n=g.attributes.normal,keep=[],center=new THREE.Vector3(frontX,.24086-.3173*frontX,0),axis=direction.clone();for(let i=0;i<p.count;i+=3){const c=new THREE.Vector3(),nn=new THREE.Vector3();for(let k=0;k<3;k++){c.add(new THREE.Vector3().fromBufferAttribute(p,i+k).multiplyScalar(1/3));nn.add(new THREE.Vector3().fromBufferAttribute(n,i+k));}if(Math.abs(c.clone().sub(center).dot(axis))<.00001&&Math.abs(nn.normalize().dot(axis))>.95)continue;keep.push(i,i+1,i+2);}const geo=new THREE.BufferGeometry();for(const[name,a]of Object.entries(g.attributes)){const arr=[];for(const i of keep)for(let k=0;k<a.itemSize;k++)arr.push(a.array[i*a.itemSize+k]);geo.setAttribute(name,new THREE.Float32BufferAttribute(arr,a.itemSize));}mesh.geometry=geo;}
+function* capOpening(mesh,frontX){const g=mesh.geometry,p=g.attributes.position,n=g.attributes.normal,keep=[],center=new THREE.Vector3(frontX,.24086-.3173*frontX,0),axis=direction.clone();for(let i=0;i<p.count;i+=3){if(i%1536===0)yield;const c=new THREE.Vector3(),nn=new THREE.Vector3();for(let k=0;k<3;k++){c.add(new THREE.Vector3().fromBufferAttribute(p,i+k).multiplyScalar(1/3));nn.add(new THREE.Vector3().fromBufferAttribute(n,i+k));}if(Math.abs(c.clone().sub(center).dot(axis))<.00001&&Math.abs(nn.normalize().dot(axis))>.95)continue;keep.push(i,i+1,i+2);}const geo=new THREE.BufferGeometry();for(const[name,a]of Object.entries(g.attributes)){const arr=[];for(const i of keep)for(let k=0;k<a.itemSize;k++)arr.push(a.array[i*a.itemSize+k]);geo.setAttribute(name,new THREE.Float32BufferAttribute(arr,a.itemSize));}mesh.geometry=geo;}
 function hiddenShaft(a,b,h,w,material,parent){const aa=new THREE.Vector3(a,.24086-.3173*a,0),bb=new THREE.Vector3(b,.24086-.3173*b,0),shaft=new THREE.Mesh(new THREE.BoxGeometry(aa.distanceTo(bb),h,w),material);shaft.position.copy(aa.add(bb).multiplyScalar(.5).sub(pivot));shaft.rotation.z=-Math.atan(.3173);shaft.name='Concealed telescope overlap';parent.add(shaft);}
 // Add faces to existing surfaces; never replace or move an original vertex.
 // Combine material partitions before finding gaps, so material seams aren't filled.
-function localizedFillings(){
+function* localizedFillings(){
  object.updateWorldMatrix(true,true);
  const groups=[],used=new Set(),add=(name,meshes)=>{if(!meshes.length)return;groups.push({name,meshes});meshes.forEach(m=>used.add(m));};
  add('chassis',object.children.filter(m=>m.isMesh&&m.name==='chassis'));
@@ -27,14 +28,14 @@ function localizedFillings(){
  object.traverse(m=>{if(m.isMesh&&!used.has(m))add(m.name||'authored_part',[m]);});
  const report=[],frameInverse=object.matrixWorld.clone().invert(),density=6/(.9408590198+.9435049891)*(12/.7);
  const vertexKey=p=>p.toArray().map(v=>Math.round(v*1e5)).join(',');
- for(const {name,meshes}of groups){
+ for(const {name,meshes}of groups){yield;
   // These mouths are intentional; the nested section and overlap sleeve cover them.
   if(['Boom_Main_Carbon_Shell','Boom_Middle_Carbon_Shell'].includes(name)){report.push({name,status:'intentional_telescope_mouth',added_triangles:0});continue;}
   const edges=new Map(),positions=new Map(),transforms=new Map(),patches=new Map();let sourceTriangles=0;
   for(const m of meshes){
    const matrix=frameInverse.clone().multiply(m.matrixWorld);transforms.set(m,matrix);patches.set(m,[]);
    const g=m.geometry,p=g.attributes.position,ix=g.index,uv=g.attributes.uv;
-   for(let i=0;i<(ix?ix.count:p.count);i+=3){
+   for(let i=0;i<(ix?ix.count:p.count);i+=3){if(i%768===0)yield;
     const ids=[0,1,2].map(k=>ix?ix.getX(i+k):i+k),pts=ids.map(id=>new THREE.Vector3().fromBufferAttribute(p,id).applyMatrix4(matrix)),keys=pts.map(vertexKey);
     sourceTriangles++;keys.forEach((key,k)=>{if(!positions.has(key))positions.set(key,pts[k]);});
     for(let k=0;k<3;k++){
@@ -49,7 +50,7 @@ function localizedFillings(){
   const boundary=[...edges.values()].filter(e=>e.uses.length%2===1),adj=new Map();
   for(const e of boundary)for(const v of [e.a,e.b]){if(!adj.has(v))adj.set(v,[]);adj.get(v).push(e);}
   const remaining=new Set(boundary.map(e=>e.key)),loops=[];
-  while(remaining.size){
+  while(remaining.size){yield;
    const initial=edges.get(remaining.values().next().value);let path=[initial.a],walk=[];
    while(path.length){
     const current=path[path.length-1],edge=(adj.get(current)||[]).find(e=>remaining.has(e.key));
@@ -59,7 +60,7 @@ function localizedFillings(){
    }
   }
   let added=0,degenerate=0;
-  for(const loop of loops){
+  for(const loop of loops){yield;
    if(loop.keys.length<3)continue;
    const center=loop.keys.reduce((p,k)=>p.add(positions.get(k)),new THREE.Vector3()).multiplyScalar(1/loop.keys.length);
    for(let k=0;k<loop.keys.length;k++){
@@ -124,13 +125,13 @@ function boomBranding(){
  stage.dataset.inscription=JSON.stringify({text:'PEGASOFT Solutions',color:'#B9E7FF',font:'Manrope upright 650',face:'right exterior main boom',model_z:.0657,width,height});
 }
 function cameraReset(){}
-function build(gltf){
+function* buildSteps(gltf){
  object=new THREE.Group();root.add(object);boom=new THREE.Group();boom.position.copy(pivot);object.add(boom);middle=new THREE.Group();inner=new THREE.Group();boom.add(middle);middle.add(inner);spreader=new THREE.Group();spreader.position.copy(joint.clone().sub(pivot));inner.add(spreader);
  const source=[];gltf.scene.traverse(n=>{if(n.isMesh)source.push(n);});let carbon;
- for(const mesh of source){if(mesh.material.name.includes('approved shared satin'))carbon=mesh.material;if([67979,100020].includes(mesh.geometry.attributes.position.count)){for(const piece of split(mesh)){if(piece.name==='spreader')spreader.add(rebased(piece,joint));else if(piece.name.includes('wheel')){const axle=wheelOwnership.axles[piece.name.startsWith('front')?'front':'rear'],z=piece.name.endsWith('left')?.20:-.20,c=new THREE.Vector3(axle.x,axle.y,z),group=new THREE.Group();group.position.copy(c);group.add(rebased(piece,c));object.add(group);wheels.push(group);}else if(piece.name.startsWith('raising_ram'))rams.push({source:piece,side:piece.name.endsWith('left')?1:-1});else object.add(piece);}continue;}
+ for(const mesh of source){yield;if(mesh.material.name.includes('approved shared satin'))carbon=mesh.material;if([67979,100020].includes(mesh.geometry.attributes.position.count)){for(const piece of (yield* split(mesh))){if(piece.name==='spreader')spreader.add(rebased(piece,joint));else if(piece.name.includes('wheel')){const axle=wheelOwnership.axles[piece.name.startsWith('front')?'front':'rear'],z=piece.name.endsWith('left')?.20:-.20,c=new THREE.Vector3(axle.x,axle.y,z),group=new THREE.Group();group.position.copy(c);group.add(rebased(piece,c));object.add(group);wheels.push(group);}else if(piece.name.startsWith('raising_ram'))rams.push({source:piece,side:piece.name.endsWith('left')?1:-1});else object.add(piece);}continue;}
   const name=mesh.name;mesh.geometry=mesh.geometry.clone();
-  if(name==='Boom_Main_Carbon_Shell'){capOpening(mesh,-.373);boom.add(rebased(mesh,pivot));}
-  else if(name==='Boom_Middle_Carbon_Shell'){capOpening(mesh,-.574);middle.add(rebased(mesh,pivot));}
+  if(name==='Boom_Main_Carbon_Shell'){yield* capOpening(mesh,-.373);boom.add(rebased(mesh,pivot));}
+  else if(name==='Boom_Middle_Carbon_Shell'){yield* capOpening(mesh,-.574);middle.add(rebased(mesh,pivot));}
   else if(name==='Boom_End_Carbon_Shell'||name==='Boom_Graphite_Front_Head')inner.add(rebased(mesh,pivot));
   else if(name==='End_telescopic_shoulder')middle.add(rebased(mesh,pivot));
   else if(name.startsWith('Boom_')||name==='Main_telescopic_shoulder'||name==='Pivot_Coverage_Repair')boom.add(rebased(mesh,pivot));
@@ -139,14 +140,14 @@ function build(gltf){
  }
  hiddenShaft(-.336,.01,.115,.109,carbon,middle);hiddenShaft(-.544,-.344,.103,.09,carbon,inner);
  for(const ram of rams){const base=new THREE.Vector3(.005,-.30,ram.side*.115),end=new THREE.Vector3(.325,.172,ram.side*.115),axis=end.clone().sub(base),length=axis.length(),q=new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,1,0),axis.clone().normalize());const orient=new THREE.Group();orient.position.copy(base);object.add(orient);const g=ram.source.geometry,p=g.attributes.position,groups=[[],[]];for(let i=0;i<p.count;i+=3){let t=0;for(let k=0;k<3;k++)t+=new THREE.Vector3().fromBufferAttribute(p,i+k).sub(base).dot(axis)/axis.lengthSq()/3;groups[t<.52?0:1].push(i,i+1,i+2);}const pieces=[];groups.forEach((ids,k)=>{const geo=new THREE.BufferGeometry();for(const[name,a]of Object.entries(g.attributes)){const data=[];ids.forEach(id=>{for(let z=0;z<a.itemSize;z++)data.push(a.array[id*a.itemSize+z]);});geo.setAttribute(name,new THREE.Float32BufferAttribute(data,a.itemSize));}geo.translate(-base.x,-base.y,-base.z);geo.applyQuaternion(q.clone().invert());if(k)geo.translate(0,-length*.52,0);const m=new THREE.Mesh(geo,ram.source.material);if(k)m.position.y=length*.52;orient.add(m);pieces.push(m);});Object.assign(ram,{orient,base,end,length,pieces});}
- localizedFillings();wheelVolumeAmendment(carbon);stage.dataset.cabAmendment=JSON.stringify(amendCab(THREE,object,carbon,rams));
+ yield* localizedFillings();yield;wheelVolumeAmendment(carbon);stage.dataset.cabAmendment=JSON.stringify(yield* amendCabSteps(THREE,object,carbon,rams));
  spreader.updateWorldMatrix(true,true);containerAttachment=createContainerAttachment(THREE,productionScene,spreader,carbon);load=containerAttachment.load;stage.dataset.productionFit=JSON.stringify(containerAttachment.profile);
 
  // Keep the accepted lift normalization independent of the larger C01 footprint.
  root.scale.setScalar(3.1840981746971435);object.position.set(.001322984504699698,.5612589448690415,.00012150406837463379);root.rotation.y=Math.PI;fitTarget.set(0,3,0);boomBranding();
  root.traverse(n=>{if(n.isMesh){n.castShadow=true;n.receiveShadow=true;}});cameraReset();
 }
-function apply(){if(!ready)return;const angle=-THREE.MathUtils.degToRad(Number($('#elevation').value)),ext=Number($('#middle').value),end=Number($('#inner').value),balance=THREE.MathUtils.degToRad(Number($('#balance').value));boom.rotation.z=angle;middle.position.copy(direction).multiplyScalar(ext);inner.position.copy(direction).multiplyScalar(end);spreader.rotation.z=-angle+balance;wheels.forEach(g=>g.rotation.z=THREE.MathUtils.degToRad(Number($('#wheel').value)));load.visible=$('#proxy').checked;for(const r of rams){const top=r.end.clone().sub(pivot).applyAxisAngle(new THREE.Vector3(0,0,1),angle).add(pivot),delta=top.sub(r.base),length=delta.length();r.orient.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),delta.normalize());r.pieces[1].scale.y=Math.max(.01,(length-r.length*.52)/(r.length*.48));}for(const h of hoses){const target=h.upper.clone().sub(pivot).applyAxisAngle(new THREE.Vector3(0,0,1),angle).add(pivot),delta=target.sub(h.upper),p=h.mesh.geometry.attributes.position;for(let i=0;i<p.count;i++){const y=h.base[i*3+1],t=THREE.MathUtils.smoothstep(y,h.min,h.max);p.setXYZ(i,h.base[i*3]+delta.x*t,y+delta.y*t,h.base[i*3+2]);}p.needsUpdate=true;h.mesh.geometry.computeVertexNormals();}
+function apply(){if(!ready)return;const angle=-THREE.MathUtils.degToRad(Number($('#elevation').value)),ext=Number($('#middle').value),end=Number($('#inner').value),balance=THREE.MathUtils.degToRad(Number($('#balance').value));boom.rotation.z=angle;middle.position.copy(direction).multiplyScalar(ext);inner.position.copy(direction).multiplyScalar(end);spreader.rotation.z=-angle+balance;wheels.forEach(g=>g.rotation.z=THREE.MathUtils.degToRad(Number($('#wheel').value)));load.visible=$('#proxy').checked;for(const r of rams){const top=r.end.clone().sub(pivot).applyAxisAngle(new THREE.Vector3(0,0,1),angle).add(pivot),delta=top.sub(r.base),length=delta.length();r.orient.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),delta.normalize());r.pieces[1].scale.y=Math.max(.01,(length-r.length*.52)/(r.length*.48));}for(const h of hoses){if(h.lastAngle===angle)continue;h.poseCache??=new Map();const cached=h.poseCache.get(angle);if(cached){h.mesh.geometry.attributes.position.array.set(cached.position);h.mesh.geometry.attributes.normal.array.set(cached.normal);h.mesh.geometry.attributes.position.needsUpdate=true;h.mesh.geometry.attributes.normal.needsUpdate=true;h.lastAngle=angle;continue;}const target=h.upper.clone().sub(pivot).applyAxisAngle(new THREE.Vector3(0,0,1),angle).add(pivot),delta=target.sub(h.upper),p=h.mesh.geometry.attributes.position;for(let i=0;i<p.count;i++){const y=h.base[i*3+1],t=THREE.MathUtils.smoothstep(y,h.min,h.max);p.setXYZ(i,h.base[i*3]+delta.x*t,y+delta.y*t,h.base[i*3+2]);}p.needsUpdate=true;h.mesh.geometry.computeVertexNormals();h.poseCache.set(angle,{position:p.array.slice(),normal:h.mesh.geometry.attributes.normal.array.slice()});if(h.poseCache.size>4)h.poseCache.delete(h.poseCache.keys().next().value);h.lastAngle=angle;}
  $('#elevation-value').textContent=`${$('#elevation').value}° above approved pose`;$('#middle-value').textContent=ext.toFixed(3);$('#inner-value').textContent=end.toFixed(3);$('#balance-value').textContent=`${$('#balance').value}°`;$('#wheel-value').textContent=`${$('#wheel').value}°`;$('#mechanical-readout').textContent=`${rams.length} ram surfaces · ${wheels.length} wheel surfaces\nInscription: main boom attached\nSettling: not calibrated`;stage.dataset.sourceTriangles=String(Object.values(partCounts).reduce((s,n)=>s+n,0));stage.dataset.elevation=$('#elevation').value;stage.dataset.middle=String(ext);stage.dataset.inner=String(end);}
 let integrationElevationOffset=0,integrationStackRoof=0;
 let motionProgress=0,motionPlaying=false,motionReverse=false,motionSpeed=1,motionFocus=false,motionRepeat=false,motionHome,payloadPose,groundPose,motionTarget,motionDistance,wheelRadius,motionSupport,motionWheelFocus=null,motionWheelAngle=0,motionCabFocus=null,motionVisibility=new Map(),cameraShot=null;
@@ -256,5 +257,7 @@ function motionTick(dt){
   return {elevation:Number($('#elevation').value),middle:Number($('#middle').value),base:object.position.clone()};
  }
  function clearHead(seat,u,retreat=.55){object.position.copy(seat.base);object.position.addScaledVector(new THREE.Vector3(Math.cos(object.rotation.y),0,-Math.sin(object.rotation.y)),retreat*u);$('#elevation').value=String(seat.elevation+7*u);$('#middle').value=String(.16-.06*u);$('#balance').value='0';$('#wheel').value=String(endpoint.wheel-(seat.base.clone().sub(endpoint.home).dot(new THREE.Vector3(Math.cos(object.rotation.y),0,-Math.sin(object.rotation.y)))+retreat*u)/wheelRadius*180/Math.PI);apply();root.updateMatrixWorld(true);}
- return {build,finishSetup,refreshEndpointCamera(){motionApply(1);Object.assign(endpoint.camera,JSON.parse(stage.dataset.camera));},pickup:motionApply,lowerTo,clearHead,endpoint,stage,root,wheels,get object(){return object},get spreader(){return spreader},get load(){return load},get attachment(){return containerAttachment},get payloadPose(){return payloadPose}};
+ function build(gltf){const steps=buildSteps(gltf);while(!steps.next().done){ /* synchronous comparison/legacy callers */ }}
+ function buildAsync(gltf,options){return runInSlices(buildSteps(gltf),options);}
+ return {build,buildAsync,finishSetup,refreshEndpointCamera(){motionApply(1);Object.assign(endpoint.camera,JSON.parse(stage.dataset.camera));},pickup:motionApply,lowerTo,clearHead,endpoint,stage,root,wheels,get object(){return object},get spreader(){return spreader},get load(){return load},get attachment(){return containerAttachment},get payloadPose(){return payloadPose}};
 }

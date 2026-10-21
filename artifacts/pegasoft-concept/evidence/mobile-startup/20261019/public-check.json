@@ -1,0 +1,19 @@
+{
+  "url": "https://engaging-opposed-repair-clerk.trycloudflare.com/?revision=mobile-startup-20261019",
+  "errors": [],
+  "models": [
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/container-family/model-draft/C01-container.glb.gz.bin",
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/lift-family/model-draft/model-carbon-unified.glb.gz.bin",
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/ship-family/model-draft/S01-ship.glb.gz.bin",
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/truck-family/model-draft/T01-truck.glb.gz.bin"
+  ],
+  "checks": [
+    "Public entry matches final production build",
+    "Genuine early touch swipe stays at top",
+    "All four models load via compressed static sidecars; no raw retry",
+    "Lift/truck, ship and jet render through public URL"
+  ],
+  "openingMs": 3475,
+  "transportReadyMs": 6249,
+  "passed": true
+}

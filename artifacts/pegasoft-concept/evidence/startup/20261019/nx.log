@@ -1,0 +1,45 @@
+
+ NX   Running targets build, lint, test for project @site/pegasoft-concept and 3 tasks it depends on:
+
+- @site/pegasoft-concept
+
+
+✔  nx run @site/pegasoft-concept:verify-website-motion
+✔  nx run @site/pegasoft-concept:verify-homepage
+✔  nx run @site/pegasoft-concept:verify-baseline
+✔  nx run @site/pegasoft-concept:test
+✔  nx run @site/pegasoft-concept:build
+
+> nx run @site/pegasoft-concept:lint
+
+> node tools/check-source.mjs
+
+{"status":"syntax_passed","files":79}
+> pnpm exec eslint tools vite.config.js eslint.config.mjs review/cloud-motion.js review/runtime-lifecycle.js review/ship-jet-controller.js review/ship-jet-scene.js review/ship-jet-inspection.js review/ship-jet-integration.js review/cloud-story-layers.js review/jet-crossing.js review/ship-water.js src review/cloud-story-sequence.js
+
+(node:17064) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:17066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+[0m[0m
+[0m[4m/Users/whiskey/.codex/worktrees/pegasoft-concept/site/apps/pegasoft-concept/src/cooperative-work.js[24m[0m
+[0m   [2m5:71[22m  [31merror[39m  'performance' is not defined   [2mno-undef[22m[0m
+[0m  [2m21:55[22m  [31merror[39m  'clearTimeout' is not defined  [2mno-undef[22m[0m
+[0m[0m
+[0m[31m[1m✖ 2 problems (2 errors, 0 warnings)[22m[39m[0m
+[0m[31m[1m[22m[39m[0m
+Warning: command "pnpm exec eslint tools vite.config.js eslint.config.mjs review/cloud-motion.js review/runtime-lifecycle.js review/ship-jet-controller.js review/ship-jet-scene.js review/ship-jet-inspection.js review/ship-jet-integration.js review/cloud-story-layers.js review/jet-crossing.js review/ship-water.js src review/cloud-story-sequence.js" exited with non-zero status code
+
+
+ NX   Running targets build, lint, test for project @site/pegasoft-concept and 3 tasks it depends on failed
+
+Failed tasks:
+
+- @site/pegasoft-concept:lint
+
+Output of 5 successful tasks were not shown. Run with --verbose or --output-style=static to see it.
+
+  Run duration:      3.3s
+  Cache:             0/5 hit (0%)
+  Critical path:     3.3s (1 task)
+  Recoverable time:  61ms (2% of the run)

@@ -1,0 +1,2717 @@
+[
+  {
+    "progress": 0.00009027777777777777,
+    "phase": "Stacked pickup",
+    "owner": "stack",
+    "distance": 40.897805164326236,
+    "target": [
+      0.044707851319425715,
+      2.8525900095276864,
+      -1.7860409897911917e-22
+    ],
+    "camera": [
+      0.044707851319425715,
+      6.316412908705312,
+      40.75085763738382
+    ],
+    "quaternion": [
+      -0.04238538595182566,
+      0,
+      0,
+      0.9991013357301223
+    ],
+    "pitch": 0.084796174523203,
+    "travel": 0,
+    "stackInView": true,
+    "stackOpacity": 1,
+    "truckScreen": [
+      1.9926207322154132,
+      -0.3439176054099524,
+      0.8134252367315455
+    ],
+    "truckPosition": [
+      15.63063752593066,
+      0,
+      -11.227279838880321
+    ],
+    "liftPosition": [
+      -2.390760442032336,
+      1.7871035818899597,
+      -0.00038688088233024113
+    ],
+    "contacts": [
+      {
+        "id": "corner_casting_-1_-1_-1",
+        "gap": 14.957284511588778
+      },
+      {
+        "id": "corner_casting_-1_-1_1",
+        "gap": 13.124929612997843
+      },
+      {
+        "id": "corner_casting_1_-1_-1",
+        "gap": 16.38853025837397
+      },
+      {
+        "id": "corner_casting_1_-1_1",
+        "gap": 14.735241478006845
+      }
+    ],
+    "cargoMatrix": [
+      -7.134125792889644e-17,
+      -4.017093282207487e-33,
+      -0.7164220893068574,
+      0,
+      -2.4980018054066023e-17,
+      0.7164220893068574,
+      -1.5295849576277525e-33,
+      0,
+      0.7164220893068574,
+      2.4980018054066023e-17,
+      -7.134125792889644e-17,
+      0,
+      2.5308548728160614,
+      2.074758370632667,
+      3.099734011136057e-16,
+      1
+    ],
+    "grabberScale": [
+      1,
+      1,
+      1
+    ],
+    "grabberMatrix": [
+      -3.1840981746971435,
+      0,
+      -3.899395637813787e-16,
+      0,
+      0,
+      3.1840981746971435,
+      0,
+      0,
+      3.899395637813787e-16,
+      0,
+      -3.1840981746971435,
+      0,
+      -0.5248577750620402,
+      5.4999664429733075,
+      -0.0003868808823300126,
+      1
+    ],
+    "stackVisible": true,
+    "ground": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17
+    ],
+    "acceptedCamera": [
+      0.044707851319425715,
+      5.773038165296043,
+      67.91809606230636
+    ],
+    "acceptedDistance": 68.1630086072104,
+    "framing": 0.6,
+    "liftAimHeight": 2.8525900095276864,
+    "chapter": "handoff",
+    "sourceShipProgress": -1,
+    "contentTravel": 0,
+    "cloudMotionProgress": 0,
+    "jetProgress": 0,
+    "hullScreen": {
+      "left": 640,
+      "right": 640,
+      "top": 0,
+      "bottom": 0
+    },
+    "roadRegistration": {
+      "active": false
+    },
+    "contextMatrices": [
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        2.5308548728160614,
+        7.993605777301127e-15,
+        3.099734011136057e-16,
+        1
+      ],
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        4.743166284595636,
+        8.070744073052083e-15,
+        -1.8125841228612837e-16,
+        1
+      ]
+    ],
+    "contextMatrix": [
+      -1.5907765977970664e-16,
+      -4.415292014772938e-33,
+      -0.7164220893068574,
+      0,
+      -2.4980018054066026e-17,
+      0.7164220893068574,
+      0,
+      0,
+      0.7164220893068574,
+      2.4980018054066026e-17,
+      -1.5907765977970664e-16,
+      0,
+      2.5308548728160614,
+      7.993605777301127e-15,
+      3.099734011136057e-16,
+      1
+    ],
+    "contextPoseResidual": 0,
+    "containerLayout": "original two-high C01 stack with one grounded container behind it",
+    "contextFinishes": [
+      {
+        "name": "Approved C01 lower stack context",
+        "paint": "#061e3b",
+        "panels": 26
+      },
+      {
+        "name": "Stationary rear Pegasoft C01",
+        "paint": "#147dff",
+        "panels": 26
+      }
+    ],
+    "truckDetails": {
+      "fairings": [
+        {
+          "name": "tractor_side_fairing_-1",
+          "rearEdge": 0.3750000035762797,
+          "wheelClearance": 0.035000000000001114
+        },
+        {
+          "name": "fairing_lower_blue_trim_-1",
+          "rearEdge": 0.3750000035762784,
+          "wheelClearance": 0.03499999999999978
+        },
+        {
+          "name": "tractor_side_fairing_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        },
+        {
+          "name": "fairing_lower_blue_trim_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        }
+      ],
+      "brakeDrums": 4,
+      "mounts": [
+        "rear_underrun_mount_-1",
+        "rear_underrun_mount_plate_-1",
+        "side_guard_chassis_hanger_-1_-1.68",
+        "side_guard_rail_outreach_-1_-1.68",
+        "side_guard_chassis_hanger_-1_-4",
+        "side_guard_rail_outreach_-1_-4",
+        "side_guard_chassis_hanger_-1_-6.32",
+        "side_guard_rail_outreach_-1_-6.32",
+        "rear_underrun_mount_1",
+        "rear_underrun_mount_plate_1",
+        "side_guard_chassis_hanger_1_-1.68",
+        "side_guard_rail_outreach_1_-1.68",
+        "side_guard_chassis_hanger_1_-4",
+        "side_guard_rail_outreach_1_-4",
+        "side_guard_chassis_hanger_1_-6.32",
+        "side_guard_rail_outreach_1_-6.32"
+      ],
+      "sourceAssetUnchanged": true
+    },
+    "c01Paint": [
+      "c5cdd6"
+    ],
+    "journeyProgress": 0.000027010944003404205,
+    "localTime": 0.0016927083333333332,
+    "clouds": [
+      {
+        "id": "K01",
+        "density": 1,
+        "softness": 0.13,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          -1.1,
+          -0.8
+        ],
+        "width": 1.9,
+        "densityWeight": 0.4,
+        "arrival": 0
+      },
+      {
+        "id": "K02",
+        "density": 0.8,
+        "softness": 0.65,
+        "opacity": 0.65,
+        "overrides": {},
+        "centre": [
+          -0.85,
+          0.75
+        ],
+        "width": 1.8,
+        "densityWeight": 0.48,
+        "arrival": 0
+      },
+      {
+        "id": "K03",
+        "density": 0.94,
+        "softness": 0.45,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          2.5,
+          2
+        ],
+        "width": 2,
+        "densityWeight": 0.34,
+        "arrival": 0
+      }
+    ],
+    "jet": {
+      "progress": 0,
+      "scale": 1,
+      "x": -1408,
+      "y": 90,
+      "edge": -842.24,
+      "reveal": 0,
+      "revealBoundary": [
+        [
+          -952.2844444444445,
+          0
+        ],
+        [
+          -947.2,
+          118.8
+        ],
+        [
+          -930.56,
+          147.6
+        ],
+        [
+          -910.0799999999999,
+          198
+        ],
+        [
+          -881.9200000000001,
+          270
+        ],
+        [
+          -867.84,
+          306
+        ],
+        [
+          -851.2,
+          363.6
+        ],
+        [
+          -842.24,
+          392.4
+        ],
+        [
+          -842.24,
+          507.59999999999997
+        ],
+        [
+          -857.6,
+          558
+        ],
+        [
+          -884.48,
+          630
+        ],
+        [
+          -911.36,
+          702
+        ],
+        [
+          -939.52,
+          774
+        ],
+        [
+          -954.88,
+          795.6
+        ],
+        [
+          -957.3784615384616,
+          900
+        ]
+      ],
+      "revealClip": "polygon(0px 0px, -952.2844444444445px 0px, -947.2px 118.8px, -930.56px 147.6px, -910.0799999999999px 198px, -881.9200000000001px 270px, -867.84px 306px, -851.2px 363.6px, -842.24px 392.4px, -842.24px 507.59999999999997px, -857.6px 558px, -884.48px 630px, -911.36px 702px, -939.52px 774px, -954.88px 795.6px, -957.3784615384616px 900px, 0px 900px)",
+      "revealComplete": false,
+      "shadowReceiver": "revealed trust only",
+      "shadow": {
+        "x": -8.04,
+        "y": 6.59,
+        "width": 105.64,
+        "height": 109.2,
+        "blur": 6.72,
+        "opacity": 41.03,
+        "visible": true
+      },
+      "footprint": {
+        "width": 1352.192,
+        "height": 786.24
+      },
+      "center": {
+        "x": -776.04,
+        "y": 456.59
+      },
+      "gentle": false
+    },
+    "copyLayout": {
+      "visible": false,
+      "entry": 0.6,
+      "rowSpacing": 0.363528,
+      "rowEntries": [
+        0.6705098039215686,
+        0.7560458039215686
+      ],
+      "titleY": 900,
+      "titleGap": 137.7,
+      "items": [
+        {
+          "side": "left",
+          "x": 140,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 780,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "left",
+          "x": 180,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 820,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "centre",
+          "x": 460,
+          "y": 1824.0504,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.8415818039215687,
+          "originCentre": 640,
+          "animated": true,
+          "visible": false,
+          "height": 91
+        }
+      ]
+    },
+    "roadCopy": {
+      "leftY": 924,
+      "rightY": 924,
+      "opacity": 1,
+      "visible": false
+    },
+    "servicesOpacity": 0
+  },
+  {
+    "progress": 0.6016458333333333,
+    "phase": "Truck departure",
+    "owner": "trailer",
+    "distance": 68.1630086072104,
+    "target": [
+      -7.092041094958361,
+      3.2466735517450037e-20,
+      -2.9569011780797103
+    ],
+    "camera": [
+      16.13731585467821,
+      5.773038165296041,
+      60.86523250949803
+    ],
+    "quaternion": [
+      -0.04174145669977262,
+      0.1734921262541318,
+      0.007360145030244036,
+      0.9839227414718775
+    ],
+    "pitch": 0.084796174523203,
+    "heading": 0,
+    "steering": 0,
+    "articulation": 0,
+    "travel": 0.007371011761638034,
+    "elevation": 8.552647053536958,
+    "stackInView": false,
+    "stackOpacity": 0,
+    "truckScreen": [
+      0.2643593499752058,
+      -9.298063595716076e-17,
+      0.8579377049454208
+    ],
+    "truckPosition": [
+      -4.560896707646381,
+      3.2466735517450037e-20,
+      -3.8781623936912357
+    ],
+    "liftPosition": [
+      -8.882376829459226,
+      1.7871035818899597,
+      -5.143188440694732
+    ],
+    "contacts": [
+      {
+        "id": "corner_casting_-1_-1_-1",
+        "gap": 0
+      },
+      {
+        "id": "corner_casting_-1_-1_1",
+        "gap": 0
+      },
+      {
+        "id": "corner_casting_1_-1_-1",
+        "gap": 1.1102230246251565e-16
+      },
+      {
+        "id": "corner_casting_1_-1_1",
+        "gap": 4.440892098500626e-16
+      }
+    ],
+    "cargoMatrix": [
+      0.6732165506896768,
+      4.404651161516414e-18,
+      -0.24503078566640646,
+      0,
+      4.404651161516404e-18,
+      0.7164220893068572,
+      2.4980018054066026e-17,
+      0,
+      0.24503078566640646,
+      -2.4980018054066026e-17,
+      0.6732165506896768,
+      0,
+      -7.9656894127594216,
+      0.9671698205642572,
+      -2.638919195183385,
+      1
+    ],
+    "grabberScale": [
+      1,
+      1,
+      1
+    ],
+    "grabberMatrix": [
+      -1.089025714072917,
+      0,
+      -2.9920735586207856,
+      0,
+      0,
+      3.1840981746971435,
+      0,
+      0,
+      2.9920735586207856,
+      0,
+      -1.0890257140729172,
+      0,
+      -8.049506583236536,
+      3.859944254946046,
+      -2.854896245862282,
+      1
+    ],
+    "stackVisible": false,
+    "ground": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17,
+      -5.551115123125783e-17
+    ],
+    "acceptedCamera": [
+      16.13731585467821,
+      5.773038165296041,
+      60.86523250949803
+    ],
+    "acceptedDistance": 68.1630086072104,
+    "framing": 1,
+    "liftAimHeight": 2.8525900095276864,
+    "chapter": "handoff",
+    "sourceShipProgress": -1,
+    "contentTravel": 0,
+    "cloudMotionProgress": 0,
+    "jetProgress": 0,
+    "hullScreen": {
+      "left": 640,
+      "right": 640,
+      "top": 0,
+      "bottom": 0
+    },
+    "roadRegistration": {
+      "active": false
+    },
+    "contextMatrices": [
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        2.5308548728160614,
+        7.993605777301127e-15,
+        3.099734011136057e-16,
+        1
+      ],
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        4.743166284595636,
+        8.070744073052083e-15,
+        -1.8125841228612837e-16,
+        1
+      ]
+    ],
+    "contextMatrix": [
+      -1.5907765977970664e-16,
+      -4.415292014772938e-33,
+      -0.7164220893068574,
+      0,
+      -2.4980018054066026e-17,
+      0.7164220893068574,
+      0,
+      0,
+      0.7164220893068574,
+      2.4980018054066026e-17,
+      -1.5907765977970664e-16,
+      0,
+      2.5308548728160614,
+      7.993605777301127e-15,
+      3.099734011136057e-16,
+      1
+    ],
+    "contextPoseResidual": 0,
+    "containerLayout": "original two-high C01 stack with one grounded container behind it",
+    "contextFinishes": [
+      {
+        "name": "Approved C01 lower stack context",
+        "paint": "#061e3b",
+        "panels": 26
+      },
+      {
+        "name": "Stationary rear Pegasoft C01",
+        "paint": "#147dff",
+        "panels": 26
+      }
+    ],
+    "truckDetails": {
+      "fairings": [
+        {
+          "name": "tractor_side_fairing_-1",
+          "rearEdge": 0.3750000035762797,
+          "wheelClearance": 0.035000000000001114
+        },
+        {
+          "name": "fairing_lower_blue_trim_-1",
+          "rearEdge": 0.3750000035762784,
+          "wheelClearance": 0.03499999999999978
+        },
+        {
+          "name": "tractor_side_fairing_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        },
+        {
+          "name": "fairing_lower_blue_trim_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        }
+      ],
+      "brakeDrums": 4,
+      "mounts": [
+        "rear_underrun_mount_-1",
+        "rear_underrun_mount_plate_-1",
+        "side_guard_chassis_hanger_-1_-1.68",
+        "side_guard_rail_outreach_-1_-1.68",
+        "side_guard_chassis_hanger_-1_-4",
+        "side_guard_rail_outreach_-1_-4",
+        "side_guard_chassis_hanger_-1_-6.32",
+        "side_guard_rail_outreach_-1_-6.32",
+        "rear_underrun_mount_1",
+        "rear_underrun_mount_plate_1",
+        "side_guard_chassis_hanger_1_-1.68",
+        "side_guard_rail_outreach_1_-1.68",
+        "side_guard_chassis_hanger_1_-4",
+        "side_guard_rail_outreach_1_-4",
+        "side_guard_chassis_hanger_1_-6.32",
+        "side_guard_rail_outreach_1_-6.32"
+      ],
+      "sourceAssetUnchanged": true
+    },
+    "c01Paint": [
+      "c5cdd6"
+    ],
+    "journeyProgress": 0.18001131966330233,
+    "localTime": 11.280859375,
+    "clouds": [
+      {
+        "id": "K01",
+        "density": 1,
+        "softness": 0.13,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          -1.1,
+          -0.8
+        ],
+        "width": 1.9,
+        "densityWeight": 0.4,
+        "arrival": 0
+      },
+      {
+        "id": "K02",
+        "density": 0.8,
+        "softness": 0.65,
+        "opacity": 0.65,
+        "overrides": {},
+        "centre": [
+          -0.85,
+          0.75
+        ],
+        "width": 1.8,
+        "densityWeight": 0.48,
+        "arrival": 0
+      },
+      {
+        "id": "K03",
+        "density": 0.94,
+        "softness": 0.45,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          2.5,
+          2
+        ],
+        "width": 2,
+        "densityWeight": 0.34,
+        "arrival": 0
+      }
+    ],
+    "jet": {
+      "progress": 0,
+      "scale": 1,
+      "x": -1408,
+      "y": 90,
+      "edge": -842.24,
+      "reveal": 0,
+      "revealBoundary": [
+        [
+          -952.2844444444445,
+          0
+        ],
+        [
+          -947.2,
+          118.8
+        ],
+        [
+          -930.56,
+          147.6
+        ],
+        [
+          -910.0799999999999,
+          198
+        ],
+        [
+          -881.9200000000001,
+          270
+        ],
+        [
+          -867.84,
+          306
+        ],
+        [
+          -851.2,
+          363.6
+        ],
+        [
+          -842.24,
+          392.4
+        ],
+        [
+          -842.24,
+          507.59999999999997
+        ],
+        [
+          -857.6,
+          558
+        ],
+        [
+          -884.48,
+          630
+        ],
+        [
+          -911.36,
+          702
+        ],
+        [
+          -939.52,
+          774
+        ],
+        [
+          -954.88,
+          795.6
+        ],
+        [
+          -957.3784615384616,
+          900
+        ]
+      ],
+      "revealClip": "polygon(0px 0px, -952.2844444444445px 0px, -947.2px 118.8px, -930.56px 147.6px, -910.0799999999999px 198px, -881.9200000000001px 270px, -867.84px 306px, -851.2px 363.6px, -842.24px 392.4px, -842.24px 507.59999999999997px, -857.6px 558px, -884.48px 630px, -911.36px 702px, -939.52px 774px, -954.88px 795.6px, -957.3784615384616px 900px, 0px 900px)",
+      "revealComplete": false,
+      "shadowReceiver": "revealed trust only",
+      "shadow": {
+        "x": -8.04,
+        "y": 6.59,
+        "width": 105.64,
+        "height": 109.2,
+        "blur": 6.72,
+        "opacity": 41.03,
+        "visible": true
+      },
+      "footprint": {
+        "width": 1352.192,
+        "height": 786.24
+      },
+      "center": {
+        "x": -776.04,
+        "y": 456.59
+      },
+      "gentle": false
+    },
+    "copyLayout": {
+      "visible": false,
+      "entry": 0.6,
+      "rowSpacing": 0.363528,
+      "rowEntries": [
+        0.6705098039215686,
+        0.7560458039215686
+      ],
+      "titleY": 900,
+      "titleGap": 137.7,
+      "items": [
+        {
+          "side": "left",
+          "x": 140,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 780,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "left",
+          "x": 180,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 820,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "centre",
+          "x": 460,
+          "y": 1824.0504,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.8415818039215687,
+          "originCentre": 640,
+          "animated": true,
+          "visible": false,
+          "height": 91
+        }
+      ]
+    },
+    "roadCopy": {
+      "leftY": 924,
+      "rightY": 924,
+      "opacity": 1,
+      "visible": false
+    },
+    "servicesOpacity": 0.0003826705419201232
+  },
+  {
+    "hullScreen": {
+      "left": 509.60429994747597,
+      "right": 728.8667923372326,
+      "top": -206.78508589353535,
+      "bottom": 1592.8538934896958
+    },
+    "progress": 0.19880642361111114,
+    "phase": "Deck rises · road clears",
+    "owner": "trailer",
+    "sourceProgress": 1,
+    "roadVisible": true,
+    "truckVisible": true,
+    "cutNDC": -0.9589932149169081,
+    "wipe": 0.09962091033705799,
+    "pull": 0,
+    "distance": 186.17021725844342,
+    "camera": [
+      328.92487995931236,
+      186.17012417334254,
+      36.46173136140685
+    ],
+    "quaternion": [
+      -0.6960159711688403,
+      0.12284918251991328,
+      0.12272639472106049,
+      0.696712335380145
+    ],
+    "target": [
+      328.861206005535,
+      0,
+      36.286788611196116
+    ],
+    "cargoMatrix": [
+      0.2450308092446231,
+      -2.966734959723138e-17,
+      0.6732165421079072,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.6732165421079072,
+      -9.091984062158749e-18,
+      0.2450308092446231,
+      0,
+      331.2974244727764,
+      0.9671698205642534,
+      42.98024420983053,
+      1
+    ],
+    "cargoScale": [
+      0.7164220893068571,
+      0.7164220893068572,
+      0.7164220893068571
+    ],
+    "cargoRoofNDC": [
+      -4.635898888610298e-9,
+      -0.36993044722878776,
+      0.9463645308839901
+    ],
+    "shipMatrix": [
+      0.24503080924462306,
+      -2.9667349597231373e-17,
+      0.673216542107907,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.673216542107907,
+      -9.091984062158747e-18,
+      0.24503080924462306,
+      0,
+      331.64376364614014,
+      -6.0652294080718585,
+      46.5899493630907,
+      1
+    ],
+    "ownershipMatrixResidual": 0,
+    "supportGap": 2.220446049250313e-16,
+    "travel": 21.595438465259612,
+    "shipPosition": [
+      331.64376364614014,
+      -6.0652294080718585,
+      46.5899493630907
+    ],
+    "seaY": -5.850302781279801,
+    "drawCalls": 0,
+    "chapter": "ship",
+    "sourceShipProgress": 0.19880642361111114,
+    "contentTravel": 0,
+    "cloudMotionProgress": 0,
+    "jetProgress": 0,
+    "roadRegistration": {
+      "active": true,
+      "rimRegion": "parallel_body",
+      "weight": 1,
+      "widthScale": 0.950267769236222,
+      "offset": -13.8488476279839,
+      "roadEdgesNDC": [
+        -0.2037094751469215,
+        0.1388312565724857
+      ],
+      "hullEdgesNDC": [
+        -0.20370947514693868,
+        0.1388312565724907
+      ],
+      "maxErrorNDC": 1.7180701306074297e-14
+    },
+    "contextMatrices": [
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        2.5308548728160614,
+        7.993605777301127e-15,
+        3.099734011136057e-16,
+        1
+      ],
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        4.743166284595636,
+        8.070744073052083e-15,
+        -1.8125841228612837e-16,
+        1
+      ]
+    ],
+    "contextMatrix": [
+      -1.5907765977970664e-16,
+      -4.415292014772938e-33,
+      -0.7164220893068574,
+      0,
+      -2.4980018054066026e-17,
+      0.7164220893068574,
+      0,
+      0,
+      0.7164220893068574,
+      2.4980018054066026e-17,
+      -1.5907765977970664e-16,
+      0,
+      2.5308548728160614,
+      7.993605777301127e-15,
+      3.099734011136057e-16,
+      1
+    ],
+    "contextPoseResidual": 0,
+    "containerLayout": "original two-high C01 stack with one grounded container behind it",
+    "contextFinishes": [
+      {
+        "name": "Approved C01 lower stack context",
+        "paint": "#061e3b",
+        "panels": 26
+      },
+      {
+        "name": "Stationary rear Pegasoft C01",
+        "paint": "#147dff",
+        "panels": 26
+      }
+    ],
+    "truckDetails": {
+      "fairings": [
+        {
+          "name": "tractor_side_fairing_-1",
+          "rearEdge": 0.3750000035762797,
+          "wheelClearance": 0.035000000000001114
+        },
+        {
+          "name": "fairing_lower_blue_trim_-1",
+          "rearEdge": 0.3750000035762784,
+          "wheelClearance": 0.03499999999999978
+        },
+        {
+          "name": "tractor_side_fairing_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        },
+        {
+          "name": "fairing_lower_blue_trim_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        }
+      ],
+      "brakeDrums": 4,
+      "mounts": [
+        "rear_underrun_mount_-1",
+        "rear_underrun_mount_plate_-1",
+        "side_guard_chassis_hanger_-1_-1.68",
+        "side_guard_rail_outreach_-1_-1.68",
+        "side_guard_chassis_hanger_-1_-4",
+        "side_guard_rail_outreach_-1_-4",
+        "side_guard_chassis_hanger_-1_-6.32",
+        "side_guard_rail_outreach_-1_-6.32",
+        "rear_underrun_mount_1",
+        "rear_underrun_mount_plate_1",
+        "side_guard_chassis_hanger_1_-1.68",
+        "side_guard_rail_outreach_1_-1.68",
+        "side_guard_chassis_hanger_1_-4",
+        "side_guard_rail_outreach_1_-4",
+        "side_guard_chassis_hanger_1_-6.32",
+        "side_guard_rail_outreach_1_-6.32"
+      ],
+      "sourceAssetUnchanged": true
+    },
+    "c01Paint": [
+      "c5cdd6"
+    ],
+    "journeyProgress": 0.36001502085521914,
+    "localTime": 4.373741319444445,
+    "clouds": [
+      {
+        "id": "K01",
+        "density": 1,
+        "softness": 0.13,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          -1.1,
+          -0.8
+        ],
+        "width": 1.9,
+        "densityWeight": 0.4,
+        "arrival": 0
+      },
+      {
+        "id": "K02",
+        "density": 0.8,
+        "softness": 0.65,
+        "opacity": 0.65,
+        "overrides": {},
+        "centre": [
+          -0.85,
+          0.75
+        ],
+        "width": 1.8,
+        "densityWeight": 0.48,
+        "arrival": 0
+      },
+      {
+        "id": "K03",
+        "density": 0.94,
+        "softness": 0.45,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          2.5,
+          2
+        ],
+        "width": 2,
+        "densityWeight": 0.34,
+        "arrival": 0
+      }
+    ],
+    "jet": {
+      "progress": 0,
+      "scale": 1,
+      "x": -1408,
+      "y": 90,
+      "edge": -842.24,
+      "reveal": 0,
+      "revealBoundary": [
+        [
+          -952.2844444444445,
+          0
+        ],
+        [
+          -947.2,
+          118.8
+        ],
+        [
+          -930.56,
+          147.6
+        ],
+        [
+          -910.0799999999999,
+          198
+        ],
+        [
+          -881.9200000000001,
+          270
+        ],
+        [
+          -867.84,
+          306
+        ],
+        [
+          -851.2,
+          363.6
+        ],
+        [
+          -842.24,
+          392.4
+        ],
+        [
+          -842.24,
+          507.59999999999997
+        ],
+        [
+          -857.6,
+          558
+        ],
+        [
+          -884.48,
+          630
+        ],
+        [
+          -911.36,
+          702
+        ],
+        [
+          -939.52,
+          774
+        ],
+        [
+          -954.88,
+          795.6
+        ],
+        [
+          -957.3784615384616,
+          900
+        ]
+      ],
+      "revealClip": "polygon(0px 0px, -952.2844444444445px 0px, -947.2px 118.8px, -930.56px 147.6px, -910.0799999999999px 198px, -881.9200000000001px 270px, -867.84px 306px, -851.2px 363.6px, -842.24px 392.4px, -842.24px 507.59999999999997px, -857.6px 558px, -884.48px 630px, -911.36px 702px, -939.52px 774px, -954.88px 795.6px, -957.3784615384616px 900px, 0px 900px)",
+      "revealComplete": false,
+      "shadowReceiver": "revealed trust only",
+      "shadow": {
+        "x": -8.04,
+        "y": 6.59,
+        "width": 105.64,
+        "height": 109.2,
+        "blur": 6.72,
+        "opacity": 41.03,
+        "visible": true
+      },
+      "footprint": {
+        "width": 1352.192,
+        "height": 786.24
+      },
+      "center": {
+        "x": -776.04,
+        "y": 456.59
+      },
+      "gentle": false
+    },
+    "copyLayout": {
+      "visible": false,
+      "entry": 0.6,
+      "rowSpacing": 0.363528,
+      "rowEntries": [
+        0.6705098039215686,
+        0.7560458039215686
+      ],
+      "titleY": 900,
+      "titleGap": 137.7,
+      "items": [
+        {
+          "side": "left",
+          "x": 140,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 780,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "left",
+          "x": 180,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 820,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "centre",
+          "x": 460,
+          "y": 1824.0504,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.8415818039215687,
+          "originCentre": 640,
+          "animated": true,
+          "visible": false,
+          "height": 91
+        }
+      ]
+    },
+    "roadCopy": {
+      "leftY": 72,
+      "rightY": -633.7628038194443,
+      "opacity": 1,
+      "visible": true
+    },
+    "servicesOpacity": 0
+  },
+  {
+    "hullScreen": {
+      "left": 551.9712531758385,
+      "right": 711.4018562718381,
+      "top": -106.96045700868318,
+      "bottom": 1201.6273245835023
+    },
+    "progress": 0.5975564236111112,
+    "phase": "Continuous vessel pullback",
+    "owner": "deck",
+    "sourceProgress": 1,
+    "roadVisible": false,
+    "truckVisible": false,
+    "cutNDC": 1.4,
+    "wipe": 1,
+    "pull": 0.44937779019140217,
+    "distance": 257.11596648882056,
+    "camera": [
+      367.57211929676686,
+      256.5150900996691,
+      143.83866075021888
+    ],
+    "quaternion": [
+      -0.6960159711688403,
+      0.12284918251991328,
+      0.12272639472106049,
+      0.696712335380145
+    ],
+    "target": [
+      367.4841804717135,
+      -0.6007478311789214,
+      143.59705081409143
+    ],
+    "cargoMatrix": [
+      0.24503080924462306,
+      -2.9667349597231373e-17,
+      0.673216542107907,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.673216542107907,
+      -9.091984062158747e-18,
+      0.24503080924462306,
+      0,
+      368.6699793353396,
+      0.9671698205642487,
+      145.66049480205268,
+      1
+    ],
+    "cargoScale": [
+      0.7164220893068571,
+      0.7164220893068572,
+      0.7164220893068571
+    ],
+    "cargoRoofNDC": [
+      0.010782667064904196,
+      -0.08786974028129033,
+      0.9615285110879499
+    ],
+    "shipMatrix": [
+      0.24503080924462306,
+      -2.9667349597231373e-17,
+      0.673216542107907,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.673216542107907,
+      -9.091984062158747e-18,
+      0.24503080924462306,
+      0,
+      369.0163185087033,
+      -6.065229408071863,
+      149.27019995531285,
+      1
+    ],
+    "ownershipMatrixResidual": 2.220446049250313e-16,
+    "supportGap": 0,
+    "travel": 130.86547881775894,
+    "shipPosition": [
+      369.0163185087033,
+      -6.065229408071863,
+      149.27019995531285
+    ],
+    "seaY": -5.850302781279805,
+    "drawCalls": 0,
+    "chapter": "ship",
+    "sourceShipProgress": 0.5975564236111112,
+    "contentTravel": 0,
+    "cloudMotionProgress": 0,
+    "jetProgress": 0,
+    "roadRegistration": {
+      "active": false
+    },
+    "contextMatrices": [
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        2.5308548728160614,
+        7.993605777301127e-15,
+        3.099734011136057e-16,
+        1
+      ],
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        4.743166284595636,
+        8.070744073052083e-15,
+        -1.8125841228612837e-16,
+        1
+      ]
+    ],
+    "contextMatrix": [
+      -1.5907765977970664e-16,
+      -4.415292014772938e-33,
+      -0.7164220893068574,
+      0,
+      -2.4980018054066026e-17,
+      0.7164220893068574,
+      0,
+      0,
+      0.7164220893068574,
+      2.4980018054066026e-17,
+      -1.5907765977970664e-16,
+      0,
+      2.5308548728160614,
+      7.993605777301127e-15,
+      3.099734011136057e-16,
+      1
+    ],
+    "contextPoseResidual": 0,
+    "containerLayout": "original two-high C01 stack with one grounded container behind it",
+    "contextFinishes": [
+      {
+        "name": "Approved C01 lower stack context",
+        "paint": "#061e3b",
+        "panels": 26
+      },
+      {
+        "name": "Stationary rear Pegasoft C01",
+        "paint": "#147dff",
+        "panels": 26
+      }
+    ],
+    "truckDetails": {
+      "fairings": [
+        {
+          "name": "tractor_side_fairing_-1",
+          "rearEdge": 0.3750000035762797,
+          "wheelClearance": 0.035000000000001114
+        },
+        {
+          "name": "fairing_lower_blue_trim_-1",
+          "rearEdge": 0.3750000035762784,
+          "wheelClearance": 0.03499999999999978
+        },
+        {
+          "name": "tractor_side_fairing_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        },
+        {
+          "name": "fairing_lower_blue_trim_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        }
+      ],
+      "brakeDrums": 4,
+      "mounts": [
+        "rear_underrun_mount_-1",
+        "rear_underrun_mount_plate_-1",
+        "side_guard_chassis_hanger_-1_-1.68",
+        "side_guard_rail_outreach_-1_-1.68",
+        "side_guard_chassis_hanger_-1_-4",
+        "side_guard_rail_outreach_-1_-4",
+        "side_guard_chassis_hanger_-1_-6.32",
+        "side_guard_rail_outreach_-1_-6.32",
+        "rear_underrun_mount_1",
+        "rear_underrun_mount_plate_1",
+        "side_guard_chassis_hanger_1_-1.68",
+        "side_guard_rail_outreach_1_-1.68",
+        "side_guard_chassis_hanger_1_-4",
+        "side_guard_rail_outreach_1_-4",
+        "side_guard_chassis_hanger_1_-6.32",
+        "side_guard_rail_outreach_1_-6.32"
+      ],
+      "sourceAssetUnchanged": true
+    },
+    "c01Paint": [
+      "c5cdd6"
+    ],
+    "journeyProgress": 0.49999986148233844,
+    "localTime": 13.146241319444446,
+    "clouds": [
+      {
+        "id": "K01",
+        "density": 1,
+        "softness": 0.13,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          -1.1,
+          -0.8
+        ],
+        "width": 1.9,
+        "densityWeight": 0.4,
+        "arrival": 0
+      },
+      {
+        "id": "K02",
+        "density": 0.8,
+        "softness": 0.65,
+        "opacity": 0.65,
+        "overrides": {},
+        "centre": [
+          -0.85,
+          0.75
+        ],
+        "width": 1.8,
+        "densityWeight": 0.48,
+        "arrival": 0
+      },
+      {
+        "id": "K03",
+        "density": 0.94,
+        "softness": 0.45,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          2.5,
+          2
+        ],
+        "width": 2,
+        "densityWeight": 0.34,
+        "arrival": 0
+      }
+    ],
+    "jet": {
+      "progress": 0,
+      "scale": 1,
+      "x": -1408,
+      "y": 90,
+      "edge": -842.24,
+      "reveal": 0,
+      "revealBoundary": [
+        [
+          -952.2844444444445,
+          0
+        ],
+        [
+          -947.2,
+          118.8
+        ],
+        [
+          -930.56,
+          147.6
+        ],
+        [
+          -910.0799999999999,
+          198
+        ],
+        [
+          -881.9200000000001,
+          270
+        ],
+        [
+          -867.84,
+          306
+        ],
+        [
+          -851.2,
+          363.6
+        ],
+        [
+          -842.24,
+          392.4
+        ],
+        [
+          -842.24,
+          507.59999999999997
+        ],
+        [
+          -857.6,
+          558
+        ],
+        [
+          -884.48,
+          630
+        ],
+        [
+          -911.36,
+          702
+        ],
+        [
+          -939.52,
+          774
+        ],
+        [
+          -954.88,
+          795.6
+        ],
+        [
+          -957.3784615384616,
+          900
+        ]
+      ],
+      "revealClip": "polygon(0px 0px, -952.2844444444445px 0px, -947.2px 118.8px, -930.56px 147.6px, -910.0799999999999px 198px, -881.9200000000001px 270px, -867.84px 306px, -851.2px 363.6px, -842.24px 392.4px, -842.24px 507.59999999999997px, -857.6px 558px, -884.48px 630px, -911.36px 702px, -939.52px 774px, -954.88px 795.6px, -957.3784615384616px 900px, 0px 900px)",
+      "revealComplete": false,
+      "shadowReceiver": "revealed trust only",
+      "shadow": {
+        "x": -8.04,
+        "y": 6.59,
+        "width": 105.64,
+        "height": 109.2,
+        "blur": 6.72,
+        "opacity": 41.03,
+        "visible": true
+      },
+      "footprint": {
+        "width": 1352.192,
+        "height": 786.24
+      },
+      "center": {
+        "x": -776.04,
+        "y": 456.59
+      },
+      "gentle": false
+    },
+    "copyLayout": {
+      "visible": false,
+      "entry": 0.6,
+      "rowSpacing": 0.363528,
+      "rowEntries": [
+        0.6705098039215686,
+        0.7560458039215686
+      ],
+      "titleY": 900,
+      "titleGap": 137.7,
+      "items": [
+        {
+          "side": "left",
+          "x": 140,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 780,
+          "y": 1169.7,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "left",
+          "x": 180,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 320,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 820,
+          "y": 1496.8752,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0,
+          "originCentre": 960,
+          "animated": true,
+          "visible": false,
+          "height": 145
+        },
+        {
+          "side": "centre",
+          "x": 460,
+          "y": 1824.0504,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.8415818039215687,
+          "originCentre": 640,
+          "animated": true,
+          "visible": false,
+          "height": 91
+        }
+      ]
+    },
+    "roadCopy": {
+      "leftY": 72,
+      "rightY": -2049.325303819448,
+      "opacity": 1,
+      "visible": true
+    },
+    "servicesOpacity": 0
+  },
+  {
+    "hullScreen": {
+      "left": 621.1525083096407,
+      "right": 658.847502527829,
+      "top": 295.2929980676476,
+      "bottom": 604.7181831517718
+    },
+    "progress": 0.3251076722756409,
+    "phase": "Cloud layers · camera rises",
+    "owner": "deck",
+    "sourceProgress": 1,
+    "roadVisible": false,
+    "truckVisible": false,
+    "cutNDC": 1.4,
+    "wipe": 1,
+    "pull": 1,
+    "distance": 1090.4307149097733,
+    "camera": [
+      400.03444133962864,
+      1089.0933260758147,
+      234.49179202715092
+    ],
+    "quaternion": [
+      -0.6960159711688403,
+      0.12284918251991328,
+      0.12272639472106049,
+      0.696712335380145
+    ],
+    "target": [
+      399.6614921323868,
+      -1.3368436186465829,
+      233.4671225016502
+    ],
+    "cargoMatrix": [
+      0.24503080924462306,
+      -2.9667349597231373e-17,
+      0.673216542107907,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.673216542107907,
+      -9.091984062158747e-18,
+      0.24503080924462306,
+      0,
+      399.31515295902307,
+      0.9671698205642452,
+      229.85741734839004,
+      1
+    ],
+    "cargoScale": [
+      0.7164220893068571,
+      0.7164220893068572,
+      0.7164220893068571
+    ],
+    "cargoRoofNDC": [
+      0.012563093657891688,
+      0.0690779975452515,
+      0.980333809323115
+    ],
+    "shipMatrix": [
+      0.24503080924462306,
+      -2.9667349597231373e-17,
+      0.673216542107907,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.673216542107907,
+      -9.091984062158747e-18,
+      0.24503080924462306,
+      0,
+      399.6614921323868,
+      -6.0652294080718665,
+      233.4671225016502,
+      1
+    ],
+    "ownershipMatrixResidual": 1.1102230246251565e-16,
+    "supportGap": 0,
+    "travel": 220.46597230244706,
+    "shipPosition": [
+      399.6614921323868,
+      -6.0652294080718665,
+      233.4671225016502
+    ],
+    "seaY": -5.850302781279809,
+    "drawCalls": 0,
+    "sourceShipProgress": 0.9245279947916666,
+    "contentTravel": 0.42263997395833325,
+    "time": 8.452799479166664,
+    "cloudProgress": 0.5282999674479165,
+    "cloudMotionProgress": 0.5282999674479165,
+    "jetProgress": 0,
+    "chapter": "crossing",
+    "roadRegistration": {
+      "active": false
+    },
+    "contextMatrices": [
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        2.5308548728160614,
+        7.993605777301127e-15,
+        3.099734011136057e-16,
+        1
+      ],
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        4.743166284595636,
+        8.070744073052083e-15,
+        -1.8125841228612837e-16,
+        1
+      ]
+    ],
+    "contextMatrix": [
+      -1.5907765977970664e-16,
+      -4.415292014772938e-33,
+      -0.7164220893068574,
+      0,
+      -2.4980018054066026e-17,
+      0.7164220893068574,
+      0,
+      0,
+      0.7164220893068574,
+      2.4980018054066026e-17,
+      -1.5907765977970664e-16,
+      0,
+      2.5308548728160614,
+      7.993605777301127e-15,
+      3.099734011136057e-16,
+      1
+    ],
+    "contextPoseResidual": 0,
+    "containerLayout": "original two-high C01 stack with one grounded container behind it",
+    "contextFinishes": [
+      {
+        "name": "Approved C01 lower stack context",
+        "paint": "#061e3b",
+        "panels": 26
+      },
+      {
+        "name": "Stationary rear Pegasoft C01",
+        "paint": "#147dff",
+        "panels": 26
+      }
+    ],
+    "truckDetails": {
+      "fairings": [
+        {
+          "name": "tractor_side_fairing_-1",
+          "rearEdge": 0.3750000035762797,
+          "wheelClearance": 0.035000000000001114
+        },
+        {
+          "name": "fairing_lower_blue_trim_-1",
+          "rearEdge": 0.3750000035762784,
+          "wheelClearance": 0.03499999999999978
+        },
+        {
+          "name": "tractor_side_fairing_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        },
+        {
+          "name": "fairing_lower_blue_trim_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        }
+      ],
+      "brakeDrums": 4,
+      "mounts": [
+        "rear_underrun_mount_-1",
+        "rear_underrun_mount_plate_-1",
+        "side_guard_chassis_hanger_-1_-1.68",
+        "side_guard_rail_outreach_-1_-1.68",
+        "side_guard_chassis_hanger_-1_-4",
+        "side_guard_rail_outreach_-1_-4",
+        "side_guard_chassis_hanger_-1_-6.32",
+        "side_guard_rail_outreach_-1_-6.32",
+        "rear_underrun_mount_1",
+        "rear_underrun_mount_plate_1",
+        "side_guard_chassis_hanger_1_-1.68",
+        "side_guard_rail_outreach_1_-1.68",
+        "side_guard_chassis_hanger_1_-4",
+        "side_guard_rail_outreach_1_-4",
+        "side_guard_chassis_hanger_1_-6.32",
+        "side_guard_rail_outreach_1_-6.32"
+      ],
+      "sourceAssetUnchanged": true
+    },
+    "c01Paint": [
+      "c5cdd6"
+    ],
+    "journeyProgress": 0.7199952045185569,
+    "localTime": 8.452799479166664,
+    "clouds": [
+      {
+        "id": "K01",
+        "density": 1,
+        "softness": 0.13,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          -0.6710553987971545,
+          0.045524979690834924
+        ],
+        "width": 1.8941190449523466,
+        "densityWeight": 0.4705714605718399,
+        "arrival": 1
+      },
+      {
+        "id": "K02",
+        "density": 0.8,
+        "softness": 0.65,
+        "opacity": 0.65,
+        "overrides": {},
+        "centre": [
+          -0.30623955515461004,
+          0.5113396534238867
+        ],
+        "width": 1.7529523596187735,
+        "densityWeight": 0.47529523596187734,
+        "arrival": 1
+      },
+      {
+        "id": "K03",
+        "density": 0.94,
+        "softness": 0.45,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          1.8452178596721986,
+          1.5319426066832618
+        ],
+        "width": 1.9941190449523467,
+        "densityWeight": 0.4176286066290239,
+        "arrival": 1
+      }
+    ],
+    "jet": {
+      "progress": 0,
+      "scale": 1,
+      "x": -1408,
+      "y": 90,
+      "edge": -842.24,
+      "reveal": 0,
+      "revealBoundary": [
+        [
+          -952.2844444444445,
+          0
+        ],
+        [
+          -947.2,
+          118.8
+        ],
+        [
+          -930.56,
+          147.6
+        ],
+        [
+          -910.0799999999999,
+          198
+        ],
+        [
+          -881.9200000000001,
+          270
+        ],
+        [
+          -867.84,
+          306
+        ],
+        [
+          -851.2,
+          363.6
+        ],
+        [
+          -842.24,
+          392.4
+        ],
+        [
+          -842.24,
+          507.59999999999997
+        ],
+        [
+          -857.6,
+          558
+        ],
+        [
+          -884.48,
+          630
+        ],
+        [
+          -911.36,
+          702
+        ],
+        [
+          -939.52,
+          774
+        ],
+        [
+          -954.88,
+          795.6
+        ],
+        [
+          -957.3784615384616,
+          900
+        ]
+      ],
+      "revealClip": "polygon(0px 0px, -952.2844444444445px 0px, -947.2px 118.8px, -930.56px 147.6px, -910.0799999999999px 198px, -881.9200000000001px 270px, -867.84px 306px, -851.2px 363.6px, -842.24px 392.4px, -842.24px 507.59999999999997px, -857.6px 558px, -884.48px 630px, -911.36px 702px, -939.52px 774px, -954.88px 795.6px, -957.3784615384616px 900px, 0px 900px)",
+      "revealComplete": false,
+      "shadowReceiver": "revealed trust only",
+      "shadow": {
+        "x": -8.04,
+        "y": 6.59,
+        "width": 105.64,
+        "height": 109.2,
+        "blur": 6.72,
+        "opacity": 41.03,
+        "visible": true
+      },
+      "footprint": {
+        "width": 1352.192,
+        "height": 786.24
+      },
+      "center": {
+        "x": -776.04,
+        "y": 456.59
+      },
+      "gentle": false
+    },
+    "copyLayout": {
+      "visible": true,
+      "entry": 0.6,
+      "rowSpacing": 0.363528,
+      "rowEntries": [
+        0.6705098039215686,
+        0.7560458039215686
+      ],
+      "titleY": -341.3195800781248,
+      "titleGap": 137.7,
+      "items": [
+        {
+          "side": "left",
+          "x": 232.9925083096407,
+          "y": -451.9955566406247,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 1,
+          "originCentre": 320,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 687.0075025278289,
+          "y": -451.9955566406247,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 1,
+          "originCentre": 960,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "left",
+          "x": 312.6766625232518,
+          "y": -124.82035664062471,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0.9976250858758638,
+          "originCentre": 320,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 687.3233482884798,
+          "y": -124.82035664062471,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 0.9976250858758638,
+          "originCentre": 960,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "centre",
+          "x": 460,
+          "y": 202.35484335937537,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.8415818039215687,
+          "originCentre": 640,
+          "animated": true,
+          "visible": true,
+          "height": 91
+        }
+      ]
+    },
+    "roadCopy": {
+      "leftY": 72,
+      "rightY": -1082.1322365785252,
+      "opacity": 1,
+      "visible": true
+    },
+    "servicesOpacity": 0
+  },
+  {
+    "hullScreen": {
+      "left": 630.4066444870268,
+      "right": 649.5933610292361,
+      "top": 371.25148747915904,
+      "bottom": 528.7514094544181
+    },
+    "progress": 0.8312508346688033,
+    "phase": "Jet crossing · trust reveal",
+    "owner": "deck",
+    "sourceProgress": 1,
+    "roadVisible": false,
+    "truckVisible": false,
+    "cutNDC": 1.4,
+    "wipe": 1,
+    "pull": 1,
+    "distance": 2142.2659847980412,
+    "camera": [
+      407.4677491394293,
+      2140.928070046492,
+      254.91463735895886
+    ],
+    "quaternion": [
+      -0.6960159711688403,
+      0.12284918251991328,
+      0.12272639472106049,
+      0.696712335380145
+    ],
+    "target": [
+      406.7350511423833,
+      -1.3368436186466397,
+      252.9015661567955
+    ],
+    "cargoMatrix": [
+      0.24503080924462306,
+      -2.9667349597231373e-17,
+      0.673216542107907,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.673216542107907,
+      -9.091984062158747e-18,
+      0.24503080924462306,
+      0,
+      406.3887119690196,
+      0.9671698205642443,
+      249.29186100353533,
+      1
+    ],
+    "cargoScale": [
+      0.7164220893068571,
+      0.7164220893068572,
+      0.7164220893068571
+    ],
+    "cargoRoofNDC": [
+      0.01144964318123369,
+      0.06295570542614236,
+      0.9821654709735214
+    ],
+    "shipMatrix": [
+      0.24503080924462306,
+      -2.9667349597231373e-17,
+      0.673216542107907,
+      0,
+      1.6031619151180144e-18,
+      0.7164220893068572,
+      3.098783113070046e-17,
+      0,
+      -0.673216542107907,
+      -9.091984062158747e-18,
+      0.24503080924462306,
+      0,
+      406.7350511423833,
+      -6.065229408071867,
+      252.9015661567955,
+      1
+    ],
+    "ownershipMatrixResidual": 1.1102230246251565e-16,
+    "supportGap": 0,
+    "travel": 241.14767526068817,
+    "shipPosition": [
+      406.7350511423833,
+      -6.065229408071867,
+      252.9015661567955
+    ],
+    "seaY": -5.85030278127981,
+    "drawCalls": 0,
+    "sourceShipProgress": 1,
+    "contentTravel": 0.8,
+    "time": 21.612521701388886,
+    "cloudProgress": 1,
+    "cloudMotionProgress": 1.3507826063368054,
+    "jetProgress": 0.6343768084490738,
+    "chapter": "crossing",
+    "roadRegistration": {
+      "active": false
+    },
+    "contextMatrices": [
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        2.5308548728160614,
+        7.993605777301127e-15,
+        3.099734011136057e-16,
+        1
+      ],
+      [
+        -1.5907765977970664e-16,
+        -4.415292014772938e-33,
+        -0.7164220893068574,
+        0,
+        -2.4980018054066026e-17,
+        0.7164220893068574,
+        0,
+        0,
+        0.7164220893068574,
+        2.4980018054066026e-17,
+        -1.5907765977970664e-16,
+        0,
+        4.743166284595636,
+        8.070744073052083e-15,
+        -1.8125841228612837e-16,
+        1
+      ]
+    ],
+    "contextMatrix": [
+      -1.5907765977970664e-16,
+      -4.415292014772938e-33,
+      -0.7164220893068574,
+      0,
+      -2.4980018054066026e-17,
+      0.7164220893068574,
+      0,
+      0,
+      0.7164220893068574,
+      2.4980018054066026e-17,
+      -1.5907765977970664e-16,
+      0,
+      2.5308548728160614,
+      7.993605777301127e-15,
+      3.099734011136057e-16,
+      1
+    ],
+    "contextPoseResidual": 0,
+    "containerLayout": "original two-high C01 stack with one grounded container behind it",
+    "contextFinishes": [
+      {
+        "name": "Approved C01 lower stack context",
+        "paint": "#061e3b",
+        "panels": 26
+      },
+      {
+        "name": "Stationary rear Pegasoft C01",
+        "paint": "#147dff",
+        "panels": 26
+      }
+    ],
+    "truckDetails": {
+      "fairings": [
+        {
+          "name": "tractor_side_fairing_-1",
+          "rearEdge": 0.3750000035762797,
+          "wheelClearance": 0.035000000000001114
+        },
+        {
+          "name": "fairing_lower_blue_trim_-1",
+          "rearEdge": 0.3750000035762784,
+          "wheelClearance": 0.03499999999999978
+        },
+        {
+          "name": "tractor_side_fairing_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        },
+        {
+          "name": "fairing_lower_blue_trim_1",
+          "rearEdge": 0.37500000357627794,
+          "wheelClearance": 0.034999999999999226
+        }
+      ],
+      "brakeDrums": 4,
+      "mounts": [
+        "rear_underrun_mount_-1",
+        "rear_underrun_mount_plate_-1",
+        "side_guard_chassis_hanger_-1_-1.68",
+        "side_guard_rail_outreach_-1_-1.68",
+        "side_guard_chassis_hanger_-1_-4",
+        "side_guard_rail_outreach_-1_-4",
+        "side_guard_chassis_hanger_-1_-6.32",
+        "side_guard_rail_outreach_-1_-6.32",
+        "rear_underrun_mount_1",
+        "rear_underrun_mount_plate_1",
+        "side_guard_chassis_hanger_1_-1.68",
+        "side_guard_rail_outreach_1_-1.68",
+        "side_guard_chassis_hanger_1_-4",
+        "side_guard_rail_outreach_1_-4",
+        "side_guard_chassis_hanger_1_-6.32",
+        "side_guard_rail_outreach_1_-6.32"
+      ],
+      "sourceAssetUnchanged": true
+    },
+    "c01Paint": [
+      "c5cdd6"
+    ],
+    "journeyProgress": 0.9299879794373301,
+    "localTime": 21.612521701388886,
+    "clouds": [
+      {
+        "id": "K01",
+        "density": 1,
+        "softness": 0.13,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          0.11138864954080116,
+          -0.6553201261812941
+        ],
+        "width": 1.85,
+        "densityWeight": 1,
+        "arrival": 1
+      },
+      {
+        "id": "K02",
+        "density": 0.8,
+        "softness": 0.65,
+        "opacity": 0.65,
+        "overrides": {},
+        "centre": [
+          0.5460923690518378,
+          0.15356305237926474
+        ],
+        "width": 1.4,
+        "densityWeight": 0.44,
+        "arrival": 1
+      },
+      {
+        "id": "K03",
+        "density": 0.94,
+        "softness": 0.45,
+        "opacity": 1,
+        "overrides": {},
+        "centre": [
+          0.7112473474904968,
+          1.0038209421592583
+        ],
+        "width": 1.95,
+        "densityWeight": 1,
+        "arrival": 1
+      }
+    ],
+    "jet": {
+      "progress": 0.6343768084490738,
+      "scale": 1.1903130425347221,
+      "x": 414.9451967592586,
+      "y": 21.4873046875,
+      "edge": 1088.376703703703,
+      "reveal": 0.850294299768518,
+      "revealBoundary": [
+        [
+          961.0546544495877,
+          0
+        ],
+        [
+          963.4414467592585,
+          55.7683203125
+        ],
+        [
+          983.2482557870363,
+          90.0493359375
+        ],
+        [
+          1007.6258668981475,
+          150.04111328125
+        ],
+        [
+          1041.1450821759252,
+          235.74365234375
+        ],
+        [
+          1057.904689814814,
+          278.594921875
+        ],
+        [
+          1077.711498842592,
+          347.15695312500003
+        ],
+        [
+          1088.376703703703,
+          381.43796875
+        ],
+        [
+          1088.376703703703,
+          518.56203125
+        ],
+        [
+          1070.0934953703695,
+          578.55380859375
+        ],
+        [
+          1038.0978807870363,
+          664.25634765625
+        ],
+        [
+          1006.1022662037029,
+          749.95888671875
+        ],
+        [
+          972.5830509259252,
+          835.6614257812499
+        ],
+        [
+          954.2998425925919,
+          861.3721875
+        ],
+        [
+          953.3754163105406,
+          900
+        ]
+      ],
+      "revealClip": "polygon(0px 0px, 961.0546544495877px 0px, 963.4414467592585px 55.7683203125px, 983.2482557870363px 90.0493359375px, 1007.6258668981475px 150.04111328125px, 1041.1450821759252px 235.74365234375px, 1057.904689814814px 278.594921875px, 1077.711498842592px 347.15695312500003px, 1088.376703703703px 381.43796875px, 1088.376703703703px 518.56203125px, 1070.0934953703695px 578.55380859375px, 1038.0978807870363px 664.25634765625px, 1006.1022662037029px 749.95888671875px, 972.5830509259252px 835.6614257812499px, 954.2998425925919px 861.3721875px, 953.3754163105406px 900px, 0px 900px)",
+      "revealComplete": false,
+      "shadowReceiver": "revealed trust only",
+      "shadow": {
+        "x": -8.04,
+        "y": 6.59,
+        "width": 105.64,
+        "height": 109.2,
+        "blur": 6.72,
+        "opacity": 41.03,
+        "visible": true
+      },
+      "footprint": {
+        "width": 1609.531773611111,
+        "height": 935.8717265624999
+      },
+      "center": {
+        "x": 1168.7055439814808,
+        "y": 456.59
+      },
+      "gentle": false
+    },
+    "copyLayout": {
+      "visible": true,
+      "entry": 0.6,
+      "rowSpacing": 0.363528,
+      "rowEntries": [
+        0.6705098039215686,
+        0.7560458039215686
+      ],
+      "titleY": -630,
+      "titleGap": 137.7,
+      "items": [
+        {
+          "side": "left",
+          "x": 242.24664448702686,
+          "y": -1080.3,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 1,
+          "originCentre": 320,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 677.7533610292361,
+          "y": -1080.3,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.6705098039215686,
+          "close": 1,
+          "originCentre": 960,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "left",
+          "x": 322.24664448702686,
+          "y": -753.1248,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 1,
+          "originCentre": 320,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "right",
+          "x": 677.7533610292361,
+          "y": -753.1248,
+          "width": 280,
+          "hullGap": 28.159999999999997,
+          "entry": 0.7560458039215686,
+          "close": 1,
+          "originCentre": 960,
+          "animated": true,
+          "visible": true,
+          "height": 145
+        },
+        {
+          "side": "centre",
+          "x": 460,
+          "y": -425.9496,
+          "width": 360,
+          "hullGap": 28.159999999999997,
+          "entry": 0.8415818039215687,
+          "originCentre": 640,
+          "animated": true,
+          "visible": true,
+          "height": 91
+        }
+      ]
+    },
+    "roadCopy": {
+      "leftY": 72,
+      "rightY": -2878.9404630742547,
+      "opacity": 1,
+      "visible": true
+    },
+    "servicesOpacity": 0
+  }
+]

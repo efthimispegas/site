@@ -1,10 +1,13 @@
+import {fetchModelBytes} from './model-download.js';
+import {assets} from '../review/runtime-assets.js';
 import {createShipJetController} from '../review/ship-jet-controller.js';
 import {loadShipJetScene} from '../review/ship-jet-scene.js';
 import {gates,ease,storySpanScale,roadContentLayout} from '../review/handoff-sequence.js';
 import {createTransportSequence} from './transport-sequence.js';
 
 export function createTransportController({root,stage}){
-  const controller=createShipJetController({root,stage,contentSpacing:.85,loadScene:params=>loadShipJetScene({...params,alpha:true,pickupConfig:{addBehind:true},sequenceFactory:createTransportSequence})});
+  let modelBuffers;
+  const controller=createShipJetController({root,stage,prepareVariants:true,contentSpacing:.85,loadScene:params=>loadShipJetScene({...params,modelBuffers,alpha:true,pickupConfig:{addBehind:true},sequenceFactory:createTransportSequence})});
   function update(input){
     const r=controller.update(input);if(!r)return;
     const $=selector=>root.querySelector(selector),p=r.progress,h=stage.clientHeight;
@@ -23,6 +26,15 @@ export function createTransportController({root,stage}){
     r.roadCopy=road;r.servicesOpacity=services;
     stage.dataset.motion=JSON.stringify(r);return r;
   }
-  return {...controller,mount:()=>controller.mount(),update,resize(){controller.resize();if(controller.trace)update();},render:()=>controller.render(),tick:t=>controller.tick(t),dispose:()=>controller.dispose(),
+  function preload({signal}={}){
+    if(modelBuffers)return;
+    modelBuffers=new Map(Object.entries(assets).filter(([key])=>key.endsWith('.glb')).map(([,url])=>{
+      const bytes=fetchModelBytes(url,{signal});
+      // Errors remain observable by the model loader; background prefetch never
+      // creates an unhandled rejection or owns a frame/scroll clock.
+      bytes.catch(()=>{});return [url,bytes];
+    }));
+  }
+  return {...controller,preload,mount:()=>controller.mount(),update,resize(){controller.resize();if(controller.trace)update();},render:()=>controller.render(),tick:t=>controller.tick(t),dispose:()=>controller.dispose(),
     get dirty(){return controller.dirty},get trace(){return controller.trace},get state(){return controller.state}};
 }

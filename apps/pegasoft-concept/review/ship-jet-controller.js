@@ -1,3 +1,4 @@
+import {runInSlices,yieldToBrowser} from '../src/cooperative-work.js';
 import {assets} from './runtime-assets.js';
 import * as T from './vendor/three/build/three.module.js';
 import {gates} from './ship-jet-sequence.js';
@@ -13,7 +14,7 @@ import {createScope} from './runtime-lifecycle.js';
  * assetUrls?: Record<string,string>, onChange?: ()=>void}} options
  * Frame ownership belongs to the caller. Update/resize do not schedule callbacks.
  */
-export function createShipJetController({root,stage,inspection=false,contentSpacing=1,assetUrls=assets,onChange=()=>{},loadScene=loadShipJetScene}){
+export function createShipJetController({root,stage,inspection=false,prepareVariants=false,contentSpacing=1,assetUrls=assets,onChange=()=>{},loadScene=loadShipJetScene}){
  const scope=createScope(),$=selector=>root.querySelector(selector),viewport={width:stage.clientWidth,height:stage.clientHeight};
  let renderer,scene,camera,sequence,cloudLayers,jetCrossing,progress=0,reducedMotion=false,dirty=true,mounting,state='idle';
 function update(){
@@ -36,7 +37,21 @@ function resize({width=stage.clientWidth,height=stage.clientHeight}={}){if(scope
    jetCrossing=await createJetCrossing(stage,onChange,{root,scope,inspection,assetUrls});
    if(scope.disposed)throw new DOMException('Scene disposed','AbortError');
    const loaded=await loadScene({root,stage,viewport,scope,assetUrls,onRendererReady:values=>{({renderer,scene,camera}=values);resize();}});
-   ({renderer,scene,camera,sequence}=loaded);resize();state='mounted';return update();
+   ({renderer,scene,camera,sequence}=loaded);resize();
+   const textures=new Set();scene.traverse(object=>{for(const material of [].concat(object.material||[]))for(const value of Object.values(material))if(value?.isTexture&&!value.isVideoTexture)textures.add(value);});
+   function* upload(){for(const texture of textures){renderer.initTexture(texture);yield;}}
+   await runInSlices(upload(),{signal:scope.signal});await yieldToBrowser();
+   await renderer.compileAsync(scene,camera);if(scope.disposed)throw new DOMException('Scene disposed','AbortError');
+   state='mounted';
+   if(prepareVariants){
+    const requested=progress;
+    for(const sample of [0,.18,.36,.50,.72,.93,1]){
+     if(scope.disposed)throw new DOMException('Scene disposed','AbortError');
+     progress=sample;update();await renderer.compileAsync(scene,camera);render();await yieldToBrowser();
+    }
+    progress=requested;
+   }
+   return update();
   })();
   return mounting;
  }

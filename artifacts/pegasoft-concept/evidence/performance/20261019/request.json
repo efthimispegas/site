@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-19",
+  "authority": "Jet and truck motion remain jumpy; audit all graphics and animations and improve performance without compromising UX or time.",
+  "scope": "Remove redundant geometry generation, share equivalent material clones, avoid repeated inactive work, preserve assets/geometry/material properties/camera/timeline.",
+  "before": [
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e"
+    },
+    {
+      "path": "review/ship-integration-sequence.js",
+      "sha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "37e2122acccfb50e4f51043e25d1bcccc6d0d3ebaa0f786ff3c0aeb9471e2a25"
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "e76f66ea3e4e5c3f8222775851c93fb7671beb17c1bdb686f434c0fbe73f03e1"
+    },
+    {
+      "path": "review/jet-crossing.js",
+      "sha256": "2462f33692b32ae6cf02839e0fd3270f7eccb26c40afa635c94931593746d35d"
+    },
+    {
+      "path": "src/journey-host.js",
+      "sha256": "1238e21f18192efd920792a86b0abec889805fb7bc381a32c085752f9b6a736e"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "58485c28051dadd2eb76a2dd0221d47be638f744084fd80194b8083aa8874b57"
+    }
+  ]
+}

@@ -129,7 +129,8 @@ if (checking) {
   const homepageOverrides=new Map();
   const motionManifestPath=resolve(app,'website-motion-manifest.json');
   const presentationChanges=existsSync(motionManifestPath)?JSON.parse(readFileSync(motionManifestPath)).transportAmendments||[]:[];
-  const presentationSha=(path,previous)=>{const next=presentationChanges.find(r=>r.path===path);if(next&&next.previousSha256!==previous)throw Error('Presentation input drift: '+path);return next?.sha256||previous;};
+  const mobileChanges=existsSync(motionManifestPath)?JSON.parse(readFileSync(motionManifestPath)).mobileStartupAmendment?.files||[]:[];
+  const presentationSha=(path,previous)=>{const mobile=mobileChanges.find(r=>r.path===path);if(mobile){if(mobile.previousSha256!==previous)throw Error('Mobile startup accepted input drift: '+path);return mobile.sha256;}const next=presentationChanges.find(r=>r.path===path);if(next&&next.previousSha256!==previous)throw Error('Presentation input drift: '+path);return next?.sha256||previous;};
   if(existsSync(homepagePath)){
     const homepage=JSON.parse(readFileSync(homepagePath));
     if(homepage.previousTransportManifestSha256!==hash(readFileSync(transportPath)))throw Error('Homepage transport pin drift');

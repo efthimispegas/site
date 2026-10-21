@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "path": "assets/generation/ship-family/model-draft/S01-ship.glb",
+      "packedPath": "assets/generation/ship-family/model-draft/S01-ship.glb.gz.bin",
+      "originalBytes": 11313040,
+      "wireBytes": 1523087,
+      "decodedSha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "assets/generation/container-family/model-draft/C01-container.glb",
+      "packedPath": "assets/generation/container-family/model-draft/C01-container.glb.gz.bin",
+      "originalBytes": 2174140,
+      "wireBytes": 322595,
+      "decodedSha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "assets/generation/lift-family/model-draft/model-carbon-unified.glb",
+      "packedPath": "assets/generation/lift-family/model-draft/model-carbon-unified.glb.gz.bin",
+      "originalBytes": 17389976,
+      "wireBytes": 13109856,
+      "decodedSha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    },
+    {
+      "path": "assets/generation/truck-family/model-draft/T01-truck.glb",
+      "packedPath": "assets/generation/truck-family/model-draft/T01-truck.glb.gz.bin",
+      "originalBytes": 4287352,
+      "wireBytes": 1002376,
+      "decodedSha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    }
+  ],
+  "originalBytes": 35164508,
+  "wireBytes": 15957914,
+  "decodedBytesIdentical": true,
+  "method": "Gzip payloads served as opaque .gz.bin files; native DecompressionStream, raw-asset fallback for older browsers. .gz alone was auto-decoded by preview/tunnel, so opaque suffix preserves wire compression."
+}

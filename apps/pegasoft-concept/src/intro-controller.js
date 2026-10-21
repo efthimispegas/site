@@ -10,9 +10,9 @@ import {createScope} from '../review/runtime-lifecycle.js';
 export function createIntroController({stage,settings=LOADER_DEFAULTS}){
  const scope=createScope(),$=s=>stage.querySelector(s),lines=[...stage.querySelectorAll('.line>span')];
  const counters=[...stage.querySelectorAll('.metric-value')].map((el,i)=>createCounter(el,{...OUTCOME_METRICS[i],fontSize:null,gap:0,horizontalPadding:0,gradientFrom:'#edf2f7'}));
- const playback=createMetricPlayback();let resolveOpened;const whenOpened=new Promise(resolve=>resolveOpened=resolve);
+ const playback=createMetricPlayback();let resolveOpened,resolveRevealed;const whenOpened=new Promise(resolve=>resolveOpened=resolve),whenRevealed=new Promise(resolve=>resolveRevealed=resolve);
  let loaderSettings={...LOADER_DEFAULTS,...settings},reduced=false,running=true,speed=1;
- let globe,task,ready=false,progress=0,openingTime=0,sceneTime=0,rotationTime=0,last=null,active=true;
+ let globe,geometry,task,ready=false,progress=0,openingTime=0,sceneTime=0,rotationTime=0,last=null,active=true;
  function render(dt=0){
   if(!ready||scope.disposed)return;
   const state=introState(progress),opening=loaderState(openingTime,loaderSettings,reduced),w=stage.clientWidth,h=stage.clientHeight,radius=Math.hypot(w/2,h/2)+2;
@@ -31,12 +31,12 @@ export function createIntroController({stage,settings=LOADER_DEFAULTS}){
   $('.hero-body').style.opacity=opening.body*(1-state.utilityExit);$('.hero-body').style.transform=`translateY(${(1-opening.body)*20-state.utilityExit*20}px)`;
   $('.hero-actions').style.opacity=opening.cta*(1-state.utilityExit);$('.hero-actions').style.transform=`translateY(${(1-opening.cta)*20-state.utilityExit*20}px)`;$('.hero-actions').inert=progress>.12||opening.cta<.95;
   const bottom=$('.hero-bottom');if(bottom)bottom.style.opacity=opening.body*(1-state.utilityExit);
-  $('.horizon').style.transform=`translateY(${state.horizonY*h}px)`;$('.outcome').hidden=!state.outcomeActive;
+  $('.horizon').style.transform=`translateY(${state.horizonY*h}px)`;const outcome=$('.outcome');outcome.hidden=!state.outcomeActive;outcome.dataset.horizonClear=String(state.wipe===1);
   const titleY=w<680&&progress>=.19?.88-.80*clamp((progress-.19)/(.50-.19)):state.titleY,metrics=metricLayout(progress,w,h),metricsY=metrics.metricsY;
   $('.outcome-title').style.transform=`translateY(${titleY*h}px)`;$('.metrics').style.transform=`translateY(${metricsY*h}px)`;
   const targets=playback.update(metrics.rowPositions,dt);counters.forEach((counter,i)=>counter.render(targets[i],dt,reduced));
-  const geometry=globe.render(rotationTime,sceneTime);
-  stage.dataset.motion=JSON.stringify({progress,openingTime,sceneTime,rotationTime,opening,loaderSettings,counterPlayback:playback.state,state,layout:{titleY,...metrics},geometry});if(opening.complete)resolveOpened();
+  if(active)geometry=globe.render(rotationTime,sceneTime);
+  stage.dataset.motion=JSON.stringify({progress,openingTime,sceneTime,rotationTime,opening,loaderSettings,counterPlayback:playback.state,state,layout:{titleY,...metrics},geometry});if(opening.aperture===1)resolveRevealed();if(opening.complete)resolveOpened();
  }
  function resize(){
   if(!globe||scope.disposed)return;globe.resize(stage.clientWidth,stage.clientHeight);
@@ -52,11 +52,11 @@ export function createIntroController({stage,settings=LOADER_DEFAULTS}){
    scope.defer(()=>{counters.forEach(counter=>counter.dispose());globe.dispose();$('#globe').dataset.disposed='true';});globe.configure(GLOBE_DEFAULTS);ready=true;stage.dataset.loaded='true';resize();
   });return task;
  }
- return {mount,update({progress:value=progress,inView=true}={}){progress=clamp(value);active=inView;render();},resize,
-  tick(now){const dt=last===null?0:Math.min((now-last)/1000,.1);last=now;if(!ready||scope.disposed)return;const step=dt*speed;if(running){openingTime=reduced?loaderState(0,loaderSettings).end:Math.min(openingTime+step,loaderState(openingTime,loaderSettings).end);if(active){sceneTime+=step;rotationTime+=step*GLOBE_DEFAULTS.speed;}render(step);}},
+ return {mount,update({progress:value=progress,inView=true}={}){progress=clamp(value);active=inView;},resize,
+  tick(now){if(!active&&openingTime>=loaderState(0,loaderSettings).end){last=now;return;}const dt=last===null?0:Math.min((now-last)/1000,.1);last=now;if(!ready||scope.disposed)return;const step=dt*speed;if(running){openingTime=reduced?loaderState(0,loaderSettings).end:Math.min(openingTime+step,loaderState(openingTime,loaderSettings).end);if(active){sceneTime+=step;rotationTime+=step*GLOBE_DEFAULTS.speed;}render(step);}},
   configureLoader(values){loaderSettings={...loaderSettings,...values};stage.style.setProperty('--loader-beat-duration',loaderSettings.beatDuration+'s');stage.style.setProperty('--loader-beat-amount',loaderSettings.beatAmount);stage.style.setProperty('--loader-ring-from',loaderSettings.ringFrom);render();},
   setPlayback(values){if('running'in values)running=values.running;if('speed'in values)speed=values.speed;if('reduced'in values)reduced=values.reduced;last=null;render();},
   seek(time){openingTime=clamp(time,0,loaderState(0,loaderSettings).end);running=false;render();},
   restart(){openingTime=0;sceneTime=0;rotationTime=0;running=true;last=null;render();},
-  get whenOpened(){return whenOpened;},pause(){last=null;},dispose(){scope.dispose();ready=false;stage.dataset.loaded='false';},get ready(){return ready}};
+  get whenOpened(){return whenOpened;},get whenRevealed(){return whenRevealed;},pause(){last=null;},dispose(){scope.dispose();ready=false;stage.dataset.loaded='false';},get ready(){return ready}};
 }

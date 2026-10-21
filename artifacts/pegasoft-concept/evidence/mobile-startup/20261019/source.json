@@ -1,0 +1,68 @@
+{
+  "branch": "codex/pegasoft-concept",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "uncommitted": true,
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "b424f1b3bbe89a54525792263ee8f29f21514fe3b3673d0e02efd0274f674931"
+    },
+    {
+      "path": "src/startup-scroll.js",
+      "sha256": "02aa67b592152a19b674b93a54532c80c93b4b4c5e7a320a8468744432a8ad3a"
+    },
+    {
+      "path": "src/journey-host.js",
+      "sha256": "bb44b2586499a516c9cce29ea362a6a1338a494cd4fe4668c62027d690b1a0c0"
+    },
+    {
+      "path": "src/loader.css",
+      "sha256": "2813c81cd0d2f1c75fcce1bc13dee9c828394d7cdb5877aeaccdd51e27bbaca7"
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "2f48949b757f1e8561b94b23dcf0c4ff37ba7bd616f9d7900cb77aafa1aa970d"
+    },
+    {
+      "path": "src/assets/ocean-first-frame.png",
+      "sha256": "740950bb40c8e034e5b9402d605e9407bbe5c425b4550ed87826b912e6d16f85"
+    },
+    {
+      "path": "review/ship-jet-scene.js",
+      "sha256": "bf39071d9c475dc12509a688577b31c4d42959b01c27285f3eede3d5937b2551"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "11d19138cdd436cb178bc7318ffb1c3d10bb2446da4a859bc8b5690c602711f7"
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "20062a8dbf0274bf86eb0d358c88bd6f48a7b4461ac2b9fc0a3e224825671f73"
+    },
+    {
+      "path": "website-motion-manifest.json",
+      "sha256": "7ec0a842a7114047ffc79385ff7e1189020101815b0afd5c64513c6fca9e1a0a"
+    },
+    {
+      "path": "tools/verify-website-motion.mjs",
+      "sha256": "0ae67abf4d0ae64042e97b3c6fea62a2754366bafef7dad2a9de0781a64ea831"
+    },
+    {
+      "path": "tools/package-reviewed-slice.mjs",
+      "sha256": "9235e706d21f35bd2433da40003c2f14fe8c6c3cbf517f456ac9ade0cee2a90c"
+    },
+    {
+      "path": "tools/lifecycle.test.mjs",
+      "sha256": "bba606e2236aadfc080d5a6aa2395eb72a1d4cec337771c8baee2bc3fa5f7e4c"
+    },
+    {
+      "path": "src/model-download.js",
+      "sha256": "5812839b1e47141ca423d6d9d88094543763e23548d30148553194e6229fcd07"
+    },
+    {
+      "path": "tools/static-compression.mjs",
+      "sha256": "16cb77e56a5305782a4fb28134f5e59d5652ede522c4cc2e8642971e5e23c047"
+    }
+  ],
+  "approvedAssetBytes": "All original baseline asset hashes checked through Nx; no original model, texture or video replaced."
+}

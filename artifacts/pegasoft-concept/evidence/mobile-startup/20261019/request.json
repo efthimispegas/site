@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-19",
+  "request": "Shorten mobile startup and prevent early swipe from interrupting or removing the immersive journey. Preserve approved objects, rendering quality and animation timing. Update share preview after verification.",
+  "filesBefore": [
+    {
+      "path": "src/journey-host.js",
+      "sha256": "1238e21f18192efd920792a86b0abec889805fb7bc381a32c085752f9b6a736e"
+    },
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "f919057c06c3da11acee8c34b2eba6b7fe94744aaa0d3415cb03146b45f247d9"
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "e76f66ea3e4e5c3f8222775851c93fb7671beb17c1bdb686f434c0fbe73f03e1"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "680ad6953de941e0a47c1ec6a84e53528e16c414b93b7e923631d727c992d03b"
+    },
+    {
+      "path": "index.html",
+      "sha256": "f22ed5d88911d634b04d19d9e919a3339c5edeccf365257430fb9e7644862860"
+    },
+    {
+      "path": "src/loader.css",
+      "sha256": "765162a428af51c39341cf129228954d543ec3ad784a039c0d8e1d7a1e4a2ee9"
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "59d97718d235e3e54c994a11bd3733ad7cf9e70409c8c360791828de03e0c96e"
+    }
+  ]
+}

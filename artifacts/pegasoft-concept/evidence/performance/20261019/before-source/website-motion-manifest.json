@@ -1,0 +1,206 @@
+{
+  "acceptedHomepageManifestSha256": "1f70b289b24095b2a014ec23d5db73cbc6c122caf3ac5cb2016654eab65d14bc",
+  "approvalSha256": "fdbe8b6d2551ea2fd1ab024ffbc55be7a1e0701a1567101ccddc9847b86103f0",
+  "files": [
+    {
+      "path": "src/journey-host.js",
+      "previousSha256": "0dfce71b661d9e9ebaeee718ad4aaaf617acea840f2beb32e6b8fde6426cc3e2",
+      "sha256": "1238e21f18192efd920792a86b0abec889805fb7bc381a32c085752f9b6a736e"
+    },
+    {
+      "path": "src/main.js",
+      "previousSha256": "9ec90eccbbe26c3821d3e6943d801db9afcbbbcb5645307bb4be63fa771b4d4c",
+      "sha256": "299908a5ab73ab510ca90f7103815af7fbff1eacd2c2b13ff8d17eb2bce93f2b"
+    },
+    {
+      "path": "index.html",
+      "previousSha256": "9839791071b57caf2508c466bc315c09c207ee90539f7025f688edae0fe70641",
+      "sha256": "f22ed5d88911d634b04d19d9e919a3339c5edeccf365257430fb9e7644862860"
+    }
+  ],
+  "addedFiles": [
+    {
+      "path": "src/website-motion-controller.js",
+      "sha256": "a700ab17456f167b225542c3f11ff4dc57275d962a8f2e868560af71b3ba92fb"
+    },
+    {
+      "path": "src/website-motion.css",
+      "sha256": "502b9c158ac2319ed8d24d7866ae2aeeb891080076ca8cbea9038121fce63551"
+    },
+    {
+      "path": "src/particle-wordmark.js",
+      "sha256": "cb26ce0fc544ddae6270366528152e4d907ede4308de6d3ebdc030fdd0193b89"
+    }
+  ],
+  "status": "website_editorial_cta_footer_motion_pending_personal_review",
+  "homepageAmendments": [
+    {
+      "path": "src/approved-loader-preset.js",
+      "previousSha256": "3b693f16e18d2ef39de266199c57ffad5969c7e19f7db285c043a021aba5fab7",
+      "sha256": "b50d04e4d4d75d27513ee385c15a2755582340693e9bd658c5e089bee276ca07"
+    },
+    {
+      "path": "src/loader.css",
+      "previousSha256": "e8cea41400a3ae98439941ab7a5dad49556663cabefbd5d4624b785f7be08c26",
+      "sha256": "765162a428af51c39341cf129228954d543ec3ad784a039c0d8e1d7a1e4a2ee9"
+    },
+    {
+      "path": "src/intro-sequence.js",
+      "previousSha256": "9f27c47e36928939b010fcc84c9bcd17c295c9b3be7675a3fef316fe6e4955bf",
+      "sha256": "e5961848a0199315de791076437e9a885bb813a51f1972b3ce4aa805486ef399"
+    },
+    {
+      "path": "src/intro-controller.js",
+      "previousSha256": "179be651fb13774d0ee2fa3ac334d95fd6219d10cbe46261e8dd9a9ccd46c41f",
+      "sha256": "f919057c06c3da11acee8c34b2eba6b7fe94744aaa0d3415cb03146b45f247d9"
+    },
+    {
+      "path": "src/outcome-metrics.js",
+      "previousSha256": "9f9898eeeef73ad4bd8ba8bd5b061429f832922c1909c06c5beb441b43f6ac84",
+      "sha256": "9968953d9031015eb5e9726e639601976b1a99bcfd4f291785a9107d977c0285"
+    },
+    {
+      "path": "src/outcome.css",
+      "previousSha256": "556b89ab27028a8f4a99314b6e250f4c01c9b7351aabed6b188efb11c8f50b90",
+      "sha256": "d82d9896f6c07e14fa0093c7f8524ff5e59d7bee81dadaf1ec7c08230e7c2a8d"
+    },
+    {
+      "path": "vite.config.js",
+      "previousSha256": "170ff488d3b80405a305ad383297a265dd51b960d93a68977932461bdbdfd617",
+      "sha256": "59d97718d235e3e54c994a11bd3733ad7cf9e70409c8c360791828de03e0c96e"
+    }
+  ],
+  "homepageAmendmentRequest": "artifacts/pegasoft-concept/evidence/loader-reassessment/20261014/ring42-cta/request.json",
+  "homepageAmendmentRequestSha256": "05a3a707da8b879b55600004ec189409f7ef15f48da8fb36e82481dfc193b1a3",
+  "motionAmendmentRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/pointer-amendments/request.json",
+  "motionAmendmentRequestSha256": "2ecb92f0cbf45c8505d1202b86611835120a75a1ab3c8ba082a68a5b492a219c",
+  "transportAmendments": [
+    {
+      "path": "src/transport-sequence.js",
+      "previousSha256": "0a069381f8c02ce72aada7d98a39c3fc6e78555a948459b683094780991cd3d4",
+      "sha256": "05782809db455fcd756b138e08961fc2f99135f3e24ac62ac997bbd49ec5c3c0"
+    },
+    {
+      "path": "review/ship-content.js",
+      "previousSha256": "02d7d7eac2d59ec3eeb6b1105b20a8061ab55d651847472c11853659263c824c",
+      "sha256": "6b2d6b80b400880d855796e0009e07ba5835e3bdaff19aa02cd98dbacba787df"
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "previousSha256": "d9d6b527108b67815993d1554a615c7024469a2ace711fec43c30484c5d9e802",
+      "sha256": "e76f66ea3e4e5c3f8222775851c93fb7671beb17c1bdb686f434c0fbe73f03e1"
+    },
+    {
+      "path": "src/transport-controller.js",
+      "previousSha256": "7f2bfa6c26da538d193db222ac17e4d3278dd881a7d6556432cb20b7646f6467",
+      "sha256": "96eafaa4349ac90ff1045cf60d8c9804f6a833b01419488c7633d11fe53be2d4"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "previousSha256": "88db6a0bb7fe8372ea69f6fd306b5a3c0b586714b8f014969d4a3526c36dd3a5",
+      "sha256": "37e2122acccfb50e4f51043e25d1bcccc6d0d3ebaa0f786ff3c0aeb9471e2a25"
+    },
+    {
+      "path": "review/ship-jet-scene.js",
+      "previousSha256": "2b7f1ae4398e549cfc5c29396c0b4d40be2396ba4c704da1d79d6c445ea59325",
+      "sha256": "1bebc92d185ac357093b42dae4fee829a2201d6afe2dcc35ce626ba52be1522e"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "previousSha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7",
+      "sha256": "03187b4c51975f8b69d2678060bd4856f6855ed7eab5790c4c332afed727ba95"
+    },
+    {
+      "path": "review/ship-road.js",
+      "previousSha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94",
+      "sha256": "5b79a66889d46e74eabfbaeb63366fcd7b48ff28541619f1bb276d95e7cf6d3d"
+    }
+  ],
+  "titleAmendmentRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/title-amendments/request.json",
+  "titleAmendmentRequestSha256": "ac17197beaa9132877754173bba13cb2eab24818455e9dcbb94a96c511464ad9",
+  "outcomeAmendmentRequest": "artifacts/pegasoft-concept/evidence/outcome-amendments/20261014/request.json",
+  "outcomeAmendmentRequestSha256": "f9383cb3673e71dee8777f079463da7bad2335205aac2708090b5d3860bea881",
+  "transportAmendmentRequest": "artifacts/pegasoft-concept/evidence/transport-amendments/20261014/request.json",
+  "transportAmendmentRequestSha256": "86d3300c4e529be87295d78c6b4f35dff61e34daeb2141b6adef246297d23111",
+  "spacingAmendmentRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/spacing-amendments/request.json",
+  "spacingAmendmentRequestSha256": "8700e71f974e53f027d3716cdbb31e2886260fb28591ef86e2ee2b276fe563a8",
+  "preDepartureAmendmentRequest": "artifacts/pegasoft-concept/evidence/transport-amendments/20261014/pre-departure/request.json",
+  "preDepartureAmendmentRequestSha256": "f7dbab9e709afdff582353d11bb21edea801a83dcf13991d61db0008a8e96a30",
+  "truckDetailAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/transport-amendments/20261014/truck-details/request.json",
+    "requestSha256": "8653ee3f2480fae67e6caf91ab91c2519e89f0db44224ba06ccee1c66d9d3b4a",
+    "files": [
+      {
+        "path": "src/truck-detail-repair.js",
+        "sha256": "08c8798000ba30e2f318a53dbe0e89883bd63c9a323d682a0d17cc6f71b89e7a"
+      }
+    ]
+  },
+  "footerParticleAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/website-motion/20261014/footer-particles/request.json",
+    "requestSha256": "b2cc175d0a9b1c973fb57b70f63ac7c47e34baefd25d023361ffd2bb9de6bc7f",
+    "files": [
+      {
+        "path": "review/footer-particles.html",
+        "sha256": "36ed50f6597da5840ed156cf6b39538c77a87f60c24d9bddf8855c31bfb6d4cc"
+      },
+      {
+        "path": "src/footer-particle-review.js",
+        "sha256": "b0ecfcfd57900cb7f747c4c33b3b5a425327f720dfb23c2dc64dbc34502a2e4c"
+      },
+      {
+        "path": "src/footer-particle-review.css",
+        "sha256": "1c3ee5a8a20c5564ef53354850f18425a3da560e9b24156ddeb20b063ec35bb0"
+      }
+    ],
+    "previousRendererSha256": "f265c68252b55f1f8268828b16c1c279e0025305c48d3dc482fb06a277a2c908"
+  },
+  "headerFooterAmendmentRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/header-footer-amendments/request.json",
+  "headerFooterAmendmentRequestSha256": "754420ee362eaf61990110474e951734ceba82571ac02ddaef2381b41c492ff0",
+  "headerStyleCorrectionRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/header-style-correction/commission.json",
+  "headerStyleCorrectionRequestSha256": "8d8c383be24d3341d7bed9ea2206e12865ae03d71f9f116c1b87365ea8ee8e0e",
+  "contentPhaseAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/content-review/20261014/request.json",
+    "requestSha256": "6abe024e3455fc3116035bffe9dcbc477c2052d86b14f83f356a786fa6216d6a",
+    "approval": "artifacts/pegasoft-concept/evidence/website-motion/20261014/all-amendments-approved/user-approval.json",
+    "approvalSha256": "9bf5dc2e41d9bab96d23de3a4373a80f34b21a2f638c6d6eed8afbcfa0f4c775",
+    "acceptedManifest": "artifacts/pegasoft-concept/evidence/content-review/20261014/before/website-motion-manifest.json.snapshot",
+    "acceptedManifestSha256": "564d64109150be910d10df578a569b183e608c6738abe23be2d001b445e79c64",
+    "files": [
+      {
+        "path": "src/content-sections.css",
+        "sha256": "f4ad95d724d8e98ac7a8aa5940c5dd2e952e8f6ff6ba0e36189ca8458b5e33e8"
+      },
+      {
+        "path": "src/content-controller.js",
+        "sha256": "5905e7b315afb8a68bd0b58ef2113cf286b54a35b721843bf1728a0c0ccd8c94"
+      },
+      {
+        "path": "src/contact-form.js",
+        "sha256": "a7c12507071f8188a37d6ccd6e9dfe0bce4acba20006920fdddfc6d211883bf4"
+      },
+      {
+        "path": "src/partner-wall.js",
+        "sha256": "b92d895d4cc8c94baad05f981355c3ce3b9ee65325a4ada4b65a04546b981a60"
+      },
+      {
+        "path": "public/licenses/react-bits.txt",
+        "sha256": "f4c33af6739191537738662d223b68d77bc226f4b57ea883e16481d8cc5c73c9"
+      }
+    ]
+  },
+  "startupAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/startup/20261019/request.json",
+    "requestSha256": "35a78389be30e291e87788167186fe20f4714c8e820829bf86b7e581962374b7",
+    "files": [
+      {
+        "path": "src/cooperative-work.js",
+        "sha256": "9150a155c3753d0737455a5202d9394f0bdc16e2a6d40c5d59f3a13c1fd51bc3"
+      }
+    ]
+  },
+  "careersAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/content-review/20261019/careers/request.json",
+    "requestSha256": "d1d0b1c6b1a744f5d52db071db74aeedfbc40cb5be55e6d663592e45c20389b5"
+  }
+}

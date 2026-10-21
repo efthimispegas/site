@@ -5,7 +5,7 @@
     {
       "path": "src/journey-host.js",
       "previousSha256": "0dfce71b661d9e9ebaeee718ad4aaaf617acea840f2beb32e6b8fde6426cc3e2",
-      "sha256": "1a4cebfec00244ae85a07b718d919bdada21b84b526d826e2d423044a9b01846"
+      "sha256": "5c4048ab5e935059be85cda2ba37e5718cbfee1b945e0c0be61ca0b497328ea5"
     },
     {
       "path": "src/main.js",
@@ -15,7 +15,7 @@
     {
       "path": "index.html",
       "previousSha256": "9839791071b57caf2508c466bc315c09c207ee90539f7025f688edae0fe70641",
-      "sha256": "f22ed5d88911d634b04d19d9e919a3339c5edeccf365257430fb9e7644862860"
+      "sha256": "b424f1b3bbe89a54525792263ee8f29f21514fe3b3673d0e02efd0274f674931"
     }
   ],
   "addedFiles": [
@@ -52,7 +52,7 @@
     {
       "path": "src/intro-controller.js",
       "previousSha256": "179be651fb13774d0ee2fa3ac334d95fd6219d10cbe46261e8dd9a9ccd46c41f",
-      "sha256": "cde0e5a4fa0b425d8b39a2dbf688dfb1d02fa5a4079d891ed0dae6ab62ee58c2"
+      "sha256": "e127ac9ba50e2156b943bde353d4f7317d4bb62da990b841ecdce3a391e7dc45"
     },
     {
       "path": "src/outcome-metrics.js",
@@ -67,7 +67,17 @@
     {
       "path": "vite.config.js",
       "previousSha256": "170ff488d3b80405a305ad383297a265dd51b960d93a68977932461bdbdfd617",
-      "sha256": "59d97718d235e3e54c994a11bd3733ad7cf9e70409c8c360791828de03e0c96e"
+      "sha256": "20062a8dbf0274bf86eb0d358c88bd6f48a7b4461ac2b9fc0a3e224825671f73"
+    },
+    {
+      "path": "src/hero-odometer.js",
+      "previousSha256": "0ab468b6e290ee17b58048e8030c79f2531bf7e196f0b2f52e8e0ff61cf928f1",
+      "sha256": "0ab468b6e290ee17b58048e8030c79f2531bf7e196f0b2f52e8e0ff61cf928f1"
+    },
+    {
+      "path": "review/loader.html",
+      "previousSha256": "0e427de641d397aea8058186e5595a425277c4beb29dc187491a834e278961db",
+      "sha256": "0e427de641d397aea8058186e5595a425277c4beb29dc187491a834e278961db"
     }
   ],
   "homepageAmendmentRequest": "artifacts/pegasoft-concept/evidence/loader-reassessment/20261014/ring42-cta/request.json",
@@ -88,12 +98,42 @@
     {
       "path": "review/ship-jet-controller.js",
       "previousSha256": "d9d6b527108b67815993d1554a615c7024469a2ace711fec43c30484c5d9e802",
-      "sha256": "ff9f6be876ad94862f8593967d765a4a671f1a735a77e73e1d998382c7153b9c"
+      "sha256": "e76f66ea3e4e5c3f8222775851c93fb7671beb17c1bdb686f434c0fbe73f03e1"
     },
     {
       "path": "src/transport-controller.js",
       "previousSha256": "7f2bfa6c26da538d193db222ac17e4d3278dd881a7d6556432cb20b7646f6467",
-      "sha256": "b4a9eac04b9116766dd75f31f49031d4aeca5c19ae1ddef6836bc60fdc4f7034"
+      "sha256": "2f48949b757f1e8561b94b23dcf0c4ff37ba7bd616f9d7900cb77aafa1aa970d"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "previousSha256": "88db6a0bb7fe8372ea69f6fd306b5a3c0b586714b8f014969d4a3526c36dd3a5",
+      "sha256": "16190746c40cc929a5890c5d6100c3faad47d73bcd44823a8931f9858eac2e0b"
+    },
+    {
+      "path": "review/ship-jet-scene.js",
+      "previousSha256": "2b7f1ae4398e549cfc5c29396c0b4d40be2396ba4c704da1d79d6c445ea59325",
+      "sha256": "bf39071d9c475dc12509a688577b31c4d42959b01c27285f3eede3d5937b2551"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "previousSha256": "7fe42dfccd05136d6d66ab5bc6b5b6cdbe3692da55b1e7de8a2a927e7458cfd7",
+      "sha256": "03187b4c51975f8b69d2678060bd4856f6855ed7eab5790c4c332afed727ba95"
+    },
+    {
+      "path": "review/ship-road.js",
+      "previousSha256": "2b5ed68232927901ccec2b7b920fe3ac524dd6f1e1b0587369f42b2706399b94",
+      "sha256": "5b79a66889d46e74eabfbaeb63366fcd7b48ff28541619f1bb276d95e7cf6d3d"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "previousSha256": "628b2e71d0e1fef15f2f80a798993263571450b362a616d77214a5f6733b7f9e",
+      "sha256": "f537e30d76e74064b992865c029fcc8f3fb5d9ece58a5fc5b278d435b00729a8"
+    },
+    {
+      "path": "review/ship-integration-sequence.js",
+      "previousSha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112",
+      "sha256": "f7af6f848173b14f5defa7fb6bd3a1e8ba1e1592b3a613f4a426e599c3918112"
     }
   ],
   "titleAmendmentRequest": "artifacts/pegasoft-concept/evidence/website-motion/20261014/title-amendments/request.json",
@@ -166,6 +206,53 @@
       {
         "path": "public/licenses/react-bits.txt",
         "sha256": "f4c33af6739191537738662d223b68d77bc226f4b57ea883e16481d8cc5c73c9"
+      }
+    ]
+  },
+  "startupAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/startup/20261019/request.json",
+    "requestSha256": "35a78389be30e291e87788167186fe20f4714c8e820829bf86b7e581962374b7",
+    "files": [
+      {
+        "path": "src/cooperative-work.js",
+        "sha256": "9150a155c3753d0737455a5202d9394f0bdc16e2a6d40c5d59f3a13c1fd51bc3"
+      }
+    ]
+  },
+  "performanceAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/performance/20261019/request.json",
+    "requestSha256": "b181205d2c5e5e4dd5dfa86105fc2a96422e0757e6e2547c931a6535a719a03e",
+    "files": [
+      {
+        "path": "src/truck-motion-rig.js",
+        "sha256": "dc71615ebae9a78886e06a9d120c811e507d751fcb693ef604a615dd351f62cc"
+      }
+    ]
+  },
+  "mobileStartupAmendment": {
+    "request": "artifacts/pegasoft-concept/evidence/mobile-startup/20261019/request.json",
+    "requestSha256": "7655af3f5045533086e8dae3481ec4b8ffea521ac9db5e4319a9383391ad6eda",
+    "files": [
+      {
+        "path": "review/ship-water.js",
+        "sha256": "11d19138cdd436cb178bc7318ffb1c3d10bb2446da4a859bc8b5690c602711f7",
+        "previousSha256": "680ad6953de941e0a47c1ec6a84e53528e16c414b93b7e923631d727c992d03b"
+      },
+      {
+        "path": "src/startup-scroll.js",
+        "sha256": "02aa67b592152a19b674b93a54532c80c93b4b4c5e7a320a8468744432a8ad3a"
+      },
+      {
+        "path": "src/assets/ocean-first-frame.png",
+        "sha256": "740950bb40c8e034e5b9402d605e9407bbe5c425b4550ed87826b912e6d16f85"
+      },
+      {
+        "path": "tools/static-compression.mjs",
+        "sha256": "16cb77e56a5305782a4fb28134f5e59d5652ede522c4cc2e8642971e5e23c047"
+      },
+      {
+        "path": "src/model-download.js",
+        "sha256": "5812839b1e47141ca423d6d9d88094543763e23548d30148553194e6229fcd07"
       }
     ]
   }

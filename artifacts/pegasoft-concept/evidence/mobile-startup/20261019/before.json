@@ -1,0 +1,62 @@
+[
+  {
+    "mode": "chromium-swipe",
+    "elapsedMs": 7982,
+    "afterSwipe": {
+      "y": 2003,
+      "locked": "visible",
+      "opening": "true"
+    },
+    "final": {
+      "y": 3068,
+      "state": "true",
+      "static": false,
+      "loops": 1,
+      "video": [
+        {
+          "ready": 4,
+          "network": 1
+        },
+        {
+          "ready": 4,
+          "network": 1
+        }
+      ]
+    },
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ]
+  },
+  {
+    "mode": "webkit-swipe",
+    "failure": "mouse.wheel: Mouse wheel is not supported in mobile WebKit"
+  },
+  {
+    "mode": "blocked-video",
+    "elapsedMs": 8106,
+    "afterSwipe": {
+      "y": 1785,
+      "locked": "visible",
+      "opening": "true"
+    },
+    "final": {
+      "y": 1785,
+      "state": "true",
+      "static": false,
+      "loops": 1,
+      "video": [
+        {
+          "ready": 4,
+          "network": 1
+        },
+        {
+          "ready": 4,
+          "network": 1
+        }
+      ]
+    },
+    "errors": [
+      "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    ]
+  }
+]

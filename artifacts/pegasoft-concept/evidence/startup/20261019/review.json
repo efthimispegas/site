@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-19",
+  "baseCommit": "cf6aec2b504ba3b2172906708a9384000ebe544a",
+  "uncommitted": true,
+  "source": "source.json",
+  "sourceSha256": "49b5ed3780c17a72e8d5b8d070037cffa97840a54b64bb75891e60b8f6b2d9f3",
+  "request": "request.json",
+  "requestSha256": "35a78389be30e291e87788167186fe20f4714c8e820829bf86b7e581962374b7",
+  "userAccepted": false,
+  "status": "Startup corrections technically verified; personal review pending",
+  "reviewUrl": "http://127.0.0.1:8771/?revision=startup-fix-20261019",
+  "diagnosis": {
+    "baseline": "before.json",
+    "initialMaxLongTaskMs": 608,
+    "firstScrollIntermediate": "scroll-first-checks.json",
+    "cause": "Synchronous rig/cab/road setup, first shader/texture use during visible playback, and offscreen rendering. Initialization had no deadline."
+  },
+  "changes": [
+    "CPU work yields in bounded batches; identical geometry operations remain in the same order.",
+    "Textures and chapter shader/render variants prepare behind continuous waiting beat before the approved timed opening begins.",
+    "Scroll input coalesces into one scheduler; offscreen intro/transport render work stops.",
+    "Hung resource initialization exits to existing readable fallback after20s."
+  ],
+  "verification": {
+    "nxBuildLintTests": "nx-final.log",
+    "coldLoadRefreshAndHungResource": "startup-checks.json",
+    "openingMaxGapMs": 16.800000000000182,
+    "firstForwardMaxGapMs": 33.399999999999636,
+    "reverseMaxGapMs": 33.29999999999927,
+    "genuineWheelScrollAndResize": "scroll-checks.json",
+    "geometryParity": "rig-parity.json",
+    "normalPlaybackRecording": "recording/",
+    "sourceBuild": "production preview8771; Node24.19.0/pnpm10.8.1; headless Chrome desktop/mobile viewports",
+    "matchedBoundaryFrames": "frame-comparison.json"
+  },
+  "evidenceHashes": [
+    {
+      "path": "startup-checks.json",
+      "sha256": "e7bb552c5268df32077b73d276bd5ddbec3de7dc1c52d5e08ce8db2209893d18"
+    },
+    {
+      "path": "rig-parity.json",
+      "sha256": "1dcedc49271133244d983e4e5ce70aa997a167ad60cb7f11ba21205b8211b49d"
+    },
+    {
+      "path": "scroll-checks.json",
+      "sha256": "c25ed1762ad94cd37bee3d2033d2520b7610f5b2c98e77e26c5225ac36b92b8f"
+    },
+    {
+      "path": "nx-final.log",
+      "sha256": "f75b838954275dbf28986edaa52338b1a68cfebf631b1516b119495770d1d349"
+    },
+    {
+      "path": "startup.log",
+      "sha256": "b215ff190a08ad5dcf98fbe6ee599c5a3a2b5b7034c6b526eeeaa887f67ae648"
+    },
+    {
+      "path": "rig-parity-final.log",
+      "sha256": "b215ff190a08ad5dcf98fbe6ee599c5a3a2b5b7034c6b526eeeaa887f67ae648"
+    },
+    {
+      "path": "scroll.log",
+      "sha256": "0bce16f41b7c844712deaafdb5e6e391be80f1525d2cef22e715e050cb391d73"
+    },
+    {
+      "path": "frame-comparison.json",
+      "sha256": "00cdcb4330cb373f12ad4f35b062bf79970d19ff8f10497f5eb5d59b952da088"
+    }
+  ],
+  "faqApproval": "faq-approval.json",
+  "partnerPause": "Visitor motion control added to the website; not a review-only widget or business requirement. Retained unchanged.",
+  "limits": [
+    "Local desktop Chrome measurements with desktop/mobile viewport sizes; no representative-device or deployment claim.",
+    "All original asset bytes retained. Waiting duration still depends on resources.",
+    "Earlier after.json/final.json and scroll-first-checks.json are intermediate diagnostics, not final source acceptance.",
+    "Historical loader tests requiring transport to initialize after the opening describe the superseded resource order; the new startup checks cover preparation before timed opening.",
+    "Personal review, contact acceptance, real content and whole-site qualification remain open."
+  ],
+  "next": "Review cold load and first forward/reverse journey. Stop before further website phase or release.",
+  "historicalFrameCaptureNote": "The later performance check accidentally reused the after-frame output paths. Those later captures were moved to ../../performance/20261019 and belong to that source. Original numeric frame-comparison.json, baseline captures and startup/refresh evidence remain here; do not attribute the later captures to this startup run."
+}

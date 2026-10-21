@@ -1,6 +1,6 @@
 import * as T from './vendor/three/build/three.module.js';
 import {progressForFrame} from './lift-motion-contract.js';
-import {applyRig} from '../generation/truck-family/model-draft/truck-model.mjs';
+import {applyRig} from '../src/truck-motion-rig.js';
 
 export const gates={lift:.20,reverse:.25,pickup:.35,entry:.45,lower:.55,release:.60,services:.76,upper:.824,aerial:.836,zoomStart:.84,zoomEnd:.872,turn:.83,vertical:.93,central:.91,roadCopy:.91,roadCopyEnd:.97};
 // Keep the compact opening and 10% reverse. Later motion retains its fixed
@@ -108,7 +108,7 @@ export function createSequence({rig,truck,cargo,scene,camera}){
    // Finish a small roof release as seating completes, then hold the entire
    // lift in this pose. Preserve the cargo lowering path independently.
    if(p> .50 && p<gates.lower){scene.attach(cargo);rig.clearHead(currentSeat,.32*phase(p,.50,gates.lower),0);}
-   applyRig(truck,0,0,-30*entry/.5265*180/Math.PI);
+   if(p<gates.release)applyRig(truck,0,0,-30*entry/.5265*180/Math.PI);
    if(p>=gates.lower){
     trailer.add(cargo);cargo.position.set(-5.0575,.2,0);cargo.quaternion.identity();cargo.scale.setScalar(1);
     rig.clearHead({...seat,base:seatBase},.32,0);

@@ -1,0 +1,13 @@
+{
+  "url": "https://engaging-opposed-repair-clerk.trycloudflare.com/?revision=mobile-startup-20261019",
+  "errors": [],
+  "models": [
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/container-family/model-draft/C01-container.glb.gz.bin",
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/lift-family/model-draft/model-carbon-unified.glb.gz.bin",
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/ship-family/model-draft/S01-ship.glb.gz.bin",
+    "https://engaging-opposed-repair-clerk.trycloudflare.com/assets/generation/truck-family/model-draft/T01-truck.glb.gz.bin"
+  ],
+  "checks": [],
+  "passed": false,
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ '5ed9781b98e55dfbc0e103dfe40e17740eb2f645440937e6fda748c6f1c0e56b'\n- '11266bad368cc0de0b215365e125b235b4f3697be115186410b4c92743f804f7'\n\n    at file:///private/tmp/pegasoft-mobile-public.mjs:5:427"
+}

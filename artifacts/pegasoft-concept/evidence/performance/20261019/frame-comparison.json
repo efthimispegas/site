@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "baseline": "../../startup/20261019/before-frames.json",
+  "actual": "after-frames.json",
+  "transforms": [
+    {
+      "progress": 9.027777777777777e-05,
+      "matches": {
+        "chapter": true,
+        "progress": true,
+        "camera": true,
+        "quaternion": true,
+        "cargoMatrix": true,
+        "hullScreen": true,
+        "clouds": true,
+        "jet": true
+      }
+    },
+    {
+      "progress": 0.6016458333333333,
+      "matches": {
+        "chapter": true,
+        "progress": true,
+        "camera": true,
+        "quaternion": true,
+        "cargoMatrix": true,
+        "hullScreen": true,
+        "clouds": true,
+        "jet": true
+      }
+    },
+    {
+      "progress": 0.19880642361111114,
+      "matches": {
+        "chapter": true,
+        "progress": true,
+        "camera": true,
+        "quaternion": true,
+        "cargoMatrix": true,
+        "shipMatrix": true,
+        "hullScreen": true,
+        "clouds": true,
+        "jet": true
+      }
+    },
+    {
+      "progress": 0.5975564236111112,
+      "matches": {
+        "chapter": true,
+        "progress": true,
+        "camera": true,
+        "quaternion": true,
+        "cargoMatrix": true,
+        "shipMatrix": true,
+        "hullScreen": true,
+        "clouds": true,
+        "jet": true
+      }
+    },
+    {
+      "progress": 0.3251076722756409,
+      "matches": {
+        "chapter": true,
+        "progress": true,
+        "camera": true,
+        "quaternion": true,
+        "cargoMatrix": true,
+        "shipMatrix": true,
+        "hullScreen": true,
+        "clouds": true,
+        "jet": true
+      }
+    },
+    {
+      "progress": 0.8312508346688033,
+      "matches": {
+        "chapter": true,
+        "progress": true,
+        "camera": true,
+        "quaternion": true,
+        "cargoMatrix": true,
+        "shipMatrix": true,
+        "hullScreen": true,
+        "clouds": true,
+        "jet": true
+      }
+    }
+  ],
+  "limits": "Water/globe clocks are independent; comparison does not claim equal media time."
+}
