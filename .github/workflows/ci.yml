@@ -33,6 +33,8 @@ jobs:
       - run: pnpm exec playwright install chromium --with-deps
       - run: pnpm exec nx format:check
       - run: pnpm exec nx run-many -t lint test typecheck build --parallel=3
+        env:
+          PEGASOFT_PUBLIC_SITE_URL: ${{ vars.PEGASOFT_PUBLIC_SITE_URL }}
       - run: pnpm exec nx run-many -t e2e --parallel=1
       - run: pnpm audit --audit-level high
 
