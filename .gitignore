@@ -66,3 +66,43 @@ test-output
 vitest.config.*.timestamp*
 
 .nx/migrate-runs
+
+# Deployment configuration and private local settings
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+
+# Private source evidence, brand reviews, recordings and recovery data stay local.
+/artifacts/
+/.impeccable/
+/playwright-report/
+/test-results/
+/apps/pegasoft-concept/tools/homepage-motion.mjs
+/apps/pegasoft-concept/tools/website-check.mjs
+/apps/pegasoft-concept/tools/transport-check.mjs
+/apps/pegasoft-concept/tools/website-motion-check.mjs
+/apps/pegasoft-concept/tools/transport-amendment-check.mjs
+/apps/pegasoft-concept/tools/package-reviewed-slice.mjs
+/apps/pegasoft-concept/tools/verify-website-motion.mjs
+/apps/pegasoft-concept/tools/controller-lifecycle-check.mjs
+/apps/pegasoft-concept/tools/outcome-bounce-check.mjs
+/apps/pegasoft-concept/tools/cloud-review-check.mjs
+/apps/pegasoft-concept/tools/loading-check.mjs
+/apps/pegasoft-concept/tools/package-opening.mjs
+/apps/pegasoft-concept/tools/homepage-check.mjs
+/apps/pegasoft-concept/tools/verify-homepage.mjs
+/apps/pegasoft-concept/tools/loader-check.mjs
+/apps/pegasoft-concept/tools/review-check.mjs
+/apps/pegasoft-concept/tools/controller-review-check.mjs
+/apps/pegasoft-concept/tools/serve-controller-reference.mjs
+/apps/pegasoft-concept/opening-packaging-manifest.json
+/apps/pegasoft-concept/baseline-manifest.json
+/apps/pegasoft-concept/website-motion-manifest.json
+/apps/pegasoft-concept/transport-integration-manifest.json
+/apps/pegasoft-concept/runtime-amendments.json
+/apps/pegasoft-concept/controller-refactor-manifest.json
+/apps/pegasoft-concept/homepage-integration-manifest.json
+/apps/pegasoft-concept/review/site-audit.html
+/apps/pegasoft-concept/review/site-audit.js
