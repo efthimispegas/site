@@ -1,69 +1,30 @@
-# Pegasoft Concept application
+# Pegasoft Concept
 
-Vanilla HTML/CSS/JavaScript, Vite and Nx, with the approved Three.js revision 182.
-React/Next.js and additional animation frameworks are not required by this app.
+An independent vanilla JavaScript, CSS and Three.js website, packaged with Vite and orchestrated by Nx. Keep the accepted Three.js revision182 and runtime media unchanged unless an affected visual review approves a change. React/Next.js dependencies belong to other workspace applications.
 
-The homepage assembles the loader/globe, outcome, lift/container/truck, highway,
-ship/water, clouds/jet, Trusted testimonials, partners, editorial, CTA and footer.
-Use [CURRENT](../../artifacts/pegasoft-concept/CURRENT.md) for the active review gate
-and [PROPOSAL](../../artifacts/pegasoft-concept/PROPOSAL.md) for scope and constraints.
-Testimonials/partners and Insights are visually approved; FAQ and Careers interactions
-are approved. All bilingual copy, Insights articles and page destinations remain pending. Testimonial and partner identities remain fictional placeholders. Company facts/legal details and
-submission endpoints are unconfirmed; contact forms only validate local drafts.
+## Configuration and tasks
 
-Run from the workspace root with the pinned Node/pnpm toolchain:
+Use the workspace-pinned Node and pnpm versions. Copy `.env.example` to the ignored `.env` and set `PEGASOFT_PUBLIC_SITE_URL` to the intended absolute HTTPS origin before a production build. This public origin is rendered into share metadata; credentials must never be placed in client configuration. Supply it through the hosting provider's build variables as well.
 
-```sh
-pnpm nx run @site/pegasoft-concept:dev
-pnpm nx run @site/pegasoft-concept:build
-pnpm nx run @site/pegasoft-concept:preview
-pnpm nx run-many --targets=build,lint,test --projects=@site/pegasoft-concept
-```
+`PEGASOFT_DEV_HOST`, `PEGASOFT_DEV_PORT` and `PEGASOFT_PREVIEW_PORT` configure the local servers. The example binds to all interfaces for paired-device testing; use the computer's current network address rather than committing a personal LAN address. `PEGASOFT_INCLUDE_INSPECTORS=true` optionally adds developer inspection pages to a build; production omits them by default. Local Vite development can still serve `/review/loader.html` and the other retained inspection tools.
 
-Development: `http://127.0.0.1:8770/`.
-Production-build review: `http://127.0.0.1:8771/`.
-Build output: `dist/apps/pegasoft-concept`.
-Vite preview is a local review server, not production hosting.
+- `pnpm nx run @site/pegasoft-concept:dev`
+- `pnpm nx run @site/pegasoft-concept:build`
+- `pnpm nx run @site/pegasoft-concept:preview`
+- `pnpm nx run-many -t lint,test -p @site/pegasoft-concept`
 
-Diagnostic entry points share the production controllers and assets:
+The static production output is `dist/apps/pegasoft-concept`. English and Greek homepages are emitted at build time. Contact/Careers forms are review prototypes; submitted data remains local until a separately confirmed endpoint is implemented.
 
-- `/review/ship-jet-integration.html#viewer`
-- `/review/loader.html#viewer`
-- `/review/footer-particles.html#viewer`
+## Fidelity and repository boundaries
 
-`src/journey-host.js` owns scrolling and the single application frame scheduler.
-Chapter controllers expose mount, update, resize, tick/render and dispose operations.
-Opening/globe time, scroll progress, media time and pointer effects remain separate
-inputs. The content controller owns native navigation, dialogs and local form drafts.
-Graphics preparation yields in bounded batches; model downloads prefetch during
-the opening and later scene preparation runs while hero/outcomes are readable.
-A 20-second initialization deadline selects readable fallback content if a resource hangs. Offscreen scenes
-stop rendering and scroll input is coalesced into the existing frame scheduler.
-The partner wall receives frame time from the existing scheduler; its stationary
-column hit surfaces retain hover through gaps and raised artwork edges.
+`production-inputs.json` pins the maintained source and runtime assets. The three build gates verify these bytes, imports/public asset addresses, required chapters, Three.js revision, approved loader settings and reversible chapter-clock mapping. Motion, attachment, lifecycle, localization and counter tests remain in the test target. Builds and tests do not require historical screenshots, generation responses or review snapshots.
 
-Build checks the baseline, homepage and commissioned-amendment manifests before
-bundling. Runtime assets, licenses and source snapshots preserve their bytes;
-`.gitattributes` prevents line-ending normalization from invalidating those hashes.
-Do not regenerate frozen packaging inputs over later controller or content work.
-Historical evidence is outside the production bundle and retains its own source
-commit, configuration and acceptance limits. Earlier packaging comparison tasks
-may intentionally reject later commissioned changes; use the evidence packet for
-the relevant review stage rather than treating historical checks as current gates.
+Keep `artifacts/`, historical manifests/tools, brand proposal files, recordings, audit reports and recovery bundles locally. Do not force-add ignored evidence. The runtime models, textures, fonts, geography data and ocean video in this application are legitimate website inputs; they are retained in Git. Public JSON contains the numeric runtime settings/geometry ownership only, without personal review notes or generation records.
 
-Build/lint/tests establish technical checks, not visual acceptance or deployment.
-Whole-site qualification and release remain separate gates. Preserve the approved
-object geometry, camera/motion behavior, cloud/shadow presets and recorded fixed
-lift-grabber pickup limitation unless the user authorizes a specific change.
+Compare intentional rendering changes against the locally preserved approved references, then use `pnpm nx run @site/pegasoft-concept:record-inputs` to record the resulting input contract. Never use that operation to suppress unexplained drift.
 
-## Mobile startup regression
+## Review state
 
-The opening owns its clock and releases scrolling when the aperture is fully open. Model bytes prefetch during it; later CPU/GPU preparation runs while hero/outcomes are readable. Fast scrolling waits at an unfinished chapter, without exposing warmup poses. Ocean decode/autoplay is optional for initialization, with frame0 of the approved clip as fallback. Native gzip decoding uses opaque `.gz.bin` assets because some static servers/tunnels automatically decode `.gz`; older browsers fall back to original GLBs. Build minification and sidecars preserve approved asset data. See [the current evidence packet](../../artifacts/pegasoft-concept/evidence/mobile-startup/20261019/review.json). Production hosting must serve the generated sidecars; this is verified on the current preview.
+The complete brand kit is personally approved and is the sole icon/logo/symbol authority; it is distributed separately and kept in local artifacts. Its animation and website integration remain separate. The complete loader-to-hero sequence is approved with24 settings, including pulse duration0.56s and waiting-beat period2.37s. Supporting globe-speed, cookie-layout and decrypted CTA reviews are approved. Grey hero/section-title words use the existing Pegasoft accent.
 
-## Localization review
-
-Greek (`el`) and English (`en`) are the only supported languages; Greek is the launch default. `/el/` and `/en/` load directly, while the root respects a saved selection. A language dropdown sits after the Let’s talk CTA, showing only the selected country flag (Greece / United Kingdom). Its language options open directly below the trigger. The same flag control follows the CTA on narrow screens. `src/locales/el.js` holds draft translations keyed by stable English source messages; `data-msg` disambiguates context-specific copy. Existing DOM nodes, model ownership, motion equations and clocks stay mounted when switching. User inputs and CV files remain local and are never translated. Static localized homepages and share metadata/artwork are emitted during the Vite build. Inspection pages remain English.
-
-Review Greek copy and both responsive layouts independently before acceptance. About, Contact, Insights, Careers and Let’s talk will navigate to separate pages; URLs and final navigation remain deferred. The current in-page prototype actions are not final navigation. The bilingual development preview is live at https://example.invalid/; see the verified deployment receipt in CURRENT. Whole-site SEO qualification remains a separate review after site review.
-
-The language menu and overall localized presentation look good by user review on 19 October. All section copy in Greek and English remains pending section-by-section review;visual or interaction acceptance does not approve wording,figures or company claims. Greek ship-heading fit is verified separately from copy approval.
+Whole-site typography/layout, AI-pattern and performance audits, physical-device/Safari qualification, final bilingual copy and facts, real testimonials/Insights links, separate pages, submission endpoints/legal details and independent SEO review remain open. A source push does not imply release or deployment acceptance.

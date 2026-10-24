@@ -22,3 +22,9 @@
 
 
 <!-- nx configuration end-->
+
+# Approved Pegasoft brand authority
+
+The complete kit at `artifacts/pegasoft-concept/brand-proposal-20261025/` is user-approved as of 25 October 2026 and is the sole reference for any Pegasoft icon, brand logo or symbol. Read its `README.md` and `approval.json` when brand work is relevant. This includes colour SVG/PNG, variants, lockups, sizes, fonts, tokens and guidelines. Older studies/external references are historical; legacy proposed/provisional filenames do not mean approval is pending. Animation and website integration remain separate work.
+
+The approved brand kit and historical review evidence are intentionally local-only and ignored. If that archive is absent, obtain the approved kit before changing brand artwork; do not invent a replacement. Production builds use the maintained application contracts and do not require local evidence.
