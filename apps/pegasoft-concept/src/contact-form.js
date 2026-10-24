@@ -46,14 +46,14 @@ export function createContactForm({panel,scope}){
     const zone=document.createElement('span');zone.className='cv-dropzone';zone.dataset.cvDropzone='';const title=document.createElement('strong');title.textContent=t('Drop your CV here');const hint=document.createElement('span');hint.textContent=t('or choose a file');const status=document.createElement('span');status.dataset.cvStatus='';status.className='cv-file-status';status.setAttribute('aria-live','polite');status.textContent=drafts.Careers.cv?.name||t('No file selected');if(drafts.Careers.cv)status.dataset.userContent='';input.setAttribute('aria-describedby','cv-file-note');
     if(drafts.Careers.cv){const transfer=new document.defaultView.DataTransfer();transfer.items.add(drafts.Careers.cv);input.files=transfer.files;}
     zone.append(title,hint,input);label.append(zone);form.append(label,status);
-    const remove=document.createElement('button');remove.type='button';remove.dataset.removeCv='';remove.className='cv-remove';remove.textContent=t('Remove CV');remove.hidden=!drafts.Careers.cv;form.append(remove);
+    const remove=document.createElement('button');remove.type='button';remove.dataset.removeCv='';remove.dataset.uiAction='tertiary';remove.className='cv-remove';remove.textContent=t('Remove CV');remove.hidden=!drafts.Careers.cv;form.append(remove);
     const note=document.createElement('span');note.id='cv-file-note';note.className='cv-file-note';note.textContent=t('Review prototype: the file stays local and is not uploaded.');form.append(note);
    }else{
     input.value=drafts[shared.has(key)?'shared':audience][key]||'';input.autocomplete={name:'name',email:'email',company:'organization',mobile:'tel'}[key]||'off';
     if(key==='links')input.placeholder=t('GitHub, portfolio, LinkedIn or other links — one per line');label.append(input);form.append(label);
    }
   }
-  const button=document.createElement('button');button.type='submit';button.textContent=audience==='Careers'?t('Review application'):t('Review message');const status=document.createElement('output');status.id='contact-preview-status';status.setAttribute('aria-live','polite');form.append(button,status);panel.replaceChildren(form);
+  const button=document.createElement('button');button.type='submit';button.dataset.uiAction='primary';button.textContent=audience==='Careers'?t('Review application'):t('Review message');const status=document.createElement('output');status.id='contact-preview-status';status.setAttribute('aria-live','polite');form.append(button,status);panel.replaceChildren(form);
  }
  return {show};
 }

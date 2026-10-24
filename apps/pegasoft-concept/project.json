@@ -18,7 +18,7 @@
     },
     "build": {
       "executor": "nx:run-commands",
-      "cache": true,
+      "cache": false,
       "options": {
         "command": "pnpm exec vite build",
         "cwd": "apps/pegasoft-concept"
@@ -44,7 +44,7 @@
       "executor": "nx:run-commands",
       "cache": false,
       "options": {
-        "command": "node tools/package-reviewed-slice.mjs --check",
+        "command": "node tools/verify-production.mjs assets",
         "cwd": "apps/pegasoft-concept"
       }
     },
@@ -69,135 +69,11 @@
       },
       "dependsOn": []
     },
-    "review-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/review-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "review-motion": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/review-check.mjs motion",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "cloud-review-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/cloud-review-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "controller-reference": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/serve-controller-reference.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "controller-review-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/controller-review-check.mjs frames",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "controller-motion": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/controller-review-check.mjs motion",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "controller-lifecycle": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/controller-lifecycle-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "website-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/transport-amendment-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "transport-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/transport-amendment-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "transport-amendment-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/transport-amendment-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "loading-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/loading-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
     "verify-homepage": {
       "executor": "nx:run-commands",
       "cache": false,
       "options": {
-        "commands": [
-          "node tools/package-opening.mjs --check",
-          "node tools/verify-homepage.mjs"
-        ],
-        "parallel": false,
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "homepage-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/homepage-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "homepage-motion": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/homepage-motion.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "outcome-bounce-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/outcome-bounce-check.mjs",
-        "cwd": "apps/pegasoft-concept"
-      }
-    },
-    "loader-check": {
-      "executor": "nx:run-commands",
-      "cache": false,
-      "options": {
-        "command": "node tools/loader-check.mjs",
+        "command": "node tools/verify-production.mjs homepage",
         "cwd": "apps/pegasoft-concept"
       }
     },
@@ -205,15 +81,15 @@
       "executor": "nx:run-commands",
       "cache": false,
       "options": {
-        "command": "node tools/verify-website-motion.mjs",
+        "command": "node tools/verify-production.mjs motion",
         "cwd": "apps/pegasoft-concept"
       }
     },
-    "website-motion-check": {
+    "record-inputs": {
       "executor": "nx:run-commands",
       "cache": false,
       "options": {
-        "command": "node tools/website-motion-check.mjs",
+        "command": "node tools/verify-production.mjs --record",
         "cwd": "apps/pegasoft-concept"
       }
     }

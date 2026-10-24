@@ -1,3 +1,4 @@
+import {pageScroll} from './page-scroll.js';
 import {resolveLocale,setLocale,locale,translate,messageSource,localeUrl} from './locale-messages.js';
 export {translate,locale} from './locale-messages.js';
 const attributes=['aria-label','alt','title','placeholder'];
@@ -16,7 +17,7 @@ export function translateTree(root,language=locale()){
  }
 }
 export function createLocalization({document,onChange=()=>{}}){
- const window=document.defaultView;let stored;try{stored=window.localStorage.getItem('pegasoft.locale');}catch{}
+ const window=document.defaultView,scrolling=pageScroll(document);let stored;try{stored=window.localStorage.getItem('pegasoft.locale');}catch{}
  setLocale(resolveLocale({pathname:window.location.pathname,search:window.location.search,stored}));
  function apply({persist=false,notify=true}={}){
   document.documentElement.lang=locale();document.documentElement.dataset.locale=locale();translateTree(document.body);
@@ -37,9 +38,9 @@ export function createLocalization({document,onChange=()=>{}}){
  function closeAll(except){menus.filter(menu=>menu!==except).forEach(menu=>close(menu));}
  for(const menu of menus){
   const trigger=menu.querySelector('[data-language-trigger]'),panel=menu.querySelector('[role=menu]'),options=[...menu.querySelectorAll('[data-locale]')];
-  const open=()=>{closeAll(menu);panel.hidden=false;trigger.setAttribute('aria-expanded','true');options.find(button=>button.dataset.locale===locale()).focus({preventScroll:true});};
-  listen(trigger,'click',()=>panel.hidden?open():close(menu));
-  listen(trigger,'keydown',event=>{if(['ArrowDown','ArrowUp'].includes(event.key)){event.preventDefault();event.stopPropagation();open();if(event.key==='ArrowUp')options.at(-1).focus();}});
+  const open=({keyboard=false}={})=>{closeAll(menu);panel.hidden=false;trigger.setAttribute('aria-expanded','true');if(keyboard)options.find(button=>button.dataset.locale===locale()).focus({preventScroll:true});};
+  listen(trigger,'click',event=>panel.hidden?open({keyboard:event.detail===0}):close(menu));
+  listen(trigger,'keydown',event=>{if(['ArrowDown','ArrowUp'].includes(event.key)){event.preventDefault();event.stopPropagation();open({keyboard:true});if(event.key==='ArrowUp')options.at(-1).focus();}});
   options.forEach(button=>listen(button,'click',()=>{if(button.dataset.locale!==locale()){setLocale(button.dataset.locale);apply({persist:true});}close(menu,{focus:true});}));
   listen(menu,'keydown',event=>{
    if(event.key==='Escape'&&!panel.hidden){event.preventDefault();event.stopPropagation();close(menu,{focus:true});return;}
@@ -47,15 +48,15 @@ export function createLocalization({document,onChange=()=>{}}){
    if(event.key==='ArrowDown')index=(index+1)%options.length;else if(event.key==='ArrowUp')index=(index-1+options.length)%options.length;else if(event.key==='Home')index=0;else if(event.key==='End')index=options.length-1;else if(event.key==='Tab'){close(menu);return;}else return;
    event.preventDefault();options[index].focus();
   });
-  listen(menu,'focusout',event=>{if(!menu.contains(event.relatedTarget))close(menu);});
+  listen(menu,'focusout',event=>{if(event.relatedTarget&&!menu.contains(event.relatedTarget))close(menu);});
  }
  listen(document,'pointerdown',event=>{for(const menu of menus)if(!menu.contains(event.target))close(menu);});
  // Returning focus aids keyboard users; resumed page scrolling ends that menu interaction.
- let menuScrollY=window.scrollY;
- listen(window,'scroll',()=>{
-  if(Math.abs(window.scrollY-menuScrollY)<4)return;menuScrollY=window.scrollY;
+ let menuScrollY=scrolling.y;
+ cleanups.push(scrolling.listen(()=>{
+  if(Math.abs(scrolling.y-menuScrollY)<4)return;menuScrollY=scrolling.y;
   for(const menu of menus){const focused=menu.contains(document.activeElement)?document.activeElement:null;close(menu);focused?.blur();}
- });
+ }));
  const history=()=>{setLocale(resolveLocale({pathname:window.location.pathname,search:window.location.search,stored:locale()}));apply();};window.addEventListener('popstate',history);
  return {apply,dispose(){cleanups.forEach(cleanup=>cleanup());window.removeEventListener('popstate',history);}};
 }

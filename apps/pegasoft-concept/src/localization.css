@@ -30,7 +30,7 @@ html[lang=el] .language-menu [data-language-flag]{font-family:"Apple Color Emoji
 .site-header[data-visible=true]~.site-header-language{opacity:1;visibility:visible;pointer-events:auto}
 .site-header-language .language-options{left:auto;right:0}
 @media(max-width:760px){.site-header,html[lang=el] .site-header{padding-right:calc(5vw + 202px)}.site-header-contact{right:calc(5vw + 44px)}.site-header-language{right:5vw;top:36px}.site-header-language .language-trigger{min-width:36px}}
-@media(max-width:360px){.site-header,html[lang=el] .site-header{padding-right:calc(5vw + 168px);gap:6px}.site-header .logo{font-size:20px}.site-header .site-menu-toggle{font-size:11px}.site-header-contact{font-size:11px;padding:10px 12px;gap:10px}}
+@media(max-width:360px){.site-header,html[lang=el] .site-header{padding-right:calc(5vw + 168px);gap:0}.site-header .logo{font-size:20px}.site-header .site-menu-toggle{font-size:11px}.site-header-contact{font-size:11px;padding:10px 12px;gap:10px}}
 @media(prefers-reduced-motion:reduce){.site-header-language{transition:none}}
 
 /* Keep the longer Greek ship heading inside narrow viewports; retain the desktop/height scale. */
@@ -41,3 +41,19 @@ html[lang=el] #ship-copy h2{font-size:min(64px,calc(var(--story-height,700px)*.0
 
 /* Greek mobile services heading reads across the truck departure, with the shared 64px title token. */
 @media(max-width:760px){html[lang=el] #stage #services-title{font-size:64px}}
+
+/* Keep the longer Greek destinations distinct before the existing menu takes over. */
+.site-header .nav-links{gap:clamp(12px,1.25vw,24px)}
+@media(max-width:1350px){html[lang=el] .site-header .nav-links{display:none}html[lang=el] .site-header .site-menu-toggle{display:block;margin-left:auto}}
+/* Expand hit areas using the existing 44px control size; retain label styling. */
+.site-header .site-menu-toggle,.site-header-contact,.site-header-language .language-trigger,#opening-stage .cta{min-height:44px}
+.site-header .site-menu-toggle,.site-header-language .language-trigger{min-width:44px}
+
+.site-header[data-tone=light] .nav-links button:hover,.site-header[data-tone=light] .nav-links button:focus-visible{color:#436987}
+.language-options button[aria-checked=true],.site-header-language .language-options button:hover,.site-header-language .language-options button:focus-visible{color:#061e3b}
+@media(max-width:760px){.site-header-contact{color:#05070a}}
+
+/* Font shorthands with two-class selectors must not restore the Latin-only DM subset. */
+html[lang=el] #after-journey :is(#partners,#insights,#faq,#closing-cta,#website-footer) *,
+html[lang=el] #stage :is(#services-overlay,#road-copy,#ship-copy,#trust) *,
+html[lang=el] .cookie-notice,html[lang=el] .cookie-notice *{font-family:Manrope,sans-serif}

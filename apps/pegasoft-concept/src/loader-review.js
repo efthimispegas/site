@@ -12,7 +12,7 @@ function values(){
 function readout(){
  if(!stage.dataset.motion)return;const {openingTime,opening}=JSON.parse(stage.dataset.motion);
  $('#timeline').max=opening.end;$('#timeline').value=openingTime;$('#time-label').value=`${openingTime.toFixed(2)}s / ${opening.end.toFixed(2)}s`;
- $('#readout').textContent=$('#waiting').checked?'Loading beat · compositor preview':opening.phase;
+ $('#readout').textContent=$('#waiting').checked?'Loading beat · compositor preview':opening.phase+' · '+opening.pulses.filter(p=>p.scale>0&&p.scale<1).length+' active fronts';
  $('#play').textContent=running?'Pause':'Play';$('#play').setAttribute('aria-pressed',String(running));
 }
 const loop=createFrameLoop(time=>{intro.tick(time);readout();});

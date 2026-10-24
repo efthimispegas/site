@@ -3,7 +3,6 @@ export const assets = Object.freeze({
   "generation/cloud-family/K01/K01.png": new URL(import.meta.env.BASE_URL + "assets/generation/cloud-family/K01/K01.png", location.origin).href,
   "generation/cloud-family/K02/K02.png": new URL(import.meta.env.BASE_URL + "assets/generation/cloud-family/K02/K02.png", location.origin).href,
   "generation/cloud-family/K03/K03.png": new URL(import.meta.env.BASE_URL + "assets/generation/cloud-family/K03/K03.png", location.origin).href,
-  "generation/cloud-family/cloud-story-approval.json": new URL(import.meta.env.BASE_URL + "assets/generation/cloud-family/cloud-story-approval.json", location.origin).href,
   "generation/cloud-family/haze-treatment.json": new URL(import.meta.env.BASE_URL + "assets/generation/cloud-family/haze-treatment.json", location.origin).href,
   "generation/container-family/model-draft/C01-container.glb": new URL(import.meta.env.BASE_URL + "assets/generation/container-family/model-draft/C01-container.glb", location.origin).href,
   "generation/jet-family/J02-overhead.png": new URL(import.meta.env.BASE_URL + "assets/generation/jet-family/J02-overhead.png", location.origin).href,

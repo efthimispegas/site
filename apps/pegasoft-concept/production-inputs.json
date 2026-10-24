@@ -1,0 +1,548 @@
+{
+  "schemaVersion": 1,
+  "threeRevision": "182",
+  "loaderPreset": {
+    "ringEnd": 1.75,
+    "markStart": 1.75,
+    "pulseStart": 2,
+    "apertureStart": 2.24,
+    "apertureDuration": 0.51,
+    "headlineStart": 2.85,
+    "headlineDuration": 0.65,
+    "ringFrom": 0.67,
+    "ringTo": 1,
+    "ringFadeLead": 0.22,
+    "ringFadeDuration": 0.24,
+    "markDuration": 0.25,
+    "pulseDuration": 0.56,
+    "bounce": 0.11,
+    "settle": 0.39,
+    "beatDuration": 2.37,
+    "beatAmount": 0.109,
+    "ringStagger": 0.085,
+    "ringArrivalDuration": 0.5,
+    "markIntroStart": 0.54,
+    "markIntroDuration": 0.2,
+    "pulseGap": 0.13,
+    "headlineColorDuration": 0.29,
+    "headlineLineStagger": 0.13
+  },
+  "chapterClock": {
+    "duration": 26,
+    "jetStart": 14
+  },
+  "files": [
+    {
+      "path": ".env.example",
+      "sha256": "dd7f402cdcb4e2708b39289501bddb44214b3201a02262ddf313c82d06a66964"
+    },
+    {
+      "path": "eslint.config.mjs",
+      "sha256": "32bdf0fe1287aee4a31e98b0341c3e8401ca100fb8049771de49f6db9b965477"
+    },
+    {
+      "path": "index.html",
+      "sha256": "186dad8f2232e310e03951c57e3d3e494c05593de0f3b9d77918cc5a4c687d43"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ce958e2a343b80af74cd804b88b683f47be5c2309b76dfac93e2ab3a554af26a"
+    },
+    {
+      "path": "project.json",
+      "sha256": "00ce6c7ecdc38b7e52a725145d4f1445aad65c2c96e3adce352f50891249a75a"
+    },
+    {
+      "path": "public/_headers",
+      "sha256": "467537374865fe837ed22f11e1e5b0f564e7558e1f6f4ad451f92a2245089398"
+    },
+    {
+      "path": "public/assets/generation/cloud-family/K01/K01.png",
+      "sha256": "7a465b1e68fccda7ee4fd4fe34e718c81676f4691a47dd543b0220f997b49fe3"
+    },
+    {
+      "path": "public/assets/generation/cloud-family/K02/K02.png",
+      "sha256": "589363d338223b9bf07e95892219ddeee3d525a253e878e77200fc0f3ae7c194"
+    },
+    {
+      "path": "public/assets/generation/cloud-family/K03/K03.png",
+      "sha256": "904f04e044be8d882e5538cdd8fd4b12321cd2f673003b2f8649bb2a08ea5401"
+    },
+    {
+      "path": "public/assets/generation/cloud-family/haze-treatment.json",
+      "sha256": "20762d6af8632f1cccc824ac7eadf852f118d1ab26319bffe129144bf9a9890d"
+    },
+    {
+      "path": "public/assets/generation/container-family/model-draft/C01-container.glb",
+      "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "public/assets/generation/hero-globe/land-dots.json",
+      "sha256": "fde256e72478e84644af31cda26572accb312363b4e8fb3622f98b5068741433"
+    },
+    {
+      "path": "public/assets/generation/jet-family/J02-overhead.png",
+      "sha256": "84b6404893bfb73dab5b764851a0aeb758b0ed6a346f2bc9d93a1788be31e4b8"
+    },
+    {
+      "path": "public/assets/generation/jet-family/shadow-measurements-approval.json",
+      "sha256": "9ab73dfac9b47501b74ad7073c53a4f89a770848a4969ad089f47852a4984f53"
+    },
+    {
+      "path": "public/assets/generation/lift-family/model-draft/attachment-ownership.json",
+      "sha256": "b06eafe6dc4d75a5de484934c98790c2b90a1a2146eef840661133d9bbdece06"
+    },
+    {
+      "path": "public/assets/generation/lift-family/model-draft/model-carbon-unified.glb",
+      "sha256": "d9fd9e83480be86d3b5ab7568e583f9a54341ad20769ea75a23a3fa5919c7067"
+    },
+    {
+      "path": "public/assets/generation/lift-family/model-draft/wheel-ownership-motion-amended.json",
+      "sha256": "0237196fefe430d9f09b57aa02b21a7b36fcebf711f240bd58f72f26ecf44d1a"
+    },
+    {
+      "path": "public/assets/generation/ship-family/S01/S01-oblique-original.png",
+      "sha256": "e5d79914556f4a2f5faa08681036daba04b53069dcbc9ec706831198629afa85"
+    },
+    {
+      "path": "public/assets/generation/ship-family/model-draft/S01-ship.glb",
+      "sha256": "36ec5b545ade437868a73352642cb5415fb90468a42bfb8bdae415ae1c1cba13"
+    },
+    {
+      "path": "public/assets/generation/ship-family/water-plate/ocean-motion.mp4",
+      "sha256": "0faf9cde7516361551b80108e6830d526bcf9678c725292fbf7af0722127a912"
+    },
+    {
+      "path": "public/assets/generation/truck-family/model-draft/T01-truck.glb",
+      "sha256": "59d4b33ea5a8ed7425deca59f2ce9c6de8f5a7a766e59a53c054f0897da43c93"
+    },
+    {
+      "path": "public/assets/review/fonts/dmsans-OFL.txt",
+      "sha256": "9af36190332437f5ecd09974de43c1f7c77a310a996cdd8ceb25628b458840e1"
+    },
+    {
+      "path": "public/assets/review/fonts/dmsans.ttf",
+      "sha256": "8cd08d97e89c24d0aa92edd2f0f4c8ee6195eee9b7c9f154865a58b02f0c1c0d"
+    },
+    {
+      "path": "public/assets/review/fonts/manrope-OFL.txt",
+      "sha256": "58172e0c0fac2cda8a37b348164bb55e44b0e69051e557e92b1d3f6910141f7b"
+    },
+    {
+      "path": "public/assets/review/fonts/manrope.ttf",
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+    },
+    {
+      "path": "public/assets/review/vendor/three/LICENSE",
+      "sha256": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+    },
+    {
+      "path": "public/assets/social/hero-card-20261019.jpg",
+      "sha256": "fbcb44b8086f2c24a4552adf00176d72d77a08dbf5279a055b78d65b9a68a122"
+    },
+    {
+      "path": "public/assets/social/hero-card-el-20261019.jpg",
+      "sha256": "da66fc6a423e67ac542b980b1d4df937a94445abe606b94960701d10054aed52"
+    },
+    {
+      "path": "public/licenses/react-bits.txt",
+      "sha256": "f4c33af6739191537738662d223b68d77bc226f4b57ea883e16481d8cc5c73c9"
+    },
+    {
+      "path": "public/robots.txt",
+      "sha256": "16ceb5ee3e0dc13aa9adf31a3ebbe45a1d965b8c2b9f72eaf84e5911e140ed95"
+    },
+    {
+      "path": "review/cloud-motion.js",
+      "sha256": "afdfa70e103f80dd2775cb099a0d40ec0e98482b4668bd785d799b1d9e671520"
+    },
+    {
+      "path": "review/cloud-story-layers.js",
+      "sha256": "1bc214e84f653423b7c592c616029d0040f0805b5d6622d4298d782b7c1393b4"
+    },
+    {
+      "path": "review/cloud-story-sequence.js",
+      "sha256": "cdac85b9d78c0abe3fe9166a919167b426c397e33c4a0fa5d8cd9bad4be52f72"
+    },
+    {
+      "path": "review/handoff-lift-rig.js",
+      "sha256": "0213d40d18d6599b8f230ecc05823779e891898e2f471cb87fb3a74beddb4329"
+    },
+    {
+      "path": "review/handoff-sequence.js",
+      "sha256": "f537e30d76e74064b992865c029fcc8f3fb5d9ece58a5fc5b278d435b00729a8"
+    },
+    {
+      "path": "review/jet-crossing.js",
+      "sha256": "2462f33692b32ae6cf02839e0fd3270f7eccb26c40afa635c94931593746d35d"
+    },
+    {
+      "path": "review/lift-cab.js",
+      "sha256": "03187b4c51975f8b69d2678060bd4856f6855ed7eab5790c4c332afed727ba95"
+    },
+    {
+      "path": "review/lift-container-contact.js",
+      "sha256": "64f983c40271cdeb0249aecf00d10378b062ef9d35af06b4cc9312eca8b67cbc"
+    },
+    {
+      "path": "review/lift-motion-contract.js",
+      "sha256": "0aac32ced4e51fdd7fc73848c4ec217c707375c46300c2abd61864ce05389923"
+    },
+    {
+      "path": "review/lift-motion-data.js",
+      "sha256": "1b331873fdaac909d745d215d67b7c9ddd23d1abd377abfdef7cbc3cddedb7a1"
+    },
+    {
+      "path": "review/lift-wheels.js",
+      "sha256": "2fcb091e1288a1b04664a3220874018a85b0218f03fdf5d2c89a56c8f4fd2b95"
+    },
+    {
+      "path": "review/runtime-assets.js",
+      "sha256": "13c10e300f3838e1aeeadb3ff436911c02543def23582a9c828d947d248d36ab"
+    },
+    {
+      "path": "review/runtime-lifecycle.js",
+      "sha256": "716637f178c05636c0fa4acb473c57d6445ec5440024ba6e2459ebb78ddc2dad"
+    },
+    {
+      "path": "review/ship-content.js",
+      "sha256": "814ecf7246cd197858b7406f8fcfa01d33695425af37b0b88ed37e7d404698b8"
+    },
+    {
+      "path": "review/ship-integration-sequence.js",
+      "sha256": "2e5792a7a8c76bc71da655b6cdc46bb3c5abf4c6da11908471cdf57427e9da54"
+    },
+    {
+      "path": "review/ship-jet-controller.js",
+      "sha256": "1055801bf2917c533b26b01f41cb2cfac8744c0d337f3e7a54bec748cefc2edf"
+    },
+    {
+      "path": "review/ship-jet-inspection.js",
+      "sha256": "8b47920660027e466183173f403df980e24e8e118880842c94b38503fb9005ba"
+    },
+    {
+      "path": "review/ship-jet-integration.js",
+      "sha256": "fede1e6960232813662e0bd0e2f8e7546c609f01c365b4933c1631c410baa641"
+    },
+    {
+      "path": "review/ship-jet-scene.js",
+      "sha256": "bf39071d9c475dc12509a688577b31c4d42959b01c27285f3eede3d5937b2551"
+    },
+    {
+      "path": "review/ship-jet-sequence.js",
+      "sha256": "7d2af92340908b359e5e8ce7e15cb8ca2757f00d5d3d6ee72c2c30ea2c7b5a0e"
+    },
+    {
+      "path": "review/ship-road.js",
+      "sha256": "5b79a66889d46e74eabfbaeb63366fcd7b48ff28541619f1bb276d95e7cf6d3d"
+    },
+    {
+      "path": "review/ship-surface.js",
+      "sha256": "d72880b88ccb459a2e614bc3ccd620e4f6d4085ddadcf56fbfae1fd65fe30d67"
+    },
+    {
+      "path": "review/ship-water.js",
+      "sha256": "722c9a932a836d2484e7e144ebe29b4192f659b57ce6a532f2cbba13d503f855"
+    },
+    {
+      "path": "review/story-typography.css",
+      "sha256": "f759bff3405d52389500f5105d18ee0bfcfc876fb661ecad70e1b0c31570f56a"
+    },
+    {
+      "path": "review/vendor/three/build/three.core.js",
+      "sha256": "283be43b2229e15f46dac84cd19354ede5f06cac7ffb185e765cfcfb2c1eec90"
+    },
+    {
+      "path": "review/vendor/three/build/three.module.js",
+      "sha256": "d835eab0b3bca3fdfd51e2ce7d06911f4a089b08db73cc3cd70fe5e3005a623f"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/environments/RoomEnvironment.js",
+      "sha256": "446d91c7963969dd8a69d7a7367bb7b42a7e7da1f38b50825c2e8a36890d3ca6"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/loaders/GLTFLoader.js",
+      "sha256": "b5e15bc2b679c3665a57de11dfc91d847ff410bd93a137f748be4af2ea416af0"
+    },
+    {
+      "path": "review/vendor/three/examples/jsm/utils/BufferGeometryUtils.js",
+      "sha256": "c62282a390908391eeb1b1cbb0ba583c26e2954676b3000d46988f9484db9798"
+    },
+    {
+      "path": "src/approved-loader-preset.js",
+      "sha256": "4bed2b42adf3c74181840bfc36f5c617fe8e7616176b2a7b18755f104a6b27c2"
+    },
+    {
+      "path": "src/assets/ocean-first-frame.png",
+      "sha256": "740950bb40c8e034e5b9402d605e9407bbe5c425b4550ed87826b912e6d16f85"
+    },
+    {
+      "path": "src/contact-form.js",
+      "sha256": "d87565a9d088cc2fd42aae64385bfcddc133e41d71aff2c9b6f57f40bad78c19"
+    },
+    {
+      "path": "src/content-controller.js",
+      "sha256": "f6b7c578a596c15da726770d72d2547997dc71f5897d203dae310cf18615817e"
+    },
+    {
+      "path": "src/content-sections.css",
+      "sha256": "a435b2df8ddf71076451e930e049e1c46a42964150b061ab049b75af059ac130"
+    },
+    {
+      "path": "src/cookie-consent.js",
+      "sha256": "2e56b62fa2482bc5e5cb885af5f0c7217403e5fa86f5d4f40bfca42ca2eb120e"
+    },
+    {
+      "path": "src/cooperative-work.js",
+      "sha256": "9150a155c3753d0737455a5202d9394f0bdc16e2a6d40c5d59f3a13c1fd51bc3"
+    },
+    {
+      "path": "src/counter.css",
+      "sha256": "940d12a882954279b5d55cf3714018a5facc9c2ffd1611b5850a73722b00a60f"
+    },
+    {
+      "path": "src/cta-decryption.js",
+      "sha256": "10a396afd3743c1e5db8885ba70f01a24e208caa44fe88e91742d8d659e2ca87"
+    },
+    {
+      "path": "src/footer-particle-review.css",
+      "sha256": "1c3ee5a8a20c5564ef53354850f18425a3da560e9b24156ddeb20b063ec35bb0"
+    },
+    {
+      "path": "src/footer-particle-review.js",
+      "sha256": "b0ecfcfd57900cb7f747c4c33b3b5a425327f720dfb23c2dc64dbc34502a2e4c"
+    },
+    {
+      "path": "src/hero-city-routes.js",
+      "sha256": "e1dfba26c50536cd5ad860779a4005aa1d3d949e4d88da1147562068624d748e"
+    },
+    {
+      "path": "src/hero-globe.js",
+      "sha256": "63df2efdf56d7e975fa8ed86c0bbf4316f1839f91d93e806681fabefd22c96be"
+    },
+    {
+      "path": "src/hero-odometer.js",
+      "sha256": "3b24751858e6e665e2c9004f08f95bfd0dbae4dfe7e73c0e6fdb1cfd83042889"
+    },
+    {
+      "path": "src/hero-opening-sequence.js",
+      "sha256": "698073d719c2abe9851c39f6557a25a15fb94be62e12b2a69dd613ecc63cea53"
+    },
+    {
+      "path": "src/hero-opening.css",
+      "sha256": "9c417a262fa3ced9d0b0fbf04554ce2ebb8f00f52755983455940116a455b452"
+    },
+    {
+      "path": "src/horizon-transition.js",
+      "sha256": "f9505cee17946279e7c82d55e5ea7faaeffa50d80735d92bbec66d1831c29817"
+    },
+    {
+      "path": "src/intro-controller.js",
+      "sha256": "bceb621fa21740fa9f6d2887db736d386026bc525fd21a059050ed4161ae6311"
+    },
+    {
+      "path": "src/intro-sequence.js",
+      "sha256": "fc4b96ef363587a506b997cfd0cbe96ac45dac7e4810c5a076d6043a139f0b04"
+    },
+    {
+      "path": "src/journey-host.js",
+      "sha256": "fb2a8338fbe32cf44a065d64657e4295c75cf7d60e37585e18e09598be9f3dab"
+    },
+    {
+      "path": "src/journey.css",
+      "sha256": "7dafdaee9104a818177904a4981f20db472f05115f5f18138e9cfb8f4aba544b"
+    },
+    {
+      "path": "src/loader-reference-preset.js",
+      "sha256": "8fd08e7d87a98f9bcd7e82135248dc7399021c58a2effe870e0073db7149316e"
+    },
+    {
+      "path": "src/loader-review.css",
+      "sha256": "6b1d88de3ac28c07d05c3eac16caa4f066506202258eb9d67779063bf992806d"
+    },
+    {
+      "path": "src/loader-review.js",
+      "sha256": "2ea8ea7858b2332ca0f1475c7759a9ddae7a997386aa35cde77319f8e584f605"
+    },
+    {
+      "path": "src/loader-sequence.js",
+      "sha256": "eefc8bcc05a37d5019ff5897e56a59b64842ca1e8171c1f77e2e2fa230b12499"
+    },
+    {
+      "path": "src/loader.css",
+      "sha256": "08d0e101d955c94f311d98929f43e5ac44fdb721c8bfce846c4679f5593f00bf"
+    },
+    {
+      "path": "src/locale-messages.js",
+      "sha256": "4e01ae6ea3c7430407cfa01ec50c222ac1035baad792c50541a732732355fc86"
+    },
+    {
+      "path": "src/locales/el.js",
+      "sha256": "1ec06196132a7529b9144de36389cd027f1201489decc0b43d2a2d5d135e854d"
+    },
+    {
+      "path": "src/localization.css",
+      "sha256": "2922a9784f08da55327c01bfa075e5590c8df66b7f40001bd8124870428fadd9"
+    },
+    {
+      "path": "src/localization.js",
+      "sha256": "fc58e28637f7495b31e5cc48203a61f90dbde94ce51a48b21448fad09bf9aea1"
+    },
+    {
+      "path": "src/main.js",
+      "sha256": "79229cc8b5083c21f4a7fdc5cffa20e67edd9034eec341351621e3801601ce67"
+    },
+    {
+      "path": "src/mobile-mesh-batches.js",
+      "sha256": "41ff38bea7ef31b5ff8fd4019a18643a4d775b80fe071b1667febbc8ccc3a195"
+    },
+    {
+      "path": "src/mobile-reading-sequence.js",
+      "sha256": "7a8a7b0cc19a181d70cc20957d6f4bb8fd81aceb71b7983085ce2112bb722ab3"
+    },
+    {
+      "path": "src/mobile-reading.css",
+      "sha256": "9a2211875813b999ee4694a5a43fef808efcf2f128b278f9572a51cd2e468910"
+    },
+    {
+      "path": "src/mobile-reading.js",
+      "sha256": "5c260d180b94c186d2027be63341b3befc847024a656224d2b659950b2a8fa3e"
+    },
+    {
+      "path": "src/mobile-reference-jet.js",
+      "sha256": "1cceb95f73f3dca4af9447e3aa1da9214928e418b366ad299bacca5bbc579840"
+    },
+    {
+      "path": "src/mobile-reference-motion.js",
+      "sha256": "1b5e5fa0170ee27b3c38271e56177877ddf50e6612514fb8bb3171da607bcc81"
+    },
+    {
+      "path": "src/mobile-reference-sequence.js",
+      "sha256": "71910324183e58befa454cc671da7863199e35301097b3a06d68d11b80cee291"
+    },
+    {
+      "path": "src/mobile-reference.css",
+      "sha256": "87126feba75130108a959a0b8833419084f8146a3967afc78f961483a73e5e76"
+    },
+    {
+      "path": "src/mobile-scroll-timeline.js",
+      "sha256": "e94fc4fb5d540e9f8ef17e66146ce0f355b88d3b7ea6eb197514c78d78b92688"
+    },
+    {
+      "path": "src/model-download.js",
+      "sha256": "5812839b1e47141ca423d6d9d88094543763e23548d30148553194e6229fcd07"
+    },
+    {
+      "path": "src/outcome-metrics.js",
+      "sha256": "9968953d9031015eb5e9726e639601976b1a99bcfd4f291785a9107d977c0285"
+    },
+    {
+      "path": "src/outcome.css",
+      "sha256": "ce9468d9e14d63ba77ee7f217b6bf96e583f7a5b775d985055e887bb41198057"
+    },
+    {
+      "path": "src/page-scroll.js",
+      "sha256": "57ee52b9d2828f844ed71982d3795818d8d68385fbed83459eae5daf465b2bfd"
+    },
+    {
+      "path": "src/particle-wordmark.js",
+      "sha256": "cb26ce0fc544ddae6270366528152e4d907ede4308de6d3ebdc030fdd0193b89"
+    },
+    {
+      "path": "src/partner-wall.js",
+      "sha256": "4b812f7e05b96fb0a26f45e4fdbe15c896fad4d29f9cb9eb5cfab0cfaa16cdd7"
+    },
+    {
+      "path": "src/road-deck-registration.js",
+      "sha256": "6b92049036dd61fd06b4954910a88f3d5e2128aceb47c89561814224f54a56f2"
+    },
+    {
+      "path": "src/startup-scroll.js",
+      "sha256": "d9bbc2b233563b71a7bf4b4fb04cf8d9544b7d90a38a6b374af481a71fdb66c3"
+    },
+    {
+      "path": "src/story-viewport.js",
+      "sha256": "1176b175e7a803c8e3ca71fc7b26b8cae220cf0e5eddda0fc18c6ea31e5dcfe4"
+    },
+    {
+      "path": "src/transport-controller.js",
+      "sha256": "2d3d36fda12849f9f51281002162e85eec5a712b885a1535a655ba210bf81626"
+    },
+    {
+      "path": "src/transport-sequence.js",
+      "sha256": "675716afa447ebc6182a322533ec465c171077d7a85541cb1b43190cebe604d4"
+    },
+    {
+      "path": "src/transport-timeline.js",
+      "sha256": "ce6772d8f221123b87b646499a0e26343ce1cdc84a3641f5074bee2380bfe03d"
+    },
+    {
+      "path": "src/truck-detail-repair.js",
+      "sha256": "08c8798000ba30e2f318a53dbe0e89883bd63c9a323d682a0d17cc6f71b89e7a"
+    },
+    {
+      "path": "src/truck-motion-rig.js",
+      "sha256": "dc71615ebae9a78886e06a9d120c811e507d751fcb693ef604a615dd351f62cc"
+    },
+    {
+      "path": "src/ui-theme.css",
+      "sha256": "94d72aa0158a371a143105f2e701bc303659ea023f9b85ee2ec34daf8463eb12"
+    },
+    {
+      "path": "src/website-motion-controller.js",
+      "sha256": "579d764fe7d6627e796802b24a43ea60c588c621ecaa86ab0b0ff6edaa01909e"
+    },
+    {
+      "path": "src/website-motion.css",
+      "sha256": "3ce4d9c2f39cfe9e9122c46d56497100f682d7b46634934258e23b7c7ef36693"
+    },
+    {
+      "path": "tools/check-source.mjs",
+      "sha256": "70a4aefeba92b9d10b6d9c9353a302a1a5d14ba064ef04241c7f624a10b36355"
+    },
+    {
+      "path": "tools/cloud-motion.test.mjs",
+      "sha256": "4ab18155f7ed558220aa3e96f4ba0c44d6053cdfc623451626aac6745b41f612"
+    },
+    {
+      "path": "tools/counter.test.mjs",
+      "sha256": "f001b995265271511e1b30b9a365723989d788a22297b3dde7104fd8b24badee"
+    },
+    {
+      "path": "tools/deployment-config.mjs",
+      "sha256": "7e1876978ff10ae7e61e5629524371d31499f99136b62dcdde61d0cb9904a0b7"
+    },
+    {
+      "path": "tools/lifecycle.test.mjs",
+      "sha256": "bba606e2236aadfc080d5a6aa2395eb72a1d4cec337771c8baee2bc3fa5f7e4c"
+    },
+    {
+      "path": "tools/localization.test.mjs",
+      "sha256": "faf4b4e05fbf681fbd2389f2e53d47421ecc9db2b97c7dc8ced73f7e98902a4a"
+    },
+    {
+      "path": "tools/localized-pages.mjs",
+      "sha256": "a89539583430c8a218ec009e3bc7244f9cf861e6ade1953c7309899397e969b8"
+    },
+    {
+      "path": "tools/packaging.test.mjs",
+      "sha256": "76e9354f7f8b0ea7d686b24a1f13e5c8452c41979494503b840ed01bd7ab1370"
+    },
+    {
+      "path": "tools/static-compression.mjs",
+      "sha256": "16cb77e56a5305782a4fb28134f5e59d5652ede522c4cc2e8642971e5e23c047"
+    },
+    {
+      "path": "tools/transport-timeline.test.mjs",
+      "sha256": "7e8185a2a074e0b337acc1d10caae517898140d34531c45c20061b5a3325af40"
+    },
+    {
+      "path": "tools/verify-production.mjs",
+      "sha256": "c3cb444e33d3237f1c824e8abe2eb13940e175aee844135bed5a67e5047649c6"
+    },
+    {
+      "path": "vite.config.js",
+      "sha256": "06a22be14c8d0ce086ee6976771af85ab03a1bd4d061cde9a19f6b918498d3cf"
+    }
+  ]
+}

@@ -23,7 +23,7 @@ export function localeUrl(href,language){
 const decode=value=>value.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#(?:39|x27);/gi,"'").replace(/&nbsp;/g,'\u00a0').replace(/&lt;/g,'<').replace(/&gt;/g,'>');
 const escape=value=>value.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 /** Static HTML translation shares its message catalog with the runtime. Never evaluate embedded scripts. */
-export function localizeHtml(html,language,{origin='https://example.invalid'}={}){
+export function localizeHtml(html,language,{origin=''}={}){
  let key=null;
  const parts=html.split(/(<script\b[^>]*>[\s\S]*?<\/script>|<style\b[^>]*>[\s\S]*?<\/style>|<!--[\s\S]*?-->|<[^>]*>)/gi);
  let flag=false;

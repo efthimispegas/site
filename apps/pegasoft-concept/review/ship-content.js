@@ -1,4 +1,8 @@
 import {ease} from './handoff-sequence.js';
+/** Reserve both the hull gap and the shared mobile page gutter. */
+export function shipContentCardBudget(width,hull){
+ return width<=760?Math.max(72,Math.min(width*.40,(width-(hull.right-hull.left))/2-Math.max(12,width*.022)-width*.06)):Math.min(width*.31,360);
+}
 export const shipContentCardWidth=(index,width,cardWidth)=>(index===2||index===3)?Math.min(cardWidth,width*.24,280):cardWidth;
 export function shipContentLayout(progress,width,height,hull,cardWidth,headingHeight,spacing=1){
  const u=Math.max(0,Math.min(1,(progress-.60)/.40)),rowSpacing=.66*.8*.9*.9*spacing,gap=Math.max(12,width*.022);

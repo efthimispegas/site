@@ -1,9 +1,47 @@
 import test from 'node:test';
+import {loaderState,heroTextReveal,LOADER_DEFAULTS} from '../src/loader-sequence.js';
+import {decryptedFrame} from '../src/cta-decryption.js';
 import {invertedHorizonLayout} from '../src/horizon-transition.js';
 import assert from 'node:assert/strict';
 import {counterPlaces,roundedToPlace,settleWheel} from '../src/hero-odometer.js';
 import {metricLayout,createMetricPlayback} from '../src/outcome-metrics.js';
 import {introState,introScrollAtProgress,introProgressAtScroll,outcomeTitlePosition} from '../src/intro-sequence.js';
+test('loader uses the complete25 October approved reference preset',()=>{
+ assert.deepEqual(LOADER_DEFAULTS,{
+  ringEnd:1.75,markStart:1.75,pulseStart:2,apertureStart:2.24,apertureDuration:.51,
+  headlineStart:2.85,headlineDuration:.65,ringFrom:.67,ringTo:1,
+  ringFadeLead:.22,ringFadeDuration:.24,markDuration:.25,pulseDuration:.56,
+  bounce:.11,settle:.39,beatDuration:2.37,beatAmount:.109,
+  ringStagger:.085,ringArrivalDuration:.5,markIntroStart:.54,markIntroDuration:.2,
+  pulseGap:.13,headlineColorDuration:.29,headlineLineStagger:.13
+ });
+ // No authored pause at the reported first-paint boundary, at quarter speed.
+ for(let t=2.24;t<2.30;t+=1/240){
+  const a=loaderState(t),b=loaderState(t+1/240);
+  assert.ok(b.aperture>a.aperture);assert.ok(b.pulses[0].scale>a.pulses[0].scale);
+ }
+});
+test('reference loader introduces outlines individually and has three independent nested fronts',()=>{
+ const first=loaderState(0);assert.equal(first.rings[0].opacity,1);assert.ok(first.rings.slice(1).every(r=>r.opacity===0));assert.equal(first.markOpacity,0);
+ const arriving=loaderState(.2);assert.ok(arriving.rings[0].scale>arriving.rings[1].scale);assert.equal(arriving.rings[4].opacity,0);
+ const pulse=loaderState(2.42);assert.deepEqual(pulse.pulses.map(p=>p.kind),['fill','fill','hero']);assert.ok(pulse.pulses[0].scale>pulse.pulses[1].scale&&pulse.pulses[1].scale>pulse.pulses[2].scale&&pulse.pulses[2].scale>0);
+ assert.equal(loaderState(3).aperture,1);assert.equal(loaderState(3).pulseVisible,false);
+ assert.deepEqual(loaderState(2.42),pulse);assert.equal(loaderState(0,LOADER_DEFAULTS,true).complete,true);
+});
+test('hero accent front precedes final colour, respects row order and resolves instantly for reduced motion',()=>{
+ const first=heroTextReveal(3),second=heroTextReveal(3,1);
+ assert.ok(first.visible>second.visible);assert.equal(first.settled,0);
+ const middle=heroTextReveal(3.3);assert.ok(middle.visible>middle.settled&&middle.settled>0);
+ assert.deepEqual(heroTextReveal(5),{visible:1,settled:1});assert.deepEqual(heroTextReveal(0,0,LOADER_DEFAULTS,true),{visible:1,settled:1});
+});
+test('CTA decryption preserves whitespace and resolves Greek graphemes without changing its label',()=>{
+ const text='Ας μιλήσουμε',initial=decryptedFrame(text,0,{random:()=>0});
+ assert.equal(initial.complete,false);assert.equal(initial.shown[2],' ');
+ assert.equal(decryptedFrame('ABC',60,{random:()=>0}).shown[0],'A');
+ assert.deepEqual(decryptedFrame(text,10000),{complete:true,shown:text});
+ assert.deepEqual(decryptedFrame('e\u0301',60),{complete:true,shown:'e\u0301'});
+ assert.deepEqual(decryptedFrame(text,0,{reduced:true}),{complete:true,shown:text});
+});
 test('decimal places preserve 98.5 and decimal carry without binary rounding loss',()=>{
  assert.deepEqual(counterPlaces(98.5),[10,1,'.',.1]);assert.equal(roundedToPlace(98.5,.1),985);assert.equal(roundedToPlace(.3,.1),3);
  assert.deepEqual(counterPlaces(50),[10,1]);

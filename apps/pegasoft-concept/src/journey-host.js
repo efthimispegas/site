@@ -1,10 +1,14 @@
+import {createMobileScrollTimeline,mobileJourneyProgress} from './mobile-scroll-timeline.js';
+import {pageScroll} from './page-scroll.js';
+import {createMobileReading} from './mobile-reading.js';
+import {storyViewport,sameStoryViewport} from './story-viewport.js';
 import {withDeadline} from './cooperative-work.js';
 import {lockStartupScroll} from './startup-scroll.js';
 import {createWebsiteMotionController} from './website-motion-controller.js';
 import {createIntroController} from './intro-controller.js';
 import {introScrollDistance,introProgressAtScroll,introScrollAtProgress} from './intro-sequence.js';
 import {createTransportController} from './transport-controller.js';
-import {scrollDistance,progressAtScroll,scrollAtProgress,scrollSpans,handoffEnd} from './transport-timeline.js';
+import {scrollDistance as desktopScrollDistance,progressAtScroll as desktopProgressAtScroll,scrollAtProgress as desktopScrollAtProgress,scrollSpans,handoffEnd} from './transport-timeline.js';
 import {createScope, createFrameLoop} from '../review/runtime-lifecycle.js';
 
 /** Website scroll owner. The inspector uses the same controller independently. */
@@ -13,37 +17,64 @@ export function createJourneyHost(root) {
   const stage = root.querySelector('#stage'), track = root.querySelector('#story-track');
   const staticStory = root.querySelector('#static-story'), loading = root.querySelector('#loading');
   const scope = createScope(), media = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const scrolling=pageScroll(document);
   const startupScroll=lockStartupScroll(document,scope);
-  let progress = 0, distance = 1, introDistance = 1, introProgress = 0, inIntro = true, transportVisible=false, scrollPending=false, mounted = false, task;
+  let progress = 0, distance = 1, introDistance = 1, introProgress = 0, transportVisible=false, scrollPending=false, mounted = false, task;
   const introTrack=root.querySelector('#intro-track'),introStage=root.querySelector('#opening-stage');
   const intro=introStage?createIntroController({stage:introStage}):null;
+  const reading=createMobileReading({root,stage});
   const controller = createTransportController({root, stage}),content=createWebsiteMotionController({root});
-  const start = () => track.getBoundingClientRect().top + window.scrollY;
+  let viewport=storyViewport(stage,introStage,window);
+  const progressAtScroll=(offset,height)=>scrolling.mobile&&scrolling.timeline?scrolling.timeline.progressAt(offset):desktopProgressAtScroll(offset,height);
+  const scrollAtProgress=(p,height)=>scrolling.mobile&&scrolling.timeline?scrolling.timeline.offsetAt(p):desktopScrollAtProgress(p,height);
+  let layoutReady=false,renderHeight=0,introRenderHeight=0;
+  document.fonts.ready.then(()=>{if(!scope.disposed){layoutReady=false;resize();}});
+  const start = () => track.getBoundingClientRect().top + scrolling.y;
   function update() {
+    if((viewport.width<=760)!==scrolling.mobile)return;
     // A fast swipe may reach transport before parsing/warmup finishes. Keep
     // that chapter at its first frame; preparation continues independently.
-    if(!mounted&&!startupScroll.locked&&!document.body.classList.contains('static-journey')&&window.scrollY>start())window.scrollTo({top:start(),behavior:'instant'});
+    if(!mounted&&!startupScroll.locked&&!document.body.classList.contains('static-journey')&&scrolling.y>start())scrolling.to({top:start(),behavior:'instant'});
     if(intro){
-      const top=introTrack.getBoundingClientRect().top+window.scrollY;
-      introProgress=introProgressAtScroll(window.scrollY-top,window.innerHeight);
+      const top=introTrack.getBoundingClientRect().top+scrolling.y;
+      introProgress=introProgressAtScroll(scrolling.y-top,viewport.introHeight);
       introStage.style.clipPath=introProgress>=.9?'inset(0 0 100px 0)':'none';
-      inIntro=window.scrollY<start();
       intro.update({progress:introProgress,inView:introTrack.getBoundingClientRect().bottom>0});
     }
-    progress = progressAtScroll(window.scrollY - start(), window.innerHeight);
+    progress = progressAtScroll(scrolling.y - start(), viewport.height);
     const bounds=stage.getBoundingClientRect();transportVisible=bounds.bottom>0&&bounds.top<window.innerHeight;
-    controller.update({progress, reducedMotion: media.matches});content?.update({reducedMotion:media.matches});
+    reading.update(controller.update({progress, reducedMotion: media.matches}));content?.update({reducedMotion:media.matches});
   }
   function resize() {
     if (scope.disposed || document.body.classList.contains('static-journey')) return;
-    const previous = distance,previousIntro=introDistance,afterStory=window.scrollY>start()+distance,anchor=content?.scrollAnchor;
-    if(intro){introDistance=introScrollDistance(window.innerHeight);introTrack.style.height=(introStage.clientHeight+introDistance)+'px';intro.resize();}
-    distance = scrollDistance(window.innerHeight);
-    track.style.height = (stage.clientHeight + distance) + 'px';
+    const next=storyViewport(stage,introStage,window);
+    // Safari toolbar/keyboard changes can resize innerHeight while 100svh stays
+    // fixed. They must never re-lengthen the story or move native page scroll.
+    const sceneChanged=renderHeight!==stage.clientHeight||introRenderHeight!==introStage?.clientHeight;
+    renderHeight=stage.clientHeight;introRenderHeight=introStage?.clientHeight;
+    if(layoutReady&&sameStoryViewport(viewport,next)){
+      if(sceneChanged){intro?.resize();controller.resize();}
+      update();return;
+    }
+    const previous=distance,previousIntro=introDistance,storyTop=start();
+    const afterStory=scrolling.y>storyTop+distance;
+    // Read the native offset now, not the previous animation frame's progress.
+    const changedScrollOwner=(viewport.width<=760)!==scrolling.mobile;
+    const priorProgress=changedScrollOwner?progress:progressAtScroll(scrolling.y-storyTop,viewport.height);
+    const introTop=introTrack?.getBoundingClientRect().top+scrolling.y;
+    const priorIntro=changedScrollOwner?introProgress:intro?introProgressAtScroll(scrolling.y-introTop,viewport.introHeight):0;
+    const wasIntro=scrolling.y<storyTop;
+    if(afterStory)content?.update();
+    const anchor=content?.scrollAnchor;
+    viewport=next;layoutReady=true;
+    if(intro){introDistance=introScrollDistance(viewport.introHeight);introTrack.style.height=(viewport.tailHeight+introDistance)+'px';intro.resize();}
+    scrolling.timeline=scrolling.mobile?createMobileScrollTimeline(viewport.height,reading.measure?.()):null;
+    distance=scrolling.timeline?.distance||desktopScrollDistance(viewport.height);
+    track.style.height=(viewport.tailHeight+distance)+'px';
     controller.resize();content?.resize();
     if(mounted&&!startupScroll.locked&&(previous!==distance||previousIntro!==introDistance)){
-      const top=afterStory&&anchor?anchor.element.getBoundingClientRect().top+window.scrollY+anchor.fraction*anchor.element.getBoundingClientRect().height:intro&&inIntro?introTrack.getBoundingClientRect().top+window.scrollY+introScrollAtProgress(introProgress,window.innerHeight):start()+scrollAtProgress(progress,window.innerHeight);
-      window.scrollTo({top,behavior:'instant'});
+      const top=afterStory&&anchor?anchor.element.getBoundingClientRect().top+scrolling.y+anchor.fraction*anchor.element.getBoundingClientRect().height:intro&&wasIntro?introTrack.getBoundingClientRect().top+scrolling.y+introScrollAtProgress(priorIntro,viewport.introHeight):start()+scrollAtProgress(priorProgress,viewport.height);
+      scrolling.to({top,behavior:'instant'});
     }
     update();
   }
@@ -62,9 +93,9 @@ export function createJourneyHost(root) {
     if ((mounted||intro?.ready) && !document.hidden && !media.matches && !document.body.classList.contains('static-journey')&&introStage?.dataset.preparing!=='true') loop.start();
     else loop.stop();
   }
-  scope.defer(() => { loop.stop(); controller.dispose();intro?.dispose();content?.dispose(); });
+  scope.defer(() => { loop.stop(); controller.dispose();intro?.dispose();content?.dispose();reading.dispose(); });
   scope.defer(() => { track.style.height = '';if(introTrack)introTrack.style.height=''; document.body.classList.remove('static-journey'); staticStory.hidden = true; stage.dataset.loaded = 'false'; });
-  scope.listen(window, 'scroll', () => {if(loop.active)scrollPending=true;else update();}, {passive: true});
+  scope.defer(scrolling.listen(() => {if(loop.active)scrollPending=true;else update();}));
   scope.listen(window, 'resize', resize);
   scope.listen(document, 'visibilitychange', visibility);
   scope.listen(media, 'change', () => {
@@ -102,7 +133,9 @@ export function createJourneyHost(root) {
         if(scope.disposed)return;
         mounted=true;stage.dataset.loaded='true';loading.hidden=true;
         resize();update();controller.render();
-        const observer=new ResizeObserver(resize);observer.observe(stage);if(introStage)observer.observe(introStage);const wordmark=root.querySelector('#particle-wordmark');if(wordmark)observer.observe(wordmark);
+        const wordmark=root.querySelector('#particle-wordmark');
+        const observer=new ResizeObserver(entries=>{if(entries.some(entry=>entry.target===wordmark))content?.resize();if(entries.some(entry=>entry.target!==wordmark))resize();});
+        observer.observe(stage);if(introStage)observer.observe(introStage);if(wordmark)observer.observe(wordmark);
         scope.defer(()=>observer.disconnect());visibility();
       }).catch(fail);
     }).catch(fail);
@@ -110,11 +143,11 @@ export function createJourneyHost(root) {
   }
   function navigate(target,{behavior=media.matches?'instant':'smooth'}={}){
     if(startupScroll.locked)return;
-    if(document.body.classList.contains('static-journey')){staticStory.scrollIntoView({behavior,block:'start'});return;}
-    const top=target==='trust'?start()+distance:target==='about'?introTrack.getBoundingClientRect().top+window.scrollY+introScrollAtProgress(.50,window.innerHeight):start()+scrollSpans(window.innerHeight)[0]*.79/handoffEnd;
-    window.scrollTo({top,behavior});
+    if(document.body.classList.contains('static-journey')){(target==='services'?root.querySelector('#static-services'):staticStory).scrollIntoView({behavior,block:'start'});return;}
+    const top=target==='trust'?start()+distance:target==='about'?introTrack.getBoundingClientRect().top+scrolling.y+introScrollAtProgress(.50,viewport.introHeight):start()+(scrolling.mobile?scrollAtProgress(mobileJourneyProgress('handoff',.63),viewport.height):scrollSpans(viewport.height)[0]*.79/handoffEnd);
+    scrolling.to({top,behavior});
   }
-  const host = {mount,navigate,refreshLanguage(){content?.resize();if(controller.state==='mounted')controller.render();}, dispose: () => scope.dispose(), get controller() {return controller;}, get intro() {return intro;}, get content(){return content;}, get progress() {return progress;}, get activeFrameLoops() {return loop.active ? 1 : 0;}};
+  const host = {mount,navigate,refreshLanguage(){content?.resize();reading.refresh();layoutReady=false;resize();if(controller.state==='mounted')controller.render();}, dispose: () => scope.dispose(), get controller() {return controller;}, get intro() {return intro;}, get content(){return content;}, get progress() {return progress;}, get activeFrameLoops() {return loop.active ? 1 : 0;}};
   stage.journey = host;
   scope.defer(() => { if (stage.journey === host) delete stage.journey; });
   return host;

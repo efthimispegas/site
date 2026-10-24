@@ -10,10 +10,11 @@ export async function makeWater({scope,eventTarget=document,mediaParent=eventTar
  poster.wrapS=poster.wrapT=T.MirroredRepeatWrapping;poster.minFilter=T.LinearFilter;poster.magFilter=T.LinearFilter;
  scope.defer(()=>poster.dispose());
  if(scope.disposed)throw new DOMException('Scene disposed','AbortError');
+ let mobile=eventTarget.ownerDocument?.defaultView.matchMedia('(max-width:760px)').matches??false;
  const videos=[0,1].map(()=>{
-  const v=document.createElement('video');v.muted=true;v.defaultMuted=true;v.playsInline=true;v.preload='auto';v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('aria-hidden','true');v.style.display='none';mediaParent.append(v);
+  const v=document.createElement('video');v.muted=true;v.defaultMuted=true;v.playsInline=true;v.preload=mobile?'none':'auto';v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('aria-hidden','true');v.style.display='none';mediaParent.append(v);
   scope.defer(()=>{v.pause();v.removeAttribute('src');v.load();v.remove();});
-  v.src=url;v.load();return v;
+  v.src=url;if(!mobile)v.load();return v;
  });
  const textures=videos.map(v=>{const t=new T.VideoTexture(v);t.wrapS=t.wrapT=T.MirroredRepeatWrapping;t.minFilter=T.LinearFilter;t.magFilter=T.LinearFilter;return t;});
  scope.defer(()=>textures.forEach(t=>t.dispose()));
@@ -60,11 +61,13 @@ export async function makeWater({scope,eventTarget=document,mediaParent=eventTar
  }`});
  const water=new T.Mesh(new T.PlaneGeometry(15000,15000),material);water.rotation.x=-Math.PI/2;water.frustumCulled=false;
  let starting=false;
- function resume(){if(!scope.disposed&&!started&&!starting){starting=true;videos[active].play().then(()=>{if(!scope.disposed)started=true;}).catch(()=>{}).finally(()=>{starting=false;});}}
+ function resume(){if(!mobile&&!scope.disposed&&!started&&!starting){starting=true;videos[active].play().then(()=>{if(!scope.disposed)started=true;}).catch(()=>{}).finally(()=>{starting=false;});}}
  scope.listen(eventTarget,'pointerdown',resume);scope.listen(eventTarget,'touchend',resume,{passive:true});scope.listen(eventTarget,'keydown',resume);
  for(const v of videos)scope.listen(v,'loadeddata',resume);
  resume();
+ water.userData.setMobile=value=>{if(value===mobile)return;mobile=value;if(mobile){videos.forEach(v=>v.pause());started=false;}else{videos.forEach(v=>{v.preload='auto';v.load();});resume();}};
  water.userData.tick=()=>{
+  if(mobile){uniforms.plateA.value=poster;uniforms.plateB.value=poster;uniforms.blend.value=0;return false;}
   const current=videos[active],next=videos[1-active],overlap=.8;
   uniforms.plateA.value=current.readyState>=2?textures[active]:poster;
   uniforms.plateB.value=next.readyState>=2?textures[1-active]:uniforms.plateA.value;

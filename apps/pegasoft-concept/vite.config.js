@@ -1,13 +1,16 @@
 import {localizedPages} from './tools/localized-pages.mjs';
-import { defineConfig } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'node:path';
 import {staticCompression} from './tools/static-compression.mjs';
+import {developmentConfig,deploymentConfig} from './tools/deployment-config.mjs';
 
-export default defineConfig({
+export default defineConfig(({command,mode})=>{
+ const environment=loadEnv(mode,import.meta.dirname,'PEGASOFT_'),config=deploymentConfig(environment,{production:command==='build'}),development=developmentConfig(environment);
+ return {
   root: import.meta.dirname,
-  plugins:[localizedPages(),staticCompression()],
-  server: { host: '127.0.0.1', port: 8770, strictPort: true },
-  preview: { host: '127.0.0.1', port: 8771, strictPort: true },
+  plugins:[localizedPages(config),staticCompression()],
+  server: { host: development.host, port: development.devPort, strictPort: true },
+  preview: { host: development.host, port: development.previewPort, strictPort: true },
   build: {
     outDir: '../../dist/apps/pegasoft-concept',
     emptyOutDir: true,
@@ -17,10 +20,10 @@ export default defineConfig({
     rolldownOptions: {
       input: {
         index: resolve(import.meta.dirname, 'index.html'),
-        inspection: resolve(import.meta.dirname, 'review/ship-jet-integration.html'),
+        ...(environment.PEGASOFT_INCLUDE_INSPECTORS==='true'?{inspection: resolve(import.meta.dirname, 'review/ship-jet-integration.html'),
         loader: resolve(import.meta.dirname, 'review/loader.html'),
-        footerParticles: resolve(import.meta.dirname, 'review/footer-particles.html'),
+        footerParticles: resolve(import.meta.dirname, 'review/footer-particles.html')}:{}),
       },
     },
   },
-});
+};});

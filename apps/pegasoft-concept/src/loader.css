@@ -1,19 +1,33 @@
 /* Runs on the compositor before geography/fonts and JavaScript are ready. */
-#opening-stage:not([data-loaded="true"]) .radar,#opening-stage[data-wait-preview="true"] .radar,#opening-stage[data-preparing="true"] .radar{animation:loader-wait-beat var(--loader-beat-duration,1.74s) ease-in-out infinite;will-change:transform}
+#opening-stage{--loader-ring-from:.67}
+#opening-stage:not([data-loaded="true"]) .radar,#opening-stage[data-wait-preview="true"] .radar,#opening-stage[data-preparing="true"] .radar{animation:loader-wait-beat var(--loader-beat-duration,2.37s) ease-in-out infinite;will-change:transform}
 #opening-stage .radar{will-change:transform,opacity}
 @keyframes loader-wait-beat{0%,100%{transform:scale(var(--loader-ring-from,.84))}50%{transform:scale(calc(var(--loader-ring-from,.84) + var(--loader-beat-amount,.109)))}}
 @media(prefers-reduced-motion:reduce){#opening-stage .radar{animation:none!important}}
 /* Resource preparation and the inspector use the same continuous waiting beat. */
-#opening-stage[data-wait-preview="true"] .radar,#opening-stage[data-wait-preview="true"] .loader-mark,#opening-stage[data-preparing="true"] .radar,#opening-stage[data-preparing="true"] .loader-mark{opacity:1!important}
+#opening-stage[data-wait-preview="true"] .radar,#opening-stage[data-preparing="true"] .radar{opacity:1!important}
 #opening-stage[data-wait-preview="true"] .hero,#opening-stage[data-wait-preview="true"] .pulse,#opening-stage[data-wait-preview="true"] .outcome-world,#opening-stage[data-preparing="true"] .hero,#opening-stage[data-preparing="true"] .pulse,#opening-stage[data-preparing="true"] .outcome-world{visibility:hidden!important}
 
 /* Commissioned filled hero CTA; shared by the homepage and loader inspector. */
 #opening-stage .hero-nav .nav-contact{background:#edf2f7;color:#05070a;border-color:#edf2f7}
 #opening-stage .hero-nav .nav-contact:hover,#opening-stage .hero-nav .nav-contact:focus-visible{background:#147dff;color:#fff;border-color:#147dff}
 /* The dark hero shares the editorial heading's muted/bright treatment. */
-#opening-stage .hero-copy h2 .line:first-child>span{color:#546371}
+#opening-stage .hero-copy h2 .line:first-child>span{color:var(--action-accent,#147dff)}
+
+/* Reference revision: independent outline arrivals and two fill fronts;
+   the circular hero reveal is the third nested expansion front. */
+#opening-stage .radar i{opacity:0;will-change:transform,opacity}
+#opening-stage .radar i:first-child{opacity:1}
+#opening-stage .loader-mark{opacity:0}
+#opening-stage .pulse{inset:0;width:auto!important;height:auto!important;background:none;border-radius:0;transform:none;pointer-events:none}
+#opening-stage .pulse .pulse-layer{position:absolute;left:50%;top:50%;border-radius:50%;background:#151515;transform:translate(-50%,-50%) scale(0);will-change:transform}
+#opening-stage .pulse .pulse-layer:nth-child(2){background:#2c2c2c}
+#opening-stage .line>span{background-repeat:no-repeat;will-change:transform}
 
 /* Upcoming chapters never expose an unfinished GPU frame during preparation. */
 #stage:not([data-loaded="true"])>canvas{visibility:hidden}
 #stage:not([data-loaded="true"]) #loading{inset:0;display:grid;place-content:center;justify-items:center;gap:12px;color:#061e3b;background:#edf2f7;padding:24px;font:500 14px DM}
 #stage:not([data-loaded="true"]) #loading::before{content:"pegasoft";font:750 28px Manrope;letter-spacing:-.05em}
+
+/* Allocate the hero reveal layer before its first nonzero aperture. */
+#opening-stage .hero{will-change:clip-path}

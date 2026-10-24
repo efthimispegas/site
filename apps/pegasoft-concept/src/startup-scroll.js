@@ -1,3 +1,4 @@
+import {pageScroll} from './page-scroll.js';
 /** Keep early touch inertia and restoration out of the opening's scroll clock. */
 export function lockStartupScroll(document,scope){
  const window=document.defaultView,root=document.documentElement;
@@ -9,7 +10,7 @@ export function lockStartupScroll(document,scope){
  scope.listen(document,'keydown',event=>{
   if(locked&&['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(event.key)&&!event.target.closest?.('input,textarea,select,[contenteditable="true"]'))prevent(event);
  });
- function release(){if(!locked)return;locked=false;root.classList.remove('journey-booting');window.scrollTo({top:0,left:0,behavior:'instant'});}
+ function release(){if(!locked)return;locked=false;root.classList.remove('journey-booting');pageScroll(document).to({top:0,left:0,behavior:'instant'});}
  scope.defer(release);
  return {release,get locked(){return locked;}};
 }

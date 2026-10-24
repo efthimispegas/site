@@ -1,3 +1,5 @@
+import {pageScroll} from './page-scroll.js';
+import {storyViewport} from './story-viewport.js';
 import {translate as t} from './locale-messages.js';
 import {createScope} from '../review/runtime-lifecycle.js';
 import {createParticleWordmark} from './particle-wordmark.js';
@@ -9,24 +11,26 @@ const sectors=['Fintech','Digital banking','Trade & transit','Health & wellness'
 const services=['Product strategy','UX/UI design','Web engineering','Mobile applications','AI & automation','Cloud & platform'];
 /** Native page content and pointer owner. Invoked by the existing journey scheduler. */
 export function createWebsiteMotionController({root}){
- const scope=createScope(),document=root.ownerDocument,window=document.defaultView,$=s=>root.querySelector(s);
+ const scope=createScope(),document=root.ownerDocument,window=document.defaultView,scrolling=pageScroll(document),$=s=>root.querySelector(s);
  const editorial=$('#insights'),closing=$('#closing-cta'),footer=$('#website-footer');if(!editorial||!closing||!footer)return null;
  const testimonials=$('#trust-evidence'),trust=$('#trust'),staticStory=$('#static-story');
  const wall=createPartnerWall({element:$('#partner-wall'),button:$('#partner-motion-toggle')});
  const fine=window.matchMedia('(hover:hover) and (pointer:fine)'),floating=$('#section-contact'),cursor=$('#closing-cursor'),trails=[...root.querySelectorAll('.closing-trail')];
- const header=$('#site-header'),headerContact=$('#site-header-contact'),headerLanguage=$('#site-header-language');let headerShown=true,headerReady=false,previousScroll=window.scrollY,scrollDirection=0,scrollTravel=0;
+ const header=$('#site-header'),headerContact=$('#site-header-contact'),headerLanguage=$('#site-header-language');let headerShown=true,headerReady=false,previousScroll=scrolling.y,scrollDirection=0,scrollTravel=0;
  let editorialHorizon=null;
  function updateHeader(){
-  if(!header)return;const y=Math.max(0,window.scrollY),delta=y-previousScroll;previousScroll=y;
+  if(!header)return;const y=Math.max(0,scrolling.y),delta=y-previousScroll;previousScroll=y;
   if(Math.abs(delta)>.1){const direction=Math.sign(delta);if(direction!==scrollDirection)scrollTravel=0;scrollDirection=direction;scrollTravel+=Math.abs(delta);if(scrollTravel>=4)headerShown=direction<0;}
   if(y<=4)headerShown=true;
   const opening=$('#opening-stage')?.dataset.motion;headerReady=headerReady||reduced||document.body.classList.contains('static-journey')||Boolean(opening&&JSON.parse(opening).opening.nav>=.95);
   const middle=header.clientHeight/2,stage=$('#stage'),stageRect=stage.getBoundingClientRect(),intro=$('#opening-stage'),introRect=intro?.getBoundingClientRect();let light=false;
-  if(stageRect.top<=middle&&stageRect.bottom>middle){const motion=stage.dataset.motion&&JSON.parse(stage.dataset.motion);light=motion?.chapter==='handoff'||(motion?.chapter==='crossing'&&motion.jetProgress>.72);}
+  if(stageRect.top<=middle&&stageRect.bottom>middle){const motion=stage.dataset.motion&&JSON.parse(stage.dataset.motion);light=(motion?.chapter==='handoff'&&(!motion.mobileReference||motion.progress<.35))||(motion?.chapter==='crossing'&&motion.jetProgress>.72);}
   else if(introRect&&introRect.top<=middle&&introRect.bottom>middle)light=Boolean(opening&&JSON.parse(opening).progress>=.19);
   else light=[$('#trust-evidence'),$('#partners'),$('#faq'),footer,...(!$('#static-story').hidden?[$('#static-story')]:[])].filter(Boolean).some(el=>{const r=el.getBoundingClientRect();return r.top<=middle&&r.bottom>middle;});
   if(editorialHorizon?.active&&editorialHorizon.originY<window.innerHeight*.65)light=false;
   header.dataset.tone=light?'light':'dark';
+  const surface=light?'#edf2f7':'#05070a',theme=document.querySelector('meta[name="theme-color"]');
+  if(theme&&theme.content!==surface)theme.content=surface;
   const shown=headerReady&&(headerShown||header.contains(document.activeElement)||headerContact?.contains(document.activeElement)||headerLanguage?.contains(document.activeElement));header.dataset.ready=String(headerReady);header.dataset.visible=String(shown);header.inert=!shown;if(headerContact)headerContact.inert=!shown;if(headerLanguage)headerLanguage.inert=!shown;
  }
  let scrollAnchor;const wordmark=$('#particle-wordmark'),particles=createParticleWordmark({canvas:wordmark});
@@ -49,7 +53,7 @@ export function createWebsiteMotionController({root}){
  function selectPreview(index){selected=index;root.querySelectorAll('button[data-preview]').forEach((button,i)=>{button.setAttribute('aria-pressed',String(i===index));});root.querySelectorAll('[data-preview-image]').forEach((image,i)=>image.hidden=i!==index);editorial.dataset.preview=String(index);}
  function setMode(value){mode=value;marqueeOffset=0;const values=value==='industries'?sectors:services;root.querySelectorAll('[data-marquee-group]').forEach(group=>{group.replaceChildren(...values.map(text=>{const item=document.createElement('span');item.textContent=t(text);return item;}));});root.querySelectorAll('[data-footer-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.footerMode===value)));footer.dataset.mode=value;}
  function update({reducedMotion=reduced}={}){
-  if(scope.disposed)return;reduced=reducedMotion||document.body.classList.contains('static-journey');const testimonialParent=reduced?staticStory:trust;if(testimonials.parentElement!==testimonialParent)testimonialParent.append(testimonials);wall.update({reducedMotion:reduced});const h=window.innerHeight,entry=editorial.getBoundingClientRect(),cta=closing.getBoundingClientRect(),end=footer.getBoundingClientRect();
+  if(scope.disposed)return;reduced=reducedMotion||document.body.classList.contains('static-journey');const testimonialParent=reduced?staticStory:trust;if(testimonials.parentElement!==testimonialParent)testimonialParent.append(testimonials);wall.update({reducedMotion:reduced});const h=storyViewport($('#stage'),$('#opening-stage'),window).height,entry=editorial.getBoundingClientRect(),cta=closing.getBoundingClientRect(),end=footer.getBoundingClientRect();
   const horizon=invertedHorizonLayout(entry.top,h,{reduced});editorialHorizon=horizon;
   editorial.dataset.horizonActive=String(horizon.active);editorial.dataset.horizonReduced=String(reduced);
   editorial.style.setProperty('--editorial-horizon-height',`${h}px`);editorial.style.setProperty('--editorial-horizon-width',`${entry.width}px`);editorial.style.setProperty('--editorial-horizon-y',`${horizon.translateY}px`);
@@ -63,7 +67,7 @@ export function createWebsiteMotionController({root}){
  }
  function resize(){metrics();particles.resize();wall.resize();update();}
  function tick(now){
-  const dt=last===null?0:Math.min(.05,(now-last)/1000);last=now;if(scope.disposed||!mounted)return;updateHeader();wall.tick(dt);if(reduced)return;elapsed+=dt;
+  const dt=last===null?0:Math.min(.05,(now-last)/1000);last=now;if(scope.disposed||!mounted)return;if(!headerReady)updateHeader();wall.tick(dt);if(reduced)return;elapsed+=dt;
   if(closingVisible){
    const bounds=closing.getBoundingClientRect();syncPointer(bounds);
    if(pointerActive){trails.forEach((_,i)=>{const p=positions[i+1],ahead=positions[i];p.x+=(ahead.x-p.x)*(1-Math.exp(-dt*11));p.y+=(ahead.y-p.y)*(1-Math.exp(-dt*11));});paintPointer(bounds);}

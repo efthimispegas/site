@@ -5,6 +5,7 @@ import {gates,ease} from '../review/handoff-sequence.js';
 import {chapterAt} from './transport-timeline.js';
 import {createRoadDeckRegistration} from './road-deck-registration.js';
 import {repairTruckDetails} from './truck-detail-repair.js';
+import {createMobileReferenceSequence} from './mobile-reference-sequence.js';
 
 /** One camera and one physical C01 instance across all three accepted chapters. */
 export function createTransportSequence(options){
@@ -42,7 +43,8 @@ export function createTransportSequence(options){
     liftCeiling=Math.max(liftCeiling,new T.Box3().setFromObject(rig.root).max.y,new T.Box3().setFromObject(cargo).max.y);
   }
   const liftAimHeight=liftCeiling*.46;
-  let trace;
+  const mobile=createMobileReferenceSequence(options);
+  let trace,previousMobileSea=false;
   function apply(progress){
     const chapter=chapterAt(progress),p=chapter.localProgress;
     registration.reset();
@@ -52,11 +54,16 @@ export function createTransportSequence(options){
     fill.intensity=T.MathUtils.lerp(.7,.3,seaBlend);
     handoffKey.intensity=2.1*(1-seaBlend);shipKey.intensity=2.3*seaBlend;
     renderer.shadowMap.enabled=seaBlend>0;
+    const mobileSea=viewport.width<=760&&seaBlend>0;renderer.shadowMap.autoUpdate=viewport.width>760;if(mobileSea&&!previousMobileSea)renderer.shadowMap.needsUpdate=true;previousMobileSea=mobileSea;
+    water.userData.setMobile?.(viewport.width<=760);
     camera.far=chapter.id==='handoff'?2000:10000;camera.updateProjectionMatrix();
     scene.userData.shipLight=chapter.id==='handoff'?null:shipKey;
     for(const [material,planes]of clips)material.clippingPlanes=chapter.id==='handoff'?[]:planes;
     rig.root.visible=chapter.id==='handoff';
-    if(chapter.id==='handoff'){
+    mobile.setVisible(viewport.width<=760);
+    if(viewport.width<=760){
+      trace=mobile.apply(progress);
+    }else if(chapter.id==='handoff'){
       ship.visible=false;water.visible=false;
       const r=legacy.apply(p),opacity=ease((p-gates.services)/(gates.upper-gates.services));
       // One authored zoom curve. Never fit rotating bounds or introduce damping.
@@ -99,7 +106,7 @@ export function createTransportSequence(options){
       shadow.material.opacity=.5*(1-seaBlend);
       shadow.visible=seaBlend<1&&(chapter.id==='handoff'&&wheel.userData.liftWheel||legacy.truck.visible);
     }
-    if(chapter.id==='ship'&&p<.44)trace.roadRegistration=registration.apply(trace,ease(p/.12));
+    if(viewport.width>760&&chapter.id==='ship'&&p<.44)trace.roadRegistration=registration.apply(trace,ease(p/.12));
     else trace.roadRegistration={active:false};
     context.updateMatrixWorld(true);
     trace.contextMatrices=contextNodes.map(n=>{n.updateWorldMatrix(true,false);return n.matrixWorld.toArray();});
@@ -112,7 +119,7 @@ export function createTransportSequence(options){
     trace.journeyProgress=progress;trace.localTime=chapter.localTime;
     return trace;
   }
-  return {apply,resize:()=>deck.resize(),tickWater:()=>deck.tickWater(),get waterTime(){return deck.waterTime},get trace(){return trace},get scale(){return legacy.scale}};
+  return {apply,resize:()=>deck.resize(),tickWater:()=>viewport.width<=760?false:deck.tickWater(),get waterTime(){return deck.waterTime},get trace(){return trace},get scale(){return legacy.scale}};
 }
 
 // Accepted soft tyre contact treatment, extracted from the handoff renderer.

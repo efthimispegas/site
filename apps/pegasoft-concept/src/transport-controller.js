@@ -1,3 +1,6 @@
+import './mobile-reference.css';
+import {mobileServicesTitlePose} from './mobile-reference-motion.js';
+import {createMobileReferenceJet} from './mobile-reference-jet.js';
 import {fetchModelBytes} from './model-download.js';
 import {assets} from '../review/runtime-assets.js';
 import {createShipJetController} from '../review/ship-jet-controller.js';
@@ -6,12 +9,17 @@ import {gates,ease,storySpanScale,roadContentLayout} from '../review/handoff-seq
 import {createTransportSequence} from './transport-sequence.js';
 
 export function createTransportController({root,stage}){
+  stage.dataset.mobileJourney='reference';
   let modelBuffers;
-  const controller=createShipJetController({root,stage,prepareVariants:true,contentSpacing:.85,loadScene:params=>loadShipJetScene({...params,modelBuffers,alpha:true,pickupConfig:{addBehind:true},sequenceFactory:createTransportSequence})});
+  const controller=createShipJetController({root,stage,prepareVariants:true,jetFactory:createMobileReferenceJet,contentSpacing:.85,loadScene:params=>loadShipJetScene({...params,modelBuffers,alpha:true,pickupConfig:{addBehind:true},sequenceFactory:createTransportSequence})});
   function update(input){
     const r=controller.update(input);if(!r)return;
     const $=selector=>root.querySelector(selector),p=r.progress,h=stage.clientHeight;
     const handoff=r.chapter==='handoff';
+    if(r.mobileReference){
+      const title=$('#services-title'),gutter=parseFloat(getComputedStyle(title).left),pose=mobileServicesTitlePose(p,stage.clientWidth,title.scrollWidth,gutter);
+      title.style.opacity=handoff&&pose.visible?'1':'0';title.style.transform=`translateX(${pose.x}px)`;r.servicesTitle=pose;r.servicesOpacity=0;stage.dataset.motion=JSON.stringify(r);return r;
+    }
     const services=handoff?ease((p-gates.release)/(.03/storySpanScale))*(1-ease((p-gates.services)/(gates.upper-gates.services))):0;
     const overlay=$('#services-overlay'),rail=$('#services-rail');
     overlay.style.opacity=String(services);overlay.style.top=(50-34*ease((p-gates.services)/(gates.upper-gates.services)))+'%';
