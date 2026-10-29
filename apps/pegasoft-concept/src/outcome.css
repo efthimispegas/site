@@ -1,0 +1,220 @@
+@import url('./counter.css');
+:root {
+  --pegasoft-horizon-colors:
+    #05070a 0%, #05070a 46%, #061e3b 56%, #147dff 68%, #b9e7ff 86%, #edf2f7 100%;
+}
+#intro-track {
+  position: relative;
+  height: 591.4svh;
+  margin-bottom: -100px;
+  overflow-anchor: none;
+  background: #edf2f7;
+}
+#opening-stage {
+  --story-block-title-size: min(38px, calc(100cqh * 0.054));
+  --story-block-description-size: min(13px, calc(100cqh * 0.019));
+}
+#opening-stage .outcome-world {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: #05070a;
+  pointer-events: none;
+  overflow: hidden;
+}
+/* One stationary gradient profile; the bowl rises behind the fixed
+   hero. Its upper half is concealed by the hero's matching mask. */
+#opening-stage .horizon {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 300cqh;
+  background: radial-gradient(
+    ellipse max(90cqw, 120cqh) 100cqh at 50% 0%,
+    var(--pegasoft-horizon-colors)
+  );
+  transform: translateY(110cqh);
+  will-change: transform;
+}
+#opening-stage .outcome {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  color: #11151b;
+  pointer-events: none;
+}
+#opening-stage .outcome[hidden] {
+  display: none;
+}
+#opening-stage .outcome-title {
+  position: absolute;
+  left: 4%;
+  width: 44%;
+  top: 0;
+  will-change: transform;
+}
+#opening-stage .outcome-title .eyebrow {
+  font: 600 11px OpeningManrope;
+  letter-spacing: 0.13em;
+  color: #647283;
+  margin: 0 0 3cqh;
+}
+#opening-stage .outcome-title h2 {
+  font: 750 min(64px, 5.1cqw)/1.03 OpeningManrope;
+  letter-spacing: -0.045em;
+  margin: 0;
+}
+#opening-stage .outcome-title h2 span {
+  display: block;
+}
+#opening-stage .outcome-title .muted {
+  color: #88919a;
+}
+#opening-stage .outcome-title p:last-child {
+  font-size: var(--story-block-description-size);
+  line-height: 1.5;
+  max-width: 75%;
+  color: #5e6b79;
+  margin-top: 4cqh;
+}
+#opening-stage .metrics {
+  position: absolute;
+  left: 62%;
+  width: 34%;
+  top: 0;
+  will-change: transform;
+}
+#opening-stage .metric {
+  height: 52.7cqh;
+  border-top: 1px solid #11151b18;
+  padding-top: 3cqh;
+}
+#opening-stage .metric-label {
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: #657282;
+  margin: 0 0 2cqh;
+}
+#opening-stage .metric-value {
+  font: 750 17cqw/1 OpeningManrope;
+  font-variant-numeric: tabular-nums;
+  display: inline-flex;
+  position: relative;
+  gap: 0;
+  vertical-align: top;
+}
+#opening-stage .metric h3 {
+  font: 650 var(--story-block-title-size)/1.2 Manrope;
+  letter-spacing: -0.035em;
+  margin: 3cqh 0 0;
+}
+#opening-stage .metric p:last-child {
+  font-size: var(--story-block-description-size);
+  color: #657282;
+  line-height: 1.5;
+  max-width: 88%;
+  margin-top: 2cqh;
+}
+body.static-journey #intro-track {
+  display: none;
+}
+@media (max-width: 679px) {
+  #opening-stage {
+    --story-block-title-size: min(22px, 4vw);
+    --story-block-description-size: min(13px, 3.33vw);
+  }
+  #opening-stage .outcome-title {
+    left: 6%;
+    width: 88%;
+    z-index: 2;
+    background: transparent;
+    padding-bottom: 3cqh;
+  }
+  #opening-stage .outcome-title h2 {
+    font-size: 8cqw;
+  }
+  #opening-stage .outcome-title h2 span {
+    display: inline;
+  }
+  #opening-stage .outcome-title h2 span:after {
+    content: ' ';
+  }
+  #opening-stage .outcome-title .eyebrow {
+    margin-bottom: 2cqh;
+    font-size: 10px;
+  }
+  #opening-stage .outcome-title p:last-child {
+    max-width: 95%;
+    margin: 2cqh 0;
+  }
+  #opening-stage .metrics {
+    left: 8%;
+    width: 84%;
+    padding-top: 44cqh;
+  }
+  #opening-stage .metric {
+    height: 42.5cqh;
+  }
+  #opening-stage .metric-value {
+    font-size: 27cqw;
+  }
+  #opening-stage .metric h3 {
+    margin-top: 2cqh;
+  }
+  /* Mobile reading masks start only after the same horizon transition used on desktop. */
+  #opening-stage .outcome:before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 42%;
+    background: #edf2f7;
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  #opening-stage .outcome[data-horizon-clear='true']:before {
+    opacity: 1;
+  }
+  #opening-stage .outcome[data-horizon-clear='true'] .outcome-title {
+    background: #edf2f7;
+  }
+}
+
+/* No atmosphere can leak behind the loader before the initial pose is applied. */
+#opening-stage:not([data-loaded='true']) .outcome-world {
+  visibility: hidden;
+}
+
+/* Both columns enter together; only the desktop title pins. The mobile
+   heading, introduction and figures pass in one continuous reading order. */
+#opening-stage .metrics-intro {
+  padding-bottom: 32px;
+  pointer-events: auto;
+}
+#opening-stage .metrics-intro p {
+  font:
+    400 14px/1.5 OpeningManrope,
+    Manrope,
+    sans-serif;
+  color: #5e6b79;
+  margin: 0 0 16px;
+  max-width: 100%;
+}
+#opening-stage .metrics-intro button {
+  margin: 0 0 8px;
+}
+@media (max-width: 679px) {
+  #opening-stage .metrics {
+    left: 6%;
+    width: 88%;
+  }
+  #opening-stage .outcome:before {
+    display: none;
+  }
+  #opening-stage .outcome[data-horizon-clear='true'] .outcome-title {
+    background: transparent;
+  }
+  #opening-stage .metrics-intro p {
+    font-size: var(--mobile-body-size, 0.9375rem);
+  }
+}

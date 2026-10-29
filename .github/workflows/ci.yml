@@ -13,6 +13,9 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    env:
+      PEGASOFT_PUBLIC_SITE_URL: ${{ vars.PEGASOFT_PUBLIC_SITE_URL }}
+      PEGASOFT_DEPLOYMENT_ENV: development
     steps:
       - uses: actions/checkout@v7
         with:
