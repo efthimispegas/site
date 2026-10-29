@@ -3,6 +3,12 @@ export const greek = Object.freeze({
   'Learn more about us': 'Μάθετε περισσότερα για εμάς',
   'From the first conversation to delivery, keep product decisions, design and engineering connected.':
     'Από την πρώτη συζήτηση έως την παράδοση, συνδέουμε τις αποφάσεις για το προϊόν με τον σχεδιασμό και την ανάπτυξη.',
+  'Online contact and Careers applications are temporarily unavailable. Please check back soon.':
+    'Η ηλεκτρονική επικοινωνία και οι αιτήσεις εργασίας δεν είναι διαθέσιμες προσωρινά. Επισκεφθείτε μας ξανά σύντομα.',
+  'Company details': 'Στοιχεία εταιρείας',
+  'No optional analytics or marketing trackers are enabled.':
+    'Δεν είναι ενεργοποιημένοι προαιρετικοί μηχανισμοί αναλυτικών στοιχείων ή διαφήμισης.',
+  Greece: 'Ελλάδα',
   Socials: 'Κοινωνικά δίκτυα',
   Company: 'Εταιρεία',
   Home: 'Αρχική',
@@ -66,9 +72,9 @@ export const greek = Object.freeze({
   'From discovery through design, engineering and launch.':
     'Από τη διερεύνηση και τον σχεδιασμό έως την ανάπτυξη και τη διάθεση.',
   '98.5%': '98,5%',
-  'Conversion rate': 'Ποσοστό μετατροπών',
-  'An illustrative measure for a complete digital journey.':
-    'Ενδεικτική μέτρηση για μια ολοκληρωμένη ψηφιακή εμπειρία.',
+  'Successful, on-time completion': 'Επιτυχής και έγκαιρη ολοκλήρωση',
+  'Projects completed successfully and on time.':
+    'Έργα που ολοκληρώθηκαν επιτυχώς και εντός χρονοδιαγράμματος.',
   'Clients worldwide': 'Πελάτες διεθνώς',
   'Digital products and platforms across complex industries.':
     'Ψηφιακά προϊόντα και πλατφόρμες σε κλάδους με σύνθετες απαιτήσεις.',
@@ -143,39 +149,50 @@ export const greek = Object.freeze({
   'What they say': 'Τι λένε για εμάς',
   'Previous testimonial': 'Προηγούμενη μαρτυρία',
   'Next testimonial': 'Επόμενη μαρτυρία',
-  'Demo client testimonials. Use left and right arrow keys to browse.':
-    'Ενδεικτικές μαρτυρίες πελατών. Χρησιμοποιήστε το αριστερό και το δεξί βέλος για περιήγηση.',
-  'A shared direction, from the first conversation.':
-    'Κοινή κατεύθυνση, από την πρώτη συζήτηση.',
-  'The team helped us turn a complicated product brief into a clear plan. Design and engineering stayed connected as the work took shape.':
-    'Η ομάδα μάς βοήθησε να μετατρέψουμε σύνθετες απαιτήσεις σε ένα ξεκάθαρο πλάνο. Ο σχεδιασμός και η ανάπτυξη παρέμειναν συντονισμένα σε όλη την πορεία.',
-  'Product lead · fictional company':
-    'Υπεύθυνος προϊόντος · φανταστική εταιρεία',
-  'Built together, with room to think.':
-    'Μαζί στην υλοποίηση, με χώρο για σκέψη.',
-  'We could follow the decisions, ask questions and understand the tradeoffs. The collaboration felt like one team working toward the same release.':
-    'Είχαμε εικόνα των αποφάσεων, μπορούσαμε να ρωτάμε και να κατανοούμε τις επιλογές. Η συνεργασία έμοιαζε με μία ομάδα που εργαζόταν για τον ίδιο στόχο.',
-  'Technology lead · fictional company':
-    'Υπεύθυνος τεχνολογίας · φανταστική εταιρεία',
-  'Clarity at every step.': 'Σαφήνεια σε κάθε βήμα.',
-  'Regular conversations kept our priorities visible. Each milestone gave us something tangible to review and a clear sense of what came next.':
-    'Οι τακτικές συζητήσεις κρατούσαν τις προτεραιότητές μας ξεκάθαρες. Κάθε ορόσημο έφερνε κάτι χειροπιαστό για αξιολόγηση και σαφή εικόνα για τη συνέχεια.',
-  'Operations lead · fictional company':
-    'Υπεύθυνος λειτουργιών · φανταστική εταιρεία',
-  'A product that feels considered.':
-    'Ένα προϊόν με φροντίδα σε κάθε λεπτομέρεια.',
-  'The experience brought our ideas into focus. Small details received the same attention as the larger system, from the first prototype to the final screens.':
-    'Η εμπειρία έδωσε μορφή στις ιδέες μας. Οι μικρές λεπτομέρειες είχαν την ίδια προσοχή με το συνολικό σύστημα, από το πρώτο πρωτότυπο έως τις τελικές οθόνες.',
-  'Founder · fictional company': 'Ιδρυτής · φανταστική εταιρεία',
+  'Clear thinking, practical delivery': 'Σαφής σκέψη, πρακτική υλοποίηση',
+  'Pegasoft brings clarity to complex product decisions and a practical approach to delivery. They understand the pace of a startup while keeping engineering quality in focus.':
+    'Η Pegasoft φέρνει σαφήνεια στις σύνθετες αποφάσεις για το προϊόν και πρακτική προσέγγιση στην υλοποίηση. Κατανοεί τον ρυθμό μιας startup, με σταθερή προσήλωση στην ποιότητα της ανάπτυξης.',
+  'Leadership that leaves a lasting impact': 'Ηγεσία με διαρκές αποτύπωμα',
+  'Pegasoft combined hands-on leadership with a strong results-first mentality in a demanding, changing environment. Their consulting and training left our teams better equipped to deliver independently.':
+    'Η Pegasoft συνδύασε ενεργή ηγεσία με ισχυρή προσήλωση στο αποτέλεσμα, σε ένα απαιτητικό περιβάλλον που άλλαζε συνεχώς. Η συμβουλευτική και η εκπαίδευσή τους βοήθησαν τις ομάδες μας να υλοποιούν με μεγαλύτερη αυτονομία.',
+  'Engineering at startup pace': 'Ανάπτυξη στον ρυθμό μιας startup',
+  'What stands out about Pegasoft is the balance between moving quickly and thinking ahead. Their approach connects immediate product needs with an engineering foundation that can grow with the business.':
+    'Αυτό που ξεχωρίζει στην Pegasoft είναι η ισορροπία ανάμεσα στην ταχύτητα και τη σκέψη για το μέλλον. Η προσέγγισή τους συνδέει τις άμεσες ανάγκες του προϊόντος με μια τεχνική βάση που μπορεί να εξελιχθεί μαζί με την επιχείρηση.',
+  'Security in the engineering conversation':
+    'Η ασφάλεια μέσα στην τεχνική συζήτηση',
+  'I value engineering teams that treat security as part of the product conversation. Pegasoft’s practical, collaborative approach makes it easier to discuss risks, challenge assumptions and turn technical priorities into clear next steps.':
+    'Εκτιμώ τις τεχνικές ομάδες που αντιμετωπίζουν την ασφάλεια ως μέρος της συζήτησης για το προϊόν. Η πρακτική και συνεργατική προσέγγιση της Pegasoft διευκολύνει τη συζήτηση κινδύνων, τον έλεγχο παραδοχών και τη μετατροπή τεχνικών προτεραιοτήτων σε σαφή επόμενα βήματα.',
+  'Product and engineering, connected': 'Προϊόν και ανάπτυξη σε συντονισμό',
+  'Pegasoft speaks both product and engineering. They bring a clear sense of priorities to technical discussions and keep the user experience in view, making collaboration straightforward for product teams.':
+    'Η Pegasoft κατανοεί τόσο το προϊόν όσο και την τεχνική υλοποίηση. Φέρνει σαφείς προτεραιότητες στις τεχνικές συζητήσεις, με σταθερή προσοχή στην εμπειρία του χρήστη, διευκολύνοντας τη συνεργασία με τις ομάδες προϊόντος.',
+  'Clarity across complex priorities': 'Σαφήνεια σε σύνθετες προτεραιότητες',
+  'Complex products need engineers who can see beyond the next ticket. Pegasoft brings a thoughtful approach to trade-offs, clear communication and a focus on building software that supports the wider product direction.':
+    'Τα σύνθετα προϊόντα χρειάζονται μηχανικούς που βλέπουν πέρα από την επόμενη εργασία. Η Pegasoft συνδυάζει προσεκτική αξιολόγηση επιλογών, σαφή επικοινωνία και προσήλωση σε λογισμικό που υπηρετεί τη συνολική κατεύθυνση του προϊόντος.',
+  'Client testimonials. Use left and right arrow keys to browse.':
+    'Μαρτυρίες πελατών. Χρησιμοποιήστε το αριστερό και το δεξί βέλος για περιήγηση.',
+  'Infrastructure recovery': 'Ανάκαμψη υποδομών',
+  'We had a legacy migration project stalling out with another vendor. Pegasoft audited our setup, restructured the contract, and deployed a specialized leadership team who stabilized our infrastructure in under three quarters. They saved our product.':
+    'Ένα έργο μετάβασης από παλαιά συστήματα είχε βαλτώσει με άλλον προμηθευτή. Η Pegasoft έλεγξε την υποδομή μας, αναδιάρθρωσε τη σύμβαση και διέθεσε εξειδικευμένη ομάδα διοίκησης, η οποία σταθεροποίησε την υποδομή μας σε λιγότερο από τρία τρίμηνα. Έσωσαν το προϊόν μας.',
+  'Director · KPMG': 'Διευθυντής · KPMG',
+  'A team built to scale': 'Ομάδα για την ανάπτυξη του προϊόντος',
+  'Reliable, hyper-skilled, and transparent. Pegasoft gave us the exact tech bench we needed to scale our platform without the overhead of permanent hires.':
+    'Αξιόπιστοι, με υψηλή τεχνογνωσία και διαφάνεια. Η Pegasoft μάς παρείχε ακριβώς την τεχνική ομάδα που χρειαζόμασταν για να αναπτύξουμε την πλατφόρμα μας, χωρίς το επιπλέον κόστος μόνιμων προσλήψεων.',
+  'COO · NextGen SaaS': 'COO · NextGen SaaS',
+  'Embedded backend expertise': 'Τεχνογνωσία backend μέσα στην ομάδα',
+  'Contracting IT talent can sometimes feel like a gamble on communication and code quality, but Pegasoft completely changed my perspective. The embedded backend engineers they provided felt like full-time company veterans from day one. Zero hand-holding required.':
+    'Η συνεργασία με εξωτερικούς επαγγελματίες πληροφορικής μπορεί να μοιάζει με ρίσκο ως προς την επικοινωνία και την ποιότητα του κώδικα. Η Pegasoft άλλαξε πλήρως την άποψή μου. Οι backend engineers που εντάχθηκαν στην ομάδα μας έμοιαζαν από την πρώτη ημέρα με έμπειρα, μόνιμα στελέχη της εταιρείας. Δεν χρειάστηκαν συνεχή καθοδήγηση.',
+  'Director of Product · FinPulse Technologies':
+    'Διευθύντρια Προϊόντος · FinPulse Technologies',
   'Pegasoft jet': 'Αεροσκάφος Pegasoft',
   'Our approach': 'Η προσέγγισή μας',
   'Every idea. Engineered to matter.': 'Κάθε ιδέα. Φτιαγμένη να μετράει.',
   'We build technology. We own the outcome.':
     'Χτίζουμε τεχνολογία. Αναλαμβάνουμε το αποτέλεσμα.',
-  'Illustrative metrics': 'Ενδεικτικές μετρήσεις',
-  'Illustrative figures': 'Ενδεικτικά στοιχεία',
+  'Pegasoft metrics': 'Μετρήσεις Pegasoft',
+  'Pegasoft in numbers': 'Η Pegasoft σε αριθμούς',
   '2+ years of delivery': '2+ χρόνια υλοποίησης',
-  '98.5% conversion rate': '98,5% ποσοστό μετατροπών',
+  '98.5% of projects completed successfully and on time':
+    '98,5% των έργων ολοκληρώθηκαν επιτυχώς και εντός χρονοδιαγράμματος',
   '15+ clients worldwide': '15+ πελάτες διεθνώς',
   '5+ countries': '5+ χώρες',
   '50+ projects completed': '50+ ολοκληρωμένα έργα',
@@ -389,23 +406,11 @@ export const greek = Object.freeze({
   'Partner 15': 'Συνεργάτης 15',
   'Demo partner 15, Connected systems, fictional placeholder':
     'Ενδεικτικός συνεργάτης 15, Διασυνδεδεμένα συστήματα, φανταστική ταυτότητα',
-  'Demo metric · 01': 'Ενδεικτική μέτρηση · 01',
-  'Demo metric · 02': 'Ενδεικτική μέτρηση · 02',
-  'Demo metric · 03': 'Ενδεικτική μέτρηση · 03',
-  'Demo metric · 04': 'Ενδεικτική μέτρηση · 04',
-  'Demo metric · 05': 'Ενδεικτική μέτρηση · 05',
-  'Demo client 01': 'Ενδεικτικός πελάτης 01',
-  'Demo testimonial 01': 'Ενδεικτική μαρτυρία 01',
-  'Illustrated dummy avatar 1': 'Ενδεικτική εικονογράφηση προσώπου 1',
-  'Demo client 02': 'Ενδεικτικός πελάτης 02',
-  'Demo testimonial 02': 'Ενδεικτική μαρτυρία 02',
-  'Illustrated dummy avatar 2': 'Ενδεικτική εικονογράφηση προσώπου 2',
-  'Demo client 03': 'Ενδεικτικός πελάτης 03',
-  'Demo testimonial 03': 'Ενδεικτική μαρτυρία 03',
-  'Illustrated dummy avatar 3': 'Ενδεικτική εικονογράφηση προσώπου 3',
-  'Demo client 04': 'Ενδεικτικός πελάτης 04',
-  'Demo testimonial 04': 'Ενδεικτική μαρτυρία 04',
-  'Illustrated dummy avatar 4': 'Ενδεικτική εικονογράφηση προσώπου 4',
+  'Pegasoft · 01': 'Pegasoft · 01',
+  'Pegasoft · 02': 'Pegasoft · 02',
+  'Pegasoft · 03': 'Pegasoft · 03',
+  'Pegasoft · 04': 'Pegasoft · 04',
+  'Pegasoft · 05': 'Pegasoft · 05',
   Pegasoft: 'Pegasoft',
   pegasoft: 'pegasoft',
   'Pegasoft Solutions': 'Pegasoft Solutions',

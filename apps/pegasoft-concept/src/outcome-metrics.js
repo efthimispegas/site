@@ -1,17 +1,17 @@
 import { outcomeColumnPosition } from './intro-sequence.js';
-/** Review examples supplied by the user. Replace only with confirmed company data. */
+/** Company metrics and presentation order confirmed by the user. */
 export const OUTCOME_METRICS = Object.freeze([
-  {
-    value: 2,
-    suffix: '+',
-    title: 'Years of delivery',
-    description: 'From discovery through design, engineering and launch.',
-  },
   {
     value: 98.5,
     suffix: '%',
-    title: 'Conversion rate',
-    description: 'An illustrative measure for a complete digital journey.',
+    title: 'Successful, on-time completion',
+    description: 'Projects completed successfully and on time.',
+  },
+  {
+    value: 50,
+    suffix: '+',
+    title: 'Projects completed',
+    description: 'Product experiences, systems and integrations.',
   },
   {
     value: 15,
@@ -26,10 +26,10 @@ export const OUTCOME_METRICS = Object.freeze([
     description: 'Connected delivery across markets and teams.',
   },
   {
-    value: 50,
+    value: 2,
     suffix: '+',
-    title: 'Projects completed',
-    description: 'Product experiences, systems and integrations.',
+    title: 'Years of delivery',
+    description: 'From discovery through design, engineering and launch.',
   },
 ]);
 export function metricLayout(

@@ -33,6 +33,7 @@ export function createContentController({ root, journey }) {
     if (dialog.open) dialog.close();
   }
   function selectTab(value) {
+    if ($('#contact').dataset.submissionsDisabled === 'true') return;
     selected = value;
     tabs.forEach((tab) => {
       const active = tab.dataset.contactTab === value;
