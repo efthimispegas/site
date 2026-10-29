@@ -1,0 +1,22 @@
+export const deploymentFixture = {
+  CLOUDFLARE_ACCOUNT_ID: 'a'.repeat(32),
+  PEGASOFT_INTAKE_WORKER_NAME: 'intake-contract-test',
+  PEGASOFT_R2_BUCKET_NAME: 'intake-contract-test',
+  PEGASOFT_R2_JURISDICTION: 'eu',
+  PEGASOFT_WORKER_COMPATIBILITY_DATE: '2026-10-28',
+  PEGASOFT_SOURCE_REVISION: 'b'.repeat(40),
+  PEGASOFT_INTAKE_ENABLED: 'false',
+  PEGASOFT_INTAKE_PATH: '/api/intake',
+  PEGASOFT_INTAKE_ORIGINS: 'https://intake.example',
+  PEGASOFT_INTAKE_RECIPIENT: 'recipient@example.test',
+  PEGASOFT_INTAKE_SENDER: 'sender@example.test',
+  PEGASOFT_CV_RETENTION_DAYS: '30',
+  PEGASOFT_MAX_CV_BYTES: '5000000',
+  PEGASOFT_MAX_REQUEST_BYTES: '5131072',
+  PEGASOFT_PRIVACY_VERSION: '',
+  PEGASOFT_TURNSTILE_VERIFY_URL:
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+  PEGASOFT_INTAKE_CLEANUP_CRON: '*/15 * * * *',
+  PEGASOFT_RATE_LIMIT_NAMESPACE_ID: '1001',
+  PEGASOFT_RATE_LIMIT_REQUESTS: '5',
+};
