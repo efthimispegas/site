@@ -1,0 +1,54 @@
+name: Production Pages preflight
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  verify-access:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: pegasoft-production
+    steps:
+      - name: Verify configured project access without publishing
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PAGES_PROJECT: ${{ vars.PEGASOFT_PRODUCTION_PAGES_PROJECT }}
+          DEVELOPMENT_PROJECT: ${{ vars.PEGASOFT_DEVELOPMENT_PAGES_PROJECT }}
+        run: |
+          python3 - <<'PY'
+          import json, os, re, urllib.request, urllib.error
+          token = os.environ.get('CF_TOKEN', '')
+          account = os.environ.get('CF_ACCOUNT', '')
+          project = os.environ.get('PAGES_PROJECT', '')
+          development = os.environ.get('DEVELOPMENT_PROJECT', '')
+          if not token or not re.fullmatch(r'[a-fA-F0-9]{32}', account):
+              raise SystemExit('Missing or invalid protected deployment credentials.')
+          if not re.fullmatch(r'[a-z0-9][a-z0-9-]*', project) or not development or project == development:
+              raise SystemExit('Configure distinct production and development projects.')
+          request = urllib.request.Request(
+              f'https://api.cloudflare.com/client/v4/accounts/{account}/pages/projects/{project}',
+              headers={'Authorization': 'Bearer ' + token, 'Accept': 'application/json'},
+              method='GET',
+          )
+          try:
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  raw = response.read(2_000_001)
+          except urllib.error.HTTPError as error:
+              raise SystemExit(f'Cloudflare project verification failed: HTTP {error.code}.') from None
+          except urllib.error.URLError:
+              raise SystemExit('Cloudflare project verification could not connect.') from None
+          if len(raw) > 2_000_000:
+              raise SystemExit('Cloudflare response exceeded the verification limit.')
+          data = json.loads(raw)
+          result = data.get('result') or {}
+          if data.get('success') is not True or result.get('name') != project:
+              raise SystemExit('Cloudflare did not confirm the configured project.')
+          print('Authentication and isolated production project lookup verified.')
+          print('Production branch:', result.get('production_branch', 'not configured'))
+          if result.get('production_branch') != 'main':
+              raise SystemExit('Set the production Pages branch to main before release.')
+          print('No upload, deployment, DNS mutation or readiness activation performed.')
+          PY

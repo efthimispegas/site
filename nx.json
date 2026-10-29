@@ -70,6 +70,14 @@
   "targetDefaults": {
     "test": {
       "dependsOn": ["^build"]
+    },
+    "build": {
+      "options": {
+        "env": {
+          "NODE_ENV": "production"
+        }
+      }
     }
-  }
+  },
+  "defaultBase": "origin/main"
 }
