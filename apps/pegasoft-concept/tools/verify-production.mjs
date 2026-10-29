@@ -113,11 +113,14 @@ if (process.argv.includes('--record')) {
     'contact',
   ])
     assert.ok(index.includes('id="' + id + '"'), 'Missing chapter: ' + id);
-  for (const match of index.matchAll(/(?:src|url)=["'](\/assets\/[^"']+)["']/g))
+  for (const match of index.matchAll(/(?:src|url|href)=["'](\/[^"']+)["']/g)) {
+    const path = match[1].split(/[?#]/)[0];
+    if (!path.startsWith('/assets/') && path !== '/favicon.ico') continue;
     assert.ok(
-      existsSync(resolve(app, 'public' + match[1])),
+      existsSync(resolve(app, 'public' + path)),
       'Missing HTML asset: ' + match[1],
     );
+  }
   const registry = readFileSync(
     resolve(app, 'runtime/runtime-assets.js'),
     'utf8',
