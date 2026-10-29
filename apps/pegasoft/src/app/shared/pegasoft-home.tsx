@@ -77,10 +77,16 @@ function PegasoftLoader({ hidden }: { hidden: boolean }) {
   return (
     <div className="pegasoft-loader" data-hidden={hidden} aria-hidden="true">
       <div className="pegasoft-loader__core">P</div>
-      <svg className="pegasoft-loader__ellipse pegasoft-loader__ellipse--outer" viewBox="0 0 1500 800">
+      <svg
+        className="pegasoft-loader__ellipse pegasoft-loader__ellipse--outer"
+        viewBox="0 0 1500 800"
+      >
         <ellipse cx="750" cy="400" rx="749" ry="399" />
       </svg>
-      <svg className="pegasoft-loader__ellipse pegasoft-loader__ellipse--inner" viewBox="0 0 800 800">
+      <svg
+        className="pegasoft-loader__ellipse pegasoft-loader__ellipse--inner"
+        viewBox="0 0 800 800"
+      >
         <ellipse cx="400" cy="400" rx="399" ry="399" />
       </svg>
     </div>
@@ -191,7 +197,10 @@ export function PegasoftHome() {
       const progress =
         total <= 0
           ? 1
-          : Math.min(1, Math.max(0, -section.getBoundingClientRect().top / total));
+          : Math.min(
+              1,
+              Math.max(0, -section.getBoundingClientRect().top / total),
+            );
       const segment = 1 / features.length;
       const overlap = segment * 0.3;
 
@@ -207,7 +216,7 @@ export function PegasoftHome() {
           Math.max(0, (progress - start) / (end - start)),
         );
 
-        item.style.opacity = `${0.22 + local * 0.78}`;
+        item.style.opacity = '1';
         item.style.transform = `translate3d(0, ${(1 - local) * 80}px, 0)`;
       });
 
@@ -259,7 +268,10 @@ export function PegasoftHome() {
       ) as HTMLElement[];
       const headerHeight = headerRef.current?.offsetHeight ?? 80;
       const landingWindow = window.innerHeight * 0.18 || 1;
-      const exitProgress = Math.min(1, Math.max(0, window.scrollY / landingWindow));
+      const exitProgress = Math.min(
+        1,
+        Math.max(0, window.scrollY / landingWindow),
+      );
       const revealProgress = Math.min(
         1,
         Math.max(0, (exitProgress - 0.12) / 0.88),
@@ -446,7 +458,10 @@ export function PegasoftHome() {
                 </Link>
               </div>
               <div className="mncta">
-                <a href={bookingUrl} className="pill-btn pill-btn--dark mobile-nav__cta">
+                <a
+                  href={bookingUrl}
+                  className="pill-btn pill-btn--dark mobile-nav__cta"
+                >
                   <span className="pill-btn-span">Book a Call</span>
                 </a>
               </div>
@@ -471,7 +486,10 @@ export function PegasoftHome() {
       >
         <PegasoftFieldScene
           ready={sceneReady}
-          activeLifecycle={Math.max(0, Math.min(flowSteps.length - 1, activeFlowIndex))}
+          activeLifecycle={Math.max(
+            0,
+            Math.min(flowSteps.length - 1, activeFlowIndex),
+          )}
           flowProgress={flowProgress}
         />
 
@@ -494,7 +512,11 @@ export function PegasoftHome() {
               </span>
             </p>
           </div>
-          <button className="hero__scroll-btn" type="button" onClick={scrollToProcess}>
+          <button
+            className="hero__scroll-btn"
+            type="button"
+            onClick={scrollToProcess}
+          >
             <span>
               <span className="hsbtn-in">scroll to discover our process</span>
             </span>
@@ -568,7 +590,9 @@ export function PegasoftHome() {
                     </div>
                     <div className="feature-item__text">
                       <h3 className="feature-item__title">{feature.title}</h3>
-                      <p className="feature-item__description">{feature.body}</p>
+                      <p className="feature-item__description">
+                        {feature.body}
+                      </p>
                     </div>
                   </div>
                 </article>
@@ -672,8 +696,14 @@ export function PegasoftHome() {
               <span className="footer-nav-btn__bg" />
               <span className="footer-nav-btn__label">{item.label}</span>
               <span className="footer-nav-btn__arrows">
-                <ArrowRight className="footer-nav-btn__arrow footer-nav-btn__arrow--current" size={22} />
-                <ArrowRight className="footer-nav-btn__arrow footer-nav-btn__arrow--next" size={22} />
+                <ArrowRight
+                  className="footer-nav-btn__arrow footer-nav-btn__arrow--current"
+                  size={22}
+                />
+                <ArrowRight
+                  className="footer-nav-btn__arrow footer-nav-btn__arrow--next"
+                  size={22}
+                />
               </span>
             </Link>
           ))}

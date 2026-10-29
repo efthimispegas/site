@@ -7,10 +7,12 @@ test('homepage presents Pegasoft CTA and 3D/fallback surface', async ({
   await page.goto('/');
 
   await expect(
-    page.getByRole('heading', { name: /design that delivers/i }),
+    page.getByRole('heading', {
+      name: /the new standard.*in product delivery/i,
+    }),
   ).toBeVisible();
   await expect(page.getByRole('link', { name: /book/i }).first()).toBeVisible();
-  await expect(page.locator('.pegasus-engine')).toBeVisible();
+  await expect(page.locator('.pegasoft-field').first()).toBeVisible();
 });
 
 test('work taxonomy keeps Concept Lab separate from client portfolio', async ({
@@ -52,18 +54,14 @@ test('homepage has no serious or critical accessibility violations', async ({
 }) => {
   await page.goto('/');
   await expect(page.getByRole('main')).toBeVisible();
-  await page.waitForFunction(() => {
-    const heroActions = document.querySelector('.hero-actions');
-    if (!heroActions) {
-      return false;
-    }
-
-    const styleAttribute = heroActions.getAttribute('style') ?? '';
-    return (
-      styleAttribute.includes('opacity: 1') &&
-      window.getComputedStyle(heroActions).opacity === '1'
-    );
-  });
+  await expect(
+    page.getByRole('heading', {
+      name: /the new standard.*in product delivery/i,
+    }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: /scroll to discover our process/i }),
+  ).toBeVisible();
 
   const results = await new AxeBuilder({ page }).analyze();
   const seriousViolations = results.violations.filter((violation) =>
