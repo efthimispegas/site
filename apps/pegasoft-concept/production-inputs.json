@@ -42,7 +42,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "0f72541c1cbbe84e7999820b4e3b620d2c6064608394d09542ce6536daabbd75"
+      "sha256": "765e8e5c013723e35ad8ff04cedb19fb4750101196642746c51a428dfd515e52"
     },
     {
       "path": "package.json",
@@ -55,6 +55,18 @@
     {
       "path": "public/_headers",
       "sha256": "467537374865fe837ed22f11e1e5b0f564e7558e1f6f4ad451f92a2245089398"
+    },
+    {
+      "path": "public/assets/brand/pegasoft-apple-touch-icon-20261025.png",
+      "sha256": "6f9a487e9eeca3fcad1ccb2b8deeefd9a43403b4211a50b1216ed97aa2382af7"
+    },
+    {
+      "path": "public/assets/brand/pegasoft-favicon-20261025.svg",
+      "sha256": "4fab85eb983b5b7186bd4ac19e8ab167ccd7a8f5a48641c45f256414c54851d0"
+    },
+    {
+      "path": "public/assets/brand/pegasoft-favicon-48-20261025.png",
+      "sha256": "eb445717b56334ac2dc03a550c096480ddc99808cb85f665139361002cd576d8"
     },
     {
       "path": "public/assets/fonts/dmsans-OFL.txt",
@@ -147,6 +159,10 @@
     {
       "path": "public/assets/water/ocean-first-frame.png",
       "sha256": "740950bb40c8e034e5b9402d605e9407bbe5c425b4550ed87826b912e6d16f85"
+    },
+    {
+      "path": "public/favicon.ico",
+      "sha256": "d81469e1e0b7d5451efb20663f9e9e1142f917136541d5894d30f2c413d26255"
     },
     {
       "path": "public/licenses/react-bits.txt",
@@ -514,7 +530,7 @@
     },
     {
       "path": "tools/verify-production.mjs",
-      "sha256": "9fe57b9784356ba75da1181f2d93cfd15e3fe28a7dfc52c2ff368412b771b0b7"
+      "sha256": "2300d39b683b97761cfe23df6487113ad1effe75c7442c14ea4093f35870ddea"
     },
     {
       "path": "vite.config.js",
