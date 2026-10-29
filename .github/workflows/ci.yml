@@ -94,9 +94,16 @@ jobs:
           PEGASOFT_PRODUCTION_SITE_URL: ${{ vars.PEGASOFT_PRODUCTION_SITE_URL }}
           PEGASOFT_DEPLOYMENT_ENV: production
           PEGASOFT_INCLUDE_INSPECTORS: 'false'
+      - name: Install pinned Cloudflare deployment tooling
+        run: pnpm exec nx run @site/pegasoft-intake:install-cloudflare
+        env:
+          PEGASOFT_PUBLIC_SITE_URL: ${{ vars.PEGASOFT_PRODUCTION_SITE_URL }}
       - name: Deploy verified revision
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/apps/pegasoft-concept --project-name=${{ vars.PEGASOFT_PRODUCTION_PAGES_PROJECT }} --branch=main --commit-hash=${{ github.sha }}
+          workingDirectory: apps/pegasoft-intake/cloudflare-tooling
+          wranglerVersion: '4.155.0'
+          packageManager: pnpm
+          command: pages deploy ../../../dist/apps/pegasoft-concept --project-name=${{ vars.PEGASOFT_PRODUCTION_PAGES_PROJECT }} --branch=main --commit-hash=${{ github.sha }}
