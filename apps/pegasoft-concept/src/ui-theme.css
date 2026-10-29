@@ -1,0 +1,149 @@
+/* Shared CTA hierarchy. Existing Pegasoft palette; chapter typography/geometry stay owned locally. */
+:root {
+  --action-accent: #147dff;
+  --action-ink: #05070a;
+  --action-paper: #edf2f7;
+  --action-sky: #7bcbff;
+  --action-primary-fill: var(--action-accent);
+  --action-primary-ink: var(--action-ink);
+  --action-primary-hover: var(--action-sky);
+  --action-secondary-ink: #436987;
+  --action-focus: #436987;
+}
+:where([data-ui-surface='dark']) {
+  --action-secondary-ink: var(--action-sky);
+  --action-focus: var(--action-sky);
+}
+:is(
+    #opening-stage .hero-actions,
+    #opening-stage .hero-nav,
+    .cookie-notice-actions,
+    #cookie-preferences,
+    .contact-preview-form,
+    .testimonial-navigation,
+    .metrics-intro,
+    #services-overlay,
+    #mobile-story-reading
+  )
+  [data-ui-action='primary'],
+body :is(#closing-cursor, #site-header-contact)[data-ui-action='primary'] {
+  background: var(--action-primary-fill);
+  border-color: var(--action-primary-fill);
+  color: var(--action-primary-ink);
+}
+:is(
+    #opening-stage .hero-actions,
+    #opening-stage .hero-nav,
+    .cookie-notice-actions,
+    #cookie-preferences,
+    .contact-preview-form,
+    .testimonial-navigation,
+    .metrics-intro,
+    #services-overlay,
+    #mobile-story-reading
+  )
+  [data-ui-action='primary']:is(:hover, :focus-visible),
+body
+  :is(#closing-cursor, #site-header-contact)[data-ui-action='primary']:is(
+    :hover,
+    :focus-visible
+  ) {
+  background: var(--action-primary-hover);
+  border-color: var(--action-primary-hover);
+  color: var(--action-primary-ink);
+}
+:is(
+    #opening-stage .hero-actions,
+    #opening-stage .hero-nav,
+    .cookie-notice-actions,
+    #cookie-preferences,
+    .testimonial-navigation,
+    .editorial-summary,
+    .metrics-intro,
+    #services-overlay,
+    #mobile-story-reading
+  )
+  [data-ui-action='secondary'] {
+  background: transparent;
+  border: 1px solid var(--action-secondary-ink);
+  color: var(--action-secondary-ink);
+}
+:is(
+    #opening-stage .hero-actions,
+    #opening-stage .hero-nav,
+    .cookie-notice-actions,
+    #cookie-preferences,
+    .testimonial-navigation,
+    .editorial-summary,
+    .metrics-intro,
+    #services-overlay,
+    #mobile-story-reading
+  )
+  [data-ui-action='secondary']:is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--action-secondary-ink) 10%, transparent);
+  border-color: var(--action-secondary-ink);
+  color: var(--action-secondary-ink);
+}
+[data-ui-action='tertiary'] {
+  --action-link: var(--action-secondary-ink);
+  color: var(--action-link);
+  text-underline-offset: 3px;
+}
+body [data-ui-action]:focus-visible {
+  outline: 2px solid var(--action-focus);
+  outline-offset: 4px;
+}
+body [data-ui-action]:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+/* All contact CTAs share the primary palette, including their hover/focus state. */
+#site-header-contact {
+  mix-blend-mode: normal;
+}
+#opening-stage .hero-actions [data-ui-action] .roll > span {
+  color: inherit;
+}
+.cta-decrypt {
+  position: relative;
+  display: inline-block;
+  white-space: pre;
+  line-height: 1.2;
+}
+.cta-decrypt-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.cta-decrypt-visual {
+  display: inline-block;
+  white-space: pre;
+}
+.cta-decrypt-cell {
+  position: relative;
+  display: inline-block;
+}
+.cta-decrypt-ghost {
+  visibility: hidden;
+}
+.cta-decrypt-glyph {
+  position: absolute;
+  inset: 0;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Commissioned title treatment: replace only the existing grey title words. */
+#opening-stage .outcome-title .muted,
+#road-copy h2 span,
+#stage #trust-title span:first-child,
+#insights-title span:first-child,
+body #faq h2 span,
+body #contact h3 span,
+body .proof-heading h2 span,
+body .partners-intro h3 span {
+  color: var(--action-accent);
+}

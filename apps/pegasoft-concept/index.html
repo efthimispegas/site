@@ -1,0 +1,1430 @@
+<!doctype html>
+<html lang="en" class="journey-booting">
+  <head>
+    <script>
+      window.__pegasoftStartupWatchdog = setTimeout(() => {
+        if (!document.documentElement.classList.contains('journey-booting'))
+          return;
+        document.documentElement.classList.remove('journey-booting');
+        document.body?.classList.add('static-journey');
+        const story = document.getElementById('static-story');
+        if (story) story.hidden = false;
+        window.scrollTo(0, 0);
+      }, 12000);
+      history.scrollRestoration = 'manual';
+      if (
+        performance.getEntriesByType('navigation')[0]?.type === 'reload' ||
+        performance.navigation?.type === 1
+      ) {
+        history.scrollRestoration = 'manual';
+        history.replaceState(
+          history.state,
+          '',
+          location.pathname + location.search,
+        );
+        window.scrollTo(0, 0);
+      }
+    </script>
+    <style>
+      html.journey-booting,
+      html.journey-booting body {
+        background: #05070a;
+      }
+      html.journey-booting
+        :is(
+          #site-header,
+          #site-header-contact,
+          #site-header-language,
+          #cookie-notice,
+          #story-track,
+          #after-journey
+        ) {
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+      #site-header[data-ready='false'],
+      #site-header[data-ready='false']
+        ~ :is(#site-header-contact, #site-header-language) {
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+      html.journey-booting {
+        overflow: hidden;
+        overscroll-behavior: none;
+      }
+      html.journey-booting body {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        overflow: hidden;
+        touch-action: none;
+      }
+    </style>
+    <noscript
+      ><style>
+        html.journey-booting :is(#story-track, #after-journey) {
+          visibility: visible !important;
+          pointer-events: auto !important;
+        }
+        html.journey-booting {
+          overflow: auto;
+        }
+        html.journey-booting body {
+          position: static;
+          overflow: visible;
+          touch-action: auto;
+        }
+      </style></noscript
+    >
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#05070a" />
+    <meta
+      name="description"
+      content="Pegasoft — strategy, design and engineering together."
+    />
+    <title>Pegasoft</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pegasoft" />
+    <meta
+      property="og:title"
+      content="Pegasoft — Every idea engineered to matter."
+    />
+    <meta
+      property="og:description"
+      content="Strategy, design and engineering, carried through by one accountable team."
+    />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/social/hero-card-20261019.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Pegasoft — Every idea engineered to matter, alongside the blue connected globe."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Pegasoft — Every idea engineered to matter."
+    />
+    <meta
+      name="twitter:description"
+      content="Strategy, design and engineering, carried through by one accountable team."
+    />
+    <meta
+      name="twitter:image"
+      content="/assets/social/hero-card-20261019.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Pegasoft — Every idea engineered to matter, alongside the blue connected globe."
+    />
+    <link rel="stylesheet" href="/src/journey.css" />
+    <link rel="stylesheet" href="/src/hero-opening.css" />
+    <link rel="stylesheet" href="/src/outcome.css" />
+    <link rel="stylesheet" href="/src/loader.css" />
+    <link rel="stylesheet" href="/src/website-motion.css" />
+    <link rel="stylesheet" href="/src/content-sections.css" />
+    <link rel="stylesheet" href="/src/ui-theme.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#static-story">Read our approach</a>
+    <main>
+      <div class="story-viewport-probes" aria-hidden="true">
+        <i id="story-scroll-viewport"></i><i id="story-max-viewport"></i>
+      </div>
+      <nav
+        id="site-header"
+        class="site-header"
+        aria-label="Main navigation"
+        data-visible="false"
+        data-ready="false"
+      >
+        <a class="logo" href="#opening-stage" aria-label="Pegasoft home"
+          >pegasoft</a
+        >
+        <div class="nav-links">
+          <button data-page-target="about">About</button
+          ><button data-page-target="services">Services</button
+          ><button data-page-target="#website-footer">Industries</button
+          ><button data-page-target="#insights">Insights</button
+          ><button data-careers-action>Careers</button
+          ><button data-contact-action>Contact</button>
+        </div>
+        <div class="header-actions">
+          <button
+            id="site-header-contact"
+            data-ui-action="primary"
+            class="site-header-contact nav-contact"
+            data-contact-action
+            data-action="Talk with us"
+          >
+            <span>Let’s talk</span>
+          </button>
+          <div
+            id="site-header-language"
+            class="language-menu site-header-language"
+            data-language-menu
+          >
+            <button
+              type="button"
+              class="language-trigger"
+              data-language-trigger
+              aria-label="Language: English"
+              aria-haspopup="menu"
+              aria-expanded="false"
+              aria-controls="language-options-header"
+            >
+              <span data-language-flag aria-hidden="true">🇬🇧</span>
+            </button>
+            <div
+              class="language-options"
+              id="language-options-header"
+              role="menu"
+              aria-label="Language"
+              hidden
+            >
+              <button
+                type="button"
+                role="menuitemradio"
+                data-locale="el"
+                lang="el"
+                aria-checked="false"
+              >
+                🇬🇷 Ελληνικά</button
+              ><button
+                type="button"
+                role="menuitemradio"
+                data-locale="en"
+                lang="en"
+                aria-checked="true"
+              >
+                🇬🇧 English
+              </button>
+            </div>
+          </div>
+          <button
+            type="button"
+            class="site-menu-toggle"
+            id="open-mobile-menu"
+            aria-label="Open menu"
+            aria-haspopup="dialog"
+            aria-controls="mobile-navigation"
+            aria-expanded="false"
+          >
+            <span class="menu-icon" aria-hidden="true"
+              ><i></i><i></i><i></i
+            ></span>
+          </button>
+        </div>
+      </nav>
+      <h1 class="visually-hidden">Pegasoft</h1>
+      <div id="intro-track">
+        <div
+          id="opening-stage"
+          class="stage"
+          role="region"
+          aria-label="Opening and outcomes"
+        >
+          <div class="pulse" id="pulse" aria-hidden="true"><i></i></div>
+          <div class="hero" id="hero" data-ui-surface="dark">
+            <div class="grain" aria-hidden="true"></div>
+            <canvas
+              id="globe"
+              aria-label="Live rotating globe with geographic land dots and blue raised connection arcs"
+              role="img"
+            ></canvas>
+
+            <div class="hero-copy">
+              <p class="kicker" id="kicker">One accountable team</p>
+              <h2>
+                <span class="line"><span>Every idea</span></span
+                ><span class="line"><span>Engineered</span></span
+                ><span class="line"><span>to matter.</span></span>
+              </h2>
+              <p class="hero-body">
+                Strategy, design and engineering,<br />carried through by one
+                accountable team.
+              </p>
+              <div class="hero-actions">
+                <button
+                  class="cta primary"
+                  data-ui-action="primary"
+                  data-contact-action
+                  data-action="Talk with us"
+                >
+                  <span class="roll"
+                    ><span>Talk with us</span
+                    ><span aria-hidden="true">Talk with us</span></span
+                  ></button
+                ><button
+                  class="cta secondary"
+                  data-ui-action="secondary"
+                  data-page-target="services"
+                  data-action="Our services"
+                >
+                  <span class="roll"
+                    ><span>Our services</span
+                    ><span aria-hidden="true">Our services</span></span
+                  >
+                </button>
+              </div>
+            </div>
+            <p
+              class="interaction-status"
+              id="interaction-status"
+              role="status"
+            ></p>
+          </div>
+          <div class="radar" id="radar" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div id="mark" class="loader-mark" aria-hidden="true">pegasoft</div>
+          <p class="render-error" id="render-error" hidden role="alert"></p>
+          <div class="outcome-world" aria-hidden="true">
+            <div class="horizon"></div>
+          </div>
+          <section class="outcome" aria-label="Outcome chapter" hidden>
+            <div class="outcome-title">
+              <p class="eyebrow">Built with accountability</p>
+              <h2>
+                <span class="muted">We build</span
+                ><span class="muted">technology.</span><span>We own</span
+                ><span>the outcome.</span>
+              </h2>
+            </div>
+            <div class="metrics">
+              <div class="metrics-intro">
+                <p>
+                  Strategy, design and engineering.<br />Connected from the
+                  first idea onward.
+                </p>
+                <p>
+                  From the first conversation to delivery, keep product
+                  decisions, design and engineering connected.
+                </p>
+                <button data-page-target="about" data-ui-action="secondary">
+                  Learn more about us
+                </button>
+              </div>
+              <article class="metric">
+                <p class="metric-label">Demo metric · 01</p>
+                <span class="metric-value">2+</span>
+                <h3>Years of delivery</h3>
+                <p>From discovery through design, engineering and launch.</p>
+              </article>
+              <article class="metric">
+                <p class="metric-label">Demo metric · 02</p>
+                <span class="metric-value">98.5%</span>
+                <h3>Conversion rate</h3>
+                <p>An illustrative measure for a complete digital journey.</p>
+              </article>
+              <article class="metric">
+                <p class="metric-label">Demo metric · 03</p>
+                <span class="metric-value">15+</span>
+                <h3>Clients worldwide</h3>
+                <p>Digital products and platforms across complex industries.</p>
+              </article>
+              <article class="metric">
+                <p class="metric-label">Demo metric · 04</p>
+                <span class="metric-value">5+</span>
+                <h3>Countries</h3>
+                <p>Connected delivery across markets and teams.</p>
+              </article>
+              <article class="metric">
+                <p class="metric-label">Demo metric · 05</p>
+                <span class="metric-value">50+</span>
+                <h3>Projects completed</h3>
+                <p>Product experiences, systems and integrations.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </div>
+      <div id="story-track">
+        <div id="stage" role="region" aria-label="Our journey">
+          <div id="loading" role="status" aria-live="polite">
+            Preparing the journey…
+          </div>
+          <div id="services-title" aria-hidden="true">OUR SERVICES</div>
+          <section
+            id="services-overlay"
+            aria-hidden="true"
+            aria-label="Services chapter overlay"
+          >
+            <div id="services-rail">
+              <div>
+                <span class="eyebrow">OUR SERVICES</span>
+                <h2>Everything your product needs. One team.</h2>
+                <p class="service-intro">
+                  Strategy, design and engineering, carried through by one
+                  accountable team.
+                </p>
+              </div>
+              <ol>
+                <li>
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <circle cx="16" cy="16" r="11" />
+                    <path d="m12 20 3-8 5-3-3 8z" /></svg
+                  ><span>01</span>Product strategy<small
+                    >Research, product direction and delivery priorities.</small
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <rect x="4" y="6" width="24" height="20" rx="2" />
+                    <path d="M4 12h24M13 12v14" /></svg
+                  ><span>02</span>UX/UI design<small
+                    >Journeys, interfaces and design systems.</small
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path d="m11 8-7 8 7 8m10-16 7 8-7 8M18 5l-4 22" /></svg
+                  ><span>03</span>Web engineering<small
+                    >Web experiences and connected product systems.</small
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <rect x="8" y="3" width="16" height="26" rx="3" />
+                    <path d="M13 7h6M14 25h4" /></svg
+                  ><span>04</span>Mobile applications<small
+                    >Mobile interfaces and application engineering.</small
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <circle cx="16" cy="16" r="4" />
+                    <circle cx="5" cy="5" r="2" />
+                    <circle cx="27" cy="5" r="2" />
+                    <circle cx="5" cy="27" r="2" />
+                    <circle cx="27" cy="27" r="2" />
+                    <path d="m7 7 6 6m6 0 6-6M7 25l6-6m6 0 6 6" /></svg
+                  ><span>05</span>AI &amp; automation<small
+                    >Connected workflows, useful AI and automation.</small
+                  >
+                </li>
+                <li>
+                  <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path
+                      d="M9 24a6 6 0 1 1 0-12 8 8 0 0 1 15 2 5 5 0 0 1-1 10H9zM16 17v11m-4-7 4-4 4 4"
+                    /></svg
+                  ><span>06</span>Cloud &amp; platform engineering<small
+                    >Cloud foundations, integrations and product
+                    operations.</small
+                  >
+                </li>
+              </ol>
+            </div>
+            <div class="services-action">
+              <button
+                data-ui-action="secondary"
+                data-page-target="services"
+                class="services-cta"
+              >
+                Our services
+              </button>
+            </div>
+          </section>
+          <section id="road-copy" aria-label="Road chapter" aria-hidden="true">
+            <h2><span>Precision</span><br />at every milestone.</h2>
+            <ol>
+              <li>
+                <span>01</span>Visible progress
+                <p>Clear priorities and delivery checkpoints.</p>
+              </li>
+              <li>
+                <span>02</span>Integrated delivery
+                <p>Strategy, design and engineering together.</p>
+              </li>
+              <li>
+                <span>03</span>Ongoing evolution
+                <p>Continued improvements as your product grows.</p>
+              </li>
+            </ol>
+          </section>
+          <section
+            id="ship-copy"
+            aria-label="Built to work at scale"
+            aria-hidden="true"
+          >
+            <h2>Built to work<br />at scale.</h2>
+            <ol>
+              <li>
+                <span>01</span>
+                <div class="block-title">
+                  <div>One accountable</div>
+                  <div>team</div>
+                </div>
+                <p>Strategy, design and engineering together.</p>
+              </li>
+              <li>
+                <span>02</span>
+                <div class="block-title">
+                  <div>Clear project</div>
+                  <div>visibility</div>
+                </div>
+                <p>Shared priorities and delivery checkpoints.</p>
+              </li>
+              <li>
+                <span>03</span>
+                <div class="block-title">
+                  <div data-msg="ship.engineered">Engineered</div>
+                  <div>foundations</div>
+                </div>
+                <p>Connected product systems.</p>
+              </li>
+              <li>
+                <span>04</span>
+                <div class="block-title">
+                  <div>Transparent</div>
+                  <div>scope</div>
+                </div>
+                <p>Clear decisions throughout delivery.</p>
+              </li>
+              <li>
+                <span>05</span>Fast decisions
+                <p>Keep the next step visible.</p>
+              </li>
+            </ol>
+          </section>
+          <div id="cloud-layers">
+            <div class="story-cloud" data-cloud="K01">
+              <img
+                class="halo"
+                src="/assets/live/cloud-family/K01/K01.png"
+                alt=""
+              /><img
+                class="core"
+                src="/assets/live/cloud-family/K01/K01.png"
+                alt=""
+              />
+            </div>
+            <div class="story-cloud" data-cloud="K02">
+              <img
+                class="halo"
+                src="/assets/live/cloud-family/K02/K02.png"
+                alt=""
+              /><img
+                class="core"
+                src="/assets/live/cloud-family/K02/K02.png"
+                alt=""
+              />
+            </div>
+            <div class="story-cloud" data-cloud="K03">
+              <img
+                class="halo"
+                src="/assets/live/cloud-family/K03/K03.png"
+                alt=""
+              /><img
+                class="core"
+                src="/assets/live/cloud-family/K03/K03.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <section class="trust" id="trust" aria-label="Pegasoft trust chapter">
+            <div class="trust-inner">
+              <h2 id="trust-title">
+                <span>Trusted</span><span>to build what</span
+                ><span>comes next.</span>
+              </h2>
+              <div class="trust-summary">
+                <p>
+                  We bring clarity to complex challenges, shaping purposeful
+                  digital experiences.
+                </p>
+                <div class="trust-rule" aria-hidden="true"></div>
+                <div class="trust-foot">Precision in every detail.</div>
+              </div>
+            </div>
+            <section id="trust-evidence" aria-labelledby="trust-title">
+              <div class="testimonial-navigation">
+                <p>What they say</p>
+                <div>
+                  <button
+                    type="button"
+                    data-ui-action="secondary"
+                    data-testimonial-step="-1"
+                    aria-label="Previous testimonial"
+                    aria-controls="testimonials-rail"
+                  >
+                    <svg
+                      class="ui-icon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M20 12H4m7-7-7 7 7 7" />
+                    </svg></button
+                  ><button
+                    type="button"
+                    data-ui-action="secondary"
+                    data-testimonial-step="1"
+                    aria-label="Next testimonial"
+                    aria-controls="testimonials-rail"
+                  >
+                    <svg
+                      class="ui-icon"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <path d="M4 12h16m-7-7 7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div
+                id="testimonials-rail"
+                tabindex="0"
+                role="region"
+                aria-label="Demo client testimonials. Use left and right arrow keys to browse."
+              >
+                <article class="testimonial-card">
+                  <span class="testimonial-demo">Demo testimonial 01</span>
+                  <h3>A shared direction, from the first conversation.</h3>
+                  <blockquote>
+                    The team helped us turn a complicated product brief into a
+                    clear plan. Design and engineering stayed connected as the
+                    work took shape.
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <svg
+                      viewBox="0 0 64 64"
+                      role="img"
+                      aria-label="Illustrated dummy avatar 1"
+                    >
+                      <rect width="64" height="64" rx="32" fill="#7bcbff" />
+                      <circle cx="32" cy="25" r="11" fill="#edf2f7" />
+                      <path d="M12 60c0-23 40-23 40 0" fill="#edf2f7" />
+                    </svg>
+                    <p>
+                      <strong>Demo client 01</strong
+                      ><span>Product lead · fictional company</span>
+                    </p>
+                  </div>
+                </article>
+                <article class="testimonial-card">
+                  <span class="testimonial-demo">Demo testimonial 02</span>
+                  <h3>Built together, with room to think.</h3>
+                  <blockquote>
+                    We could follow the decisions, ask questions and understand
+                    the tradeoffs. The collaboration felt like one team working
+                    toward the same release.
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <svg
+                      viewBox="0 0 64 64"
+                      role="img"
+                      aria-label="Illustrated dummy avatar 2"
+                    >
+                      <rect width="64" height="64" rx="32" fill="#718397" />
+                      <circle cx="32" cy="25" r="11" fill="#edf2f7" />
+                      <path d="M12 60c0-23 40-23 40 0" fill="#edf2f7" />
+                    </svg>
+                    <p>
+                      <strong>Demo client 02</strong
+                      ><span>Technology lead · fictional company</span>
+                    </p>
+                  </div>
+                </article>
+                <article class="testimonial-card">
+                  <span class="testimonial-demo">Demo testimonial 03</span>
+                  <h3>Clarity at every step.</h3>
+                  <blockquote>
+                    Regular conversations kept our priorities visible. Each
+                    milestone gave us something tangible to review and a clear
+                    sense of what came next.
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <svg
+                      viewBox="0 0 64 64"
+                      role="img"
+                      aria-label="Illustrated dummy avatar 3"
+                    >
+                      <rect width="64" height="64" rx="32" fill="#147dff" />
+                      <circle cx="32" cy="25" r="11" fill="#edf2f7" />
+                      <path d="M12 60c0-23 40-23 40 0" fill="#edf2f7" />
+                    </svg>
+                    <p>
+                      <strong>Demo client 03</strong
+                      ><span>Operations lead · fictional company</span>
+                    </p>
+                  </div>
+                </article>
+                <article class="testimonial-card">
+                  <span class="testimonial-demo">Demo testimonial 04</span>
+                  <h3>A product that feels considered.</h3>
+                  <blockquote>
+                    The experience brought our ideas into focus. Small details
+                    received the same attention as the larger system, from the
+                    first prototype to the final screens.
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <svg
+                      viewBox="0 0 64 64"
+                      role="img"
+                      aria-label="Illustrated dummy avatar 4"
+                    >
+                      <rect width="64" height="64" rx="32" fill="#061e3b" />
+                      <circle cx="32" cy="25" r="11" fill="#edf2f7" />
+                      <path d="M12 60c0-23 40-23 40 0" fill="#edf2f7" />
+                    </svg>
+                    <p>
+                      <strong>Demo client 04</strong
+                      ><span>Founder · fictional company</span>
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </section>
+          <div id="shadow-receiver" aria-hidden="true">
+            <div class="aircraft" id="shadow-aircraft">
+              <div class="shadow-wrap" id="shadow">
+                <div class="shadow-shape"></div>
+              </div>
+            </div>
+          </div>
+          <div class="aircraft" id="aircraft">
+            <img
+              id="jet"
+              src="/assets/live/jet-family/J02-overhead.png"
+              alt="Pegasoft jet"
+            />
+          </div>
+        </div>
+      </div>
+      <section id="static-story" hidden aria-label="Our approach">
+        <h2>Every idea. Engineered to matter.</h2>
+        <p>We build technology. We own the outcome.</p>
+        <section aria-label="Illustrative metrics">
+          <p>Illustrative figures</p>
+          <ul>
+            <li>2+ years of delivery</li>
+            <li>98.5% conversion rate</li>
+            <li>15+ clients worldwide</li>
+            <li>5+ countries</li>
+            <li>50+ projects completed</li>
+          </ul>
+        </section>
+        <section id="static-services" aria-labelledby="static-services-title">
+          <h2 id="static-services-title">
+            Everything your product needs. One team.
+          </h2>
+          <ol>
+            <li>
+              <h3><span>01</span>Product strategy</h3>
+              <p>Research, product direction and delivery priorities.</p>
+            </li>
+            <li>
+              <h3><span>02</span>UX/UI design</h3>
+              <p>Journeys, interfaces and design systems.</p>
+            </li>
+            <li>
+              <h3><span>03</span>Web engineering</h3>
+              <p>Web experiences and connected product systems.</p>
+            </li>
+            <li>
+              <h3><span>04</span>Mobile applications</h3>
+              <p>Mobile interfaces and application engineering.</p>
+            </li>
+            <li>
+              <h3><span>05</span>AI &amp; automation</h3>
+              <p>Connected workflows, useful AI and automation.</p>
+            </li>
+            <li>
+              <h3><span>06</span>Cloud &amp; platform engineering</h3>
+              <p>Cloud foundations, integrations and product operations.</p>
+            </li>
+          </ol>
+        </section>
+        <img
+          src="/assets/live/ship-family/S01/S01-oblique-original.png"
+          alt="Pegasoft container ship"
+        />
+        <h2>Built to work at scale.</h2>
+        <ol>
+          <li>
+            <h3>One accountable team</h3>
+            <p>Strategy, design and engineering together.</p>
+          </li>
+          <li>
+            <h3>Clear project visibility</h3>
+            <p>Shared priorities and delivery checkpoints.</p>
+          </li>
+          <li>
+            <h3>Engineered foundations</h3>
+            <p>Connected product systems.</p>
+          </li>
+          <li>
+            <h3>Transparent scope</h3>
+            <p>Clear decisions throughout delivery.</p>
+          </li>
+          <li>
+            <h3>Fast decisions</h3>
+            <p>Keep the next step visible.</p>
+          </li>
+        </ol>
+      </section>
+      <div class="after-journey" id="after-journey">
+        <section id="partners" aria-labelledby="partners-title">
+          <div class="partners-intro">
+            <div>
+              <h3 id="partners-title">
+                Connections<br /><span>that move us forward.</span>
+              </h3>
+            </div>
+            <div>
+              <p>
+                Illustrative partner identities across connected industries.
+                Replace these placeholders with authorized names and marks.
+              </p>
+              <button
+                type="button"
+                id="partner-motion-toggle"
+                data-ui-action="tertiary"
+                aria-controls="partner-wall"
+                aria-pressed="false"
+              >
+                Pause partner motion
+              </button>
+            </div>
+          </div>
+          <div id="partner-wall" aria-label="Fictional partner wall">
+            <ol>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 01, Fintech, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">◈</span
+                  ><strong>Partner 01</strong><span>Fintech</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 02, Digital banking, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⊕</span
+                  ><strong>Partner 02</strong><span>Digital banking</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 03, Trade & transit, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⟡</span
+                  ><strong>Partner 03</strong><span>Trade & transit</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 04, Health & wellness, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⌘</span
+                  ><strong>Partner 04</strong><span>Health & wellness</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 05, Telecom, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">◎</span
+                  ><strong>Partner 05</strong><span>Telecom</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 06, Booking systems, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">◈</span
+                  ><strong>Partner 06</strong><span>Booking systems</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 07, Education, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⊕</span
+                  ><strong>Partner 07</strong><span>Education</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 08, Cloud services, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⟡</span
+                  ><strong>Partner 08</strong><span>Cloud services</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 09, Digital products, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⌘</span
+                  ><strong>Partner 09</strong><span>Digital products</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 10, Commerce, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">◎</span
+                  ><strong>Partner 10</strong><span>Commerce</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 11, Platforms, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">◈</span
+                  ><strong>Partner 11</strong><span>Platforms</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 12, Data systems, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⊕</span
+                  ><strong>Partner 12</strong><span>Data systems</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 13, Mobile products, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⟡</span
+                  ><strong>Partner 13</strong><span>Mobile products</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 14, Public services, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">⌘</span
+                  ><strong>Partner 14</strong><span>Public services</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+              <li
+                class="partner-wall__tile"
+                tabindex="0"
+                aria-label="Demo partner 15, Connected systems, fictional placeholder"
+              >
+                <span class="partner-wall__inner"
+                  ><span class="partner-glyph" aria-hidden="true">◎</span
+                  ><strong>Partner 15</strong><span>Connected systems</span
+                  ><small>Fictional placeholder</small></span
+                >
+              </li>
+            </ol>
+          </div>
+        </section>
+        <section
+          id="insights"
+          data-ui-surface="dark"
+          aria-labelledby="insights-title"
+        >
+          <div class="editorial-horizon" aria-hidden="true">
+            <div class="editorial-horizon-plane"></div>
+          </div>
+          <div class="editorial-heading">
+            <h2 id="insights-title"><span>What’s next</span>in technology.</h2>
+            <div class="editorial-summary">
+              <p>
+                Perspectives on connected systems, purposeful AI and digital
+                craft.
+              </p>
+              <a data-ui-action="secondary" href="#insight-list"
+                ><span>Explore perspectives</span></a
+              >
+            </div>
+          </div>
+          <div class="editorial-list-layout">
+            <ol class="editorial-list" id="insight-list">
+              <li>
+                <button class="editorial-row" data-preview aria-pressed="true">
+                  <span class="article-category">Product systems</span>
+                  <h3>Connected product systems</h3>
+                </button>
+              </li>
+              <li>
+                <button class="editorial-row" data-preview aria-pressed="false">
+                  <span class="article-category">AI &amp; automation</span>
+                  <h3>Purposeful AI</h3>
+                </button>
+              </li>
+              <li>
+                <button class="editorial-row" data-preview aria-pressed="false">
+                  <span class="article-category">Design &amp; engineering</span>
+                  <h3>Digital craft</h3>
+                </button>
+              </li>
+            </ol>
+            <figure
+              class="editorial-preview"
+              aria-label="Selected perspective image"
+            >
+              <img
+                data-preview-image
+                data-desktop-src="/assets/live/ship-family/S01/S01-oblique-original.png"
+                alt="Pegasoft ship — connected product systems"
+              /><img
+                data-preview-image
+                data-desktop-src="/assets/live/cloud-family/K03/K03.png"
+                alt="Pegasoft atmosphere — purposeful AI"
+                hidden
+              /><img
+                data-preview-image
+                data-desktop-src="/assets/live/jet-family/J02-overhead.png"
+                alt="Pegasoft aircraft — digital craft"
+                hidden
+              />
+            </figure>
+          </div>
+        </section>
+        <section id="faq" aria-labelledby="faq-title">
+          <div class="faq-intro">
+            <h2 id="faq-title"><span>Good questions.</span>Clear answers.</h2>
+            <p>Draft answers for the final content review.</p>
+          </div>
+          <div class="faq-list">
+            <details>
+              <summary>What can Pegasoft help us build?</summary>
+              <p>
+                The proposed capabilities cover product strategy, UX/UI design,
+                web and mobile engineering, AI and automation, and cloud
+                platforms.
+              </p>
+            </details>
+            <details>
+              <summary>How does a project start?</summary>
+              <p>
+                Start with a conversation about the problem, your users and the
+                outcome you want. Discovery can then define priorities and the
+                first delivery milestone.
+              </p>
+            </details>
+            <details>
+              <summary>How is the timeline agreed?</summary>
+              <p>
+                Scope, integrations and dependencies determine the delivery
+                plan. Milestones and review points are agreed before work
+                begins.
+              </p>
+            </details>
+            <details>
+              <summary>How do we stay involved?</summary>
+              <p>
+                The proposed collaboration model uses shared priorities, visible
+                progress and regular reviews so decisions stay close to the
+                work.
+              </p>
+            </details>
+            <details>
+              <summary>Who owns the source code?</summary>
+              <p>
+                Ownership, source access and licensing are agreed in the project
+                contract.
+              </p>
+            </details>
+            <details>
+              <summary>What happens after launch?</summary>
+              <p>
+                Support, availability and ongoing development are scoped and
+                agreed separately.
+              </p>
+            </details>
+          </div>
+        </section>
+        <section id="closing-cta" aria-labelledby="closing-title">
+          <div id="closing-rings" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="closing-copy">
+            <h2 id="closing-title">Ready to build<br />what’s next?</h2>
+            <p>Strategy, design and engineering.<br />One accountable team.</p>
+          </div>
+          <div class="closing-trail" aria-hidden="true"></div>
+          <div class="closing-trail" aria-hidden="true"></div>
+          <div class="closing-trail" aria-hidden="true"></div>
+          <div class="closing-trail" aria-hidden="true"></div>
+          <a
+            href="#contact"
+            data-contact-action
+            id="closing-cursor"
+            data-ui-action="primary"
+            >Talk with us</a
+          >
+        </section>
+        <footer id="website-footer" aria-labelledby="footer-title">
+          <div class="footer-top">
+            <h2 id="footer-title">Pegasoft Solutions</h2>
+            <nav aria-label="Footer navigation">
+              <a href="#insights">Insights</a><a href="#faq">FAQ</a
+              ><a href="#closing-cta">Let’s build</a>
+            </nav>
+          </div>
+          <div class="footer-directory" data-content-status="placeholder">
+            <section aria-labelledby="footer-socials-title">
+              <h3 id="footer-socials-title">Socials</h3>
+              <div class="footer-socials">
+                <span
+                  role="link"
+                  tabindex="0"
+                  aria-disabled="true"
+                  aria-label="LinkedIn — link pending"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M5 9v10M5 5v.1M10 19V9h4v2c1-3 6-3 6 2v6M14 13v6"
+                    /></svg></span
+                ><span
+                  role="link"
+                  tabindex="0"
+                  aria-disabled="true"
+                  aria-label="Instagram — link pending"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M17 7h.1" /></svg></span
+                ><span
+                  role="link"
+                  tabindex="0"
+                  aria-disabled="true"
+                  aria-label="Facebook — link pending"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M14 21v-9h3l1-4h-4V6c0-2 1-2 4-2V1h-3c-4 0-5 2-5 5v2H7v4h3v9"
+                    /></svg
+                ></span>
+              </div>
+              <p class="footer-pending">Social links pending confirmation.</p>
+            </section>
+            <section
+              class="footer-company"
+              aria-labelledby="footer-company-title"
+            >
+              <h3 id="footer-company-title">Company</h3>
+              <nav aria-label="Company navigation">
+                <a href="#opening-stage">Home</a
+                ><button data-page-target="about">About</button
+                ><button data-page-target="services">Services</button
+                ><a href="#insights" data-page-target="#insights">Insights</a
+                ><button data-page-target="#website-footer">Industries</button
+                ><button data-careers-action>Careers</button
+                ><a href="#contact" data-contact-action>Contact</a>
+              </nav>
+            </section>
+            <section
+              class="footer-payments"
+              aria-labelledby="footer-payments-title"
+            >
+              <h3 id="footer-payments-title">Secure payments</h3>
+              <p>
+                Payment gateway and policies pending confirmation. Illustrative
+                payment methods for review.
+              </p>
+              <ul
+                class="payment-methods"
+                aria-label="Illustrative payment methods"
+              >
+                <li><span>VISA</span></li>
+                <li aria-label="Mastercard">
+                  <svg viewBox="0 0 34 22" aria-hidden="true">
+                    <circle cx="12" cy="11" r="9" fill="#e54747" />
+                    <circle
+                      cx="22"
+                      cy="11"
+                      r="9"
+                      fill="#f6b546"
+                      opacity=".85"
+                    />
+                  </svg>
+                </li>
+                <li><span>AMEX</span></li>
+                <li><span>PayPal</span></li>
+                <li><span>Apple Pay</span></li>
+              </ul>
+            </section>
+          </div>
+          <div
+            class="footer-selector"
+            role="group"
+            aria-label="Explore industries or services"
+          >
+            <button
+              data-footer-mode="industries"
+              aria-controls="marquee"
+              aria-pressed="true"
+            >
+              Industries</button
+            ><button
+              data-footer-mode="services"
+              aria-controls="marquee"
+              aria-pressed="false"
+            >
+              Services
+            </button>
+          </div>
+          <div
+            id="marquee"
+            role="region"
+            tabindex="0"
+            aria-label="Industries and services"
+          >
+            <div id="marquee-track">
+              <div data-marquee-group></div>
+              <div data-marquee-group aria-hidden="true"></div>
+            </div>
+          </div>
+          <section
+            id="contact"
+            tabindex="-1"
+            aria-labelledby="contact-title"
+            data-fields-approved="true"
+          >
+            <div class="contact-intro">
+              <h3 id="contact-title">
+                <span>Let’s talk.</span>Build what’s next.
+              </h3>
+              <p>Tell us what you’re building.</p>
+              <p class="content-review-note">
+                Email, office location and legal identity await confirmation.
+              </p>
+            </div>
+            <div class="contact-panel">
+              <div
+                class="contact-tabs"
+                role="tablist"
+                aria-label="Contact audience"
+              >
+                <button
+                  id="contact-tab-0"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="contact-field-plan"
+                  data-contact-tab="General"
+                >
+                  General</button
+                ><button
+                  id="contact-tab-1"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="contact-field-plan"
+                  data-contact-tab="Company owner"
+                >
+                  Company owner</button
+                ><button
+                  id="contact-tab-2"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="contact-field-plan"
+                  data-contact-tab="Investor"
+                >
+                  Investor</button
+                ><button
+                  id="contact-tab-3"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="contact-field-plan"
+                  data-contact-tab="Careers"
+                >
+                  Careers
+                </button>
+              </div>
+              <div
+                id="contact-field-plan"
+                class="contact-field-plan"
+                role="tabpanel"
+                tabindex="0"
+              ></div>
+              <p class="contact-fields-note">
+                Review prototype. Messages are not sent. Recipient, privacy
+                wording and the submission endpoint await confirmation.
+              </p>
+            </div>
+          </section>
+          <section
+            class="footer-company-details"
+            data-content-status="placeholder"
+            aria-label="Company details for review"
+          >
+            <div>
+              <h3>Head office</h3>
+              <p>Example Street 12<br />Athens, Greece</p>
+              <h3>Operating across</h3>
+              <p>Greece / Europe</p>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p>hello@pegasoft.example</p>
+              <h3>Phone</h3>
+              <p>+30 210 000 0000</p>
+            </div>
+            <div>
+              <h3>Office hours</h3>
+              <p>Monday–Friday / 09:00–17:00</p>
+              <p class="footer-pending">
+                Illustrative company details. All content remains pending
+                confirmation.
+              </p>
+            </div>
+          </section>
+          <div class="footer-details">
+            <p>© 2026 Pegasoft. All rights reserved.</p>
+            <span class="footer-pending"
+              >Legal entity and policies pending confirmation.</span
+            ><button
+              id="open-cookies"
+              data-ui-action="tertiary"
+              aria-haspopup="dialog"
+            >
+              Cookie preferences
+            </button>
+          </div>
+          <output id="cookie-status" aria-live="polite"></output>
+          <dialog
+            id="cookie-preferences"
+            data-ui-surface="dark"
+            aria-labelledby="cookie-title"
+          >
+            <h2 id="cookie-title">Cookie preferences</h2>
+            <p>
+              No optional analytics or marketing trackers are connected in this
+              preview.
+            </p>
+            <label
+              ><input type="checkbox" checked disabled />Essential site
+              features</label
+            >
+            <p>
+              This preference is stored locally. No optional tracking category
+              is enabled.
+            </p>
+            <button id="save-cookies" data-ui-action="primary">
+              Save preferences</button
+            ><button data-close-cookies data-ui-action="secondary">
+              Close
+            </button>
+          </dialog>
+          <div class="wordmark-wrap">
+            <canvas
+              id="particle-wordmark"
+              tabindex="0"
+              role="img"
+              aria-label="Pegasoft wordmark. Move the cursor to disperse the dots; pause to reform."
+            ></canvas
+            ><span class="particle-fallback" aria-hidden="true">PEGASOFT</span>
+          </div>
+        </footer>
+      </div>
+      <aside
+        id="cookie-notice"
+        class="cookie-notice"
+        aria-labelledby="cookie-notice-title"
+        hidden
+      >
+        <h2 id="cookie-notice-title">We value your privacy</h2>
+        <p>
+          We use essential site features to remember your preferences. No
+          optional analytics or marketing trackers are enabled.
+          <button
+            type="button"
+            data-open-cookie-settings
+            data-ui-action="tertiary"
+          >
+            Cookie preferences
+          </button>
+        </p>
+        <div class="cookie-notice-actions">
+          <button
+            type="button"
+            data-ui-action="secondary"
+            data-cookie-choice="reject"
+          >
+            Reject all</button
+          ><button
+            type="button"
+            data-ui-action="primary"
+            data-cookie-choice="accept"
+          >
+            Accept all
+          </button>
+        </div>
+      </aside>
+    </main>
+    <dialog id="mobile-navigation" aria-labelledby="mobile-menu-title">
+      <div class="mobile-menu-top">
+        <h2 id="mobile-menu-title" tabindex="-1" autofocus>Explore Pegasoft</h2>
+        <button
+          type="button"
+          class="menu-close"
+          id="close-mobile-menu"
+          aria-label="Close menu"
+        >
+          <span class="menu-icon" aria-hidden="true"
+            ><i></i><i></i><i></i
+          ></span>
+        </button>
+      </div>
+      <div id="mobile-language-slot"></div>
+      <nav aria-label="Mobile navigation">
+        <button data-page-target="about">About</button
+        ><button data-page-target="services">Services</button
+        ><button data-page-target="#website-footer">Industries</button
+        ><button data-page-target="#insights">Insights</button
+        ><button data-page-target="#faq">FAQ</button
+        ><button data-page-target="#contact">Contact</button
+        ><button data-careers-action>Careers</button>
+      </nav>
+    </dialog>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

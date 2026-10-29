@@ -1,0 +1,92 @@
+{
+  "name": "@site/pegasoft-concept",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/pegasoft-concept",
+  "projectType": "application",
+  "tags": ["scope:pegasoft-concept", "type:app"],
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "pnpm exec vite",
+        "cwd": "apps/pegasoft-concept"
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "pnpm exec vite build",
+        "cwd": "apps/pegasoft-concept"
+      },
+      "dependsOn": [
+        "verify-baseline",
+        "verify-homepage",
+        "verify-website-motion"
+      ],
+      "outputs": ["{workspaceRoot}/dist/apps/pegasoft-concept"]
+    },
+    "preview": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "pnpm exec vite preview",
+        "cwd": "apps/pegasoft-concept"
+      }
+    },
+    "verify-baseline": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "node tools/verify-production.mjs assets",
+        "cwd": "apps/pegasoft-concept"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "commands": [
+          "node tools/check-source.mjs",
+          "pnpm exec eslint tools vite.config.js eslint.config.mjs runtime/cloud-motion.js runtime/runtime-lifecycle.js runtime/ship-jet-controller.js runtime/ship-jet-scene.js runtime/cloud-story-layers.js runtime/jet-crossing.js runtime/ship-water.js src runtime/cloud-story-sequence.js"
+        ],
+        "parallel": false,
+        "cwd": "apps/pegasoft-concept"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "options": {
+        "command": "node --test tools/packaging.test.mjs tools/cloud-motion.test.mjs tools/lifecycle.test.mjs tools/transport-timeline.test.mjs tools/counter.test.mjs tools/localization.test.mjs",
+        "cwd": "apps/pegasoft-concept"
+      },
+      "dependsOn": []
+    },
+    "verify-homepage": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "node tools/verify-production.mjs homepage",
+        "cwd": "apps/pegasoft-concept"
+      }
+    },
+    "verify-website-motion": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "node tools/verify-production.mjs motion",
+        "cwd": "apps/pegasoft-concept"
+      }
+    },
+    "record-inputs": {
+      "executor": "nx:run-commands",
+      "cache": false,
+      "options": {
+        "command": "node tools/verify-production.mjs --record",
+        "cwd": "apps/pegasoft-concept"
+      }
+    }
+  }
+}

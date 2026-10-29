@@ -1,0 +1,107 @@
+/* Connected review amendment. Existing display/body/spacing roles, no new fonts. */
+#mobile-reading-frame {
+  display: contents;
+}
+#mobile-story-reading {
+  display: none;
+}
+@media (max-width: 760px) {
+  body.mobile-reading-review:not(.static-journey) #mobile-reading-frame {
+    display: grid;
+    grid-template-rows: minmax(0, 3fr) minmax(0, 2fr);
+    position: sticky;
+    top: 0;
+    height: 100dvh;
+    overflow: hidden;
+    background: var(--paper);
+    color: var(--black);
+  }
+  body.mobile-reading-review:not(.static-journey) #story-track #stage {
+    position: relative;
+    height: 100%;
+    min-height: 0;
+  }
+  .mobile-reading-review #stage #services-overlay,
+  .mobile-reading-review #stage #road-copy,
+  .mobile-reading-review #stage #ship-copy,
+  .mobile-reading-review #stage .trust-inner {
+    display: none;
+  }
+  #mobile-story-reading {
+    display: block;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    padding: 24px var(--mobile-page-gutter, 6vw)
+      max(24px, env(safe-area-inset-bottom));
+    font:
+      450 0.9375rem/1.5 DM,
+      Manrope,
+      sans-serif;
+  }
+  body.mobile-reading-review:not(.static-journey)
+    #mobile-reading-frame[data-reading-section='ship'] {
+    background: var(--deep);
+    color: var(--white);
+  }
+  .mobile-reading-rail {
+    will-change: transform;
+  }
+  .mobile-reading-section h2 {
+    font:
+      750 2rem/1.2 Manrope,
+      sans-serif;
+    letter-spacing: -0.025em;
+    max-width: none;
+    margin: 0 0 24px;
+    overflow-wrap: break-word;
+  }
+  .mobile-reading-section h3 {
+    font:
+      650 1.375rem/1.2 Manrope,
+      sans-serif;
+    letter-spacing: -0.025em;
+    margin: 0;
+    overflow-wrap: break-word;
+  }
+  .mobile-reading-section p {
+    font:
+      450 0.9375rem/1.5 DM,
+      Manrope,
+      sans-serif;
+    max-width: none;
+    color: inherit;
+    margin: 12px 0 0;
+  }
+  .mobile-reading-section ol {
+    list-style: none;
+    margin: 32px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 32px;
+  }
+  .mobile-reading-section li {
+    margin: 0;
+    padding: 0;
+    min-width: 0;
+  }
+  .mobile-reading-section li > span {
+    display: block;
+    font:
+      600 0.75rem/1.5 Manrope,
+      sans-serif;
+    color: #436987;
+    margin: 0 0 12px;
+  }
+  #mobile-reading-frame[data-reading-section='ship'] li > span {
+    color: #99c6e7;
+  }
+  .mobile-reading-section[hidden] {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-reading-rail {
+    will-change: auto;
+  }
+}
