@@ -147,3 +147,8 @@ body .proof-heading h2 span,
 body .partners-intro h3 span {
   color: var(--action-accent);
 }
+
+/* Deferred launch content must remain absent from layout and keyboard navigation. */
+[data-launch-omit][hidden] {
+  display: none !important;
+}
