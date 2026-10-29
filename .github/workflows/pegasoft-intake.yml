@@ -1,0 +1,108 @@
+name: Pegasoft private intake
+
+on:
+  pull_request:
+    paths:
+      - apps/pegasoft-intake/**
+      - .github/workflows/pegasoft-intake.yml
+      - pnpm-lock.yaml
+      - nx.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  NX_DAEMON: 'false'
+  PEGASOFT_PUBLIC_SITE_URL: ${{ vars.PEGASOFT_PUBLIC_SITE_URL }}
+  WRANGLER_SEND_METRICS: 'false'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@f520eceda224fe1a4aed5a2a27a194379a409996 # v6
+        with:
+          run_install: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            apps/pegasoft-intake/cloudflare-tooling/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec nx run-many --projects=@site/pegasoft-intake --targets=lint,test,verify-build,cloudflare-check,audit-cloudflare --output-style=stream
+
+  deploy-disabled-intake:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: pegasoft-intake-production
+    concurrency:
+      group: pegasoft-intake-production
+      cancel-in-progress: false
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_ORIGIN: ${{ vars.CLOUDFLARE_API_ORIGIN }}
+      PEGASOFT_INTAKE_WORKER_NAME: ${{ vars.PEGASOFT_INTAKE_WORKER_NAME }}
+      PEGASOFT_R2_BUCKET_NAME: ${{ vars.PEGASOFT_R2_BUCKET_NAME }}
+      PEGASOFT_R2_JURISDICTION: eu
+      PEGASOFT_WORKER_COMPATIBILITY_DATE: ${{ vars.PEGASOFT_WORKER_COMPATIBILITY_DATE }}
+      PEGASOFT_SOURCE_REVISION: ${{ github.sha }}
+      PEGASOFT_INTAKE_ENABLED: 'false'
+      PEGASOFT_INTAKE_PATH: ${{ vars.PEGASOFT_INTAKE_PATH }}
+      PEGASOFT_INTAKE_ORIGINS: ${{ vars.PEGASOFT_INTAKE_ORIGINS }}
+      PEGASOFT_INTAKE_RECIPIENT: ${{ vars.PEGASOFT_INTAKE_RECIPIENT }}
+      PEGASOFT_INTAKE_SENDER: ${{ vars.PEGASOFT_INTAKE_SENDER }}
+      PEGASOFT_CV_RETENTION_DAYS: '30'
+      PEGASOFT_MAX_CV_BYTES: '5000000'
+      PEGASOFT_MAX_REQUEST_BYTES: '5131072'
+      PEGASOFT_PRIVACY_VERSION: ${{ vars.PEGASOFT_PRIVACY_VERSION }}
+      PEGASOFT_TURNSTILE_VERIFY_URL: ${{ vars.PEGASOFT_TURNSTILE_VERIFY_URL }}
+      PEGASOFT_INTAKE_CLEANUP_CRON: ${{ vars.PEGASOFT_INTAKE_CLEANUP_CRON }}
+      PEGASOFT_RATE_LIMIT_NAMESPACE_ID: ${{ vars.PEGASOFT_RATE_LIMIT_NAMESPACE_ID }}
+      PEGASOFT_RATE_LIMIT_REQUESTS: ${{ vars.PEGASOFT_RATE_LIMIT_REQUESTS }}
+      PEGASOFT_INTAKE_DEPLOY_READY: ${{ vars.PEGASOFT_INTAKE_DEPLOY_READY }}
+    steps:
+      - name: Mask private configuration
+        run: |
+          node <<'NODE'
+          for (const name of ['CLOUDFLARE_ACCOUNT_ID', 'PEGASOFT_R2_BUCKET_NAME', 'PEGASOFT_INTAKE_RECIPIENT', 'PEGASOFT_INTAKE_SENDER', 'PEGASOFT_INTAKE_ORIGINS']) {
+            if (!process.env[name]) continue;
+            const value = process.env[name].replaceAll('%', '%25').replaceAll('\r', '%0D').replaceAll('\n', '%0A');
+            console.log(`::add-mask::${value}`);
+          }
+          NODE
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@f520eceda224fe1a4aed5a2a27a194379a409996 # v6
+        with:
+          run_install: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            apps/pegasoft-intake/cloudflare-tooling/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - name: Deploy disabled intake
+        run: pnpm exec nx run @site/pegasoft-intake:deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_INTAKE_API_TOKEN }}
+          PEGASOFT_TURNSTILE_SECRET: ${{ secrets.PEGASOFT_TURNSTILE_SECRET }}
+          PEGASOFT_RATE_LIMIT_SALT: ${{ secrets.PEGASOFT_RATE_LIMIT_SALT }}
+      - name: Read back deployed settings
+        run: pnpm exec nx run @site/pegasoft-intake:verify-deployment
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_INTAKE_API_TOKEN }}
+      - name: Remove generated private files
+        if: always()
+        run: rm -f dist/apps/pegasoft-intake/secrets.json dist/apps/pegasoft-intake/wrangler.toml dist/apps/pegasoft-intake/expected.json

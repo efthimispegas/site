@@ -1,0 +1,15 @@
+{
+  "name": "@site/pegasoft-intake-cloudflare-tooling",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.8.1",
+  "dependencies": {
+    "wrangler": "4.155.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
+  }
+}

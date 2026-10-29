@@ -1,0 +1,117 @@
+{
+  "name": "@site/pegasoft-intake",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "nx": {
+    "tags": [
+      "scope:pegasoft",
+      "type:backend"
+    ],
+    "targets": {
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "node --test test/*.test.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "pnpm exec eslint src test tools eslint.config.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "outputs": [
+          "{workspaceRoot}/dist/apps/pegasoft-intake"
+        ],
+        "options": {
+          "command": "node tools/build.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "format": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "pnpm exec prettier --write package.json eslint.config.mjs src test tools cloudflare-tooling/package.json README.md ../../.github/workflows/pegasoft-intake.yml",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "configure": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "command": "node tools/prepare-deployment.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "cloudflare-check": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "dependsOn": [
+          "build",
+          "install-cloudflare"
+        ],
+        "options": {
+          "command": "node tools/check-cloudflare.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "deploy": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "dependsOn": [
+          "configure",
+          "install-cloudflare"
+        ],
+        "options": {
+          "command": "node tools/run-deploy.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "verify-deployment": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "options": {
+          "command": "node tools/verify-deployment.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "verify-build": {
+        "executor": "nx:run-commands",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "command": "node tools/verify-build.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "install-cloudflare": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "options": {
+          "command": "pnpm --dir cloudflare-tooling install --ignore-workspace --frozen-lockfile",
+          "cwd": "apps/pegasoft-intake"
+        }
+      },
+      "audit-cloudflare": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "dependsOn": [
+          "install-cloudflare"
+        ],
+        "options": {
+          "command": "pnpm --dir cloudflare-tooling audit --ignore-workspace --audit-level high",
+          "cwd": "apps/pegasoft-intake"
+        }
+      }
+    }
+  }
+}
