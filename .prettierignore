@@ -3,3 +3,17 @@
 /coverage
 /.nx/cache
 /.nx/workspace-data
+
+# Preserve upstream vendor bytes, approved runtime data and generated lock formats.
+/pnpm-lock.yaml
+/apps/pegasoft-intake/cloudflare-tooling/pnpm-lock.yaml
+/apps/pegasoft-concept/public/assets/live/cloud-family/haze-treatment.json
+/apps/pegasoft-concept/public/assets/live/hero-globe/land-dots.json
+/apps/pegasoft-concept/public/assets/live/jet-family/shadow-measurements-approval.json
+/apps/pegasoft-concept/public/assets/live/lift-family/model-draft/attachment-ownership.json
+/apps/pegasoft-concept/public/assets/live/lift-family/model-draft/wheel-ownership-motion-amended.json
+/apps/pegasoft-concept/runtime/vendor/three/build/three.core.js
+/apps/pegasoft-concept/runtime/vendor/three/build/three.module.js
+/apps/pegasoft-concept/runtime/vendor/three/examples/jsm/environments/RoomEnvironment.js
+/apps/pegasoft-concept/runtime/vendor/three/examples/jsm/loaders/GLTFLoader.js
+/apps/pegasoft-concept/runtime/vendor/three/examples/jsm/utils/BufferGeometryUtils.js
