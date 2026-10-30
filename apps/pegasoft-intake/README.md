@@ -118,7 +118,7 @@ Caller retries require the same original payload and a fresh challenge. The fron
 Private CVs are not deleted on a mail timeout or receipt failure. Partial storage
 writes remain quarantined with the original expiry and can be safely retried;
 existing lifecycle and scheduled cleanup continue to remove expired objects.
-Unit checks cover concurrency, process restart, timeout, partial success, expiry and fail-closed gates. The separate `local-runtime-check` executes the unmodified bundled Worker in local workerd with actual SQLite-backed Durable Object storage and local R2. It verifies concurrent deduplication, persisted replay after disposing/restarting workerd, and the disabled gate. Every outbound request is intercepted; it sends no external email and deletes its temporary storage afterward. This does not qualify live Cloudflare placement, real provider acceptance, receipt inbox delivery, the 30-day alarm firing, or scheduled deletion.
+Unit checks cover concurrency, process restart, timeout, partial success, expiry and fail-closed gates. The separate `local-runtime-check` executes the bundled Worker logic in local workerd with the jurisdiction test adapter described below with actual SQLite-backed Durable Object storage and local R2. It verifies concurrent deduplication, persisted replay after disposing/restarting workerd, and the disabled gate. Every outbound request is intercepted; it sends no external email and deletes its temporary storage afterward. This does not qualify live Cloudflare placement, real provider acceptance, receipt inbox delivery, the 30-day alarm firing, or scheduled deletion.
 
 ### Remaining gates
 
@@ -138,3 +138,100 @@ Provider references: [send API](https://resend.com/docs/api-reference/emails/sen
 `../pegasoft-concept/src/intake-client.js` is an opt-in, dependency-injected contract module. The live form does not import it; processing and the UI remain disabled. It has no default endpoint, fetch implementation, browser persistence or logging. Synthetic tests inject the challenge and transport. IDs and status live only in memory; browser reload recovery is not qualified. Do not add local/session storage for personal details, CVs, tokens or recovery state without a separate reviewed design.
 
 The module snapshots a payload, hashes CV bytes (not just filename/size), preserves identity on unchanged retries and requests a new challenge for every attempt. Changed content or an explicit new-submission action starts a new identity. Concurrent clicks cannot launch another attempt. Known accepted 202 states survive later challenge/network/server failures and do not become an unsent message. Terminal success/review/conflict states prevent blind retry. English/Greek feedback is local text and never renders provider response text. These tests qualify the disconnected contract, not Turnstile UI, DOM wiring, physical devices, inbox delivery or live submissions.
+
+## Admission, abuse and storage protection (not activated)
+
+One EU-selected SQLite `IntakeAdmission` object (`launch-v1`) coordinates every
+location. Successful field/PDF/challenge validation precedes admission; admission
+precedes allocating any per-submission object, R2 write or provider send. A quota
+outage fails closed. Rejected payloads are not queued or stored. The existing
+approximate five-per-minute IP binding remains a cheap burst guard; the global
+coordinator adds **ten new submissions per hashed IP in a rolling 24 hours**. This
+conservative default may affect shared offices/mobile networks and requires
+monitoring; rotating IPs do not bypass aggregate caps.
+
+Compiled reviewed limits are 20 new submissions/24h, 600/30d, five CVs/24h,
+40/1,200 notification-plus-receipt intent slots, two per normalized recipient/24h,
+and a ten-minute identical-payload cooldown across fresh IDs. Atomic reservations
+bind identity and immutable HMAC fingerprints; retries retain those reservations.
+Recipient/IP/payload hashes use domain-separated HMAC with the private rate salt;
+no addresses, names, raw IPs, CVs or messages enter this quota ledger. At most
+1,200 rows are retained, including unresolved old storage. Zero-storage rows expire
+after 30 days; unresolved byte reservations do not expire merely because their
+admission window elapsed.
+
+Intent reservations alone cannot bound delayed sends across days. Separate rolling
+first-dispatch counters enforce 40/24h and 1,200/30d, counting each submission/kind
+once before the first provider attempt. Same-key uncertain retries do not buy
+another first-dispatch slot. These are application-controlled dispatch bounds,
+not guarantees about inbox-arrival timing or other apps using the provider account.
+A single durable dispatch lease prevents parallel provider calls. A `429` opens a
+shared circuit immediately; old reservations and new IDs both stop. A crash leaves
+the lease charged/held. After 60 seconds it requires owner review, never automatic
+resend. This trades availability for bounded downstream effects and builds no
+background retry backlog.
+
+### Dedicated bucket accounting and reconciliation
+
+The 1,000,000,000-byte budget charges exact PDF and application-JSON body bytes plus
+a conservative 2 KiB per object for keys/metadata overhead. Entire-bucket inventory
+includes unowned/non-prefix objects; their body bytes plus the same overhead remain
+charged. No unknown object is automatically deleted. Inventory is bounded to 4,096
+objects; a failed, oversized or incomplete scan pauses intake instead of assuming
+zero usage. Each reservation records storage-start/complete/uncertain state before
+a side effect. Partial writes and timeouts retain the entire byte reservation.
+Successful inventory can raise accounting when actual objects exceed a reservation.
+
+`PEGASOFT_INTAKE_CAPACITY_VERIFIED` defaults false and must remain false until the
+owner verifies current account headroom, dedicated-bucket writer exclusivity,
+provider allowance and the initial complete inventory. A successful inventory less
+than 24 hours old is also required at runtime. The existing 15-minute cleanup job
+performs reconciliation even while intake is off. This application budget is not a
+Cloudflare account cap: unrelated writers/apps, request/operation charges and
+provider headroom require separate live verification/monitoring. Pause intake
+before any owner bulk upload or storage intervention.
+
+Cleanup is bounded, only deletes ledger-owned expired application keys, checks
+`HEAD` absence after deletion, then reconciles. A failed or delayed delete keeps
+bytes charged and opens a pause. Expired, acknowledged writes are released only
+when a complete inventory confirms absence. A write whose completion is uncertain
+stays charged even when temporarily absent; it requires the private reviewed
+resolution below. Lifecycle deletion, alarms, provider copies and Gmail retention
+are independent; this code does not promise every copy disappears at day 30.
+
+### Private aggregate status and owner recovery
+
+The admission binding alone exposes aggregate `/status` (usage, limits, inventory
+age, circuit incident, dispatch busy and one 80% threshold signal). There is no
+public HTTP route, email alert sender, applicant data or new messaging destination.
+The threshold signal can be raised at most once per 24 hours; no per-rejection
+notification/log is created. Global quota exhaustion, provider limiting, stale
+dispatch or unconfirmed cleanup opens a circuit. Per-recipient/IP/cooldown denials
+do not let one sender intentionally pause everyone.
+
+Recovery is never automatic. Keep intake off, inspect the aggregate incident,
+provider outcomes and storage, and approve a fresh protected
+`PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID` UUID. A private `/recover` call must match
+that one-use review ID and incident. A stale lease can only be resolved with
+`resolveStaleLease: "hold"`: the affected submission is permanently held for review,
+its counters remain charged and unrelated work may resume. No uncertain email is
+blindly resent and caps cannot be raised through recovery.
+
+For expired uncertain storage, the private `/resolve-storage` action additionally
+requires intake off, an explicit owner attestation `writersDrained: true`, at least
+24 hours beyond expiry, no active email lease for that submission, and successful
+`HEAD` absence of both known keys. It holds that submission against replay and
+releases bytes under a one-use owner review. Unowned objects require a separately
+reviewed owner action; inventory can then confirm their absence. These are private
+binding contracts, **not a deployed/authenticated operator console**. Live recovery,
+account permissions, writer-drain procedures and actual expiry/deletion remain
+qualification gates. Never reset/delete the ledger to manufacture headroom.
+
+Tests include distinct-ID/botnet admission, immutable retry reuse, recipient/IP/CV/
+monthly/byte/row bounds, cooldowns, dispatch-day boundaries, provider429, partial
+storage, quota outages, cleanup failures, orphans, retention, alert cooldown and
+reviewed stale-lease recovery. Local workerd uses actual SQLite and R2 for admission
+concurrency and restart persistence. Local workerd rejects `jurisdiction()`, so the
+test-only binding adapter asserts EU selection and maps to local storage; production
+code still requests EU. The test does not qualify real geographic placement,
+provider delivery, account usage/cost caps, live lifecycle/alarms or operator access.

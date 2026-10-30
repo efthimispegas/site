@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createDeliveryCoordinator, IntakeDelivery } from '../src/delivery.js';
 import { sendResend, receipt } from '../src/resend.js';
-import { memoryStorage } from './delivery-fixture.mjs';
+import { memoryStorage, isolatedAdmission } from './delivery-fixture.mjs';
 const start = 1800000000000,
   day = 86400000;
 function fixture() {
@@ -34,7 +34,11 @@ function fixture() {
     calls.push({ message, key });
     return 'accepted-' + calls.length;
   };
-  const options = { now: () => clock, send: (...args) => dispatch(...args) };
+  const options = {
+    admission: isolatedAdmission,
+    now: () => clock,
+    send: (...args) => dispatch(...args),
+  };
   return {
     storage,
     calls,
@@ -251,4 +255,21 @@ test('Resend adapter has one fixed API call, idempotency and a timeout, and neve
       /provider_unconfirmed/,
     );
   assert.ok(receipt('el', true).text.includes('αίτησή'));
+});
+
+test('failed quota completion ack after durable internal acceptance returns202 without duplicating notification', async () => {
+  const f = fixture();
+  const coordinator = createDeliveryCoordinator(f.storage, {
+    ...f.options,
+    admission: async (path) => {
+      if (path === '/complete') throw Error('quota ack lost');
+      return { allowed: true, lease: 'synthetic' };
+    },
+  });
+  assert.equal((await coordinator.run(f.input, f.env)).status, 202);
+  assert.equal(f.storage.items.get('delivery').internal.status, 'sent');
+  assert.equal(f.calls.length, 1);
+  assert.equal((await coordinator.run(f.input, f.env)).status, 201);
+  assert.equal(f.calls.length, 2);
+  assert.ok(f.calls[1].key.endsWith('/receipt'));
 });

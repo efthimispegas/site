@@ -6,3 +6,5 @@ export default {
 };
 
 export { IntakeDelivery } from './delivery.js';
+
+export { IntakeAdmission } from './admission.js';

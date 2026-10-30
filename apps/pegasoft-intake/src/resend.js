@@ -17,6 +17,11 @@ export async function sendResend(message, key, env, fetcher = fetch) {
     body: JSON.stringify(message),
     signal: AbortSignal.timeout(8000),
   });
+  if (result.status === 429) {
+    const error = Error('provider_unconfirmed');
+    error.code = 'provider_rate_limit';
+    throw error;
+  }
   if (!result.ok) throw Error('provider_unconfirmed');
   const body = await result.json();
   if (typeof body.id !== 'string' || !body.id || body.id.length > 128)

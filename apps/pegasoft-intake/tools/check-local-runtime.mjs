@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { admissionInput } from '../src/admission.js';
 import { createRequire } from 'node:module';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -18,18 +19,26 @@ const { Miniflare, convertV4MiniflareOptions } = require(
 const { build } = require(
   require.resolve('esbuild', { paths: [dirname(require.resolve('wrangler'))] }),
 );
+// Local workerd rejects jurisdiction(), so adapt only the test binding while asserting EU selection.
+// Production code and bindings remain unchanged; this cannot qualify real geographic placement.
+const entry = resolve(
+  import.meta.dirname,
+  '../../../dist/apps/pegasoft-intake/worker.js',
+);
 const bundle = await build({
-  entryPoints: [
-    resolve(
-      import.meta.dirname,
-      '../../../dist/apps/pegasoft-intake/worker.js',
-    ),
-  ],
+  stdin: {
+    contents: `import worker,{IntakeDelivery as ActualDelivery,IntakeAdmission} from ${JSON.stringify(entry)};
+    class LocalDelivery extends ActualDelivery {constructor(ctx,env){super(ctx,{...env,ADMISSION:{jurisdiction(value){if(value!=='eu')throw Error('jurisdiction');return env.ADMISSION;}}});}}
+    export {LocalDelivery as IntakeDelivery,IntakeAdmission};export default worker;`,
+    resolveDir: import.meta.dirname,
+    sourcefile: 'local-runtime-entry.js',
+  },
   bundle: true,
   write: false,
   format: 'esm',
   platform: 'neutral',
 });
+
 const persistence = await mkdtemp(join(tmpdir(), 'pegasoft-intake-synthetic-'));
 const calls = [];
 const input = {
@@ -59,10 +68,12 @@ const createRuntime = (enabled) =>
           compatibilityDate: '2026-10-28',
           durableObjects: {
             DELIVERIES: { className: 'IntakeDelivery', useSQLite: true },
+            ADMISSION: { className: 'IntakeAdmission', useSQLite: true },
           },
           r2Buckets: ['PRIVATE_APPLICATIONS'],
           bindings: {
             PEGASOFT_INTAKE_ENABLED: String(enabled),
+            PEGASOFT_INTAKE_CAPACITY_VERIFIED: 'true',
             PEGASOFT_INTAKE_SENDER: 'sender@example.test',
             PEGASOFT_INTAKE_RECIPIENT: 'owner@example.test',
             PEGASOFT_RESEND_API_URL: 'https://api.resend.com/emails',
@@ -87,6 +98,15 @@ const createRuntime = (enabled) =>
     }),
     resourcePersistencePath: persistence,
   });
+async function admission(path, body = {}) {
+  const ns = await runtime.getDurableObjectNamespace('ADMISSION');
+  return ns
+    .get(ns.idFromName('launch-v1'))
+    .fetch('https://admission.internal' + path, {
+      method: 'POST',
+      body: JSON.stringify(body),
+    });
+}
 async function submit() {
   const namespace = await runtime.getDurableObjectNamespace('DELIVERIES');
   return namespace
@@ -98,6 +118,16 @@ async function submit() {
 }
 try {
   runtime = createRuntime(true);
+  assert.equal((await admission('/reconcile')).status, 200);
+  const reservation = await (
+    await admission(
+      '/reserve',
+      await admissionInput(input, 'synthetic-key', '192.0.2.1'),
+    )
+  ).json();
+  assert.equal(reservation.allowed, true);
+  input.reference = reservation.reference;
+  input.admissionToken = reservation.token;
   const results = await Promise.all([submit(), submit(), submit()]);
   assert.deepEqual(
     results.map((r) => r.status),
@@ -128,12 +158,57 @@ try {
       .length,
     2,
   );
+  const candidates = await Promise.all(
+    Array.from({ length: 60 }, async (_, i) => {
+      const candidate = {
+        ...input,
+        submissionId: `${Date.now()}_${(i + 1).toString(16).padStart(8, '0')}-e89b-42d3-a456-426614174000`,
+        audience: 'General',
+        cv: null,
+        values: {
+          name: 'Synthetic',
+          email: `bot-${i}@example.test`,
+          company: '',
+          message: `Synthetic ${i}`,
+        },
+      };
+      return admissionInput(candidate, 'synthetic-key', `192.0.2.${i + 2}`);
+    }),
+  );
+  const admitted = await Promise.all(
+    candidates.map((candidate) => admission('/reserve', candidate)),
+  );
+  assert.equal(
+    admitted.filter((response) => response.status === 200).length,
+    19,
+    'SQLite global cap must include the existing reservation',
+  );
+  let status = await (await admission('/status')).json();
+  assert.equal(status.usage.day, 20);
+  assert.equal(status.usage.emailDay, 40);
+  assert.equal(status.circuit.reason, 'admission_budget');
+  assert.equal(calls.length, 2, 'rejected admissions cannot send');
+  assert.equal(
+    (await (await runtime.getR2Bucket('PRIVATE_APPLICATIONS')).list()).objects
+      .length,
+    2,
+  );
+  await runtime.dispose();
+  runtime = createRuntime(true);
+  status = await (await admission('/status')).json();
+  assert.equal(status.usage.day, 20);
+  assert.equal(status.circuit.reason, 'admission_budget');
+  assert.equal(
+    (await admission('/reserve', candidates[0])).status,
+    503,
+    'pause also gates existing reservations',
+  );
   await runtime.dispose();
   runtime = createRuntime(false);
   assert.equal((await submit()).status, 503);
   assert.equal(calls.length, 2);
   stdout.write(
-    'Local workerd SQLite: concurrent deduplication, restart replay, private R2 persistence and disabled gate passed; zero external sends.\n',
+    'Local workerd SQLite: delivery deduplication, global distinct-ID admission concurrency/persistence, private R2 persistence, shared pause and disabled gate passed; zero external sends.\n',
   );
 } finally {
   await runtime?.dispose();

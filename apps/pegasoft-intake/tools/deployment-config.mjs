@@ -9,6 +9,8 @@ const runtimeKeys = [
   'PEGASOFT_PRIVACY_VERSION',
   'PEGASOFT_TURNSTILE_VERIFY_URL',
   'PEGASOFT_RESEND_API_URL',
+  'PEGASOFT_INTAKE_CAPACITY_VERIFIED',
+  'PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID',
 ];
 const secretKeys = [
   'PEGASOFT_TURNSTILE_SECRET',
@@ -92,10 +94,20 @@ export function deploymentConfiguration(env) {
     throw Error('Invalid challenge endpoint');
   if (env.PEGASOFT_RESEND_API_URL !== 'https://api.resend.com/emails')
     throw Error('Invalid email endpoint');
+  if (
+    !['false', 'true'].includes(
+      env.PEGASOFT_INTAKE_CAPACITY_VERIFIED || 'false',
+    ) ||
+    (env.PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID &&
+      !/^[0-9a-f-]{36}$/.test(env.PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID))
+  )
+    throw Error('Invalid admission readiness');
   const vars = Object.fromEntries(
     runtimeKeys.map((key) => [key, String(env[key] || '')]),
   );
   vars.PEGASOFT_INTAKE_ENABLED = 'false';
+  vars.PEGASOFT_INTAKE_CAPACITY_VERIFIED =
+    env.PEGASOFT_INTAKE_CAPACITY_VERIFIED || 'false';
   vars.PEGASOFT_SOURCE_REVISION = revision;
   const quote = JSON.stringify;
   const toml = [
@@ -118,9 +130,12 @@ export function deploymentConfiguration(env) {
     '[[durable_objects.bindings]]',
     'name = "DELIVERIES"',
     'class_name = "IntakeDelivery"',
+    '[[durable_objects.bindings]]',
+    'name = "ADMISSION"',
+    'class_name = "IntakeAdmission"',
     '[[migrations]]',
     'tag = "intake-delivery-v1"',
-    'new_sqlite_classes = ["IntakeDelivery"]',
+    'new_sqlite_classes = ["IntakeDelivery", "IntakeAdmission"]',
     '[[ratelimits]]',
     'name = "LIMITER"',
     `namespace_id = ${quote(namespace)}`,

@@ -1,3 +1,4 @@
+import { admissionInput, requestAdmission, LIMITS } from './admission.js';
 import { submissionTime } from './delivery.js';
 const audiences = {
   General: ['name', 'email', 'company', 'message'],
@@ -51,6 +52,8 @@ function configuration(env) {
     !env.PEGASOFT_RATE_LIMIT_SALT ||
     !env.PRIVATE_APPLICATIONS ||
     !env.DELIVERIES ||
+    !env.ADMISSION ||
+    env.PEGASOFT_INTAKE_CAPACITY_VERIFIED !== 'true' ||
     !env.RESEND_API_KEY ||
     env.PEGASOFT_RESEND_API_URL !== 'https://api.resend.com/emails' ||
     !env.LIMITER
@@ -275,6 +278,19 @@ export function createIntake({ now = () => Date.now(), fetcher = fetch } = {}) {
             binary += String.fromCharCode(...data.subarray(i, i + 32768));
           cv = btoa(binary);
         }
+        const input = {
+          submissionId,
+          language,
+          audience,
+          values,
+          cv,
+          privacyVersion: env.PEGASOFT_PRIVACY_VERSION,
+        };
+        const reservation = await requestAdmission(
+          env,
+          '/reserve',
+          await admissionInput(input, env.PEGASOFT_RATE_LIMIT_SALT, ip),
+        );
         const namespace = env.DELIVERIES.jurisdiction('eu');
         const object = namespace.get(namespace.idFromName(submissionId));
         const result = await object.fetch(
@@ -282,12 +298,9 @@ export function createIntake({ now = () => Date.now(), fetcher = fetch } = {}) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              submissionId,
-              language,
-              audience,
-              values,
-              cv,
-              privacyVersion: env.PEGASOFT_PRIVACY_VERSION,
+              ...input,
+              admissionToken: reservation.token,
+              reference: reservation.reference,
             }),
           }),
         );
@@ -305,26 +318,68 @@ export function createIntake({ now = () => Date.now(), fetcher = fetch } = {}) {
     },
     async expire(env) {
       // Cleanup must continue if intake or email delivery is disabled.
-      if (!env.PRIVATE_APPLICATIONS) throw new Error('storage_unavailable');
-      let cursor;
-      do {
-        const page = await env.PRIVATE_APPLICATIONS.list({
-          prefix: 'applications/',
-          include: ['customMetadata'],
-          ...(cursor ? { cursor } : {}),
-        });
-        const expired = page.objects
-          .filter((object) => {
-            const expiresAt = Number(object.customMetadata?.expiresAt);
-            return (
-              Number.isFinite(expiresAt) && expiresAt > 0 && expiresAt <= now()
-            );
-          })
-          .map((object) => object.key);
-        if (expired.length) await env.PRIVATE_APPLICATIONS.delete(expired);
-        cursor = page.truncated ? page.cursor : undefined;
-      } while (cursor);
-      return { retentionDays: Number(env.PEGASOFT_CV_RETENTION_DAYS) };
+      if (!env.PRIVATE_APPLICATIONS || !env.ADMISSION)
+        throw new Error('storage_unavailable');
+      let cursor,
+        scanned = 0;
+      try {
+        do {
+          const page = await env.PRIVATE_APPLICATIONS.list({
+            prefix: 'applications/',
+            limit: 1000,
+            include: ['customMetadata'],
+            ...(cursor ? { cursor } : {}),
+          });
+          scanned += page.objects.length;
+          if (
+            scanned > LIMITS.inventoryObjects ||
+            (page.truncated && !page.cursor)
+          )
+            throw Error('inventory_bound');
+          const expired = page.objects
+            .filter((object) => {
+              const expiresAt = Number(object.customMetadata?.expiresAt);
+              return (
+                Number.isFinite(expiresAt) &&
+                expiresAt > 0 &&
+                expiresAt <= now()
+              );
+            })
+            .map((object) => object.key);
+          const authorized = [];
+          for (const key of expired) {
+            const match =
+              /^applications\/([0-9a-f-]{36})\/(?:cv\.pdf|application\.json)$/.exec(
+                key,
+              );
+            if (!match) continue;
+            try {
+              await requestAdmission(env, '/cleanup-authorize', {
+                reference: match[1],
+              });
+              authorized.push(key);
+            } catch {
+              /* Unknown/uncertain ownership never authorizes deletion. */
+            }
+          }
+          if (authorized.length) {
+            await env.PRIVATE_APPLICATIONS.delete(authorized);
+            for (const key of authorized)
+              if (await env.PRIVATE_APPLICATIONS.head(key))
+                throw Error('deletion_unconfirmed');
+          }
+          cursor = page.truncated ? page.cursor : undefined;
+        } while (cursor);
+        if (env.ADMISSION) await requestAdmission(env, '/reconcile');
+        return { retentionDays: Number(env.PEGASOFT_CV_RETENTION_DAYS) };
+      } catch {
+        try {
+          await requestAdmission(env, '/pause');
+        } catch {
+          /* Quota outage remains fail closed. */
+        }
+        throw Error('cleanup_unconfirmed');
+      }
     },
   };
 }

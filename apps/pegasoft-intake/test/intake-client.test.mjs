@@ -3,7 +3,7 @@ import { setTimeout as pause } from 'node:timers/promises';
 import assert from 'node:assert/strict';
 import { createIntakeClient } from '../../pegasoft-concept/src/intake-client.js';
 import { createDeliveryCoordinator } from '../src/delivery.js';
-import { memoryStorage } from './delivery-fixture.mjs';
+import { memoryStorage, isolatedAdmission } from './delivery-fixture.mjs';
 const id = '123e4567-e89b-42d3-a456-426614174000';
 const payload = (language = 'en') => ({
   audience: 'General',
@@ -231,6 +231,7 @@ test('client retries the same backend identity: partial receipt failure cannot r
       objects.set(
         submissionId,
         createDeliveryCoordinator(memoryStorage(), {
+          admission: isolatedAdmission,
           now: () => 1800000000000,
           send: async (message, key) => {
             sends.push(key);

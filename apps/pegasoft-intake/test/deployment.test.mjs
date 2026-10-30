@@ -86,6 +86,12 @@ function providerFixture() {
           jurisdiction: 'eu',
         },
         {
+          name: 'ADMISSION',
+          type: 'durable_object_namespace',
+          class_name: 'IntakeAdmission',
+          namespace_id: 'synthetic-admission-namespace',
+        },
+        {
           name: 'DELIVERIES',
           type: 'durable_object_namespace',
           class_name: 'IntakeDelivery',
@@ -185,6 +191,9 @@ test('Resend secret stays private and only reviewed Durable Object migration is 
   assert.deepEqual(c.expected.secretNames, ['RESEND_API_KEY']);
   assert.ok(!JSON.stringify(c).includes('synthetic-resend-secret'));
   assert.ok(!c.toml.includes('synthetic-resend-secret'));
-  assert.match(c.toml, /new_sqlite_classes = \["IntakeDelivery"\]/);
+  assert.match(
+    c.toml,
+    /new_sqlite_classes = \["IntakeDelivery", "IntakeAdmission"\]/,
+  );
   assert.ok(!c.toml.includes('[[send_email]]'));
 });

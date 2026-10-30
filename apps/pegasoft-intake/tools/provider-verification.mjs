@@ -29,6 +29,7 @@ export async function verifyProvider({
     ...expected.secretNames,
     'PRIVATE_APPLICATIONS',
     'DELIVERIES',
+    'ADMISSION',
     'LIMITER',
   ]);
   if (
@@ -48,11 +49,16 @@ export async function verifyProvider({
   }
   const bucket = values.get('PRIVATE_APPLICATIONS'),
     deliveries = values.get('DELIVERIES'),
+    admission = values.get('ADMISSION'),
     limiter = values.get('LIMITER');
   if (
     bucket?.type !== 'r2_bucket' ||
     bucket.bucket_name !== expected.bucket ||
     bucket.jurisdiction !== 'eu' ||
+    admission?.type !== 'durable_object_namespace' ||
+    admission.class_name !== 'IntakeAdmission' ||
+    !admission.namespace_id ||
+    (admission.script_name && admission.script_name !== expected.worker) ||
     deliveries?.type !== 'durable_object_namespace' ||
     deliveries.class_name !== 'IntakeDelivery' ||
     !deliveries.namespace_id ||

@@ -1,3 +1,4 @@
+import { applicationMetadata, requestAdmission } from './admission.js';
 import { receipt, sendResend } from './resend.js';
 const day = 86400000;
 // Leave a safety margin below the provider's 24-hour idempotency guarantee.
@@ -29,6 +30,7 @@ export function createDeliveryCoordinator(
     now = () => Date.now(),
     send = sendResend,
     uuid = () => crypto.randomUUID(),
+    admission = (path, body, env) => requestAdmission(env, path, body),
   } = {},
 ) {
   let tail = Promise.resolve();
@@ -37,8 +39,14 @@ export function createDeliveryCoordinator(
       return reply(503, 'intake_unavailable');
     const identity = submissionTime(input.submissionId, now());
     if (!identity) return reply(410, 'submission_expired');
+    const reservation = {
+      submissionId: input.submissionId,
+      token: input.admissionToken,
+      reference: input.reference,
+    };
+    await admission('/check', reservation, env);
     let record = await storage.get('delivery');
-    const reference = record?.reference ?? uuid();
+    const reference = record?.reference ?? input.reference ?? uuid();
     if (
       !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(
         reference,
@@ -108,25 +116,25 @@ export function createDeliveryCoordinator(
         expiresAt: String(record.expiresAt),
         status: 'quarantine',
       };
-      await env.PRIVATE_APPLICATIONS.put(prefix + 'cv.pdf', bytes, {
-        httpMetadata: { contentType: 'application/pdf' },
-        customMetadata: metadata,
-      });
-      await env.PRIVATE_APPLICATIONS.put(
-        prefix + 'application.json',
-        JSON.stringify({
-          reference,
-          audience: input.audience,
-          values: input.values,
-          createdAt: identity.time,
-          expiresAt: record.expiresAt,
-          privacyVersion: input.privacyVersion,
-        }),
-        {
-          httpMetadata: { contentType: 'application/json' },
+      await admission('/storage-start', reservation, env);
+      try {
+        await env.PRIVATE_APPLICATIONS.put(prefix + 'cv.pdf', bytes, {
+          httpMetadata: { contentType: 'application/pdf' },
           customMetadata: metadata,
-        },
-      );
+        });
+        await env.PRIVATE_APPLICATIONS.put(
+          prefix + 'application.json',
+          applicationMetadata(input, reference, identity.time),
+          {
+            httpMetadata: { contentType: 'application/json' },
+            customMetadata: metadata,
+          },
+        );
+        await admission('/storage-complete', reservation, env);
+      } catch {
+        await admission('/storage-uncertain', reservation, env);
+        throw Error('storage_unconfirmed');
+      }
       record.stored = true;
       await storage.put('delivery', record);
     }
@@ -148,15 +156,45 @@ export function createDeliveryCoordinator(
       state.firstAttempt ??= now();
       state.status = 'sending';
       await storage.put('delivery', record);
+      let lease;
+      try {
+        ({ lease } = await admission(
+          '/dispatch',
+          { ...reservation, kind },
+          env,
+        ));
+      } catch {
+        return reply(
+          kind === 'receipt' ? 202 : 503,
+          kind === 'receipt'
+            ? 'submitted_receipt_pending'
+            : 'delivery_uncertain',
+          reference,
+        );
+      }
       try {
         state.providerId = await send(
           messages[kind],
           `intake/${input.submissionId}/${kind}`,
           env,
         );
-      } catch {
+      } catch (error) {
         state.status = 'uncertain';
         await storage.put('delivery', record);
+        try {
+          await admission(
+            '/complete',
+            {
+              ...reservation,
+              lease,
+              outcome:
+                error?.code === 'provider_rate_limit' ? 'limited' : 'uncertain',
+            },
+            env,
+          );
+        } catch {
+          /* The shared lease remains held; preserve known acceptance below. */
+        }
         return reply(
           kind === 'receipt' ? 202 : 503,
           kind === 'receipt'
@@ -168,6 +206,19 @@ export function createDeliveryCoordinator(
       state.status = 'sent';
       // A crash here leaves durable 'sending': retries retain the original provider key.
       await storage.put('delivery', record);
+      try {
+        await admission(
+          '/complete',
+          { ...reservation, lease, outcome: 'accepted' },
+          env,
+        );
+      } catch {
+        return reply(
+          kind === 'receipt' ? 201 : 202,
+          kind === 'receipt' ? 'submitted' : 'submitted_receipt_pending',
+          reference,
+        );
+      }
     }
     return reply(201, 'submitted', reference);
   }
