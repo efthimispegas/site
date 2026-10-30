@@ -1,3 +1,4 @@
+import { deliveryBinding } from './delivery-fixture.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createIntake, careerRoles } from '../src/intake.js';
@@ -32,12 +33,8 @@ function fixture() {
       },
       list: async () => ({ objects: [...objects.values()], truncated: false }),
     },
-    EMAIL: {
-      send: async (message) => {
-        messages.push(message);
-        return { messageId: 'provider-accepted' };
-      },
-    },
+    RESEND_API_KEY: 'synthetic-key',
+    PEGASOFT_RESEND_API_URL: 'https://api.resend.com/emails',
     LIMITER: {
       limit: async ({ key }) => {
         rateKeys.push(key);
@@ -45,9 +42,17 @@ function fixture() {
       },
     },
   };
-  const service = createIntake({
+  env.testSend = async (message) => {
+    messages.push(message);
+    return 'provider-accepted';
+  };
+  env.DELIVERIES = deliveryBinding(env, {
     now: () => now,
     uuid: () => reference,
+    send: (...args) => env.testSend(...args),
+  });
+  const service = createIntake({
+    now: () => now,
     fetcher: async (_url, request) => {
       assert.equal(request.body.get('secret'), 'test-secret');
       return Response.json({
@@ -68,6 +73,8 @@ function fixture() {
   } = {}) {
     const form = new FormData();
     const values = {
+      submissionId: `${now}_${reference}`,
+      language: 'en',
       audience: career ? 'Careers' : 'General',
       name: 'Synthetic Applicant',
       email: 'applicant@example.test',
@@ -102,9 +109,9 @@ test('contact success means provider acceptance; no CV storage or public attachm
   assert.equal(r.status, 201);
   assert.equal((await r.json()).reference, reference);
   assert.equal(f.objects.size, 0);
-  assert.equal(f.messages.length, 1);
-  assert.equal(f.messages[0].to, f.env.PEGASOFT_INTAKE_RECIPIENT);
-  assert.equal(f.messages[0].replyTo, 'applicant@example.test');
+  assert.equal(f.messages.length, 2);
+  assert.deepEqual(f.messages[0].to, [f.env.PEGASOFT_INTAKE_RECIPIENT]);
+  assert.equal(f.messages[0].reply_to, 'applicant@example.test');
   assert.equal(f.messages[0].attachments, undefined);
   assert.match(f.rateKeys[0], /^[0-9a-f]{64}$/);
   assert.ok(!f.rateKeys[0].includes('192.0.2.1'));
@@ -206,14 +213,14 @@ test('spoofed/oversized CV, duplicate field, role and privacy mismatch are rejec
     assert.equal(f.messages.length, 0);
   }
 });
-test('mail failure removes stored CV/metadata and never exposes provider error', async () => {
+test('mail uncertainty retains quarantined CV/metadata and never exposes provider error', async () => {
   const f = fixture();
-  f.env.EMAIL.send = async () => {
+  f.env.testSend = async () => {
     throw Error('private provider details');
   };
   const r = await f.service.fetch(f.request({ career: true }), f.env);
   assert.equal(r.status, 503);
-  assert.equal(f.objects.size, 0);
+  assert.equal(f.objects.size, 2);
   assert.ok(!(await r.text()).includes('private provider'));
 });
 test('malformed multipart is a client error without storage or mail', async () => {
@@ -231,7 +238,7 @@ test('malformed multipart is a client error without storage or mail', async () =
   assert.equal(f.objects.size, 0);
   assert.equal(f.messages.length, 0);
 });
-test('partial storage failure cleans up before reporting unavailability', async () => {
+test('partial storage failure retains expiring quarantine for safe retry', async () => {
   const f = fixture();
   const put = f.env.PRIVATE_APPLICATIONS.put;
   f.env.PRIVATE_APPLICATIONS.put = async (...args) => {
@@ -240,7 +247,7 @@ test('partial storage failure cleans up before reporting unavailability', async 
   };
   const result = await f.service.fetch(f.request({ career: true }), f.env);
   assert.equal(result.status, 503);
-  assert.equal(f.objects.size, 0);
+  assert.equal(f.objects.size, 1);
   assert.equal(f.messages.length, 0);
 });
 test('expiry traverses all pages and never deletes fresh objects', async () => {
@@ -290,4 +297,34 @@ test('cleanup removes expired objects only, including metadata', async () => {
   await f.service.expire(f.env);
   assert.equal(f.objects.size, 1);
   assert.ok(f.objects.has('applications/fresh/cv.pdf'));
+});
+
+test('missing durable binding or Resend secret and wrong provider endpoint fail closed', async () => {
+  for (const override of [
+    { DELIVERIES: null },
+    { RESEND_API_KEY: '' },
+    { PEGASOFT_RESEND_API_URL: 'https://wrong.example/emails' },
+  ]) {
+    const f = fixture();
+    Object.assign(f.env, override);
+    assert.equal((await f.service.fetch(f.request(), f.env)).status, 503);
+    assert.equal(f.objects.size, 0);
+    assert.equal(f.messages.length, 0);
+  }
+});
+test('invalid identity and locale cannot reach private storage or email', async () => {
+  for (const change of [
+    (form) => form.delete('submissionId'),
+    (form) => form.set('submissionId', 'invented'),
+    (form) => form.set('language', 'invented'),
+  ]) {
+    const f = fixture();
+    assert.equal(
+      (await f.service.fetch(f.request({ career: true, change }), f.env))
+        .status,
+      400,
+    );
+    assert.equal(f.objects.size, 0);
+    assert.equal(f.messages.length, 0);
+  }
 });

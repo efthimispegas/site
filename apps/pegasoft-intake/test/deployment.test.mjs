@@ -4,6 +4,7 @@ import { deploymentFixture } from './deployment-fixture.mjs';
 import {
   deploymentConfiguration,
   deploymentGate,
+  runtimeSecrets,
 } from '../tools/deployment-config.mjs';
 import { verifyProvider } from '../tools/provider-verification.mjs';
 
@@ -18,10 +19,14 @@ test('deployment disables intake/public endpoints and never copies API credentia
     config.toml,
     /workers_dev = false\npreview_urls = false\nroutes = \[\]/,
   );
-  assert.match(config.toml, /destination_address = "recipient@example.test"/);
-  assert.deepEqual(config.secrets, {
-    PEGASOFT_RATE_LIMIT_SALT: 'synthetic-salt',
-  });
+  assert.match(config.toml, /class_name = "IntakeDelivery"/);
+  assert.ok(!config.toml.includes('send_email'));
+  assert.deepEqual(
+    runtimeSecrets({ PEGASOFT_RATE_LIMIT_SALT: 'synthetic-salt' }),
+    {
+      PEGASOFT_RATE_LIMIT_SALT: 'synthetic-salt',
+    },
+  );
   assert.ok(!JSON.stringify(config).includes('must-not-copy'));
   assert.ok(!config.toml.includes('synthetic-salt'));
 });
@@ -81,9 +86,10 @@ function providerFixture() {
           jurisdiction: 'eu',
         },
         {
-          name: 'EMAIL',
-          type: 'send_email',
-          destination_address: expected.vars.PEGASOFT_INTAKE_RECIPIENT,
+          name: 'DELIVERIES',
+          type: 'durable_object_namespace',
+          class_name: 'IntakeDelivery',
+          namespace_id: 'synthetic-delivery-namespace',
         },
         {
           name: 'LIMITER',
@@ -169,4 +175,16 @@ test('provider verification rejects unsafe or mismatched remote state without re
       ),
     );
   }
+});
+
+test('Resend secret stays private and only reviewed Durable Object migration is emitted', () => {
+  const c = deploymentConfiguration({
+    ...deploymentFixture,
+    RESEND_API_KEY: 'synthetic-resend-secret',
+  });
+  assert.deepEqual(c.expected.secretNames, ['RESEND_API_KEY']);
+  assert.ok(!JSON.stringify(c).includes('synthetic-resend-secret'));
+  assert.ok(!c.toml.includes('synthetic-resend-secret'));
+  assert.match(c.toml, /new_sqlite_classes = \["IntakeDelivery"\]/);
+  assert.ok(!c.toml.includes('[[send_email]]'));
 });

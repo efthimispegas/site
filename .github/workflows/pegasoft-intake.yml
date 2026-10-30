@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - apps/pegasoft-intake/**
+      - apps/pegasoft-concept/src/intake-client.js
       - .github/workflows/pegasoft-intake.yml
       - pnpm-lock.yaml
       - nx.json
@@ -36,7 +37,7 @@ jobs:
             pnpm-lock.yaml
             apps/pegasoft-intake/cloudflare-tooling/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec nx run-many --projects=@site/pegasoft-intake --targets=lint,test,verify-build,cloudflare-check,audit-cloudflare --output-style=stream
+      - run: pnpm exec nx run-many --projects=@site/pegasoft-intake --targets=lint,test,verify-build,cloudflare-check,audit-cloudflare,local-runtime-check --output-style=stream
 
   deploy-disabled-intake:
     if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
@@ -65,6 +66,7 @@ jobs:
       PEGASOFT_MAX_REQUEST_BYTES: '5131072'
       PEGASOFT_PRIVACY_VERSION: ${{ vars.PEGASOFT_PRIVACY_VERSION }}
       PEGASOFT_TURNSTILE_VERIFY_URL: ${{ vars.PEGASOFT_TURNSTILE_VERIFY_URL }}
+      PEGASOFT_RESEND_API_URL: ${{ vars.PEGASOFT_RESEND_API_URL }}
       PEGASOFT_INTAKE_CLEANUP_CRON: ${{ vars.PEGASOFT_INTAKE_CLEANUP_CRON }}
       PEGASOFT_RATE_LIMIT_NAMESPACE_ID: ${{ vars.PEGASOFT_RATE_LIMIT_NAMESPACE_ID }}
       PEGASOFT_RATE_LIMIT_REQUESTS: ${{ vars.PEGASOFT_RATE_LIMIT_REQUESTS }}
@@ -99,6 +101,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_INTAKE_API_TOKEN }}
           PEGASOFT_TURNSTILE_SECRET: ${{ secrets.PEGASOFT_TURNSTILE_SECRET }}
           PEGASOFT_RATE_LIMIT_SALT: ${{ secrets.PEGASOFT_RATE_LIMIT_SALT }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
       - name: Read back deployed settings
         run: pnpm exec nx run @site/pegasoft-intake:verify-deployment
         env:

@@ -1,7 +1,11 @@
 import { spawnSync } from 'node:child_process';
-import { env, exit } from 'node:process';
+import { env, exit, stdout, stderr } from 'node:process';
 import { resolve } from 'node:path';
 import { deploymentGate } from './deployment-config.mjs';
+import {
+  provisionWorkerSecrets,
+  deploymentEnvironment,
+} from './secret-provisioning.mjs';
 deploymentGate(env);
 const result = spawnSync(
   'pnpm',
@@ -16,17 +20,19 @@ const result = spawnSync(
       import.meta.dirname,
       '../../../dist/apps/pegasoft-intake/wrangler.toml',
     ),
-    '--secrets-file',
-    resolve(
-      import.meta.dirname,
-      '../../../dist/apps/pegasoft-intake/secrets.json',
-    ),
     '--no-autoconfig',
     '--tag',
     env.GITHUB_SHA.slice(0, 8),
     '--message',
     env.GITHUB_SHA,
   ],
-  { stdio: 'inherit', env },
+  { stdio: 'pipe', env: deploymentEnvironment(env) },
 );
-exit(result.status ?? 1);
+if (result.status !== 0) {
+  stderr.write(
+    'Disabled Worker deployment failed; provider output withheld.\n',
+  );
+  exit(result.status ?? 1);
+}
+await provisionWorkerSecrets(env);
+stdout.write('Disabled Worker and private provider-secret update completed.\n');

@@ -6,7 +6,7 @@ const destination = resolve(
   'dist/apps/pegasoft-intake',
 );
 await mkdir(destination, { recursive: true });
-for (const name of ['worker.js', 'intake.js']) {
+for (const name of ['worker.js', 'intake.js', 'delivery.js', 'resend.js']) {
   await copyFile(
     resolve(import.meta.dirname, '../src', name),
     resolve(destination, name),

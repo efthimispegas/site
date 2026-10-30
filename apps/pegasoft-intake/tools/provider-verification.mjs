@@ -28,7 +28,7 @@ export async function verifyProvider({
     ...Object.keys(expected.vars),
     ...expected.secretNames,
     'PRIVATE_APPLICATIONS',
-    'EMAIL',
+    'DELIVERIES',
     'LIMITER',
   ]);
   if (
@@ -47,14 +47,16 @@ export async function verifyProvider({
       throw Error('Runtime configuration mismatch');
   }
   const bucket = values.get('PRIVATE_APPLICATIONS'),
-    email = values.get('EMAIL'),
+    deliveries = values.get('DELIVERIES'),
     limiter = values.get('LIMITER');
   if (
     bucket?.type !== 'r2_bucket' ||
     bucket.bucket_name !== expected.bucket ||
     bucket.jurisdiction !== 'eu' ||
-    email?.type !== 'send_email' ||
-    email.destination_address !== expected.vars.PEGASOFT_INTAKE_RECIPIENT ||
+    deliveries?.type !== 'durable_object_namespace' ||
+    deliveries.class_name !== 'IntakeDelivery' ||
+    !deliveries.namespace_id ||
+    (deliveries.script_name && deliveries.script_name !== expected.worker) ||
     limiter?.type !== 'ratelimit' ||
     String(limiter.namespace_id) !== expected.namespace ||
     limiter.simple?.limit !== expected.limit ||

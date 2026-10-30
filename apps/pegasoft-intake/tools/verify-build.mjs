@@ -8,7 +8,7 @@ const destination = resolve(
   '../../..',
   'dist/apps/pegasoft-intake',
 );
-for (const name of ['worker.js', 'intake.js']) {
+for (const name of ['worker.js', 'intake.js', 'delivery.js', 'resend.js']) {
   assert.deepEqual(
     await readFile(resolve(destination, name)),
     await readFile(resolve(import.meta.dirname, '../src', name)),

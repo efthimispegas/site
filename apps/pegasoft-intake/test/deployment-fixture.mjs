@@ -5,6 +5,7 @@ export const deploymentFixture = {
   PEGASOFT_R2_JURISDICTION: 'eu',
   PEGASOFT_WORKER_COMPATIBILITY_DATE: '2026-10-28',
   PEGASOFT_SOURCE_REVISION: 'b'.repeat(40),
+  PEGASOFT_RESEND_API_URL: 'https://api.resend.com/emails',
   PEGASOFT_INTAKE_ENABLED: 'false',
   PEGASOFT_INTAKE_PATH: '/api/intake',
   PEGASOFT_INTAKE_ORIGINS: 'https://intake.example',

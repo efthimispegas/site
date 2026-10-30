@@ -8,8 +8,13 @@ const runtimeKeys = [
   'PEGASOFT_MAX_REQUEST_BYTES',
   'PEGASOFT_PRIVACY_VERSION',
   'PEGASOFT_TURNSTILE_VERIFY_URL',
+  'PEGASOFT_RESEND_API_URL',
 ];
-const secretKeys = ['PEGASOFT_TURNSTILE_SECRET', 'PEGASOFT_RATE_LIMIT_SALT'];
+const secretKeys = [
+  'PEGASOFT_TURNSTILE_SECRET',
+  'PEGASOFT_RATE_LIMIT_SALT',
+  'RESEND_API_KEY',
+];
 const address = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 function requireValue(env, key, pattern) {
   const value = env[key];
@@ -85,6 +90,8 @@ export function deploymentConfiguration(env) {
     endpoint.hash
   )
     throw Error('Invalid challenge endpoint');
+  if (env.PEGASOFT_RESEND_API_URL !== 'https://api.resend.com/emails')
+    throw Error('Invalid email endpoint');
   const vars = Object.fromEntries(
     runtimeKeys.map((key) => [key, String(env[key] || '')]),
   );
@@ -108,9 +115,12 @@ export function deploymentConfiguration(env) {
     'binding = "PRIVATE_APPLICATIONS"',
     `bucket_name = ${quote(bucket)}`,
     'jurisdiction = "eu"',
-    '[[send_email]]',
-    'name = "EMAIL"',
-    `destination_address = ${quote(vars.PEGASOFT_INTAKE_RECIPIENT)}`,
+    '[[durable_objects.bindings]]',
+    'name = "DELIVERIES"',
+    'class_name = "IntakeDelivery"',
+    '[[migrations]]',
+    'tag = "intake-delivery-v1"',
+    'new_sqlite_classes = ["IntakeDelivery"]',
     '[[ratelimits]]',
     'name = "LIMITER"',
     `namespace_id = ${quote(namespace)}`,
@@ -119,12 +129,8 @@ export function deploymentConfiguration(env) {
     ...Object.entries(vars).map(([key, value]) => `${key} = ${quote(value)}`),
     '',
   ].join('\n');
-  const secrets = Object.fromEntries(
-    secretKeys.filter((key) => env[key]).map((key) => [key, env[key]]),
-  );
   return {
     toml,
-    secrets,
     expected: {
       worker,
       account,
@@ -134,7 +140,7 @@ export function deploymentConfiguration(env) {
       limit,
       revision,
       vars,
-      secretNames: Object.keys(secrets),
+      secretNames: secretKeys.filter((key) => env[key]),
     },
   };
 }
@@ -152,4 +158,11 @@ export function deploymentGate(env) {
       'Intake deployment requires approved main workflow and environment readiness',
     );
   }
+}
+
+/** Runtime secret values stay in memory and go directly to the provider store. */
+export function runtimeSecrets(env) {
+  return Object.fromEntries(
+    secretKeys.filter((key) => env[key]).map((key) => [key, env[key]]),
+  );
 }
