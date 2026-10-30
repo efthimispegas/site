@@ -74,6 +74,7 @@ function providerFixture() {
   const replies = {
     '/settings': {
       bindings: [
+        ...expected.secretNames.map((name) => ({ name, type: 'secret_text' })),
         ...Object.entries(expected.vars).map(([name, text]) => ({
           name,
           text,
@@ -188,7 +189,11 @@ test('Resend secret stays private and only reviewed Durable Object migration is 
     ...deploymentFixture,
     RESEND_API_KEY: 'synthetic-resend-secret',
   });
-  assert.deepEqual(c.expected.secretNames, ['RESEND_API_KEY']);
+  assert.deepEqual(c.expected.secretNames, [
+    'PEGASOFT_TURNSTILE_SECRET',
+    'PEGASOFT_RATE_LIMIT_SALT',
+    'RESEND_API_KEY',
+  ]);
   assert.ok(!JSON.stringify(c).includes('synthetic-resend-secret'));
   assert.ok(!c.toml.includes('synthetic-resend-secret'));
   assert.match(

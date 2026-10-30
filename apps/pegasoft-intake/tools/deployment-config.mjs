@@ -155,7 +155,7 @@ export function deploymentConfiguration(env) {
       limit,
       revision,
       vars,
-      secretNames: secretKeys.filter((key) => env[key]),
+      secretNames: [...secretKeys],
     },
   };
 }

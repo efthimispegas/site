@@ -3,10 +3,11 @@ import { env, exit, stdout, stderr } from 'node:process';
 import { resolve } from 'node:path';
 import { deploymentGate } from './deployment-config.mjs';
 import {
-  provisionWorkerSecrets,
+  verifyWorkerSecrets,
   deploymentEnvironment,
-} from './secret-provisioning.mjs';
+} from './worker-secrets.mjs';
 deploymentGate(env);
+await verifyWorkerSecrets(env);
 const result = spawnSync(
   'pnpm',
   [
@@ -34,5 +35,7 @@ if (result.status !== 0) {
   );
   exit(result.status ?? 1);
 }
-await provisionWorkerSecrets(env);
-stdout.write('Disabled Worker and private provider-secret update completed.\n');
+await verifyWorkerSecrets(env);
+stdout.write(
+  'Disabled Worker deployed; required preprovisioned secret metadata verified.\n',
+);

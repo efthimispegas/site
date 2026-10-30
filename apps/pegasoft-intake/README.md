@@ -19,10 +19,10 @@ These checks do not prove real delivery, private access or retention enforcement
 
 ## Configuration and CI
 
-Copy `.env.example` to ignored `.env` for local configuration. Actual hostnames,
+Copy `.env.example` to ignored `.env` for non-secret local configuration only. Provision real provider credentials in the Worker encrypted store, not local env files. Actual hostnames,
 account/resource names, recipient/sender and credentials stay outside Git.
 `configure` generates private TOML/JSON files only under ignored `dist/`.
-No credential file is generated. Runtime secrets are allowlisted and kept in memory; after a disabled deployment the protected runner writes them directly to the existing Worker secret store over authenticated HTTPS. Runtime secrets are removed from the Wrangler child environment and arguments. The deployment token is never copied into Worker variables. Key creation and secure GitHub entry remain separate owner-controlled steps.
+No credential file is generated. The owner provisions runtime secrets directly into the existing Cloudflare Worker encrypted secret store. The protected runner only checks required names/types via metadata GET before and after deployment; it never retrieves or updates their values. Runtime credentials are stripped from the Wrangler child environment. The deployment token is never copied into Worker variables. Owner credential entry remains separate from code review and deployment approval.
 
 The `Pegasoft private intake` workflow checks pull requests without credentials.
 Deployment is manual, limited to `main` and the `pegasoft-intake-production`
@@ -37,8 +37,7 @@ its code/bindings and therefore carries access to the data it processes.
 Enter the token directly in the environment secret `CLOUDFLARE_INTAKE_API_TOKEN`.
 Never paste it into chat, source, an issue, logs or an evidence packet. Configure
 other environment values from `.env.example`; the workflow supplies source SHA
-and fixed disabled/retention/residency/file-size guards. Store the Turnstile secret
-and generated rate-limit salt in environment secrets of their matching names.
+and fixed disabled/retention/residency/file-size guards. Provision `PEGASOFT_TURNSTILE_SECRET`, `PEGASOFT_RATE_LIMIT_SALT` and `RESEND_API_KEY` directly as Cloudflare Worker secrets of those exact names. CI requires only the scoped Cloudflare deployment credential; no extra Resend or Turnstile credential copy in GitHub is required.
 
 Keep `PEGASOFT_INTAKE_DEPLOY_READY` unset until the reviewed source is on `main`,
 configuration is complete and the disabled deployment is approved. This readiness
@@ -81,8 +80,7 @@ jurisdiction explicitly. This does not make the Resend service EU-only.
 Configuration adds `PEGASOFT_RESEND_API_URL` and server-only `RESEND_API_KEY`. Enter
 the credential through an approved secret-safe channel, never a tool response,
 chat, frontend variable, source, test fixture containing real data, or log. The
-protected workflow references the secret but neither creates it nor activates
-processing. Sending `info@` at the root domain requires verification of that root
+protected workflow verifies encrypted secret metadata without creating/copying values or activating processing. Sending `info@` at the root domain requires verification of that root
 sending domain. Preserve inbound MX/routing and review exact sending DNS separately.
 
 ### Requests, acceptance and replay
@@ -235,3 +233,11 @@ concurrency and restart persistence. Local workerd rejects `jurisdiction()`, so 
 test-only binding adapter asserts EU selection and maps to local storage; production
 code still requests EU. The test does not qualify real geographic placement,
 provider delivery, account usage/cost caps, live lifecycle/alarms or operator access.
+
+### Owner-provisioned secret readiness
+
+`worker-secrets.mjs` performs a gated metadata-only GET on the existing Worker settings, requiring exactly one `secret_text` binding for each of the three required names. Missing, duplicate or plain-text values block the disabled deployment before Wrangler runs. Post-deployment readback repeats the requirement. No runtime credential is fetched from Cloudflare or retained in CI, and deployment no longer includes a secret-update operation. Existing secrets are preserved by Wrangler; do not replace encrypted secrets with plain-text variables. The Cloudflare deployment token remains a separate protected GitHub credential.
+
+A Turnstile widget/site key does not establish that the Worker secret, allowed hostnames, challenge action or frontend wiring are correct. Live email acceptance and inbox delivery need a separately reviewed protected test path with the already authorized owner inbox, two-email maximum, no CV, fixed retry identity, and public forms still disabled. A local mocked adapter/coordinator run is not that live qualification.
+
+Provider reference: [Cloudflare secret configuration and preservation](https://developers.cloudflare.com/workers/configuration/secrets/).
