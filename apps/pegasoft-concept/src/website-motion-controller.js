@@ -51,7 +51,8 @@ export function createWebsiteMotionController({ root }) {
     headerReady = false,
     previousScroll = scrolling.y,
     scrollDirection = 0,
-    scrollTravel = 0;
+    scrollTravel = 0,
+    lastHeaderMotion = null;
   let editorialHorizon = null;
   function updateHeader() {
     if (!header) return;
@@ -71,6 +72,7 @@ export function createWebsiteMotionController({ root }) {
     }
     if (y <= 4) headerShown = true;
     const opening = $('#opening-stage')?.dataset.motion;
+    lastHeaderMotion = opening;
     headerReady =
       headerReady ||
       reduced ||
@@ -119,6 +121,7 @@ export function createWebsiteMotionController({ root }) {
       opening &&
       JSON.parse(opening).progress < 0.19,
     );
+    header.dataset.compact = String(!heroSurface);
     header.dataset.surface =
       scrolling.mobile && !heroSurface ? 'paper' : 'transparent';
     header.dataset.tone = scrolling.mobile
@@ -129,13 +132,16 @@ export function createWebsiteMotionController({ root }) {
         ? 'light'
         : 'dark';
     const surface = (scrolling.mobile ? !heroSurface : light)
-        ? '#edf2f7'
+        ? document.documentElement.dataset.colorTheme === 'dark'
+          ? '#11151b'
+          : '#edf2f7'
         : '#05070a',
       theme = document.querySelector('meta[name="theme-color"]');
     if (theme && theme.content !== surface) theme.content = surface;
     const shown =
       headerReady &&
-      (headerShown ||
+      (!scrolling.mobile ||
+        headerShown ||
         header.contains(document.activeElement) ||
         headerContact?.contains(document.activeElement) ||
         headerLanguage?.contains(document.activeElement));
@@ -348,7 +354,12 @@ export function createWebsiteMotionController({ root }) {
     const dt = last === null ? 0 : Math.min(0.05, (now - last) / 1000);
     last = now;
     if (scope.disposed || !mounted) return;
-    if (!headerReady) updateHeader();
+    if (
+      !headerReady ||
+      previousScroll !== scrolling.y ||
+      lastHeaderMotion !== $('#opening-stage')?.dataset.motion
+    )
+      updateHeader();
     wall.tick(dt);
     if (reduced) return;
     elapsed += dt;
@@ -391,6 +402,7 @@ export function createWebsiteMotionController({ root }) {
     wall.mount();
     scope.defer(() => wall.dispose());
     metrics();
+    scope.listen(window, 'pegasoft-theme-change', updateHeader);
     selectPreview(0);
     setMode(mode);
     for (const target of [header, headerContact, headerLanguage])

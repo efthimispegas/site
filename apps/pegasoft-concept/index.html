@@ -81,6 +81,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
+    <script>
+      try {
+        const theme = localStorage.getItem('pegasoft-theme');
+        document.documentElement.dataset.colorTheme =
+          theme === 'light' ? 'light' : 'dark';
+      } catch {
+        document.documentElement.dataset.colorTheme = 'dark';
+      }
+    </script>
     <meta name="theme-color" content="#05070a" />
     <link rel="icon" href="/favicon.ico?v=20261025" sizes="any" />
     <link
@@ -158,87 +167,100 @@
       <nav
         id="site-header"
         class="site-header"
+        data-compact="false"
         aria-label="Main navigation"
         data-visible="false"
         data-ready="false"
       >
-        <a class="logo" href="#opening-stage" aria-label="Pegasoft home"
-          >pegasoft</a
-        >
-        <div class="nav-links">
-          <button data-page-target="about">About</button
-          ><button data-page-target="services">Services</button
-          ><button data-page-target="#website-footer">Industries</button
-          ><button hidden data-launch-omit data-page-target="#insights">
-            Insights</button
-          ><button data-careers-action>Careers</button
-          ><button data-contact-action>Contact</button>
-        </div>
-        <div class="header-actions">
-          <button
-            id="site-header-contact"
-            data-ui-action="primary"
-            class="site-header-contact nav-contact"
-            data-contact-action
-            data-action="Talk with us"
+        <div class="header-shell">
+          <a class="logo" href="#opening-stage" aria-label="Pegasoft home"
+            >pegasoft</a
           >
-            <span>Let’s talk</span>
-          </button>
-          <div
-            id="site-header-language"
-            class="language-menu site-header-language"
-            data-language-menu
-          >
+          <div class="nav-links">
+            <button data-page-target="about">About</button
+            ><button data-page-target="services">Services</button
+            ><button data-page-target="#website-footer">Industries</button
+            ><button hidden data-launch-omit data-page-target="#insights">
+              Insights</button
+            ><button data-careers-action>Careers</button
+            ><button data-contact-action>Contact</button>
+          </div>
+          <div class="header-actions">
             <button
               type="button"
-              class="language-trigger"
-              data-language-trigger
-              aria-label="Language: English"
-              aria-haspopup="menu"
-              aria-expanded="false"
-              aria-controls="language-options-header"
+              class="theme-toggle"
+              data-theme-toggle
+              role="switch"
+              aria-checked="false"
+              aria-label="Light theme"
             >
-              <span data-language-flag aria-hidden="true">🇬🇧</span>
+              <span aria-hidden="true"></span>
+            </button>
+            <button
+              id="site-header-contact"
+              data-ui-action="primary"
+              class="site-header-contact nav-contact"
+              data-contact-action
+              data-action="Talk with us"
+            >
+              <span>Let’s talk</span>
             </button>
             <div
-              class="language-options"
-              id="language-options-header"
-              role="menu"
-              aria-label="Language"
-              hidden
+              id="site-header-language"
+              class="language-menu site-header-language"
+              data-language-menu
             >
               <button
                 type="button"
-                role="menuitemradio"
-                data-locale="el"
-                lang="el"
-                aria-checked="false"
+                class="language-trigger"
+                data-language-trigger
+                aria-label="Language: English"
+                aria-haspopup="menu"
+                aria-expanded="false"
+                aria-controls="language-options-header"
               >
-                🇬🇷 Ελληνικά</button
-              ><button
-                type="button"
-                role="menuitemradio"
-                data-locale="en"
-                lang="en"
-                aria-checked="true"
-              >
-                🇬🇧 English
+                <span data-language-flag aria-hidden="true">🇬🇧</span>
               </button>
+              <div
+                class="language-options"
+                id="language-options-header"
+                role="menu"
+                aria-label="Language"
+                hidden
+              >
+                <button
+                  type="button"
+                  role="menuitemradio"
+                  data-locale="el"
+                  lang="el"
+                  aria-checked="false"
+                >
+                  🇬🇷 Ελληνικά</button
+                ><button
+                  type="button"
+                  role="menuitemradio"
+                  data-locale="en"
+                  lang="en"
+                  aria-checked="true"
+                >
+                  🇬🇧 English
+                </button>
+              </div>
             </div>
+            <button
+              type="button"
+              class="site-menu-toggle"
+              id="open-mobile-menu"
+              aria-label="Open menu"
+              aria-haspopup="dialog"
+              aria-controls="mobile-navigation"
+              aria-expanded="false"
+            >
+              <span class="menu-icon" aria-hidden="true"
+                ><i></i><i></i><i></i
+              ></span>
+            </button>
           </div>
-          <button
-            type="button"
-            class="site-menu-toggle"
-            id="open-mobile-menu"
-            aria-label="Open menu"
-            aria-haspopup="dialog"
-            aria-controls="mobile-navigation"
-            aria-expanded="false"
-          >
-            <span class="menu-icon" aria-hidden="true"
-              ><i></i><i></i><i></i
-            ></span>
-          </button>
         </div>
       </nav>
       <h1 class="visually-hidden">Pegasoft</h1>
@@ -1483,7 +1505,19 @@
           ></span>
         </button>
       </div>
-      <div id="mobile-language-slot"></div>
+      <div class="mobile-menu-preferences">
+        <div id="mobile-language-slot"></div>
+        <button
+          type="button"
+          class="theme-toggle"
+          data-theme-toggle
+          role="switch"
+          aria-checked="false"
+          aria-label="Light theme"
+        >
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
       <nav aria-label="Mobile navigation">
         <button data-page-target="about">About</button
         ><button data-page-target="services">Services</button
