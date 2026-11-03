@@ -700,9 +700,6 @@ body.static-journey .after-journey #insights {
   align-items: center;
   justify-content: center;
   border: 1px solid transparent;
-  border-radius: 30px;
-  padding: 12px 24px;
-  min-height: 44px;
   mix-blend-mode: normal;
   box-shadow: none;
 }
@@ -750,10 +747,6 @@ body.static-journey .after-journey #insights {
   .header-actions {
     gap: 12px;
   }
-  .site-header .site-header-contact {
-    font: 500 12px Manrope;
-    padding: 10px 18px;
-  }
 }
 @media (max-width: 360px) {
   .site-header .logo {
@@ -761,10 +754,6 @@ body.static-journey .after-journey #insights {
   }
   .header-actions {
     gap: 8px;
-  }
-  .site-header .site-header-contact {
-    font-size: 11px;
-    padding: 10px 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

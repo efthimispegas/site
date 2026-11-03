@@ -152,3 +152,18 @@ body .partners-intro h3 span {
 [data-launch-omit][hidden] {
   display: none !important;
 }
+
+/* Reuse the established services/metrics CTA layout in navigation. */
+.services-cta,
+.metrics-intro [data-ui-action],
+body #site-header-contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font: 600 13px/1.2 Manrope;
+  pointer-events: auto;
+  text-decoration: none;
+}

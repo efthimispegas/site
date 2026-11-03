@@ -1357,18 +1357,7 @@
   display: flex;
   justify-content: center;
 }
-.services-cta,
-.metrics-intro [data-ui-action] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font: 600 13px/1.2 Manrope;
-  pointer-events: auto;
-  text-decoration: none;
-}
+
 /* The desktop action belongs below the moving row, not in its horizontal track. */
 #services-overlay {
   display: flex;
