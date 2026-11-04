@@ -21,6 +21,7 @@ const article = (
   summary: { en: summary, el: greekSummary },
   sections: { en: sections, el: greekSections },
   author: 'Pegasoft',
+  originalSource: { name: 'Pegasoft', url: null, publishedAt: null },
   status: 'review',
   date: { systems: '2026-11-03', ai: '2026-11-02', engineering: '2026-11-01' }[
     category

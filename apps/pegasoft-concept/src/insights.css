@@ -346,7 +346,7 @@ select {
   margin: 12px 0;
 }
 .linkedin-panel p {
-  max-width: 45ch;
+  max-width: none;
   font-size: 14px;
 }
 .pending-link {
@@ -388,9 +388,9 @@ select {
 }
 .article-layout {
   display: grid;
-  grid-template-columns: 250px minmax(0, 820px);
-  justify-content: space-between;
-  gap: 8vw;
+  grid-template-columns: minmax(190px, 22%) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
 }
 .article-toc {
   position: sticky;
@@ -457,7 +457,7 @@ select {
   font-size: 24px;
   line-height: 1.5;
   margin-top: 0;
-  max-width: 45ch;
+  max-width: none;
 }
 .article-body > section[id] {
   padding: 20px 0 40px;
@@ -470,7 +470,7 @@ select {
 .article-body > section[id] p {
   line-height: 1.85;
   color: var(--muted);
-  max-width: 67ch;
+  max-width: none;
 }
 .article-tags {
   display: flex;
@@ -722,9 +722,10 @@ select {
   padding-bottom: 28px;
 }
 .article-social {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  display: grid;
+  justify-items: start;
+  margin-top: 28px;
+  gap: 12px;
   font-size: 12px;
 }
 .article-social-actions {
@@ -750,4 +751,49 @@ html[data-color-theme='dark'] .insights-page {
 /* Editorial top surfaces follow the selected appearance, with shared geometry. */
 .insights-page .site-header {
   --header-ink: var(--ink);
+}
+
+/* Keep the article reading column on the same left grid line as its metadata. */
+.insights-page:not([data-insight-slug='']) #insights-content {
+  max-width: none;
+}
+.article-source {
+  margin: 0 0 48px;
+}
+.article-source > div {
+  display: grid;
+  grid-template-columns: minmax(130px, 20%) minmax(0, 1fr);
+  gap: 24px;
+  border-top: 1px solid var(--line);
+  padding: 20px 0;
+}
+.article-source > div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.article-source dt {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.article-source dd {
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.article-source a {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-underline-offset: 4px;
+}
+.article-source a:is(:hover, :focus-visible) {
+  color: var(--action-secondary-ink);
+}
+@media (max-width: 760px) {
+  .article-source > div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 0;
+  }
 }
