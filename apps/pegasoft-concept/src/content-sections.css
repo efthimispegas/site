@@ -349,7 +349,7 @@
   letter-spacing: -0.035em;
   margin: 0;
 }
-#mobile-navigation button {
+#mobile-navigation :is(button, .insights-nav-link) {
   background: none;
   border: 0;
   color: var(--black);
@@ -359,16 +359,16 @@
 #mobile-navigation nav {
   display: grid;
 }
-#mobile-navigation nav button {
+#mobile-navigation nav :is(button, .insights-nav-link) {
   border-bottom: 1px solid #061e3b26;
   padding: 12px 0;
   text-align: left;
   min-height: 44px;
 }
-#mobile-navigation button:is(:hover, :focus-visible) {
+#mobile-navigation :is(button, .insights-nav-link):is(:hover, :focus-visible) {
   color: var(--blue);
 }
-#mobile-navigation button:focus-visible {
+#mobile-navigation :is(button, .insights-nav-link):focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
@@ -1350,7 +1350,7 @@
 #mobile-menu-title:focus {
   outline: none;
 }
-#mobile-navigation nav button {
+#mobile-navigation nav :is(button, .insights-nav-link) {
   text-align: center;
 }
 #mobile-language-slot {

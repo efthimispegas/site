@@ -42,7 +42,11 @@
     },
     {
       "path": "index.html",
-      "sha256": "22ce2f1c18603e3320bc0c5805ae04072b5455cf0d226fcd38d2ad427f2441fa"
+      "sha256": "0b57cb3f2eb2c88b12de64e6675951931cdc45dac5d87bf7cd917bde2e3ce819"
+    },
+    {
+      "path": "insights/index.html",
+      "sha256": "bf66121d15ada05ad71c979cf7332dec8a91d568e111cfc3aa930d815a189f2e"
     },
     {
       "path": "package.json",
@@ -50,7 +54,7 @@
     },
     {
       "path": "project.json",
-      "sha256": "1250c0a5a1182fe563424dce14d1fa78929a1a7b43465980a2e6b741a5092136"
+      "sha256": "cd66806fe50bbaa85a2ee3613aeea779cd7e095b61c34236750a31e32361e080"
     },
     {
       "path": "public/_headers",
@@ -282,7 +286,7 @@
     },
     {
       "path": "src/adaptive-header.css",
-      "sha256": "b5e47305999be23661efefb50bf95efe04df62829aba84a5a25bb875e615b69d"
+      "sha256": "194c44f1964a85e4e9418555a06dca2ada5d50f9d77fbc3693d6bf1c49465dad"
     },
     {
       "path": "src/approved-loader-preset.js",
@@ -302,7 +306,7 @@
     },
     {
       "path": "src/content-sections.css",
-      "sha256": "708920ed629759497922af2407f6cdd3578c4cbd7b66075bdb524fe1f772af9c"
+      "sha256": "710909fc095289f47cb2dd9f1cb6a2d7f0893b5c0ff8e6a50eaad54eb0a1f738"
     },
     {
       "path": "src/cookie-consent.js",
@@ -319,6 +323,10 @@
     {
       "path": "src/cta-decryption.js",
       "sha256": "b09f13d7765b70bda16232cdfada9d48e19b8fb5fed5d2cc11584b85b79fa45d"
+    },
+    {
+      "path": "src/footer-content.js",
+      "sha256": "75628ac8b137416cc3f91df287a729c5864ab3f06864b7844079dd52bb61736a"
     },
     {
       "path": "src/hero-city-routes.js",
@@ -343,6 +351,18 @@
     {
       "path": "src/horizon-transition.js",
       "sha256": "01186fe765599f87a033a276fe762e1cc4597ff89a80985e13533d31d9e93cee"
+    },
+    {
+      "path": "src/insights-content.js",
+      "sha256": "4fd0754a56e1eacab9f7367a5ca97505bb40affcb68e2420ac50091599dccea5"
+    },
+    {
+      "path": "src/insights.css",
+      "sha256": "33949fff90aa35cc21b3d1e8bae5b6f684502fed737d3a3915af4d6fdad58cab"
+    },
+    {
+      "path": "src/insights.js",
+      "sha256": "9040354a6fcd054598b67944587184048412f7fa51090a336c1089789037f20e"
     },
     {
       "path": "src/intro-controller.js",
@@ -374,7 +394,7 @@
     },
     {
       "path": "src/locale-messages.js",
-      "sha256": "55b92998a069a0c41df8468ff06b7404d985d7b9d220e8474c29dadb4f985719"
+      "sha256": "8865f07550ae154ed67dcb1e8b090806a34991d752defcbb83fc1411f9b2f853"
     },
     {
       "path": "src/locales/el.js",
@@ -390,7 +410,7 @@
     },
     {
       "path": "src/main.js",
-      "sha256": "aa5c00f0fa18ac546317a903522e73b481504a6bd1effbc6a2e40c545f22aeb5"
+      "sha256": "b9a7d345fbdcb004f7508b7514d57a5a28a8a443de45906df5dee79674bd4d7e"
     },
     {
       "path": "src/mobile-mesh-batches.js",
@@ -490,7 +510,7 @@
     },
     {
       "path": "src/website-motion-controller.js",
-      "sha256": "2d948cf997cf08ca7872b0d76473f403b737a157947daf679f18aa1d67fa46f1"
+      "sha256": "021b406fdd05ef53a7df7ae03f1469f4dc0b6f03cc00f7ca78a5f104d854c008"
     },
     {
       "path": "src/website-motion.css",
@@ -511,6 +531,14 @@
     {
       "path": "tools/deployment-config.mjs",
       "sha256": "26a53650fe3e937916334ce9198b1c54429625d410f49d1f18cc57080c1084c9"
+    },
+    {
+      "path": "tools/insights-pages.mjs",
+      "sha256": "41e7438ea71101a40b2131776d69aaede614929c88620e0fda677c262daf501d"
+    },
+    {
+      "path": "tools/insights.test.mjs",
+      "sha256": "817f62ff208ee7b0163e66034885a4e8f2931169f873f1f67617f030f65b6df8"
     },
     {
       "path": "tools/lifecycle.test.mjs",
@@ -538,11 +566,11 @@
     },
     {
       "path": "tools/verify-production.mjs",
-      "sha256": "2300d39b683b97761cfe23df6487113ad1effe75c7442c14ea4093f35870ddea"
+      "sha256": "91c6e79819e9667db946a5ee5fcc6f02ab39dcd8c3af4fb84e5e49f53a056af1"
     },
     {
       "path": "vite.config.js",
-      "sha256": "54881b96fdbde4a0990cea190e2e77b3ae4875ce3fdfea4b907209ae31ddcf24"
+      "sha256": "018517b86e22a75a1dece68b11bff10c6b25ae42bcc00ec7aa91482915c99026"
     }
   ]
 }

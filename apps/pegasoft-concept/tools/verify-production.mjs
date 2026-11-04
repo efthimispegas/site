@@ -31,6 +31,7 @@ const inputs = () =>
     ),
     ...files('public'),
     'index.html',
+    'insights/index.html',
     'package.json',
     'project.json',
     'vite.config.js',
@@ -40,6 +41,8 @@ const inputs = () =>
       'check-source.mjs',
       'verify-production.mjs',
       'localized-pages.mjs',
+      'insights-pages.mjs',
+      'insights.test.mjs',
       'deployment-config.mjs',
       'static-compression.mjs',
       'packaging.test.mjs',
@@ -108,7 +111,6 @@ if (process.argv.includes('--record')) {
     'stage',
     'ship-copy',
     'trust-title',
-    'insights-title',
     'faq',
     'contact',
   ])
@@ -121,6 +123,11 @@ if (process.argv.includes('--record')) {
       'Missing HTML asset: ' + match[1],
     );
   }
+  assert.ok(
+    !index.includes('id="insights"'),
+    'Insights must be a separate page',
+  );
+  assert.ok(index.includes('/el/insights/'), 'Missing Insights destination');
   const registry = readFileSync(
     resolve(app, 'runtime/runtime-assets.js'),
     'utf8',

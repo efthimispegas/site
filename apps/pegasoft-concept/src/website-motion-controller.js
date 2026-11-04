@@ -7,22 +7,7 @@ import { createPartnerWall } from './partner-wall.js';
 import { invertedHorizonLayout } from './horizon-transition.js';
 
 const clamp = (v) => Math.min(1, Math.max(0, v));
-const sectors = [
-  'Fintech',
-  'Digital banking',
-  'Trade & transit',
-  'Health & wellness',
-  'Telecom',
-  'Booking & education',
-];
-const services = [
-  'Product strategy',
-  'UX/UI design',
-  'Web engineering',
-  'Mobile applications',
-  'AI & automation',
-  'Cloud & platform',
-];
+import { sectors, services } from './footer-content.js';
 /** Native page content and pointer owner. Invoked by the existing journey scheduler. */
 export function createWebsiteMotionController({ root }) {
   const scope = createScope(),
@@ -33,7 +18,7 @@ export function createWebsiteMotionController({ root }) {
   const editorial = $('#insights'),
     closing = $('#closing-cta'),
     footer = $('#website-footer');
-  if (!editorial || !closing || !footer) return null;
+  if (!closing || !footer) return null;
   const testimonials = $('#trust-evidence'),
     trust = $('#trust'),
     staticStory = $('#static-story');
@@ -217,7 +202,7 @@ export function createWebsiteMotionController({ root }) {
         if (!image.getAttribute('src')) image.src = image.dataset.desktopSrc;
       } else image.removeAttribute('src');
     });
-    editorial.dataset.preview = String(index);
+    if (editorial) editorial.dataset.preview = String(index);
   }
   function setMode(value) {
     mode = value;
@@ -276,31 +261,39 @@ export function createWebsiteMotionController({ root }) {
     $('#after-journey').style.marginTop = overlap ? `${-overlap}px` : '';
     wall.update({ reducedMotion: reduced });
     const h = storyViewport($('#stage'), $('#opening-stage'), window).height,
-      entry = editorial.getBoundingClientRect(),
+      entry = editorial?.getBoundingClientRect() ?? {
+        top: h,
+        bottom: h,
+        width: 0,
+      },
       cta = closing.getBoundingClientRect(),
       end = footer.getBoundingClientRect();
     const horizon = invertedHorizonLayout(entry.top, h, { reduced });
     editorialHorizon = horizon;
-    editorial.dataset.horizonActive = String(horizon.active);
-    editorial.dataset.horizonReduced = String(reduced);
-    editorial.style.setProperty('--editorial-horizon-height', `${h}px`);
-    editorial.style.setProperty(
-      '--editorial-horizon-width',
-      `${entry.width}px`,
-    );
-    editorial.style.setProperty(
-      '--editorial-horizon-y',
-      `${horizon.translateY}px`,
-    );
+    if (editorial) {
+      editorial.dataset.horizonActive = String(horizon.active);
+      editorial.dataset.horizonReduced = String(reduced);
+      editorial.style.setProperty('--editorial-horizon-height', `${h}px`);
+      editorial.style.setProperty(
+        '--editorial-horizon-width',
+        `${entry.width}px`,
+      );
+      editorial.style.setProperty(
+        '--editorial-horizon-y',
+        `${horizon.translateY}px`,
+      );
+    }
     visible = entry.bottom > 0 && entry.top < h;
     closingVisible = cta.bottom > 0 && cta.top < h;
     footerVisible = end.bottom > 0 && end.top < h;
     const arrival = clamp((h - entry.top) / (h * 0.85));
-    editorial.style.setProperty('--arrival', reduced ? 1 : arrival);
-    editorial.style.setProperty(
-      '--arrival-shift',
-      `${reduced ? 0 : (1 - arrival) * 100}px`,
-    );
+    if (editorial) {
+      editorial.style.setProperty('--arrival', reduced ? 1 : arrival);
+      editorial.style.setProperty(
+        '--arrival-shift',
+        `${reduced ? 0 : (1 - arrival) * 100}px`,
+      );
+    }
 
     updateHeader();
     syncPointer(cta);
@@ -327,7 +320,7 @@ export function createWebsiteMotionController({ root }) {
       },
       owner = sections.reduce(
         (best, el) => (coverage(el) > coverage(best) ? el : best),
-        editorial,
+        editorial || closing,
       ),
       r = owner.getBoundingClientRect();
     scrollAnchor = { element: owner, fraction: -r.top / Math.max(1, r.height) };

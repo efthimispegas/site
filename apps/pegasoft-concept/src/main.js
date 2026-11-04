@@ -31,8 +31,14 @@ export const content = createContentController({
 });
 content.mount();
 ready.then(() => {
+  if (location.hash === '#insights') {
+    location.replace(`/${document.documentElement.lang}/insights/`);
+    return;
+  }
   content.showLandingConsent();
   content.followInitialHash();
+  if (['#about', '#services'].includes(location.hash))
+    journey.navigate(location.hash.slice(1));
 });
 if (import.meta.hot)
   import.meta.hot.dispose(() => {
@@ -42,3 +48,18 @@ if (import.meta.hot)
     journey.dispose();
     scrolling.dispose();
   });
+
+// Native separate-page destinations preserve the active locale.
+function syncInsightsLinks() {
+  document.querySelectorAll('.insights-nav-link').forEach((link) => {
+    link.href = `/${document.documentElement.lang}/insights/`;
+  });
+}
+syncInsightsLinks();
+const insightsLanguage = new window.MutationObserver(syncInsightsLinks);
+insightsLanguage.observe(document.documentElement, {
+  attributes: true,
+  attributeFilter: ['lang'],
+});
+if (import.meta.hot)
+  import.meta.hot.dispose(() => insightsLanguage.disconnect());
