@@ -70,9 +70,13 @@ select:focus-visible {
   display: none !important;
 }
 .insights-page #insights-content {
-  max-width: 1600px;
-  margin: auto;
-  padding: 150px 40px 110px;
+  --editorial-gutter: clamp(12px, 1.157407vw, 32px);
+  --editorial-inset: calc(var(--editorial-gutter) * 2);
+  --widget-inset: 24px;
+  --widget-spacing: 48px;
+  max-width: none;
+  margin: 0;
+  padding: 150px var(--editorial-inset) 110px;
 }
 .insights-title {
   min-height: 240px;
@@ -115,10 +119,30 @@ select:focus-visible {
 .breadcrumbs [aria-current] {
   color: var(--muted);
 }
-.insights-layout {
+.insights-layout,
+.article-layout {
   display: grid;
-  grid-template-columns: 235px minmax(0, 1fr);
-  gap: 7vw;
+  grid-template-columns: repeat(16, minmax(0, 1fr));
+  column-gap: var(--editorial-gutter);
+  align-items: start;
+}
+.insights-sidebar,
+.article-toc {
+  grid-column: 1 / span 3;
+  min-width: 0;
+}
+.insights-main,
+.article-body {
+  grid-column: 5 / span 9;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  min-width: 0;
+}
+.insights-main > *,
+.article-body > * {
+  min-width: 0;
+  width: 100%;
 }
 .insights-sidebar {
   position: sticky;
@@ -126,7 +150,7 @@ select:focus-visible {
   align-self: start;
 }
 .insights-sidebar h2 {
-  font: 750 23px Manrope;
+  font: 700 18px Manrope;
   margin: 0 0 24px;
   letter-spacing: -0.04em;
 }
@@ -135,7 +159,7 @@ select:focus-visible {
   text-transform: uppercase;
   background: var(--panel);
   color: var(--muted);
-  padding: 5px 8px;
+  padding: 12px var(--widget-inset);
   margin: 30px 0 0;
 }
 .insights-sidebar a {
@@ -145,7 +169,7 @@ select:focus-visible {
   font-size: 12px;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 12px 4px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
   transition:
     padding 0.25s,
@@ -154,7 +178,7 @@ select:focus-visible {
 .insights-sidebar a:hover,
 .insights-sidebar a[aria-current] {
   color: var(--accent);
-  padding-left: 12px;
+  padding-left: 0;
 }
 .insights-sidebar a[aria-current] {
   border-bottom-color: var(--accent);
@@ -170,7 +194,7 @@ select:focus-visible {
   gap: 0;
 }
 .highlight-copy {
-  padding: 24px;
+  padding: var(--widget-inset);
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -249,7 +273,7 @@ select:focus-visible {
 }
 .latest-articles {
   border-top: 1px solid var(--line);
-  margin-top: 72px;
+  margin-top: var(--widget-spacing);
   padding-top: 28px;
 }
 .section-heading {
@@ -290,7 +314,7 @@ select {
   min-height: 340px;
   text-decoration: none;
   background: var(--panel);
-  padding: 22px;
+  padding: var(--widget-inset);
   display: flex;
   flex-direction: column;
   transition:
@@ -331,8 +355,8 @@ select {
   color: var(--accent);
 }
 .linkedin-panel {
-  margin-top: 64px;
-  padding: 32px;
+  margin-top: var(--widget-spacing);
+  padding: var(--widget-inset);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -372,9 +396,11 @@ select {
   margin-bottom: 25px;
 }
 .article-cover {
-  max-width: 720px;
+  width: calc(
+    (100% + var(--editorial-gutter)) * 9 / 16 - var(--editorial-gutter)
+  );
   height: 260px;
-  margin: 0 auto 65px;
+  margin: 0 0 var(--widget-spacing) calc((100% + var(--editorial-gutter)) / 4);
   background: radial-gradient(ellipse at center, #21476e, #0d1827);
   display: grid;
   place-items: center;
@@ -385,12 +411,6 @@ select {
   width: auto;
   height: 92%;
   object-fit: contain;
-}
-.article-layout {
-  display: grid;
-  grid-template-columns: minmax(190px, 22%) minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 80px);
-  align-items: start;
 }
 .article-toc {
   position: sticky;
@@ -405,7 +425,7 @@ select {
 .article-toc nav a {
   display: flex;
   gap: 12px;
-  padding: 12px 8px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--line);
   text-decoration: none;
   transition:
@@ -433,9 +453,15 @@ select {
 }
 .article-toc nav span {
   opacity: 0.6;
+  order: 2;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 .article-toc p {
   color: var(--muted);
+  padding: 16px var(--widget-inset);
+  margin: 24px 0 0;
+  background: var(--panel);
 }
 .article-toc button {
   color: var(--ink);
@@ -488,14 +514,11 @@ select {
   text-decoration: none;
 }
 .related-articles {
-  margin-top: 65px;
+  margin-top: var(--widget-spacing);
 }
 .related-articles .insight-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 25px;
-}
-.article-body .linkedin-panel {
-  display: block;
 }
 .article-body .pending-link {
   max-width: none;
@@ -550,9 +573,19 @@ select {
   }
 }
 @media (max-width: 1100px) {
-  .insights-layout {
-    grid-template-columns: 190px minmax(0, 1fr);
-    gap: 35px;
+  .insights-layout,
+  .article-layout {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .insights-main,
+  .article-body {
+    grid-column: 5 / -1;
+  }
+  .article-cover {
+    width: calc(
+      (100% + var(--editorial-gutter)) * 8 / 12 - var(--editorial-gutter)
+    );
+    margin-left: calc((100% + var(--editorial-gutter)) / 3);
   }
   .insight-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -560,14 +593,13 @@ select {
   .highlights {
     grid-template-columns: 1fr 1fr;
   }
-  .article-layout {
-    grid-template-columns: 200px minmax(0, 1fr);
-    gap: 45px;
-  }
 }
 @media (max-width: 760px) {
   .insights-page #insights-content {
-    padding: 120px 20px 65px;
+    --editorial-inset: 20px;
+    --widget-inset: 16px;
+    --widget-spacing: 32px;
+    padding: 120px var(--editorial-inset) 65px;
   }
   .insights-title {
     display: block;
@@ -654,8 +686,9 @@ select {
     font-size: 40px;
   }
   .article-cover {
+    width: 100%;
     height: 190px;
-    margin-bottom: 35px;
+    margin: 0 0 var(--widget-spacing);
   }
   .article-toc {
     position: static;
@@ -753,12 +786,8 @@ html[data-color-theme='dark'] .insights-page {
   --header-ink: var(--ink);
 }
 
-/* Keep the article reading column on the same left grid line as its metadata. */
-.insights-page:not([data-insight-slug='']) #insights-content {
-  max-width: none;
-}
 .article-source {
-  margin: 0 0 48px;
+  margin: 0 0 var(--widget-spacing);
 }
 .article-source > div {
   display: grid;
