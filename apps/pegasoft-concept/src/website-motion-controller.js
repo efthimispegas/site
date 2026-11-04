@@ -1,3 +1,4 @@
+import { createAdaptiveHeader } from './adaptive-header.js';
 import { pageScroll } from './page-scroll.js';
 import { storyViewport } from './story-viewport.js';
 import { translate as t } from './locale-messages.js';
@@ -9,7 +10,11 @@ import { invertedHorizonLayout } from './horizon-transition.js';
 const clamp = (v) => Math.min(1, Math.max(0, v));
 import { sectors, services } from './footer-content.js';
 /** Native page content and pointer owner. Invoked by the existing journey scheduler. */
-export function createWebsiteMotionController({ root }) {
+export function createWebsiteMotionController({
+  root,
+  headerUpdate,
+  contactAction,
+}) {
   const scope = createScope(),
     document = root.ownerDocument,
     window = document.defaultView,
@@ -22,44 +27,27 @@ export function createWebsiteMotionController({ root }) {
   const testimonials = $('#trust-evidence'),
     trust = $('#trust'),
     staticStory = $('#static-story');
-  const wall = createPartnerWall({
-    element: $('#partner-wall'),
-    button: $('#partner-motion-toggle'),
-  });
+  const wall =
+    $('#partner-wall') &&
+    createPartnerWall({
+      element: $('#partner-wall'),
+      button: $('#partner-motion-toggle'),
+    });
   const fine = window.matchMedia('(hover:hover) and (pointer:fine)'),
     cursor = $('#closing-cursor'),
     trails = [...root.querySelectorAll('.closing-trail')];
   const header = $('#site-header'),
     headerContact = $('#site-header-contact'),
     headerLanguage = $('#site-header-language');
-  let headerShown = true,
-    headerReady = false,
-    previousScroll = scrolling.y,
-    scrollDirection = 0,
-    scrollTravel = 0,
-    lastHeaderMotion = null;
+  const adaptiveHeader = header && createAdaptiveHeader(header);
+  let lastHeaderMotion = null;
   let editorialHorizon = null;
   function updateHeader() {
+    if (headerUpdate) return headerUpdate();
     if (!header) return;
-    const y = Math.max(0, scrolling.y),
-      delta = y - previousScroll;
-    previousScroll = y;
-    if (Math.abs(delta) > 0.1) {
-      const direction = Math.sign(delta);
-      if (direction !== scrollDirection) scrollTravel = 0;
-      scrollDirection = direction;
-      scrollTravel += Math.abs(delta);
-      if (scrollTravel >= 4) {
-        headerShown = direction < 0;
-        if (direction > 0 && header.contains(document.activeElement))
-          document.activeElement.blur();
-      }
-    }
-    if (y <= 4) headerShown = true;
     const opening = $('#opening-stage')?.dataset.motion;
     lastHeaderMotion = opening;
-    headerReady =
-      headerReady ||
+    const openingReady =
       reduced ||
       document.body.classList.contains('static-journey') ||
       Boolean(opening && JSON.parse(opening).opening.nav >= 0.95);
@@ -106,35 +94,13 @@ export function createWebsiteMotionController({ root }) {
       opening &&
       JSON.parse(opening).progress < 0.19,
     );
-    header.dataset.compact = String(!heroSurface);
-    header.dataset.surface =
-      scrolling.mobile && !heroSurface ? 'paper' : 'transparent';
-    header.dataset.tone = scrolling.mobile
-      ? heroSurface
-        ? 'dark'
-        : 'light'
-      : light
-        ? 'light'
-        : 'dark';
-    const surface = (scrolling.mobile ? !heroSurface : light)
-        ? document.documentElement.dataset.colorTheme === 'dark'
-          ? '#11151b'
-          : '#edf2f7'
-        : '#05070a',
-      theme = document.querySelector('meta[name="theme-color"]');
-    if (theme && theme.content !== surface) theme.content = surface;
-    const shown =
-      headerReady &&
-      (!scrolling.mobile ||
-        headerShown ||
-        header.contains(document.activeElement) ||
-        headerContact?.contains(document.activeElement) ||
-        headerLanguage?.contains(document.activeElement));
-    header.dataset.ready = String(headerReady);
-    header.dataset.visible = String(shown);
-    header.inert = !shown;
-    if (headerContact) headerContact.inert = !shown;
-    if (headerLanguage) headerLanguage.inert = !shown;
+    adaptiveHeader.update({
+      y: scrolling.y,
+      mobile: scrolling.mobile,
+      openingReady,
+      heroSurface,
+      light,
+    });
   }
   let scrollAnchor;
   const wordmark = $('#particle-wordmark'),
@@ -231,36 +197,40 @@ export function createWebsiteMotionController({ root }) {
     if (scope.disposed) return;
     reduced =
       reducedMotion || document.body.classList.contains('static-journey');
-    const mobile = window.matchMedia('(max-width:760px)').matches,
-      testimonialParent = reduced
-        ? staticStory
-        : mobile
-          ? $('#after-journey')
-          : trust;
-    if (testimonials.parentElement !== testimonialParent) {
-      if (mobile && !reduced)
-        testimonialParent.insertBefore(testimonials, $('#partners'));
-      else testimonialParent.append(testimonials);
+    if (testimonials && trust && staticStory) {
+      const mobile = window.matchMedia('(max-width:760px)').matches,
+        testimonialParent = reduced
+          ? staticStory
+          : mobile
+            ? $('#after-journey')
+            : trust;
+      if (testimonials.parentElement !== testimonialParent) {
+        if (mobile && !reduced)
+          testimonialParent.insertBefore(testimonials, $('#partners'));
+        else testimonialParent.append(testimonials);
+      }
+      testimonials.dataset.mobileFlow = String(mobile && !reduced);
+      // Join the normal-flow carousel directly to the resting jet-revealed title.
+      // Its intrinsic height accommodates both locales and narrow font wrapping.
+      const trustInner = trust.querySelector('.trust-inner'),
+        stageHeight = $('#stage').clientHeight;
+      const overlap =
+        mobile && !reduced
+          ? Math.max(
+              0,
+              stageHeight -
+                (stageHeight * 0.12 +
+                  trustInner.offsetTop +
+                  trustInner.offsetHeight +
+                  24),
+            )
+          : 0;
+      $('#after-journey').style.marginTop = overlap ? `${-overlap}px` : '';
     }
-    testimonials.dataset.mobileFlow = String(mobile && !reduced);
-    // Join the normal-flow carousel directly to the resting jet-revealed title.
-    // Its intrinsic height accommodates both locales and narrow font wrapping.
-    const trustInner = trust.querySelector('.trust-inner'),
-      stageHeight = $('#stage').clientHeight;
-    const overlap =
-      mobile && !reduced
-        ? Math.max(
-            0,
-            stageHeight -
-              (stageHeight * 0.12 +
-                trustInner.offsetTop +
-                trustInner.offsetHeight +
-                24),
-          )
-        : 0;
-    $('#after-journey').style.marginTop = overlap ? `${-overlap}px` : '';
-    wall.update({ reducedMotion: reduced });
-    const h = storyViewport($('#stage'), $('#opening-stage'), window).height,
+    wall?.update({ reducedMotion: reduced });
+    const h = $('#stage')
+        ? storyViewport($('#stage'), $('#opening-stage'), window).height
+        : window.innerHeight,
       entry = editorial?.getBoundingClientRect() ?? {
         top: h,
         bottom: h,
@@ -339,7 +309,7 @@ export function createWebsiteMotionController({ root }) {
   function resize() {
     metrics();
     particles.resize();
-    wall.resize();
+    wall?.resize();
     selectPreview(selected);
     update();
   }
@@ -348,12 +318,12 @@ export function createWebsiteMotionController({ root }) {
     last = now;
     if (scope.disposed || !mounted) return;
     if (
-      !headerReady ||
-      previousScroll !== scrolling.y ||
+      !adaptiveHeader?.ready ||
+      adaptiveHeader?.y !== scrolling.y ||
       lastHeaderMotion !== $('#opening-stage')?.dataset.motion
     )
       updateHeader();
-    wall.tick(dt);
+    wall?.tick(dt);
     if (reduced) return;
     elapsed += dt;
     if (closingVisible) {
@@ -382,6 +352,7 @@ export function createWebsiteMotionController({ root }) {
   }
   function contact(event) {
     event.preventDefault();
+    if (contactAction) return contactAction();
     const target = $('#contact');
     target.scrollIntoView({
       behavior: reduced ? 'instant' : 'smooth',
@@ -392,8 +363,8 @@ export function createWebsiteMotionController({ root }) {
   function mount() {
     if (mounted || scope.disposed) return;
     mounted = true;
-    wall.mount();
-    scope.defer(() => wall.dispose());
+    wall?.mount();
+    scope.defer(() => wall?.dispose());
     metrics();
     scope.listen(window, 'pegasoft-theme-change', updateHeader);
     selectPreview(0);

@@ -1,7 +1,12 @@
-import { storeConsent } from './cookie-consent.js';
-import { createParticleWordmark } from './particle-wordmark.js';
-import { sectors, services } from './footer-content.js';
-import { setLocale, translate, localeUrl } from './locale-messages.js';
+import { createHeaderMenu } from './header-menu.js';
+import { createLanguageMenus } from './language-menu.js';
+import { createPageLoader } from './site-loader.js';
+import { createAdaptiveHeader } from './adaptive-header.js';
+import './hero-opening.css';
+import './loader.css';
+import { createCookiePreferences } from './cookie-preferences.js';
+import { createWebsiteMotionController } from './website-motion-controller.js';
+import { setLocale, localeUrl } from './locale-messages.js';
 import { insightArticles } from './insights-content.js';
 import { createColorTheme } from './color-theme.js';
 import './website-motion.css';
@@ -23,79 +28,43 @@ try {
   /* visit-only preference */
 }
 const theme = createColorTheme(document);
-const loader = document.querySelector('.insights-loader');
-const ready = () => {
-  document.body.dataset.pageReady = 'true';
-  loader.classList.add('finished');
-};
-// A direct load and each native article/category navigation have their own bounded reveal.
-setTimeout(ready, reduced.matches ? 0 : 650);
 const nav = document.querySelector('#site-header');
-const menu = document.querySelector('#mobile-navigation'),
-  toggle = document.querySelector('#open-mobile-menu');
-function closeMenu() {
-  menu.close();
-  toggle.setAttribute('aria-expanded', 'false');
-  document.body.dataset.menuOpen = 'false';
-  toggle.focus();
+const adaptiveHeader = createAdaptiveHeader(nav);
+let openingReady = false;
+function updateHeader() {
+  const title = document
+    .querySelector('.insights-title')
+    .getBoundingClientRect();
+  adaptiveHeader.update({
+    y: window.scrollY,
+    mobile: window.innerWidth <= 760,
+    openingReady,
+    heroSurface: title.bottom > nav.clientHeight / 2,
+    light: document.documentElement.dataset.colorTheme === 'light',
+  });
 }
-toggle.addEventListener('click', () => {
-  menu.showModal();
-  toggle.setAttribute('aria-expanded', 'true');
-  document.body.dataset.menuOpen = 'true';
+const pageLoader = createPageLoader({
+  stage: document.querySelector('[data-page-loader]'),
+  reduced,
+  onFrame(opening) {
+    openingReady = opening.nav >= 0.95;
+    updateHeader();
+  },
+  onReady() {
+    document.body.dataset.pageReady = 'true';
+  },
 });
-document
-  .querySelector('#close-mobile-menu')
-  .addEventListener('click', closeMenu);
-menu.addEventListener('close', () => {
-  toggle.setAttribute('aria-expanded', 'false');
-  document.body.dataset.menuOpen = 'false';
+window.addEventListener('resize', updateHeader);
+window.addEventListener('pegasoft-theme-change', updateHeader);
+nav.addEventListener('focusin', updateHeader);
+nav.addEventListener('focusout', updateHeader);
+const headerMenu = createHeaderMenu(document);
+const languageMenus = createLanguageMenus({
+  document,
+  onSelect(language) {
+    location.assign(localeUrl(location.href, language).href);
+  },
 });
-const languageMenu = document.querySelector('#site-header-language'),
-  languageHome = languageMenu.parentElement;
-const mobile = window.matchMedia('(max-width: 760px)');
-function moveLanguages() {
-  if (mobile.matches)
-    document.querySelector('#mobile-language-slot').append(languageMenu);
-  else languageHome.insertBefore(languageMenu, toggle);
-  const trigger = languageMenu.querySelector('[data-language-trigger]');
-  if (mobile.matches) {
-    trigger.removeAttribute('aria-haspopup');
-    trigger.setAttribute(
-      'aria-label',
-      greek ? 'Switch to English' : 'Αλλαγή σε Ελληνικά',
-    );
-  } else trigger.setAttribute('aria-haspopup', 'menu');
-}
-moveLanguages();
-mobile.addEventListener('change', moveLanguages);
-document.querySelectorAll('[data-language-trigger]').forEach((b) =>
-  b.addEventListener('click', () => {
-    if (mobile.matches) {
-      const url = localeUrl(location.href, greek ? 'en' : 'el');
-      location.assign(url.href);
-      return;
-    }
-    const options = languageMenu.querySelector('[role=menu]');
-    options.hidden = !options.hidden;
-    b.setAttribute('aria-expanded', String(!options.hidden));
-  }),
-);
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    const options = languageMenu.querySelector('[role=menu]');
-    options.hidden = true;
-    languageMenu
-      .querySelector('[data-language-trigger]')
-      .setAttribute('aria-expanded', 'false');
-  }
-});
-document.querySelectorAll('[data-locale]').forEach((b) =>
-  b.addEventListener('click', () => {
-    const url = localeUrl(location.href, b.dataset.locale);
-    location.assign(url.href);
-  }),
-);
 document.querySelectorAll('.logo').forEach((a) => (a.href = base));
 document.querySelectorAll('[href="#insights"]').forEach((a) => {
   a.href = listing;
@@ -113,127 +82,44 @@ document.querySelectorAll('[data-page-target]').forEach((b) =>
     );
   }),
 );
-document
-  .querySelectorAll('[data-contact-action],[data-careers-action]')
-  .forEach((b) =>
-    b.addEventListener('click', (e) => {
-      e.preventDefault();
-      location.assign(base + '#contact');
-    }),
-  );
+document.querySelectorAll('[data-careers-action]').forEach((b) =>
+  b.addEventListener('click', (e) => {
+    e.preventDefault();
+    location.assign(base + '#contact');
+  }),
+);
 document
   .querySelectorAll('#website-footer a[href^="#"]')
   .forEach((a) => (a.href = base + a.getAttribute('href')));
-const cookies = document.querySelector('#cookie-preferences');
-document
-  .querySelector('#open-cookies')
-  .addEventListener('click', () => cookies.showModal());
-document
-  .querySelector('[data-close-cookies]')
-  .addEventListener('click', () => cookies.close());
-document.querySelector('#save-cookies').addEventListener('click', () => {
-  let storage;
-  try {
-    storage = window.localStorage;
-  } catch {
-    /* visit only */
-  }
-  const saved = storeConsent(storage, 'settings');
-  cookies.close();
-  document.querySelector('#cookie-status').textContent = translate(
-    saved
-      ? 'Preferences saved. No optional trackers enabled.'
-      : 'Preferences apply to this visit only. This browser could not save them.',
-    language,
-  );
+const preferences = createCookiePreferences(document);
+const websiteMotion = createWebsiteMotionController({
+  root: document.body,
+  headerUpdate: updateHeader,
+  contactAction: () => location.assign(base + '#contact'),
 });
-const modeButtons = document.querySelectorAll('[data-footer-mode]');
-function footerMode(mode) {
-  modeButtons.forEach((x) =>
-    x.setAttribute('aria-pressed', String(x.dataset.footerMode === mode)),
-  );
-  document.querySelectorAll('[data-marquee-group]').forEach((group) =>
-    group.replaceChildren(
-      ...(mode === 'industries' ? sectors : services).map((text) => {
-        const span = document.createElement('span');
-        span.textContent = translate(text, language);
-        return span;
-      }),
-    ),
-  );
+let websiteFrame;
+function updateWebsite() {
+  websiteMotion.update({ reducedMotion: reduced.matches });
 }
-modeButtons.forEach((b) =>
-  b.addEventListener('click', () => footerMode(b.dataset.footerMode)),
-);
-footerMode('industries');
-const canvas = document.querySelector('#particle-wordmark'),
-  particles = createParticleWordmark({ canvas });
-let particleFrame,
-  footerVisible = false,
-  lastFrame = 0;
-function drawParticles(time) {
-  if (!footerVisible || document.hidden) {
-    particleFrame = 0;
-    return;
-  }
-  const dt = Math.min(0.05, (time - lastFrame) / 1000);
-  lastFrame = time;
-  particles.render(dt, reduced.matches);
-  particleFrame = requestAnimationFrame(drawParticles);
+function resizeWebsite() {
+  websiteMotion.resize();
 }
-const footerObserver = new window.IntersectionObserver((entries) => {
-  footerVisible = entries[0].isIntersecting;
-  if (footerVisible && !particleFrame)
-    particleFrame = requestAnimationFrame(drawParticles);
-});
-particles.mount().then(() => {
-  particles.resize();
-  footerObserver.observe(canvas);
-});
-document.addEventListener('visibilitychange', () => {
-  if (!document.hidden && footerVisible && !particleFrame)
-    particleFrame = requestAnimationFrame(drawParticles);
-});
-canvas.addEventListener('pointermove', (event) => {
-  if (reduced.matches) return;
-  const r = canvas.getBoundingClientRect();
-  particles.setPointer({ x: event.clientX - r.left, y: event.clientY - r.top });
-});
-canvas.addEventListener('pointerleave', () => particles.setPointer(null));
-canvas.addEventListener('focus', () => {
-  if (!reduced.matches)
-    particles.setPointer({
-      x: canvas.clientWidth / 2,
-      y: canvas.clientHeight / 2,
-    });
-});
-canvas.addEventListener('blur', () => particles.setPointer(null));
-window.addEventListener('resize', () => particles.resize());
-document.addEventListener('click', (e) => {
-  const a = e.target.closest('a[href]');
-  if (
-    !a ||
-    e.defaultPrevented ||
-    e.button !== 0 ||
-    e.metaKey ||
-    e.ctrlKey ||
-    e.shiftKey ||
-    e.altKey ||
-    a.target === '_blank' ||
-    a.hasAttribute('download')
-  )
-    return;
-  const url = new URL(a.href, location.href);
-  if (
-    url.origin !== location.origin ||
-    (url.pathname === location.pathname && url.search === location.search)
-  )
-    return;
-  e.preventDefault();
-  document.body.dataset.leaving = 'true';
-  if (menu.open) menu.close();
-  setTimeout(() => location.assign(url.href), reduced.matches ? 0 : 280);
-});
+function tickWebsite(now) {
+  websiteMotion.tick(now);
+  websiteFrame = requestAnimationFrame(tickWebsite);
+}
+function visibilityChanged() {
+  cancelAnimationFrame(websiteFrame);
+  websiteMotion.pause();
+  if (!document.hidden) websiteFrame = requestAnimationFrame(tickWebsite);
+}
+websiteMotion.mount();
+updateWebsite();
+websiteFrame = requestAnimationFrame(tickWebsite);
+window.addEventListener('scroll', updateWebsite, { passive: true });
+window.addEventListener('resize', resizeWebsite);
+reduced.addEventListener('change', updateWebsite);
+document.addEventListener('visibilitychange', visibilityChanged);
 // Scroll reveals are progressive enhancement: content stays readable if scripting fails.
 const observer = new window.IntersectionObserver(
   (entries) =>
@@ -367,7 +253,7 @@ document.querySelector('#insights-sort')?.addEventListener('change', (e) => {
 });
 const body = document.querySelector('.article-body');
 function scroll() {
-  nav.dataset.compact = 'true';
+  updateHeader();
   if (!body) return;
   const sections = [...body.querySelectorAll('section[id^="section-"]')];
   const active =
@@ -379,37 +265,37 @@ function scroll() {
     else a.removeAttribute('aria-current');
   });
   const rect = body.getBoundingClientRect();
+  const end = sections.at(-1).getBoundingClientRect().bottom;
+  const readingHeight = end - rect.top;
   document.querySelector('#reading-progress').value = Math.max(
     0,
     Math.min(
       100,
       (100 * (-rect.top + 160)) /
-        (body.offsetHeight - window.innerHeight + 160),
+        Math.max(1, readingHeight - window.innerHeight + 160),
     ),
   );
 }
 window.addEventListener('scroll', scroll, { passive: true });
 scroll();
-document
-  .querySelector('[data-copy-link]')
-  ?.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(location.href);
-      document.querySelector('[data-copy-status]').textContent = greek
-        ? 'Ο σύνδεσμος αντιγράφηκε'
-        : 'Link copied';
-    } catch {
-      document.querySelector('[data-copy-status]').textContent = location.href;
-    }
-  });
 if (import.meta.hot)
   import.meta.hot.dispose(() => {
     stop();
-    cancelAnimationFrame(particleFrame);
-    particles.dispose();
-    footerObserver.disconnect();
+    cancelAnimationFrame(websiteFrame);
+    websiteMotion.dispose();
+    window.removeEventListener('scroll', updateWebsite);
+    window.removeEventListener('resize', resizeWebsite);
+    reduced.removeEventListener('change', updateWebsite);
+    document.removeEventListener('visibilitychange', visibilityChanged);
     observer.disconnect();
     theme.dispose();
+    preferences.dispose();
+    pageLoader.dispose();
+    window.removeEventListener('resize', updateHeader);
+    window.removeEventListener('pegasoft-theme-change', updateHeader);
+    nav.removeEventListener('focusin', updateHeader);
+    nav.removeEventListener('focusout', updateHeader);
     window.removeEventListener('scroll', scroll);
-    mobile.removeEventListener('change', moveLanguages);
+    headerMenu.dispose();
+    languageMenus.dispose();
   });

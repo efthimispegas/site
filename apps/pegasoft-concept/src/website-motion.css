@@ -324,6 +324,7 @@
   outline-offset: 6px;
 }
 #website-footer {
+  font-size: 13px;
   max-width: none;
   margin: 0;
   width: 100%;
@@ -402,6 +403,8 @@
   cursor: pointer;
 }
 .footer-selector button[aria-pressed='true'] {
+  background: #173c68;
+  border-color: #7bcbff;
   color: #101419;
 }
 .footer-selector button:hover {
@@ -839,4 +842,15 @@ body.static-journey .after-journey #insights {
   #closing-rings {
     display: none;
   }
+}
+
+/* Make the homepage footer independent of the cinematic entry's global defaults. */
+:where(#website-footer) button {
+  border-radius: 5px;
+}
+:where(#website-footer) p {
+  max-width: 900px;
+}
+#cookie-preferences label {
+  font-size: 13px;
 }

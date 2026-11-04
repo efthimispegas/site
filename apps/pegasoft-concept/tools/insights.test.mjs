@@ -4,6 +4,7 @@ import { readFile, mkdtemp, mkdir, writeFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 import { renderInsights, insightsPages } from './insights-pages.mjs';
+import { localizeHtml } from '../src/locale-messages.js';
 import { insightArticles } from '../src/insights-content.js';
 const root = resolve(import.meta.dirname, '..');
 const source = await readFile(resolve(root, 'index.html'), 'utf8');
@@ -24,7 +25,10 @@ test('separate article routes render localized breadcrumbs, real anchors and rev
       assert.match(html, /aria-current="page"/);
       assert.match(html, /href="#section-3"/);
       assert.match(html, /id="section-3"/);
-      assert.match(html, /data-copy-link/);
+      assert.match(html, /data-social="linkedin"/);
+      assert.match(html, /data-social="link"/);
+      assert.match(html, /data-page-loader/);
+      assert.doesNotMatch(html, /insights-loader|loader-orbit/);
       assert.match(html, /related-articles/);
       assert.match(html, /id="linkedin"/);
       assert.doesNotMatch(
@@ -64,5 +68,40 @@ test('static build emits every EN/EL direct-entry route with processed assets, c
       }
   } finally {
     await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('all native routes retain the homepage closing component and loader markup', () => {
+  const closing = /<section id="closing-cta"[\s\S]*?<\/section>/;
+  const original = source.match(closing)[0];
+  const footer = /<footer id="website-footer"[\s\S]*?<\/footer>/;
+  for (const language of ['en', 'el']) {
+    const expected = localizeHtml(original, language, {
+      origin: 'https://example.test',
+    });
+    for (const slug of [
+      '',
+      ...insightArticles.map((article) => article.slug),
+    ]) {
+      const html = renderInsights(
+        source,
+        language,
+        slug,
+        'https://example.test',
+      );
+      assert.equal(html.match(closing)[0], expected);
+      const expectedFooter = localizeHtml(source.match(footer)[0], language, {
+        origin: 'https://example.test',
+      }).replaceAll('href="/el/insights/"', `href="/${language}/insights/"`);
+      assert.equal(html.match(footer)[0], expectedFooter);
+      assert.match(html, /data-compact="false"/);
+      for (const name of ['pulse', 'radar', 'loader-mark']) {
+        const pattern = new RegExp(
+          `<div[^>]*class="${name}"[^>]*>[\\s\\S]*?<\\/div>`,
+        );
+        assert.equal(html.match(pattern)[0], source.match(pattern)[0]);
+      }
+      assert.doesNotMatch(html, /data-copy-link|onclick=/);
+    }
   }
 });

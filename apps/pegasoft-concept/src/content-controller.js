@@ -1,7 +1,8 @@
-import { translate as t } from './locale-messages.js';
+import { createHeaderMenu } from './header-menu.js';
 import { createScope } from '../runtime/runtime-lifecycle.js';
 import { createContactForm } from './contact-form.js';
-import { readConsent, storeConsent } from './cookie-consent.js';
+import { readConsent } from './cookie-consent.js';
+import { createCookiePreferences } from './cookie-preferences.js';
 /** Ordinary DOM interactions. No animation clock, network submission or tracker loading. */
 export function createContentController({ root, journey }) {
   const document = root.ownerDocument,
@@ -18,20 +19,9 @@ export function createContentController({ root, journey }) {
     dialog = $('#cookie-preferences'),
     menu = document.querySelector('#mobile-navigation'),
     contactForm = createContactForm({ panel, scope });
-  function saveConsent(choice) {
-    let storage;
-    try {
-      storage = window.localStorage;
-    } catch {}
-    const saved = storeConsent(storage, choice);
-    $('#cookie-notice').hidden = true;
-    $('#cookie-status').textContent = t(
-      saved
-        ? 'Preferences saved. No optional trackers enabled.'
-        : 'Preferences apply to this visit only. This browser could not save them.',
-    );
-    if (dialog.open) dialog.close();
-  }
+  const preferences = createCookiePreferences(document);
+  scope.defer(() => preferences.dispose());
+  const saveConsent = (choice) => preferences.save(choice);
   function selectTab(value) {
     if ($('#contact').dataset.submissionsDisabled === 'true') return;
     selected = value;
@@ -46,15 +36,6 @@ export function createContentController({ root, journey }) {
       tabs.find((tab) => tab.dataset.contactTab === value).id,
     );
     $('#contact').dataset.tab = value;
-  }
-  function syncMenu() {
-    const open = menu.open;
-    $('#open-mobile-menu').setAttribute('aria-expanded', String(open));
-    $('#open-mobile-menu').setAttribute(
-      'aria-label',
-      t(open ? 'Close menu' : 'Open menu'),
-    );
-    document.body.dataset.menuOpen = String(open);
   }
   function go(target) {
     if (menu.open) menu.close();
@@ -101,62 +82,8 @@ export function createContentController({ root, journey }) {
         go('#contact');
       }),
     );
-    scope.listen($('#open-mobile-menu'), 'click', () => {
-      menu.showModal();
-      document
-        .querySelector('#mobile-menu-title')
-        .focus({ preventScroll: true });
-      syncMenu();
-    });
-    scope.listen(document.querySelector('#close-mobile-menu'), 'click', () =>
-      menu.close(),
-    );
-    scope.listen(menu, 'close', syncMenu);
-    const mobile = window.matchMedia('(max-width:760px)'),
-      language = $('#site-header-language'),
-      languageHome = language.parentElement;
-    const placeLanguage = () => {
-      const parent = mobile.matches
-          ? document.querySelector('#mobile-language-slot')
-          : languageHome,
-        trigger = language.querySelector('[data-language-trigger]');
-      if (language.parentElement !== parent) {
-        language.querySelector('[role=menu]').hidden = true;
-        parent.insertBefore(
-          language,
-          mobile.matches ? null : $('#open-mobile-menu'),
-        );
-      }
-      if (mobile.matches) {
-        trigger.removeAttribute('aria-haspopup');
-        trigger.removeAttribute('aria-expanded');
-        trigger.removeAttribute('aria-controls');
-        trigger.setAttribute(
-          'aria-label',
-          document.documentElement.lang === 'el'
-            ? 'Switch to English'
-            : 'Αλλαγή σε Ελληνικά',
-        );
-      } else {
-        trigger.setAttribute('aria-haspopup', 'menu');
-        trigger.setAttribute('aria-expanded', 'false');
-        trigger.setAttribute('aria-controls', 'language-options-header');
-      }
-      if (!mobile.matches && menu.open) {
-        menu.close();
-        syncMenu();
-      }
-    };
-    placeLanguage();
-    scope.listen(mobile, 'change', placeLanguage);
-    scope.defer(() => {
-      languageHome.insertBefore(language, $('#open-mobile-menu'));
-    });
-    scope.listen($('#open-cookies'), 'click', () => {
-      dialog.showModal();
-    });
-    scope.listen($('[data-close-cookies]'), 'click', () => dialog.close());
-    scope.listen($('#save-cookies'), 'click', () => saveConsent('settings'));
+    const headerMenu = createHeaderMenu(document);
+    scope.defer(() => headerMenu.dispose());
     scope.listen($('[data-open-cookie-settings]'), 'click', () =>
       dialog.showModal(),
     );

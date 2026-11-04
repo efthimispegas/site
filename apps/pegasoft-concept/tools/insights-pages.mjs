@@ -26,11 +26,27 @@ export function renderInsights(source, language, slug = '', origin = '') {
   const href = (a) => listing + a.slug + '/';
   const card = (a) =>
     `<a class="insight-card reveal" href="${href(a)}" data-category="${a.category}" data-date="${a.date}"><div class="card-image"><img src="${image(a.category)}" alt="" loading="lazy"></div><p class="insight-meta">${category(a.category)} <span>${a.date} · ${t('Review copy', 'Προς έγκριση')}</span></p><h3>${esc(a.title[language])}</h3><p>${esc(a.summary[language])}</p><span class="card-arrow" aria-hidden="true">↗</span></a>`;
-  const header = source
-    .match(/<nav\s+id="site-header"[\s\S]*?<\/nav>/)[0]
-    .replace('data-visible="false"', 'data-visible="true"')
-    .replace('data-ready="false"', 'data-ready="true"')
-    .replace('data-compact="false"', 'data-compact="true"');
+  const header = source.match(/<nav\s+id="site-header"[\s\S]*?<\/nav>/)[0];
+  const loader = ['pulse', 'radar', 'loader-mark']
+    .map(
+      (name) =>
+        source.match(
+          new RegExp(`<div[^>]*class="${name}"[^>]*>[\\s\\S]*?<\\/div>`),
+        )[0],
+    )
+    .join('');
+  const social = `<div class="article-social"><span>${t('Share this article:', 'Κοινοποίηση άρθρου:')}</span><div class="article-social-actions"><button type="button" data-social="linkedin" data-ui-action="secondary" aria-disabled="true" aria-label="LinkedIn"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M2 5.8h2.7v8.8H2zM3.35 1.4a1.55 1.55 0 1 0 0 3.1 1.55 1.55 0 0 0 0-3.1M6.3 5.8h2.6V7c.5-.8 1.4-1.4 2.7-1.4 2.7 0 3.1 1.8 3.1 4.1v4.9H12v-4.4c0-1.1 0-2.4-1.5-2.4S9 9 9 10.2v4.4H6.3z"/></svg></button><button type="button" data-social="link" data-ui-action="secondary" aria-disabled="true" aria-label="${t('Article link', 'Σύνδεσμος άρθρου')}"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="m6 10 4-4M5.5 6.5 3 9a3 3 0 0 0 4.2 4.2L9.5 11M6.5 5 8.8 2.8A3 3 0 0 1 13 7l-2.5 2.5"/></svg></button></div></div>`;
+  const minutes = item
+    ? Math.max(
+        1,
+        Math.ceil(
+          item.sections[language]
+            .map((s) => s[1])
+            .join(' ')
+            .split(/\s+/u).length / 200,
+        ),
+      )
+    : 0;
   const footer = source.match(/<section id="closing-cta"[\s\S]*?<\/footer>/)[0];
   const menu = source.match(
     /<dialog id="mobile-navigation"[\s\S]*?<\/dialog>/,
@@ -40,7 +56,19 @@ export function renderInsights(source, language, slug = '', origin = '') {
   const follow = `<section id="linkedin" class="linkedin-panel reveal"><div><p class="eyebrow">${t('Keep the conversation going', 'Συνεχίζουμε τη συζήτηση')}</p><h2>${t('Follow what comes next.', 'Ακολουθήστε όσα έρχονται.')}</h2><p>${t('Perspectives on connected products, purposeful AI and digital craft.', 'Ιδέες για συνδεδεμένα προϊόντα, AI με σκοπό και ψηφιακή ποιότητα.')}</p></div><div><span class="pending-link">${t('Company LinkedIn connection pending', 'Εκκρεμεί η σύνδεση του εταιρικού LinkedIn')}</span></div></section>`;
   let content;
   if (item)
-    content = `<header class="insights-title article-title"><p class="eyebrow">${category(item.category)} · ${t('Editorial preview', 'Συντακτική προεπισκόπηση')}</p><h1>${esc(item.title[language])}</h1>${breadcrumbs}<p class="insight-meta">${item.author} <span>${item.date} · ${t('Review copy', 'Προς έγκριση')} · ${t('1 min read', '1 λεπτό ανάγνωσης')}</span></p></header><figure class="article-cover"><img src="${image(item.category)}" alt="${t('Pegasoft visual study', 'Οπτική μελέτη Pegasoft')}"></figure><div class="article-layout"><aside class="article-toc"><h2>${t('Table of contents', 'Περιεχόμενα')}</h2><nav aria-label="${t('Article sections', 'Ενότητες άρθρου')}">${item.sections[language].map(([title], i) => `<a href="#section-${i + 1}" data-toc="section-${i + 1}"><span>0${i + 1}</span>${esc(title)}</a>`).join('')}</nav><progress id="reading-progress" max="100" value="0" aria-label="${t('Reading progress', 'Πρόοδος ανάγνωσης')}"></progress><p>${item.author} · ${item.date}</p><button type="button" data-copy-link>${t('Copy article link', 'Αντιγραφή συνδέσμου')}</button><p data-copy-status role="status"></p></aside><article class="article-body"><p class="article-lead">${esc(item.summary[language])}</p>${item.sections[language].map(([title, body], i) => `<section id="section-${i + 1}"><h2>${i + 1}. ${esc(title)}</h2><p>${esc(body)}</p></section>`).join('')}<nav class="article-tags" aria-label="Tags"><span>Tags</span><a href="${listing}?category=${item.category}">${category(item.category)}</a><a href="${listing}">Pegasoft</a></nav>${follow}<section class="related-articles"><h2>${t('Related articles', 'Σχετικά άρθρα')}</h2><div class="insight-grid">${insightArticles
+    content = `<header class="insights-title article-title"><p class="eyebrow">${category(item.category)} · ${t('Editorial preview', 'Συντακτική προεπισκόπηση')}</p><h1>${esc(item.title[language])}</h1>${breadcrumbs}<p class="insight-meta">${item.author} <span>${item.date} · ${t('Review copy', 'Προς έγκριση')} · ${t(`${minutes} min read`, `${minutes} λεπτά ανάγνωσης`)}</span></p>${social}</header><figure class="article-cover"><img src="${image(item.category)}" alt="${t('Pegasoft visual study', 'Οπτική μελέτη Pegasoft')}"></figure><div class="article-layout"><aside class="article-toc"><h2>${t('Table of contents', 'Περιεχόμενα')}</h2><nav aria-label="${t('Article sections', 'Ενότητες άρθρου')}">${item.sections[language].map(([title], i) => `<a href="#section-${i + 1}" data-toc="section-${i + 1}"><span>0${i + 1}</span>${esc(title)}</a>`).join('')}</nav><progress id="reading-progress" max="100" value="0" aria-label="${t('Reading progress', 'Πρόοδος ανάγνωσης')}"></progress><p>${item.author} · ${item.date}</p></aside><article class="article-body"><p class="article-lead">${esc(item.summary[language])}</p>${item.sections[
+      language
+    ]
+      .map(
+        ([title, body], i) =>
+          `<section id="section-${i + 1}"><h2>${i + 1}. ${esc(title)}</h2>${body
+            .split('\n\n')
+            .map((paragraph) => `<p>${esc(paragraph)}</p>`)
+            .join('')}</section>`,
+      )
+      .join(
+        '',
+      )}<nav class="article-tags" aria-label="Tags"><span>Tags</span><a href="${listing}?category=${item.category}">${category(item.category)}</a><a href="${listing}">Pegasoft</a></nav>${follow}<section class="related-articles"><h2>${t('Related articles', 'Σχετικά άρθρα')}</h2><div class="insight-grid">${insightArticles
       .filter((a) => a !== item)
       .map(card)
       .join('')}</div></section></article></div>`;
@@ -51,7 +79,7 @@ export function renderInsights(source, language, slug = '', origin = '') {
     : 'Insights — Pegasoft';
   const path = listing + (item ? item.slug + '/' : '');
   const head = `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>${esc(title)}</title><meta name="description" content="${esc(item ? item.summary[language] : t('Perspectives on connected products, purposeful AI and digital craft.', 'Ιδέες για συνδεδεμένα προϊόντα, AI με σκοπό και ψηφιακή ποιότητα.'))}"><meta name="robots" content="noindex,nofollow"><link rel="canonical" href="${origin}${path}">${['en', 'el'].map((l) => `<link rel="alternate" hreflang="${l}" href="${origin}/${l}/insights/${item ? item.slug + '/' : ''}">`).join('')}<link rel="stylesheet" href="/src/insights.css">`;
-  let html = `<!doctype html><html lang="${language}" data-color-theme="dark"><head>${head}<noscript><style>.insights-loader{display:none}</style></noscript></head><body class="insights-page" data-insight-slug="${slug}"><a class="skip-link" href="#insights-content">${t('Skip to content', 'Μετάβαση στο περιεχόμενο')}</a><div class="insights-loader" aria-hidden="true"><div class="loader-orbit"><i></i><i></i><i></i><b>p.</b></div></div>${header}<main id="insights-content">${content}</main><div id="after-journey" class="after-journey">${footer}</div>${menu}<script type="module" src="/src/insights.js"></script></body></html>`;
+  let html = `<!doctype html><html lang="${language}" data-color-theme="dark"><head>${head}<noscript><style>[data-page-loader]{display:none}</style></noscript></head><body class="insights-page" data-insight-slug="${slug}"><a class="skip-link" href="#insights-content">${t('Skip to content', 'Μετάβαση στο περιεχόμενο')}</a><div data-page-loader aria-hidden="true">${loader}</div>${header}<main id="insights-content">${content}</main><div id="after-journey" class="after-journey">${footer}</div>${menu}<script type="module" src="/src/insights.js"></script></body></html>`;
   html = localizeHtml(html, language, { origin }).replaceAll(
     'href="/el/insights/"',
     `href="${listing}"`,
