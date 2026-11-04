@@ -15,6 +15,7 @@ import './localization.css';
 import './ui-theme.css';
 import './adaptive-header.css';
 import './insights.css';
+import './insights-bento.css';
 const language = document.documentElement.lang,
   greek = language === 'el',
   base = `/${language}/`,

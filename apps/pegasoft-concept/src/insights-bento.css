@@ -1,0 +1,225 @@
+/* Triloe-informed component treatment. Grid, content order and shared site chrome stay owned by their existing sources. */
+.insights-page #insights-content {
+  --editorial-card-radius: 24px;
+  --editorial-card-line: var(--line);
+  --editorial-card-surface: var(--panel);
+}
+#insights-content
+  :is(
+    .highlights,
+    .insight-card,
+    .insights-sidebar,
+    .article-toc-widget,
+    .article-source,
+    .linkedin-panel
+  ) {
+  border: 1px solid var(--editorial-card-line);
+  border-radius: var(--editorial-card-radius);
+  background: var(--editorial-card-surface);
+}
+#insights-content :is(.insights-sidebar, .article-toc-widget) {
+  padding: var(--widget-inset);
+}
+#insights-content :is(.insights-sidebar h2, .article-toc h2) {
+  margin-bottom: 24px;
+}
+#insights-content .sidebar-group {
+  padding: 0;
+  background: transparent;
+  margin: 24px 0 12px;
+}
+#insights-content :is(.insights-sidebar > a, .article-toc nav a) {
+  min-height: 44px;
+  align-items: center;
+  padding: 12px;
+  gap: 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+  transition:
+    background-color 200ms,
+    border-color 200ms,
+    color 200ms;
+}
+#insights-content .insights-sidebar > a span {
+  flex-shrink: 0;
+}
+#insights-content :is(.insights-sidebar > a + a, .article-toc nav a + a) {
+  margin-top: 4px;
+}
+#insights-content
+  :is(.insights-sidebar > a[aria-current], .article-toc nav a[aria-current]) {
+  background: var(--action-primary-fill);
+  border-color: var(--action-primary-fill);
+  color: var(--action-primary-ink);
+}
+#insights-content .insights-sidebar > a[aria-current] span {
+  color: inherit;
+}
+#insights-content
+  :is(.insights-sidebar > a, .article-toc nav a):is(:hover, :focus-visible) {
+  border-color: var(--action-secondary-ink);
+  color: var(--action-secondary-ink);
+  background: color-mix(in srgb, var(--action-secondary-ink) 10%, transparent);
+}
+#insights-content
+  :is(.insights-sidebar > a[aria-current], .article-toc nav a[aria-current]):is(
+    :hover,
+    :focus-visible
+  ) {
+  background: var(--action-primary-hover);
+  border-color: var(--action-primary-hover);
+  color: var(--action-primary-ink);
+}
+#insights-content .highlights {
+  overflow: hidden;
+}
+#insights-content .highlight-copy > .eyebrow {
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  color: var(--muted);
+  background: transparent;
+  padding: 6px 12px;
+}
+#insights-content .highlight-art {
+  grid-template-rows: minmax(0, 1fr);
+  margin: 16px 16px 16px 0;
+  border-radius: var(--editorial-card-radius);
+  background: var(--paper);
+}
+#insights-content .highlight-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  color: var(--action-secondary-ink);
+  border-color: var(--action-secondary-ink);
+  display: grid;
+  place-items: center;
+}
+#insights-content .highlight-controls button:is(:hover, :focus-visible) {
+  background: color-mix(in srgb, var(--action-secondary-ink) 10%, transparent);
+}
+#insights-content .highlight-controls svg {
+  width: 18px;
+  height: 18px;
+}
+#insights-content .insight-card {
+  padding: var(--widget-inset);
+  transition:
+    border-color 200ms,
+    background-color 200ms;
+}
+#insights-content .insight-card:is(:hover, :focus-visible) {
+  transform: none;
+  border-color: var(--action-secondary-ink);
+}
+#insights-content .card-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background: var(--paper);
+}
+#insights-content .insight-card:is(:hover, :focus-visible) img {
+  transform: none;
+}
+#insights-content .card-link-label {
+  color: var(--action-secondary-ink);
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+#insights-content :is(.insight-meta, .breadcrumbs) {
+  line-height: 1.6;
+}
+#insights-content .article-cover {
+  grid-template-rows: minmax(0, 1fr);
+  border: 1px solid var(--line);
+  border-radius: var(--editorial-card-radius);
+  background: var(--panel);
+}
+#insights-content .article-source {
+  padding: var(--widget-inset);
+}
+#insights-content .article-source > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+#insights-content .article-source > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+#insights-content .article-toc p {
+  background: transparent;
+  padding: 0;
+}
+#insights-content .linkedin-panel {
+  color: var(--ink);
+  flex-wrap: wrap;
+}
+#insights-content .linkedin-panel .eyebrow {
+  color: var(--muted);
+}
+#insights-content .pending-link {
+  border-radius: 8px;
+  border-color: var(--line);
+  color: var(--muted);
+  max-width: 100%;
+  width: auto;
+}
+#insights-content select {
+  min-height: 44px;
+  border-radius: 8px;
+}
+@media (max-width: 760px) {
+  #insights-content .insights-sidebar {
+    padding: 0 0 12px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+  #insights-content .insights-sidebar > a {
+    flex-shrink: 0;
+    border-color: var(--line);
+    border-radius: 30px;
+    margin-top: 0;
+  }
+  #insights-content .article-toc nav {
+    display: block;
+    overflow: visible;
+  }
+  #insights-content .article-toc nav a {
+    min-width: 0;
+  }
+  #insights-content .highlight-art {
+    margin: 16px 16px 0;
+  }
+  #insights-content .card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+  #insights-content .article-source a {
+    white-space: normal;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  #insights-content
+    :is(
+      .insight-card,
+      .insights-sidebar > a,
+      .article-toc nav a,
+      .highlight-controls button
+    ) {
+    transition: none;
+  }
+}
+
+#insights-content :is(.article-cover, .highlight-art) img {
+  min-width: 0;
+  min-height: 0;
+  max-height: 100%;
+  object-fit: contain;
+}
