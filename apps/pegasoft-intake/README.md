@@ -1,9 +1,9 @@
 # Private website intake
 
 Independent Cloudflare Worker for contact/application processing. The website and
-its approved graphics are separate. The current deployment contract forces intake
-off, disables workers.dev/preview URLs and configures no public routes. Enabling
-submissions requires another reviewed change after provider/privacy qualification.
+its approved graphics are separate. The default deployment keeps intake
+off, disables workers.dev/preview URLs and configures no public routes. The explicit
+Contact-only stage requires reviewed provider/privacy qualification; Careers remains off.
 
 Use Node/pnpm pinned by the workspace. Through Nx:
 
@@ -72,7 +72,7 @@ Official provider references: [Worker permissions](https://developers.cloudflare
 
 The maintained code uses **one** email transport: Resend's HTTPS API. The old
 Cloudflare `EMAIL` binding/send path is removed. No SDK or new workspace dependency
-is required. The disabled deployment generator remains the only deployment path.
+is required. The reviewed configuration generator remains the only deployment path.
 It adds a SQLite Durable Object class `IntakeDelivery` and its initial migration;
 review that provider migration before any deployment. Worker calls select the EU
 jurisdiction explicitly. This does not make the Resend service EU-only.
@@ -104,7 +104,7 @@ Each provider request has its own stable idempotency key. Unconfirmed sends can
 only be retried within **23 hours of the first attempt**, inside Resend's documented
 24-hour window; older uncertainty requires manual review and is never blindly
 resent. No background delivery retry/outbox or operator retry endpoint is exposed.
-Caller retries require the same original payload and a fresh challenge. The frontend stays disabled and is not wired to this backend. Before activation it must create one stable ID per payload, retain it across transport retries (with a fresh Turnstile token), create a new ID only for changed/new payloads, handle the 202 partial-success states without duplicate internal notifications, and pass EN/EL browser tests. Operational reconciliation remains activation work.
+Caller retries require the same original payload and a fresh challenge. The frontend defaults to disabled; its qualified Contact adapter must create one stable ID per payload, retain it across transport retries (with a fresh Turnstile token), create a new ID only for changed/new payloads, handle the 202 partial-success states without duplicate internal notifications, and pass EN/EL browser tests. Operational reconciliation remains activation work.
 
 - `201 submitted`: both messages accepted by the provider, not proof of inbox delivery.
 - `202 submitted_receipt_pending`: internal notification accepted; receipt uncertain.
@@ -133,7 +133,7 @@ Provider references: [send API](https://resend.com/docs/api-reference/emails/sen
 
 ### Disconnected browser client
 
-`../pegasoft-concept/src/intake-client.js` is an opt-in, dependency-injected contract module. The live form does not import it; processing and the UI remain disabled. It has no default endpoint, fetch implementation, browser persistence or logging. Synthetic tests inject the challenge and transport. IDs and status live only in memory; browser reload recovery is not qualified. Do not add local/session storage for personal details, CVs, tokens or recovery state without a separate reviewed design.
+`../pegasoft-concept/src/intake-client.js` is an opt-in, dependency-injected contract module. The Contact form imports it through a disabled-by-default configuration gate; importing it does not activate processing. It has no default endpoint, fetch implementation, browser persistence or logging. Synthetic tests inject the challenge and transport. IDs and status live only in memory; browser reload recovery is not qualified. Do not add local/session storage for personal details, CVs, tokens or recovery state without a separate reviewed design.
 
 The module snapshots a payload, hashes CV bytes (not just filename/size), preserves identity on unchanged retries and requests a new challenge for every attempt. Changed content or an explicit new-submission action starts a new identity. Concurrent clicks cannot launch another attempt. Known accepted 202 states survive later challenge/network/server failures and do not become an unsent message. Terminal success/review/conflict states prevent blind retry. English/Greek feedback is local text and never renders provider response text. These tests qualify the disconnected contract, not Turnstile UI, DOM wiring, physical devices, inbox delivery or live submissions.
 
@@ -255,3 +255,9 @@ Website Contact is a separate public build flag, default false. It requires qual
 The full bilingual privacy page is a review draft covering Contact, future Careers, essential browser/security processing, providers/transfers, retention/copies, rights and external links. Public business/contact details come from explicitly allowlisted build configuration. Draft pages stay noindex and cannot satisfy Contact activation. Actual security-log retention, mailbox/provider arrangements and operating deletion still need confirmation; the copy does not certify compliance or every-copy deletion.
 
 Analytics is **planned and gated**, not installed or activated. Issue57 owns provider/goals/events, minimization, consent/reject/withdrawal, EN/EL privacy updates, access/retention, test/staff/bot exclusions, performance and production readback/reporting. Link its work with PC-004 privacy, PC-006 conversion flow, PC-013 SEO, PC-014 release, #31 performance and #38 consent UI. Analytics does not block secure Contact while absent. Do not describe future tracking as active or insert trackers solely to clear an SEO checklist.
+
+## Composed local Contact qualification
+
+The `local-runtime-check` also runs the maintained EN/EL DOM form and same-origin transport against the bundled Worker fetch handler, real local SQLite admission/delivery objects and isolated local R2. It serializes the multipart HTTP boundary, loses the first response after Worker completion, retries with the same identity and a fresh synthetic challenge, verifies localized receipt feedback, and prevents a terminal-success resend. Careers stays unavailable and Contact writes no CV objects.
+
+The fixture intercepts every outbound challenge/email request and uses a synthetic burst-limiter adapter plus the existing local EU-jurisdiction adapter. It cannot send external email, inspect production data or prove live Turnstile, provider delivery, edge limits or geographic placement. A successful composed local run does not satisfy the protected live qualification gate.
