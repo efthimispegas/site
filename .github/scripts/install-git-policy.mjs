@@ -6,6 +6,7 @@ const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
 const common = resolve(git('rev-parse', '--git-common-dir'));
 const directory = resolve(common, 'pegasoft-policy');
 const hooks = resolve(directory, 'hooks');
+const previous = resolve(directory, 'previous-hooks');
 let configured = '';
 try {
   configured = git('config', '--get', 'core.hooksPath');
@@ -19,8 +20,16 @@ if (configured && configured !== hooks) {
 }
 for (const name of ['pre-commit', 'pre-push']) {
   if (!configured && existsSync(resolve(common, 'hooks', name))) {
-    throw new Error(
-      `Existing ${name} detected; preserve and integrate it first.`,
+    if (!process.argv.includes('--chain-existing')) {
+      throw new Error(
+        `Review existing ${name}, then use --chain-existing to preserve and chain it.`,
+      );
+    }
+    mkdirSync(previous, { recursive: true });
+    writeFileSync(
+      resolve(previous, name),
+      readFileSync(resolve(common, 'hooks', name)),
+      { mode: 0o755 },
     );
   }
 }
@@ -34,16 +43,22 @@ const prologue = `#!/bin/sh
 set -eu
 valid_feature() { printf '%s' "$1" | grep -Eq '^feature/pegasoft-[a-z0-9]+(-[a-z0-9]+)*$'; }
 valid_release() { printf '%s' "$1" | grep -Eq '^release/(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$'; }
+common=$(git rev-parse --git-common-dir)
 `;
 writeFileSync(
   resolve(hooks, 'pre-commit'),
   prologue +
     `
 branch=$(git symbolic-ref --quiet --short HEAD) || { echo 'Recovery-only detached checkout: port WIP into its clean feature stream first.' >&2; exit 1; }
-if valid_feature "$branch"; then exit 0; fi
-if valid_release "$branch" && ! git show-ref --verify --quiet "refs/tags/v\${branch#release/}"; then exit 0; fi
-echo 'Commit on an owned feature/pegasoft-* branch, or an unpublished versioned release candidate.' >&2
-exit 1
+if ! valid_feature "$branch"; then
+  if ! valid_release "$branch" || git show-ref --verify --quiet "refs/tags/v\${branch#release/}"; then
+    echo 'Commit on an owned feature/pegasoft-* branch, or an unpublished versioned release candidate.' >&2
+    exit 1
+  fi
+fi
+if [ -x "$common/pegasoft-policy/previous-hooks/pre-commit" ]; then
+  exec "$common/pegasoft-policy/previous-hooks/pre-commit" "$@"
+fi
 `,
   { mode: 0o755 },
 );
@@ -51,7 +66,9 @@ writeFileSync(
   resolve(hooks, 'pre-push'),
   prologue +
     `
-while read -r local_ref local_sha remote_ref remote_sha; do
+input=$(cat)
+printf '%s\\n' "$input" | while read -r local_ref local_sha remote_ref remote_sha; do
+  [ -z "$local_ref" ] && continue
   # Deletions are permitted only after the documented preservation/review checks.
   [ "$local_sha" = 0000000000000000000000000000000000000000 ] && continue
   case "$remote_ref" in
@@ -65,6 +82,9 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   echo 'Direct main/develop pushes and legacy branch names are blocked; integrate through PRs.' >&2
   exit 1
 done
+if [ -x "$common/pegasoft-policy/previous-hooks/pre-push" ]; then
+  printf '%s\\n' "$input" | "$common/pegasoft-policy/previous-hooks/pre-push" "$@"
+fi
 `,
   { mode: 0o755 },
 );

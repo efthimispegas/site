@@ -17,5 +17,5 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
-      - run: node --test .github/scripts/branch-policy.test.mjs
+      - run: node --test .github/scripts/branch-policy.test.mjs .github/scripts/install-git-policy.test.mjs
       - run: node .github/scripts/branch-policy.mjs
