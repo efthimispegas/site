@@ -76,7 +76,7 @@ jobs:
           for path, language in [('/en/', 'en'), ('/el/', 'el'), ('/en/insights/', 'en'), ('/el/insights/', 'el')]:
               for attempt in range(6):
                   try:
-                      with urlopen(Request(origin + path, headers={'Accept-Encoding': 'identity'}), timeout=20) as response:
+                      with urlopen(Request(origin + path, headers={'Accept-Encoding': 'identity', 'User-Agent': 'PegasoftReleaseVerification/1.0'}), timeout=20) as response:
                           html = response.read().decode('utf-8')
                           assert response.status == 200, 'Route did not return HTTP 200'
                           assert 'noindex' in response.headers.get('X-Robots-Tag', ''), 'Staging must remain excluded from indexing'
