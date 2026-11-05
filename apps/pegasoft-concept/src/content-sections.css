@@ -349,7 +349,7 @@
   letter-spacing: -0.035em;
   margin: 0;
 }
-#mobile-navigation button {
+#mobile-navigation :is(button, .insights-nav-link) {
   background: none;
   border: 0;
   color: var(--black);
@@ -359,16 +359,16 @@
 #mobile-navigation nav {
   display: grid;
 }
-#mobile-navigation nav button {
+#mobile-navigation nav :is(button, .insights-nav-link) {
   border-bottom: 1px solid #061e3b26;
   padding: 12px 0;
   text-align: left;
   min-height: 44px;
 }
-#mobile-navigation button:is(:hover, :focus-visible) {
+#mobile-navigation :is(button, .insights-nav-link):is(:hover, :focus-visible) {
   color: var(--blue);
 }
-#mobile-navigation button:focus-visible {
+#mobile-navigation :is(button, .insights-nav-link):focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 3px;
 }
@@ -1033,9 +1033,6 @@
 
 /* Landing notice follows the reference's corner card; it does not block the story or take focus. */
 .cookie-notice {
-  --notice-scale: 0.75;
-  transform: scale(var(--notice-scale));
-  transform-origin: bottom right;
   position: fixed;
   z-index: 150;
   right: 24px;
@@ -1350,25 +1347,14 @@
 #mobile-menu-title:focus {
   outline: none;
 }
-#mobile-navigation nav button {
+#mobile-navigation nav :is(button, .insights-nav-link) {
   text-align: center;
 }
 #mobile-language-slot {
   display: flex;
   justify-content: center;
 }
-.services-cta,
-.metrics-intro [data-ui-action] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font: 600 13px/1.2 Manrope;
-  pointer-events: auto;
-  text-decoration: none;
-}
+
 /* The desktop action belongs below the moving row, not in its horizontal track. */
 #services-overlay {
   display: flex;

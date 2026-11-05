@@ -1,0 +1,41 @@
+/* Shared layout contract: use these roles on every page, not page-specific copies. */
+:root {
+  --layout-gutter: clamp(12px, 1.157407vw, 32px);
+  --layout-page-inset: calc(var(--layout-gutter) * 2);
+  --layout-panel-inset: 24px;
+  --layout-section-space: 48px;
+  --layout-card-radius: 24px;
+  --layout-control-radius: 8px;
+}
+@media (max-width: 760px) {
+  :root {
+    --layout-page-inset: 20px;
+    --layout-panel-inset: 16px;
+    --layout-section-space: 32px;
+  }
+}
+.layout-container {
+  padding-inline: var(--layout-page-inset);
+}
+.layout-section {
+  padding: var(--layout-section-space) var(--layout-page-inset);
+}
+.layout-panel {
+  padding: var(--layout-panel-inset);
+  border: 1px solid var(--line);
+  border-radius: var(--layout-card-radius);
+  background: var(--panel);
+}
+/* Ordinary content shares the editorial frame. Scene positioning remains timeline-owned. */
+:is(#partners, #faq) {
+  padding: var(--layout-section-space) var(--layout-page-inset);
+}
+:is(#insights, #website-footer, #trust-evidence),
+#stage #trust-evidence {
+  padding-inline: var(--layout-page-inset);
+}
+.testimonial-card,
+#stage .testimonial-card {
+  padding: var(--layout-panel-inset);
+  border-radius: var(--layout-card-radius);
+}

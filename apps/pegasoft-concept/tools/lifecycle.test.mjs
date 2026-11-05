@@ -278,3 +278,43 @@ test('native model downloads decode exact bytes and support raw fallback and can
   );
   assert.equal(attempts, 1);
 });
+
+test('appearance controls share one preference, survive blocked storage and dispose listeners', async () => {
+  const { createColorTheme } = await import('../src/color-theme.js');
+  const controls = Array.from({ length: 2 }, () => {
+    const button = new EventTarget();
+    button.attributes = new Map();
+    button.setAttribute = (key, value) => button.attributes.set(key, value);
+    return button;
+  });
+  const window = new EventTarget();
+  window.Event = Event;
+  let stored;
+  window.localStorage = {
+    setItem: (key, value) => {
+      stored = [key, value];
+    },
+  };
+  const document = {
+    documentElement: { lang: 'en', dataset: { colorTheme: 'dark' } },
+    querySelectorAll: () => controls,
+    defaultView: window,
+  };
+  const theme = createColorTheme(document);
+  controls[0].dispatchEvent(new Event('click'));
+  assert.deepEqual(stored, ['pegasoft-theme', 'light']);
+  assert.ok(controls.every((b) => b.attributes.get('aria-checked') === 'true'));
+  document.documentElement.lang = 'el';
+  theme.refresh();
+  assert.ok(
+    controls.every((b) => b.attributes.get('aria-label') === 'Φωτεινό θέμα'),
+  );
+  window.localStorage.setItem = () => {
+    throw new Error('Storage blocked');
+  };
+  controls[1].dispatchEvent(new Event('click'));
+  assert.equal(document.documentElement.dataset.colorTheme, 'dark');
+  theme.dispose();
+  controls[0].dispatchEvent(new Event('click'));
+  assert.equal(document.documentElement.dataset.colorTheme, 'dark');
+});

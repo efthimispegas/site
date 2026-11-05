@@ -1,0 +1,90 @@
+name: Pegasoft staging
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'release/*'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-and-deploy:
+    # Opt-in only after the staging environment, credentials and project are reviewed.
+    if: vars.PEGASOFT_STAGING_READY == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: pegasoft-staging
+      url: ${{ vars.PEGASOFT_STAGING_SITE_URL }}
+    concurrency:
+      group: pegasoft-staging
+      cancel-in-progress: true
+    env:
+      PEGASOFT_PUBLIC_SITE_URL: ${{ vars.PEGASOFT_STAGING_SITE_URL }}
+      PEGASOFT_DEPLOYMENT_ENV: development
+      PEGASOFT_INCLUDE_INSPECTORS: 'false'
+      PAGES_PROJECT: ${{ vars.PEGASOFT_STAGING_PAGES_PROJECT }}
+      PRODUCTION_PROJECT: ${{ vars.PEGASOFT_PRODUCTION_PAGES_PROJECT }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.8.1
+          run_install: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+      - name: Validate staging isolation
+        run: |
+          node --input-type=module <<'JS'
+          const project = process.env.PAGES_PROJECT;
+          const production = process.env.PRODUCTION_PROJECT;
+          if (!/^[a-z0-9][a-z0-9-]*$/.test(project || '') || !production || project === production) {
+            throw new Error('Configure a dedicated non-production Pages project.');
+          }
+          const url = new URL(process.env.PEGASOFT_PUBLIC_SITE_URL);
+          if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/' || url.search || url.hash) {
+            throw new Error('Staging site URL must be a clean HTTPS origin.');
+          }
+          if (!/^refs\/heads\/release\/[^/]+$/.test(process.env.GITHUB_REF || '')) {
+            throw new Error('Only release/* branches can deploy staging.');
+          }
+          JS
+      - run: pnpm install --frozen-lockfile
+      - name: Verify website candidate
+        run: pnpm exec nx run-many --projects=@site/pegasoft-concept --targets=lint,test,build --output-style=stream
+      - name: Install pinned deployment tooling
+        run: pnpm exec nx run @site/pegasoft-intake:install-cloudflare
+      - name: Deploy staging preview
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/pegasoft-intake/cloudflare-tooling
+          wranglerVersion: '4.155.0'
+          packageManager: pnpm
+          command: pages deploy ../../../dist/apps/pegasoft-concept --project-name=${{ vars.PEGASOFT_STAGING_PAGES_PROJECT }} --branch=staging --commit-hash=${{ github.sha }}
+
+      - name: Verify staging routes and indexing exclusion
+        run: |
+          python3 - <<'PYTHON'
+          import os, time
+          from urllib.request import Request, urlopen
+          origin = os.environ['PEGASOFT_PUBLIC_SITE_URL'].rstrip('/')
+          for path, language in [('/en/', 'en'), ('/el/', 'el'), ('/en/insights/', 'en'), ('/el/insights/', 'el')]:
+              for attempt in range(6):
+                  try:
+                      with urlopen(Request(origin + path, headers={'Accept-Encoding': 'identity', 'User-Agent': 'PegasoftReleaseVerification/1.0'}), timeout=20) as response:
+                          html = response.read().decode('utf-8')
+                          assert response.status == 200, 'Route did not return HTTP 200'
+                          assert 'noindex' in response.headers.get('X-Robots-Tag', ''), 'Staging must remain excluded from indexing'
+                          assert f'<html lang="{language}"' in html, 'Unexpected locale'
+                      print(f'Verified {path}: HTTP 200, expected locale, noindex')
+                      break
+                  except Exception:
+                      if attempt == 5:
+                          raise
+                      time.sleep(3)
+          PYTHON

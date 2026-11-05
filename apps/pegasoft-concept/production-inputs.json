@@ -42,7 +42,11 @@
     },
     {
       "path": "index.html",
-      "sha256": "765e8e5c013723e35ad8ff04cedb19fb4750101196642746c51a428dfd515e52"
+      "sha256": "0b57cb3f2eb2c88b12de64e6675951931cdc45dac5d87bf7cd917bde2e3ce819"
+    },
+    {
+      "path": "insights/index.html",
+      "sha256": "bf66121d15ada05ad71c979cf7332dec8a91d568e111cfc3aa930d815a189f2e"
     },
     {
       "path": "package.json",
@@ -50,7 +54,7 @@
     },
     {
       "path": "project.json",
-      "sha256": "1250c0a5a1182fe563424dce14d1fa78929a1a7b43465980a2e6b741a5092136"
+      "sha256": "cd66806fe50bbaa85a2ee3613aeea779cd7e095b61c34236750a31e32361e080"
     },
     {
       "path": "public/_headers",
@@ -281,8 +285,20 @@
       "sha256": "c62282a390908391eeb1b1cbb0ba583c26e2954676b3000d46988f9484db9798"
     },
     {
+      "path": "src/adaptive-header.css",
+      "sha256": "e963f14c914ae517f4be6ece48c79f8eda60532d7d26b33db7afb3546cfef57e"
+    },
+    {
+      "path": "src/adaptive-header.js",
+      "sha256": "20d4c3fe21a9b4bf8139b39f6c97547d32aab0615cece1fcd466bea59576d5f1"
+    },
+    {
       "path": "src/approved-loader-preset.js",
       "sha256": "6fd44b7eb387d380b448049b7c88c204a55ae1f0ae1d62a7b3e550cb44e6e5d2"
+    },
+    {
+      "path": "src/color-theme.js",
+      "sha256": "7a383ffaec9988a14e69a422ddd56d54003af9795a374266a5240fbcef4899f5"
     },
     {
       "path": "src/contact-form.js",
@@ -290,19 +306,27 @@
     },
     {
       "path": "src/content-controller.js",
-      "sha256": "2d391d14b12d1d0071069c72172bcfd38415a8f35314cefec7d8b639b9d9a14e"
+      "sha256": "6df070ed9edb2485a21dccc6c6634211b36b00f84a994098d7ae7b42a3c18c09"
     },
     {
       "path": "src/content-sections.css",
-      "sha256": "4c17df008b460192132569db16feb7f20e0aa9c255a41a3a342aeb6fa4415e7e"
+      "sha256": "8927b3672f8aed7787782bb585ddef6326100f6123746b6a3ead773683373655"
     },
     {
       "path": "src/cookie-consent.js",
       "sha256": "56f186f4fd8e646e1c75edd4ffa87f2a6f28ff0179c1e6b972c38402a3476a7c"
     },
     {
+      "path": "src/cookie-preferences.js",
+      "sha256": "ff899387c01964ef537b084b55538a3ca7f03d661b4babecfbe1dc6a1dc40ede"
+    },
+    {
       "path": "src/cooperative-work.js",
       "sha256": "6e8b919edfc49cc7f336c0610a3892dafee9a55e6f6219af18bd0a382893b3f2"
+    },
+    {
+      "path": "src/core-layout.css",
+      "sha256": "f1895d0fcfc2de636f0b23d839f516b2935d3c097dc6a339f0970cbad457aacb"
     },
     {
       "path": "src/counter.css",
@@ -311,6 +335,14 @@
     {
       "path": "src/cta-decryption.js",
       "sha256": "b09f13d7765b70bda16232cdfada9d48e19b8fb5fed5d2cc11584b85b79fa45d"
+    },
+    {
+      "path": "src/footer-content.js",
+      "sha256": "75628ac8b137416cc3f91df287a729c5864ab3f06864b7844079dd52bb61736a"
+    },
+    {
+      "path": "src/header-menu.js",
+      "sha256": "42f08b18bb43f7c21d786620ecf803770f0b93d93a710e9cc079d27ab2badc12"
     },
     {
       "path": "src/hero-city-routes.js",
@@ -330,15 +362,35 @@
     },
     {
       "path": "src/hero-opening.css",
-      "sha256": "af50060dbd140462c144073020b28bf0f891690d360e5862a1632eb4f6d78564"
+      "sha256": "2c89f7be11d4fb8fa7ef375343b7801b70fe4f629e74d2247bdcd14f24ffe8d3"
     },
     {
       "path": "src/horizon-transition.js",
       "sha256": "01186fe765599f87a033a276fe762e1cc4597ff89a80985e13533d31d9e93cee"
     },
     {
+      "path": "src/insights-bento.css",
+      "sha256": "a8a7eb53ef46990a8a922abfddb1be93033f03311043c61918f1b448bb181186"
+    },
+    {
+      "path": "src/insights-content.js",
+      "sha256": "16f5996fcd85a505d1e7feef26286ce10274c932d0ca51d3a8a54d3505d5b276"
+    },
+    {
+      "path": "src/insights-state.js",
+      "sha256": "f61376d51d216964153422d6e049d943f4ee84b5a35d7c91322a66b20445e7fd"
+    },
+    {
+      "path": "src/insights.css",
+      "sha256": "fc7abb6e1db549156446f7069b53f38752a0238c0b5166b770021078d1e3004d"
+    },
+    {
+      "path": "src/insights.js",
+      "sha256": "03542d82350dc64dbd2b7eaf4b74b2bdfeecd3dee718c03b09871a46af561ee0"
+    },
+    {
       "path": "src/intro-controller.js",
-      "sha256": "c3dc4f9f150221890c377202eaac241e0d28fb8745b7b3bb210c550a4d6b1b79"
+      "sha256": "4865a7e2c871e8bce0da51b718637140354d983ad3936a3cfd86024a4a96c687"
     },
     {
       "path": "src/intro-sequence.js",
@@ -353,6 +405,10 @@
       "sha256": "b3064a970ebd652d71ed0d5155bb0721534d0869a8abefa92448be606c68cf97"
     },
     {
+      "path": "src/language-menu.js",
+      "sha256": "dc654d31c707f913170b3df4fce0f3f5a505588f232c036b98779a89aa415421"
+    },
+    {
       "path": "src/loader-reference-preset.js",
       "sha256": "ac589a3fbb3537f481f35cd0f33143f7eea6584b9f782e2aca92807be1a90d79"
     },
@@ -362,11 +418,11 @@
     },
     {
       "path": "src/loader.css",
-      "sha256": "b96015ec4302aec0e67acead4a446aba985919ce5fa2ff423eacdcc944e59c43"
+      "sha256": "a887a4f96b2e191042806ed0ba68a9ace672886f513cb681a7be4dcab7944db7"
     },
     {
       "path": "src/locale-messages.js",
-      "sha256": "55b92998a069a0c41df8468ff06b7404d985d7b9d220e8474c29dadb4f985719"
+      "sha256": "8865f07550ae154ed67dcb1e8b090806a34991d752defcbb83fc1411f9b2f853"
     },
     {
       "path": "src/locales/el.js",
@@ -378,11 +434,11 @@
     },
     {
       "path": "src/localization.js",
-      "sha256": "2ebd19b64ed87446c49c838b269c1a6b4d97b9164ba64a8b85589528bdbefdd5"
+      "sha256": "4f31fa409ca49fc88ebabcb271efaa31682a0649080dc0898a7f0157c849e13d"
     },
     {
       "path": "src/main.js",
-      "sha256": "7487474f79e53305d703a1c7fa9b9dd55f9b2e20d6e3b520eed63f785ac53144"
+      "sha256": "693d6e33274040b818e906b9491e19b32fef5949addd09ac63f79fb78d97847e"
     },
     {
       "path": "src/mobile-mesh-batches.js",
@@ -425,6 +481,10 @@
       "sha256": "9363633b001acb50d83fabc902ccc7c7d27a23760e1163bcaf1a2cd68a34e305"
     },
     {
+      "path": "src/navigation-state.js",
+      "sha256": "ec6e5b4abb69441f163bce107a8840d8bb1a00da81d3a214b2e5d7274dee910a"
+    },
+    {
       "path": "src/outcome-metrics.js",
       "sha256": "72ec1ae42412e19c4129fd2aa161e0a8125b3a71ce3d5ffdefe741ce4dc74431"
     },
@@ -447,6 +507,10 @@
     {
       "path": "src/road-deck-registration.js",
       "sha256": "684d509ddff90c0449e8959378627ea4b9ab1601f68dd08252c011397ca4ef76"
+    },
+    {
+      "path": "src/site-loader.js",
+      "sha256": "b903a6abfaedbb368424aa94312e16655a1d40cff41005d73b2b2902ff0a68fe"
     },
     {
       "path": "src/startup-scroll.js",
@@ -478,15 +542,15 @@
     },
     {
       "path": "src/ui-theme.css",
-      "sha256": "54533617165873e705040e0bdb871604196f975c7f539d769921df752d136f2a"
+      "sha256": "8eb20fb90e35b4fbe27fc71c3ac6cb14546f53d7a2b918135bd9397c68ba8dd7"
     },
     {
       "path": "src/website-motion-controller.js",
-      "sha256": "9f7ac40dcf3140e2eb95675d1066fed596180e423c91fc1b239af81ef22588e8"
+      "sha256": "958cf195f1e7a55328c15cbb254eb508a71d67e24bbbe3bd82179816d01f492d"
     },
     {
       "path": "src/website-motion.css",
-      "sha256": "ed91b0c0f6090ee26e5bb476a2efc327c20c83d1f1cdef235e6cfb380059257a"
+      "sha256": "21c857ca9ddd5cdb212ec95f8623304af0167d3e8a92a9097fa87f1a4f0770cb"
     },
     {
       "path": "tools/check-source.mjs",
@@ -505,8 +569,16 @@
       "sha256": "26a53650fe3e937916334ce9198b1c54429625d410f49d1f18cc57080c1084c9"
     },
     {
+      "path": "tools/insights-pages.mjs",
+      "sha256": "d9e0eac04bda35082514b1cdb63c8471a558a9c5ca40c0abd432aea66a7fe39d"
+    },
+    {
+      "path": "tools/insights.test.mjs",
+      "sha256": "a08c37d04f6cf51b99f94be180643eb2bd4082c0febf2ff9f8af24cfde5d312c"
+    },
+    {
       "path": "tools/lifecycle.test.mjs",
-      "sha256": "10e56d2702cefb0028593f5578bc66989ed3383460f7605d1611b7559780ffbf"
+      "sha256": "1cd284a4d4838fe7d6c98a9006b6e8aa8a56c86876029e96bd504cb518c1abdf"
     },
     {
       "path": "tools/localization.test.mjs",
@@ -530,11 +602,11 @@
     },
     {
       "path": "tools/verify-production.mjs",
-      "sha256": "2300d39b683b97761cfe23df6487113ad1effe75c7442c14ea4093f35870ddea"
+      "sha256": "91c6e79819e9667db946a5ee5fcc6f02ab39dcd8c3af4fb84e5e49f53a056af1"
     },
     {
       "path": "vite.config.js",
-      "sha256": "54881b96fdbde4a0990cea190e2e77b3ae4875ce3fdfea4b907209ae31ddcf24"
+      "sha256": "018517b86e22a75a1dece68b11bff10c6b25ae42bcc00ec7aa91482915c99026"
     }
   ]
 }
