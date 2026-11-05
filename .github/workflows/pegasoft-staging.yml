@@ -48,9 +48,11 @@ jobs:
           if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/' || url.search || url.hash) {
             throw new Error('Staging site URL must be a clean HTTPS origin.');
           }
-          if (!/^refs\/heads\/release\/[^/]+$/.test(process.env.GITHUB_REF || '')) {
-            throw new Error('Only release/* branches can deploy staging.');
-          }
+          const match = /^refs\/heads\/release\/((?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*))$/.exec(process.env.GITHUB_REF || '');
+          if (!match) throw new Error('Use a release/<major>.<minor>.<patch> branch.');
+          const { readFileSync } = await import('node:fs');
+          const app = JSON.parse(readFileSync('apps/pegasoft-concept/package.json', 'utf8'));
+          if (match[1] !== app.version) throw new Error('Release branch must match the website package version.');
           JS
       - run: pnpm install --frozen-lockfile
       - name: Verify website candidate
