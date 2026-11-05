@@ -40,6 +40,7 @@ const inputs = () =>
       'check-source.mjs',
       'verify-production.mjs',
       'localized-pages.mjs',
+      'privacy-page.mjs',
       'deployment-config.mjs',
       'static-compression.mjs',
       'packaging.test.mjs',

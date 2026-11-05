@@ -1,3 +1,4 @@
+import { privacyConfig } from './tools/privacy-page.mjs';
 import { localizedPages } from './tools/localized-pages.mjs';
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'node:path';
@@ -6,6 +7,7 @@ import {
   developmentConfig,
   deploymentConfig,
   indexingConfig,
+  contactConfig,
 } from './tools/deployment-config.mjs';
 
 export default defineConfig(({ command, mode }) => {
@@ -17,6 +19,8 @@ export default defineConfig(({ command, mode }) => {
     plugins: [
       localizedPages({
         ...config,
+        contact: contactConfig(environment),
+        privacy: privacyConfig(environment),
         ...indexingConfig(environment, {
           ...config,
           production: command === 'build',

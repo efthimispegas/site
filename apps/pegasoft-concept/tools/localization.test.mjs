@@ -240,7 +240,8 @@ test('emitted crawler policy preserves security headers and excludes every previ
         !indexable,
       );
       assert.equal(
-        plugin.transformIndexHtml()[0].attrs.content,
+        plugin.transformIndexHtml().find((tag) => tag.attrs?.name === 'robots')
+          .attrs.content,
         indexable ? 'index, follow' : 'noindex, nofollow, noarchive',
       );
       for (const locale of ['en', 'el']) {

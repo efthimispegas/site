@@ -1,5 +1,15 @@
 /** Greek review copy. Company facts/demo identities remain unconfirmed. English source strings are stable message IDs. */
 export const greek = Object.freeze({
+  'Send message': 'Αποστολή μηνύματος',
+  'Privacy notice': 'Ενημέρωση απορρήτου',
+  'I have read the privacy notice.': 'Διάβασα την ενημέρωση απορρήτου.',
+  'Careers applications are temporarily unavailable.':
+    'Οι αιτήσεις εργασίας δεν είναι διαθέσιμες αυτή τη στιγμή.',
+  'Contact is available. Careers applications will open after private CV handling is verified.':
+    'Η επικοινωνία είναι διαθέσιμη. Οι αιτήσεις εργασίας θα ανοίξουν μετά την επαλήθευση της ιδιωτικής διαχείρισης βιογραφικών.',
+  'Messages are sent securely after verification. CV uploads are not available yet.':
+    'Τα μηνύματα αποστέλλονται με ασφάλεια μετά την επαλήθευση. Η μεταφόρτωση βιογραφικών δεν είναι ακόμη διαθέσιμη.',
+
   'Learn more about us': 'Μάθετε περισσότερα για εμάς',
   'From the first conversation to delivery, keep product decisions, design and engineering connected.':
     'Από την πρώτη συζήτηση έως την παράδοση, συνδέουμε τις αποφάσεις για το προϊόν με τον σχεδιασμό και την ανάπτυξη.',

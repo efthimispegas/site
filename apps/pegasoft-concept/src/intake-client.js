@@ -105,7 +105,7 @@ async function snapshot(input) {
   };
   const fingerprint = await digest(
     new globalThis.TextEncoder().encode(
-      JSON.stringify({ ...data, cv: cvHash }),
+      JSON.stringify({ ...data, language: undefined, cv: cvHash }),
     ),
   );
   return { data, fingerprint };
@@ -161,8 +161,14 @@ export function createIntakeClient({
           current = {
             fingerprint: saved.fingerprint,
             id: `${now()}_${uuid()}`,
+            language: saved.data.language,
           };
-        if (current.terminal) return current.terminal;
+        if (current.terminal)
+          return Object.freeze({
+            ...current.terminal,
+            message:
+              messages[language === 'el' ? 'el' : 'en'][current.terminal.state],
+          });
         const retryOutcome = () =>
           current.accepted
             ? outcome(
@@ -199,7 +205,7 @@ export function createIntakeClient({
           body.set(key, value);
         for (const [key, value] of Object.entries({
           audience: saved.data.audience,
-          language: saved.data.language,
+          language: current.language,
           privacyVersion: saved.data.privacyVersion,
           privacyAccepted: 'true',
           submissionId: current.id,

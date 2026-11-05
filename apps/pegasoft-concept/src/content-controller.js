@@ -17,7 +17,23 @@ export function createContentController({ root, journey }) {
     panel = $('#contact-field-plan'),
     dialog = $('#cookie-preferences'),
     menu = document.querySelector('#mobile-navigation'),
-    contactForm = createContactForm({ panel, scope });
+    contactConfig = JSON.parse(
+      document.querySelector('#contact-runtime-config')?.textContent ||
+        '{"enabled":false}',
+    ),
+    contactForm = createContactForm({ panel, scope, config: contactConfig });
+  if (contactConfig.enabled) {
+    $('#contact').dataset.submissionsDisabled = 'false';
+    const container = $('.contact-panel');
+    container.hidden = false;
+    container.removeAttribute('data-launch-omit');
+    $('.contact-intro .content-review-note').textContent = t(
+      'Contact is available. Careers applications will open after private CV handling is verified.',
+    );
+    $('.contact-fields-note').textContent = t(
+      'Messages are sent securely after verification. CV uploads are not available yet.',
+    );
+  }
   function saveConsent(choice) {
     let storage;
     try {
@@ -34,13 +50,14 @@ export function createContentController({ root, journey }) {
   }
   function selectTab(value) {
     if ($('#contact').dataset.submissionsDisabled === 'true') return;
+    if (contactForm.show(value) === false) return;
     selected = value;
     tabs.forEach((tab) => {
       const active = tab.dataset.contactTab === value;
       tab.setAttribute('aria-selected', String(active));
       tab.tabIndex = active ? 0 : -1;
     });
-    contactForm.show(value);
+
     panel.setAttribute(
       'aria-labelledby',
       tabs.find((tab) => tab.dataset.contactTab === value).id,
@@ -230,6 +247,12 @@ export function createContentController({ root, journey }) {
       $('#cookie-notice').hidden = Boolean(readConsent(storage));
     },
     refreshLanguage() {
+      root
+        .querySelector('[data-privacy-link]')
+        ?.setAttribute(
+          'href',
+          `/${document.documentElement.lang}${contactConfig.privacyPath || '/privacy/'}`,
+        );
       panel
         .querySelectorAll('input,select,textarea')
         .forEach((input) => input.setCustomValidity(''));

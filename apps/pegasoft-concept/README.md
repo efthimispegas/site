@@ -36,3 +36,11 @@ Compare intentional rendering changes against the locally preserved approved ref
 The complete brand kit is personally approved and is the sole icon/logo/symbol authority; it is distributed separately and kept in local artifacts. Its animation and website integration remain separate. The complete loader-to-hero sequence is approved with24 settings, including pulse duration0.56s and waiting-beat period2.37s. Supporting globe-speed, cookie-layout and decrypted CTA reviews are approved. Grey hero/section-title words use the existing Pegasoft accent.
 
 Whole-site typography/layout, AI-pattern and performance audits, physical-device/Safari qualification, final bilingual copy and facts, real testimonials/Insights links, separate pages, submission endpoints/legal details and independent SEO review remain open. A source push does not imply release or deployment acceptance.
+
+## Forms, privacy and future measurement
+
+The current release work stages Contact before Careers. Contact stays off until the private backend, real Turnstile challenge and same-origin route are qualified, and the matching full EN/EL privacy page is approved. Careers remains unavailable pending private CV/reviewer/retention checks. Only the explicitly allowlisted public settings from `tools/deployment-config.mjs` enter HTML; server credentials stay in Cloudflare.
+
+`tools/privacy-page.mjs` generates the full bilingual review draft under `/el/privacy/` and `/en/privacy/`. Controller details are public build configuration. Drafts are noindex and cannot satisfy Contact activation. Provider-only email delivery/authentication is separate from application end-to-end verification.
+
+Analytics is planned and gated in [issue57](https://github.com/efthimispegas/site/issues/57), linked to the Pegasoft project's PC-004 privacy, PC-006 forms, PC-013 SEO and PC-014 release, plus #31 performance and #38 cookie UI. No analytics provider, script or tracker is enabled. Before implementation, approve goals/events, provider/retention/access, minimization, consent behavior, updated privacy and performance testing. See the private-intake README for the current release plan. The independent SEO gate also includes Google search favicon and AI/entity visibility; neither implies guaranteed search placement.

@@ -1,3 +1,9 @@
+import { locale } from './locale-messages.js';
+import { createIntakeClient } from './intake-client.js';
+import {
+  createContactTransport,
+  createTurnstileChallenge,
+} from './contact-transport.js';
 import { translate as t } from './locale-messages.js';
 /** Drafts and selected CV stay in memory; this adapter never submits remotely. */
 const shared = new Set(['name', 'email', 'company']);
@@ -41,7 +47,12 @@ export const CONTACT_FIELDS = Object.freeze({
     ['links', 'Other links to your work (optional)', 'textarea', true],
   ],
 });
-export function createContactForm({ panel, scope }) {
+export function createContactForm({
+  panel,
+  scope,
+  config = { enabled: false },
+  dependencies = {},
+}) {
   const document = panel.ownerDocument,
     drafts = {
       shared: {},
@@ -50,6 +61,29 @@ export function createContactForm({ panel, scope }) {
       Investor: {},
       Careers: {},
     };
+  let busy = false;
+  const challenge = config.enabled
+    ? dependencies.challenge ||
+      createTurnstileChallenge({
+        document,
+        siteKey: config.siteKey,
+        container: () => panel.querySelector('[data-contact-challenge]'),
+      })
+    : null;
+  const client = config.enabled
+    ? dependencies.client ||
+      createIntakeClient({
+        enabled: true,
+        challenge: (options) => challenge.run(options),
+        send:
+          dependencies.send ||
+          createContactTransport({
+            path: config.path,
+            origin: document.defaultView.location.origin,
+          }),
+      })
+    : null;
+  scope.defer(() => challenge?.dispose());
   function selectedFile(input) {
     const file = input.files?.[0];
     drafts.Careers.cv = file || null;
@@ -120,20 +154,54 @@ export function createContactForm({ panel, scope }) {
     input.files = transfer.files;
     selectedFile(input);
   });
-  scope.listen(panel, 'submit', (event) => {
+  scope.listen(panel, 'submit', async (event) => {
     event.preventDefault();
     const form = event.target;
-    if (!form.checkValidity()) return;
-    form.querySelector('output').textContent =
-      form.dataset.audience === 'Careers'
-        ? t(
-            'Application draft validated. Your CV stays in this browser; nothing has been sent.',
-          )
-        : t(
-            'Draft validated. Nothing has been sent; the submission endpoint is not connected.',
-          );
+    if (busy || !form.checkValidity()) return;
+    if (!config.enabled) {
+      form.querySelector('output').textContent = t(
+        'Draft validated. Nothing has been sent; the submission endpoint is not connected.',
+      );
+      return;
+    }
+    const values = {};
+    for (const input of form.querySelectorAll('[data-field]'))
+      if (input.type !== 'file') values[input.name] = input.value;
+    busy = true;
+    form.setAttribute('aria-busy', 'true');
+    const controls = [...form.querySelectorAll('input,textarea,select,button')];
+    controls.forEach((el) => (el.disabled = true));
+    try {
+      const result = await client.submit({
+        audience: form.dataset.audience,
+        language: locale(),
+        privacyAccepted: form.querySelector('[name=privacyAccepted]').checked,
+        privacyVersion: config.privacyVersion,
+        values,
+      });
+      if (scope.disposed) return;
+      form.querySelector('output').textContent = result.message;
+      form.dataset.received = String(result.accepted);
+      // Retain drafts on failures; no automatic retry or new identity on timeout.
+    } finally {
+      busy = false;
+      if (!scope.disposed) {
+        controls.forEach((el) => (el.disabled = false));
+        form.removeAttribute('aria-busy');
+      }
+    }
   });
   function show(audience) {
+    if (busy) return false;
+    if (config.enabled && audience === 'Careers') {
+      panel.replaceChildren();
+      const note = document.createElement('p');
+      note.textContent = t('Careers applications are temporarily unavailable.');
+      panel.append(note);
+      challenge?.reset();
+      return true;
+    }
+    challenge?.reset();
     const form = document.createElement('form');
     form.id = 'contact-preview-form';
     form.className = 'contact-preview-form';
@@ -226,16 +294,40 @@ export function createContactForm({ panel, scope }) {
         form.append(label);
       }
     }
+    if (config.enabled) {
+      const privacy = document.createElement('label');
+      privacy.className = 'contact-privacy';
+      const check = document.createElement('input');
+      check.type = 'checkbox';
+      check.name = 'privacyAccepted';
+      check.required = true;
+      const link = document.createElement('a');
+      link.href = `/${locale()}${config.privacyPath}`;
+      link.textContent = t('Privacy notice');
+      privacy.append(
+        check,
+        document.createTextNode(t('I have read the privacy notice.')),
+        link,
+      );
+      form.append(privacy);
+      const verification = document.createElement('div');
+      verification.dataset.contactChallenge = '';
+      form.append(verification);
+    }
     const button = document.createElement('button');
     button.type = 'submit';
     button.dataset.uiAction = 'primary';
-    button.textContent =
-      audience === 'Careers' ? t('Review application') : t('Review message');
+    button.textContent = config.enabled
+      ? t('Send message')
+      : audience === 'Careers'
+        ? t('Review application')
+        : t('Review message');
     const status = document.createElement('output');
     status.id = 'contact-preview-status';
     status.setAttribute('aria-live', 'polite');
     form.append(button, status);
     panel.replaceChildren(form);
+    return true;
   }
   return { show };
 }
