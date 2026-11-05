@@ -10,7 +10,6 @@
     .insight-card,
     .insights-sidebar,
     .article-toc-widget,
-    .article-source,
     .linkedin-panel
   ) {
   border: 1px solid var(--editorial-card-line);
@@ -141,7 +140,22 @@
   background: var(--panel);
 }
 #insights-content .article-source {
-  padding: var(--widget-inset);
+  margin: 24px 0 32px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+#insights-content .article-source > div {
+  gap: 16px;
+  padding: 12px 0;
+}
+#insights-content .article-source dd {
+  font-size: 14px;
+  line-height: 1.6;
+}
+#insights-content .article-source dt {
+  text-transform: none;
 }
 #insights-content .article-source > div:first-child {
   padding-top: 0;
@@ -222,4 +236,76 @@
   min-height: 0;
   max-height: 100%;
   object-fit: contain;
+}
+
+/* Read mode: existing role sizes, lighter administration and predictable copy rhythm. */
+#insights-content
+  :is(.insight-meta, .breadcrumbs, .highlight-controls, .sidebar-group) {
+  font-size: 12px;
+}
+#insights-content :is(.insight-meta, .breadcrumbs) {
+  text-transform: none;
+  letter-spacing: normal;
+}
+#insights-content
+  :is(
+    .section-heading label,
+    .review-note,
+    #filter-status,
+    .insight-card > p:not(.insight-meta),
+    .pending-link,
+    .article-share-note
+  ) {
+  font-size: 14px;
+  line-height: 1.6;
+}
+#insights-content .insight-card h3 {
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 8px 0 12px;
+  text-wrap: balance;
+}
+#insights-content .insight-card .insight-meta {
+  margin: 0;
+  gap: 4px 12px;
+}
+#insights-content .card-image {
+  margin-bottom: 16px;
+}
+#insights-content .insight-card > p:not(.insight-meta) {
+  margin-bottom: 16px;
+  text-wrap: pretty;
+}
+#insights-content .article-body > .article-section p {
+  max-inline-size: 70ch;
+  text-wrap: pretty;
+}
+#insights-content .article-share-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+#insights-content .article-social button:disabled {
+  color: var(--muted);
+  border-color: var(--line);
+  background: transparent;
+  opacity: 0.55;
+  cursor: default;
+}
+#insights-content #filter-recovery {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+#insights-content #filter-recovery p {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+@media (max-width: 1400px) {
+  #insights-content .insight-card {
+    padding: 16px;
+  }
+  #insights-content .insight-card h3 {
+    font-size: 20px;
+  }
 }

@@ -8,6 +8,11 @@ import { createCookiePreferences } from './cookie-preferences.js';
 import { createWebsiteMotionController } from './website-motion-controller.js';
 import { setLocale, localeUrl } from './locale-messages.js';
 import { insightArticles } from './insights-content.js';
+import {
+  readInsightListState,
+  articleCountLabel,
+  highlightActionLabel,
+} from './insights-state.js';
 import { createColorTheme } from './color-theme.js';
 import './website-motion.css';
 import './content-sections.css';
@@ -192,7 +197,11 @@ if (copy) {
   const auto = document.querySelector('[data-autoplay]');
   function syncAutoplay() {
     auto.setAttribute('aria-pressed', String(paused));
-    auto.textContent = paused ? '▶' : 'Ⅱ';
+    auto.setAttribute('aria-label', highlightActionLabel(paused, language));
+    auto.title = highlightActionLabel(paused, language);
+    auto.innerHTML = paused
+      ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg>'
+      : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>';
   }
   syncAutoplay();
   auto.addEventListener('click', () => {
@@ -222,9 +231,10 @@ if (copy) {
 const grid = document.querySelector('#article-grid');
 function filter() {
   if (!grid) return;
-  const params = new URLSearchParams(location.search),
-    category = params.get('category') || 'all',
-    sort = params.get('sort') || 'newest';
+  const state = readInsightListState(location.href);
+  const { category, sort } = state;
+  if (state.url.href !== location.href)
+    window.history.replaceState(window.history.state, '', state.url.href);
   const cards = [...grid.children];
   cards
     .sort((a, b) =>
@@ -232,26 +242,81 @@ function filter() {
         ? a.dataset.date.localeCompare(b.dataset.date)
         : b.dataset.date.localeCompare(a.dataset.date),
     )
-    .forEach((c) => {
-      c.hidden = category !== 'all' && c.dataset.category !== category;
-      grid.append(c);
+    .forEach((card) => {
+      card.hidden = category !== 'all' && card.dataset.category !== category;
+      grid.append(card);
     });
-  document.querySelectorAll('[data-filter]').forEach((a) => {
-    if (a.dataset.filter === category) a.setAttribute('aria-current', 'true');
-    else a.removeAttribute('aria-current');
-  });
+  document
+    .querySelectorAll('.insights-sidebar [data-filter]')
+    .forEach((link) => {
+      if (link.dataset.filter === category)
+        link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
+      const target = new URL(state.url);
+      if (link.dataset.filter === 'all') target.searchParams.delete('category');
+      else target.searchParams.set('category', link.dataset.filter);
+      target.hash = 'latest';
+      link.href = target.pathname + target.search + target.hash;
+    });
   document.querySelector('#insights-sort').value = sort;
-  const count = cards.filter((c) => !c.hidden).length;
-  document.querySelector('#filter-status').textContent = greek
-    ? `${count} άρθρα`
-    : `${count} articles`;
+  const count = cards.filter((card) => !card.hidden).length;
+  document.querySelector('#filter-status').textContent = articleCountLabel(
+    count,
+    language,
+  );
+  const recovery = document.querySelector('#filter-recovery');
+  recovery.hidden = !state.invalidCategory && count > 0;
+  recovery.querySelector('p').textContent = state.invalidCategory
+    ? greek
+      ? 'Αυτή η κατηγορία δεν είναι διαθέσιμη. Εμφανίζονται όλα τα άρθρα.'
+      : 'This category is unavailable. Showing all articles.'
+    : greek
+      ? 'Δεν υπάρχουν ακόμη άρθρα σε αυτή την κατηγορία.'
+      : 'There are no articles in this category yet.';
+  resizeWebsite();
+  updateWebsite();
+}
+function updateListing(url) {
+  url.hash = 'latest';
+  window.history.pushState(
+    window.history.state,
+    '',
+    url.pathname + url.search + url.hash,
+  );
+  filter();
+  document
+    .querySelector('#latest')
+    .scrollIntoView({ block: 'start', behavior: 'auto' });
 }
 filter();
-document.querySelector('#insights-sort')?.addEventListener('change', (e) => {
+const filterLinks = [...document.querySelectorAll('[data-filter]')];
+function selectCategory(event) {
+  if (
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  )
+    return;
+  event.preventDefault();
   const url = new URL(location.href);
-  url.searchParams.set('sort', e.target.value);
-  location.assign(url.href);
-});
+  const category = event.currentTarget.dataset.filter;
+  if (category === 'all') url.searchParams.delete('category');
+  else url.searchParams.set('category', category);
+  updateListing(url);
+}
+filterLinks.forEach((link) => link.addEventListener('click', selectCategory));
+function selectSort(event) {
+  const url = new URL(location.href);
+  if (event.target.value === 'newest') url.searchParams.delete('sort');
+  else url.searchParams.set('sort', event.target.value);
+  updateListing(url);
+}
+document
+  .querySelector('#insights-sort')
+  ?.addEventListener('change', selectSort);
+window.addEventListener('popstate', filter);
 const body = document.querySelector('.article-body');
 function scroll() {
   updateHeader();
@@ -282,6 +347,13 @@ scroll();
 if (import.meta.hot)
   import.meta.hot.dispose(() => {
     stop();
+    filterLinks.forEach((link) =>
+      link.removeEventListener('click', selectCategory),
+    );
+    document
+      .querySelector('#insights-sort')
+      ?.removeEventListener('change', selectSort);
+    window.removeEventListener('popstate', filter);
     cancelAnimationFrame(websiteFrame);
     websiteMotion.dispose();
     window.removeEventListener('scroll', updateWebsite);

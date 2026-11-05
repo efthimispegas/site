@@ -105,3 +105,55 @@ test('all native routes retain the homepage closing component and loader markup'
     }
   }
 });
+
+test('article source follows prose and precedes tags in both locales', () => {
+  for (const language of ['en', 'el']) {
+    const html = renderInsights(
+      source,
+      language,
+      insightArticles[0].slug,
+      'https://example.test',
+    );
+    const lead = html.indexOf('class="article-lead"');
+    const lastSection = html.indexOf('id="section-3"');
+    const metadata = html.indexOf('class="article-source"');
+    const tags = html.indexOf('class="article-tags"');
+    assert.ok(lead < lastSection && lastSection < metadata && metadata < tags);
+    assert.doesNotMatch(html.slice(metadata, tags), />https:\/\/example\.test/);
+    assert.match(html, /disabled aria-describedby="article-share-note"/);
+    assert.match(html, /id="article-share-note"/);
+  }
+});
+
+test('shared article links recover invalid categories while retaining sort and list context', async () => {
+  const { readInsightListState } = await import('../src/insights-state.js');
+  const invalid = readInsightListState(
+    'https://example.test/en/insights/?category=unknown&sort=oldest#latest',
+  );
+  assert.equal(invalid.category, 'all');
+  assert.equal(invalid.invalidCategory, true);
+  assert.equal(invalid.sort, 'oldest');
+  assert.equal(invalid.url.search, '?sort=oldest');
+  assert.equal(invalid.url.hash, '#latest');
+  const selected = readInsightListState(
+    'https://example.test/el/insights/?category=ai&sort=unknown',
+  );
+  assert.equal(selected.category, 'ai');
+  assert.equal(selected.sort, 'newest');
+  assert.equal(selected.invalidCategory, false);
+  assert.equal(selected.url.search, '?category=ai');
+});
+
+test('article counts and paused highlight actions describe the actual state in both locales', async () => {
+  const { articleCountLabel, highlightActionLabel } =
+    await import('../src/insights-state.js');
+  assert.equal(articleCountLabel(0, 'en'), '0 articles');
+  assert.equal(articleCountLabel(1, 'en'), '1 article');
+  assert.equal(articleCountLabel(3, 'en'), '3 articles');
+  assert.equal(articleCountLabel(1, 'el'), '1 άρθρο');
+  assert.equal(articleCountLabel(3, 'el'), '3 άρθρα');
+  assert.equal(highlightActionLabel(true, 'en'), 'Resume highlights');
+  assert.equal(highlightActionLabel(false, 'en'), 'Pause highlights');
+  assert.equal(highlightActionLabel(true, 'el'), 'Συνέχιση εναλλαγής');
+  assert.equal(highlightActionLabel(false, 'el'), 'Παύση εναλλαγής');
+});
