@@ -16,6 +16,8 @@ Homepage ordinary sections, footer, testimonial card interiors and Insights/arti
 
 The cookie notice and footer segmented selector own their dimensions. General panel/section rules must not scale the notice or paint selection backgrounds on the selector buttons; the selector track owns the inset active pill.
 
-Colours, typography and CTA hierarchy remain owned by the existing theme and action styles. Selected navigation must follow route identity, clear on home/history restoration, use theme-aware ink, and retain a non-colour indicator. Hover/focus and visited history do not constitute selection.
+Colours, typography and CTA hierarchy remain owned by the existing theme and action styles. Selected navigation must follow route identity, clear on home/history restoration, use theme-aware ink, and retain a non-colour indicator through the existing bold type role. Selected menu links do not use underlines; keyboard focus rings remain visible. Hover/focus and visited history do not constitute selection.
 
 For changes, verify EN/EL, light/dark, forward/back navigation, panel reuse, narrow-screen wrapping and horizontal overflow. A build alone does not establish rendered/device acceptance. Keep evidence local and out of published source.
+
+Decorative section/heading ordinals and repeated brand-plus-index labels are omitted. Keep numeric content when it conveys data, result counts, carousel position or an actual necessary sequence. Internal numbered anchor IDs are implementation details and remain stable.
