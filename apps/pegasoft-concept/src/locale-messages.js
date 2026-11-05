@@ -110,6 +110,7 @@ export function localizeHtml(html, language, { origin = '' } = {}) {
   const image = `${origin}/assets/social/hero-card-${language === 'el' ? 'el-' : ''}20261019.jpg`,
     page = language === 'en' ? `${origin}/en/` : `${origin}/el/`;
   return output
+    .replaceAll('href="/el/insights/"', `href="/${language}/insights/"`)
     .replace(/<html\b([^>]*)\blang="[^"]*"/, `<html$1lang="${language}"`)
     .replace(/<meta\b([^>]+)>/g, (tag, attributes) => {
       const name = attributes.match(/(?:property|name)="([^"]+)"/)?.[1];

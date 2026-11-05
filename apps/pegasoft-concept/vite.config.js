@@ -1,4 +1,5 @@
 import { privacyConfig } from './tools/privacy-page.mjs';
+import { insightsPages } from './tools/insights-pages.mjs';
 import { localizedPages } from './tools/localized-pages.mjs';
 import { defineConfig, loadEnv } from 'vite';
 import { resolve } from 'node:path';
@@ -17,6 +18,7 @@ export default defineConfig(({ command, mode }) => {
   return {
     root: import.meta.dirname,
     plugins: [
+      insightsPages(config),
       localizedPages({
         ...config,
         contact: contactConfig(environment),
@@ -47,6 +49,7 @@ export default defineConfig(({ command, mode }) => {
       rolldownOptions: {
         input: {
           index: resolve(import.meta.dirname, 'index.html'),
+          insights: resolve(import.meta.dirname, 'insights/index.html'),
         },
       },
     },

@@ -1,3 +1,4 @@
+import { createSiteLoader } from './site-loader.js';
 import { createDecryptedCta } from './cta-decryption.js';
 import { createGlobe } from './hero-globe.js';
 import { GLOBE_DEFAULTS, clamp } from './hero-opening-sequence.js';
@@ -24,18 +25,8 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
   const scope = createScope(),
     $ = (s) => stage.querySelector(s),
     lines = [...stage.querySelectorAll('.line>span')];
-  const rings = [...stage.querySelectorAll('#radar i')],
-    pulse = $('#pulse');
-  const pulseLayers = [0, 1].map((index) => {
-    const layer = stage.ownerDocument.createElement('i');
-    layer.className = 'pulse-layer';
-    layer.dataset.wave = String(index + 1);
-    return layer;
-  });
-  pulse.replaceChildren(...pulseLayers);
-  pulse.dataset.fronts = '3';
+  const loader = createSiteLoader(stage, settings);
   let textWidths = [],
-    ringHandoffScale = null,
     metricDimensions = {};
   const counters = [...stage.querySelectorAll('.metric-value')].map((el, i) =>
     createCounter(el, {
@@ -70,15 +61,14 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
   function render(dt = 0) {
     if (!ready || scope.disposed) return;
     const state = introState(progress),
-      opening = loaderState(openingTime, loaderSettings, reduced),
+      opening = loader.render(openingTime, reduced),
       w = stage.clientWidth,
-      h = stage.clientHeight,
-      radius = Math.hypot(w / 2, h / 2) + 2;
+      h = stage.clientHeight;
     // A subpixel aperture keeps the hero raster warm; zero-area clips defer its
     // first paint until the reveal and stall cold playback. Timing remains zero.
     const hero = $('#hero');
     hero.style.willChange = opening.aperture < 1 ? 'clip-path' : 'auto';
-    hero.style.clipPath = `circle(${Math.max(0.01, opening.aperture * radius)}px at 50% 50%)`;
+    hero.style.clipPath = `circle(${opening.apertureRadius}px at 50% 50%)`;
     hero.style.transform = `translateY(${state.heroY * h}px)`;
     const maskOrigin = (state.horizonY - state.heroY) * h;
     // Keep the entire region above the bowl opaque. Only its lower curved edge
@@ -89,24 +79,6 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
         : `linear-gradient(180deg,#000 ${Math.max(0, maskOrigin)}px,transparent ${Math.max(0, maskOrigin)}px),radial-gradient(ellipse ${Math.max(0.9 * w, 1.2 * h)}px ${h}px at 50% ${maskOrigin}px,#000 48%,transparent 66%)`;
     hero.inert = progress > 0.2 || opening.aperture < 0.95;
     hero.setAttribute('aria-hidden', String(state.wipe === 1));
-    $('#radar').style.opacity = 1;
-    $('#radar').style.transform = 'none';
-    $('#mark').style.opacity = opening.markOpacity;
-    rings.forEach((ring, index) => {
-      const value = opening.rings[index],
-        handoff =
-          index === 0 && ringHandoffScale !== null
-            ? (ringHandoffScale - loaderSettings.ringFrom) *
-              (1 - Math.min(1, openingTime / 0.2))
-            : 0;
-      ring.style.opacity = value.opacity;
-      ring.style.transform = `translate(-50%,-50%) scale(${value.scale + handoff})`;
-    });
-    pulse.style.visibility = opening.pulseVisible ? 'visible' : 'hidden';
-    pulseLayers.forEach((layer, index) => {
-      layer.style.width = layer.style.height = `${radius * 2}px`;
-      layer.style.transform = `translate(-50%,-50%) scale(${opening.pulses[index].scale})`;
-    });
     const nav = $('.hero-nav');
     if (nav) {
       nav.style.opacity = opening.nav * (1 - state.utilityExit);
@@ -187,7 +159,7 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
       openingTime,
       sceneTime,
       rotationTime,
-      ringHandoffScale,
+      ringHandoffScale: loader.handoffScale,
       opening,
       loaderSettings,
       counterPlayback: playback.state,
@@ -241,13 +213,7 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
         globe.dispose();
         return;
       }
-      const waiting = getComputedStyle($('#radar')).transform;
-      if (waiting !== 'none') {
-        const matrix = new stage.ownerDocument.defaultView.DOMMatrixReadOnly(
-          waiting,
-        );
-        ringHandoffScale = Math.hypot(matrix.a, matrix.b);
-      }
+      loader.captureWaitingBeat();
       scope.defer(() => {
         counters.forEach((counter) => counter.dispose());
         globe.dispose();
@@ -292,15 +258,7 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
     },
     configureLoader(values) {
       loaderSettings = { ...loaderSettings, ...values };
-      stage.style.setProperty(
-        '--loader-beat-duration',
-        loaderSettings.beatDuration + 's',
-      );
-      stage.style.setProperty(
-        '--loader-beat-amount',
-        loaderSettings.beatAmount,
-      );
-      stage.style.setProperty('--loader-ring-from', loaderSettings.ringFrom);
+      loader.configure(values);
       render();
     },
     setPlayback(values) {
@@ -311,7 +269,7 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
       render();
     },
     seek(time) {
-      ringHandoffScale = null;
+      loader.resetHandoff();
       openingTime = clamp(time, 0, loaderState(0, loaderSettings).end);
       running = false;
       ctaLabels.forEach((label) =>
@@ -320,7 +278,7 @@ export function createIntroController({ stage, settings = LOADER_DEFAULTS }) {
       render();
     },
     restart() {
-      ringHandoffScale = null;
+      loader.resetHandoff();
       openingTime = 0;
       sceneTime = 0;
       rotationTime = 0;

@@ -1,15 +1,15 @@
 /* Runs on the compositor before geography/fonts and JavaScript are ready. */
-#opening-stage {
+:is(#opening-stage, [data-page-loader]) {
   --loader-ring-from: 0.67;
 }
-#opening-stage:not([data-loaded='true']) .radar,
-#opening-stage[data-wait-preview='true'] .radar,
-#opening-stage[data-preparing='true'] .radar {
+:is(#opening-stage, [data-page-loader]):not([data-loaded='true']) .radar,
+:is(#opening-stage, [data-page-loader])[data-wait-preview='true'] .radar,
+:is(#opening-stage, [data-page-loader])[data-preparing='true'] .radar {
   animation: loader-wait-beat var(--loader-beat-duration, 2.37s) ease-in-out
     infinite;
   will-change: transform;
 }
-#opening-stage .radar {
+:is(#opening-stage, [data-page-loader]) .radar {
   will-change: transform, opacity;
 }
 @keyframes loader-wait-beat {
@@ -24,20 +24,21 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  #opening-stage .radar {
+  :is(#opening-stage, [data-page-loader]) .radar {
     animation: none !important;
   }
 }
 /* Resource preparation and the inspector use the same continuous waiting beat. */
-#opening-stage[data-wait-preview='true'] .radar,
-#opening-stage[data-preparing='true'] .radar {
+:is(#opening-stage, [data-page-loader])[data-wait-preview='true'] .radar,
+:is(#opening-stage, [data-page-loader])[data-preparing='true'] .radar {
   opacity: 1 !important;
 }
-#opening-stage[data-wait-preview='true'] .hero,
-#opening-stage[data-wait-preview='true'] .pulse,
-#opening-stage[data-wait-preview='true'] .outcome-world,
-#opening-stage[data-preparing='true'] .hero,
-#opening-stage[data-preparing='true'] .pulse,
+:is(#opening-stage, [data-page-loader])[data-wait-preview='true'] .hero,
+:is(#opening-stage, [data-page-loader])[data-wait-preview='true'] .pulse,
+:is(#opening-stage, [data-page-loader])[data-wait-preview='true']
+  .outcome-world,
+:is(#opening-stage, [data-page-loader])[data-preparing='true'] .hero,
+:is(#opening-stage, [data-page-loader])[data-preparing='true'] .pulse,
 #opening-stage[data-preparing='true'] .outcome-world {
   visibility: hidden !important;
 }
@@ -61,17 +62,17 @@
 
 /* Reference revision: independent outline arrivals and two fill fronts;
    the circular hero reveal is the third nested expansion front. */
-#opening-stage .radar i {
+:is(#opening-stage, [data-page-loader]) .radar i {
   opacity: 0;
   will-change: transform, opacity;
 }
-#opening-stage .radar i:first-child {
+:is(#opening-stage, [data-page-loader]) .radar i:first-child {
   opacity: 1;
 }
-#opening-stage .loader-mark {
+:is(#opening-stage, [data-page-loader]) .loader-mark {
   opacity: 0;
 }
-#opening-stage .pulse {
+:is(#opening-stage, [data-page-loader]) .pulse {
   inset: 0;
   width: auto !important;
   height: auto !important;
@@ -80,7 +81,7 @@
   transform: none;
   pointer-events: none;
 }
-#opening-stage .pulse .pulse-layer {
+:is(#opening-stage, [data-page-loader]) .pulse .pulse-layer {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -89,7 +90,7 @@
   transform: translate(-50%, -50%) scale(0);
   will-change: transform;
 }
-#opening-stage .pulse .pulse-layer:nth-child(2) {
+:is(#opening-stage, [data-page-loader]) .pulse .pulse-layer:nth-child(2) {
   background: #2c2c2c;
 }
 #opening-stage .line > span {

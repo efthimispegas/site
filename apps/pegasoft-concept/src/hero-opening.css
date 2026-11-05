@@ -314,7 +314,7 @@
   max-width: 45%;
   padding: 6px 0;
 }
-#opening-stage .pulse {
+:is(#opening-stage, [data-page-loader]) .pulse {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -326,13 +326,13 @@
   z-index: 0;
   visibility: hidden;
 }
-#opening-stage .radar {
+:is(#opening-stage, [data-page-loader]) .radar {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
 }
-#opening-stage .radar i {
+:is(#opening-stage, [data-page-loader]) .radar i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -342,23 +342,23 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
 }
-#opening-stage .radar i:nth-child(2) {
+:is(#opening-stage, [data-page-loader]) .radar i:nth-child(2) {
   width: 90cqh;
   height: 90cqh;
 }
-#opening-stage .radar i:nth-child(3) {
+:is(#opening-stage, [data-page-loader]) .radar i:nth-child(3) {
   width: 120cqh;
   height: 120cqh;
 }
-#opening-stage .radar i:nth-child(4) {
+:is(#opening-stage, [data-page-loader]) .radar i:nth-child(4) {
   width: 160cqh;
   height: 160cqh;
 }
-#opening-stage .radar i:nth-child(5) {
+:is(#opening-stage, [data-page-loader]) .radar i:nth-child(5) {
   width: 200cqh;
   height: 200cqh;
 }
-#opening-stage .loader-mark {
+:is(#opening-stage, [data-page-loader]) .loader-mark {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -632,23 +632,23 @@
     font-size: 12px;
     padding: 9px;
   }
-  #opening-stage .radar i {
+  :is(#opening-stage, [data-page-loader]) .radar i {
     width: 40cqh;
     height: 40cqh;
   }
-  #opening-stage .radar i:nth-child(2) {
+  :is(#opening-stage, [data-page-loader]) .radar i:nth-child(2) {
     width: 60cqh;
     height: 60cqh;
   }
-  #opening-stage .radar i:nth-child(3) {
+  :is(#opening-stage, [data-page-loader]) .radar i:nth-child(3) {
     width: 90cqh;
     height: 90cqh;
   }
-  #opening-stage .radar i:nth-child(4) {
+  :is(#opening-stage, [data-page-loader]) .radar i:nth-child(4) {
     width: 120cqh;
     height: 120cqh;
   }
-  #opening-stage .radar i:nth-child(5) {
+  :is(#opening-stage, [data-page-loader]) .radar i:nth-child(5) {
     width: 160cqh;
     height: 160cqh;
   }
@@ -662,7 +662,7 @@
     transition: none;
   }
 }
-#opening-stage .pulse i {
+:is(#opening-stage, [data-page-loader]) .pulse i {
   position: absolute;
   left: 50%;
   top: 50%;
