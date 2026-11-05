@@ -1,5 +1,10 @@
 /* Shared CTA hierarchy. Existing Pegasoft palette; chapter typography/geometry stay owned locally. */
 :root {
+  /* Shared interface motion; cinematic chapter clocks remain independently owned. */
+  --motion-feedback: 120ms;
+  --motion-change: 180ms;
+  --motion-enter: 220ms;
+  --motion-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --action-accent: #147dff;
   --action-ink: #05070a;
   --action-paper: #edf2f7;

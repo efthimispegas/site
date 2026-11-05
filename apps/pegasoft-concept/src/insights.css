@@ -29,7 +29,7 @@ html[data-color-theme='light'] {
   --accent: #0861cc;
 }
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 130px;
 }
 * {
@@ -76,21 +76,18 @@ select:focus-visible {
   --widget-spacing: var(--layout-section-space);
   max-width: none;
   margin: 0;
-  padding: 150px var(--editorial-inset) 110px;
+  padding: max(128px, var(--editorial-header-clearance, 128px))
+    var(--editorial-inset) 110px;
 }
 .insights-title {
-  min-height: 240px;
   border-bottom: 1px solid var(--line);
-  margin-bottom: 58px;
-  padding-bottom: 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 32px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  display: block;
 }
 .insights-title h1 {
-  font: 750 clamp(64px, 8.5vw, 142px)/1 Manrope;
-  letter-spacing: -0.065em;
+  font: 750 clamp(54px, 7vw, 96px)/1.08 Manrope;
+  letter-spacing: -0.04em;
   margin: 0 0 20px;
 }
 .insights-title h1 span {
@@ -488,14 +485,14 @@ select {
 }
 .article-body > .article-section {
   padding: 20px 0 40px;
-  scroll-margin-top: 0;
+  scroll-margin-top: 24px;
 }
 .article-body > .article-section h2 {
   font: 700 30px/1.25 Manrope;
   letter-spacing: -0.035em;
 }
 .article-body > .article-section p {
-  line-height: 1.85;
+  line-height: 1.75;
   color: var(--muted);
   max-width: none;
 }
@@ -596,12 +593,13 @@ select {
     --editorial-inset: var(--layout-page-inset);
     --widget-inset: var(--layout-panel-inset);
     --widget-spacing: var(--layout-section-space);
-    padding: 120px var(--editorial-inset) 65px;
+    padding: max(120px, var(--editorial-header-clearance, 120px))
+      var(--editorial-inset) 65px;
   }
   .insights-title {
     display: block;
-    min-height: 180px;
-    margin-bottom: 30px;
+    min-height: 0;
+    margin-bottom: 24px;
   }
   .insights-title h1 {
     font-size: 62px;
@@ -615,29 +613,7 @@ select {
     display: block;
   }
   .insights-sidebar {
-    position: static;
-    margin-bottom: 35px;
-    display: flex;
-    gap: 8px;
-    overflow: auto;
-    align-items: center;
-    padding-bottom: 12px;
-  }
-  .insights-sidebar h2 {
-    font-size: 15px;
-    white-space: nowrap;
-    margin: 0 10px 0 0;
-  }
-  .insights-sidebar .sidebar-group,
-  .insights-sidebar a[href$='#linkedin'] {
     display: none;
-  }
-  .insights-sidebar a {
-    white-space: nowrap;
-    border: 1px solid var(--line);
-    padding: 8px 12px;
-    gap: 10px;
-    font-size: 10px;
   }
   .highlights {
     grid-template-columns: 1fr;
