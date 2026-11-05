@@ -4,10 +4,17 @@ on:
   pull_request:
     paths:
       - apps/pegasoft-intake/**
+      - apps/pegasoft-concept/src/intake-client.js
       - .github/workflows/pegasoft-intake.yml
       - pnpm-lock.yaml
       - nx.json
   workflow_dispatch:
+    inputs:
+      stage:
+        description: 'Disabled qualification or reviewed Contact-only activation (Careers remains off)'
+        type: choice
+        default: disabled
+        options: [disabled, contact]
 
 permissions:
   contents: read
@@ -36,9 +43,9 @@ jobs:
             pnpm-lock.yaml
             apps/pegasoft-intake/cloudflare-tooling/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec nx run-many --projects=@site/pegasoft-intake --targets=lint,test,verify-build,cloudflare-check,audit-cloudflare --output-style=stream
+      - run: pnpm exec nx run-many --projects=@site/pegasoft-intake --targets=lint,test,verify-build,cloudflare-check,audit-cloudflare,local-runtime-check --output-style=stream
 
-  deploy-disabled-intake:
+  deploy-intake:
     if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     needs: verify
     runs-on: ubuntu-latest
@@ -55,7 +62,12 @@ jobs:
       PEGASOFT_R2_JURISDICTION: eu
       PEGASOFT_WORKER_COMPATIBILITY_DATE: ${{ vars.PEGASOFT_WORKER_COMPATIBILITY_DATE }}
       PEGASOFT_SOURCE_REVISION: ${{ github.sha }}
-      PEGASOFT_INTAKE_ENABLED: 'false'
+      PEGASOFT_INTAKE_ENABLED: ${{ inputs.stage == 'contact' && 'true' || 'false' }}
+      PEGASOFT_CAREERS_ENABLED: 'false'
+      PEGASOFT_CONTACT_ACTIVATION_READY: ${{ vars.PEGASOFT_CONTACT_ACTIVATION_READY }}
+      PEGASOFT_INTAKE_ZONE_ID: ${{ vars.PEGASOFT_INTAKE_ZONE_ID }}
+      PEGASOFT_INTAKE_CAPACITY_VERIFIED: ${{ vars.PEGASOFT_INTAKE_CAPACITY_VERIFIED }}
+      PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID: ${{ vars.PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID }}
       PEGASOFT_INTAKE_PATH: ${{ vars.PEGASOFT_INTAKE_PATH }}
       PEGASOFT_INTAKE_ORIGINS: ${{ vars.PEGASOFT_INTAKE_ORIGINS }}
       PEGASOFT_INTAKE_RECIPIENT: ${{ vars.PEGASOFT_INTAKE_RECIPIENT }}
@@ -65,6 +77,7 @@ jobs:
       PEGASOFT_MAX_REQUEST_BYTES: '5131072'
       PEGASOFT_PRIVACY_VERSION: ${{ vars.PEGASOFT_PRIVACY_VERSION }}
       PEGASOFT_TURNSTILE_VERIFY_URL: ${{ vars.PEGASOFT_TURNSTILE_VERIFY_URL }}
+      PEGASOFT_RESEND_API_URL: ${{ vars.PEGASOFT_RESEND_API_URL }}
       PEGASOFT_INTAKE_CLEANUP_CRON: ${{ vars.PEGASOFT_INTAKE_CLEANUP_CRON }}
       PEGASOFT_RATE_LIMIT_NAMESPACE_ID: ${{ vars.PEGASOFT_RATE_LIMIT_NAMESPACE_ID }}
       PEGASOFT_RATE_LIMIT_REQUESTS: ${{ vars.PEGASOFT_RATE_LIMIT_REQUESTS }}
@@ -93,12 +106,10 @@ jobs:
             pnpm-lock.yaml
             apps/pegasoft-intake/cloudflare-tooling/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
-      - name: Deploy disabled intake
+      - name: Deploy reviewed intake stage
         run: pnpm exec nx run @site/pegasoft-intake:deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_INTAKE_API_TOKEN }}
-          PEGASOFT_TURNSTILE_SECRET: ${{ secrets.PEGASOFT_TURNSTILE_SECRET }}
-          PEGASOFT_RATE_LIMIT_SALT: ${{ secrets.PEGASOFT_RATE_LIMIT_SALT }}
       - name: Read back deployed settings
         run: pnpm exec nx run @site/pegasoft-intake:verify-deployment
         env:

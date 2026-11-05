@@ -1,3 +1,4 @@
+import { withPrivacyLink } from './privacy-page.mjs';
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { insightArticles, insightCategories } from '../src/insights-content.js';
@@ -94,7 +95,7 @@ export function renderInsights(source, language, slug = '', origin = '') {
   return html;
 }
 /** Generate independent static index/detail destinations; no homepage/3D runtime on these pages. */
-export function insightsPages({ origin = '' } = {}) {
+export function insightsPages({ origin = '', privacyVisible = true } = {}) {
   let root, out;
   return {
     name: 'pegasoft-insights-pages',
@@ -112,7 +113,10 @@ export function insightsPages({ origin = '' } = {}) {
           return res.end('Article not found');
         }
         try {
-          const source = await readFile(resolve(root, 'index.html'), 'utf8');
+          const source = withPrivacyLink(
+            await readFile(resolve(root, 'index.html'), 'utf8'),
+            privacyVisible,
+          );
           const html = await server.transformIndexHtml(
             path,
             renderInsights(source, m[1] || 'el', m[2] || '', origin),
@@ -126,7 +130,10 @@ export function insightsPages({ origin = '' } = {}) {
     },
     async writeBundle() {
       // Vite's processed template carries the hashed entry references for every static page.
-      const source = await readFile(resolve(root, 'index.html'), 'utf8'),
+      const source = withPrivacyLink(
+          await readFile(resolve(root, 'index.html'), 'utf8'),
+          privacyVisible,
+        ),
         template = await readFile(resolve(out, 'insights/index.html'), 'utf8');
       for (const language of ['en', 'el'])
         for (const slug of ['', ...insightArticles.map((a) => a.slug)]) {

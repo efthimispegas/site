@@ -34,7 +34,7 @@
   "files": [
     {
       "path": ".env.example",
-      "sha256": "ff175c0a1b0b4a11417112046d98d0f4945640ff58d7ba4fd9f6573ed6d0b70a"
+      "sha256": "aabf0494a62109985f2cfcda9d4e56a0a7bab05dce5b2f8ca920828b9e7bdfd3"
     },
     {
       "path": "eslint.config.mjs",
@@ -42,7 +42,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "ddd3737333e6295e694c9969860efa8f194831368e8e238dfa7e708a4def3832"
+      "sha256": "6b8481329d36ade94b0a01d967251d4c80aac9bbb0138e28c829ad184089c13c"
     },
     {
       "path": "insights/index.html",
@@ -51,6 +51,10 @@
     {
       "path": "package.json",
       "sha256": "ba5bd18d6c751417ae5c9044e01b836946d68fec074ee9646d426fcb2cf0da58"
+    },
+    {
+      "path": "privacy/index.html",
+      "sha256": "10ae73ab50a808428f482298cf4051c1348508762913d3cdda3fe7522d9380e9"
     },
     {
       "path": "project.json",
@@ -302,15 +306,19 @@
     },
     {
       "path": "src/contact-form.js",
-      "sha256": "418da99a841e63d3b6aacff34e11b10bb056927391ca6bf01e4635a0c704685d"
+      "sha256": "5f675c15889a828839e9c728ac3f759812b8771714fc185fa53e1a5dcfc3bbe6"
+    },
+    {
+      "path": "src/contact-transport.js",
+      "sha256": "dca7aa55f53135335d334679d7d3c5f787bf8fbabda60d4c21fd0ac41743dcc3"
     },
     {
       "path": "src/content-controller.js",
-      "sha256": "6df070ed9edb2485a21dccc6c6634211b36b00f84a994098d7ae7b42a3c18c09"
+      "sha256": "3889354d1d4768eda3ee0a84fdb191993f740d4e980d2d5eb6a7ffa4c37969c2"
     },
     {
       "path": "src/content-sections.css",
-      "sha256": "8927b3672f8aed7787782bb585ddef6326100f6123746b6a3ead773683373655"
+      "sha256": "2afaa09a43f578bfa0fec425487a4cc05c645c3f3aa7a41c9202c7e0675a5b62"
     },
     {
       "path": "src/cookie-consent.js",
@@ -389,6 +397,10 @@
       "sha256": "03542d82350dc64dbd2b7eaf4b74b2bdfeecd3dee718c03b09871a46af561ee0"
     },
     {
+      "path": "src/intake-client.js",
+      "sha256": "91c3ed993650da10dc465f23139f7ca491f3150b954fc3280249b22d37850702"
+    },
+    {
       "path": "src/intro-controller.js",
       "sha256": "4865a7e2c871e8bce0da51b718637140354d983ad3936a3cfd86024a4a96c687"
     },
@@ -426,7 +438,7 @@
     },
     {
       "path": "src/locales/el.js",
-      "sha256": "b9ee0beb885b7d5e69371afa2aa7059b6bd4a4717fadc8e9e0eb34ab490f9725"
+      "sha256": "ce465ceb525a4d3f8abedcef5befa7d38238e80257344c7a1074d8091de21dfa"
     },
     {
       "path": "src/localization.css",
@@ -505,6 +517,10 @@
       "sha256": "b5d9d2d4d0c917b4c32ddb003732e5bb2249690cc1faacc15897cddf1455eee3"
     },
     {
+      "path": "src/privacy.css",
+      "sha256": "52033541f6e71fe4ff7d3b5dc2b2f5de3643ba4aa1900347795522b4a2d480ae"
+    },
+    {
       "path": "src/road-deck-registration.js",
       "sha256": "684d509ddff90c0449e8959378627ea4b9ab1601f68dd08252c011397ca4ef76"
     },
@@ -566,11 +582,11 @@
     },
     {
       "path": "tools/deployment-config.mjs",
-      "sha256": "26a53650fe3e937916334ce9198b1c54429625d410f49d1f18cc57080c1084c9"
+      "sha256": "b943668873f6a3bcc0c96b5d69de7f8f14f0e36bcf95a60be49b0f693bc54fdc"
     },
     {
       "path": "tools/insights-pages.mjs",
-      "sha256": "e23e6dc4e278d01909167b08ef70c18705a70cb189d3c8de11832f3dfa392215"
+      "sha256": "b22f89f73d67f89c2c11e15f42c39f90ddc12c76ca469edb15b7ceefae884d60"
     },
     {
       "path": "tools/insights.test.mjs",
@@ -582,15 +598,19 @@
     },
     {
       "path": "tools/localization.test.mjs",
-      "sha256": "f5dc2b362523e84aa1dccb07c8f99bb34b302b19f0db60d7e58e2e62017e62f2"
+      "sha256": "2e5382cc5d297370428f90a7a56df40c56d77a1997f28f7f1346fe6252f31e42"
     },
     {
       "path": "tools/localized-pages.mjs",
-      "sha256": "0a7cdddb6e5d1524c5d4287df327cca39afc5888b16645bc04b9d16c1bc2637e"
+      "sha256": "bb0cd07c4170856e625e9db0f6d61c71d139c971fd70a9057d6371ffcbc177f0"
     },
     {
       "path": "tools/packaging.test.mjs",
       "sha256": "e91a58625d0b930f9296d1e69028c88ab811a01e43346bab1ac4c22e4bd519c6"
+    },
+    {
+      "path": "tools/privacy-page.mjs",
+      "sha256": "1da12b63af6511e0ca410bbaf86e07c255b7aacb9edb10b0422d5e96b99d88bf"
     },
     {
       "path": "tools/static-compression.mjs",
@@ -602,11 +622,11 @@
     },
     {
       "path": "tools/verify-production.mjs",
-      "sha256": "91c6e79819e9667db946a5ee5fcc6f02ab39dcd8c3af4fb84e5e49f53a056af1"
+      "sha256": "bf6b626c0df0f97c611385d27c2b95dc048b219c524db273645bd36d749d79f0"
     },
     {
       "path": "vite.config.js",
-      "sha256": "018517b86e22a75a1dece68b11bff10c6b25ae42bcc00ec7aa91482915c99026"
+      "sha256": "80c2d94dc6091c4eece348a2cc2275f7bbc6aae2049de21cf2b5b8f93368c5d9"
     }
   ]
 }

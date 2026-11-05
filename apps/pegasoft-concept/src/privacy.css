@@ -1,0 +1,36 @@
+@import './insights.css';
+@import './core-layout.css';
+@import './ui-theme.css';
+
+.privacy-page main {
+  max-width: 75ch;
+  margin-inline: auto;
+  padding-block: var(--layout-section-space);
+}
+.privacy-page nav {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--layout-panel-inset);
+  margin-bottom: var(--layout-section-space);
+}
+.privacy-page h1 {
+  color: var(--accent);
+  font-family: Manrope, sans-serif;
+}
+.privacy-page h2 {
+  font-family: Manrope, sans-serif;
+}
+.privacy-page section {
+  margin-top: var(--layout-section-space);
+}
+.privacy-page a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+.privacy-page a:hover {
+  color: var(--action-accent);
+}
+.privacy-page p {
+  overflow-wrap: anywhere;
+}

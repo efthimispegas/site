@@ -4,6 +4,7 @@ import { deploymentFixture } from './deployment-fixture.mjs';
 import {
   deploymentConfiguration,
   deploymentGate,
+  runtimeSecrets,
 } from '../tools/deployment-config.mjs';
 import { verifyProvider } from '../tools/provider-verification.mjs';
 
@@ -18,10 +19,14 @@ test('deployment disables intake/public endpoints and never copies API credentia
     config.toml,
     /workers_dev = false\npreview_urls = false\nroutes = \[\]/,
   );
-  assert.match(config.toml, /destination_address = "recipient@example.test"/);
-  assert.deepEqual(config.secrets, {
-    PEGASOFT_RATE_LIMIT_SALT: 'synthetic-salt',
-  });
+  assert.match(config.toml, /class_name = "IntakeDelivery"/);
+  assert.ok(!config.toml.includes('send_email'));
+  assert.deepEqual(
+    runtimeSecrets({ PEGASOFT_RATE_LIMIT_SALT: 'synthetic-salt' }),
+    {
+      PEGASOFT_RATE_LIMIT_SALT: 'synthetic-salt',
+    },
+  );
   assert.ok(!JSON.stringify(config).includes('must-not-copy'));
   assert.ok(!config.toml.includes('synthetic-salt'));
 });
@@ -69,6 +74,7 @@ function providerFixture() {
   const replies = {
     '/settings': {
       bindings: [
+        ...expected.secretNames.map((name) => ({ name, type: 'secret_text' })),
         ...Object.entries(expected.vars).map(([name, text]) => ({
           name,
           text,
@@ -81,9 +87,16 @@ function providerFixture() {
           jurisdiction: 'eu',
         },
         {
-          name: 'EMAIL',
-          type: 'send_email',
-          destination_address: expected.vars.PEGASOFT_INTAKE_RECIPIENT,
+          name: 'ADMISSION',
+          type: 'durable_object_namespace',
+          class_name: 'IntakeAdmission',
+          namespace_id: 'synthetic-admission-namespace',
+        },
+        {
+          name: 'DELIVERIES',
+          type: 'durable_object_namespace',
+          class_name: 'IntakeDelivery',
+          namespace_id: 'synthetic-delivery-namespace',
         },
         {
           name: 'LIMITER',
@@ -115,6 +128,7 @@ test('provider verification reads source revision, private bindings, endpoint fl
   assert.deepEqual(await verifyProvider(f.options), {
     revision: deploymentFixture.PEGASOFT_SOURCE_REVISION,
     enabled: false,
+    careersEnabled: false,
     workersDevEnabled: false,
     previewUrlsEnabled: false,
     settingsVerified: true,
@@ -169,4 +183,48 @@ test('provider verification rejects unsafe or mismatched remote state without re
       ),
     );
   }
+});
+
+test('Resend secret stays private and only reviewed Durable Object migration is emitted', () => {
+  const c = deploymentConfiguration({
+    ...deploymentFixture,
+    RESEND_API_KEY: 'synthetic-resend-secret',
+  });
+  assert.deepEqual(c.expected.secretNames, [
+    'PEGASOFT_TURNSTILE_SECRET',
+    'PEGASOFT_RATE_LIMIT_SALT',
+    'RESEND_API_KEY',
+  ]);
+  assert.ok(!JSON.stringify(c).includes('synthetic-resend-secret'));
+  assert.ok(!c.toml.includes('synthetic-resend-secret'));
+  assert.match(
+    c.toml,
+    /new_sqlite_classes = \["IntakeDelivery", "IntakeAdmission"\]/,
+  );
+  assert.ok(!c.toml.includes('[[send_email]]'));
+});
+test('Contact route readback rejects broader or missing routes while workers.dev remains disabled', async () => {
+  const f = providerFixture();
+  f.options.expected.zoneId = 'c'.repeat(32);
+  f.options.expected.routes = [
+    {
+      pattern: 'intake.example/api/intake*',
+      zone_id: f.options.expected.zoneId,
+    },
+  ];
+  f.options.expected.vars.PEGASOFT_INTAKE_ENABLED = 'true';
+  f.replies['/settings'].bindings.find(
+    (binding) => binding.name === 'PEGASOFT_INTAKE_ENABLED',
+  ).text = 'true';
+  f.replies['/routes'] = [
+    {
+      pattern: 'intake.example/api/intake*',
+      script: f.options.expected.worker,
+    },
+  ];
+  assert.equal((await verifyProvider(f.options)).enabled, true);
+  f.replies['/routes'][0].pattern = 'intake.example/*';
+  await assert.rejects(verifyProvider(f.options), /route mismatch/);
+  f.replies['/routes'] = [];
+  await assert.rejects(verifyProvider(f.options), /route mismatch/);
 });

@@ -13,7 +13,6 @@ const output = resolve(
 await mkdir(output, { recursive: true });
 for (const [name, value] of [
   ['wrangler.toml', config.toml],
-  ['secrets.json', JSON.stringify(config.secrets)],
   ['expected.json', JSON.stringify(config.expected)],
 ])
   await writeFile(resolve(output, name), value, { mode: 0o600 });

@@ -1631,3 +1631,23 @@
     display: none;
   }
 }
+
+.contact-preview-form .contact-privacy {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.contact-preview-form .contact-privacy input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--action-accent);
+}
+.contact-preview-form [data-contact-challenge] {
+  min-width: 0;
+  max-width: 100%;
+}
+.contact-preview-form [disabled] {
+  cursor: wait;
+  opacity: 0.65;
+}

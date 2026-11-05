@@ -1,3 +1,4 @@
+import { privacyConfig } from './tools/privacy-page.mjs';
 import { insightsPages } from './tools/insights-pages.mjs';
 import { localizedPages } from './tools/localized-pages.mjs';
 import { defineConfig, loadEnv } from 'vite';
@@ -7,22 +8,30 @@ import {
   developmentConfig,
   deploymentConfig,
   indexingConfig,
+  contactConfig,
 } from './tools/deployment-config.mjs';
 
 export default defineConfig(({ command, mode }) => {
   const environment = loadEnv(mode, import.meta.dirname, 'PEGASOFT_'),
     config = deploymentConfig(environment, { production: command === 'build' }),
-    development = developmentConfig(environment);
+    development = developmentConfig(environment),
+    privacy = privacyConfig(environment),
+    indexing = indexingConfig(environment, {
+      ...config,
+      production: command === 'build',
+    });
   return {
     root: import.meta.dirname,
     plugins: [
-      insightsPages(config),
+      insightsPages({
+        ...config,
+        privacyVisible: !indexing.indexable || privacy.approved,
+      }),
       localizedPages({
         ...config,
-        ...indexingConfig(environment, {
-          ...config,
-          production: command === 'build',
-        }),
+        contact: contactConfig(environment),
+        privacy,
+        ...indexing,
       }),
       staticCompression(),
     ],
@@ -46,6 +55,7 @@ export default defineConfig(({ command, mode }) => {
         input: {
           index: resolve(import.meta.dirname, 'index.html'),
           insights: resolve(import.meta.dirname, 'insights/index.html'),
+          privacy: resolve(import.meta.dirname, 'privacy/index.html'),
         },
       },
     },

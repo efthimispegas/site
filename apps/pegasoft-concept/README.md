@@ -32,3 +32,7 @@ Follow [the shared Git workflow](../../docs/deployment/git-workflow.md) and [ver
 Website deployment uses dedicated Cloudflare Pages projects, GitHub environment configuration and protected production owner review. Do not reuse production submission storage, email credentials or CV bindings in staging. Verify deployed locales, canonical/redirect behavior, assets and form availability; use a known-good provider deployment for rollback.
 
 Forms and private CV handling are separately qualified through the [intake runbook](../pegasoft-intake/README.md). Keep unavailable functionality honestly labelled. Contact-first activation does not authorize Careers, analytics, mail deletion or a change to retention/provider policy. Analytics and SEO have independent review gates; do not add trackers while reconciling forms or styling.
+
+## Contact and privacy configuration
+
+The recovered Contact adapter is disabled by default. Activation requires qualified same-origin transport, Turnstile and a matching approved privacy version; the build rejects incomplete settings. Careers remains separately disabled. `tools/privacy-page.mjs` emits EN/EL review drafts under each locale’s privacy path. Drafts are noindex and cannot authorize form activation. Provider-only qualification does not replace application end-to-end or physical-device checks.

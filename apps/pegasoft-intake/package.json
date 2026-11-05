@@ -111,6 +111,18 @@
           "command": "pnpm --dir cloudflare-tooling audit --ignore-workspace --audit-level high",
           "cwd": "apps/pegasoft-intake"
         }
+      },
+      "local-runtime-check": {
+        "executor": "nx:run-commands",
+        "cache": false,
+        "dependsOn": [
+          "build",
+          "install-cloudflare"
+        ],
+        "options": {
+          "command": "node tools/check-local-runtime.mjs",
+          "cwd": "apps/pegasoft-intake"
+        }
       }
     }
   }

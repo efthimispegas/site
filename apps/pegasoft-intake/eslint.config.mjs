@@ -7,6 +7,8 @@ export default [
       sourceType: 'module',
       globals: Object.fromEntries(
         [
+          'atob',
+          'btoa',
           'Request',
           'Response',
           'Blob',
