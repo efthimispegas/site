@@ -50,6 +50,7 @@ export default defineConfig(({ command, mode }) => {
         input: {
           index: resolve(import.meta.dirname, 'index.html'),
           insights: resolve(import.meta.dirname, 'insights/index.html'),
+          privacy: resolve(import.meta.dirname, 'privacy/index.html'),
         },
       },
     },

@@ -38,8 +38,26 @@ export function localizedPages({
     configResolved(config) {
       directory = resolve(config.root, config.build.outDir);
     },
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const path = (req.url || '').split('?')[0];
+        const language = ['en', 'el'].find(
+          (value) => path === `/${value}${privacy?.path}`,
+        );
+        if (!privacy || (!language && path !== privacy.path)) return next();
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        res.end(renderPrivacy(language || 'el', privacy, { origin }));
+      });
+    },
     async writeBundle() {
       const source = await readFile(resolve(directory, 'index.html'), 'utf8');
+      const privacyStyles = privacy
+        ? [
+            ...(
+              await readFile(resolve(directory, 'privacy/index.html'), 'utf8')
+            ).matchAll(/<link[^>]*href="([^"]+\.css)"/g),
+          ].map((match) => match[1])
+        : [];
       const render = (language) => {
         const links = origin
           ? `<link rel="canonical" href="${origin}/${language}/">\n<link rel="alternate" hreflang="el" href="${origin}/el/">\n<link rel="alternate" hreflang="en" href="${origin}/en/">\n<link rel="alternate" hreflang="x-default" href="${origin}/el/">\n`
@@ -65,14 +83,14 @@ export function localizedPages({
           await mkdir(target, { recursive: true });
           await writeFile(
             resolve(target, 'index.html'),
-            renderPrivacy(language, privacy, { origin }),
+            renderPrivacy(language, privacy, { origin, styles: privacyStyles }),
           );
         }
         const target = resolve(directory, privacy.path.slice(1));
         await mkdir(target, { recursive: true });
         await writeFile(
           resolve(target, 'index.html'),
-          renderPrivacy('el', privacy, { origin }),
+          renderPrivacy('el', privacy, { origin, styles: privacyStyles }),
         );
       }
       // Replace only the indexing directive; preserve all maintained security headers.

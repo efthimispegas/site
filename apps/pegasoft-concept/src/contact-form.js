@@ -5,7 +5,7 @@ import {
   createTurnstileChallenge,
 } from './contact-transport.js';
 import { translate as t } from './locale-messages.js';
-/** Drafts and selected CV stay in memory; this adapter never submits remotely. */
+/** Drafts and selected CV stay in memory; only qualified Contact can submit. */
 const shared = new Set(['name', 'email', 'company']);
 export const CAREER_ROLES = Object.freeze([
   'Frontend software engineer',

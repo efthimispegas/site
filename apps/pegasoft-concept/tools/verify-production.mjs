@@ -32,6 +32,7 @@ const inputs = () =>
     ...files('public'),
     'index.html',
     'insights/index.html',
+    'privacy/index.html',
     'package.json',
     'project.json',
     'vite.config.js',

@@ -53,6 +53,10 @@
       "sha256": "ba5bd18d6c751417ae5c9044e01b836946d68fec074ee9646d426fcb2cf0da58"
     },
     {
+      "path": "privacy/index.html",
+      "sha256": "10ae73ab50a808428f482298cf4051c1348508762913d3cdda3fe7522d9380e9"
+    },
+    {
       "path": "project.json",
       "sha256": "cd66806fe50bbaa85a2ee3613aeea779cd7e095b61c34236750a31e32361e080"
     },
@@ -302,7 +306,7 @@
     },
     {
       "path": "src/contact-form.js",
-      "sha256": "23fc6c0ee296e8281f6029940197ea3e4a844a446099dc2f344b6c46270d3dfb"
+      "sha256": "5f675c15889a828839e9c728ac3f759812b8771714fc185fa53e1a5dcfc3bbe6"
     },
     {
       "path": "src/contact-transport.js",
@@ -310,7 +314,7 @@
     },
     {
       "path": "src/content-controller.js",
-      "sha256": "b64454aae014569e0ee69caa10721ddbf0a24a57c1ea7735ef18af63d4c617b2"
+      "sha256": "3889354d1d4768eda3ee0a84fdb191993f740d4e980d2d5eb6a7ffa4c37969c2"
     },
     {
       "path": "src/content-sections.css",
@@ -513,6 +517,10 @@
       "sha256": "b5d9d2d4d0c917b4c32ddb003732e5bb2249690cc1faacc15897cddf1455eee3"
     },
     {
+      "path": "src/privacy.css",
+      "sha256": "52033541f6e71fe4ff7d3b5dc2b2f5de3643ba4aa1900347795522b4a2d480ae"
+    },
+    {
       "path": "src/road-deck-registration.js",
       "sha256": "684d509ddff90c0449e8959378627ea4b9ab1601f68dd08252c011397ca4ef76"
     },
@@ -594,7 +602,7 @@
     },
     {
       "path": "tools/localized-pages.mjs",
-      "sha256": "f1403e7933182cacc32ee88ffe4c4172e60eaeabeb270f9bef18dffaf35ed00b"
+      "sha256": "a29295869b007d6669ec4947e09241697d24eb6bc48e8b15540999e7150ce529"
     },
     {
       "path": "tools/packaging.test.mjs",
@@ -602,7 +610,7 @@
     },
     {
       "path": "tools/privacy-page.mjs",
-      "sha256": "82612c5eca891526b080125447db75998e430b33e857ed7659171052fd518847"
+      "sha256": "050b2ce6e23a7c3e5f363898d7b325b45af7758c5670cf9f3d336e45038f7a63"
     },
     {
       "path": "tools/static-compression.mjs",
@@ -614,11 +622,11 @@
     },
     {
       "path": "tools/verify-production.mjs",
-      "sha256": "517e1d7f499e5a65668ea5c9753cd13ce0d6cf8dd5fb8952dd34cf110b3c1ac9"
+      "sha256": "bf6b626c0df0f97c611385d27c2b95dc048b219c524db273645bd36d749d79f0"
     },
     {
       "path": "vite.config.js",
-      "sha256": "b264542a9ad7ce70d8edbd56f3df933fcc4811904c8157fb8ddafd5118065748"
+      "sha256": "d51e90f4690dc4fdca5ce23ba1a303906070350f10ea96dcc0456748ab4f4a73"
     }
   ]
 }

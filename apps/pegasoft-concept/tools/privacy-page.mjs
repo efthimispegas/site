@@ -150,7 +150,11 @@ const copy = {
     ],
   },
 };
-export function renderPrivacy(language, settings, { origin = '' } = {}) {
+export function renderPrivacy(
+  language,
+  settings,
+  { origin = '', styles = ['/src/privacy.css'] } = {},
+) {
   const c = copy[language] || copy.en,
     p = settings;
   const details = [
@@ -166,5 +170,5 @@ export function renderPrivacy(language, settings, { origin = '' } = {}) {
         `<section><h2>${escape(title)}</h2>${i === 0 ? `<p>${details}</p>` : ''}<p>${escape(text)}</p></section>`,
     )
     .join('');
-  return `<!doctype html><html lang="${language}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="${p.approved ? 'index, follow' : 'noindex, nofollow'}"><meta name="privacy-version" content="${escape(p.version)}"><title>${escape(c.title)} · Pegasoft</title>${origin ? `<link rel="canonical" href="${escape(origin)}/${language}${p.path}">` : ''}<style>@font-face{font-family:Manrope;src:url('/assets/fonts/manrope.ttf')}*{box-sizing:border-box}body{margin:0;background:#edf2f7;color:#05070a;font:400 16px/1.65 Manrope,sans-serif}main{max-width:900px;padding:32px 24px 80px;margin:auto}nav{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}a{color:#436987}a:hover{color:#147dff}h1{font-size:40px;line-height:1.2;color:#147dff}h2{font-size:24px;line-height:1.4}section{margin-top:40px}.draft{border-left:4px solid #147dff;padding:16px;background:white}@media(max-width:600px){h1{font-size:32px}main{padding-inline:24px}}</style></head><body><main><nav><a href="/${language}/">${escape(c.back)}</a><a href="/${language === 'el' ? 'en' : 'el'}${p.path}" lang="${language === 'el' ? 'en' : 'el'}">${escape(c.switch)}</a></nav><h1>${escape(c.title)}</h1>${p.approved ? '' : `<p class="draft">${escape(c.draft)}</p><p>${escape(c.status)}</p>`}<p>${escape(p.version)}</p>${sections}</main></body></html>`;
+  return `<!doctype html><html lang="${language}" data-color-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="${p.approved ? 'index, follow' : 'noindex, nofollow'}"><meta name="privacy-version" content="${escape(p.version)}"><title>${escape(c.title)} · Pegasoft</title>${origin ? `<link rel="canonical" href="${escape(origin)}/${language}${p.path}">` : ''}${styles.map((href) => `<link rel="stylesheet" href="${escape(href)}">`).join('')}</head><body class="insights-page privacy-page"><main class="layout-container"><nav><a href="/${language}/">${escape(c.back)}</a><a href="/${language === 'el' ? 'en' : 'el'}${p.path}" lang="${language === 'el' ? 'en' : 'el'}">${escape(c.switch)}</a></nav><h1>${escape(c.title)}</h1>${p.approved ? '' : `<p class="draft layout-panel">${escape(c.draft)}</p><p>${escape(c.status)}</p>`}<p>${escape(p.version)}</p>${sections}</main></body></html>`;
 }

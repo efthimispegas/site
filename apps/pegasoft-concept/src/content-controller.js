@@ -3,6 +3,7 @@ import { createScope } from '../runtime/runtime-lifecycle.js';
 import { createContactForm } from './contact-form.js';
 import { readConsent } from './cookie-consent.js';
 import { createCookiePreferences } from './cookie-preferences.js';
+import { translate as t } from './locale-messages.js';
 /** Ordinary DOM interactions. No animation clock, network submission or tracker loading. */
 export function createContentController({ root, journey }) {
   const document = root.ownerDocument,
