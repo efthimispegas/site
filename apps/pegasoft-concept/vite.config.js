@@ -14,19 +14,24 @@ import {
 export default defineConfig(({ command, mode }) => {
   const environment = loadEnv(mode, import.meta.dirname, 'PEGASOFT_'),
     config = deploymentConfig(environment, { production: command === 'build' }),
-    development = developmentConfig(environment);
+    development = developmentConfig(environment),
+    privacy = privacyConfig(environment),
+    indexing = indexingConfig(environment, {
+      ...config,
+      production: command === 'build',
+    });
   return {
     root: import.meta.dirname,
     plugins: [
-      insightsPages(config),
+      insightsPages({
+        ...config,
+        privacyVisible: !indexing.indexable || privacy.approved,
+      }),
       localizedPages({
         ...config,
         contact: contactConfig(environment),
-        privacy: privacyConfig(environment),
-        ...indexingConfig(environment, {
-          ...config,
-          production: command === 'build',
-        }),
+        privacy,
+        ...indexing,
       }),
       staticCompression(),
     ],

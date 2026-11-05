@@ -1,6 +1,6 @@
-import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { renderPrivacy } from './privacy-page.mjs';
+import { renderPrivacy, withPrivacyLink } from './privacy-page.mjs';
 import { localizeHtml } from '../src/locale-messages.js';
 /** Static, crawler-readable localized homepages. Inspection entries stay frozen in English. */
 export function localizedPages({
@@ -17,6 +17,7 @@ export function localizedPages({
   )
     throw Error('Contact requires an approved matching privacy page.');
   let directory;
+  const publishPrivacy = Boolean(privacy && (!indexable || privacy.approved));
   const robots = indexable ? 'index, follow' : 'noindex, nofollow, noarchive';
   return {
     name: 'pegasoft-localized-homepages',
@@ -50,7 +51,7 @@ export function localizedPages({
       });
     },
     async writeBundle() {
-      const source = await readFile(resolve(directory, 'index.html'), 'utf8');
+      let source = await readFile(resolve(directory, 'index.html'), 'utf8');
       const privacyStyles = privacy
         ? [
             ...(
@@ -58,6 +59,11 @@ export function localizedPages({
             ).matchAll(/<link[^>]*href="([^"]+\.css)"/g),
           ].map((match) => match[1])
         : [];
+      // The Vite entry exists to compile shared CSS; it is never a public draft placeholder.
+      await rm(resolve(directory, 'privacy'), { recursive: true, force: true });
+      if (!publishPrivacy) {
+        source = withPrivacyLink(source, false);
+      }
       const render = (language) => {
         const links = origin
           ? `<link rel="canonical" href="${origin}/${language}/">\n<link rel="alternate" hreflang="el" href="${origin}/el/">\n<link rel="alternate" hreflang="en" href="${origin}/en/">\n<link rel="alternate" hreflang="x-default" href="${origin}/el/">\n`
@@ -77,7 +83,7 @@ export function localizedPages({
         );
       }
       await writeFile(resolve(directory, 'index.html'), render('el'));
-      if (privacy) {
+      if (publishPrivacy) {
         for (const language of ['el', 'en']) {
           const target = resolve(directory, language, privacy.path.slice(1));
           await mkdir(target, { recursive: true });

@@ -1,3 +1,7 @@
+export const withPrivacyLink = (source, visible) =>
+  visible
+    ? source
+    : source.replace(/<a\b[^>]*data-privacy-link[^>]*>[\s\S]*?<\/a>/g, '');
 const escape = (value) =>
   String(value).replace(
     /[&<>"']/g,
