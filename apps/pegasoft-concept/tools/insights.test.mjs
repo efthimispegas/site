@@ -157,3 +157,15 @@ test('article counts and paused highlight actions describe the actual state in b
   assert.equal(highlightActionLabel(true, 'el'), 'Συνέχιση εναλλαγής');
   assert.equal(highlightActionLabel(false, 'el'), 'Παύση εναλλαγής');
 });
+
+test('Insights selection follows localized route identity rather than navigation history', async () => {
+  const { isInsightsPath } = await import('../src/navigation-state.js');
+  for (const path of ['/en/', '/el/', '/', '/en/insights-other/'])
+    assert.equal(isInsightsPath(path), false);
+  for (const path of [
+    '/en/insights/',
+    '/el/insights',
+    '/el/insights/purposeful-ai/',
+  ])
+    assert.equal(isInsightsPath(path), true);
+});

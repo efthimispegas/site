@@ -1,6 +1,6 @@
 /* Triloe-informed component treatment. Grid, content order and shared site chrome stay owned by their existing sources. */
 .insights-page #insights-content {
-  --editorial-card-radius: 24px;
+  --editorial-card-radius: var(--layout-card-radius);
   --editorial-card-line: var(--line);
   --editorial-card-surface: var(--panel);
 }

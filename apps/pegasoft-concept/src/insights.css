@@ -70,10 +70,10 @@ select:focus-visible {
   display: none !important;
 }
 .insights-page #insights-content {
-  --editorial-gutter: clamp(12px, 1.157407vw, 32px);
-  --editorial-inset: calc(var(--editorial-gutter) * 2);
-  --widget-inset: 24px;
-  --widget-spacing: 48px;
+  --editorial-gutter: var(--layout-gutter);
+  --editorial-inset: var(--layout-page-inset);
+  --widget-inset: var(--layout-panel-inset);
+  --widget-spacing: var(--layout-section-space);
   max-width: none;
   margin: 0;
   padding: 150px var(--editorial-inset) 110px;
@@ -593,9 +593,9 @@ select {
 }
 @media (max-width: 760px) {
   .insights-page #insights-content {
-    --editorial-inset: 20px;
-    --widget-inset: 16px;
-    --widget-spacing: 32px;
+    --editorial-inset: var(--layout-page-inset);
+    --widget-inset: var(--layout-panel-inset);
+    --widget-spacing: var(--layout-section-space);
     padding: 120px var(--editorial-inset) 65px;
   }
   .insights-title {

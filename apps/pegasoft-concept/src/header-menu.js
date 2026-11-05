@@ -1,4 +1,5 @@
 import { translate as t } from './locale-messages.js';
+import { isInsightsPath } from './navigation-state.js';
 import { createScope } from '../runtime/runtime-lifecycle.js';
 
 /** Homepage menu lifecycle shared by every route. */
@@ -7,6 +8,15 @@ export function createHeaderMenu(document) {
     scope = createScope(),
     $ = (s) => document.querySelector(s),
     menu = $('#mobile-navigation');
+  function syncCurrentPage() {
+    const current = isInsightsPath(window.location.pathname);
+    document.querySelectorAll('.insights-nav-link').forEach((link) => {
+      if (current) link.setAttribute('aria-current', 'page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+  syncCurrentPage();
+  scope.listen(window, 'pageshow', syncCurrentPage);
   function syncMenu() {
     const open = menu.open;
     $('#open-mobile-menu').setAttribute('aria-expanded', String(open));

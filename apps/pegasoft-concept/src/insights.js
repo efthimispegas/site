@@ -19,6 +19,7 @@ import './content-sections.css';
 import './localization.css';
 import './ui-theme.css';
 import './adaptive-header.css';
+import './core-layout.css';
 import './insights.css';
 import './insights-bento.css';
 const language = document.documentElement.lang,

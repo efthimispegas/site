@@ -8,6 +8,7 @@ import './content-sections.css';
 import './localization.css';
 import './ui-theme.css';
 import './adaptive-header.css';
+import './core-layout.css';
 import { createColorTheme } from './color-theme.js';
 import { createContentController } from './content-controller.js';
 import { createJourneyHost } from './journey-host.js';
