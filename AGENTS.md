@@ -6,6 +6,13 @@
 - Preserve unrelated WIP, shared-file ownership and approved UI. Keep evidence/review/history media and private data local; only required runtime assets belong in published source. Legacy detached worktrees are recovery-only, not publishable branches.
 - For all UI/UX work, read and use Taste (`design-taste-frontend`) alongside Impeccable. Preserve Pegasoft tokens, shared components, responsive/reduced-motion behavior and separate visual/device/release gates. Report unavailable guidance and actual verification limits.
 
+## Efficient context and token use
+
+- Optimize tokens per verified outcome. Load only the applicable contract, skill and owned files; reuse already-read context unless it is stale. Keep handoffs concise and current: scope, owner, result, limits, blocker and next gate.
+- Batch independent reads and related edits. Run proportionate verification once; repeat when a change, failure or unresolved concern justifies it. Avoid repeated full dumps, screenshots and builds with no new question to answer.
+- After repeated failed approaches, diagnose and reframe instead of running the same loop. Preserve required acceptance checks and do not trade correctness, approval gates or user data for lower token usage.
+- Retired usage statistics, historical task ledgers and the original kickstart plan are not active authority. Current directives live here and in the linked workflow/layout/runbooks; model/effort follows current user and platform instructions.
+
 <!-- nx configuration start-->
 <!-- Leave the start & end comments to automatically receive updates. -->
 
