@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
-      - codex/pegasoft-staging-release
+      - 'release/*'
 
 permissions:
   contents: read
@@ -47,8 +46,8 @@ jobs:
           if (url.protocol !== 'https:' || url.username || url.password || url.pathname !== '/' || url.search || url.hash) {
             throw new Error('Staging site URL must be a clean HTTPS origin.');
           }
-          if (!['refs/heads/main', 'refs/heads/codex/pegasoft-staging-release'].includes(process.env.GITHUB_REF)) {
-            throw new Error('Only the reviewed release branch or main can deploy staging.');
+          if (!/^refs\/heads\/release\/[^/]+$/.test(process.env.GITHUB_REF || '')) {
+            throw new Error('Only release/* branches can deploy staging.');
           }
           JS
       - run: pnpm install --frozen-lockfile
@@ -60,7 +59,7 @@ jobs:
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
           workingDirectory: apps/pegasoft-intake/cloudflare-tooling
           wranglerVersion: '4.155.0'
           packageManager: pnpm
