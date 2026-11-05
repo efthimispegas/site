@@ -403,12 +403,14 @@
   cursor: pointer;
 }
 .footer-selector button[aria-pressed='true'] {
-  background: #173c68;
-  border-color: #7bcbff;
-  color: #101419;
+  background: transparent;
+  color: #edf2f7;
 }
 .footer-selector button:hover {
   color: #147dff;
+}
+.footer-selector button[aria-pressed='true']:is(:hover, :focus-visible) {
+  color: #edf2f7;
 }
 .footer-selector button:focus-visible {
   outline: 2px solid #147dff;
@@ -796,6 +798,7 @@ body.static-journey .after-journey #insights {
   left: 4px;
   top: 8px;
   bottom: 8px;
+  background: #173c68;
 }
 .footer-selector button {
   min-width: 96px;

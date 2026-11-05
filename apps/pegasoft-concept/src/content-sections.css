@@ -1033,9 +1033,6 @@
 
 /* Landing notice follows the reference's corner card; it does not block the story or take focus. */
 .cookie-notice {
-  --notice-scale: 0.75;
-  transform: scale(var(--notice-scale));
-  transform-origin: bottom right;
   position: fixed;
   z-index: 150;
   right: 24px;
