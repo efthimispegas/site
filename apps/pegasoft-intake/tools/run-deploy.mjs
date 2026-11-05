@@ -30,12 +30,10 @@ const result = spawnSync(
   { stdio: 'pipe', env: deploymentEnvironment(env) },
 );
 if (result.status !== 0) {
-  stderr.write(
-    'Disabled Worker deployment failed; provider output withheld.\n',
-  );
+  stderr.write('Worker deployment failed; provider output withheld.\n');
   exit(result.status ?? 1);
 }
 await verifyWorkerSecrets(env);
 stdout.write(
-  'Disabled Worker deployed; required preprovisioned secret metadata verified.\n',
+  'Worker deployed; required preprovisioned secret metadata verified.\n',
 );

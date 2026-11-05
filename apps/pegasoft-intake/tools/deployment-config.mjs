@@ -1,4 +1,5 @@
 const runtimeKeys = [
+  'PEGASOFT_CAREERS_ENABLED',
   'PEGASOFT_INTAKE_PATH',
   'PEGASOFT_INTAKE_ORIGINS',
   'PEGASOFT_INTAKE_RECIPIENT',
@@ -64,7 +65,8 @@ export function deploymentConfiguration(env) {
     env.PEGASOFT_CV_RETENTION_DAYS !== '30' ||
     env.PEGASOFT_MAX_CV_BYTES !== '5000000' ||
     env.PEGASOFT_MAX_REQUEST_BYTES !== '5131072' ||
-    env.PEGASOFT_INTAKE_ENABLED !== 'false' ||
+    !['false', 'true'].includes(env.PEGASOFT_INTAKE_ENABLED) ||
+    env.PEGASOFT_CAREERS_ENABLED === 'true' ||
     !Number.isSafeInteger(limit) ||
     limit < 1 ||
     limit > 100
@@ -102,10 +104,33 @@ export function deploymentConfiguration(env) {
       !/^[0-9a-f-]{36}$/.test(env.PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID))
   )
     throw Error('Invalid admission readiness');
+  const active = env.PEGASOFT_INTAKE_ENABLED === 'true';
+  let zoneId = env.PEGASOFT_INTAKE_ZONE_ID || '',
+    routes = [];
+  if (zoneId && !/^[0-9a-f]{32}$/.test(zoneId))
+    throw Error('Invalid intake zone');
+  if (active) {
+    if (
+      env.PEGASOFT_CONTACT_ACTIVATION_READY !== 'true' ||
+      env.PEGASOFT_INTAKE_CAPACITY_VERIFIED !== 'true' ||
+      origins.length !== 1 ||
+      !zoneId
+    )
+      throw Error(
+        'Contact activation requires qualification, capacity and explicit zone.',
+      );
+    routes = [
+      {
+        pattern: new URL(origins[0]).hostname + env.PEGASOFT_INTAKE_PATH + '*',
+        zone_id: zoneId,
+      },
+    ];
+  }
   const vars = Object.fromEntries(
     runtimeKeys.map((key) => [key, String(env[key] || '')]),
   );
-  vars.PEGASOFT_INTAKE_ENABLED = 'false';
+  vars.PEGASOFT_INTAKE_ENABLED = String(active);
+  vars.PEGASOFT_CAREERS_ENABLED = 'false';
   vars.PEGASOFT_INTAKE_CAPACITY_VERIFIED =
     env.PEGASOFT_INTAKE_CAPACITY_VERIFIED || 'false';
   vars.PEGASOFT_SOURCE_REVISION = revision;
@@ -117,7 +142,14 @@ export function deploymentConfiguration(env) {
     `compatibility_date = ${quote(date)}`,
     'workers_dev = false',
     'preview_urls = false',
-    'routes = []',
+    'routes = [' +
+      routes
+        .map(
+          (route) =>
+            `{ pattern = ${quote(route.pattern)}, zone_id = ${quote(route.zone_id)} }`,
+        )
+        .join(', ') +
+      ']',
     'upload_source_maps = false',
     '[observability]',
     'enabled = false',
@@ -149,6 +181,8 @@ export function deploymentConfiguration(env) {
     expected: {
       worker,
       account,
+      zoneId,
+      routes,
       bucket,
       cron,
       namespace,

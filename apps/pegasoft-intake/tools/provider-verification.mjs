@@ -10,10 +10,15 @@ export async function verifyProvider({
   if (!token) throw Error('Missing deployment credential');
   const base = `${apiOrigin}/client/v4/accounts/${expected.account}/workers/scripts/${expected.worker}`;
   async function get(path) {
-    const response = await fetcher(base + path, {
-      headers: { Authorization: `Bearer ${token}` },
-      signal: AbortSignal.timeout(15000),
-    });
+    const response = await fetcher(
+      path.startsWith('/zones/')
+        ? `${apiOrigin}/client/v4${path}`
+        : base + path,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        signal: AbortSignal.timeout(15000),
+      },
+    );
     if (!response.ok) throw Error('Provider verification request failed');
     const json = await response.json();
     if (json.success !== true || !json.result)
@@ -72,6 +77,19 @@ export async function verifyProvider({
   const subdomain = await get('/subdomain');
   if (subdomain.enabled !== false || subdomain.previews_enabled !== false)
     throw Error('Unexpected public Worker endpoint');
+  if (expected.zoneId) {
+    const routes = await get(`/zones/${expected.zoneId}/workers/routes`);
+    const own = routes.filter((route) => route.script === expected.worker);
+    if (
+      own.length !== expected.routes.length ||
+      own.some(
+        (route) =>
+          !expected.routes.some((wanted) => wanted.pattern === route.pattern),
+      )
+    )
+      throw Error('Worker route mismatch');
+  } else if (expected.vars.PEGASOFT_INTAKE_ENABLED === 'true')
+    throw Error('Active route not verified');
   const schedules = await get('/schedules');
   if (
     schedules.schedules?.length !== 1 ||
@@ -80,7 +98,8 @@ export async function verifyProvider({
     throw Error('Expiry schedule mismatch');
   return {
     revision: expected.revision,
-    enabled: false,
+    enabled: expected.vars.PEGASOFT_INTAKE_ENABLED === 'true',
+    careersEnabled: false,
     workersDevEnabled: false,
     previewUrlsEnabled: false,
     settingsVerified: true,

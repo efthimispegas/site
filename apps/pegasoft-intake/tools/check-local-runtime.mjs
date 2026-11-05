@@ -73,6 +73,7 @@ const createRuntime = (enabled) =>
           r2Buckets: ['PRIVATE_APPLICATIONS'],
           bindings: {
             PEGASOFT_INTAKE_ENABLED: String(enabled),
+            PEGASOFT_CAREERS_ENABLED: 'true',
             PEGASOFT_INTAKE_CAPACITY_VERIFIED: 'true',
             PEGASOFT_INTAKE_SENDER: 'sender@example.test',
             PEGASOFT_INTAKE_RECIPIENT: 'owner@example.test',

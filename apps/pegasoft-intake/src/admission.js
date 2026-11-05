@@ -376,6 +376,8 @@ export function createAdmissionCoordinator(
     if (state.inventoryAt < now() - day)
       return { allowed: false, code: 'capacity_unverified' };
     if (path === '/reserve') {
+      if (body.cv && env.PEGASOFT_CAREERS_ENABLED !== 'true')
+        return { allowed: false, code: 'careers_unavailable' };
       if (
         !idPattern.test(body.submissionId || '') ||
         !Number.isSafeInteger(body.createdAt) ||

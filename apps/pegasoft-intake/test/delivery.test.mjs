@@ -24,6 +24,7 @@ function fixture() {
   };
   const env = {
     PEGASOFT_INTAKE_ENABLED: 'true',
+    PEGASOFT_CAREERS_ENABLED: 'true',
     PEGASOFT_INTAKE_SENDER: 'sender@example.test',
     PEGASOFT_INTAKE_RECIPIENT: 'owner@example.test',
     PRIVATE_APPLICATIONS: {

@@ -20,6 +20,7 @@ function fixture() {
     inventory = new Map();
   const env = {
     PEGASOFT_INTAKE_ENABLED: 'true',
+    PEGASOFT_CAREERS_ENABLED: 'true',
     PEGASOFT_INTAKE_CAPACITY_VERIFIED: 'true',
     PRIVATE_APPLICATIONS: {
       list: async () => ({

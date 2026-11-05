@@ -37,6 +37,8 @@ export function createDeliveryCoordinator(
   async function execute(input, env) {
     if (env.PEGASOFT_INTAKE_ENABLED !== 'true')
       return reply(503, 'intake_unavailable');
+    if (input.audience === 'Careers' && env.PEGASOFT_CAREERS_ENABLED !== 'true')
+      return reply(503, 'careers_unavailable');
     const identity = submissionTime(input.submissionId, now());
     if (!identity) return reply(410, 'submission_expired');
     const reservation = {

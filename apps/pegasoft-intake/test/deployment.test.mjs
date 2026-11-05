@@ -128,6 +128,7 @@ test('provider verification reads source revision, private bindings, endpoint fl
   assert.deepEqual(await verifyProvider(f.options), {
     revision: deploymentFixture.PEGASOFT_SOURCE_REVISION,
     enabled: false,
+    careersEnabled: false,
     workersDevEnabled: false,
     previewUrlsEnabled: false,
     settingsVerified: true,
@@ -201,4 +202,29 @@ test('Resend secret stays private and only reviewed Durable Object migration is 
     /new_sqlite_classes = \["IntakeDelivery", "IntakeAdmission"\]/,
   );
   assert.ok(!c.toml.includes('[[send_email]]'));
+});
+test('Contact route readback rejects broader or missing routes while workers.dev remains disabled', async () => {
+  const f = providerFixture();
+  f.options.expected.zoneId = 'c'.repeat(32);
+  f.options.expected.routes = [
+    {
+      pattern: 'intake.example/api/intake*',
+      zone_id: f.options.expected.zoneId,
+    },
+  ];
+  f.options.expected.vars.PEGASOFT_INTAKE_ENABLED = 'true';
+  f.replies['/settings'].bindings.find(
+    (binding) => binding.name === 'PEGASOFT_INTAKE_ENABLED',
+  ).text = 'true';
+  f.replies['/routes'] = [
+    {
+      pattern: 'intake.example/api/intake*',
+      script: f.options.expected.worker,
+    },
+  ];
+  assert.equal((await verifyProvider(f.options)).enabled, true);
+  f.replies['/routes'][0].pattern = 'intake.example/*';
+  await assert.rejects(verifyProvider(f.options), /route mismatch/);
+  f.replies['/routes'] = [];
+  await assert.rejects(verifyProvider(f.options), /route mismatch/);
 });

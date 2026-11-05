@@ -14,6 +14,7 @@ function fixture() {
     rateKeys = [];
   const env = {
     PEGASOFT_INTAKE_ENABLED: 'true',
+    PEGASOFT_CAREERS_ENABLED: 'true',
     PEGASOFT_INTAKE_CAPACITY_VERIFIED: 'true',
     PEGASOFT_INTAKE_PATH: '/api/intake',
     PEGASOFT_INTAKE_ORIGINS: origin,
@@ -499,4 +500,16 @@ test('receipt429 preserves accepted202 and shared pause prevents further sends',
   assert.equal((await response.json()).code, 'submitted_receipt_pending');
   assert.equal((await f.service.fetch(f.request(), f.env)).status, 503);
   assert.equal(sends, 2);
+});
+test('Contact-first switch rejects Careers before admission, storage or provider work', async () => {
+  const f = fixture();
+  f.env.PEGASOFT_CAREERS_ENABLED = 'false';
+  assert.equal(
+    (await f.service.fetch(f.request({ career: true }), f.env)).status,
+    503,
+  );
+  assert.equal(f.env.DELIVERIES.allocated(), 0);
+  assert.equal(f.messages.length, 0);
+  assert.equal(f.objects.size, 0);
+  assert.equal((await f.service.fetch(f.request(), f.env)).status, 201);
 });

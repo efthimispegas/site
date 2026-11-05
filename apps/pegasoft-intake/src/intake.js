@@ -224,6 +224,11 @@ export function createIntake({ now = () => Date.now(), fetcher = fetch } = {}) {
         if (!(await env.LIMITER.limit({ key })).success)
           throw new Rejection(429, 'rate_limited');
         const form = await boundedForm(request, config.maxBody);
+        if (
+          form.get('audience') === 'Careers' &&
+          env.PEGASOFT_CAREERS_ENABLED !== 'true'
+        )
+          throw new Rejection(503, 'careers_unavailable');
         const { audience, values } = fields(form);
         if (form.get('privacyVersion') !== env.PEGASOFT_PRIVACY_VERSION)
           throw new Rejection(400, 'privacy_version_required');

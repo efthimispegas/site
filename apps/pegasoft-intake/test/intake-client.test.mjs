@@ -326,3 +326,14 @@ test('accepted202 survives failed challenge and later503 without becoming unsent
   assert.equal(retry.state, 'receipt_pending');
   assert.equal(calls, 2);
 });
+test('switching UI language during an uncertain retry preserves the same enquiry ID and original receipt language', async () => {
+  const f = fixture();
+  f.setSend(async () => {
+    throw Error('offline');
+  });
+  await f.client.submit(payload('en'));
+  const result = await f.client.submit(payload('el'));
+  assert.equal(f.calls[0].get('submissionId'), f.calls[1].get('submissionId'));
+  assert.equal(f.calls[1].get('language'), 'en');
+  assert.ok(/[\u0370-\u03ff]/.test(result.message));
+});
