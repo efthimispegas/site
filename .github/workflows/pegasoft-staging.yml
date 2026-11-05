@@ -14,7 +14,9 @@ jobs:
     # Opt-in only after the staging environment, credentials and project are reviewed.
     if: vars.PEGASOFT_STAGING_READY == 'true'
     runs-on: ubuntu-latest
-    environment: pegasoft-staging
+    environment:
+      name: pegasoft-staging
+      url: ${{ vars.PEGASOFT_STAGING_SITE_URL }}
     concurrency:
       group: pegasoft-staging
       cancel-in-progress: true
@@ -64,3 +66,25 @@ jobs:
           wranglerVersion: '4.155.0'
           packageManager: pnpm
           command: pages deploy ../../../dist/apps/pegasoft-concept --project-name=${{ vars.PEGASOFT_STAGING_PAGES_PROJECT }} --branch=staging --commit-hash=${{ github.sha }}
+
+      - name: Verify staging routes and indexing exclusion
+        run: |
+          python3 - <<'PYTHON'
+          import os, time
+          from urllib.request import Request, urlopen
+          origin = os.environ['PEGASOFT_PUBLIC_SITE_URL'].rstrip('/')
+          for path, language in [('/en/', 'en'), ('/el/', 'el'), ('/en/insights/', 'en'), ('/el/insights/', 'el')]:
+              for attempt in range(6):
+                  try:
+                      with urlopen(Request(origin + path, headers={'Accept-Encoding': 'identity'}), timeout=20) as response:
+                          html = response.read().decode('utf-8')
+                          assert response.status == 200, 'Route did not return HTTP 200'
+                          assert 'noindex' in response.headers.get('X-Robots-Tag', ''), 'Staging must remain excluded from indexing'
+                          assert f'<html lang="{language}"' in html, 'Unexpected locale'
+                      print(f'Verified {path}: HTTP 200, expected locale, noindex')
+                      break
+                  except Exception:
+                      if attempt == 5:
+                          raise
+                      time.sleep(3)
+          PYTHON
