@@ -24,7 +24,6 @@ export function articleCountLabel(count, language) {
     ? `${count} ${singular ? 'άρθρο' : 'άρθρα'}`
     : `${count} ${singular ? 'article' : 'articles'}`;
 }
-
 export function highlightActionLabel(paused, language) {
   return language === 'el'
     ? paused

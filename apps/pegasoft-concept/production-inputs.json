@@ -42,7 +42,7 @@
     },
     {
       "path": "index.html",
-      "sha256": "6b8481329d36ade94b0a01d967251d4c80aac9bbb0138e28c829ad184089c13c"
+      "sha256": "edf8d0fb4051f5623e9b7e6b4683ec3466721ac69ee5587ae4a86448f1c3d11c"
     },
     {
       "path": "insights/index.html",
@@ -111,6 +111,10 @@
     {
       "path": "public/assets/live/container-family/model-draft/C01-container.glb",
       "sha256": "623dab803f6966789fe795490a72bc4c1799061b5be0ec971168b71f983bf07b"
+    },
+    {
+      "path": "public/assets/live/hero-globe/banner-upper-half.svg",
+      "sha256": "e33657b0a4a752298e90064075313af3fa1d02a46c6a929d6b62eb5d360628a2"
     },
     {
       "path": "public/assets/live/hero-globe/land-dots.json",
@@ -378,15 +382,23 @@
     },
     {
       "path": "src/insights-bento.css",
-      "sha256": "a8a7eb53ef46990a8a922abfddb1be93033f03311043c61918f1b448bb181186"
+      "sha256": "7a0e178ac3039b99cfa73d40142e163b173b1eeac2906f941c779b3d650a777f"
     },
     {
       "path": "src/insights-content.js",
       "sha256": "16f5996fcd85a505d1e7feef26286ce10274c932d0ca51d3a8a54d3505d5b276"
     },
     {
+      "path": "src/insights-highlights.js",
+      "sha256": "b18b48a73dfde7951bbdb44170e3b7751cc52c979326c0be622c401cfe128df3"
+    },
+    {
+      "path": "src/insights-listing.js",
+      "sha256": "63df00480a4cde3002983271d8824aff54184aac7fd0bd550956c2f4f33282bb"
+    },
+    {
       "path": "src/insights-state.js",
-      "sha256": "f61376d51d216964153422d6e049d943f4ee84b5a35d7c91322a66b20445e7fd"
+      "sha256": "1347eb7d84e24cbeb5946e5cdd8028ee1bd24218e1fe18fd35d0311e62ac5e4b"
     },
     {
       "path": "src/insights.css",
@@ -394,7 +406,7 @@
     },
     {
       "path": "src/insights.js",
-      "sha256": "03542d82350dc64dbd2b7eaf4b74b2bdfeecd3dee718c03b09871a46af561ee0"
+      "sha256": "c183dabbdaefe91f86bf01f118fef425032e903c82eea7b76d52325c5ad633e5"
     },
     {
       "path": "src/intake-client.js",
@@ -558,7 +570,7 @@
     },
     {
       "path": "src/ui-theme.css",
-      "sha256": "8eb20fb90e35b4fbe27fc71c3ac6cb14546f53d7a2b918135bd9397c68ba8dd7"
+      "sha256": "48029566171c14772afaaa4761ad2280971cc9b73aa1abf590d6a7a40a4ffae3"
     },
     {
       "path": "src/website-motion-controller.js",
@@ -586,11 +598,11 @@
     },
     {
       "path": "tools/insights-pages.mjs",
-      "sha256": "b22f89f73d67f89c2c11e15f42c39f90ddc12c76ca469edb15b7ceefae884d60"
+      "sha256": "1e9f9785ba21a124484bb193f2b6f57f83c013b7f84f4e51593fb8f8fb1942ea"
     },
     {
       "path": "tools/insights.test.mjs",
-      "sha256": "a08c37d04f6cf51b99f94be180643eb2bd4082c0febf2ff9f8af24cfde5d312c"
+      "sha256": "d2c90655c3e69367d85a66c2860f95f72a3a95ed8a7e2360e4fe7f938f6f4694"
     },
     {
       "path": "tools/lifecycle.test.mjs",
