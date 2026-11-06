@@ -8,7 +8,13 @@ const destination = resolve(
   '../../..',
   'dist/apps/pegasoft-intake',
 );
-for (const name of ['worker.js', 'intake.js']) {
+for (const name of [
+  'worker.js',
+  'intake.js',
+  'delivery.js',
+  'resend.js',
+  'admission.js',
+]) {
   assert.deepEqual(
     await readFile(resolve(destination, name)),
     await readFile(resolve(import.meta.dirname, '../src', name)),
@@ -33,6 +39,13 @@ let cleanup;
 worker.scheduled(
   {},
   {
+    ADMISSION: {
+      jurisdiction() {
+        return this;
+      },
+      idFromName: (x) => x,
+      get: () => ({ fetch: async () => Response.json({ allowed: true }) }),
+    },
     PRIVATE_APPLICATIONS: {
       list: async () => ({ objects: [], truncated: false }),
     },

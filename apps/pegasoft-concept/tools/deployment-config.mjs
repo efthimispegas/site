@@ -65,3 +65,34 @@ export function indexingConfig(
   }
   return { indexable: production && target === 'production' };
 }
+
+/** Explicit public allowlist. Disabled builds disclose no form configuration. */
+export function contactConfig(environment) {
+  if (environment.PEGASOFT_CONTACT_FORM_ENABLED !== 'true')
+    return { enabled: false };
+  if (
+    environment.PEGASOFT_CONTACT_QUALIFIED !== 'true' ||
+    environment.PEGASOFT_CAREERS_FORM_ENABLED === 'true'
+  )
+    throw Error('Contact needs qualification; Careers remains staged off.');
+  const path = environment.PEGASOFT_INTAKE_PATH,
+    siteKey = environment.PEGASOFT_TURNSTILE_SITE_KEY,
+    privacyVersion = environment.PEGASOFT_PRIVACY_VERSION,
+    privacyPath = environment.PEGASOFT_PRIVACY_PATH;
+  if (
+    privacyPath?.startsWith('//') ||
+    !/^\/api\/[a-z0-9/-]{1,60}$/.test(path || '') ||
+    !/^[a-zA-Z0-9_-]{20,100}$/.test(siteKey || '') ||
+    !/^[a-zA-Z0-9._-]{1,100}$/.test(privacyVersion || '') ||
+    !/^\/[a-z0-9/-]{1,100}$/.test(privacyPath || '')
+  )
+    throw Error('Contact public configuration incomplete.');
+  return {
+    enabled: true,
+    path,
+    siteKey,
+    privacyVersion,
+    privacyPath,
+    careersEnabled: false,
+  };
+}

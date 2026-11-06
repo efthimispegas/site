@@ -3,6 +3,7 @@ import { createScope } from '../runtime/runtime-lifecycle.js';
 import { createContactForm } from './contact-form.js';
 import { readConsent } from './cookie-consent.js';
 import { createCookiePreferences } from './cookie-preferences.js';
+import { translate as t } from './locale-messages.js';
 /** Ordinary DOM interactions. No animation clock, network submission or tracker loading. */
 export function createContentController({ root, journey }) {
   const document = root.ownerDocument,
@@ -18,19 +19,36 @@ export function createContentController({ root, journey }) {
     panel = $('#contact-field-plan'),
     dialog = $('#cookie-preferences'),
     menu = document.querySelector('#mobile-navigation'),
-    contactForm = createContactForm({ panel, scope });
+    contactConfig = JSON.parse(
+      document.querySelector('#contact-runtime-config')?.textContent ||
+        '{"enabled":false}',
+    ),
+    contactForm = createContactForm({ panel, scope, config: contactConfig });
+  if (contactConfig.enabled) {
+    $('#contact').dataset.submissionsDisabled = 'false';
+    const container = $('.contact-panel');
+    container.hidden = false;
+    container.removeAttribute('data-launch-omit');
+    $('.contact-intro .content-review-note').textContent = t(
+      'Contact is available. Careers applications will open after private CV handling is verified.',
+    );
+    $('.contact-fields-note').textContent = t(
+      'Messages are sent securely after verification. CV uploads are not available yet.',
+    );
+  }
   const preferences = createCookiePreferences(document);
   scope.defer(() => preferences.dispose());
   const saveConsent = (choice) => preferences.save(choice);
   function selectTab(value) {
     if ($('#contact').dataset.submissionsDisabled === 'true') return;
+    if (contactForm.show(value) === false) return;
     selected = value;
     tabs.forEach((tab) => {
       const active = tab.dataset.contactTab === value;
       tab.setAttribute('aria-selected', String(active));
       tab.tabIndex = active ? 0 : -1;
     });
-    contactForm.show(value);
+
     panel.setAttribute(
       'aria-labelledby',
       tabs.find((tab) => tab.dataset.contactTab === value).id,
@@ -157,6 +175,12 @@ export function createContentController({ root, journey }) {
       $('#cookie-notice').hidden = Boolean(readConsent(storage));
     },
     refreshLanguage() {
+      root
+        .querySelector('[data-privacy-link]')
+        ?.setAttribute(
+          'href',
+          `/${document.documentElement.lang}${contactConfig.privacyPath || '/privacy/'}`,
+        );
       panel
         .querySelectorAll('input,select,textarea')
         .forEach((input) => input.setCustomValidity(''));

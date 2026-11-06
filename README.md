@@ -1,48 +1,32 @@
-# Pegasoft Site Monorepo
+# Pegasoft workspace
 
-Nx monorepo for two Next.js apps:
+The production website is `apps/pegasoft-concept`: bilingual Greek/English static HTML, vanilla JavaScript/CSS and Three.js, built by Vite through Nx and deployed to Cloudflare Pages. `apps/pegasoft-intake` owns the separately gated private submission backend. The Next.js applications in `apps/pegasoft` and `apps/individual`, plus shared libraries, remain in the workspace; they are not the current production website.
 
-- `apps/pegasoft`: Pegasoft company site for design and delivery quality digital product solutions.
-- `apps/individual`: provisional individual/freelancer brand site using an invented v1 persona.
+## Start here
 
-## Product Rules
+- [Agent directives and efficient working rules](AGENTS.md)
+- [Parallel-stream Git workflow](docs/deployment/git-workflow.md)
+- [Versioned staging and production releases](docs/deployment/staging.md)
+- [Shared UI layout contract](docs/design/layout-contract.md)
+- [Website configuration and verification](apps/pegasoft-concept/README.md)
+- [Private intake operations and activation gates](apps/pegasoft-intake/README.md)
+- [Owner-controlled Gmail retention](apps/pegasoft-intake/tools/gmail-retention/README.md)
+- [Dependency maintenance](docs/dependency-maintenance.md)
 
-- Concept work is stored as `ConceptLabStudy` and must stay clearly labeled as `Concept Lab`.
-- Real client/product work is stored as `ClientProductProject` and only publishes when `permissionStatus` is `approved`.
-- The individual app persona is provisional. Replace all identity, work, and credentials before public launch.
+## Local work and verification
 
-## Local Development
-
-```sh
-pnpm install
-pnpm dev:pegasoft
-pnpm dev:individual
-```
-
-Pegasoft runs on the default Next dev port when launched directly. E2E tests run Pegasoft on `4200` and the individual app on `4300`.
-
-## Verification
+Select the Node version in `.nvmrc` and the pnpm version in the root package before installing with `pnpm install --frozen-lockfile`. Use the repository's Nx skills to query resolved targets; run tasks through the pinned package manager and Nx.
 
 ```sh
-pnpm format:check
-pnpm lint
-pnpm test
-pnpm typecheck
-pnpm build
-pnpm e2e
+pnpm nx show projects
+pnpm nx run @site/pegasoft-concept:dev
+pnpm nx run-many --projects=@site/pegasoft-concept --targets=lint,test,build
 ```
 
-The E2E suite includes CTA checks, taxonomy checks, mobile overflow checks, and axe scans for serious/critical accessibility violations.
+Configure public site origins and local-server settings in the website's ignored `.env`, following its `.env.example`. Keep credentials server-side and in provider/GitHub secret stores. Do not commit LAN addresses, credentials or deployment-specific values. Legacy Next.js apps use their own configuration; do not apply their hosting checklist to the static website.
 
-## Environment
+## Publication boundaries
 
-Copy `.env.example` for local values:
+Feature PRs integrate into `develop`; only versioned release branches publish shared staging. Main CI and the protected owner-review job control production. See the linked release contract before promotion. Backend activation, Careers/CV qualification, analytics, content approval, SEO and physical-device acceptance are separate gates; a successful build or a source merge does not satisfy them.
 
-- `NEXT_PUBLIC_SITE_URL`
-- `NEXT_PUBLIC_BOOKING_URL`
-- `NEXT_PUBLIC_CONTACT_EMAIL`
-- `NEXT_PUBLIC_ANALYTICS_DOMAIN`
-
-## Deployment
-
-Use Vercel + GitHub as the first production target. Create separate Vercel projects for each app and set the project root to `apps/pegasoft` or `apps/individual`. Keep preview deployments enabled and use Vercel rollback for production recovery.
+Use only verified public claims and permission-approved client material. Keep provisional work labelled and unpublished until approved. Evidence, local review pages, recordings, historic reports and recovery bundles remain local and ignored. Required runtime media remains tracked.

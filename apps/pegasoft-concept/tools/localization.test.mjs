@@ -13,7 +13,14 @@ import {
 import { greek } from '../src/locales/el.js';
 import { deploymentConfig, indexingConfig } from './deployment-config.mjs';
 import { localizedPages } from './localized-pages.mjs';
-import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
+import {
+  mkdtemp,
+  writeFile,
+  readFile,
+  rm,
+  mkdir,
+  access,
+} from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
@@ -240,7 +247,8 @@ test('emitted crawler policy preserves security headers and excludes every previ
         !indexable,
       );
       assert.equal(
-        plugin.transformIndexHtml()[0].attrs.content,
+        plugin.transformIndexHtml().find((tag) => tag.attrs?.name === 'robots')
+          .attrs.content,
         indexable ? 'index, follow' : 'noindex, nofollow, noarchive',
       );
       for (const locale of ['en', 'el']) {
@@ -262,5 +270,59 @@ test('emitted crawler policy preserves security headers and excludes every previ
     }
   } finally {
     await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('unapproved privacy is review-only; production omits both draft and placeholder', async () => {
+  for (const [indexable, approved, present] of [
+    [true, false, false],
+    [false, false, true],
+    [true, true, true],
+  ]) {
+    const directory = await mkdtemp(
+      join(tmpdir(), 'pegasoft-privacy-boundary-'),
+    );
+    try {
+      await mkdir(join(directory, 'privacy'));
+      await writeFile(
+        join(directory, 'privacy/index.html'),
+        '<link rel="stylesheet" href="/assets/privacy.css">',
+      );
+      await writeFile(join(directory, 'index.html'), source);
+      await writeFile(
+        join(directory, '_headers'),
+        '/*\n  X-Content-Type-Options: nosniff\n',
+      );
+      const plugin = localizedPages({
+        indexable,
+        privacy: {
+          approved,
+          path: '/privacy/',
+          version: 'fixture-v1',
+          company: 'Fixture',
+          address: 'Fixture address',
+          email: 'fixture@example.test',
+        },
+      });
+      plugin.configResolved({ root: directory, build: { outDir: '.' } });
+      await plugin.writeBundle();
+      for (const language of ['en', 'el']) {
+        const page = join(directory, language, 'privacy/index.html');
+        if (present) {
+          const html = await readFile(page, 'utf8');
+          assert.match(html, /assets\/privacy.css/);
+          assert.equal(html.includes('noindex, nofollow'), !approved);
+        } else await assert.rejects(access(page));
+        const home = await readFile(
+          join(directory, language, 'index.html'),
+          'utf8',
+        );
+        assert.equal(home.includes('data-privacy-link'), present);
+      }
+      if (!present)
+        await assert.rejects(access(join(directory, 'privacy/index.html')));
+    } finally {
+      await rm(directory, { recursive: true, force: true });
+    }
   }
 });

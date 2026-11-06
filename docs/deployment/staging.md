@@ -1,5 +1,7 @@
 # Staging release contract
 
+Parallel work follows [git-workflow.md](git-workflow.md): scoped feature branches integrate through reviewed PRs into `develop`; a release coordinator cuts the versioned candidate only when staging promotion is requested. `develop` does not deploy.
+
 Push a `release/<major>.<minor>.<patch>` branch to run `.github/workflows/pegasoft-staging.yml`. `main` and `codex/*` do not deploy staging. Manual runs must also use a `release/<major>.<minor>.<patch>` branch. GitHub environment `pegasoft-staging` permits only `release/*` branches.
 
 The workflow verifies the candidate with repository-pinned Node/pnpm and Nx, then deploys the dedicated Pages project’s `staging` preview branch. Staging stays in development deployment mode, excludes inspectors, emits `noindex` response headers and disallows crawling. It must never use the production Pages project.
@@ -22,8 +24,8 @@ The website version is owned by `apps/pegasoft-concept/package.json`, not the mo
 - Minor: new backwards-compatible pages or capabilities.
 - Major: breaking public behavior or integration contracts.
 
-Start each release from current `main`, increment the website version, and group changes into conventional commits. Push the versioned branch to publish the shared staging preview. Do not open the promotion PR or merge it until the owner approves that staging revision. Changes after approval require staging CI and renewed review.
+Start each normal release from the approved `develop` commit with current production fixes integrated, increment the website version, and group changes into conventional commits. Emergency patch releases start from production `main` to exclude unrelated development work. Push the versioned branch to publish the shared staging preview. Do not open the promotion PR or merge it until the owner approves that staging revision. Changes after approval require staging CI and renewed review.
 
-After approval, open a PR from the release branch to `main`; require its full CI to pass, then merge while preserving the contextual commits. Main reruns CI and pauses at the existing protected production approval. After owner approval and successful live verification, create an annotated `v<version>` tag on the deployed main merge commit. Tags identify completed production releases, never unreviewed staging candidates. Keep the release branch for traceability; select a known successful deployment for rollback and verify it again. Never reuse a published version for changed code.
+After approval, open a PR from the release branch to `main`; require its full CI to pass, then merge while preserving the contextual commits. Main reruns CI and pauses at the existing protected production approval. After owner approval and successful live verification, create an annotated `v<version>` tag on the deployed main merge commit. Tags identify completed production releases, never unreviewed staging candidates. Back-merge main into develop through a PR before deleting the completed release branch; the tag and main merge retain traceability. Select a known successful deployment for rollback and verify it again. Never reuse a published version for changed code.
 
 The normal path is release branch → staging CI/deployment → owner review → PR/main CI → protected production approval → production verification → version tag. A version name alone does not bypass any gate.

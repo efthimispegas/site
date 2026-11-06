@@ -1,4 +1,5 @@
 const runtimeKeys = [
+  'PEGASOFT_CAREERS_ENABLED',
   'PEGASOFT_INTAKE_PATH',
   'PEGASOFT_INTAKE_ORIGINS',
   'PEGASOFT_INTAKE_RECIPIENT',
@@ -8,8 +9,15 @@ const runtimeKeys = [
   'PEGASOFT_MAX_REQUEST_BYTES',
   'PEGASOFT_PRIVACY_VERSION',
   'PEGASOFT_TURNSTILE_VERIFY_URL',
+  'PEGASOFT_RESEND_API_URL',
+  'PEGASOFT_INTAKE_CAPACITY_VERIFIED',
+  'PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID',
 ];
-const secretKeys = ['PEGASOFT_TURNSTILE_SECRET', 'PEGASOFT_RATE_LIMIT_SALT'];
+const secretKeys = [
+  'PEGASOFT_TURNSTILE_SECRET',
+  'PEGASOFT_RATE_LIMIT_SALT',
+  'RESEND_API_KEY',
+];
 const address = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
 function requireValue(env, key, pattern) {
   const value = env[key];
@@ -57,7 +65,8 @@ export function deploymentConfiguration(env) {
     env.PEGASOFT_CV_RETENTION_DAYS !== '30' ||
     env.PEGASOFT_MAX_CV_BYTES !== '5000000' ||
     env.PEGASOFT_MAX_REQUEST_BYTES !== '5131072' ||
-    env.PEGASOFT_INTAKE_ENABLED !== 'false' ||
+    !['false', 'true'].includes(env.PEGASOFT_INTAKE_ENABLED) ||
+    env.PEGASOFT_CAREERS_ENABLED === 'true' ||
     !Number.isSafeInteger(limit) ||
     limit < 1 ||
     limit > 100
@@ -85,10 +94,45 @@ export function deploymentConfiguration(env) {
     endpoint.hash
   )
     throw Error('Invalid challenge endpoint');
+  if (env.PEGASOFT_RESEND_API_URL !== 'https://api.resend.com/emails')
+    throw Error('Invalid email endpoint');
+  if (
+    !['false', 'true'].includes(
+      env.PEGASOFT_INTAKE_CAPACITY_VERIFIED || 'false',
+    ) ||
+    (env.PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID &&
+      !/^[0-9a-f-]{36}$/.test(env.PEGASOFT_ADMISSION_RECOVERY_REVIEW_ID))
+  )
+    throw Error('Invalid admission readiness');
+  const active = env.PEGASOFT_INTAKE_ENABLED === 'true';
+  let zoneId = env.PEGASOFT_INTAKE_ZONE_ID || '',
+    routes = [];
+  if (zoneId && !/^[0-9a-f]{32}$/.test(zoneId))
+    throw Error('Invalid intake zone');
+  if (active) {
+    if (
+      env.PEGASOFT_CONTACT_ACTIVATION_READY !== 'true' ||
+      env.PEGASOFT_INTAKE_CAPACITY_VERIFIED !== 'true' ||
+      origins.length !== 1 ||
+      !zoneId
+    )
+      throw Error(
+        'Contact activation requires qualification, capacity and explicit zone.',
+      );
+    routes = [
+      {
+        pattern: new URL(origins[0]).hostname + env.PEGASOFT_INTAKE_PATH + '*',
+        zone_id: zoneId,
+      },
+    ];
+  }
   const vars = Object.fromEntries(
     runtimeKeys.map((key) => [key, String(env[key] || '')]),
   );
-  vars.PEGASOFT_INTAKE_ENABLED = 'false';
+  vars.PEGASOFT_INTAKE_ENABLED = String(active);
+  vars.PEGASOFT_CAREERS_ENABLED = 'false';
+  vars.PEGASOFT_INTAKE_CAPACITY_VERIFIED =
+    env.PEGASOFT_INTAKE_CAPACITY_VERIFIED || 'false';
   vars.PEGASOFT_SOURCE_REVISION = revision;
   const quote = JSON.stringify;
   const toml = [
@@ -98,7 +142,14 @@ export function deploymentConfiguration(env) {
     `compatibility_date = ${quote(date)}`,
     'workers_dev = false',
     'preview_urls = false',
-    'routes = []',
+    'routes = [' +
+      routes
+        .map(
+          (route) =>
+            `{ pattern = ${quote(route.pattern)}, zone_id = ${quote(route.zone_id)} }`,
+        )
+        .join(', ') +
+      ']',
     'upload_source_maps = false',
     '[observability]',
     'enabled = false',
@@ -108,9 +159,15 @@ export function deploymentConfiguration(env) {
     'binding = "PRIVATE_APPLICATIONS"',
     `bucket_name = ${quote(bucket)}`,
     'jurisdiction = "eu"',
-    '[[send_email]]',
-    'name = "EMAIL"',
-    `destination_address = ${quote(vars.PEGASOFT_INTAKE_RECIPIENT)}`,
+    '[[durable_objects.bindings]]',
+    'name = "DELIVERIES"',
+    'class_name = "IntakeDelivery"',
+    '[[durable_objects.bindings]]',
+    'name = "ADMISSION"',
+    'class_name = "IntakeAdmission"',
+    '[[migrations]]',
+    'tag = "intake-delivery-v1"',
+    'new_sqlite_classes = ["IntakeDelivery", "IntakeAdmission"]',
     '[[ratelimits]]',
     'name = "LIMITER"',
     `namespace_id = ${quote(namespace)}`,
@@ -119,22 +176,20 @@ export function deploymentConfiguration(env) {
     ...Object.entries(vars).map(([key, value]) => `${key} = ${quote(value)}`),
     '',
   ].join('\n');
-  const secrets = Object.fromEntries(
-    secretKeys.filter((key) => env[key]).map((key) => [key, env[key]]),
-  );
   return {
     toml,
-    secrets,
     expected: {
       worker,
       account,
+      zoneId,
+      routes,
       bucket,
       cron,
       namespace,
       limit,
       revision,
       vars,
-      secretNames: Object.keys(secrets),
+      secretNames: [...secretKeys],
     },
   };
 }
@@ -152,4 +207,11 @@ export function deploymentGate(env) {
       'Intake deployment requires approved main workflow and environment readiness',
     );
   }
+}
+
+/** Runtime secret values stay in memory and go directly to the provider store. */
+export function runtimeSecrets(env) {
+  return Object.fromEntries(
+    secretKeys.filter((key) => env[key]).map((key) => [key, env[key]]),
+  );
 }

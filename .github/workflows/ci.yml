@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - develop
   pull_request:
 
 permissions:
@@ -94,6 +95,16 @@ jobs:
           PEGASOFT_PRODUCTION_SITE_URL: ${{ vars.PEGASOFT_PRODUCTION_SITE_URL }}
           PEGASOFT_DEPLOYMENT_ENV: production
           PEGASOFT_INCLUDE_INSPECTORS: 'false'
+          PEGASOFT_CONTACT_FORM_ENABLED: ${{ vars.PEGASOFT_CONTACT_FORM_ENABLED }}
+          PEGASOFT_CONTACT_QUALIFIED: ${{ vars.PEGASOFT_CONTACT_QUALIFIED }}
+          PEGASOFT_INTAKE_PATH: ${{ vars.PEGASOFT_INTAKE_PATH }}
+          PEGASOFT_TURNSTILE_SITE_KEY: ${{ vars.PEGASOFT_TURNSTILE_SITE_KEY }}
+          PEGASOFT_PRIVACY_VERSION: ${{ vars.PEGASOFT_PRIVACY_VERSION }}
+          PEGASOFT_PRIVACY_PATH: ${{ vars.PEGASOFT_PRIVACY_PATH }}
+          PEGASOFT_PRIVACY_APPROVED: ${{ vars.PEGASOFT_PRIVACY_APPROVED }}
+          PEGASOFT_COMPANY_LEGAL_NAME: ${{ vars.PEGASOFT_COMPANY_LEGAL_NAME }}
+          PEGASOFT_COMPANY_REGISTERED_ADDRESS: ${{ vars.PEGASOFT_COMPANY_REGISTERED_ADDRESS }}
+          PEGASOFT_PRIVACY_EMAIL: ${{ vars.PEGASOFT_PRIVACY_EMAIL }}
       - name: Install pinned Cloudflare deployment tooling
         run: pnpm exec nx run @site/pegasoft-intake:install-cloudflare
         env:

@@ -1,3 +1,5 @@
+import { admissionInput, requestAdmission, LIMITS } from './admission.js';
+import { submissionTime } from './delivery.js';
 const audiences = {
   General: ['name', 'email', 'company', 'message'],
   'Company owner': ['name', 'email', 'company', 'goals'],
@@ -6,7 +8,6 @@ const audiences = {
 };
 const optional = new Set(['mobile', 'links']);
 const emailPattern = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/;
-const day = 86_400_000;
 export const careerRoles = [
   'Frontend software engineer',
   'Backend software engineer',
@@ -50,7 +51,11 @@ function configuration(env) {
     !env.PEGASOFT_TURNSTILE_SECRET ||
     !env.PEGASOFT_RATE_LIMIT_SALT ||
     !env.PRIVATE_APPLICATIONS ||
-    !env.EMAIL ||
+    !env.DELIVERIES ||
+    !env.ADMISSION ||
+    env.PEGASOFT_INTAKE_CAPACITY_VERIFIED !== 'true' ||
+    !env.RESEND_API_KEY ||
+    env.PEGASOFT_RESEND_API_URL !== 'https://api.resend.com/emails' ||
     !env.LIMITER
   ) {
     throw new Error('configuration');
@@ -69,7 +74,12 @@ function configuration(env) {
   const maxFile = number('PEGASOFT_MAX_CV_BYTES'),
     maxBody = number('PEGASOFT_MAX_REQUEST_BYTES');
   const retention = number('PEGASOFT_CV_RETENTION_DAYS');
-  if (maxBody < maxFile || maxBody > 10 * 1024 * 1024 || retention > 365)
+  if (
+    maxBody < maxFile ||
+    maxBody > 5131072 ||
+    maxFile > 5000000 ||
+    retention !== 30
+  )
     throw new Error('configuration');
   return { origins, verification, maxFile, maxBody, retention };
 }
@@ -84,7 +94,7 @@ function response(status, code, origin, reference) {
   if (origin) headers['Access-Control-Allow-Origin'] = origin;
   return new Response(
     JSON.stringify({
-      ok: status === 201,
+      ok: status === 201 || status === 202,
       code,
       ...(reference ? { reference } : {}),
     }),
@@ -138,6 +148,8 @@ function fields(form) {
     'privacyAccepted',
     'privacyVersion',
     'turnstileToken',
+    'submissionId',
+    'language',
     ...(audience === 'Careers' ? ['cv'] : []),
   ]);
   for (const key of form.keys())
@@ -172,11 +184,7 @@ function fields(form) {
   return { audience, values };
 }
 
-export function createIntake({
-  now = () => Date.now(),
-  uuid = () => crypto.randomUUID(),
-  fetcher = fetch,
-} = {}) {
+export function createIntake({ now = () => Date.now(), fetcher = fetch } = {}) {
   return {
     async fetch(request, env) {
       if (new URL(request.url).pathname !== env.PEGASOFT_INTAKE_PATH)
@@ -203,7 +211,6 @@ export function createIntake({
         });
       if (request.method !== 'POST')
         return response(405, 'method_not_allowed', origin);
-      let saved = [];
       try {
         const ip = request.headers.get('CF-Connecting-IP');
         if (!ip) throw new Rejection(403, 'request_rejected');
@@ -217,6 +224,11 @@ export function createIntake({
         if (!(await env.LIMITER.limit({ key })).success)
           throw new Rejection(429, 'rate_limited');
         const form = await boundedForm(request, config.maxBody);
+        if (
+          form.get('audience') === 'Careers' &&
+          env.PEGASOFT_CAREERS_ENABLED !== 'true'
+        )
+          throw new Rejection(503, 'careers_unavailable');
         const { audience, values } = fields(form);
         if (form.get('privacyVersion') !== env.PEGASOFT_PRIVACY_VERSION)
           throw new Rejection(400, 'privacy_version_required');
@@ -239,10 +251,16 @@ export function createIntake({
           challenge.action !== (audience === 'Careers' ? 'careers' : 'contact')
         )
           throw new Rejection(403, 'challenge_failed');
-        const reference = uuid(),
-          createdAt = now(),
-          expiresAt = createdAt + config.retention * day;
-        if (!/^[0-9a-f-]{36}$/i.test(reference)) throw new Error('reference');
+        const submissionId = form.get('submissionId');
+        if (
+          typeof submissionId !== 'string' ||
+          !submissionTime(submissionId, now())
+        )
+          throw new Rejection(400, 'invalid_submission_id');
+        const language = form.get('language') || 'en';
+        if (!['en', 'el'].includes(language))
+          throw new Rejection(400, 'invalid_language');
+        let cv = null;
         if (audience === 'Careers') {
           const file = form.get('cv');
           if (
@@ -252,70 +270,50 @@ export function createIntake({
             file.size > config.maxFile
           )
             throw new Rejection(400, 'invalid_cv');
-          const data = await file.arrayBuffer();
+          const data = new Uint8Array(await file.arrayBuffer());
           if (
             file.type !== 'application/pdf' ||
             !file.name.toLowerCase().endsWith('.pdf') ||
             new TextDecoder().decode(data.slice(0, 5)) !== '%PDF-'
           )
             throw new Rejection(400, 'invalid_cv');
-          const prefix = 'applications/' + reference + '/';
-          const metadata = {
-            createdAt: String(createdAt),
-            expiresAt: String(expiresAt),
-            status: 'quarantine',
-          };
-          // No original filenames or applicant names in object keys or public URLs.
-          saved.push(prefix + 'cv.pdf');
-          await env.PRIVATE_APPLICATIONS.put(saved[0], data, {
-            httpMetadata: { contentType: 'application/pdf' },
-            customMetadata: metadata,
-          });
-          saved.push(prefix + 'application.json');
-          await env.PRIVATE_APPLICATIONS.put(
-            saved[1],
-            JSON.stringify({
-              reference,
-              audience,
-              values,
-              createdAt,
-              expiresAt,
-              privacyVersion: env.PEGASOFT_PRIVACY_VERSION,
+          // Bounded encoding avoids spreading a 5 MB array onto the JS call stack.
+          let binary = '';
+          for (let i = 0; i < data.length; i += 32768)
+            binary += String.fromCharCode(...data.subarray(i, i + 32768));
+          cv = btoa(binary);
+        }
+        const input = {
+          submissionId,
+          language,
+          audience,
+          values,
+          cv,
+          privacyVersion: env.PEGASOFT_PRIVACY_VERSION,
+        };
+        const reservation = await requestAdmission(
+          env,
+          '/reserve',
+          await admissionInput(input, env.PEGASOFT_RATE_LIMIT_SALT, ip),
+        );
+        const namespace = env.DELIVERIES.jurisdiction('eu');
+        const object = namespace.get(namespace.idFromName(submissionId));
+        const result = await object.fetch(
+          new Request('https://delivery.internal/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              ...input,
+              admissionToken: reservation.token,
+              reference: reservation.reference,
             }),
-            {
-              httpMetadata: { contentType: 'application/json' },
-              customMetadata: metadata,
-            },
-          );
-        }
-        const lines = [
-          'Audience: ' + audience,
-          'Reference: ' + reference,
-          ...Object.entries(values).map(([name, value]) => name + ': ' + value),
-        ];
-        if (audience === 'Careers')
-          lines.push(
-            'CV: private quarantine storage only. Authorized Cloudflare reviewers use reference above.',
-            'CV expires: ' + new Date(expiresAt).toISOString(),
-          );
-        const delivery = await env.EMAIL.send({
-          to: env.PEGASOFT_INTAKE_RECIPIENT,
-          from: env.PEGASOFT_INTAKE_SENDER,
-          replyTo: values.email,
-          subject: 'Website ' + audience + ' [' + reference + ']',
-          text: lines.join('\n'),
-        });
-        if (!delivery?.messageId) throw new Error('delivery');
-        return response(201, 'submitted', origin, reference);
+          }),
+        );
+        const body = await result.json();
+        if (![201, 202, 409, 410, 503].includes(result.status))
+          throw Error('delivery');
+        return response(result.status, body.code, origin, body.reference);
       } catch (error) {
-        // Retention is a second safety net if storage/provider cleanup fails.
-        if (saved.length) {
-          try {
-            await env.PRIVATE_APPLICATIONS.delete(saved);
-          } catch {
-            return response(503, 'intake_unavailable', origin);
-          }
-        }
         return response(
           error instanceof Rejection ? error.status : 503,
           error instanceof Rejection ? error.message : 'intake_unavailable',
@@ -325,26 +323,68 @@ export function createIntake({
     },
     async expire(env) {
       // Cleanup must continue if intake or email delivery is disabled.
-      if (!env.PRIVATE_APPLICATIONS) throw new Error('storage_unavailable');
-      let cursor;
-      do {
-        const page = await env.PRIVATE_APPLICATIONS.list({
-          prefix: 'applications/',
-          include: ['customMetadata'],
-          ...(cursor ? { cursor } : {}),
-        });
-        const expired = page.objects
-          .filter((object) => {
-            const expiresAt = Number(object.customMetadata?.expiresAt);
-            return (
-              Number.isFinite(expiresAt) && expiresAt > 0 && expiresAt <= now()
-            );
-          })
-          .map((object) => object.key);
-        if (expired.length) await env.PRIVATE_APPLICATIONS.delete(expired);
-        cursor = page.truncated ? page.cursor : undefined;
-      } while (cursor);
-      return { retentionDays: Number(env.PEGASOFT_CV_RETENTION_DAYS) };
+      if (!env.PRIVATE_APPLICATIONS || !env.ADMISSION)
+        throw new Error('storage_unavailable');
+      let cursor,
+        scanned = 0;
+      try {
+        do {
+          const page = await env.PRIVATE_APPLICATIONS.list({
+            prefix: 'applications/',
+            limit: 1000,
+            include: ['customMetadata'],
+            ...(cursor ? { cursor } : {}),
+          });
+          scanned += page.objects.length;
+          if (
+            scanned > LIMITS.inventoryObjects ||
+            (page.truncated && !page.cursor)
+          )
+            throw Error('inventory_bound');
+          const expired = page.objects
+            .filter((object) => {
+              const expiresAt = Number(object.customMetadata?.expiresAt);
+              return (
+                Number.isFinite(expiresAt) &&
+                expiresAt > 0 &&
+                expiresAt <= now()
+              );
+            })
+            .map((object) => object.key);
+          const authorized = [];
+          for (const key of expired) {
+            const match =
+              /^applications\/([0-9a-f-]{36})\/(?:cv\.pdf|application\.json)$/.exec(
+                key,
+              );
+            if (!match) continue;
+            try {
+              await requestAdmission(env, '/cleanup-authorize', {
+                reference: match[1],
+              });
+              authorized.push(key);
+            } catch {
+              /* Unknown/uncertain ownership never authorizes deletion. */
+            }
+          }
+          if (authorized.length) {
+            await env.PRIVATE_APPLICATIONS.delete(authorized);
+            for (const key of authorized)
+              if (await env.PRIVATE_APPLICATIONS.head(key))
+                throw Error('deletion_unconfirmed');
+          }
+          cursor = page.truncated ? page.cursor : undefined;
+        } while (cursor);
+        if (env.ADMISSION) await requestAdmission(env, '/reconcile');
+        return { retentionDays: Number(env.PEGASOFT_CV_RETENTION_DAYS) };
+      } catch {
+        try {
+          await requestAdmission(env, '/pause');
+        } catch {
+          /* Quota outage remains fail closed. */
+        }
+        throw Error('cleanup_unconfirmed');
+      }
     },
   };
 }

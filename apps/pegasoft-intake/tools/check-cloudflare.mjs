@@ -8,10 +8,6 @@ const output = resolve(
   import.meta.dirname,
   '../../../dist/apps/pegasoft-intake',
 );
-await writeFile(
-  resolve(output, 'wrangler-test.toml'),
-  deploymentConfiguration(deploymentFixture).toml,
-);
 // A dry run uses synthetic configuration and receives no deployment credential.
 const childEnv = { ...env };
 for (const key of [
@@ -20,21 +16,39 @@ for (const key of [
   'CLOUDFLARE_EMAIL',
 ])
   delete childEnv[key];
-const result = spawnSync(
-  'pnpm',
+for (const [stage, overrides] of [
+  ['disabled', {}],
   [
-    '--dir',
-    resolve(import.meta.dirname, '../cloudflare-tooling'),
-    'exec',
-    'wrangler',
-    'deploy',
-    '--dry-run',
-    '--no-autoconfig',
-    '--config',
-    resolve(output, 'wrangler-test.toml'),
-    '--outdir',
-    resolve(output, 'bundle'),
+    'contact',
+    {
+      PEGASOFT_INTAKE_ENABLED: 'true',
+      PEGASOFT_CONTACT_ACTIVATION_READY: 'true',
+      PEGASOFT_INTAKE_CAPACITY_VERIFIED: 'true',
+      PEGASOFT_INTAKE_ZONE_ID: 'c'.repeat(32),
+    },
   ],
-  { env: childEnv, stdio: 'inherit' },
-);
-exit(result.status ?? 1);
+]) {
+  const file = resolve(output, `wrangler-${stage}-test.toml`);
+  await writeFile(
+    file,
+    deploymentConfiguration({ ...deploymentFixture, ...overrides }).toml,
+  );
+  const result = spawnSync(
+    'pnpm',
+    [
+      '--dir',
+      resolve(import.meta.dirname, '../cloudflare-tooling'),
+      'exec',
+      'wrangler',
+      'deploy',
+      '--dry-run',
+      '--no-autoconfig',
+      '--config',
+      file,
+      '--outdir',
+      resolve(output, 'bundle-' + stage),
+    ],
+    { env: childEnv, stdio: 'inherit' },
+  );
+  if (result.status !== 0) exit(result.status ?? 1);
+}

@@ -36,21 +36,8 @@ When upgrading a parent, remove overrides it no longer needs, regenerate the
 lockfile, run the audit and relevant Nx checks, and compare the approved website
 without changing its renderer, motion, assets or content at the same time.
 
-## Remaining advisories
+## Current advisory checks
 
-The 29 October 2026 root-workspace audit retains two findings. They remain visible
-in the audit; passing the existing high-severity threshold is not a clean audit.
+Run the current root-workspace audit and independent Cloudflare-tooling audit during release verification. Do not copy historical advisory totals into the operating contract or treat a passing high-severity threshold as a clean audit. Inspect the actual dependency path, pinned version, relevant call sites and current upstream fix before changing an override. Keep raw reports local.
 
-| Dependency                                         | Finding                                                                                         | Current boundary and follow-up                                                                                                                                                                           |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `uuid@8.3.2` through `webpack-dev-server > sockjs` | [Moderate: output-buffer bounds in v3/v5/v6](https://github.com/advisories/GHSA-w5hq-g745-h8pq) | The installed SockJS uses `v4()` without an output buffer. Its latest published release still requests UUID 8. Track an upstream parent update; do not silently force UUID 11 across its declared major. |
-| `deepmerge@4.3.1` through Rollup's Node resolver   | [Low: returned-object prototype poisoning](https://github.com/advisories/GHSA-gcqx-w48m-w2h4)   | No patched release is published. The inspected resolver call merges its built-in defaults. Track an upstream fix or a separately tested replacement.                                                     |
-
-These observations describe the inspected call sites, not a waiver or a claim
-that every possible toolchain use is safe. Recheck the advisory feed during
-release verification. The independent Cloudflare tooling lockfile, provider
-configuration, browser/device qualification and launch-content approval require
-their own checks.
-
-Verification recordings, screenshots, diagnostic fixtures, private configuration
-and raw audit packets remain local and ignored. They are not production assets.
+Provider configuration, browser/device qualification and content/privacy approval retain their own checks. Verification recordings, screenshots, diagnostic fixtures, private configuration and raw audit packets remain local and ignored; required runtime assets remain tracked.

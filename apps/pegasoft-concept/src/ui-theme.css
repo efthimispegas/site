@@ -1,5 +1,10 @@
 /* Shared CTA hierarchy. Existing Pegasoft palette; chapter typography/geometry stay owned locally. */
 :root {
+  /* Shared interface motion; cinematic chapter clocks remain independently owned. */
+  --motion-feedback: 120ms;
+  --motion-change: 180ms;
+  --motion-enter: 220ms;
+  --motion-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --action-accent: #147dff;
   --action-ink: #05070a;
   --action-paper: #edf2f7;
@@ -18,6 +23,7 @@
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .contact-preview-form,
     .testimonial-navigation,
@@ -35,6 +41,7 @@ body :is(#closing-cursor, #site-header-contact)[data-ui-action='primary'] {
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .contact-preview-form,
     .testimonial-navigation,
@@ -56,6 +63,7 @@ body
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .testimonial-navigation,
     .editorial-summary,
@@ -73,6 +81,7 @@ body
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .testimonial-navigation,
     .editorial-summary,
@@ -156,6 +165,7 @@ body .partners-intro h3 span {
 }
 
 /* Reuse the established services/metrics CTA layout in navigation. */
+.cta-button,
 .services-cta,
 .metrics-intro [data-ui-action],
 body #site-header-contact {

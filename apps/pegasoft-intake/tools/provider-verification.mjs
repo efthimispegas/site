@@ -10,10 +10,15 @@ export async function verifyProvider({
   if (!token) throw Error('Missing deployment credential');
   const base = `${apiOrigin}/client/v4/accounts/${expected.account}/workers/scripts/${expected.worker}`;
   async function get(path) {
-    const response = await fetcher(base + path, {
-      headers: { Authorization: `Bearer ${token}` },
-      signal: AbortSignal.timeout(15000),
-    });
+    const response = await fetcher(
+      path.startsWith('/zones/')
+        ? `${apiOrigin}/client/v4${path}`
+        : base + path,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+        signal: AbortSignal.timeout(15000),
+      },
+    );
     if (!response.ok) throw Error('Provider verification request failed');
     const json = await response.json();
     if (json.success !== true || !json.result)
@@ -28,7 +33,8 @@ export async function verifyProvider({
     ...Object.keys(expected.vars),
     ...expected.secretNames,
     'PRIVATE_APPLICATIONS',
-    'EMAIL',
+    'DELIVERIES',
+    'ADMISSION',
     'LIMITER',
   ]);
   if (
@@ -47,14 +53,21 @@ export async function verifyProvider({
       throw Error('Runtime configuration mismatch');
   }
   const bucket = values.get('PRIVATE_APPLICATIONS'),
-    email = values.get('EMAIL'),
+    deliveries = values.get('DELIVERIES'),
+    admission = values.get('ADMISSION'),
     limiter = values.get('LIMITER');
   if (
     bucket?.type !== 'r2_bucket' ||
     bucket.bucket_name !== expected.bucket ||
     bucket.jurisdiction !== 'eu' ||
-    email?.type !== 'send_email' ||
-    email.destination_address !== expected.vars.PEGASOFT_INTAKE_RECIPIENT ||
+    admission?.type !== 'durable_object_namespace' ||
+    admission.class_name !== 'IntakeAdmission' ||
+    !admission.namespace_id ||
+    (admission.script_name && admission.script_name !== expected.worker) ||
+    deliveries?.type !== 'durable_object_namespace' ||
+    deliveries.class_name !== 'IntakeDelivery' ||
+    !deliveries.namespace_id ||
+    (deliveries.script_name && deliveries.script_name !== expected.worker) ||
     limiter?.type !== 'ratelimit' ||
     String(limiter.namespace_id) !== expected.namespace ||
     limiter.simple?.limit !== expected.limit ||
@@ -64,6 +77,19 @@ export async function verifyProvider({
   const subdomain = await get('/subdomain');
   if (subdomain.enabled !== false || subdomain.previews_enabled !== false)
     throw Error('Unexpected public Worker endpoint');
+  if (expected.zoneId) {
+    const routes = await get(`/zones/${expected.zoneId}/workers/routes`);
+    const own = routes.filter((route) => route.script === expected.worker);
+    if (
+      own.length !== expected.routes.length ||
+      own.some(
+        (route) =>
+          !expected.routes.some((wanted) => wanted.pattern === route.pattern),
+      )
+    )
+      throw Error('Worker route mismatch');
+  } else if (expected.vars.PEGASOFT_INTAKE_ENABLED === 'true')
+    throw Error('Active route not verified');
   const schedules = await get('/schedules');
   if (
     schedules.schedules?.length !== 1 ||
@@ -72,7 +98,8 @@ export async function verifyProvider({
     throw Error('Expiry schedule mismatch');
   return {
     revision: expected.revision,
-    enabled: false,
+    enabled: expected.vars.PEGASOFT_INTAKE_ENABLED === 'true',
+    careersEnabled: false,
     workersDevEnabled: false,
     previewUrlsEnabled: false,
     settingsVerified: true,
