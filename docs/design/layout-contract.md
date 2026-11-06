@@ -21,3 +21,5 @@ Colours, typography and CTA hierarchy remain owned by the existing theme and act
 For changes, verify EN/EL, light/dark, forward/back navigation, panel reuse, narrow-screen wrapping and horizontal overflow. A build alone does not establish rendered/device acceptance. Keep evidence local and out of published source.
 
 Decorative section/heading ordinals and repeated brand-plus-index labels are omitted. Keep numeric content when it conveys data, result counts, carousel position or an actual necessary sequence. Internal numbered anchor IDs are implementation details and remain stable.
+
+Reading-page feedback and cross-page animation decisions follow [motion-contract.md](motion-contract.md). Shared geometry remains owned here; cinematic chapter timing remains owned by its existing controllers.
