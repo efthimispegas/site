@@ -763,10 +763,11 @@
 /* The full banner owns the desktop background: no inner crop boundary. */
 @media (min-width: 761px) {
   #insights-content .linkedin-panel {
-    background-image: url('/assets/live/hero-globe/banner-upper-half.svg');
+    min-height: 218px;
+    background-image: url('/assets/live/hero-globe/banner-globe.svg');
     background-repeat: no-repeat;
     background-size: 48% auto;
-    background-position: right bottom;
+    background-position: right top;
   }
   .linkedin-banner-art {
     display: none;
@@ -778,5 +779,24 @@
       rgb(5 7 10 / 92%) 35%,
       transparent 60%
     );
+  }
+}
+
+/* Shared compact desktop banner: reference proportions, existing type/control roles. */
+@media (min-width: 761px) {
+  .linkedin-banner-copy {
+    display: grid;
+    justify-items: start;
+    gap: 8px;
+  }
+  #insights-content .linkedin-panel h2 {
+    font-size: 32px;
+    max-width: none;
+    margin: 0;
+  }
+  #insights-content .linkedin-panel p,
+  #insights-content .linkedin-panel .linkedin-pending,
+  .linkedin-follow {
+    margin: 0;
   }
 }
