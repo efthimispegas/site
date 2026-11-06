@@ -17,7 +17,7 @@ Output is `dist/apps/pegasoft-concept`. The build emits English and Greek home, 
 
 ## Shared components and UI
 
-Homepage, Insights and article details reuse the approved loader renderer/preset, header, menu/language controls, closing section, footer and cookie controls. Do not recreate page-specific approximations. Read [the layout contract](../../docs/design/layout-contract.md) and use Taste alongside Impeccable for UI work. Preserve locale, light/dark, keyboard, reduced-motion and shared lifecycle behavior. Rendered checks and actual device coverage must be reported separately from source/build checks.
+Homepage, Insights and article details reuse the approved header, menu/language controls, closing section, footer and cookie controls. The homepage retains its approved loader renderer/preset; mobile editorial routes open immediately without replaying it. Desktop retains its previously approved entry and featured carousel. Do not recreate page-specific approximations. Read [the layout contract](../../docs/design/layout-contract.md) and [the motion contract](../../docs/design/motion-contract.md), and use Taste alongside Impeccable and Emil guidance for UI work. Preserve locale, light/dark, keyboard, reduced-motion and shared lifecycle behavior. Rendered checks and actual device coverage must be reported separately from source/build checks.
 
 ## Source and runtime verification
 
