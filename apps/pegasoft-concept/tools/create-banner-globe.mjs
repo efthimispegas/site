@@ -30,7 +30,7 @@ for (let i = 0; i < geography.land_lon_lat.length; i += 2) {
   const p = project(
     position(geography.land_lon_lat[i], geography.land_lon_lat[i + 1]),
   );
-  if (p.z > 0 && p.y >= 0) dots.push(dot(p, '.003', 0.32 + 0.6 * p.z));
+  if (p.z > 0) dots.push(dot(p, '.003', 0.32 + 0.6 * p.z));
 }
 const arcs = [],
   nodes = new Set();
@@ -67,11 +67,11 @@ const cityDots = [...nodes]
   .map((id) =>
     project(position(CITIES[id].lon, CITIES[id].lat).multiplyScalar(1.014)),
   )
-  .filter((p) => p.z > 0 && p.y >= 0)
+  .filter((p) => p.z > 0)
   .map((p) => dot(p, '.007', 1));
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.12 -1.06 2.24 1.06" width="1120" height="530"><defs><radialGradient id="body" cx="35%" cy="25%" r="85%"><stop stop-color="#10243b"/><stop offset="1" stop-color="#030b18"/></radialGradient><radialGradient id="halo"><stop offset=".88" stop-color="#147dff" stop-opacity="0"/><stop offset=".96" stop-color="#147dff" stop-opacity=".22"/><stop offset="1" stop-color="#147dff" stop-opacity="0"/></radialGradient></defs><circle r="1.06" fill="url(#halo)"/><circle r="1" fill="url(#body)" stroke="#147dff" stroke-opacity=".45" stroke-width=".004"/><g fill="#a5cdfb">${dots.join('')}</g><g fill="none" stroke="#268dff" stroke-width=".0034" opacity=".75">${arcs.join('')}</g><g fill="#b9e7ff">${cityDots.join('')}</g></svg>`;
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.12 -1.06 2.24 2.12" width="1120" height="1060"><defs><radialGradient id="body" cx="35%" cy="25%" r="85%"><stop stop-color="#10243b"/><stop offset="1" stop-color="#030b18"/></radialGradient><radialGradient id="halo"><stop offset=".88" stop-color="#147dff" stop-opacity="0"/><stop offset=".96" stop-color="#147dff" stop-opacity=".22"/><stop offset="1" stop-color="#147dff" stop-opacity="0"/></radialGradient></defs><circle r="1.06" fill="url(#halo)"/><circle r="1" fill="url(#body)" stroke="#147dff" stroke-opacity=".45" stroke-width=".004"/><g fill="#a5cdfb">${dots.join('')}</g><g fill="none" stroke="#268dff" stroke-width=".0034" opacity=".75">${arcs.join('')}</g><g fill="#b9e7ff">${cityDots.join('')}</g></svg>`;
 await writeFile(
-  new URL('public/assets/live/hero-globe/banner-upper-half.svg', root),
+  new URL('public/assets/live/hero-globe/banner-globe.svg', root),
   svg,
 );
 console.log(
