@@ -759,3 +759,24 @@
     line-height: 1.75;
   }
 }
+
+/* Desktop shows the upper hemisphere across the right two-fifths. */
+@media (min-width: 761px) {
+  .linkedin-banner-art img {
+    top: auto;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: none;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+  .linkedin-panel::after {
+    background: linear-gradient(
+      90deg,
+      var(--action-ink) 0%,
+      rgb(5 7 10 / 92%) 35%,
+      transparent 65%
+    );
+  }
+}
