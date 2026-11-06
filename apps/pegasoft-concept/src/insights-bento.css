@@ -760,23 +760,23 @@
   }
 }
 
-/* Desktop shows the upper hemisphere across the right two-fifths. */
+/* The full banner owns the desktop background: no inner crop boundary. */
 @media (min-width: 761px) {
-  .linkedin-banner-art img {
-    top: auto;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: none;
-    object-fit: cover;
-    object-position: center bottom;
+  #insights-content .linkedin-panel {
+    background-image: url('/assets/live/hero-globe/banner-upper-half.svg');
+    background-repeat: no-repeat;
+    background-size: 48% auto;
+    background-position: right bottom;
+  }
+  .linkedin-banner-art {
+    display: none;
   }
   .linkedin-panel::after {
     background: linear-gradient(
       90deg,
       var(--action-ink) 0%,
       rgb(5 7 10 / 92%) 35%,
-      transparent 65%
+      transparent 60%
     );
   }
 }
