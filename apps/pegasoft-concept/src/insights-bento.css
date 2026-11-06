@@ -310,306 +310,452 @@
   }
 }
 
-/* Approved editorial Read mode; use the shared shell/column/token owners. */
-.insights-page .site-header .header-shell {
-  background: var(--nav-paper);
-  border-color: var(--nav-line);
-}
-.insights-title h1 {
-  max-width: 17ch;
-  text-wrap: balance;
-}
-#insights-content .insights-title .breadcrumbs {
-  margin: 0 0 24px;
-  font-size: 14px;
-  text-transform: none;
-  max-width: 75ch;
-}
-.insights-title .breadcrumbs [aria-current] {
-  max-width: 44ch;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-.article-title h1 {
-  font-size: clamp(40px, 4.5vw, 64px);
-  max-width: 23ch;
-}
-#insights-content .article-title .insight-meta {
-  margin-top: 24px;
-  font-size: 14px;
-}
-.article-cover {
-  height: 220px;
-  margin-bottom: 32px;
-}
-.article-body > .article-section h2 {
-  letter-spacing: -0.03em;
-  line-height: 1.25;
-}
-.article-social {
-  gap: 8px;
-}
+/* Mobile refinements are approved; desktop keeps its pre-audit composition. */
+.insights-browse,
 .mobile-contents {
   display: none;
 }
-#insights-content .insights-sidebar > a {
-  font-size: 14px;
-  text-transform: none;
-  letter-spacing: 0;
-  white-space: normal;
-}
-#insights-content .insights-sidebar > a[aria-current] {
-  background: color-mix(in srgb, var(--action-secondary-ink) 12%, transparent);
-  border-color: var(--action-secondary-ink);
-  color: var(--action-secondary-ink);
-  font-weight: 700;
-}
-.insights-browse {
-  display: grid;
-  gap: 12px;
-  margin: 0 0 24px;
-  padding: var(--widget-inset);
-  border: 1px solid var(--line);
-  border-radius: var(--layout-card-radius);
-  background: var(--panel);
-}
-.insights-browse label:first-child {
-  display: none;
-}
-.insights-browse label {
-  display: grid;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--muted);
-}
-#insights-content .insights-browse select {
-  width: 100%;
-  min-width: 0;
-  max-width: none;
-  min-height: 44px;
-  padding: 10px 12px;
-  border-radius: var(--layout-control-radius);
-  background: var(--paper);
-  color: var(--ink);
-  font:
-    400 16px/1.5 DM,
-    sans-serif;
-}
-.filter-summary {
-  display: flex;
-  gap: 12px;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14px;
-}
-#insights-content .filter-summary p {
-  margin: 0;
-}
-#insights-content [data-reset-filter] {
-  border: 0;
-  background: transparent;
-  color: var(--action-secondary-ink);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  min-height: 44px;
-  padding: 0 8px;
-  font: inherit;
-}
-#insights-content .highlights {
-  grid-template-columns: 1.2fr 1fr;
-  min-height: 0;
-  margin-bottom: 32px;
-}
-.highlight-copy {
-  min-height: 0;
-  justify-content: center;
-}
-.highlight-copy h2 {
-  font-size: 32px;
-  line-height: 1.25;
-  letter-spacing: -0.035em;
-  margin: 0 0 16px;
-  text-wrap: balance;
-}
-#insights-content .highlight-copy .insight-meta {
-  font-size: 14px;
-}
-.highlight-copy p:last-child {
-  margin-top: 16px;
-  max-width: 44ch;
-}
-.highlight-art {
-  min-height: 180px;
-  height: auto;
-}
-.highlight-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.latest-articles {
-  margin-top: 0;
-  padding-top: 24px;
-}
-.section-heading {
-  margin-bottom: 16px;
-}
-.section-heading h2 {
-  font-size: 30px;
-  letter-spacing: -0.03em;
-  margin: 0;
-}
-#insights-content .review-note {
-  margin: 0 0 24px;
-}
-.mobile-contents summary {
-  cursor: pointer;
-  list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 48px;
-  font-size: 16px;
-  font-weight: 600;
-}
-.mobile-contents summary::-webkit-details-marker {
-  display: none;
-}
-.mobile-contents[open] summary svg {
-  transform: rotate(180deg);
-}
-#insights-content .article-tags a {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-}
-/* No paragraph/card choreography or hidden content on reading surfaces. */
-.insights-page .reveal {
-  opacity: 1;
-  transform: none;
-}
-@media (hover: hover) and (pointer: fine) {
-  #insights-content .insights-browse select {
-    transition: border-color var(--motion-change) ease;
-  }
-}
-#insights-content button {
-  transition: transform var(--motion-feedback) var(--motion-ease-out);
-}
-#insights-content button:active {
-  transform: scale(0.98);
-}
-#insights-content :focus-visible {
-  transition: none;
-}
 @media (max-width: 760px) {
-  .insights-title {
-    padding-bottom: 24px;
+  .insights-page .site-header .header-shell {
+    background: var(--nav-paper);
+    border-color: var(--nav-line);
   }
-  .insights-title .breadcrumbs {
-    margin-bottom: 20px;
+  .insights-title h1 {
+    max-width: 17ch;
+    text-wrap: balance;
   }
-  .insights-browse label:first-child {
-    display: grid;
+  #insights-content .insights-title .breadcrumbs {
+    margin: 0 0 24px;
+    font-size: 14px;
+    text-transform: none;
+    max-width: 75ch;
   }
-  .filter-summary {
-    min-height: 24px;
+  .insights-title .breadcrumbs [aria-current] {
+    max-width: 44ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
-  #insights-content .highlights {
-    display: grid;
-    grid-template-columns: 96px minmax(0, 1fr);
-    gap: 16px;
-    align-items: center;
-    padding: var(--widget-inset);
-    margin-bottom: 24px;
-  }
-  #insights-content .highlight-art {
-    grid-column: 1;
-    grid-row: 1;
-    min-height: 0;
-    height: 104px;
-    width: 96px;
-    margin: 0;
-    border-radius: var(--layout-control-radius);
-  }
-  .highlight-copy {
-    grid-column: 2;
-    grid-row: 1;
-    padding: 0;
-    min-height: 0;
-  }
-  .highlight-copy h2 {
-    font-size: 20px;
-    line-height: 1.25;
-    margin: 0 0 12px;
-  }
-  #insights-content .highlight-copy .insight-meta {
-    font-size: 12px;
-    margin: 0;
-  }
-  .highlight-copy p:last-child:not(.insight-meta) {
-    display: none;
-  }
-  .section-heading h2 {
-    font-size: 24px;
-  }
-  .mobile-contents {
-    display: block;
-    padding: 0 16px;
-    border: 1px solid var(--line);
-    border-radius: var(--layout-control-radius);
-    background: var(--panel);
-  }
-  .mobile-contents nav {
-    padding: 0 0 16px;
-  }
-  #insights-content .mobile-contents nav a {
-    min-height: 44px;
-    font-size: 16px;
-    line-height: 1.5;
-    padding: 12px 0;
-  }
-  .article-toc-widget {
-    display: none;
-  }
-  .article-toc {
-    margin-bottom: 24px;
-  }
-  .article-social {
-    margin-top: 12px;
-    padding: 0 4px;
-  }
-  .article-social-actions,
-  .article-social > span {
-    display: none;
-  }
-  #insights-content .article-share-note {
-    font-size: 12px;
-    margin: 0;
-  }
-  .article-cover {
-    height: 150px;
-    margin-bottom: 24px;
+  .article-title h1 {
+    font-size: clamp(40px, 4.5vw, 64px);
+    max-width: 23ch;
   }
   #insights-content .article-title .insight-meta {
-    margin-top: 20px;
+    margin-top: 24px;
+    font-size: 14px;
   }
-  .insights-page .insights-title h1 {
-    font-size: 54px;
+  .article-cover {
+    height: 220px;
+    margin-bottom: 32px;
   }
-  /* Later listing rules must never override the existing article type role. */
-  .insights-page .article-title h1 {
-    font-size: 40px;
-    line-height: 1.15;
+  .article-body > .article-section h2 {
+    letter-spacing: -0.03em;
+    line-height: 1.25;
   }
-}
-@media (prefers-reduced-motion: reduce) {
-  #insights-content button,
+  .article-social {
+    gap: 8px;
+  }
+  .mobile-contents {
+    display: none;
+  }
+  #insights-content .insights-sidebar > a {
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0;
+    white-space: normal;
+  }
+  #insights-content .insights-sidebar > a[aria-current] {
+    background: color-mix(
+      in srgb,
+      var(--action-secondary-ink) 12%,
+      transparent
+    );
+    border-color: var(--action-secondary-ink);
+    color: var(--action-secondary-ink);
+    font-weight: 700;
+  }
+  .insights-browse {
+    display: grid;
+    gap: 12px;
+    margin: 0 0 24px;
+    padding: var(--widget-inset);
+    border: 1px solid var(--line);
+    border-radius: var(--layout-card-radius);
+    background: var(--panel);
+  }
+  .insights-browse label:first-child {
+    display: none;
+  }
+  .insights-browse label {
+    display: grid;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--muted);
+  }
   #insights-content .insights-browse select {
-    transition: none;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: var(--layout-control-radius);
+    background: var(--paper);
+    color: var(--ink);
+    font:
+      400 16px/1.5 DM,
+      sans-serif;
+  }
+  .filter-summary {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  #insights-content .filter-summary p {
+    margin: 0;
+  }
+  #insights-content [data-reset-filter] {
+    border: 0;
+    background: transparent;
+    color: var(--action-secondary-ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    min-height: 44px;
+    padding: 0 8px;
+    font: inherit;
+  }
+  #insights-content .highlights {
+    grid-template-columns: 1.2fr 1fr;
+    min-height: 0;
+    margin-bottom: 32px;
+  }
+  .highlight-copy {
+    min-height: 0;
+    justify-content: center;
+  }
+  .highlight-copy h2 {
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: -0.035em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  #insights-content .highlight-copy .insight-meta {
+    font-size: 14px;
+  }
+  .highlight-copy p:last-child {
+    margin-top: 16px;
+    max-width: 44ch;
+  }
+  .highlight-art {
+    min-height: 180px;
+    height: auto;
+  }
+  .highlight-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .latest-articles {
+    margin-top: 0;
+    padding-top: 24px;
+  }
+  .section-heading {
+    margin-bottom: 16px;
+  }
+  .section-heading h2 {
+    font-size: 30px;
+    letter-spacing: -0.03em;
+    margin: 0;
+  }
+  #insights-content .review-note {
+    margin: 0 0 24px;
+  }
+  .mobile-contents summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .mobile-contents summary::-webkit-details-marker {
+    display: none;
+  }
+  .mobile-contents[open] summary svg {
+    transform: rotate(180deg);
+  }
+  #insights-content .article-tags a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* No paragraph/card choreography or hidden content on reading surfaces. */
+  .insights-page .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    #insights-content .insights-browse select {
+      transition: border-color var(--motion-change) ease;
+    }
+  }
+  #insights-content button {
+    transition: transform var(--motion-feedback) var(--motion-ease-out);
   }
   #insights-content button:active {
-    transform: none;
+    transform: scale(0.98);
+  }
+  #insights-content :focus-visible {
+    transition: none;
+  }
+  @media (max-width: 760px) {
+    .insights-title {
+      padding-bottom: 24px;
+    }
+    .insights-title .breadcrumbs {
+      margin-bottom: 20px;
+    }
+    .insights-browse label:first-child {
+      display: grid;
+    }
+    .filter-summary {
+      min-height: 24px;
+    }
+    #insights-content .highlights {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      padding: var(--widget-inset);
+      margin-bottom: 24px;
+    }
+    #insights-content .highlight-art {
+      grid-column: 1;
+      grid-row: 1;
+      min-height: 0;
+      height: 104px;
+      width: 96px;
+      margin: 0;
+      border-radius: var(--layout-control-radius);
+    }
+    .highlight-copy {
+      grid-column: 2;
+      grid-row: 1;
+      padding: 0;
+      min-height: 0;
+    }
+    .highlight-copy h2 {
+      font-size: 20px;
+      line-height: 1.25;
+      margin: 0 0 12px;
+    }
+    #insights-content .highlight-copy .insight-meta {
+      font-size: 12px;
+      margin: 0;
+    }
+    .highlight-copy p:last-child:not(.insight-meta) {
+      display: none;
+    }
+    .section-heading h2 {
+      font-size: 24px;
+    }
+    .mobile-contents {
+      display: block;
+      padding: 0 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--layout-control-radius);
+      background: var(--panel);
+    }
+    .mobile-contents nav {
+      padding: 0 0 16px;
+    }
+    #insights-content .mobile-contents nav a {
+      min-height: 44px;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 12px 0;
+    }
+    .article-toc-widget {
+      display: none;
+    }
+    .article-toc {
+      margin-bottom: 24px;
+    }
+    .article-social {
+      margin-top: 12px;
+      padding: 0 4px;
+    }
+    .article-social-actions,
+    .article-social > span {
+      display: none;
+    }
+    #insights-content .article-share-note {
+      font-size: 12px;
+      margin: 0;
+    }
+    .article-cover {
+      height: 150px;
+      margin-bottom: 24px;
+    }
+    #insights-content .article-title .insight-meta {
+      margin-top: 20px;
+    }
+    .insights-page .insights-title h1 {
+      font-size: 54px;
+    }
+    /* Later listing rules must never override the existing article type role. */
+    .insights-page .article-title h1 {
+      font-size: 40px;
+      line-height: 1.15;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #insights-content button,
+    #insights-content .insights-browse select {
+      transition: none;
+    }
+    #insights-content button:active {
+      transform: none;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  [data-page-loader] {
+    display: none;
+  }
+  .insights-page #insights-content {
+    padding-top: max(120px, var(--editorial-header-clearance, 120px));
+  }
+  .insights-title {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    min-height: 0;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+  #insights-content .insights-title .breadcrumbs {
+    order: -1;
+  }
+  .insights-title h1 {
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+  }
+  .desktop-article-category,
+  .desktop-highlight-label,
+  .highlight-controls,
+  .art-index,
+  .section-heading label,
+  #filter-status {
+    display: none;
+  }
+  .insights-browse {
+    display: grid;
+  }
+  .highlights[data-mobile-filtered='true'] {
+    display: none;
+  }
+}
+/* One shared hero-art LinkedIn banner on index and detail routes, in either theme. */
+#insights-content .linkedin-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: block;
+  min-height: 260px;
+  padding: var(--widget-inset);
+  background: var(--action-ink);
+  color: var(--action-paper);
+}
+.linkedin-banner-art {
+  position: absolute;
+  inset: 0 0 0 60%;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+}
+.linkedin-banner-art img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+  max-width: none;
+  height: 100%;
+  clip-path: inset(0 0 0 60%);
+  object-fit: contain;
+  object-position: right center;
+}
+.linkedin-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    var(--action-ink) 0%,
+    rgb(5 7 10 / 92%) 35%,
+    rgb(5 7 10 / 10%) 100%
+  );
+}
+.linkedin-banner-copy {
+  position: relative;
+  max-width: 58%;
+}
+#insights-content .linkedin-panel h2 {
+  color: var(--action-paper);
+  max-width: 21ch;
+  margin-top: 0;
+}
+#insights-content .linkedin-panel p {
+  color: var(--action-paper);
+  max-width: 42ch;
+}
+#insights-content .linkedin-panel .linkedin-pending {
+  font-size: 12px;
+  margin: 12px 0 0;
+}
+.linkedin-follow {
+  max-width: 100%;
+  margin-top: 12px;
+}
+@media (max-width: 760px) {
+  #insights-content .linkedin-panel {
+    min-height: 300px;
+  }
+  .linkedin-banner-art {
+    left: 0;
+    opacity: 1;
+  }
+  .linkedin-panel::after {
+    background: linear-gradient(90deg, rgb(5 7 10 / 96%), rgb(5 7 10 / 20%));
+  }
+  .linkedin-banner-copy {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-behavior: auto;
+  }
+  .article-body p,
+  .article-body li {
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 760px) {
+  #insights-content .insights-sidebar {
+    display: none;
+  }
+  #insights-content .article-body > .article-section p {
+    line-height: 1.75;
   }
 }

@@ -23,6 +23,7 @@
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .contact-preview-form,
     .testimonial-navigation,
@@ -40,6 +41,7 @@ body :is(#closing-cursor, #site-header-contact)[data-ui-action='primary'] {
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .contact-preview-form,
     .testimonial-navigation,
@@ -61,6 +63,7 @@ body
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .testimonial-navigation,
     .editorial-summary,
@@ -78,6 +81,7 @@ body
     #opening-stage .hero-actions,
     #opening-stage .hero-nav,
     .cookie-notice-actions,
+    .linkedin-panel,
     #cookie-preferences,
     .testimonial-navigation,
     .editorial-summary,
@@ -161,6 +165,7 @@ body .partners-intro h3 span {
 }
 
 /* Reuse the established services/metrics CTA layout in navigation. */
+.cta-button,
 .services-cta,
 .metrics-intro [data-ui-action],
 body #site-header-contact {

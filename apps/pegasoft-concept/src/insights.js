@@ -1,3 +1,7 @@
+import { createPageLoader } from './site-loader.js';
+import { createInsightHighlights } from './insights-highlights.js';
+import './hero-opening.css';
+import './loader.css';
 import { createHeaderMenu } from './header-menu.js';
 import { createLanguageMenus } from './language-menu.js';
 import { createAdaptiveHeader } from './adaptive-header.js';
@@ -28,12 +32,17 @@ try {
 const theme = createColorTheme(document);
 const nav = document.querySelector('#site-header');
 const adaptiveHeader = createAdaptiveHeader(nav);
+const mobileReading = window.matchMedia('(max-width:760px)');
+let openingReady = mobileReading.matches;
 function updateHeader() {
   adaptiveHeader.update({
     y: window.scrollY,
     mobile: window.innerWidth <= 760,
-    openingReady: true,
-    heroSurface: false,
+    openingReady,
+    heroSurface:
+      !mobileReading.matches &&
+      document.querySelector('.insights-title').getBoundingClientRect().bottom >
+        nav.clientHeight / 2,
     light: document.documentElement.dataset.colorTheme === 'light',
   });
 }
@@ -50,6 +59,31 @@ const headerObserver = new ResizeObserver(([entry]) => {
   );
 });
 headerObserver.observe(nav);
+const loaderStage = document.querySelector('[data-page-loader]');
+let pageLoader;
+if (mobileReading.matches) loaderStage.hidden = true;
+else
+  pageLoader = createPageLoader({
+    stage: loaderStage,
+    reduced,
+    onFrame(opening) {
+      openingReady = opening.nav >= 0.95;
+      updateHeader();
+    },
+    onReady() {
+      document.body.dataset.pageReady = 'true';
+    },
+  });
+function readingBreakpointChanged() {
+  if (mobileReading.matches) {
+    pageLoader?.dispose();
+    pageLoader = null;
+    loaderStage.hidden = true;
+    openingReady = true;
+  }
+  updateHeader();
+}
+mobileReading.addEventListener('change', readingBreakpointChanged);
 updateHeader();
 window.addEventListener('resize', updateHeader);
 window.addEventListener('pegasoft-theme-change', updateHeader);
@@ -117,6 +151,11 @@ window.addEventListener('scroll', updateWebsite, { passive: true });
 window.addEventListener('resize', resizeWebsite);
 reduced.addEventListener('change', updateWebsite);
 document.addEventListener('visibilitychange', visibilityChanged);
+const highlights = createInsightHighlights({
+  document,
+  reduced,
+  mobile: mobileReading,
+});
 const listingControls = createInsightListing({
   document,
   onChange() {
@@ -159,6 +198,9 @@ scroll();
 if (import.meta.hot)
   import.meta.hot.dispose(() => {
     listingControls.dispose();
+    highlights.dispose();
+    pageLoader?.dispose();
+    mobileReading.removeEventListener('change', readingBreakpointChanged);
     mobileContents?.removeEventListener('click', closeContents);
     headerObserver.disconnect();
     cancelAnimationFrame(websiteFrame);

@@ -9,7 +9,7 @@ import { localizeHtml } from '../src/locale-messages.js';
 import { insightArticles } from '../src/insights-content.js';
 const root = resolve(import.meta.dirname, '..');
 const source = await readFile(resolve(root, 'index.html'), 'utf8');
-test('separate article routes render localized breadcrumbs, real anchors and review content without cinematic entry', () => {
+test('separate article routes render localized breadcrumbs, real anchors and review content with responsive entry', () => {
   for (const lang of ['en', 'el'])
     for (const article of insightArticles) {
       const html = renderInsights(
@@ -28,7 +28,7 @@ test('separate article routes render localized breadcrumbs, real anchors and rev
       assert.match(html, /id="section-3"/);
       assert.match(html, /data-social="linkedin"/);
       assert.match(html, /data-social="link"/);
-      assert.doesNotMatch(html, /data-page-loader/);
+      assert.match(html, /data-page-loader/);
       assert.doesNotMatch(html, /insights-loader|loader-orbit/);
       assert.match(html, /related-articles/);
       assert.match(html, /id="linkedin"/);
@@ -72,7 +72,7 @@ test('static build emits every EN/EL direct-entry route with processed assets, c
   }
 });
 
-test('all native routes retain shared closing/footer while keeping editorial entry immediate', () => {
+test('all native routes retain shared closing/footer with the approved responsive entry', () => {
   const closing = /<section id="closing-cta"[\s\S]*?<\/section>/;
   const original = source.match(closing)[0];
   const footer = /<footer id="website-footer"[\s\S]*?<\/footer>/;
@@ -101,7 +101,7 @@ test('all native routes retain shared closing/footer while keeping editorial ent
         );
       assert.equal(html.match(footer)[0], expectedFooter);
       assert.match(html, /data-compact="false"/);
-      assert.doesNotMatch(html, /data-page-loader/);
+      assert.match(html, /data-page-loader/);
       assert.doesNotMatch(html, /data-copy-link|onclick=/);
     }
   }
@@ -166,7 +166,7 @@ test('Insights selection follows localized route identity rather than navigation
     assert.equal(isInsightsPath(path), true);
 });
 
-test('editorial browsing renders native labelled controls and a stable feature in both locales', () => {
+test('editorial browsing renders native labelled controls and platform-specific feature controls in both locales', () => {
   for (const language of ['en', 'el']) {
     const html = renderInsights(source, language, '', 'https://example.test');
     assert.match(html, /for="insights-category"/);
@@ -175,10 +175,7 @@ test('editorial browsing renders native labelled controls and a stable feature i
     assert.match(html, /id="filter-status" role="status" aria-live="polite"/);
     assert.match(html, /data-reset-filter hidden/);
     assert.ok(html.includes(insightArticles[0].title[language]));
-    assert.doesNotMatch(
-      html,
-      /data-slide=|data-autoplay|class="insight-card reveal"/,
-    );
+    assert.doesNotMatch(html, /class="insight-card reveal"/);
     assert.match(html, /data-page-ready="true"/);
     if (language === 'el')
       assert.doesNotMatch(
@@ -228,7 +225,10 @@ test('category, sorting, reset and browser history share one model without movin
     assert.equal(cards().length, 1);
     assert.equal(cards()[0].dataset.category, 'ai');
     assert.equal(document.activeElement, category);
-    assert.equal(document.querySelector('.highlights').hidden, true);
+    assert.equal(
+      document.querySelector('.highlights').dataset.mobileFiltered,
+      'true',
+    );
     assert.equal(
       new URL(dom.window.location.href).searchParams.get('utm_source'),
       'test',
@@ -258,7 +258,10 @@ test('category, sorting, reset and browser history share one model without movin
     );
     reset.click();
     assert.equal(cards().length, 3);
-    assert.equal(document.querySelector('.highlights').hidden, false);
+    assert.equal(
+      document.querySelector('.highlights').dataset.mobileFiltered,
+      'false',
+    );
     assert.equal(document.activeElement, sort);
     assert.equal(reset.hidden, true);
     const link = document.querySelector('[data-filter="engineering"]');
@@ -311,5 +314,74 @@ test('invalid shared links recover and empty categories offer an explicit reset'
     assert.equal(document.querySelector('#insights-sort').value, 'oldest');
     owner.dispose();
     dom.window.close();
+  }
+});
+
+test('desktop highlights pause on mobile, reduced motion and disposal', async () => {
+  const { JSDOM } = await import('jsdom');
+  const { createInsightHighlights } =
+    await import('../src/insights-highlights.js');
+  const dom = new JSDOM(renderInsights(source, 'en'), {
+    url: 'https://example.test/en/insights/',
+  });
+  const { document, EventTarget, Event } = dom.window;
+  Object.defineProperty(document, 'hidden', {
+    value: false,
+    configurable: true,
+  });
+  const mobile = Object.assign(new EventTarget(), { matches: false });
+  const reduced = Object.assign(new EventTarget(), { matches: false });
+  let active, delay;
+  dom.window.setInterval = (callback, milliseconds) => {
+    active = callback;
+    delay = milliseconds;
+    return 1;
+  };
+  dom.window.clearInterval = () => {
+    active = null;
+  };
+  const owner = createInsightHighlights({ document, mobile, reduced });
+  assert.equal(delay, 6500);
+  active();
+  assert.match(document.querySelector('[data-slide-count]').textContent, /02/);
+  mobile.matches = true;
+  mobile.dispatchEvent(new Event('change'));
+  assert.equal(active, null);
+  assert.match(document.querySelector('[data-slide-count]').textContent, /01/);
+  document.querySelector('[data-slide="1"]').click();
+  assert.match(document.querySelector('[data-slide-count]').textContent, /01/);
+  mobile.matches = false;
+  mobile.dispatchEvent(new Event('change'));
+  assert.equal(typeof active, 'function');
+  reduced.matches = true;
+  reduced.dispatchEvent(new Event('change'));
+  assert.equal(active, null);
+  owner.dispose();
+  assert.equal(active, null);
+  dom.window.close();
+});
+
+test('listing and article share one hero-art banner with an unconnected LinkedIn CTA', async () => {
+  const { JSDOM } = await import('jsdom');
+  for (const language of ['en', 'el']) {
+    const listing = new JSDOM(renderInsights(source, language));
+    const article = new JSDOM(
+      renderInsights(source, language, insightArticles[0].slug),
+    );
+    const banner = listing.window.document.querySelector('#linkedin');
+    assert.equal(
+      banner.outerHTML,
+      article.window.document.querySelector('#linkedin').outerHTML,
+    );
+    assert.equal(
+      banner.querySelector('img').getAttribute('src'),
+      '/assets/social/hero-card-20261019.jpg',
+    );
+    const action = banner.querySelector('.linkedin-follow');
+    assert.equal(action.onclick, null);
+    assert.equal(action.getAttribute('aria-disabled'), 'true');
+    assert.equal(action.hasAttribute('href'), false);
+    listing.window.close();
+    article.window.close();
   }
 });

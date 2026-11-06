@@ -8,8 +8,12 @@ export function createInsightListing({ document, onChange = () => {} }) {
   const language = document.documentElement.lang;
   const categoryControl = document.querySelector('#insights-category');
   const sortControl = document.querySelector('#insights-sort');
+  const mobileSort = document.querySelector('#insights-sort-mobile');
+  const mobile = window.matchMedia?.('(max-width:760px)');
   const controls = document.querySelector('.insights-browse');
-  const status = document.querySelector('#filter-status');
+  const statuses = [
+    ...document.querySelectorAll('#filter-status, #filter-status-mobile'),
+  ];
   const recovery = document.querySelector('#filter-recovery');
   const feature = document.querySelector('.highlights');
   const clear = controls.querySelector('[data-reset-filter]');
@@ -29,6 +33,7 @@ export function createInsightListing({ document, onChange = () => {} }) {
       window.history.replaceState(window.history.state, '', state.url.href);
     categoryControl.value = state.category;
     sortControl.value = state.sort;
+    mobileSort.value = state.sort;
     cards
       .sort((a, b) =>
         state.sort === 'oldest'
@@ -41,9 +46,12 @@ export function createInsightListing({ document, onChange = () => {} }) {
         grid.append(card);
       });
     const count = cards.filter((card) => !card.hidden).length;
-    status.textContent = articleCountLabel(count, language);
+    statuses.forEach((status) => {
+      status.textContent = articleCountLabel(count, language);
+    });
     clear.hidden = state.category === 'all';
-    if (feature) feature.hidden = state.category !== 'all';
+    if (feature)
+      feature.dataset.mobileFiltered = String(state.category !== 'all');
     recovery.hidden = !state.invalidCategory && count > 0;
     recovery.querySelector('p').textContent = state.invalidCategory
       ? t(
@@ -79,17 +87,25 @@ export function createInsightListing({ document, onChange = () => {} }) {
     render();
   }
   listen(categoryControl, 'change', () =>
-    update(categoryControl.value, sortControl.value),
+    update(categoryControl.value, mobileSort.value),
   );
-  listen(sortControl, 'change', () =>
-    update(categoryControl.value, sortControl.value),
+  listen(sortControl, 'change', () => {
+    update(categoryControl.value, sortControl.value);
+    document
+      .querySelector('#latest')
+      .scrollIntoView?.({ block: 'start', behavior: 'auto' });
+  });
+  listen(mobileSort, 'change', () =>
+    update(categoryControl.value, mobileSort.value),
   );
   listen(controls, 'submit', (event) => event.preventDefault());
   for (const button of document.querySelectorAll('[data-reset-filter]')) {
     listen(button, 'click', () => {
       update('all', sortControl.value);
       // Reset hides its own button; keep keyboard focus on a visible control.
-      sortControl.focus({ preventScroll: true });
+      (mobile?.matches ? mobileSort : sortControl).focus({
+        preventScroll: true,
+      });
     });
   }
   for (const link of links)
@@ -104,6 +120,10 @@ export function createInsightListing({ document, onChange = () => {} }) {
         return;
       event.preventDefault();
       update(link.dataset.filter, sortControl.value);
+      if (!mobile?.matches)
+        document
+          .querySelector('#latest')
+          .scrollIntoView?.({ block: 'start', behavior: 'auto' });
     });
   listen(window, 'popstate', render);
   render();
